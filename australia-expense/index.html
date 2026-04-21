@@ -314,7 +314,7 @@
       gap: 12px;
     }
 
-    .settlement-currency {
+    .settlement-group {
       background: var(--card);
       border: 1px solid rgba(124, 45, 18, 0.08);
       border-radius: 18px;
@@ -323,9 +323,21 @@
       gap: 12px;
     }
 
-    .currency-top {
-      display: grid;
-      gap: 10px;
+    .settlement-group-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .settlement-group-top strong {
+      font-size: 1rem;
+      color: var(--accent-deep);
+    }
+
+    .settlement-group-top span {
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
     .currency-badge {
@@ -347,20 +359,26 @@
       color: #1e3a8a;
     }
 
-    .settlement-headline {
+    .settlement-summary {
       display: grid;
-      gap: 4px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
     }
 
-    .settlement-headline strong {
-      font-size: 1.02rem;
-      color: var(--accent-deep);
+    .settlement-summary-card {
+      background: #ffffff;
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 16px;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
     }
 
-    .settlement-headline span {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.45;
+    .settlement-summary-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
     }
 
     .settlement-table {
@@ -372,13 +390,13 @@
     .settlement-table-row {
       display: grid;
       grid-template-columns: minmax(58px, 70px) repeat(3, minmax(0, 1fr));
-      gap: 8px;
+      gap: 6px;
       align-items: stretch;
     }
 
     .settlement-table-head {
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -390,7 +408,7 @@
       background: #ffffff;
       border: 1px solid rgba(124, 45, 18, 0.08);
       border-radius: 16px;
-      padding: 12px;
+      padding: 10px;
     }
 
     .settlement-col-head {
@@ -412,20 +430,20 @@
     }
 
     .settlement-value strong {
-      font-size: 1.02rem;
-      margin-bottom: 4px;
+      font-size: 0.95rem;
+      margin-bottom: 2px;
     }
 
     .settlement-value span {
       color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.4;
+      font-size: 0.8rem;
+      line-height: 1.3;
     }
 
     .settlement-note {
       color: var(--muted);
-      line-height: 1.55;
-      font-size: 0.94rem;
+      line-height: 1.4;
+      font-size: 0.84rem;
     }
 
     .settlement-net-positive strong {
@@ -706,6 +724,10 @@
 
       .summary-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .settlement-summary {
+        grid-template-columns: 1fr;
       }
 
       .expense-row {
@@ -1723,33 +1745,31 @@
 
     function renderSettlement() {
       const settlement = computeSettlement();
-      settlementCard.innerHTML = ["AUD", "SGD"].map(function (currency) {
+      const cards = ["AUD", "SGD"].map(function (currency) {
         const bucket = settlement[currency];
         const netZ = bucket.paid.Z - bucket.share.Z;
         const netG = bucket.paid.G - bucket.share.G;
-        let headline = "Already balanced.";
-        let subline = "No extra settlement is needed in this currency.";
+        let headline = "Balanced";
+        let shortNote = "No transfer";
 
         if (bucket.unresolved > 0) {
-          headline = "Settlement still provisional.";
-          subline = bucket.unresolved + " fee(s) still have `TBD` payer, so the final transfer may change.";
+          headline = "Provisional";
+          shortNote = bucket.unresolved + " TBD payer";
         } else if (netZ > 0.009) {
-          headline = "G should pay Z " + formatMoney(currency, netZ) + ".";
-          subline = "Z paid more than Z's assigned share in this currency.";
+          headline = "G -> Z";
+          shortNote = formatMoney(currency, netZ);
         } else if (netG > 0.009) {
-          headline = "Z should pay G " + formatMoney(currency, netG) + ".";
-          subline = "G paid more than G's assigned share in this currency.";
+          headline = "Z -> G";
+          shortNote = formatMoney(currency, netG);
         }
 
         return [
-          '<div class="settlement-currency">',
-          '<div class="currency-top">',
+          '<div class="settlement-summary-card">',
+          '<div class="settlement-summary-head">',
           '<span class="currency-badge ' + (currency === "AUD" ? "currency-aud" : "currency-sgd") + '">' + currency + "</span>",
-          '<div class="settlement-headline">',
-          "<strong>" + escapeHtml(headline) + "</strong>",
-          "<span>" + escapeHtml(subline) + "</span>",
-          "</div>",
-          "</div>",
+          '<strong>' + escapeHtml(headline) + '</strong>',
+          '</div>',
+          '<div class="settlement-note">' + escapeHtml(shortNote) + '</div>',
           '<div class="settlement-table">',
           '<div class="settlement-table-head">',
           '<div class="settlement-col-head">Person</div>',
@@ -1759,11 +1779,23 @@
           '</div>',
           settlementRowMarkup("Z", currency, bucket.paid.Z, bucket.share.Z, netZ),
           settlementRowMarkup("G", currency, bucket.paid.G, bucket.share.G, netG),
-          "</div>",
-          '<div class="settlement-note">Positive net means that person paid more than their assigned share. Negative net means that person still owes money in that currency.</div>',
-          "</div>"
+          '</div>',
+          '</div>'
         ].join("");
       }).join("");
+
+      settlementCard.innerHTML = [
+        '<div class="settlement-group">',
+        '<div class="settlement-group-top">',
+        '<strong>Live Settlement</strong>',
+        '<span>AUD and SGD grouped together</span>',
+        '</div>',
+        '<div class="settlement-summary">',
+        cards,
+        '</div>',
+        '<div class="settlement-note">Positive net means that person should receive money. Negative net means that person should pay money.</div>',
+        '</div>'
+      ].join("");
     }
 
     function settlementRowMarkup(person, currency, paid, share, net) {
