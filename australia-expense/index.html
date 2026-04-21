@@ -229,7 +229,7 @@
 
     .summary-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
     }
 
@@ -254,6 +254,33 @@
       color: var(--muted);
       line-height: 1.45;
       font-size: 0.94rem;
+    }
+
+    .money-pair {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .money-pair-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+
+    .money-pair-row strong {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .money-pair-row span {
+      font-size: 0.86rem;
+      color: var(--muted);
     }
 
     .split-guide {
@@ -283,6 +310,7 @@
 
     .settlement-card {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
 
@@ -622,6 +650,10 @@
 
       .summary-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .settlement-card {
+        grid-template-columns: 1fr;
       }
 
       .expense-row {
@@ -1599,8 +1631,10 @@
       const summary = computeSummary();
       summaryGrid.innerHTML = [
         summaryCardMarkup("Recorded fees", String(summary.totalExpenses), "Each fee row can keep its own split rule."),
-        summaryCardMarkup("AUD total", formatMoney("AUD", summary.totalAUD), "No exchange rate applied."),
-        summaryCardMarkup("SGD total", formatMoney("SGD", summary.totalSGD), "No exchange rate applied."),
+        summaryMoneyCardMarkup("Trip spend", [
+          { currency: "AUD", value: formatMoney("AUD", summary.totalAUD), note: "Original AUD total" },
+          { currency: "SGD", value: formatMoney("SGD", summary.totalSGD), note: "Original SGD total" }
+        ], "AUD and SGD are kept together here for easier comparison."),
         summaryCardMarkup("Needs follow-up", String(summary.unresolvedPayerCount + summary.unresolvedNoteCount), "Unknown payers and notes without complete amounts.")
       ].join("");
     }
@@ -1610,6 +1644,26 @@
         '<div class="summary-card">',
         "<strong>" + escapeHtml(value) + "</strong>",
         "<span><strong style=\"font-size:1rem;color:var(--accent-deep);display:block;margin-bottom:4px;\">" + escapeHtml(title) + "</strong>" + escapeHtml(note) + "</span>",
+        "</div>"
+      ].join("");
+    }
+
+    function summaryMoneyCardMarkup(title, rows, note) {
+      return [
+        '<div class="summary-card">',
+        "<strong>" + escapeHtml(title) + "</strong>",
+        "<span>" + escapeHtml(note) + "</span>",
+        '<div class="money-pair">' + rows.map(function (row) {
+          return [
+            '<div class="money-pair-row">',
+            '<strong>' + escapeHtml(row.currency) + "</strong>",
+            '<div style="text-align:right;">',
+            '<strong style="font-size:1rem;">' + escapeHtml(row.value) + "</strong>",
+            "<span>" + escapeHtml(row.note) + "</span>",
+            "</div>",
+            "</div>"
+          ].join("");
+        }).join("") + "</div>",
         "</div>"
       ].join("");
     }
