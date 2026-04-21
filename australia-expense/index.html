@@ -172,11 +172,11 @@
     <div class="gate">
       <span class="eyebrow">Protected Page</span>
       <h1>Australia Expense</h1>
-      <p>Enter the passcode to view this page.</p>
+      <p>Enter your name to view this page.</p>
 
       <form id="gateForm">
         <label for="passcodeInput">
-          Passcode
+          Your name
           <input id="passcodeInput" name="passcode" type="password" autocomplete="current-password" required>
         </label>
         <div class="button-row">
@@ -201,8 +201,7 @@
   </section>
 
   <script>
-    // Change this to your real passcode.
-    const PAGE_PASSCODE = "australia2026";
+    const ALLOWED_NAMES = ["GZY", "ZHB"];
     const ACCESS_KEY = "life-dashboard.australia-expense.unlocked";
 
     const gatePage = document.getElementById("gatePage");
@@ -236,13 +235,13 @@
     gateForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      if (passcodeInput.value === PAGE_PASSCODE) {
+      if (ALLOWED_NAMES.includes(passcodeInput.value.trim().toUpperCase())) {
         gateMessage.textContent = "";
         unlockPage();
         return;
       }
 
-      gateMessage.textContent = "Incorrect passcode.";
+      gateMessage.textContent = "Name not recognized.";
       passcodeInput.select();
     });
 
