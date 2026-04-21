@@ -2,6 +2,7 @@
   "use strict";
 
   var STORAGE_KEY = "life-dashboard.tingxie.library.v2";
+  var LOOKUP_CACHE_KEY = "life-dashboard.tingxie.lookup.v1";
   var DEFAULT_SAMPLE = {
     title: "Primary Chinese Dictation",
     rawText: [
@@ -56,6 +57,21 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }
 
+  function readLookupCache() {
+    try {
+      var parsed = JSON.parse(localStorage.getItem(LOOKUP_CACHE_KEY) || "{}");
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function writeLookupCache(cache) {
+    localStorage.setItem(LOOKUP_CACHE_KEY, JSON.stringify(cache));
+  }
+
+  var lookupCache = readLookupCache();
+
   function cleanLines(rawText) {
     return String(rawText || "")
       .replace(/\r\n/g, "\n")
@@ -108,6 +124,71 @@
       return 8;
     }
     return 10;
+  }
+
+  function extractTranslation(data) {
+    var segments = data && Array.isArray(data[0]) ? data[0] : [];
+    return segments
+      .map(function (segment) {
+        return segment && segment[0] ? String(segment[0]) : "";
+      })
+      .join("")
+      .trim();
+  }
+
+  function extractRomanization(data) {
+    var segments = data && Array.isArray(data[0]) ? data[0] : [];
+    return segments
+      .map(function (segment) {
+        return segment && segment[3] ? String(segment[3]) : "";
+      })
+      .join(" ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  async function fetchLookup(text) {
+    if (lookupCache[text]) {
+      return lookupCache[text];
+    }
+
+    var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=en&dt=t&dt=rm&q=" + encodeURIComponent(text);
+
+    try {
+      var response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Lookup failed");
+      }
+
+      var data = await response.json();
+      var payload = {
+        translation: extractTranslation(data),
+        pinyin: extractRomanization(data)
+      };
+
+      lookupCache[text] = payload;
+      writeLookupCache(lookupCache);
+      return payload;
+    } catch (error) {
+      return {
+        translation: "",
+        pinyin: ""
+      };
+    }
+  }
+
+  async function enrichItems(items) {
+    var enriched = await Promise.all(items.map(async function (item) {
+      var lookup = await fetchLookup(item.text);
+      return {
+        text: item.text,
+        clue: item.clue,
+        translation: item.clue || lookup.translation || "",
+        pinyin: lookup.pinyin || ""
+      };
+    }));
+
+    return enriched;
   }
 
   function makeEmptySet(index) {
@@ -477,22 +558,19 @@
     render();
   }
 
-  function worksheetClue(item, index) {
-    if (item.clue) {
-      return item.clue;
-    }
-    if (countCharacters(item.text) <= 4) {
-      return "Listen and write the word";
-    }
-    return "Listen and write the sentence";
-  }
-
   function renderWorksheetItem(item, index) {
     var boxes = new Array(blankBoxCount(item.text))
       .fill('<span class="write-box" aria-hidden="true"></span>')
       .join("");
-    var clue = item.clue
-      ? '<div class="clue">' + escapeHtml(item.clue) + "</div>"
+    var promptBits = [];
+    if (item.pinyin) {
+      promptBits.push('<span class="pinyin">' + escapeHtml(item.pinyin) + "</span>");
+    }
+    if (item.translation) {
+      promptBits.push('<span class="translation">' + escapeHtml(item.translation) + "</span>");
+    }
+    var promptMeta = promptBits.length
+      ? '<div class="prompt-meta">' + promptBits.join("") + "</div>"
       : "";
 
     return [
@@ -500,7 +578,7 @@
       '<div class="entry-head">',
       '<div class="entry-number">' + (index + 1) + '.</div>',
       '<div class="entry-prompt">',
-      clue,
+      promptMeta,
       "</div>",
       "</div>",
       '<div class="write-grid">' + boxes + "</div>",
@@ -560,28 +638,39 @@
     var items = parseItems(set.rawText);
     titleNode.textContent = set.title;
     subtitleNode.textContent = "Student Worksheet";
-    metaNode.textContent = items.length + (items.length === 1 ? " item" : " items") + " arranged for one-page printing";
+    metaNode.textContent = "Generating pinyin and English translation...";
     toolbarTitle.textContent = set.title;
-    grid.innerHTML = items.length
-      ? items.map(renderWorksheetItem).join("")
-      : '<div class="empty-message">This set is empty. Go back to the editor, add some Chinese words or sentences, then reopen the worksheet.</div>';
+    if (!items.length) {
+      grid.innerHTML = '<div class="empty-message">This set is empty. Go back to the editor, add some Chinese words or sentences, then reopen the worksheet.</div>';
+      return;
+    }
 
-    sheet.style.setProperty("--columns", String(chooseWorksheetColumns(items.length)));
-    fitWorksheet(sheet, body, items.length);
+    var enrichedItems = await enrichItems(items);
+    grid.innerHTML = enrichedItems.map(renderWorksheetItem).join("");
+    metaNode.textContent = enrichedItems.length + (enrichedItems.length === 1 ? " item" : " items") + " with auto-generated pinyin and translation";
+
+    sheet.style.setProperty("--columns", String(chooseWorksheetColumns(enrichedItems.length)));
+    fitWorksheet(sheet, body, enrichedItems.length);
   }
 
   function renderAnswerSet(set) {
-    var items = parseItems(set.rawText);
+    var items = set.items || [];
     if (!items.length) {
       return "";
     }
 
     var rows = items.map(function (item, index) {
-      var hint = item.clue ? '<div class="hint">' + escapeHtml(item.clue) + "</div>" : "";
+      var meta = [];
+      if (item.pinyin) {
+        meta.push('<div class="hint">' + escapeHtml(item.pinyin) + "</div>");
+      }
+      if (item.translation) {
+        meta.push('<div class="hint">' + escapeHtml(item.translation) + "</div>");
+      }
       return [
         '<div class="answer-row">',
         "<strong>" + (index + 1) + ".</strong>",
-        "<span>" + escapeHtml(item.text) + hint + "</span>",
+        "<span>" + escapeHtml(item.text) + meta.join("") + "</span>",
         "</div>"
       ].join("");
     }).join("");
@@ -609,11 +698,22 @@
     });
 
     toolbarTitle.textContent = "Compact Answer Pack";
-    subtitle.textContent = setsWithContent.length + (setsWithContent.length === 1 ? " set" : " sets") + " in a paper-saving layout";
+    subtitle.textContent = "Generating pinyin and English translation...";
 
-    columns.innerHTML = setsWithContent.length
-      ? setsWithContent.map(renderAnswerSet).join("")
-      : '<div class="empty-message">There are no saved answers yet. Open the editor, create a few dictation sets, and the answer pack will appear here automatically.</div>';
+    if (!setsWithContent.length) {
+      columns.innerHTML = '<div class="empty-message">There are no saved answers yet. Open the editor, create a few dictation sets, and the answer pack will appear here automatically.</div>';
+      return;
+    }
+
+    var enrichedSets = await Promise.all(setsWithContent.map(async function (set) {
+      return {
+        title: set.title,
+        items: await enrichItems(parseItems(set.rawText))
+      };
+    }));
+
+    subtitle.textContent = enrichedSets.length + (enrichedSets.length === 1 ? " set" : " sets") + " with auto-generated pinyin and translation";
+    columns.innerHTML = enrichedSets.map(renderAnswerSet).join("");
   }
 
   function init() {

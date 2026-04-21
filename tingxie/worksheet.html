@@ -158,11 +158,27 @@
       min-width: 0;
     }
 
-    .clue {
-      font-size: calc(11px * var(--fit-scale));
-      line-height: 1.15;
+    .prompt-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(4px * var(--fit-scale)) calc(8px * var(--fit-scale));
+      align-items: baseline;
+      min-height: calc(12px * var(--fit-scale));
+    }
+
+    .pinyin,
+    .translation {
+      font-size: calc(10px * var(--fit-scale));
+      line-height: 1.2;
+    }
+
+    .pinyin {
       font-weight: 700;
       color: #102a43;
+    }
+
+    .translation {
+      color: var(--muted);
     }
 
     .write-grid {
