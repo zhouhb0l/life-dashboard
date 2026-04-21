@@ -395,21 +395,21 @@
           </label>
           <label>
             预估毛利（%）
-            <input id="estimatedMargin" type="number" inputmode="decimal" min="0" max="100" step="0.01" value="32">
+            <input id="estimatedMargin" type="number" inputmode="decimal" min="0" max="100" step="0.01" value="60">
           </label>
         </div>
-        <div class="inline-note">当前按百分比输入，例如 `32` 表示 `32%`。</div>
+        <div class="inline-note">当前按百分比输入，例如 `60` 表示 `60%`。</div>
         <div class="result-panel">
-          <div class="result-main" id="materialMain">5440.00</div>
+          <div class="result-main" id="materialMain">3200.00</div>
           <div class="result-note" id="materialNote">物料成本 = 营业额 ×（1 - 预估毛利）</div>
           <div class="kpis">
             <div class="kpi">
               <span>预估毛利参数</span>
-              <strong id="materialRate">32.00%</strong>
+              <strong id="materialRate">60.00%</strong>
             </div>
             <div class="kpi">
               <span>物料成本</span>
-              <strong id="materialCost">2560.00</strong>
+              <strong id="materialCost">3200.00</strong>
             </div>
           </div>
         </div>
@@ -456,9 +456,9 @@
         <h2>4. 盈利计算</h2>
         <p>盈利数 = 营业额 - 材料成本 - 固定支出 - 人员成本。</p>
         <div class="result-panel">
-          <div class="result-main" id="profitMain">-1048.00</div>
+          <div class="result-main" id="profitMain">1192.00</div>
           <div class="result-note" id="profitNote">盈利数 = 营业额 - 材料成本 - 固定支出 - 人员成本</div>
-          <div class="status danger" id="profitStatus">当前状态：亏损</div>
+          <div class="status success" id="profitStatus">当前状态：盈利</div>
           <div class="kpis">
             <div class="kpi">
               <span>营业额</span>
@@ -466,7 +466,7 @@
             </div>
             <div class="kpi">
               <span>材料成本</span>
-              <strong id="profitMaterialOut">5440.00</strong>
+              <strong id="profitMaterialOut">3200.00</strong>
             </div>
             <div class="kpi">
               <span>固定支出</span>
@@ -484,7 +484,7 @@
         <h2>5. 理想用工小时数</h2>
         <p>理想用工小时数 =（营业额 - 材料成本 - 固定支出）/ 16。</p>
         <div class="result-panel">
-          <div class="result-main" id="idealHoursMain">-33.75</div>
+          <div class="result-main" id="idealHoursMain">106.25</div>
           <div class="result-note" id="idealHoursNote">理想用工小时数 =（营业额 - 材料成本 - 固定支出）/ 16</div>
           <div class="kpis">
             <div class="kpi">
@@ -493,11 +493,11 @@
             </div>
             <div class="kpi">
               <span>理想用工小时数</span>
-              <strong id="idealHoursOut">-33.75</strong>
+              <strong id="idealHoursOut">106.25</strong>
             </div>
             <div class="kpi">
               <span>工时差额</span>
-              <strong id="hoursGap">-96.75</strong>
+              <strong id="hoursGap">43.25</strong>
             </div>
             <div class="kpi">
               <span>按当前出勤人数的人均工时</span>
