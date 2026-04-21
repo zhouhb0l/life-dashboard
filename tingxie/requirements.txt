@@ -1,0 +1,2 @@
+pypinyin==0.55.0
+deep-translator==1.11.4
