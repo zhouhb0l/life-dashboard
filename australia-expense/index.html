@@ -320,7 +320,7 @@
       border-radius: 18px;
       padding: 16px;
       display: grid;
-      gap: 12px;
+      gap: 10px;
     }
 
     .settlement-group-top {
@@ -340,61 +340,48 @@
       font-size: 0.9rem;
     }
 
-    .currency-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 700;
+    .settlement-transfer-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: stretch;
     }
 
-    .currency-aud {
-      background: var(--accent-soft);
+    .transfer-pill {
+      flex: 1 1 120px;
+      background: #ffffff;
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 14px;
+      padding: 10px 12px;
+      display: grid;
+      gap: 3px;
+    }
+
+    .transfer-pill strong {
+      font-size: 0.95rem;
       color: var(--accent-deep);
     }
 
-    .currency-sgd {
-      background: var(--blue-soft);
-      color: #1e3a8a;
+    .transfer-pill span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.3;
     }
 
-    .settlement-summary {
+    .settlement-matrix {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      gap: 6px;
     }
 
-    .settlement-summary-card {
-      background: #ffffff;
-      border: 1px solid rgba(124, 45, 18, 0.08);
-      border-radius: 16px;
-      padding: 12px;
+    .settlement-matrix-head,
+    .settlement-matrix-row {
       display: grid;
-      gap: 8px;
-    }
-
-    .settlement-summary-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .settlement-table {
-      display: grid;
-      gap: 10px;
-    }
-
-    .settlement-table-head,
-    .settlement-table-row {
-      display: grid;
-      grid-template-columns: minmax(58px, 70px) repeat(3, minmax(0, 1fr));
+      grid-template-columns: minmax(92px, 110px) repeat(2, minmax(0, 1fr));
       gap: 6px;
       align-items: stretch;
     }
 
-    .settlement-table-head {
+    .settlement-matrix-head {
       color: var(--muted);
       font-size: 0.72rem;
       font-weight: 700;
@@ -402,59 +389,58 @@
       text-transform: uppercase;
     }
 
-    .settlement-col-head,
-    .settlement-row-label,
-    .settlement-value {
+    .matrix-head-cell,
+    .matrix-label,
+    .matrix-value {
       background: #ffffff;
       border: 1px solid rgba(124, 45, 18, 0.08);
-      border-radius: 16px;
-      padding: 10px;
+      border-radius: 14px;
+      padding: 9px 10px;
     }
 
-    .settlement-col-head {
+    .matrix-head-cell {
       text-align: center;
     }
 
-    .settlement-row-label {
+    .matrix-label {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--accent-deep);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 240, 0.9));
     }
 
-    .settlement-value strong,
-    .settlement-value span {
+    .matrix-value strong,
+    .matrix-value span {
       display: block;
     }
 
-    .settlement-value strong {
-      font-size: 0.95rem;
+    .matrix-value strong {
+      font-size: 0.9rem;
       margin-bottom: 2px;
     }
 
-    .settlement-value span {
+    .matrix-value span {
       color: var(--muted);
-      font-size: 0.8rem;
-      line-height: 1.3;
+      font-size: 0.76rem;
+      line-height: 1.25;
     }
 
     .settlement-note {
       color: var(--muted);
-      line-height: 1.4;
-      font-size: 0.84rem;
+      line-height: 1.35;
+      font-size: 0.8rem;
     }
 
-    .settlement-net-positive strong {
+    .net-positive strong {
       color: var(--green);
     }
 
-    .settlement-net-negative strong {
+    .net-negative strong {
       color: var(--danger);
     }
 
-    .settlement-net-neutral strong {
+    .net-neutral strong {
       color: var(--accent-deep);
     }
 
@@ -726,10 +712,6 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .settlement-summary {
-        grid-template-columns: 1fr;
-      }
-
       .expense-row {
         grid-template-columns: 1fr;
       }
@@ -748,8 +730,8 @@
       }
 
       .summary-grid,
-      .settlement-table-head,
-      .settlement-table-row {
+      .settlement-matrix-head,
+      .settlement-matrix-row {
         grid-template-columns: 1fr;
       }
 
@@ -1745,84 +1727,96 @@
 
     function renderSettlement() {
       const settlement = computeSettlement();
-      const cards = ["AUD", "SGD"].map(function (currency) {
-        const bucket = settlement[currency];
-        const netZ = bucket.paid.Z - bucket.share.Z;
-        const netG = bucket.paid.G - bucket.share.G;
-        let headline = "Balanced";
-        let shortNote = "No transfer";
-
-        if (bucket.unresolved > 0) {
-          headline = "Provisional";
-          shortNote = bucket.unresolved + " TBD payer";
-        } else if (netZ > 0.009) {
-          headline = "G -> Z";
-          shortNote = formatMoney(currency, netZ);
-        } else if (netG > 0.009) {
-          headline = "Z -> G";
-          shortNote = formatMoney(currency, netG);
-        }
-
-        return [
-          '<div class="settlement-summary-card">',
-          '<div class="settlement-summary-head">',
-          '<span class="currency-badge ' + (currency === "AUD" ? "currency-aud" : "currency-sgd") + '">' + currency + "</span>",
-          '<strong>' + escapeHtml(headline) + '</strong>',
-          '</div>',
-          '<div class="settlement-note">' + escapeHtml(shortNote) + '</div>',
-          '<div class="settlement-table">',
-          '<div class="settlement-table-head">',
-          '<div class="settlement-col-head">Person</div>',
-          '<div class="settlement-col-head">Paid</div>',
-          '<div class="settlement-col-head">Share</div>',
-          '<div class="settlement-col-head">Net</div>',
-          '</div>',
-          settlementRowMarkup("Z", currency, bucket.paid.Z, bucket.share.Z, netZ),
-          settlementRowMarkup("G", currency, bucket.paid.G, bucket.share.G, netG),
-          '</div>',
-          '</div>'
-        ].join("");
-      }).join("");
+      const aud = settlement.AUD;
+      const sgd = settlement.SGD;
+      const net = {
+        AUD: { Z: aud.paid.Z - aud.share.Z, G: aud.paid.G - aud.share.G },
+        SGD: { Z: sgd.paid.Z - sgd.share.Z, G: sgd.paid.G - sgd.share.G }
+      };
 
       settlementCard.innerHTML = [
         '<div class="settlement-group">',
         '<div class="settlement-group-top">',
         '<strong>Live Settlement</strong>',
-        '<span>AUD and SGD grouped together</span>',
+        '<span>One compact view for both currencies</span>',
         '</div>',
-        '<div class="settlement-summary">',
-        cards,
+        '<div class="settlement-transfer-row">',
+        transferPillMarkup("AUD", aud, net.AUD),
+        transferPillMarkup("SGD", sgd, net.SGD),
+        '</div>',
+        '<div class="settlement-matrix">',
+        '<div class="settlement-matrix-head">',
+        '<div class="matrix-head-cell">Line</div>',
+        '<div class="matrix-head-cell">AUD</div>',
+        '<div class="matrix-head-cell">SGD</div>',
+        '</div>',
+        settlementMatrixRowMarkup("Z paid", settlementValueCompact("AUD", aud.paid.Z), settlementValueCompact("SGD", sgd.paid.Z)),
+        settlementMatrixRowMarkup("G paid", settlementValueCompact("AUD", aud.paid.G), settlementValueCompact("SGD", sgd.paid.G)),
+        settlementMatrixRowMarkup("Z share", settlementValueCompact("AUD", aud.share.Z), settlementValueCompact("SGD", sgd.share.Z)),
+        settlementMatrixRowMarkup("G share", settlementValueCompact("AUD", aud.share.G), settlementValueCompact("SGD", sgd.share.G)),
+        settlementMatrixRowMarkup("Z net", settlementNetCompact("AUD", net.AUD.Z, "Z"), settlementNetCompact("SGD", net.SGD.Z, "Z")),
+        settlementMatrixRowMarkup("G net", settlementNetCompact("AUD", net.AUD.G, "G"), settlementNetCompact("SGD", net.SGD.G, "G")),
         '</div>',
         '<div class="settlement-note">Positive net means that person should receive money. Negative net means that person should pay money.</div>',
         '</div>'
       ].join("");
     }
 
-    function settlementRowMarkup(person, currency, paid, share, net) {
-      let netClass = "settlement-net-neutral";
-      let netNote = "Exactly on target.";
-      if (net > 0.009) {
-        netClass = "settlement-net-positive";
-        netNote = person + " should receive this amount.";
-      } else if (net < -0.009) {
-        netClass = "settlement-net-negative";
-        netNote = person + " should pay this amount.";
+    function transferPillMarkup(currency, bucket, net) {
+      let title = "Balanced";
+      let detail = "No transfer";
+      if (bucket.unresolved > 0) {
+        title = currency;
+        detail = bucket.unresolved + " TBD payer";
+      } else if (net.Z > 0.009) {
+        title = currency + ": G -> Z";
+        detail = formatMoney(currency, net.Z);
+      } else if (net.G > 0.009) {
+        title = currency + ": Z -> G";
+        detail = formatMoney(currency, net.G);
+      } else {
+        title = currency + ": Balanced";
       }
-
       return [
-        '<div class="settlement-table-row">',
-        '<div class="settlement-row-label">' + escapeHtml(person) + "</div>",
-        settlementValueMarkup(formatMoney(currency, paid), "Actual payer record", ""),
-        settlementValueMarkup(formatMoney(currency, share), "After split rules", ""),
-        settlementValueMarkup(formatMoney(currency, net), netNote, netClass),
+        '<div class="transfer-pill">',
+        '<strong>' + escapeHtml(title) + '</strong>',
+        '<span>' + escapeHtml(detail) + '</span>',
+        '</div>'
+      ].join("");
+    }
+
+    function settlementMatrixRowMarkup(label, audMarkup, sgdMarkup) {
+      return [
+        '<div class="settlement-matrix-row">',
+        '<div class="matrix-label">' + escapeHtml(label) + '</div>',
+        audMarkup,
+        sgdMarkup,
         "</div>"
       ].join("");
     }
 
-    function settlementValueMarkup(value, note, className) {
+    function settlementValueCompact(currency, amount) {
       return [
-        '<div class="settlement-value ' + escapeHtml(className || "") + '">',
-        "<strong>" + escapeHtml(value) + "</strong>",
+        '<div class="matrix-value">',
+        "<strong>" + escapeHtml(formatMoney(currency, amount)) + "</strong>",
+        "</div>"
+      ].join("");
+    }
+
+    function settlementNetCompact(currency, amount, person) {
+      let cls = "net-neutral";
+      let note = "Balanced";
+      if (amount > 0.009) {
+        cls = "net-positive";
+        note = person + " receives";
+      } else if (amount < -0.009) {
+        cls = "net-negative";
+        note = person + " pays";
+      }
+
+      return [
+        '<div class="matrix-value ' + escapeHtml(cls) + '">',
+        "<strong>" + escapeHtml(formatMoney(currency, amount)) + "</strong>",
         "<span>" + escapeHtml(note) + "</span>",
         "</div>"
       ].join("");
