@@ -96,12 +96,12 @@
   function blankBoxCount(text) {
     var count = countCharacters(text);
     if (count <= 4) {
-      return 8;
+      return 6;
     }
     if (count <= 8) {
-      return 12;
+      return 10;
     }
-    return Math.min(count + 4, 20);
+    return Math.min(count + 3, 18);
   }
 
   function makeEmptySet(index) {
@@ -506,8 +506,8 @@
 
   function fitWorksheet(sheet, body, itemCount) {
     var scaleCandidates = itemCount > 12
-      ? [0.9, 0.86, 0.82, 0.78, 0.74]
-      : [1, 0.96, 0.92, 0.88, 0.84, 0.8];
+      ? [0.98, 0.92, 0.86, 0.8, 0.74]
+      : [1.12, 1.06, 1, 0.94, 0.88, 0.82, 0.76];
 
     for (var i = 0; i < scaleCandidates.length; i += 1) {
       sheet.style.setProperty("--fit-scale", String(scaleCandidates[i]));
