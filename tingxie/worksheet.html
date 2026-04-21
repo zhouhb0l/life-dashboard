@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tingxie Student Worksheet</title>
+  <style>
+    :root {
+      --paper-bg: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --accent: #1d4ed8;
+      --fit-scale: 1;
+      --columns: 2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #e5e7eb;
+      color: var(--ink);
+    }
+
+    .toolbar {
+      width: min(1080px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 18px 0 14px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toolbar-title {
+      font-weight: 700;
+      color: #1e3a8a;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .toolbar a,
+    .toolbar button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 15px;
+      text-decoration: none;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .toolbar .primary {
+      background: #1d4ed8;
+      color: #ffffff;
+    }
+
+    .toolbar .secondary {
+      background: #ffffff;
+      color: #1e3a8a;
+      border: 1px solid rgba(29, 78, 216, 0.18);
+    }
+
+    .stage {
+      width: min(1080px, calc(100% - 24px));
+      margin: 0 auto 24px;
+    }
+
+    .sheet {
+      background: var(--paper-bg);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+      border-radius: 10px;
+      overflow: hidden;
+      min-height: calc(297mm - 16mm);
+      padding: 9mm;
+      display: flex;
+      flex-direction: column;
+      gap: calc(10px * var(--fit-scale));
+    }
+
+    .sheet-header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: calc(8px * var(--fit-scale));
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .title {
+      margin: 0;
+      font-size: calc(24px * var(--fit-scale));
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin-top: calc(4px * var(--fit-scale));
+      font-size: calc(13px * var(--fit-scale));
+      color: var(--muted);
+    }
+
+    .sheet-note {
+      text-align: right;
+      font-size: calc(12px * var(--fit-scale));
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .sheet-body {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .worksheet-grid {
+      display: grid;
+      grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+      gap: calc(10px * var(--fit-scale)) calc(14px * var(--fit-scale));
+      align-content: start;
+    }
+
+    .entry {
+      padding: calc(8px * var(--fit-scale));
+      border: 1px solid var(--line);
+      border-radius: calc(12px * var(--fit-scale));
+      break-inside: avoid;
+      min-width: 0;
+    }
+
+    .entry-head {
+      display: flex;
+      gap: calc(8px * var(--fit-scale));
+      align-items: flex-start;
+      margin-bottom: calc(8px * var(--fit-scale));
+    }
+
+    .entry-number {
+      width: calc(22px * var(--fit-scale));
+      font-size: calc(14px * var(--fit-scale));
+      font-weight: 800;
+      color: #1e3a8a;
+      flex: 0 0 auto;
+    }
+
+    .entry-prompt {
+      min-width: 0;
+    }
+
+    .clue {
+      font-size: calc(13px * var(--fit-scale));
+      line-height: 1.35;
+      font-weight: 700;
+      color: #102a43;
+    }
+
+    .fallback {
+      font-size: calc(11px * var(--fit-scale));
+      line-height: 1.35;
+      color: var(--muted);
+      margin-top: calc(3px * var(--fit-scale));
+    }
+
+    .write-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(4px * var(--fit-scale));
+      padding-left: calc(26px * var(--fit-scale));
+      min-height: calc(34px * var(--fit-scale));
+    }
+
+    .write-box {
+      width: calc(28px * var(--fit-scale));
+      height: calc(28px * var(--fit-scale));
+      border: 1.4px solid #94a3b8;
+      border-radius: 3px;
+      background:
+        linear-gradient(to right, transparent 49%, #dbe3ef 49%, #dbe3ef 51%, transparent 51%),
+        linear-gradient(to bottom, transparent 49%, #dbe3ef 49%, #dbe3ef 51%, transparent 51%);
+    }
+
+    .empty-message {
+      padding: 26px;
+      border: 1px dashed var(--line);
+      border-radius: 18px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    @page {
+      size: A4;
+      margin: 8mm;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .toolbar {
+        display: none;
+      }
+
+      .stage {
+        width: auto;
+        margin: 0;
+      }
+
+      .sheet {
+        box-shadow: none;
+        border-radius: 0;
+        min-height: auto;
+        padding: 0;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .worksheet-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sheet {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body data-page="worksheet">
+  <header class="toolbar">
+    <div class="toolbar-title" id="toolbarTitle">Student Worksheet</div>
+    <div class="toolbar-actions">
+      <a class="secondary" href="./">Back to editor</a>
+      <a class="secondary" href="./answers.html">All answers</a>
+      <button class="primary" id="printButton" type="button">Print page</button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <section class="sheet" id="worksheetSheet">
+      <header class="sheet-header">
+        <div>
+          <h1 class="title" id="worksheetTitle">Tingxie</h1>
+          <div class="subtitle" id="worksheetSubtitle">Student Worksheet</div>
+        </div>
+        <div class="sheet-note" id="worksheetMeta">One-page print layout</div>
+      </header>
+      <div class="sheet-body" id="worksheetBody">
+        <div class="worksheet-grid" id="worksheetGrid"></div>
+      </div>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tingxie</title>
+  <title>Tingxie Library</title>
   <style>
     :root {
-      --bg: #f7f4eb;
-      --panel: rgba(255, 255, 255, 0.9);
+      color-scheme: light;
+      --bg: #f6f1e6;
+      --panel: rgba(255, 255, 255, 0.92);
+      --card: #fffdf8;
       --text: #1f2933;
       --muted: #52606d;
-      --line: rgba(29, 78, 216, 0.14);
+      --line: rgba(30, 58, 138, 0.12);
       --accent: #1d4ed8;
       --accent-deep: #1e3a8a;
-      --shadow: 0 18px 44px rgba(31, 41, 51, 0.12);
+      --accent-soft: rgba(29, 78, 216, 0.12);
+      --danger: #b42318;
+      --shadow: 0 20px 48px rgba(31, 41, 51, 0.12);
+      --radius-lg: 26px;
+      --radius-md: 18px;
     }
 
     * {
@@ -25,152 +31,423 @@
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(96, 165, 250, 0.2), transparent 28%),
+        radial-gradient(circle at top left, rgba(96, 165, 250, 0.18), transparent 26%),
         radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.14), transparent 24%),
-        var(--bg);
+        linear-gradient(180deg, #fbf8f1 0%, #f2ebdf 100%);
       min-height: 100vh;
     }
 
-    main {
-      width: min(920px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 44px 0 64px;
+    a {
+      color: inherit;
     }
 
-    .hero,
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+    .shell {
+      width: min(1320px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 22px 0 32px;
     }
 
     .hero {
-      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-end;
+      background: linear-gradient(140deg, rgba(30, 58, 138, 0.96), rgba(37, 99, 235, 0.86));
+      color: #eff6ff;
+      border-radius: 30px;
+      padding: 26px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1,
+    .hero p,
+    .panel h2,
+    .panel p {
+      margin: 0;
     }
 
     .eyebrow {
       display: inline-block;
       margin-bottom: 10px;
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-size: 0.76rem;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(219, 234, 254, 0.88);
     }
 
-    h1,
-    h2,
-    p {
-      margin: 0;
+    .hero h1 {
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      max-width: 8em;
     }
 
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      line-height: 0.98;
-      letter-spacing: -0.03em;
-    }
-
-    .hero p,
-    .panel p {
+    .hero p {
       margin-top: 12px;
+      line-height: 1.65;
+      max-width: 56rem;
+      color: rgba(239, 246, 255, 0.86);
+    }
+
+    .hero-pill {
+      white-space: nowrap;
+      align-self: flex-start;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(239, 246, 255, 0.12);
+      border: 1px solid rgba(239, 246, 255, 0.16);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .sidebar {
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      min-height: 740px;
+    }
+
+    .sidebar-top {
+      display: grid;
+      gap: 12px;
+    }
+
+    .sidebar h2 {
+      font-size: 1.2rem;
+    }
+
+    .sidebar p,
+    .editor-intro p,
+    .helper {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.96rem;
+    }
+
+    .button-row,
+    .action-row,
+    .library-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    button,
+    .link-button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    button:hover,
+    .link-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 12px 24px rgba(29, 78, 216, 0.22);
+    }
+
+    .secondary {
+      background: #ffffff;
+      color: var(--accent-deep);
+      border: 1px solid rgba(29, 78, 216, 0.16);
+    }
+
+    .danger {
+      background: #ffffff;
+      color: var(--danger);
+      border: 1px solid rgba(180, 35, 24, 0.18);
+    }
+
+    .set-list {
+      display: grid;
+      gap: 10px;
+      max-height: 560px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .set-card {
+      width: 100%;
+      border: 1px solid transparent;
+      border-radius: 18px;
+      background: var(--card);
+      padding: 14px;
+      text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(29, 78, 216, 0.05);
+    }
+
+    .set-card.active {
+      background: linear-gradient(180deg, rgba(219, 234, 254, 0.92), rgba(255, 255, 255, 0.96));
+      border-color: rgba(29, 78, 216, 0.28);
+    }
+
+    .set-card strong,
+    .set-card span {
+      display: block;
+    }
+
+    .set-card strong {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .set-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .editor {
+      padding: 22px;
+      min-height: 740px;
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .editor-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .editor-intro {
+      max-width: 54rem;
+    }
+
+    .status {
+      align-self: flex-start;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-size: 0.9rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      font-weight: 700;
+      color: var(--accent-deep);
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(29, 78, 216, 0.16);
+      border-radius: 18px;
+      background: #ffffff;
+      color: var(--text);
+      padding: 14px 16px;
+      font: inherit;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: rgba(29, 78, 216, 0.42);
+      box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12);
+    }
+
+    textarea {
+      min-height: 360px;
+      resize: vertical;
+      line-height: 1.55;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid rgba(29, 78, 216, 0.1);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .stat strong,
+    .stat span {
+      display: block;
+    }
+
+    .stat strong {
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .tip-box {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.9));
+      border: 1px solid rgba(29, 78, 216, 0.1);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .tip-box h2 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .tip-box p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .empty-state {
+      background: linear-gradient(180deg, rgba(248, 250, 252, 0.96), rgba(255, 255, 255, 0.94));
+      border: 1px dashed rgba(29, 78, 216, 0.2);
+      border-radius: 24px;
+      padding: 28px;
       color: var(--muted);
       line-height: 1.65;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin-top: 22px;
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
-    .card {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      background: #ffffff;
-      border: 1px solid rgba(29, 78, 216, 0.14);
-      border-radius: 20px;
-      padding: 20px;
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    @media (max-width: 980px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar,
+      .editor {
+        min-height: auto;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero,
+      .editor-head {
+        display: grid;
+      }
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(29, 78, 216, 0.32);
-      box-shadow: 0 16px 36px rgba(31, 41, 51, 0.12);
-    }
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100%, calc(100% - 18px));
+      }
 
-    .card h2 {
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-    }
+      .hero,
+      .sidebar,
+      .editor {
+        padding: 18px;
+      }
 
-    .panel {
-      margin-top: 20px;
-      padding: 24px;
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .button,
-    .text-link {
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #ffffff;
-    }
-
-    .text-link {
-      color: var(--accent-deep);
+      .stats {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-<body>
-  <main>
+<body data-page="index">
+  <main class="shell">
     <section class="hero">
-      <span class="eyebrow">Chinese Dictation</span>
-      <h1>Tingxie Generator</h1>
-      <p>
-        This section contains the uploaded dictation project together with ready-to-open
-        worksheet pages for students and answer sheets for teachers.
-      </p>
-      <div class="grid">
-        <a class="card" href="./output/worksheet.html">
-          <h2>Student Worksheet</h2>
-          <p>Open the printable worksheet generated from the current dictation items.</p>
-        </a>
-        <a class="card" href="./output/answer_sheet.html">
-          <h2>Answer Sheet</h2>
-          <p>Open the teacher version with the answers shown directly on the page.</p>
-        </a>
+      <div>
+        <span class="eyebrow">GitHub Pages Tingxie Tool</span>
+        <h1>Tingxie Library</h1>
+        <p>
+          Build and manage a whole library of dictation sets online. Select one set to edit,
+          open a one-page student worksheet, and print a compact answer pack across every set.
+        </p>
       </div>
+      <div class="hero-pill" id="heroCount">0 sets</div>
     </section>
 
-    <section class="panel">
-      <h2>Project Files</h2>
-      <p>
-        The Python source files remain in this folder for local generation, while the
-        generated HTML files are published through GitHub Pages.
-      </p>
-      <div class="links">
-        <a class="button" href="./README.md">View README</a>
-        <a class="text-link" href="../">Back to dashboard</a>
-      </div>
+    <section class="workspace">
+      <aside class="panel sidebar">
+        <div class="sidebar-top">
+          <div>
+            <h2>Your Sets</h2>
+            <p>Create as many tingxie lists as you want. They are saved automatically in this browser.</p>
+          </div>
+          <div class="button-row">
+            <button class="primary" id="addSetButton" type="button">Add Set</button>
+            <a class="link-button secondary" href="../">Back to dashboard</a>
+          </div>
+          <div class="library-row">
+            <button class="secondary" id="exportButton" type="button">Export Library</button>
+            <button class="secondary" id="importButton" type="button">Import Library</button>
+            <input class="visually-hidden" id="importFile" type="file" accept=".json,application/json">
+          </div>
+          <div class="helper">
+            Optional format: one item per line. You can add a clue after a vertical bar,
+            like <code>学校 | school</code>.
+          </div>
+        </div>
+        <div class="set-list" id="setList"></div>
+      </aside>
+
+      <section class="panel editor">
+        <div class="editor-head">
+          <div class="editor-intro">
+            <h2 id="editorHeading">Dictation Editor</h2>
+            <p>Edit one set at a time. The student worksheet is optimized to stay on a single printable page whenever the list size is reasonable.</p>
+          </div>
+          <div class="status" id="saveStatus">Loading...</div>
+        </div>
+
+        <div id="editorContent"></div>
+      </section>
     </section>
   </main>
+  <script src="./app.js"></script>
 </body>
 </html>
