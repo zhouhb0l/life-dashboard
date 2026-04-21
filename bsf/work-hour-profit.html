@@ -514,6 +514,19 @@
   </main>
 
   <script>
+    const STORAGE_KEY = "life-dashboard.bsf.work-hour-profit.v1";
+    const INPUT_IDS = [
+      "revenue",
+      "attendance",
+      "hoursWorked",
+      "materialRevenue",
+      "estimatedMargin",
+      "shopRent",
+      "dormRent",
+      "utilities",
+      "equipment"
+    ];
+
     function getNumber(id) {
       const value = Number(document.getElementById(id).value);
       return Number.isFinite(value) ? value : 0;
@@ -532,6 +545,29 @@
 
     function setText(id, value) {
       document.getElementById(id).textContent = value;
+    }
+
+    function saveInputs() {
+      const payload = {};
+      INPUT_IDS.forEach((id) => {
+        payload[id] = document.getElementById(id).value;
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    }
+
+    function loadInputs() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const payload = JSON.parse(raw);
+        INPUT_IDS.forEach((id) => {
+          if (Object.prototype.hasOwnProperty.call(payload, id)) {
+            document.getElementById(id).value = payload[id];
+          }
+        });
+      } catch (error) {
+        // Ignore broken local cache and continue with defaults.
+      }
     }
 
     function updateCalculator() {
@@ -620,9 +656,13 @@
     }
 
     document.querySelectorAll("input").forEach((input) => {
-      input.addEventListener("input", updateCalculator);
+      input.addEventListener("input", () => {
+        saveInputs();
+        updateCalculator();
+      });
     });
 
+    loadInputs();
     updateCalculator();
   </script>
 </body>
