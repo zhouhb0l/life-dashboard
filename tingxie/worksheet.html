@@ -13,8 +13,8 @@
       --accent: #1d4ed8;
       --fit-scale: 1;
       --columns: 2;
-      --box-size: 40px;
-      --box-gap: 4px;
+      --box-size: 56px;
+      --box-gap: 3px;
     }
 
     * {
@@ -84,15 +84,15 @@
       border-radius: 10px;
       overflow: hidden;
       min-height: calc(297mm - 16mm);
-      padding: 9mm;
+      padding: 7mm;
       display: flex;
       flex-direction: column;
-      gap: calc(8px * var(--fit-scale));
+      gap: calc(6px * var(--fit-scale));
     }
 
     .sheet-header {
       border-bottom: 2px solid #0f172a;
-      padding-bottom: calc(6px * var(--fit-scale));
+      padding-bottom: calc(5px * var(--fit-scale));
       display: flex;
       justify-content: space-between;
       gap: 10px;
@@ -127,12 +127,12 @@
     .worksheet-grid {
       display: grid;
       grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
-      gap: calc(8px * var(--fit-scale)) calc(12px * var(--fit-scale));
+      gap: calc(6px * var(--fit-scale)) calc(10px * var(--fit-scale));
       align-content: start;
     }
 
     .entry {
-      padding: calc(6px * var(--fit-scale));
+      padding: calc(5px * var(--fit-scale));
       border: 1px solid var(--line);
       border-radius: calc(12px * var(--fit-scale));
       break-inside: avoid;
@@ -143,7 +143,7 @@
       display: flex;
       gap: calc(8px * var(--fit-scale));
       align-items: flex-start;
-      margin-bottom: calc(6px * var(--fit-scale));
+      margin-bottom: calc(5px * var(--fit-scale));
     }
 
     .entry-number {
@@ -159,24 +159,24 @@
     }
 
     .clue {
-      font-size: calc(13px * var(--fit-scale));
-      line-height: 1.35;
+      font-size: calc(12px * var(--fit-scale));
+      line-height: 1.25;
       font-weight: 700;
       color: #102a43;
     }
 
     .fallback {
-      font-size: calc(11px * var(--fit-scale));
-      line-height: 1.35;
+      font-size: calc(10px * var(--fit-scale));
+      line-height: 1.2;
       color: var(--muted);
-      margin-top: calc(3px * var(--fit-scale));
+      margin-top: calc(2px * var(--fit-scale));
     }
 
     .write-grid {
       display: flex;
       flex-wrap: wrap;
       gap: calc(var(--box-gap) * var(--fit-scale));
-      padding-left: calc(24px * var(--fit-scale));
+      padding-left: calc(22px * var(--fit-scale));
       min-height: calc((var(--box-size) + 2px) * var(--fit-scale));
     }
 
