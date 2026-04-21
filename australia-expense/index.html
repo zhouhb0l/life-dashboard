@@ -480,24 +480,26 @@
 
     .expense-row {
       display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(150px, 0.9fr) minmax(150px, 0.8fr) minmax(210px, 1.1fr) minmax(190px, 0.95fr);
-      gap: 10px;
+      grid-template-columns: minmax(0, 1fr) 120px 96px 170px 170px;
+      gap: 8px;
       background: var(--card);
       border: 1px solid rgba(124, 45, 18, 0.08);
       border-radius: 18px;
-      padding: 14px;
+      padding: 12px;
       align-items: start;
     }
 
     .expense-title {
       font-weight: 700;
       margin-bottom: 4px;
+      overflow-wrap: anywhere;
     }
 
     .expense-note {
       color: var(--muted);
       line-height: 1.5;
-      font-size: 0.93rem;
+      font-size: 0.9rem;
+      overflow-wrap: anywhere;
     }
 
     .expense-tags {
@@ -563,13 +565,14 @@
 
     .field-stack {
       display: grid;
-      gap: 6px;
+      gap: 4px;
+      min-width: 0;
     }
 
     .field-stack label,
     .field-label {
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.02em;
       text-transform: uppercase;
@@ -592,7 +595,8 @@
 
     .share-result {
       display: grid;
-      gap: 7px;
+      gap: 5px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .share-pill {
@@ -603,8 +607,8 @@
       background: #ffffff;
       border: 1px solid rgba(124, 45, 18, 0.08);
       border-radius: 14px;
-      padding: 8px 10px;
-      font-size: 0.9rem;
+      padding: 7px 9px;
+      font-size: 0.82rem;
       font-weight: 700;
     }
 
@@ -613,7 +617,11 @@
       font-weight: 600;
     }
 
-    @container (max-width: 980px) {
+    .share-result .field-label {
+      grid-column: 1 / -1;
+    }
+
+    @container (max-width: 860px) {
       .expense-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -626,13 +634,9 @@
       .share-result {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .share-result .field-label {
-        grid-column: 1 / -1;
-      }
     }
 
-    @container (max-width: 680px) {
+    @container (max-width: 620px) {
       .expense-row {
         grid-template-columns: 1fr;
       }
@@ -724,10 +728,6 @@
 
       .summary-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .expense-row {
-        grid-template-columns: 1fr;
       }
     }
 
