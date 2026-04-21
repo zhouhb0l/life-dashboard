@@ -475,6 +475,7 @@
     .expense-table {
       display: grid;
       gap: 10px;
+      container-type: inline-size;
     }
 
     .expense-row {
@@ -610,6 +611,35 @@
     .share-pill span {
       color: var(--muted);
       font-weight: 600;
+    }
+
+    @container (max-width: 980px) {
+      .expense-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .expense-row > :first-child,
+      .expense-row > :last-child {
+        grid-column: 1 / -1;
+      }
+
+      .share-result {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .share-result .field-label {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @container (max-width: 680px) {
+      .expense-row {
+        grid-template-columns: 1fr;
+      }
+
+      .share-result {
+        grid-template-columns: 1fr;
+      }
     }
 
     .sidebar {
