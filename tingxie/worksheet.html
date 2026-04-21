@@ -13,6 +13,8 @@
       --accent: #1d4ed8;
       --fit-scale: 1;
       --columns: 2;
+      --box-size: 34px;
+      --box-gap: 5px;
     }
 
     * {
@@ -130,7 +132,7 @@
     }
 
     .entry {
-      padding: calc(8px * var(--fit-scale));
+      padding: calc(7px * var(--fit-scale));
       border: 1px solid var(--line);
       border-radius: calc(12px * var(--fit-scale));
       break-inside: avoid;
@@ -173,14 +175,14 @@
     .write-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: calc(4px * var(--fit-scale));
+      gap: calc(var(--box-gap) * var(--fit-scale));
       padding-left: calc(26px * var(--fit-scale));
-      min-height: calc(34px * var(--fit-scale));
+      min-height: calc((var(--box-size) + 2px) * var(--fit-scale));
     }
 
     .write-box {
-      width: calc(28px * var(--fit-scale));
-      height: calc(28px * var(--fit-scale));
+      width: calc(var(--box-size) * var(--fit-scale));
+      height: calc(var(--box-size) * var(--fit-scale));
       border: 1.4px solid #94a3b8;
       border-radius: 3px;
       background:
