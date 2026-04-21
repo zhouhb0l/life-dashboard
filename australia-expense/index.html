@@ -5,38 +5,248 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Australia Expense</title>
   <style>
+    :root {
+      --bg-1: #f4fff6;
+      --bg-2: #edf7ff;
+      --panel: rgba(255, 255, 255, 0.92);
+      --text: #1f2933;
+      --muted: #52606d;
+      --accent: #047857;
+      --accent-deep: #065f46;
+      --line: rgba(5, 150, 105, 0.16);
+      --danger: #b42318;
+      --shadow: 0 20px 45px rgba(31, 41, 51, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(165deg, #f4fff6, #edf7ff);
-      color: #1f2933;
+      background:
+        radial-gradient(circle at top left, rgba(16, 185, 129, 0.14), transparent 28%),
+        linear-gradient(165deg, var(--bg-1), var(--bg-2));
+      color: var(--text);
       min-height: 100vh;
-      display: grid;
-      place-items: center;
       padding: 24px;
     }
 
-    main {
+    main,
+    .gate {
       width: min(720px, 100%);
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(5, 150, 105, 0.16);
+      background: var(--panel);
+      border: 1px solid var(--line);
       border-radius: 22px;
       padding: 32px;
-      box-shadow: 0 20px 45px rgba(31, 41, 51, 0.12);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
 
-    a {
-      color: #047857;
+    .page {
+      min-height: calc(100vh - 48px);
+      display: grid;
+      place-items: center;
+    }
+
+    .content-shell {
+      display: none;
+      min-height: calc(100vh - 48px);
+      place-items: center;
+    }
+
+    .content-shell.unlocked {
+      display: grid;
+    }
+
+    .page.locked {
+      display: none;
+    }
+
+    h1,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .gate h1,
+    main h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .gate p,
+    main p {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      font-weight: 700;
+      color: var(--accent-deep);
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(4, 120, 87, 0.18);
+      border-radius: 16px;
+      font: inherit;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    input[type="password"]:focus {
+      border-color: rgba(4, 120, 87, 0.42);
+      box-shadow: 0 0 0 4px rgba(4, 120, 87, 0.12);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    button,
+    .link-button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
       text-decoration: none;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .secondary {
+      background: #ffffff;
+      color: var(--accent-deep);
+      border: 1px solid rgba(4, 120, 87, 0.16);
+    }
+
+    .message {
+      min-height: 22px;
+      color: var(--danger);
+      font-size: 0.95rem;
       font-weight: 600;
+    }
+
+    .content-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
     }
   </style>
 </head>
 <body>
-  <main>
-    <p><a href="../">Back to dashboard</a></p>
-    <h1>Australia Expense</h1>
-    <p>This page is ready for your Australia expense content.</p>
-  </main>
+  <section class="page" id="gatePage">
+    <div class="gate">
+      <span class="eyebrow">Protected Page</span>
+      <h1>Australia Expense</h1>
+      <p>Enter the passcode to view this page.</p>
+
+      <form id="gateForm">
+        <label for="passcodeInput">
+          Passcode
+          <input id="passcodeInput" name="passcode" type="password" autocomplete="current-password" required>
+        </label>
+        <div class="button-row">
+          <button class="primary" type="submit">Unlock</button>
+          <a class="link-button secondary" href="../">Back to dashboard</a>
+        </div>
+        <div class="message" id="gateMessage" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="content-shell" id="contentShell">
+    <main>
+      <div class="content-actions">
+        <a class="link-button secondary" href="../">Back to dashboard</a>
+        <button class="secondary" id="lockButton" type="button">Lock page</button>
+      </div>
+      <span class="eyebrow">Unlocked</span>
+      <h1>Australia Expense</h1>
+      <p>This page is ready for your Australia expense content.</p>
+    </main>
+  </section>
+
+  <script>
+    // Change this to your real passcode.
+    const PAGE_PASSCODE = "australia2026";
+    const ACCESS_KEY = "life-dashboard.australia-expense.unlocked";
+
+    const gatePage = document.getElementById("gatePage");
+    const contentShell = document.getElementById("contentShell");
+    const gateForm = document.getElementById("gateForm");
+    const passcodeInput = document.getElementById("passcodeInput");
+    const gateMessage = document.getElementById("gateMessage");
+    const lockButton = document.getElementById("lockButton");
+
+    function unlockPage() {
+      sessionStorage.setItem(ACCESS_KEY, "true");
+      gatePage.classList.add("locked");
+      contentShell.classList.add("unlocked");
+    }
+
+    function lockPage() {
+      sessionStorage.removeItem(ACCESS_KEY);
+      contentShell.classList.remove("unlocked");
+      gatePage.classList.remove("locked");
+      gateMessage.textContent = "";
+      gateForm.reset();
+      passcodeInput.focus();
+    }
+
+    if (sessionStorage.getItem(ACCESS_KEY) === "true") {
+      unlockPage();
+    } else {
+      passcodeInput.focus();
+    }
+
+    gateForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (passcodeInput.value === PAGE_PASSCODE) {
+        gateMessage.textContent = "";
+        unlockPage();
+        return;
+      }
+
+      gateMessage.textContent = "Incorrect passcode.";
+      passcodeInput.select();
+    });
+
+    lockButton.addEventListener("click", lockPage);
+  </script>
 </body>
 </html>
