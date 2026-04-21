@@ -95,13 +95,19 @@
 
   function blankBoxCount(text) {
     var count = countCharacters(text);
+    if (count <= 2) {
+      return 4;
+    }
     if (count <= 4) {
       return 5;
     }
     if (count <= 8) {
+      return 6;
+    }
+    if (count <= 12) {
       return 8;
     }
-    return Math.min(count + 2, 14);
+    return 10;
   }
 
   function makeEmptySet(index) {
@@ -485,14 +491,16 @@
     var boxes = new Array(blankBoxCount(item.text))
       .fill('<span class="write-box" aria-hidden="true"></span>')
       .join("");
+    var clue = item.clue
+      ? '<div class="clue">' + escapeHtml(item.clue) + "</div>"
+      : "";
 
     return [
       '<section class="entry">',
       '<div class="entry-head">',
       '<div class="entry-number">' + (index + 1) + '.</div>',
       '<div class="entry-prompt">',
-      '<div class="clue">' + escapeHtml(worksheetClue(item, index)) + '</div>',
-      '<div class="fallback">' + escapeHtml(item.text.length > 18 ? "Long sentence layout enabled" : "Compact writing boxes") + '</div>',
+      clue,
       "</div>",
       "</div>",
       '<div class="write-grid">' + boxes + "</div>",
@@ -501,13 +509,18 @@
   }
 
   function chooseWorksheetColumns(itemCount) {
-    return itemCount <= 2 ? 1 : 2;
+    return itemCount <= 6 ? 1 : 2;
   }
 
   function fitWorksheet(sheet, body, itemCount) {
-    var scaleCandidates = itemCount > 12
-      ? [0.86, 0.8, 0.74, 0.68, 0.62]
-      : [1.36, 1.24, 1.12, 1, 0.9, 0.8, 0.7];
+    var scaleCandidates;
+    if (itemCount <= 6) {
+      scaleCandidates = [1.5, 1.38, 1.26, 1.14, 1.02, 0.9, 0.78];
+    } else if (itemCount <= 12) {
+      scaleCandidates = [1.08, 1, 0.92, 0.84, 0.76, 0.68];
+    } else {
+      scaleCandidates = [0.86, 0.8, 0.74, 0.68, 0.62];
+    }
 
     for (var i = 0; i < scaleCandidates.length; i += 1) {
       sheet.style.setProperty("--fit-scale", String(scaleCandidates[i]));
