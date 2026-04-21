@@ -260,6 +260,33 @@
       font-size: 14px;
     }
 
+    .nav-link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-link-card strong {
+      font-size: 18px;
+      color: var(--primary-deep);
+    }
+
+    .nav-link-card span {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .nav-link-card em {
+      font-style: normal;
+      color: var(--primary);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
     @media (min-width: 860px) {
       .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -431,6 +458,16 @@
             </div>
           </div>
         </div>
+      </article>
+
+      <article class="card wide">
+        <a class="nav-link-card" href="./work-hour-profit.html">
+          <div>
+            <strong>4. 工时版盈利测算</strong>
+            <span>新增一个独立页面，按出勤工时、社保成本、固定支出和理想用工小时数来计算，更适合你刚刚提供的新公式。</span>
+          </div>
+          <em>打开新页面</em>
+        </a>
       </article>
     </section>
 
