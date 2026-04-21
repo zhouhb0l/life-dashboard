@@ -333,8 +333,8 @@
           <span>人工成本 = 社保成本 + 出工成本</span>
         </div>
         <div class="hero-stat">
-          <strong>工时单价 15</strong>
-          <span>人员出工成本 = 出勤工时数 × 15</span>
+          <strong>工时单价 16</strong>
+          <span>人员出工成本 = 出勤工时数 × 16</span>
         </div>
         <div class="hero-stat">
           <strong>固定支出按日均</strong>
@@ -354,11 +354,11 @@
           </label>
           <label>
             出勤人数
-            <input id="attendance" type="number" inputmode="decimal" min="0" step="1" value="5">
+            <input id="attendance" type="number" inputmode="decimal" min="0" step="1" value="6">
           </label>
           <label>
             出勤工时数
-            <input id="hoursWorked" type="number" inputmode="decimal" min="0" step="0.5" value="40">
+            <input id="hoursWorked" type="number" inputmode="decimal" min="0" step="0.5" value="63">
           </label>
         </div>
         <div class="result-panel">
@@ -387,7 +387,7 @@
 
       <article class="card">
         <h2>2. 物料成本</h2>
-        <p>按你给出的公式直接计算：物料成本 = 营业额 × 预估毛利。</p>
+        <p>按你最新给出的公式直接计算：物料成本 = 营业额 ×（1 - 预估毛利）。</p>
         <div class="form-grid">
           <label>
             营业额
@@ -400,8 +400,8 @@
         </div>
         <div class="inline-note">当前按百分比输入，例如 `32` 表示 `32%`。</div>
         <div class="result-panel">
-          <div class="result-main" id="materialMain">2560.00</div>
-          <div class="result-note" id="materialNote">物料成本 = 营业额 × 预估毛利</div>
+          <div class="result-main" id="materialMain">5440.00</div>
+          <div class="result-note" id="materialNote">物料成本 = 营业额 ×（1 - 预估毛利）</div>
           <div class="kpis">
             <div class="kpi">
               <span>预估毛利参数</span>
@@ -425,28 +425,28 @@
           </label>
           <label>
             宿舍房租
-            <input id="dormRent" type="number" inputmode="decimal" min="0" step="0.01" value="8000">
+            <input id="dormRent" type="number" inputmode="decimal" min="0" step="0.01" value="5000">
           </label>
           <label>
             水电费
-            <input id="utilities" type="number" inputmode="decimal" min="0" step="0.01" value="11000">
+            <input id="utilities" type="number" inputmode="decimal" min="0" step="0.01" value="9000">
           </label>
           <label>
             设备摊销
-            <input id="equipment" type="number" inputmode="decimal" min="0" step="0.01" value="6000">
+            <input id="equipment" type="number" inputmode="decimal" min="0" step="0.01" value="30000">
           </label>
         </div>
         <div class="result-panel">
-          <div class="result-main" id="fixedMain">2466.67</div>
+          <div class="result-main" id="fixedMain">3100.00</div>
           <div class="result-note" id="fixedNote">日均支出 = 4 项合计 / 30</div>
           <div class="kpis">
             <div class="kpi">
               <span>四项合计</span>
-              <strong id="fixedTotal">74000.00</strong>
+              <strong id="fixedTotal">93000.00</strong>
             </div>
             <div class="kpi">
               <span>日均固定支出</span>
-              <strong id="fixedDaily">2466.67</strong>
+              <strong id="fixedDaily">3100.00</strong>
             </div>
           </div>
         </div>
@@ -456,9 +456,9 @@
         <h2>4. 盈利计算</h2>
         <p>盈利数 = 营业额 - 材料成本 - 固定支出 - 人员成本。</p>
         <div class="result-panel">
-          <div class="result-main" id="profitMain">1873.33</div>
+          <div class="result-main" id="profitMain">-1048.00</div>
           <div class="result-note" id="profitNote">盈利数 = 营业额 - 材料成本 - 固定支出 - 人员成本</div>
-          <div class="status success" id="profitStatus">当前状态：盈利</div>
+          <div class="status danger" id="profitStatus">当前状态：亏损</div>
           <div class="kpis">
             <div class="kpi">
               <span>营业额</span>
@@ -466,15 +466,15 @@
             </div>
             <div class="kpi">
               <span>材料成本</span>
-              <strong id="profitMaterialOut">2560.00</strong>
+              <strong id="profitMaterialOut">5440.00</strong>
             </div>
             <div class="kpi">
               <span>固定支出</span>
-              <strong id="profitFixedOut">2466.67</strong>
+              <strong id="profitFixedOut">3100.00</strong>
             </div>
             <div class="kpi">
               <span>人员成本</span>
-              <strong id="profitLaborOut">1100.00</strong>
+              <strong id="profitLaborOut">1508.00</strong>
             </div>
           </div>
         </div>
@@ -482,32 +482,33 @@
 
       <article class="card wide">
         <h2>5. 理想用工小时数</h2>
-        <p>理想用工小时数 =（营业额 - 材料成本 - 固定支出）/ 15。</p>
+        <p>理想用工小时数 =（营业额 - 材料成本 - 固定支出）/ 16。</p>
         <div class="result-panel">
-          <div class="result-main" id="idealHoursMain">198.22</div>
-          <div class="result-note" id="idealHoursNote">理想用工小时数 =（营业额 - 材料成本 - 固定支出）/ 15</div>
+          <div class="result-main" id="idealHoursMain">-33.75</div>
+          <div class="result-note" id="idealHoursNote">理想用工小时数 =（营业额 - 材料成本 - 固定支出）/ 16</div>
           <div class="kpis">
             <div class="kpi">
               <span>当前出勤工时数</span>
-              <strong id="currentHoursOut">40.00</strong>
+              <strong id="currentHoursOut">63.00</strong>
             </div>
             <div class="kpi">
               <span>理想用工小时数</span>
-              <strong id="idealHoursOut">198.22</strong>
+              <strong id="idealHoursOut">-33.75</strong>
             </div>
             <div class="kpi">
               <span>工时差额</span>
-              <strong id="hoursGap">158.22</strong>
+              <strong id="hoursGap">-96.75</strong>
             </div>
             <div class="kpi">
               <span>按当前出勤人数的人均工时</span>
-              <strong id="avgHoursPerPerson">8.00</strong>
+              <strong id="avgHoursPerPerson">10.50</strong>
             </div>
           </div>
         </div>
         <div class="tips">
           <div class="tip">如果工时差额为正，说明按当前营业额和支出来看，还可以承受更多工时；如果为负，说明当前工时偏高。</div>
-          <div class="tip">这个页面完全按你给的公式做，没有擅自改公式逻辑；如果你想把“预估毛利”改成“毛利率”或“物料占比”，我也可以再调整。</div>
+          <div class="tip">当前默认值已更新为：出勤人数 6、出勤工时数 63、店铺房租 49000、宿舍房租 5000、水电费 9000、设备摊销 30000。</div>
+          <div class="tip">当前规则已更新为：物料成本 = 营业额 ×（1 - 预估毛利），时薪按 16 自动计算；输入时会自动保存，下次打开会恢复上次填写内容。</div>
         </div>
       </article>
     </section>
@@ -582,15 +583,15 @@
       const equipment = getNumber("equipment");
 
       const socialCost = 500;
-      const laborHoursCost = hoursWorked * 15;
+      const laborHoursCost = hoursWorked * 16;
       const laborCost = socialCost + laborHoursCost;
       const efficiency = hoursWorked > 0 ? revenue / hoursWorked : 0;
 
-      const materialCost = materialRevenue * estimatedMargin;
+      const materialCost = materialRevenue * (1 - estimatedMargin);
       const fixedTotal = shopRent + dormRent + utilities + equipment;
       const fixedDaily = fixedTotal / 30;
       const profit = revenue - materialCost - fixedDaily - laborCost;
-      const idealHours = (revenue - materialCost - fixedDaily) / 15;
+      const idealHours = (revenue - materialCost - fixedDaily) / 16;
       const hoursGap = idealHours - hoursWorked;
       const avgHoursPerPerson = attendance > 0 ? hoursWorked / attendance : 0;
 
@@ -611,7 +612,7 @@
       setText("materialCost", formatMoney(materialCost));
       setText(
         "materialNote",
-        `物料成本 = ${formatMoney(materialRevenue)} × ${formatPercent(estimatedMargin)}`
+        `物料成本 = ${formatMoney(materialRevenue)} × (1 - ${formatPercent(estimatedMargin)})`
       );
 
       setText("fixedMain", formatMoney(fixedDaily));
@@ -651,7 +652,7 @@
       setText("avgHoursPerPerson", attendance > 0 ? formatMoney(avgHoursPerPerson) : "--");
       setText(
         "idealHoursNote",
-        `理想用工小时数 = (${formatMoney(revenue)} - ${formatMoney(materialCost)} - ${formatMoney(fixedDaily)}) / 15`
+        `理想用工小时数 = (${formatMoney(revenue)} - ${formatMoney(materialCost)} - ${formatMoney(fixedDaily)}) / 16`
       );
     }
 
