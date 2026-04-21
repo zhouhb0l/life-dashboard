@@ -6,16 +6,24 @@
   <title>Australia Expense</title>
   <style>
     :root {
-      --bg-1: #f4fff6;
-      --bg-2: #edf7ff;
+      color-scheme: light;
+      --bg: #f4efe3;
       --panel: rgba(255, 255, 255, 0.92);
+      --card: #fffdf8;
       --text: #1f2933;
       --muted: #52606d;
-      --accent: #047857;
-      --accent-deep: #065f46;
-      --line: rgba(5, 150, 105, 0.16);
+      --accent: #b45309;
+      --accent-deep: #7c2d12;
+      --accent-soft: rgba(180, 83, 9, 0.12);
+      --green: #047857;
+      --green-soft: rgba(4, 120, 87, 0.12);
+      --blue: #1d4ed8;
+      --blue-soft: rgba(29, 78, 216, 0.12);
       --danger: #b42318;
-      --shadow: 0 20px 45px rgba(31, 41, 51, 0.12);
+      --line: rgba(124, 45, 18, 0.12);
+      --shadow: 0 22px 50px rgba(31, 41, 51, 0.12);
+      --radius-lg: 28px;
+      --radius-md: 18px;
     }
 
     * {
@@ -26,25 +34,22 @@
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(16, 185, 129, 0.14), transparent 28%),
-        linear-gradient(165deg, var(--bg-1), var(--bg-2));
+        radial-gradient(circle at top left, rgba(250, 204, 21, 0.16), transparent 26%),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 22%),
+        linear-gradient(180deg, #fbf7ee 0%, #f1e7d4 100%);
       color: var(--text);
       min-height: 100vh;
       padding: 24px;
     }
 
-    main,
-    .gate {
-      width: min(720px, 100%);
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 32px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+    button,
+    select,
+    input {
+      font: inherit;
     }
 
-    .page {
+    .page,
+    .content-shell {
       min-height: calc(100vh - 48px);
       display: grid;
       place-items: center;
@@ -52,22 +57,49 @@
 
     .content-shell {
       display: none;
-      min-height: calc(100vh - 48px);
-      place-items: center;
     }
 
     .content-shell.unlocked {
-      display: grid;
+      display: block;
     }
 
     .page.locked {
       display: none;
     }
 
-    h1,
-    h2,
-    p {
-      margin: 0;
+    .gate {
+      width: min(720px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .shell {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero,
+    .panel,
+    .day-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+      gap: 22px;
+      align-items: start;
     }
 
     .eyebrow {
@@ -80,62 +112,99 @@
       text-transform: uppercase;
     }
 
-    .gate h1,
-    main h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
     }
 
-    .gate p,
-    main p {
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 9ch;
+    }
+
+    .hero-copy p {
+      margin-top: 12px;
+      max-width: 58rem;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
-    form {
+    .trip-facts {
       display: grid;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
+      align-content: start;
     }
 
-    label {
-      display: grid;
-      gap: 7px;
-      font-weight: 700;
-      color: var(--accent-deep);
-    }
-
-    input[type="password"] {
-      width: 100%;
+    .fact {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 240, 0.9));
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 18px;
       padding: 14px 16px;
-      border: 1px solid rgba(4, 120, 87, 0.18);
-      border-radius: 16px;
-      font: inherit;
-      outline: none;
-      transition: border-color 160ms ease, box-shadow 160ms ease;
     }
 
-    input[type="password"]:focus {
-      border-color: rgba(4, 120, 87, 0.42);
-      box-shadow: 0 0 0 4px rgba(4, 120, 87, 0.12);
+    .fact strong,
+    .fact span {
+      display: block;
     }
 
-    .button-row {
+    .fact strong {
+      font-size: 0.9rem;
+      color: var(--accent-deep);
+      margin-bottom: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .fact span {
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .main-column {
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .panel-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .panel-title p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 6px;
+    }
+
+    .action-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 4px;
     }
 
-    button,
-    .link-button {
+    .button,
+    button {
       appearance: none;
       border: 0;
       border-radius: 999px;
       padding: 11px 16px;
-      font: inherit;
       font-weight: 700;
       cursor: pointer;
       text-decoration: none;
@@ -149,21 +218,442 @@
     .secondary {
       background: #ffffff;
       color: var(--accent-deep);
-      border: 1px solid rgba(4, 120, 87, 0.16);
+      border: 1px solid rgba(180, 83, 9, 0.16);
     }
 
-    .message {
-      min-height: 22px;
+    .warning {
+      background: #ffffff;
       color: var(--danger);
-      font-size: 0.95rem;
+      border: 1px solid rgba(180, 35, 24, 0.16);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .summary-card {
+      background: var(--card);
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 20px;
+      padding: 16px;
+    }
+
+    .summary-card strong,
+    .summary-card span {
+      display: block;
+    }
+
+    .summary-card strong {
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    .summary-card span {
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.94rem;
+    }
+
+    .split-guide {
+      display: grid;
+      gap: 10px;
+    }
+
+    .split-row {
+      display: grid;
+      grid-template-columns: minmax(130px, 170px) minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      background: var(--card);
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 18px;
+      padding: 12px 14px;
+    }
+
+    .split-row strong {
+      color: var(--accent-deep);
+    }
+
+    .split-row span {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .settlement-card {
+      display: grid;
+      gap: 12px;
+    }
+
+    .settlement-currency {
+      background: var(--card);
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 18px;
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .currency-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .currency-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .currency-aud {
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+    }
+
+    .currency-sgd {
+      background: var(--blue-soft);
+      color: #1e3a8a;
+    }
+
+    .settlement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .settlement-cell {
+      background: #ffffff;
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .settlement-cell strong,
+    .settlement-cell span {
+      display: block;
+    }
+
+    .settlement-cell strong {
+      font-size: 1.02rem;
+      margin-bottom: 4px;
+    }
+
+    .settlement-cell span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+
+    .settlement-note {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.94rem;
+    }
+
+    .day-card {
+      padding: 22px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .day-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .date-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .day-route {
+      color: var(--muted);
+      line-height: 1.55;
+      margin-top: 8px;
+    }
+
+    .highlights {
+      display: grid;
+      gap: 8px;
+    }
+
+    .highlight {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.9));
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 16px;
+      padding: 12px 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .expense-table {
+      display: grid;
+      gap: 10px;
+    }
+
+    .expense-row {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(150px, 0.9fr) minmax(150px, 0.8fr) minmax(210px, 1.1fr) minmax(190px, 0.95fr);
+      gap: 10px;
+      background: var(--card);
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 18px;
+      padding: 14px;
+      align-items: start;
+    }
+
+    .expense-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .expense-note {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.93rem;
+    }
+
+    .expense-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .tag-assumption {
+      background: rgba(29, 78, 216, 0.1);
+      color: #1e40af;
+    }
+
+    .tag-warning {
+      background: rgba(180, 35, 24, 0.1);
+      color: var(--danger);
+    }
+
+    .amount-chip,
+    .payer-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .amount-aud {
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+    }
+
+    .amount-sgd {
+      background: var(--blue-soft);
+      color: #1e3a8a;
+    }
+
+    .payer-z {
+      background: rgba(5, 150, 105, 0.12);
+      color: var(--green);
+    }
+
+    .payer-g {
+      background: rgba(124, 58, 237, 0.12);
+      color: #6d28d9;
+    }
+
+    .payer-tbd {
+      background: rgba(148, 163, 184, 0.18);
+      color: #475569;
+    }
+
+    .field-stack {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field-stack label,
+    .field-label {
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    select {
+      width: 100%;
+      border: 1px solid rgba(124, 45, 18, 0.14);
+      border-radius: 14px;
+      background: #ffffff;
+      padding: 10px 12px;
+      color: var(--text);
+      outline: none;
+    }
+
+    select:focus {
+      border-color: rgba(180, 83, 9, 0.36);
+      box-shadow: 0 0 0 4px rgba(180, 83, 9, 0.12);
+    }
+
+    .share-result {
+      display: grid;
+      gap: 7px;
+    }
+
+    .share-pill {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 14px;
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .share-pill span {
+      color: var(--muted);
       font-weight: 600;
     }
 
-    .content-actions {
-      display: flex;
-      flex-wrap: wrap;
+    .sidebar {
+      display: grid;
+      gap: 18px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .note-list,
+    .legend-list {
+      display: grid;
       gap: 10px;
-      margin-bottom: 16px;
+    }
+
+    .note-item,
+    .legend-item {
+      background: var(--card);
+      border: 1px solid rgba(124, 45, 18, 0.08);
+      border-radius: 16px;
+      padding: 12px 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .note-item strong,
+    .legend-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--accent-deep);
+    }
+
+    .gate p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 8px;
+    }
+
+    .gate form {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .gate label {
+      display: grid;
+      gap: 7px;
+      font-weight: 700;
+      color: var(--accent-deep);
+    }
+
+    .gate input[type="password"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(180, 83, 9, 0.18);
+      border-radius: 16px;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .gate input[type="password"]:focus {
+      border-color: rgba(180, 83, 9, 0.42);
+      box-shadow: 0 0 0 4px rgba(180, 83, 9, 0.12);
+    }
+
+    .gate-message {
+      min-height: 22px;
+      color: var(--danger);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1160px) {
+      .hero,
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .expense-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 14px;
+      }
+
+      .hero,
+      .panel,
+      .day-card,
+      .gate {
+        padding: 18px;
+      }
+
+      .summary-grid,
+      .settlement-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .split-row {
+        grid-template-columns: 1fr;
+      }
+
+      .day-head,
+      .panel-title {
+        display: grid;
+      }
     }
   </style>
 </head>
@@ -172,37 +662,160 @@
     <div class="gate">
       <span class="eyebrow">Protected Page</span>
       <h1>Australia Expense</h1>
-      <p>Enter your name to view this page.</p>
+      <p>Enter your name to view this trip ledger and sharing page.</p>
 
       <form id="gateForm">
         <label for="passcodeInput">
           Your name
           <input id="passcodeInput" name="passcode" type="password" autocomplete="current-password" required>
         </label>
-        <div class="button-row">
+        <div class="action-row">
           <button class="primary" type="submit">Unlock</button>
-          <a class="link-button secondary" href="../">Back to dashboard</a>
+          <a class="button secondary" href="../">Back to dashboard</a>
         </div>
-        <div class="message" id="gateMessage" aria-live="polite"></div>
+        <div class="gate-message" id="gateMessage" aria-live="polite"></div>
       </form>
     </div>
   </section>
 
   <section class="content-shell" id="contentShell">
-    <main>
-      <div class="content-actions">
-        <a class="link-button secondary" href="../">Back to dashboard</a>
-        <button class="secondary" id="lockButton" type="button">Lock page</button>
-      </div>
-      <span class="eyebrow">Unlocked</span>
-      <h1>Australia Expense</h1>
-      <p>This page is ready for your Australia expense content.</p>
-    </main>
+    <div class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Shareable Trip Ledger</span>
+          <h1>Australia Expense</h1>
+          <p>
+            A cleaned-up record of the March 2026 Australia trip for Z and G. Each expense keeps its original
+            currency, original payer, and a selectable split rule so the cost sharing can stay transparent.
+          </p>
+          <div class="action-row" style="margin-top: 18px;">
+            <a class="button secondary" href="../">Back to dashboard</a>
+            <button class="secondary" id="resetButton" type="button">Reset Split Choices</button>
+            <button class="warning" id="lockButton" type="button">Lock Page</button>
+          </div>
+        </div>
+        <div class="trip-facts">
+          <div class="fact">
+            <strong>Trip Window</strong>
+            <span>14 March 2026 to 22 March 2026</span>
+          </div>
+          <div class="fact">
+            <strong>Travellers</strong>
+            <span>Z and G, with the page designed for expense sharing between both of you.</span>
+          </div>
+          <div class="fact">
+            <strong>Car</strong>
+            <span>Subaru Forester rental for 14-22 March 2026.</span>
+          </div>
+          <div class="fact">
+            <strong>Main Route</strong>
+            <span>Sydney → The Entrance → Anna Bay → Hunter Valley → South West Rocks → Gold Coast → Brisbane → Armidale → Port Macquarie → Sydney</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="main-column">
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>Trip Summary</h2>
+                <p>Totals are shown separately in `AUD` and `SGD`. No exchange-rate conversion is applied, so the sharing remains faithful to the original payments.</p>
+              </div>
+            </div>
+            <div class="summary-grid" id="summaryGrid"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>Split Rules</h2>
+                <p>Every recorded fee has its own split selector. Use the rules below to decide how each amount should be shared.</p>
+              </div>
+            </div>
+            <div class="split-guide">
+              <div class="split-row">
+                <strong>Equal split</strong>
+                <span>Z pays half and G pays half.</span>
+              </div>
+              <div class="split-row">
+                <strong>Z gets +15</strong>
+                <span>`Z = (total - 15) / 2 + 15`, `G = total - Z`. For small totals below `15`, the page safely collapses this to fully Z so no negative share appears.</span>
+              </div>
+              <div class="split-row">
+                <strong>Fully Z / Fully G</strong>
+                <span>Use these for clearly personal costs or when one person should bear the whole amount.</span>
+              </div>
+              <div class="split-row">
+                <strong>2/3 Z</strong>
+                <span>Z pays two-thirds of the amount and G pays one-third.</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>Daily Record</h2>
+                <p>Each day combines itinerary notes with fee records. Adjust split rules row by row and the settlement summary will update immediately.</p>
+              </div>
+            </div>
+            <div id="dayList"></div>
+          </section>
+        </div>
+
+        <aside class="sidebar">
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>Live Settlement</h2>
+                <p>Who paid what, who should bear what, and the resulting settlement for each currency.</p>
+              </div>
+            </div>
+            <div class="settlement-card" id="settlementCard"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>Unresolved Notes</h2>
+                <p>These records were mentioned in the trip notes but do not yet have a full amount or payer.</p>
+              </div>
+            </div>
+            <div class="note-list" id="unresolvedList"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>Ledger Notes</h2>
+                <p>Assumptions and conventions used in this page.</p>
+              </div>
+            </div>
+            <div class="legend-list">
+              <div class="legend-item">
+                <strong>Original currencies stay separate</strong>
+                Amounts are kept exactly as `AUD` or `SGD`, because the record is meant to stay faithful to the source notes.
+              </div>
+              <div class="legend-item">
+                <strong>Assumed currency tags</strong>
+                If the original note omitted a currency, the page marks that assumption directly on the expense row.
+              </div>
+              <div class="legend-item">
+                <strong>Unknown payer rows</strong>
+                If a fee did not say `@Z` or `@G`, the row starts as `TBD` and can be assigned manually later.
+              </div>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </div>
   </section>
 
   <script>
     const ALLOWED_NAMES = ["GZY", "ZHB"];
     const ACCESS_KEY = "life-dashboard.australia-expense.unlocked";
+    const LEDGER_KEY = "life-dashboard.australia-expense.ledger.v1";
 
     const gatePage = document.getElementById("gatePage");
     const contentShell = document.getElementById("contentShell");
@@ -210,6 +823,594 @@
     const passcodeInput = document.getElementById("passcodeInput");
     const gateMessage = document.getElementById("gateMessage");
     const lockButton = document.getElementById("lockButton");
+    const resetButton = document.getElementById("resetButton");
+    const summaryGrid = document.getElementById("summaryGrid");
+    const settlementCard = document.getElementById("settlementCard");
+    const unresolvedList = document.getElementById("unresolvedList");
+    const dayList = document.getElementById("dayList");
+
+    const splitLabels = {
+      equal: "Equal split",
+      z15: "Z gets +15",
+      fullyZ: "Fully Z",
+      fullyG: "Fully G",
+      zTwoThirds: "2/3 Z"
+    };
+
+    const days = [
+      {
+        date: "14 Mar 2026",
+        title: "Sydney arrival, Opera House, then The Entrance",
+        route: "TR2 -> Sydney Airport -> Museum -> rental pickup -> Sydney Opera House -> Rose Bay -> The Entrance",
+        highlights: [
+          "Arrived in Sydney at 12:40pm Sydney time, cleared immigration around 1:00pm, and bought a `90GB` phone card at the airport with number `0411013967`.",
+          "Took a rough airport train ride to Museum, met GZY, then walked to the rental point and collected a Subaru Forester for the road trip.",
+          "Visited the Sydney Opera House in the afternoon, shopped at Coles in Rose Bay at night, and drove to The Entrance for the first overnight stay.",
+          "Stayed at The Lakes Hotel above a noisy bar and club, then went outside around 1:30am and saw the Milky Way."
+        ],
+        expenses: [
+          {
+            id: "d14-sim",
+            label: "Airport phone card, 90GB",
+            amount: 25,
+            currency: "AUD",
+            payer: "TBD",
+            note: "Airport purchase right after landing.",
+            split: "fullyZ",
+            tags: ["Payer missing in source"]
+          },
+          {
+            id: "d14-train",
+            label: "Airport train to Museum",
+            amount: 0.91,
+            currency: "AUD",
+            payer: "TBD",
+            note: "Recorded as a rough train ride from the airport.",
+            split: "equal",
+            tags: ["Payer missing in source"]
+          },
+          {
+            id: "d14-car-z",
+            label: "Car rental main charge",
+            amount: 651,
+            currency: "SGD",
+            payer: "Z",
+            note: "Part of the Subaru Forester rental package for 14-22 March.",
+            split: "equal"
+          },
+          {
+            id: "d14-car-fuel",
+            label: "Rental pickup fuel tank",
+            amount: 108,
+            currency: "SGD",
+            payer: "G",
+            note: "Recorded together with the car rental cost.",
+            split: "equal"
+          },
+          {
+            id: "d14-extra-driver",
+            label: "Extra driver fee",
+            amount: 30,
+            currency: "SGD",
+            payer: "G",
+            note: "Added on top of the car rental package.",
+            split: "equal"
+          },
+          {
+            id: "d14-lunch",
+            label: "Lunch near Sydney Opera House",
+            amount: 135.8,
+            currency: "AUD",
+            payer: "G",
+            note: "Shared lunch before starting the Opera House visit.",
+            split: "equal"
+          },
+          {
+            id: "d14-parking",
+            label: "Wilson Parking near Opera House",
+            amount: 42.7,
+            currency: "SGD",
+            payer: "Z",
+            note: "Opera House area parking.",
+            split: "equal"
+          },
+          {
+            id: "d14-coles",
+            label: "Coles, Rose Bay",
+            amount: 51.71,
+            currency: "SGD",
+            payer: "Z",
+            note: "Drinks, fruit, and evening supplies.",
+            split: "equal"
+          },
+          {
+            id: "d14-hotel",
+            label: "The Lakes Hotel",
+            amount: 297,
+            currency: "AUD",
+            payer: "G",
+            note: "Recorded as `AUD 148.5 x 2`.",
+            split: "equal"
+          }
+        ],
+        unresolved: []
+      },
+      {
+        date: "15 Mar 2026",
+        title: "Anna Bay, camel ride, sandboarding, then Hunter Valley",
+        route: "The Entrance -> convenience store breakfast -> Anna Bay -> Nabbys lighthouse -> Hunter Valley",
+        highlights: [
+          "Started early and handled breakfast at a convenience store before heading to Anna Bay.",
+          "Did two major Anna Bay activities: camel riding and sandboarding.",
+          "Received a parking fine, visited Nabbys lighthouse, had dinner at Oh My Papa, admired the Milky Way again, then continued on to Hunter Valley."
+        ],
+        expenses: [
+          {
+            id: "d15-breakfast",
+            label: "Convenience store breakfast",
+            amount: 19.67,
+            currency: "SGD",
+            payer: "Z",
+            note: "Sausage and chicken cutlet breakfast.",
+            split: "equal"
+          },
+          {
+            id: "d15-camel",
+            label: "Camel ride",
+            amount: 80.43,
+            currency: "SGD",
+            payer: "Z",
+            note: "Currency was not explicitly written in the source note; assumed SGD.",
+            split: "equal",
+            tags: ["Assumed SGD"]
+          },
+          {
+            id: "d15-sand",
+            label: "Sandboarding",
+            amount: 115,
+            currency: "AUD",
+            payer: "G",
+            note: "Anna Bay activity.",
+            split: "equal"
+          },
+          {
+            id: "d15-fine",
+            label: "Parking fine",
+            amount: 330,
+            currency: "AUD",
+            payer: "Z",
+            note: "Fine received at Anna Bay.",
+            split: "fullyZ"
+          },
+          {
+            id: "d15-dinner",
+            label: "Dinner at Oh My Papa",
+            amount: 122.23,
+            currency: "SGD",
+            payer: "Z",
+            note: "Dinner before leaving for Hunter Valley.",
+            split: "equal"
+          },
+          {
+            id: "d15-hotel",
+            label: "Hunter Valley hotel",
+            amount: 225.57,
+            currency: "SGD",
+            payer: "Z",
+            note: "Recorded as `H@Banquet` in the original note.",
+            split: "equal"
+          }
+        ],
+        unresolved: []
+      },
+      {
+        date: "16 Mar 2026",
+        title: "Balloon ride and drive to South West Rocks",
+        route: "Hunter Valley -> Peter House balloon activity -> South West Rocks",
+        highlights: [
+          "Left very early for the balloon ride and saw kangaroos from the air.",
+          "After breakfast, drove out of Hunter Valley toward South West Rocks.",
+          "Picked up groceries and toiletries after arrival, then cooked dinner at the hotel."
+        ],
+        expenses: [
+          {
+            id: "d16-balloon",
+            label: "Hot air balloon activity",
+            amount: 814.9,
+            currency: "SGD",
+            payer: "Z",
+            note: "Peter House balloon activity booked in advance.",
+            split: "equal"
+          },
+          {
+            id: "d16-fuel",
+            label: "Fuel stop en route",
+            amount: 50,
+            currency: "AUD",
+            payer: "G",
+            note: "Fuel during the drive to South West Rocks.",
+            split: "equal"
+          },
+          {
+            id: "d16-hotel",
+            label: "Ingenia Holiday South West Rocks",
+            amount: 253,
+            currency: "AUD",
+            payer: "G",
+            note: "Hotel arrival at South West Rocks.",
+            split: "equal"
+          },
+          {
+            id: "d16-coles",
+            label: "Coles groceries",
+            amount: 102.67,
+            currency: "AUD",
+            payer: "G",
+            note: "Steak, lamb chops, and vegetables.",
+            split: "equal"
+          },
+          {
+            id: "d16-toiletries",
+            label: "Toothpaste and toothbrush",
+            amount: 13.11,
+            currency: "SGD",
+            payer: "Z",
+            note: "Toiletries bought after checking in.",
+            split: "fullyZ"
+          },
+          {
+            id: "d16-dinner",
+            label: "Self-cooked dinner ingredients / cooking cost",
+            amount: 20.3,
+            currency: "SGD",
+            payer: "Z",
+            note: "Recorded as the dinner expense after cooking at the hotel.",
+            split: "equal"
+          }
+        ],
+        unresolved: [
+          "A `Transport for NSW` charge was mentioned, but no amount was included in the trip note."
+        ]
+      },
+      {
+        date: "17 Mar 2026",
+        title: "Trial Bay Gaol Beach to Gold Coast",
+        route: "South West Rocks -> Trial Bay Gaol Beach -> Gold Coast",
+        highlights: [
+          "Visited Trial Bay Gaol Beach, got close to kangaroos, and even did a jigsaw puzzle with a local elderly man.",
+          "After lunch, drove north to the Gold Coast with another fuel stop along the way.",
+          "Had dinner at Urban Fish Market and checked into Hi Ho Beach Apartment."
+        ],
+        expenses: [
+          {
+            id: "d17-lunch-z",
+            label: "Lunch, roast pork knuckle part",
+            amount: 63.52,
+            currency: "SGD",
+            payer: "Z",
+            note: "Lunch after leaving Trial Bay Gaol Beach.",
+            split: "equal"
+          },
+          {
+            id: "d17-lunch-g",
+            label: "Lunch, additional part",
+            amount: 28,
+            currency: "AUD",
+            payer: "G",
+            note: "Same lunch stop, recorded separately.",
+            split: "equal"
+          },
+          {
+            id: "d17-fuel",
+            label: "Fuel on the road to Gold Coast",
+            amount: 108.32,
+            currency: "AUD",
+            payer: "G",
+            note: "Fuel during the long drive north.",
+            split: "equal"
+          },
+          {
+            id: "d17-dinner-1",
+            label: "Urban Fish Market dinner part 1",
+            amount: 13,
+            currency: "AUD",
+            payer: "G",
+            note: "Dinner split into two recorded transactions.",
+            split: "equal"
+          },
+          {
+            id: "d17-dinner-2",
+            label: "Urban Fish Market dinner part 2",
+            amount: 78,
+            currency: "AUD",
+            payer: "G",
+            note: "Dinner split into two recorded transactions.",
+            split: "equal"
+          },
+          {
+            id: "d17-hotel",
+            label: "Hi Ho Beach Apartment",
+            amount: 197.52,
+            currency: "SGD",
+            payer: "Z",
+            note: "Gold Coast stay.",
+            split: "equal"
+          },
+          {
+            id: "d17-unknown-charge",
+            label: "Akshaya Om Pty LTD",
+            amount: 8.85,
+            currency: "SGD",
+            payer: "Z",
+            note: "Merchant was not recognized in the source note.",
+            split: "fullyZ",
+            tags: ["Unknown merchant"]
+          }
+        ],
+        unresolved: []
+      },
+      {
+        date: "18 Mar 2026",
+        title: "Heavy activity day, then Brisbane",
+        route: "Gold Coast -> surfing -> kayak & snorkelling -> go karting -> Brisbane",
+        highlights: [
+          "A very activity-heavy day with surfing, kayak and snorkelling, and go karting.",
+          "Paid several small supporting costs including parking, water, chips, and fuel.",
+          "Finished the day with Vietnamese dinner and an overnight stay in Brisbane."
+        ],
+        expenses: [
+          {
+            id: "d18-breakfast",
+            label: "Breakfast toasts",
+            amount: 15.88,
+            currency: "SGD",
+            payer: "Z",
+            note: "Breakfast before the activity schedule started.",
+            split: "equal"
+          },
+          {
+            id: "d18-surfing",
+            label: "Surfing course",
+            amount: 78.77,
+            currency: "SGD",
+            payer: "Z",
+            note: "Morning activity.",
+            split: "equal"
+          },
+          {
+            id: "d18-parking",
+            label: "Parking fee",
+            amount: 11.1,
+            currency: "SGD",
+            payer: "Z",
+            note: "Parking during the activity day.",
+            split: "equal"
+          },
+          {
+            id: "d18-water",
+            label: "Water",
+            amount: 5.54,
+            currency: "SGD",
+            payer: "Z",
+            note: "Small support purchase during the day.",
+            split: "equal"
+          },
+          {
+            id: "d18-kayak",
+            label: "Kayak and snorkelling",
+            amount: 158.65,
+            currency: "SGD",
+            payer: "Z",
+            note: "Second major activity of the day.",
+            split: "equal"
+          },
+          {
+            id: "d18-lunch",
+            label: "Lunch burgers",
+            amount: 23.27,
+            currency: "SGD",
+            payer: "Z",
+            note: "Lunch between activities.",
+            split: "equal"
+          },
+          {
+            id: "d18-kart",
+            label: "Go karting",
+            amount: 115.84,
+            currency: "SGD",
+            payer: "Z",
+            note: "Third main activity of the day.",
+            split: "equal"
+          },
+          {
+            id: "d18-helmet",
+            label: "Go karting helmet",
+            amount: 7.5,
+            currency: "SGD",
+            payer: "Z",
+            note: "Additional helmet fee.",
+            split: "equal"
+          },
+          {
+            id: "d18-fuel",
+            label: "Fuel before Brisbane",
+            amount: 72.28,
+            currency: "SGD",
+            payer: "Z",
+            note: "Fuel stop later in the day.",
+            split: "equal"
+          },
+          {
+            id: "d18-chips",
+            label: "Chips",
+            amount: 7.4,
+            currency: "SGD",
+            payer: "Z",
+            note: "Small snack purchase.",
+            split: "equal"
+          },
+          {
+            id: "d18-dinner",
+            label: "Vietnamese dinner",
+            amount: 73.26,
+            currency: "AUD",
+            payer: "G",
+            note: "Dinner in Brisbane.",
+            split: "equal"
+          },
+          {
+            id: "d18-hotel",
+            label: "Evolution Apartment",
+            amount: 234.41,
+            currency: "AUD",
+            payer: "G",
+            note: "Brisbane hotel stay.",
+            split: "equal"
+          },
+          {
+            id: "d18-hotel-parking",
+            label: "Evolution Apartment parking",
+            amount: 40,
+            currency: "AUD",
+            payer: "G",
+            note: "Hotel parking charge.",
+            split: "equal"
+          }
+        ],
+        unresolved: []
+      },
+      {
+        date: "19 Mar 2026",
+        title: "Wildlife kayak and long drive south",
+        route: "Brisbane -> wildlife kayak -> southbound drive -> Armidale",
+        highlights: [
+          "Tried the wildlife kayak activity but unfortunately did not see dolphins.",
+          "Bought drinks and biscuits, picked up GZY, then drove south through very scenic country that felt Swiss-like.",
+          "Saw many cows and horses on the road and eventually stayed overnight in Armidale."
+        ],
+        expenses: [
+          {
+            id: "d19-kayak",
+            label: "Wildlife kayak",
+            amount: 91.62,
+            currency: "SGD",
+            payer: "Z",
+            note: "Activity day even though no dolphins appeared.",
+            split: "equal"
+          },
+          {
+            id: "d19-drinks",
+            label: "Drinks and biscuits",
+            amount: 14.55,
+            currency: "SGD",
+            payer: "Z",
+            note: "Snacks after the activity.",
+            split: "equal"
+          },
+          {
+            id: "d19-meal",
+            label: "2M8 BBQ meal",
+            amount: 48.72,
+            currency: "AUD",
+            payer: "G",
+            note: "Meal stop on the southbound drive.",
+            split: "equal"
+          },
+          {
+            id: "d19-fuel",
+            label: "Fuel on the southbound drive",
+            amount: 86.43,
+            currency: "AUD",
+            payer: "G",
+            note: "Fuel stop while heading south.",
+            split: "equal"
+          },
+          {
+            id: "d19-dinner",
+            label: "Pizza Hut dinner",
+            amount: 34.71,
+            currency: "AUD",
+            payer: "G",
+            note: "Dinner after reaching Armidale.",
+            split: "equal"
+          },
+          {
+            id: "d19-hotel",
+            label: "Armidale Inn",
+            amount: 236.01,
+            currency: "AUD",
+            payer: "G",
+            note: "Overnight stay in Armidale.",
+            split: "equal"
+          }
+        ],
+        unresolved: []
+      },
+      {
+        date: "20 Mar 2026",
+        title: "Port Macquarie and koala hospital",
+        route: "Armidale -> Port Macquarie",
+        highlights: [
+          "Drove to Port Macquarie and visited the koala hospital.",
+          "Saw four koalas there and kept the evening relatively simple with Thai dinner and a motel stay."
+        ],
+        expenses: [
+          {
+            id: "d20-dinner",
+            label: "Thai dinner",
+            amount: 65,
+            currency: "AUD",
+            payer: "G",
+            note: "Dinner in Port Macquarie.",
+            split: "equal"
+          },
+          {
+            id: "d20-hotel",
+            label: "Haven Waters Motel and Apartment",
+            amount: 290.16,
+            currency: "SGD",
+            payer: "Z",
+            note: "Port Macquarie stay.",
+            split: "equal"
+          }
+        ],
+        unresolved: []
+      },
+      {
+        date: "21 Mar 2026",
+        title: "Drive back to Sydney through national parks",
+        route: "Port Macquarie -> national parks -> Sydney",
+        highlights: [
+          "Drove back toward Sydney and stopped at two national parks to look for koalas.",
+          "The smaller companion got bitten by leeches at the second national park.",
+          "Later bought medicine at Chemist Warehouse and treated the wound, then treated Fa Ge to dinner."
+        ],
+        expenses: [
+          {
+            id: "d21-fuel",
+            label: "Fuel on the return drive",
+            amount: 50,
+            currency: "AUD",
+            payer: "G",
+            note: "Fuel during the final return leg.",
+            split: "equal"
+          },
+          {
+            id: "d21-lunch",
+            label: "Lunch on the return drive",
+            amount: 51.5,
+            currency: "SGD",
+            payer: "Z",
+            note: "Lunch before reaching the second national park.",
+            split: "equal"
+          }
+        ],
+        unresolved: [
+          "A Chemist Warehouse medicine purchase was mentioned for treating the wound, but no amount was recorded.",
+          "Dinner for Fa Ge was mentioned, but no amount was recorded."
+        ]
+      }
+    ];
 
     function unlockPage() {
       sessionStorage.setItem(ACCESS_KEY, "true");
@@ -234,7 +1435,6 @@
 
     gateForm.addEventListener("submit", function (event) {
       event.preventDefault();
-
       if (ALLOWED_NAMES.includes(passcodeInput.value.trim().toUpperCase())) {
         gateMessage.textContent = "";
         unlockPage();
@@ -246,6 +1446,358 @@
     });
 
     lockButton.addEventListener("click", lockPage);
+
+    const state = readLedgerState();
+    render();
+
+    resetButton.addEventListener("click", function () {
+      localStorage.removeItem(LEDGER_KEY);
+      Object.keys(state.items).forEach(function (key) {
+        delete state.items[key];
+      });
+      render();
+    });
+
+    function readLedgerState() {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(LEDGER_KEY) || "{}");
+        return parsed && parsed.items ? parsed : { items: {} };
+      } catch (error) {
+        return { items: {} };
+      }
+    }
+
+    function saveLedgerState() {
+      localStorage.setItem(LEDGER_KEY, JSON.stringify(state));
+    }
+
+    function formatMoney(currency, amount) {
+      return currency + " " + Number(amount).toFixed(2);
+    }
+
+    function amountClass(currency) {
+      return currency === "AUD" ? "amount-aud" : "amount-sgd";
+    }
+
+    function payerClass(payer) {
+      if (payer === "Z") return "payer-z";
+      if (payer === "G") return "payer-g";
+      return "payer-tbd";
+    }
+
+    function computeShares(amount, splitKey) {
+      if (splitKey === "fullyZ") {
+        return { Z: amount, G: 0 };
+      }
+      if (splitKey === "fullyG") {
+        return { Z: 0, G: amount };
+      }
+      if (splitKey === "zTwoThirds") {
+        return { Z: amount * 2 / 3, G: amount / 3 };
+      }
+      if (splitKey === "z15") {
+        if (amount <= 15) {
+          return { Z: amount, G: 0 };
+        }
+        const zShare = ((amount - 15) / 2) + 15;
+        return { Z: zShare, G: amount - zShare };
+      }
+      return { Z: amount / 2, G: amount / 2 };
+    }
+
+    function getItemState(item) {
+      return state.items[item.id] || {};
+    }
+
+    function getItemPayer(item) {
+      const saved = getItemState(item).payer;
+      return saved || item.payer || "TBD";
+    }
+
+    function getItemSplit(item) {
+      return getItemState(item).split || item.split || "equal";
+    }
+
+    function flattenExpenses() {
+      return days.flatMap(function (day) {
+        return day.expenses.map(function (expense) {
+          return Object.assign({ date: day.date, dayTitle: day.title }, expense);
+        });
+      });
+    }
+
+    function collectUnresolvedNotes() {
+      return days.flatMap(function (day) {
+        return day.unresolved.map(function (note) {
+          return {
+            date: day.date,
+            text: note
+          };
+        });
+      });
+    }
+
+    function computeSummary() {
+      const expenses = flattenExpenses();
+      const totals = {
+        AUD: 0,
+        SGD: 0
+      };
+      let unresolvedPayerCount = 0;
+
+      expenses.forEach(function (item) {
+        totals[item.currency] += item.amount;
+        if (getItemPayer(item) === "TBD") {
+          unresolvedPayerCount += 1;
+        }
+      });
+
+      return {
+        totalExpenses: expenses.length,
+        totalAUD: totals.AUD,
+        totalSGD: totals.SGD,
+        unresolvedPayerCount: unresolvedPayerCount,
+        unresolvedNoteCount: collectUnresolvedNotes().length
+      };
+    }
+
+    function computeSettlement() {
+      const expenses = flattenExpenses();
+      const buckets = {
+        AUD: {
+          paid: { Z: 0, G: 0 },
+          share: { Z: 0, G: 0 },
+          unresolved: 0
+        },
+        SGD: {
+          paid: { Z: 0, G: 0 },
+          share: { Z: 0, G: 0 },
+          unresolved: 0
+        }
+      };
+
+      expenses.forEach(function (item) {
+        const payer = getItemPayer(item);
+        const split = getItemSplit(item);
+        const shares = computeShares(item.amount, split);
+        const bucket = buckets[item.currency];
+
+        bucket.share.Z += shares.Z;
+        bucket.share.G += shares.G;
+
+        if (payer === "Z" || payer === "G") {
+          bucket.paid[payer] += item.amount;
+        } else {
+          bucket.unresolved += 1;
+        }
+      });
+
+      return buckets;
+    }
+
+    function renderSummary() {
+      const summary = computeSummary();
+      summaryGrid.innerHTML = [
+        summaryCardMarkup("Recorded fees", String(summary.totalExpenses), "Each fee row can keep its own split rule."),
+        summaryCardMarkup("AUD total", formatMoney("AUD", summary.totalAUD), "No exchange rate applied."),
+        summaryCardMarkup("SGD total", formatMoney("SGD", summary.totalSGD), "No exchange rate applied."),
+        summaryCardMarkup("Needs follow-up", String(summary.unresolvedPayerCount + summary.unresolvedNoteCount), "Unknown payers and notes without complete amounts.")
+      ].join("");
+    }
+
+    function summaryCardMarkup(title, value, note) {
+      return [
+        '<div class="summary-card">',
+        "<strong>" + escapeHtml(value) + "</strong>",
+        "<span><strong style=\"font-size:1rem;color:var(--accent-deep);display:block;margin-bottom:4px;\">" + escapeHtml(title) + "</strong>" + escapeHtml(note) + "</span>",
+        "</div>"
+      ].join("");
+    }
+
+    function renderSettlement() {
+      const settlement = computeSettlement();
+      settlementCard.innerHTML = ["AUD", "SGD"].map(function (currency) {
+        const bucket = settlement[currency];
+        const netZ = bucket.paid.Z - bucket.share.Z;
+        const netG = bucket.paid.G - bucket.share.G;
+        let note = "Already balanced.";
+
+        if (bucket.unresolved > 0) {
+          note = bucket.unresolved + " fee(s) still have `TBD` payer, so this settlement is provisional.";
+        } else if (netZ > 0.009) {
+          note = "G should pay Z " + formatMoney(currency, netZ) + ".";
+        } else if (netG > 0.009) {
+          note = "Z should pay G " + formatMoney(currency, netG) + ".";
+        }
+
+        return [
+          '<div class="settlement-currency">',
+          '<div class="currency-top">',
+          '<span class="currency-badge ' + (currency === "AUD" ? "currency-aud" : "currency-sgd") + '">' + currency + "</span>",
+          "<strong>" + escapeHtml(note) + "</strong>",
+          "</div>",
+          '<div class="settlement-grid">',
+          settlementCellMarkup("Z paid", formatMoney(currency, bucket.paid.Z), "Actual payer record"),
+          settlementCellMarkup("Z share", formatMoney(currency, bucket.share.Z), "After split rules"),
+          settlementCellMarkup("Z net", formatMoney(currency, netZ), netZ >= 0 ? "Z should receive this amount" : "Z should pay this amount"),
+          settlementCellMarkup("G paid", formatMoney(currency, bucket.paid.G), "Actual payer record"),
+          settlementCellMarkup("G share", formatMoney(currency, bucket.share.G), "After split rules"),
+          settlementCellMarkup("G net", formatMoney(currency, netG), netG >= 0 ? "G should receive this amount" : "G should pay this amount"),
+          "</div>",
+          '<div class="settlement-note">Positive net means that person paid more than their assigned share. Negative net means that person still owes money in that currency.</div>',
+          "</div>"
+        ].join("");
+      }).join("");
+    }
+
+    function settlementCellMarkup(title, value, note) {
+      return [
+        '<div class="settlement-cell">',
+        "<strong>" + escapeHtml(value) + "</strong>",
+        "<span><strong style=\"font-size:0.96rem;color:var(--accent-deep);display:block;margin-bottom:4px;\">" + escapeHtml(title) + "</strong>" + escapeHtml(note) + "</span>",
+        "</div>"
+      ].join("");
+    }
+
+    function renderUnresolved() {
+      const notes = collectUnresolvedNotes();
+      unresolvedList.innerHTML = notes.length
+        ? notes.map(function (note) {
+            return [
+              '<div class="note-item">',
+              "<strong>" + escapeHtml(note.date) + "</strong>",
+              escapeHtml(note.text),
+              "</div>"
+            ].join("");
+          }).join("")
+        : '<div class="note-item"><strong>Everything captured</strong>No unresolved notes remain.</div>';
+    }
+
+    function renderDays() {
+      dayList.innerHTML = days.map(function (day) {
+        return renderDayCard(day);
+      }).join("");
+
+      dayList.querySelectorAll("[data-role='split-select']").forEach(function (select) {
+        select.addEventListener("change", function () {
+          const id = select.dataset.id;
+          state.items[id] = state.items[id] || {};
+          state.items[id].split = select.value;
+          saveLedgerState();
+          render();
+        });
+      });
+
+      dayList.querySelectorAll("[data-role='payer-select']").forEach(function (select) {
+        select.addEventListener("change", function () {
+          const id = select.dataset.id;
+          state.items[id] = state.items[id] || {};
+          state.items[id].payer = select.value;
+          saveLedgerState();
+          render();
+        });
+      });
+    }
+
+    function renderDayCard(day) {
+      return [
+        '<article class="day-card">',
+        '<div class="day-head">',
+        "<div><span class=\"date-chip\">" + escapeHtml(day.date) + "</span><h3 style=\"margin-top:12px;font-size:1.45rem;\">" + escapeHtml(day.title) + "</h3><p class=\"day-route\">" + escapeHtml(day.route) + "</p></div>",
+        "</div>",
+        '<div class="highlights">' + day.highlights.map(function (highlight) {
+          return '<div class="highlight">' + escapeHtml(highlight) + "</div>";
+        }).join("") + "</div>",
+        '<div class="expense-table">' + day.expenses.map(function (expense) {
+          return renderExpenseRow(expense);
+        }).join("") + "</div>",
+        "</article>"
+      ].join("");
+    }
+
+    function renderExpenseRow(expense) {
+      const payer = getItemPayer(expense);
+      const split = getItemSplit(expense);
+      const shares = computeShares(expense.amount, split);
+      const tags = (expense.tags || []).map(function (tag) {
+        const cls = tag.includes("Assumed") ? "tag-assumption" : "tag-warning";
+        return '<span class="tag ' + cls + '">' + escapeHtml(tag) + "</span>";
+      }).join("");
+
+      return [
+        '<div class="expense-row">',
+        '<div>',
+        '<div class="expense-title">' + escapeHtml(expense.label) + "</div>",
+        '<div class="expense-note">' + escapeHtml(expense.note || "") + "</div>",
+        (tags ? '<div class="expense-tags">' + tags + "</div>" : ""),
+        "</div>",
+        '<div class="field-stack">',
+        '<span class="field-label">Amount</span>',
+        '<span class="amount-chip ' + amountClass(expense.currency) + '">' + escapeHtml(formatMoney(expense.currency, expense.amount)) + "</span>",
+        "</div>",
+        '<div class="field-stack">',
+        '<span class="field-label">Paid by</span>',
+        expense.payer === "TBD"
+          ? payerSelectMarkup(expense.id, payer)
+          : '<span class="payer-badge ' + payerClass(payer) + '">' + escapeHtml(payer) + "</span>",
+        "</div>",
+        '<div class="field-stack">',
+        '<label class="field-label" for="split-' + escapeHtml(expense.id) + '">Split rule</label>',
+        splitSelectMarkup(expense.id, split),
+        "</div>",
+        '<div class="share-result">',
+        '<span class="field-label">Assigned share</span>',
+        '<div class="share-pill"><span>Z</span><strong>' + escapeHtml(formatMoney(expense.currency, shares.Z)) + "</strong></div>",
+        '<div class="share-pill"><span>G</span><strong>' + escapeHtml(formatMoney(expense.currency, shares.G)) + "</strong></div>",
+        "</div>",
+        "</div>"
+      ].join("");
+    }
+
+    function splitSelectMarkup(id, selected) {
+      const options = [
+        { value: "equal", label: "Equal split" },
+        { value: "z15", label: "Z gets +15" },
+        { value: "fullyZ", label: "Fully Z" },
+        { value: "fullyG", label: "Fully G" },
+        { value: "zTwoThirds", label: "2/3 Z" }
+      ];
+
+      return [
+        '<select id="split-' + escapeHtml(id) + '" data-role="split-select" data-id="' + escapeHtml(id) + '">',
+        options.map(function (option) {
+          return '<option value="' + option.value + '"' + (option.value === selected ? " selected" : "") + ">" + option.label + "</option>";
+        }).join(""),
+        "</select>"
+      ].join("");
+    }
+
+    function payerSelectMarkup(id, selected) {
+      const options = ["TBD", "Z", "G"];
+      return [
+        '<select data-role="payer-select" data-id="' + escapeHtml(id) + '">',
+        options.map(function (option) {
+          return '<option value="' + option + '"' + (option === selected ? " selected" : "") + ">" + option + "</option>";
+        }).join(""),
+        "</select>"
+      ].join("");
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function render() {
+      renderSummary();
+      renderSettlement();
+      renderUnresolved();
+      renderDays();
+    }
   </script>
 </body>
 </html>
