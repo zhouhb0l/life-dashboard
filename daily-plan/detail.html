@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Plan Detail</title>
+  <style>
+    :root {
+      --bg: #f7f8f4;
+      --surface: #ffffff;
+      --surface-2: #f0f4f1;
+      --ink: #18211f;
+      --muted: #68736f;
+      --line: #d9e0dc;
+      --green: #2f7d5c;
+      --blue: #336fa6;
+      --shadow: 0 16px 42px rgba(29, 45, 39, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Aptos", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 20px 0 42px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .topbar,
+    .panel {
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .topbar {
+      background: #1f2b28;
+      color: #f9fbf8;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .topbar h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #f9fbf8;
+      font-weight: 800;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 16px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .detail-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .hint,
+    .summary {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .summary {
+      color: #34413d;
+    }
+
+    .percent {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--green);
+      white-space: nowrap;
+    }
+
+    .bar {
+      height: 12px;
+      border-radius: 999px;
+      background: #dfe7e2;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      width: var(--value);
+      background: linear-gradient(90deg, var(--green), var(--blue));
+    }
+
+    .info-grid,
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .columns {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .info,
+    .block {
+      border: 1px solid var(--line);
+      background: #fbfcfa;
+      border-radius: 8px;
+      padding: 12px;
+      min-width: 0;
+    }
+
+    .info {
+      display: grid;
+      gap: 5px;
+    }
+
+    .info span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .info strong {
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .block h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    li {
+      color: #34413d;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .timeline li {
+      border-left: 3px solid rgba(47, 125, 92, 0.35);
+      padding-left: 10px;
+    }
+
+    .project-link {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .title-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .category-label {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 11px;
+      font-weight: 900;
+      line-height: 1;
+      background: var(--surface-2);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .category-label.research { background: rgba(51, 111, 166, 0.12); color: var(--blue); }
+    .category-label.life { background: rgba(189, 118, 48, 0.13); color: #bd7630; }
+
+    .empty {
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      background: #fbfcfa;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 800px) {
+      .info-grid,
+      .columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <h1 id="pageTitle">Daily Plan Detail</h1>
+      <a class="back" href="index.html">Back To Index</a>
+    </header>
+    <section class="panel" id="detail"></section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="db.js"></script>
+  <script>
+    const STORAGE_KEY = "daily-plan.journal-projects.local.v1";
+    const DEFAULT_DATA = window.DAILY_PLAN_DEFAULT_DATA || {
+      days: [
+        {
+          id: "day-2026-04-21",
+          date: "2026-04-21",
+          summary: "Organized the main research/admin tasks and clarified the next working board.",
+          plans: [
+            "Revise the nonlocal SBH paper and prepare the cover letter.",
+            "Review the Physica Scripta and Nature Communications papers.",
+            "Move NEGF method writing and code debugging into visible project progress."
+          ],
+          done: [
+            "Collected the major active tasks into one daily planning space.",
+            "Separated research work, admin items, and personal pages."
+          ],
+          thoughts: "The useful format is daily: each day needs its own page-like record, while projects need their own progress history."
+        },
+        {
+          id: "day-2026-04-22",
+          date: "2026-04-22",
+          summary: "Prepared the structure for tracking project percentages and day-by-day progress.",
+          plans: [
+            "Turn each project into a progress timeline.",
+            "Keep the daily record short on the index but detailed when opened."
+          ],
+          done: [
+            "Decided to keep files local and use the browser for saving updates."
+          ],
+          thoughts: "Short summaries make the weekly view easy to scan; details should be one click away."
+        }
+      ],
+      projects: [
+        { id: "nonlocal-sbh", name: "Nonlocal SBH paper revision", startDate: "2026-04-21", finishDate: "", progress: 20, log: [{ date: "2026-04-21", percent: 10, note: "Listed the remaining revision and cover-letter work." }, { date: "2026-04-22", percent: 20, note: "Separated paper revision from cover-letter preparation." }] },
+        { id: "paper-reviews", name: "Paper reviews: Physica Scripta and Nature Communications", startDate: "2026-04-21", finishDate: "", progress: 15, log: [{ date: "2026-04-21", percent: 15, note: "Identified both reviews and the likely order of work." }] },
+        { id: "negf-phonon", name: "NEGF plus phonon-phonon interaction for material use", startDate: "2026-04-21", finishDate: "", progress: 10, log: [{ date: "2026-04-21", percent: 10, note: "Defined this as a longer technical development project." }] },
+        { id: "negf-book", name: "NEGF method book chapters", startDate: "2026-04-21", finishDate: "", progress: 8, log: [{ date: "2026-04-21", percent: 8, note: "Marked NEGF + DFT and Joule heating as the key chapter topics." }] },
+        { id: "recessed-contact", name: "Recessed contact project", startDate: "2026-04-21", finishDate: "", progress: 65, log: [{ date: "2026-04-21", percent: 65, note: "Data organization and publication preparation remain the major blocks." }] },
+        { id: "high-order-qme", name: "High-order QME code debugging", startDate: "2026-04-21", finishDate: "", progress: 25, log: [{ date: "2026-04-21", percent: 25, note: "Kept debugging as an active technical project." }] },
+        { id: "one-d-chain", name: "1D chain opportunity with Ruihuan", startDate: "2026-04-21", finishDate: "", progress: 5, log: [{ date: "2026-04-21", percent: 5, note: "Project opportunity identified; needs discussion and scope." }] },
+        { id: "t-crp", name: "T-CRP project form", startDate: "2026-04-21", finishDate: "", progress: 30, log: [{ date: "2026-04-21", percent: 30, note: "Form completion identified as the immediate admin target." }] },
+        { id: "workstation", name: "Set up workstation", startDate: "2026-04-21", finishDate: "", progress: 20, log: [{ date: "2026-04-21", percent: 20, note: "Workstation setup recorded as a practical infrastructure task." }] },
+        { id: "australia-expense", name: "Australia expense", startDate: "2026-04-21", finishDate: "", progress: 80, log: [{ date: "2026-04-21", percent: 80, note: "Expense work is close to complete, pending final check." }] },
+        { id: "tingxie", name: "Tingxie page for Noel", startDate: "2026-04-21", finishDate: "", progress: 85, log: [{ date: "2026-04-21", percent: 85, note: "Page is usable; improvements can follow Noel's actual use." }] }
+      ]
+    };
+
+    let state = structuredClone(DEFAULT_DATA);
+    const detail = document.getElementById("detail");
+    const pageTitle = document.getElementById("pageTitle");
+
+    async function initialize() {
+      state = await loadState();
+      const route = readRoute();
+
+      if (route.type === "project") {
+        renderProject(route.id);
+      } else {
+        renderDay(route.id);
+      }
+    }
+
+    async function loadState() {
+      return DailyPlanDB.load(DEFAULT_DATA);
+    }
+
+    function readRoute() {
+      const raw = decodeURIComponent(location.hash.replace(/^#/, ""));
+      const [type, id] = raw.split(":");
+      return { type, id };
+    }
+
+    function renderProject(id) {
+      const project = state.projects.find((item) => item.id === id);
+      if (!project) {
+        pageTitle.textContent = "Project Not Found";
+        detail.innerHTML = '<div class="empty">This project was not found. Return to the index and open it again.</div>';
+        return;
+      }
+
+      document.title = `${project.name} - Daily Plan`;
+      pageTitle.textContent = "Project Progress";
+      detail.innerHTML = `
+        <div class="detail-top">
+          <div>
+            <div class="title-line">
+              <h2>${escapeHtml(project.name)}</h2>
+              ${categoryLabelHtml(project)}
+            </div>
+            <p class="hint">Project progress history by date.</p>
+          </div>
+          <div class="percent">${project.progress}%</div>
+        </div>
+        <div class="bar" style="--value:${project.progress}%"><span></span></div>
+        <div class="info-grid">
+          <div class="info"><span>Start Date</span><strong>${formatDate(project.startDate)}</strong></div>
+          <div class="info"><span>Current Progress</span><strong>${project.progress}%</strong></div>
+          <div class="info"><span>Records</span><strong>${project.log.length}</strong></div>
+          <div class="info"><span>Finished Date</span><strong>${project.finishDate ? formatDate(project.finishDate) : "Not finished"}</strong></div>
+        </div>
+        <div class="block">
+          <h3>Progress Data</h3>
+          <ul class="timeline">
+            ${project.log.slice().sort((a, b) => b.date.localeCompare(a.date)).map((item) => `
+              <li><strong>${formatDate(item.date)}</strong> - ${item.percent}%<br>${escapeHtml(item.note)}</li>
+            `).join("")}
+          </ul>
+        </div>
+      `;
+    }
+
+    function renderDay(id) {
+      const day = state.days.find((item) => item.id === id);
+      if (!day) {
+        pageTitle.textContent = "Day Not Found";
+        detail.innerHTML = '<div class="empty">This day was not found. Return to the index and open it again.</div>';
+        return;
+      }
+
+      const dayLogs = state.projects
+        .flatMap((project) => project.log
+          .filter((entry) => entry.date === day.date)
+          .map((entry) => ({ project: project.name, projectId: project.id, ...entry })));
+
+      document.title = `${formatDate(day.date)} - Daily Plan`;
+      pageTitle.textContent = "Daily Detail";
+      detail.innerHTML = `
+        <div class="detail-top">
+          <div>
+            <h2>${formatDate(day.date, { weekday: "long", month: "long", day: "2-digit", year: "numeric" })}</h2>
+            <p class="hint">${escapeHtml(day.summary || "Daily entry")}</p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="block">
+            <h3>Detailed Plans</h3>
+            ${listHtml(day.plans)}
+          </div>
+          <div class="block">
+            <h3>What I Did</h3>
+            ${listHtml(day.done)}
+          </div>
+          <div class="block">
+            <h3>Thoughts</h3>
+            <p class="summary">${escapeHtml(day.thoughts || "No thoughts written yet.")}</p>
+          </div>
+        </div>
+        <div class="block">
+          <h3>Project Progress On This Day</h3>
+          ${dayLogs.length ? `<ul class="timeline">${dayLogs.map((item) => `<li><a class="project-link" href="detail.html#project:${item.projectId}">${escapeHtml(item.project)}</a> - ${item.percent}%<br>${escapeHtml(item.note)}</li>`).join("")}</ul>` : '<p class="summary">No project progress has been recorded for this date.</p>'}
+        </div>
+      `;
+    }
+
+    function formatDate(dateString, options = { month: "short", day: "2-digit", year: "numeric" }) {
+      return new Intl.DateTimeFormat("en-GB", options).format(parseIso(dateString));
+    }
+
+    function parseIso(dateString) {
+      const [year, month, day] = dateString.split("-").map(Number);
+      return new Date(year, month - 1, day);
+    }
+
+    function listHtml(items) {
+      if (!items.length) return '<p class="summary">Nothing written yet.</p>';
+      return `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+    }
+
+    function categoryLabelHtml(project) {
+      const category = project.category || "Research";
+      return `<span class="category-label ${category.toLowerCase()}">${escapeHtml(category)}</span>`;
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    initialize();
+  </script>
+</body>
+</html>
