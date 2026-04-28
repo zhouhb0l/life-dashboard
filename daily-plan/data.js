@@ -1,5 +1,5 @@
 window.DAILY_PLAN_DEFAULT_DATA = {
-  dataVersion: 8,
+  dataVersion: 9,
   days: [
     {
       id: "day-2026-04-21",
@@ -103,7 +103,7 @@ window.DAILY_PLAN_DEFAULT_DATA = {
     {
       id: "day-2026-04-28",
       date: "2026-04-28",
-      summary: "Push the Nature Communications review toward completion and keep VASP monitoring tight.",
+      summary: "Completed the Nature Communications review; next keep VASP monitoring tight.",
       plans: [
         "Finalize the major comments for the Nature Communications review.",
         "Check whether the remaining VASP relaxations converged overnight.",
@@ -111,8 +111,10 @@ window.DAILY_PLAN_DEFAULT_DATA = {
         "Convert the first major batch of scanned OTE science notes into PDF notes.",
         "Write concrete suggested changes for the TaN manuscript draft and separate major from minor comments."
       ],
-      done: [],
-      thoughts: "Tuesday should be a completion day for the review, unless the Monday draft reveals a serious missing-reading gap."
+      done: [
+        "Completed the Nature Communications review."
+      ],
+      thoughts: "Big review loop closed. The next best use of the day is to keep compute status clean and move one smaller project forward without reopening too many fronts."
     },
     {
       id: "day-2026-04-29",
@@ -191,13 +193,14 @@ window.DAILY_PLAN_DEFAULT_DATA = {
       importance: "High",
       urgency: "High",
       startDate: "2026-04-21",
-      finishDate: "",
-      progress: 60,
+      finishDate: "2026-04-28",
+      progress: 100,
       log: [
         { date: "2026-04-21", percent: 15, note: "Identified both reviews and the likely order of work." },
         { date: "2026-04-24", percent: 50, note: "Physica Scripta review submitted. Nature Communications review has not been started yet; planned for this weekend." },
         { date: "2026-04-24", percent: 50, note: "Received evaluation for the Physica Scripta review report: 3/5." },
-        { date: "2026-04-27", percent: 60, note: "Read two articles on nature.com for the Nature Communications review, but the review process is not complete yet." }
+        { date: "2026-04-27", percent: 60, note: "Read two articles on nature.com for the Nature Communications review, but the review process is not complete yet." },
+        { date: "2026-04-28", percent: 100, note: "Completed the Nature Communications review. Both review tasks are now complete." }
       ]
     },
     {

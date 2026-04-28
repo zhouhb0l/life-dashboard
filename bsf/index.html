@@ -163,6 +163,29 @@
       transform: translateY(-1px);
     }
 
+    .input-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 48px;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .copy-revenue {
+      min-height: 50px;
+      border: 1px solid rgba(180, 81, 45, 0.24);
+      border-radius: 14px;
+      background: rgba(180, 81, 45, 0.1);
+      color: var(--primary-deep);
+      font-size: 20px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .copy-revenue:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(180, 81, 45, 0.14);
+    }
+
     .result-panel {
       margin-top: 16px;
       padding: 14px;
@@ -367,7 +390,10 @@
         <div class="form-grid">
           <label>
             营业额
-            <input id="grossRevenue" type="number" inputmode="decimal" min="0" step="0.01" value="8000">
+            <span class="input-row">
+              <input id="grossRevenue" type="number" inputmode="decimal" min="0" step="0.01" value="8000">
+              <button class="copy-revenue" type="button" data-copy-revenue-to="grossRevenue" title="等于当天营业额">=</button>
+            </span>
           </label>
           <label>
             原料成本
@@ -396,7 +422,10 @@
         <div class="form-grid two-col">
           <label>
             月营业额
-            <input id="profitRevenue" type="number" inputmode="decimal" min="0" step="0.01" value="250000">
+            <span class="input-row">
+              <input id="profitRevenue" type="number" inputmode="decimal" min="0" step="0.01" value="250000">
+              <button class="copy-revenue" type="button" data-copy-revenue-to="profitRevenue" title="等于当天营业额">=</button>
+            </span>
           </label>
           <label>
             人效
@@ -482,6 +511,23 @@
   </main>
 
   <script>
+    const STORAGE_KEY = "life-dashboard.bsf.main.v1";
+    const INPUT_IDS = [
+      "effRevenue",
+      "halfDayStaff",
+      "fullDayStaff",
+      "grossRevenue",
+      "grossCost",
+      "profitRevenue",
+      "profitEfficiency",
+      "profitMarginRate",
+      "avgSalary",
+      "restDays",
+      "daysInMonth",
+      "rent",
+      "electricity"
+    ];
+
     function getNumber(id) {
       const value = Number(document.getElementById(id).value);
       return Number.isFinite(value) ? value : 0;
@@ -500,6 +546,49 @@
 
     function setText(id, value) {
       document.getElementById(id).textContent = value;
+    }
+
+    function saveInputs() {
+      const payload = {};
+      INPUT_IDS.forEach((id) => {
+        const input = document.getElementById(id);
+        if (input) payload[id] = input.value;
+      });
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      } catch (error) {
+        // Keep the calculator usable even if browser storage is blocked.
+      }
+    }
+
+    function loadInputs() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const payload = JSON.parse(raw);
+        INPUT_IDS.forEach((id) => {
+          const input = document.getElementById(id);
+          if (input && Object.prototype.hasOwnProperty.call(payload, id)) {
+            input.value = payload[id];
+          }
+        });
+      } catch (error) {
+        // Ignore broken local cache and keep the built-in defaults.
+      }
+    }
+
+    function updateAll() {
+      updateEfficiency();
+      updateGrossMargin();
+      updateProfit();
+    }
+
+    function copyRevenue(targetId) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      target.value = document.getElementById("effRevenue").value;
+      saveInputs();
+      updateAll();
     }
 
     function updateEfficiency() {
@@ -618,17 +707,25 @@
     function bindInputs() {
       document.querySelectorAll("input").forEach((input) => {
         input.addEventListener("input", () => {
-          updateEfficiency();
-          updateGrossMargin();
-          updateProfit();
+          saveInputs();
+          updateAll();
+        });
+        input.addEventListener("change", () => {
+          saveInputs();
+          updateAll();
+        });
+      });
+
+      document.querySelectorAll("[data-copy-revenue-to]").forEach((button) => {
+        button.addEventListener("click", () => {
+          copyRevenue(button.dataset.copyRevenueTo);
         });
       });
     }
 
+    loadInputs();
     bindInputs();
-    updateEfficiency();
-    updateGrossMargin();
-    updateProfit();
+    updateAll();
     updateForecast();
   </script>
 </body>
