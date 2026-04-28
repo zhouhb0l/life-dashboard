@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science SPSO Lesson</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --surface: rgba(255, 255, 255, 0.92);
+      --paper: #ffffff;
+      --ink: #1d2730;
+      --muted: #5e6b76;
+      --accent: #177e75;
+      --accent-strong: #0f5d57;
+      --blue: #2d6f95;
+      --warm: #d26a3a;
+      --gold: #c4912f;
+      --violet: #6a5da8;
+      --line: rgba(29, 39, 48, 0.14);
+      --shadow: 0 16px 42px rgba(29, 39, 48, 0.11);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        linear-gradient(135deg, rgba(23, 126, 117, 0.12), transparent 30%),
+        linear-gradient(315deg, rgba(210, 106, 58, 0.13), transparent 30%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    a {
+      color: var(--accent-strong);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin-bottom: 10px;
+      color: var(--warm);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5.6vw, 4rem);
+      line-height: 1;
+    }
+
+    .intro,
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    .intro {
+      max-width: 740px;
+      margin: 0;
+      font-size: 1.06rem;
+    }
+
+    .source-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 10px;
+      border: 1px solid rgba(23, 126, 117, 0.2);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      background: rgba(238, 247, 243, 0.78);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .visual {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .side {
+      position: sticky;
+      top: 16px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel,
+    .section-card,
+    .check-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      padding: 16px;
+    }
+
+    .panel h2,
+    .section-card h2,
+    .check-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.08rem;
+    }
+
+    .toc {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--accent-strong);
+      background: rgba(238, 247, 243, 0.68);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .section-card {
+      padding: 22px;
+    }
+
+    .section-card h2 {
+      font-size: clamp(1.28rem, 2.8vw, 1.95rem);
+    }
+
+    .section-card p {
+      margin: 0 0 12px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .term-grid,
+    .check-grid,
+    .page-flow {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .term-grid {
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+
+    .term,
+    .flow-item {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--paper);
+    }
+
+    .term strong,
+    .flow-item strong {
+      color: var(--accent-strong);
+    }
+
+    .flow-item {
+      display: grid;
+      grid-template-columns: 78px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+    }
+
+    .flow-item span {
+      display: inline-grid;
+      place-items: center;
+      min-height: 34px;
+      border-radius: 8px;
+      color: #ffffff;
+      background: var(--blue);
+      font-size: 0.88rem;
+      font-weight: 900;
+    }
+
+    .formula {
+      margin-top: 12px;
+      padding: 16px;
+      border-left: 5px solid var(--warm);
+      border-radius: 10px;
+      color: #5f4636;
+      background: #fff7ef;
+      font-weight: 800;
+    }
+
+    .check-card {
+      padding: 18px;
+    }
+
+    .check-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .check {
+      padding: 14px;
+      border-radius: 10px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .check strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-strong);
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .nav-row a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 12px;
+      border: 1px solid rgba(23, 126, 117, 0.22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .side {
+        position: static;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .wrap {
+        padding-top: 24px;
+      }
+
+      .section-card {
+        padding: 18px;
+      }
+
+      .flow-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a href="./">Science SPSO</a>
+      <a href="../">Dashboard</a>
+    </nav>
+
+    <div id="lessonRoot"></div>
+  </div>
+
+  <script src="./lessons.js"></script>
+  <script>
+    const root = document.getElementById("lessonRoot");
+
+    function esc(value) {
+      return String(value || "").replace(/[&<>"']/g, function (char) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;"
+        }[char];
+      });
+    }
+
+    function currentSlug() {
+      const hash = window.location.hash.replace(/^#/, "");
+      return hash || LESSONS[0].slug;
+    }
+
+    function findLesson() {
+      return LESSONS.find(function (lesson) {
+        return lesson.slug === currentSlug();
+      }) || LESSONS[0];
+    }
+
+    function visualSvg(kind, title) {
+      const label = esc(title);
+      const visuals = {
+        particles: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#eef7f3"/><g fill="#177e75"><circle cx="135" cy="118" r="22"/><circle cx="188" cy="166" r="16"/><circle cx="112" cy="218" r="18"/><circle cx="228" cy="244" r="12"/></g><g fill="#d26a3a"><circle cx="372" cy="126" r="18"/><circle cx="415" cy="126" r="18"/><circle cx="458" cy="126" r="18"/><circle cx="500" cy="126" r="18"/></g><g stroke="#2d6f95" stroke-width="8" stroke-linecap="round"><path d="M342 230 h172"/><path d="M342 264 h172"/><path d="M342 298 h172"/></g><text x="70" y="68" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="84" y="292" fill="#5e6b76" font-size="22">Matter is made of tiny moving particles.</text></svg>`,
+        life: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#f1f7fb"/><path d="M310 292 C250 236 230 168 265 112 C286 78 333 78 355 112 C390 168 370 236 310 292Z" fill="#177e75"/><path d="M310 262 C308 210 321 170 354 130" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/><path d="M304 220 C270 207 248 183 236 148" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/><circle cx="170" cy="130" r="42" fill="#fff7ef" stroke="#d26a3a" stroke-width="8"/><circle cx="462" cy="132" r="42" fill="#eef7f3" stroke="#2d6f95" stroke-width="8"/><text x="78" y="68" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="94" y="318" fill="#5e6b76" font-size="22">Life responds, reproduces, adapts, and evolves.</text></svg>`,
+        biodiversity: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#eef7f3"/><circle cx="226" cy="184" r="88" fill="rgba(23,126,117,0.25)" stroke="#177e75" stroke-width="8"/><circle cx="356" cy="184" r="88" fill="rgba(210,106,58,0.25)" stroke="#d26a3a" stroke-width="8"/><text x="178" y="188" fill="#0f5d57" font-size="23" font-weight="900">shared</text><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="108" y="298" fill="#5e6b76" font-size="22">Classify, compare, and protect living diversity.</text></svg>`,
+        chemistry: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#fff7ef"/><g fill="#177e75"><circle cx="130" cy="184" r="28"/><circle cx="202" cy="184" r="28"/></g><path d="M256 184 h90" stroke="#1d2730" stroke-width="10" stroke-linecap="round"/><path d="M336 162 l34 22 -34 22" fill="none" stroke="#1d2730" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><g fill="#d26a3a"><circle cx="430" cy="160" r="24"/><circle cx="476" cy="206" r="24"/></g><text x="70" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="92" y="302" fill="#5e6b76" font-size="22">Reactants rearrange atoms to form products.</text></svg>`,
+        atom: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#f1f7fb"/><circle cx="310" cy="188" r="28" fill="#d26a3a"/><ellipse cx="310" cy="188" rx="150" ry="48" fill="none" stroke="#177e75" stroke-width="8" transform="rotate(-22 310 188)"/><ellipse cx="310" cy="188" rx="150" ry="48" fill="none" stroke="#2d6f95" stroke-width="8" transform="rotate(24 310 188)"/><ellipse cx="310" cy="188" rx="150" ry="48" fill="none" stroke="#6a5da8" stroke-width="8" transform="rotate(88 310 188)"/><circle cx="451" cy="138" r="12" fill="#1d2730"/><circle cx="193" cy="236" r="12" fill="#1d2730"/><text x="74" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="98" y="318" fill="#5e6b76" font-size="22">Electron arrangement explains chemical behavior.</text></svg>`,
+        ecology: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#eef7f3"/><path d="M116 266 h384" stroke="#8b6f47" stroke-width="12" stroke-linecap="round"/><path d="M310 266 C310 216 296 178 258 142" stroke="#177e75" stroke-width="18" stroke-linecap="round"/><path d="M310 266 C316 210 348 168 408 128" stroke="#177e75" stroke-width="18" stroke-linecap="round"/><circle cx="238" cy="128" r="34" fill="#d26a3a"/><circle cx="420" cy="112" r="42" fill="#2d6f95"/><circle cx="334" cy="160" r="26" fill="#c4912f"/><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="90" y="314" fill="#5e6b76" font-size="22">Organisms interact with each other and the environment.</text></svg>`,
+        digestion: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#fff7ef"/><path d="M300 86 C252 100 232 138 246 174 C258 207 300 206 298 240 C296 276 246 274 242 238" fill="none" stroke="#d26a3a" stroke-width="20" stroke-linecap="round"/><path d="M338 90 C376 120 384 166 354 196 C324 226 380 258 410 226" fill="none" stroke="#177e75" stroke-width="18" stroke-linecap="round"/><circle cx="230" cy="108" r="18" fill="#2d6f95"/><circle cx="424" cy="244" r="18" fill="#2d6f95"/><text x="74" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="82" y="312" fill="#5e6b76" font-size="22">Digestion breaks food into absorbable molecules.</text></svg>`,
+        heat: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#f1f7fb"/><path d="M176 286 C130 238 160 196 188 164 C206 142 200 108 188 82 C258 130 268 180 242 218 C286 190 306 152 294 104 C374 174 392 250 326 286Z" fill="#d26a3a"/><g stroke="#177e75" stroke-width="8" stroke-linecap="round"><path d="M382 120 h110"/><path d="M382 174 h110"/><path d="M382 228 h110"/></g><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="94" y="318" fill="#5e6b76" font-size="22">Heat flows by conduction, convection, and radiation.</text></svg>`,
+        circulation: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#fff7ef"/><path d="M306 252 C200 176 212 84 286 94 C308 98 316 118 322 134 C330 114 344 94 372 94 C438 94 454 178 306 252Z" fill="#d26a3a"/><path d="M150 100 C84 172 106 262 194 284" fill="none" stroke="#2d6f95" stroke-width="12" stroke-linecap="round"/><path d="M470 100 C536 172 514 262 426 284" fill="none" stroke="#177e75" stroke-width="12" stroke-linecap="round"/><text x="70" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="90" y="318" fill="#5e6b76" font-size="22">Blood transports oxygen, nutrients, wastes, and heat.</text></svg>`,
+        respiration: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#eef7f3"/><path d="M310 78 v120" stroke="#1d2730" stroke-width="16" stroke-linecap="round"/><path d="M306 154 C250 158 214 198 208 266 C266 260 300 224 306 154Z" fill="#2d6f95"/><path d="M314 154 C370 158 406 198 412 266 C354 260 320 224 314 154Z" fill="#177e75"/><path d="M210 284 h202" stroke="#d26a3a" stroke-width="12" stroke-linecap="round"/><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="86" y="322" fill="#5e6b76" font-size="22">Gas exchange supports cellular respiration.</text></svg>`,
+        cell: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#f1f7fb"/><ellipse cx="302" cy="190" rx="178" ry="105" fill="#eef7f3" stroke="#177e75" stroke-width="9"/><circle cx="300" cy="188" r="42" fill="#6a5da8"/><ellipse cx="410" cy="162" rx="34" ry="18" fill="#d26a3a"/><ellipse cx="194" cy="224" rx="30" ry="16" fill="#2d6f95"/><circle cx="244" cy="134" r="16" fill="#c4912f"/><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="88" y="318" fill="#5e6b76" font-size="22">Cells are organized units with specialized organelles.</text></svg>`,
+        light: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#fff7ef"/><path d="M98 184 h170" stroke="#d26a3a" stroke-width="10" stroke-linecap="round"/><path d="M268 184 L364 96 L506 96" fill="none" stroke="#177e75" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M268 184 L364 272 L506 272" fill="none" stroke="#2d6f95" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><polygon points="268,92 364,184 268,276" fill="rgba(255,255,255,0.74)" stroke="#1d2730" stroke-width="6"/><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="94" y="318" fill="#5e6b76" font-size="22">Light travels, reflects, refracts, and forms images.</text></svg>`,
+        reproduction: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#eef7f3"/><circle cx="192" cy="190" r="50" fill="#177e75"/><circle cx="428" cy="190" r="50" fill="#d26a3a"/><path d="M248 190 h124" stroke="#1d2730" stroke-width="10" stroke-linecap="round"/><path d="M364 168 l34 22 -34 22" fill="none" stroke="#1d2730" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="310" cy="244" r="32" fill="#6a5da8"/><text x="70" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="84" y="318" fill="#5e6b76" font-size="22">Reproduction passes genetic information to offspring.</text></svg>`,
+        senses: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#f1f7fb"/><circle cx="310" cy="182" r="76" fill="#eef7f3" stroke="#177e75" stroke-width="8"/><path d="M252 182 C288 138 332 138 368 182 C332 226 288 226 252 182Z" fill="#fff" stroke="#2d6f95" stroke-width="7"/><circle cx="310" cy="182" r="22" fill="#1d2730"/><g fill="#d26a3a"><circle cx="168" cy="112" r="24"/><circle cx="452" cy="112" r="24"/><circle cx="168" cy="252" r="24"/><circle cx="452" cy="252" r="24"/></g><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="100" y="318" fill="#5e6b76" font-size="22">Receptors detect stimuli; nerves carry signals.</text></svg>`,
+        water: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#eef7f3"/><path d="M310 90 C360 150 402 196 402 240 C402 292 360 318 310 318 C260 318 218 292 218 240 C218 196 260 150 310 90Z" fill="#2d6f95"/><path d="M150 116 C232 42 392 42 470 116" fill="none" stroke="#177e75" stroke-width="10" stroke-linecap="round"/><path d="M458 88 l30 36 -46 8" fill="none" stroke="#177e75" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="112" y="318" fill="#5e6b76" font-size="22">Water changes state and cycles through Earth systems.</text></svg>`,
+        homeostasis: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#fff7ef"/><circle cx="310" cy="188" r="86" fill="#eef7f3" stroke="#177e75" stroke-width="8"/><path d="M310 126 v124" stroke="#d26a3a" stroke-width="12" stroke-linecap="round"/><circle cx="310" cy="260" r="20" fill="#d26a3a"/><path d="M174 188 C206 96 414 96 446 188" fill="none" stroke="#2d6f95" stroke-width="10" stroke-linecap="round"/><path d="M446 188 C414 280 206 280 174 188" fill="none" stroke="#2d6f95" stroke-width="10" stroke-linecap="round"/><text x="70" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="98" y="318" fill="#5e6b76" font-size="22">Feedback keeps internal conditions stable.</text></svg>`,
+        forces: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#f1f7fb"/><rect x="242" y="144" width="136" height="92" rx="14" fill="#fff" stroke="#177e75" stroke-width="8"/><path d="M110 190 h116" stroke="#d26a3a" stroke-width="12" stroke-linecap="round"/><path d="M206 160 l40 30 -40 30" fill="none" stroke="#d26a3a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M510 190 h-116" stroke="#2d6f95" stroke-width="12" stroke-linecap="round"/><path d="M414 160 l-40 30 40 30" fill="none" stroke="#2d6f95" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="104" y="318" fill="#5e6b76" font-size="22">Forces can change motion, shape, or direction.</text></svg>`,
+        biochem: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#eef7f3"/><g stroke="#5e6b76" stroke-width="7" stroke-linecap="round"><line x1="160" y1="184" x2="238" y2="128"/><line x1="238" y1="128" x2="330" y2="186"/><line x1="330" y1="186" x2="438" y2="126"/><line x1="330" y1="186" x2="404" y2="260"/></g><g fill="#177e75"><circle cx="160" cy="184" r="28"/><circle cx="238" cy="128" r="28"/><circle cx="330" cy="186" r="28"/><circle cx="438" cy="126" r="28"/><circle cx="404" cy="260" r="28"/></g><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="96" y="318" fill="#5e6b76" font-size="22">Biomolecules build bodies and store usable energy.</text></svg>`,
+        exam: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#fff7ef"/><rect x="176" y="72" width="268" height="232" rx="18" fill="#fff" stroke="#177e75" stroke-width="8"/><g stroke="#5e6b76" stroke-width="6" stroke-linecap="round"><path d="M224 138 h158"/><path d="M224 184 h158"/><path d="M224 230 h104"/></g><circle cx="206" cy="138" r="10" fill="#d26a3a"/><circle cx="206" cy="184" r="10" fill="#d26a3a"/><circle cx="206" cy="230" r="10" fill="#d26a3a"/><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="118" y="326" fill="#5e6b76" font-size="22">Practice under timed multiple-choice conditions.</text></svg>`,
+        electricity: `<svg viewBox="0 0 620 360" role="img"><rect x="24" y="24" width="572" height="312" rx="28" fill="#f1f7fb"/><path d="M168 114 h284 v170 h-284z" fill="none" stroke="#177e75" stroke-width="10" stroke-linejoin="round"/><circle cx="310" cy="114" r="34" fill="#fff" stroke="#d26a3a" stroke-width="8"/><path d="M294 114 h32" stroke="#d26a3a" stroke-width="8" stroke-linecap="round"/><path d="M310 98 v32" stroke="#d26a3a" stroke-width="8" stroke-linecap="round"/><circle cx="452" cy="198" r="38" fill="#fff7ef" stroke="#2d6f95" stroke-width="8"/><path d="M426 224 l52 -52" stroke="#2d6f95" stroke-width="7"/><text x="72" y="70" fill="#0f5d57" font-size="28" font-weight="900">${label}</text><text x="92" y="326" fill="#5e6b76" font-size="22">Voltage drives current through a complete circuit.</text></svg>`
+      };
+      return visuals[kind] || visuals.exam;
+    }
+
+    function renderLesson(lesson) {
+      document.title = lesson.label + ": " + lesson.title;
+      const index = LESSONS.indexOf(lesson);
+      const previous = LESSONS[index - 1];
+      const next = LESSONS[index + 1];
+      const sectionLinks = lesson.sections.map(function (section, sectionIndex) {
+        return `<li><a href="#section-${sectionIndex + 1}">${esc(section.title)}</a></li>`;
+      }).join("");
+
+      root.innerHTML = `
+        <header class="hero">
+          <div>
+            <span class="eyebrow">${esc(lesson.label)}</span>
+            <h1>${esc(lesson.title)}</h1>
+            <p class="intro">${esc(lesson.summary)}</p>
+            <div class="source-line">
+              <span class="pill">${esc(lesson.source)}</span>
+              <span class="pill">${lesson.pages} source pages</span>
+              <span class="pill">${esc(lesson.by || "Converted study notes")}</span>
+            </div>
+          </div>
+          <figure class="visual">
+            ${visualSvg(lesson.visual, lesson.title)}
+            <figcaption class="caption">${esc(lesson.visualCaption)}</figcaption>
+          </figure>
+        </header>
+
+        <div class="layout">
+          <aside class="side">
+            <div class="panel">
+              <h2>Lesson Map</h2>
+              <ul class="toc">${sectionLinks}</ul>
+            </div>
+            <div class="panel">
+              <h2>Source Flow</h2>
+              <div class="page-flow">
+                ${lesson.pageFlow.map(function (item) {
+                  return `<div class="flow-item"><span>${esc(item.pages)}</span><p><strong>${esc(item.title)}</strong><br>${esc(item.detail)}</p></div>`;
+                }).join("")}
+              </div>
+            </div>
+          </aside>
+
+          <main class="content">
+            ${lesson.sections.map(function (section, sectionIndex) {
+              return `<section class="section-card" id="section-${sectionIndex + 1}">
+                <h2>${esc(section.title)}</h2>
+                ${section.text ? `<p>${esc(section.text)}</p>` : ""}
+                ${section.bullets ? `<ul>${section.bullets.map(function (bullet) { return `<li>${esc(bullet)}</li>`; }).join("")}</ul>` : ""}
+                ${section.formula ? `<div class="formula">${esc(section.formula)}</div>` : ""}
+              </section>`;
+            }).join("")}
+
+            <section class="section-card">
+              <h2>Key Terms</h2>
+              <div class="term-grid">
+                ${lesson.terms.map(function (term) {
+                  return `<div class="term"><strong>${esc(term.term)}</strong><p>${esc(term.meaning)}</p></div>`;
+                }).join("")}
+              </div>
+            </section>
+
+            <section class="check-card">
+              <h2>Quick Check</h2>
+              <div class="check-grid">
+                ${lesson.checks.map(function (check, checkIndex) {
+                  return `<div class="check"><strong>Check ${checkIndex + 1}</strong>${esc(check)}</div>`;
+                }).join("")}
+              </div>
+            </section>
+
+            <div class="nav-row">
+              ${previous ? `<a href="#${esc(previous.slug)}">Previous: ${esc(previous.label)}</a>` : `<a href="./week-01-introduction-to-science-olympiad.html">Previous: Week 01</a>`}
+              ${next ? `<a href="#${esc(next.slug)}">Next: ${esc(next.label)}</a>` : `<a href="./">Back to Hub</a>`}
+            </div>
+          </main>
+        </div>
+      `;
+    }
+
+    function render() {
+      renderLesson(findLesson());
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+
+    window.addEventListener("hashchange", render);
+    render();
+  </script>
+</body>
+</html>

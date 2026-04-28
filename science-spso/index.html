@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science SPSO Preparation</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --surface: #ffffff;
+      --text: #1d2730;
+      --muted: #5d6975;
+      --accent: #177e75;
+      --accent-strong: #0f5d57;
+      --warm: #d26a3a;
+      --border: rgba(29, 39, 48, 0.14);
+      --shadow: 0 16px 42px rgba(29, 39, 48, 0.11);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        linear-gradient(135deg, rgba(23, 126, 117, 0.12), transparent 34%),
+        linear-gradient(315deg, rgba(210, 106, 58, 0.14), transparent 30%),
+        var(--bg);
+    }
+
+    main {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+
+    nav {
+      margin-bottom: 28px;
+    }
+
+    nav a,
+    .lesson-card {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: var(--accent-strong);
+      font-weight: 800;
+    }
+
+    nav a:hover,
+    .lesson-card:hover h2 {
+      text-decoration: underline;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--warm);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.3rem, 6vw, 4.1rem);
+      line-height: 0.98;
+    }
+
+    p {
+      margin: 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.65;
+    }
+
+    .lesson-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .lesson-card {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow);
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(23, 126, 117, 0.34);
+    }
+
+    .lesson-number {
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 10px;
+      color: #ffffff;
+      background: var(--accent);
+      font-size: 1.35rem;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    h2 {
+      margin: 0 0 6px;
+      font-size: 1.25rem;
+    }
+
+    .lesson-card p {
+      font-size: 0.98rem;
+    }
+
+    @media (max-width: 620px) {
+      main {
+        padding-top: 28px;
+      }
+
+      .lesson-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../">Back to dashboard</a></nav>
+
+    <span class="eyebrow">Science Practice</span>
+    <h1>Science SPSO Preparation</h1>
+    <p>
+      Static HTML notes converted from the SPSO preparation pages. The scanned PDFs are
+      rebuilt as readable web lessons with cleaned explanations and web-native visuals.
+    </p>
+
+    <section class="lesson-list" aria-label="Science SPSO lessons">
+      <a class="lesson-card" href="./week-01-introduction-to-science-olympiad.html">
+        <span class="lesson-number">01</span>
+        <span>
+          <h2>Introduction to Science Olympiad</h2>
+          <p>What science is, scientific reasoning, inquiry, models, theories, laws, and fields of science.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./week-02-matter-and-elements.html">
+        <span class="lesson-number">02</span>
+        <span>
+          <h2>Matter and Elements</h2>
+          <p>Particle theory, states of matter, atoms, molecules, elements, compounds, and mixtures.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-03-living-things">
+        <span class="lesson-number">03</span>
+        <span>
+          <h2>Living Things</h2>
+          <p>Origin of life, characteristics of organisms, growth, response, reproduction, and adaptation.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-04-biodiversity">
+        <span class="lesson-number">04</span>
+        <span>
+          <h2>Biodiversity</h2>
+          <p>Classification, Venn diagrams, taxonomy, evolution, natural selection, and conservation.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-05-chemical-methods-and-bonds">
+        <span class="lesson-number">05</span>
+        <span>
+          <h2>Chemicals, Methods, and Bonds</h2>
+          <p>Substances, mixtures, separation methods, isotopes, allotropes, electron configuration, and bonding.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-06-periodic-table">
+        <span class="lesson-number">06</span>
+        <span>
+          <h2>Periodic Table</h2>
+          <p>Atomic structure, groups, periods, noble gases, halogens, alkali metals, trends, and semiconductors.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-07-ecology">
+        <span class="lesson-number">07</span>
+        <span>
+          <h2>Ecology</h2>
+          <p>Ecosystems, habitats, populations, communities, food chains, food webs, and adaptations.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-08-chemical-reactions">
+        <span class="lesson-number">08</span>
+        <span>
+          <h2>Chemical Reactions</h2>
+          <p>Reaction types, redox, combustion, acids and bases, moles, carbonates, and the carbon cycle.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-09-human-digestive-system">
+        <span class="lesson-number">09</span>
+        <span>
+          <h2>Human Digestive System</h2>
+          <p>Digestive organs, enzymes, nutrients, absorption, assimilation, and egestion.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-10-heat-and-thermodynamics">
+        <span class="lesson-number">10</span>
+        <span>
+          <h2>Heat and Thermodynamics</h2>
+          <p>Heat, temperature, conduction, convection, radiation, changes of state, and specific heat capacity.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-11-human-circulatory-system">
+        <span class="lesson-number">11</span>
+        <span>
+          <h2>Human Circulatory System</h2>
+          <p>Heart, blood, blood vessels, pulmonary circulation, systemic circulation, and blood pressure.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-12-respiration-and-excretion">
+        <span class="lesson-number">12</span>
+        <span>
+          <h2>Respiration and Excretion</h2>
+          <p>Gas exchange, cellular respiration, lungs, kidneys, urine, and metabolic waste removal.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-13-cell-biology">
+        <span class="lesson-number">13</span>
+        <span>
+          <h2>Cell Biology</h2>
+          <p>Cell structures, plant and animal cells, prokaryotes, eukaryotes, specialized cells, and stem cells.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-14-light-shadow-and-sound">
+        <span class="lesson-number">14</span>
+        <span>
+          <h2>Light, Shadow, and Sound</h2>
+          <p>Light properties, electromagnetic waves, reflection, refraction, vision, colour, shadows, and sound.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-15-reproductive-system">
+        <span class="lesson-number">15</span>
+        <span>
+          <h2>Reproductive System</h2>
+          <p>Asexual and sexual reproduction, gametes, fertilization, human reproduction, and development.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-16-senses">
+        <span class="lesson-number">16</span>
+        <span>
+          <h2>Senses</h2>
+          <p>Stimuli, receptors, nervous system, sense organs, neurons, and reflex actions.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-17-change-of-state-and-water-cycle">
+        <span class="lesson-number">17</span>
+        <span>
+          <h2>Change of State and Water Cycle</h2>
+          <p>State changes, water properties, heating curves, impurities, water cycle, and gas-law ideas.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-18-homeostasis">
+        <span class="lesson-number">18</span>
+        <span>
+          <h2>Homeostasis</h2>
+          <p>Feedback pathways, thermoregulation, osmoregulation, body temperature, pH, and stable conditions.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-19-forces">
+        <span class="lesson-number">19</span>
+        <span>
+          <h2>Forces</h2>
+          <p>Force types, Newton's laws, friction, spring force, surface tension, buoyancy, and Archimedes' principle.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#week-20-biochemistry-and-polymers">
+        <span class="lesson-number">20</span>
+        <span>
+          <h2>Biochemistry and Polymers</h2>
+          <p>Nutrition, macromolecules, food metabolism, micronutrients, diseases, monomers, and polymers.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#term-test-1-nov-2025">
+        <span class="lesson-number">P1</span>
+        <span>
+          <h2>Nov 2025 Term Test 1</h2>
+          <p>Timed practice map for biology, ecology, digestion, circulation, excretion, hormones, and senses.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#mock-test-2-nov-2025">
+        <span class="lesson-number">P2</span>
+        <span>
+          <h2>SPSO 2025 Mock Test 2</h2>
+          <p>Practice-test guide for data interpretation, heat transfer, materials, and mixed science reasoning.</p>
+        </span>
+      </a>
+
+      <a class="lesson-card" href="./lesson.html#p5-week-01-electricity">
+        <span class="lesson-number">P5</span>
+        <span>
+          <h2>Electrical Energy</h2>
+          <p>Static electricity, circuit symbols, series and parallel circuits, voltage, current, resistance, and Ohm's law.</p>
+        </span>
+      </a>
+    </section>
+  </main>
+</body>
+</html>

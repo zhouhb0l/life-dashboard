@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 02: Matter and Elements</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --paper: #ffffff;
+      --soft: #eef7f3;
+      --soft-warm: #fff7ef;
+      --ink: #1d2730;
+      --muted: #5f6c77;
+      --accent: #177e75;
+      --accent-strong: #0f5d57;
+      --warm: #d26a3a;
+      --gold: #c4912f;
+      --blue: #2d6f95;
+      --violet: #6a5da8;
+      --line: rgba(29, 39, 48, 0.14);
+      --shadow: 0 14px 36px rgba(29, 39, 48, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      background:
+        linear-gradient(135deg, rgba(23, 126, 117, 0.1), transparent 28%),
+        linear-gradient(315deg, rgba(210, 106, 58, 0.12), transparent 30%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: var(--accent-strong);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a,
+    p,
+    li,
+    code,
+    .pill,
+    .answer {
+      overflow-wrap: anywhere;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .hero > *,
+    .layout > *,
+    section,
+    .visual,
+    .toc-panel,
+    .fact {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--warm);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 3.35rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      line-height: 1.14;
+    }
+
+    h3 {
+      margin: 20px 0 9px;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .intro {
+      max-width: 760px;
+      font-size: 1.06rem;
+    }
+
+    .source-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-block;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 7px 10px;
+      border: 1px solid rgba(23, 126, 117, 0.22);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      background: rgba(238, 247, 243, 0.82);
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .visual,
+    section,
+    .toc-panel,
+    .fact,
+    .callout {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .visual {
+      padding: 18px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .visual svg,
+    .diagram svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .toc-panel {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .toc-panel h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .toc {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(238, 247, 243, 0.72);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .overview-grid,
+    .fact-grid,
+    .two-col,
+    .three-col {
+      display: grid;
+      gap: 14px;
+    }
+
+    .overview-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .fact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: 14px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fact {
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .fact strong {
+      color: var(--accent-strong);
+    }
+
+    .fact p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.96rem;
+    }
+
+    .step-card {
+      display: grid;
+      align-content: start;
+      min-height: 148px;
+      padding: 14px;
+      border: 1px solid rgba(23, 126, 117, 0.2);
+      border-radius: 10px;
+      background: rgba(238, 247, 243, 0.68);
+    }
+
+    .step-card .num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 10px;
+      border-radius: 9px;
+      color: #ffffff;
+      background: var(--accent);
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-card strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .step-card p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.94rem;
+    }
+
+    .callout {
+      margin-top: 14px;
+      padding: 14px;
+      border-left: 5px solid var(--warm);
+      border-radius: 8px;
+      background: #fff7ef;
+      box-shadow: none;
+    }
+
+    .callout p,
+    .callout li {
+      color: #5f4636;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 14px 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(238, 247, 243, 0.9);
+      font-size: 0.92rem;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.48;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .diagram {
+      margin: 14px 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #ffffff;
+    }
+
+    .formula-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .formula {
+      padding: 10px 12px;
+      border: 1px solid rgba(45, 111, 149, 0.2);
+      border-radius: 8px;
+      color: #254c62;
+      background: rgba(45, 111, 149, 0.08);
+      font-weight: 850;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 7px 9px;
+      border: 1px solid rgba(106, 93, 168, 0.22);
+      border-radius: 8px;
+      color: #4e4784;
+      background: rgba(106, 93, 168, 0.08);
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .answer {
+      padding: 12px 13px;
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      background: rgba(45, 111, 149, 0.08);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .answer strong {
+      color: var(--ink);
+    }
+
+    .source-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(29, 39, 48, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-size: 0.92em;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .layout,
+      .two-col,
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-panel {
+        position: static;
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+        padding-top: 26px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      .visual {
+        padding: 12px;
+      }
+
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Lesson navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./week-01-introduction-to-science-olympiad.html">Week 01</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Week 02 | SPSO Preparatory Course</span>
+        <h1>Matter and Elements</h1>
+        <p class="intro">
+          Matter is studied as particles, energy, states, mixtures, atoms, elements, and
+          periodic-table evidence. This page rebuilds the scanned week 2 PDF as a readable
+          web lesson while keeping the definitions, examples, tables, and practice prompts.
+        </p>
+        <div class="source-line" aria-label="Source details">
+          <span class="pill">By Ms Yanan</span>
+          <span class="pill">Source: IMG_20260427_0002.pdf</span>
+          <span class="pill">15 scanned pages</span>
+        </div>
+      </div>
+
+      <div class="visual">
+        <svg viewBox="0 0 760 430" role="img" aria-labelledby="heroTitle heroDesc">
+          <title id="heroTitle">Particles, atoms, and elements</title>
+          <desc id="heroDesc">A diagram showing matter as particles in solid, liquid, and gas arrangements, with atoms made of subatomic particles.</desc>
+          <rect x="18" y="18" width="724" height="394" rx="28" fill="#f9fbf7" stroke="#d9e3df" stroke-width="2"/>
+          <g transform="translate(52 58)">
+            <text x="0" y="0" fill="#0f5d57" font-size="32" font-weight="900">Matter</text>
+            <text x="0" y="34" fill="#5f6c77" font-size="18">has mass, occupies space, and is made of tiny particles</text>
+          </g>
+          <g transform="translate(58 128)">
+            <rect width="190" height="210" rx="18" fill="#eef7f3" stroke="#177e75" stroke-width="3"/>
+            <text x="95" y="34" text-anchor="middle" fill="#0f5d57" font-size="24" font-weight="900">Solid</text>
+            <g fill="#177e75">
+              <circle cx="58" cy="74" r="14"/><circle cx="95" cy="74" r="14"/><circle cx="132" cy="74" r="14"/>
+              <circle cx="58" cy="111" r="14"/><circle cx="95" cy="111" r="14"/><circle cx="132" cy="111" r="14"/>
+              <circle cx="58" cy="148" r="14"/><circle cx="95" cy="148" r="14"/><circle cx="132" cy="148" r="14"/>
+            </g>
+            <text x="95" y="188" text-anchor="middle" fill="#5f6c77" font-size="16">packed; vibrate</text>
+          </g>
+          <g transform="translate(286 128)">
+            <rect width="190" height="210" rx="18" fill="#fff7ef" stroke="#d26a3a" stroke-width="3"/>
+            <text x="95" y="34" text-anchor="middle" fill="#8a482a" font-size="24" font-weight="900">Liquid</text>
+            <g fill="#d26a3a">
+              <circle cx="57" cy="84" r="14"/><circle cx="98" cy="70" r="14"/><circle cx="136" cy="91" r="14"/>
+              <circle cx="73" cy="123" r="14"/><circle cx="116" cy="127" r="14"/><circle cx="143" cy="157" r="14"/>
+              <circle cx="50" cy="158" r="14"/><circle cx="101" cy="169" r="14"/>
+            </g>
+            <path d="M54 55 C73 42 101 43 121 56" fill="none" stroke="#8a482a" stroke-width="4" stroke-linecap="round"/>
+            <path d="M118 190 C99 202 68 201 48 185" fill="none" stroke="#8a482a" stroke-width="4" stroke-linecap="round"/>
+            <text x="95" y="188" text-anchor="middle" fill="#5f6c77" font-size="16">slide past</text>
+          </g>
+          <g transform="translate(514 128)">
+            <rect width="190" height="210" rx="18" fill="#f1f3fb" stroke="#6a5da8" stroke-width="3"/>
+            <text x="95" y="34" text-anchor="middle" fill="#4e4784" font-size="24" font-weight="900">Gas</text>
+            <g fill="#6a5da8">
+              <circle cx="50" cy="79" r="12"/><circle cx="148" cy="73" r="12"/><circle cx="92" cy="116" r="12"/>
+              <circle cx="44" cy="164" r="12"/><circle cx="142" cy="160" r="12"/>
+            </g>
+            <g stroke="#4e4784" stroke-width="4" stroke-linecap="round">
+              <path d="M61 74 L88 57"/><path d="M135 75 L111 96"/><path d="M96 104 L122 93"/>
+              <path d="M55 160 L82 176"/><path d="M130 157 L107 140"/>
+            </g>
+            <text x="95" y="188" text-anchor="middle" fill="#5f6c77" font-size="16">far apart; free</text>
+          </g>
+          <g transform="translate(52 364)">
+            <circle cx="26" cy="16" r="16" fill="#c4912f"/>
+            <circle cx="20" cy="12" r="4" fill="#ffffff"/>
+            <circle cx="33" cy="20" r="4" fill="#ffffff"/>
+            <text x="58" y="22" fill="#1d2730" font-size="18" font-weight="800">Atoms contain protons, neutrons, and electrons.</text>
+          </g>
+        </svg>
+        <p class="caption">The PDF begins with particle theory, then connects particle motion to state changes and finally to atoms, elements, and the periodic table.</p>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc-panel">
+        <h2>On This Page</h2>
+        <ol class="toc">
+          <li><a href="#overview">Lesson Map</a></li>
+          <li><a href="#particle-theory">Particle Theory</a></li>
+          <li><a href="#states">States Of Matter</a></li>
+          <li><a href="#diffusion">Diffusion And Osmosis</a></li>
+          <li><a href="#desalination">Reverse Osmosis</a></li>
+          <li><a href="#atoms">Atoms And Subatomic Structure</a></li>
+          <li><a href="#periodic-table">Elements And Periodic Table</a></li>
+          <li><a href="#review">Review</a></li>
+        </ol>
+      </aside>
+
+      <main class="content">
+        <section id="overview">
+          <h2>Lesson Map</h2>
+          <p>
+            The original lesson overview lists five focus areas: particle theory, states of
+            matter, diffusion/osmosis/dialysis, subatomic structure, and chemical composition
+            of matter.
+          </p>
+          <div class="overview-grid">
+            <div class="step-card">
+              <span class="num">1</span>
+              <strong>Particle theory</strong>
+              <p>Matter is made of tiny particles that are constantly moving.</p>
+            </div>
+            <div class="step-card">
+              <span class="num">2</span>
+              <strong>States of matter</strong>
+              <p>Particle arrangement and energy explain solids, liquids, gases, plasma, and other states.</p>
+            </div>
+            <div class="step-card">
+              <span class="num">3</span>
+              <strong>Diffusion and osmosis</strong>
+              <p>Random particle motion causes spreading, water movement, and separation by membranes.</p>
+            </div>
+            <div class="step-card">
+              <span class="num">4</span>
+              <strong>Subatomic structure</strong>
+              <p>Atoms contain protons, neutrons, and electrons.</p>
+            </div>
+            <div class="step-card">
+              <span class="num">5</span>
+              <strong>Chemical composition</strong>
+              <p>Matter can be classified into elements, compounds, and mixtures.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="particle-theory">
+          <h2>Particulate Nature Of Matter</h2>
+          <p>
+            Matter is any substance that has mass and takes up space, meaning it has volume.
+            Everyday objects that can be touched are ultimately composed of atoms, and atoms
+            themselves are made of interacting subatomic particles.
+          </p>
+          <div class="fact-grid">
+            <div class="fact">
+              <strong>Matter</strong>
+              <p>Anything with mass and volume. Air is matter too, even when it cannot be seen.</p>
+            </div>
+            <div class="fact">
+              <strong>Particles</strong>
+              <p>Matter consists of many very small discrete particles.</p>
+            </div>
+            <div class="fact">
+              <strong>Motion</strong>
+              <p>Particles are constantly moving because they have kinetic energy.</p>
+            </div>
+            <div class="fact">
+              <strong>Types</strong>
+              <p>The particles may be atoms, molecules, or ions.</p>
+            </div>
+          </div>
+
+          <h3>History Of Particle Theory</h3>
+          <p>The PDF includes a video activity and a timeline of particle models.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Scientist</th>
+                  <th>Idea or experiment result</th>
+                  <th>Model or meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>About 2500 years ago</td>
+                  <td>Leucippus and Democritus</td>
+                  <td>Matter is composed of tiny particles, which they named atoms.</td>
+                  <td>Atom meant uncuttable or indivisible. The scan gives the simple example that cheese would be made of cheese atoms.</td>
+                </tr>
+                <tr>
+                  <td>Nineteenth century</td>
+                  <td>John Dalton</td>
+                  <td>Atoms of a specific element are identical in mass and properties; atoms combine to form compounds.</td>
+                  <td>Chemical reactions happen because atoms are rearranged.</td>
+                </tr>
+                <tr>
+                  <td>1870s-1890s</td>
+                  <td>J. J. Thomson</td>
+                  <td>Discovery of electrons.</td>
+                  <td>Plum pudding model of the atom.</td>
+                </tr>
+                <tr>
+                  <td>1909</td>
+                  <td>Ernest Rutherford</td>
+                  <td>Evidence showed the atom's positive charge is concentrated in a small region.</td>
+                  <td>The dense central region is the nucleus.</td>
+                </tr>
+                <tr>
+                  <td>1911</td>
+                  <td>Niels Bohr</td>
+                  <td>Modelled electrons in a structured atom, especially using hydrogen.</td>
+                  <td>Planetary model.</td>
+                </tr>
+                <tr>
+                  <td>1920s</td>
+                  <td>Werner Heisenberg</td>
+                  <td>Uncertainty principle and quantum view of electron behavior.</td>
+                  <td>Quantum theory: orbital and electron cloud model.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Video reference shown in the scan: <code>https://www.youtube.com/watch?v=fhnDxFdkzZs</code></p>
+        </section>
+
+        <section id="states">
+          <h2>Matter, Energy, And States Of Matter</h2>
+          <div class="two-col">
+            <div>
+              <h3>Conservation Laws</h3>
+              <ul>
+                <li><strong>Law of conservation of mass:</strong> mass is neither created nor destroyed in chemical reactions.</li>
+                <li><strong>Conservation of energy:</strong> energy can neither be created nor destroyed.</li>
+                <li>Energy can be transferred from one form to another.</li>
+                <li>All forms of energy are either potential energy or kinetic energy.</li>
+                <li>Potential energy is stored energy; kinetic energy is energy in motion.</li>
+                <li>The speed of particle movement depends on the amount of energy the particles have and the state of matter.</li>
+              </ul>
+              <div class="formula-strip">
+                <span class="formula">Kinetic energy = energy of motion</span>
+                <span class="formula">Particle speed increases when kinetic energy increases</span>
+              </div>
+            </div>
+            <div class="diagram">
+              <svg viewBox="0 0 680 420" role="img" aria-labelledby="stateTitle stateDesc">
+                <title id="stateTitle">Changes of state</title>
+                <desc id="stateDesc">Solid, liquid, gas, and plasma with melting, freezing, boiling, condensation, sublimation, and deposition.</desc>
+                <defs>
+                  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0,0 L10,5 L0,10 Z" fill="#2d6f95"/>
+                  </marker>
+                </defs>
+                <g font-family="Segoe UI, Tahoma, sans-serif">
+                  <rect x="26" y="158" width="116" height="76" rx="14" fill="#eef7f3" stroke="#177e75" stroke-width="4"/>
+                  <rect x="282" y="158" width="116" height="76" rx="14" fill="#fff7ef" stroke="#d26a3a" stroke-width="4"/>
+                  <rect x="538" y="158" width="116" height="76" rx="14" fill="#f1f3fb" stroke="#6a5da8" stroke-width="4"/>
+                  <text x="84" y="204" text-anchor="middle" fill="#0f5d57" font-size="22" font-weight="900">Solid</text>
+                  <text x="340" y="204" text-anchor="middle" fill="#8a482a" font-size="22" font-weight="900">Liquid</text>
+                  <text x="596" y="204" text-anchor="middle" fill="#4e4784" font-size="22" font-weight="900">Gas</text>
+                  <ellipse cx="84" cy="62" rx="72" ry="34" fill="#e6f0fb" stroke="#2d6f95" stroke-width="3"/>
+                  <text x="84" y="57" text-anchor="middle" fill="#254c62" font-size="16" font-weight="800">Bose-Einstein</text>
+                  <text x="84" y="77" text-anchor="middle" fill="#254c62" font-size="16" font-weight="800">condensate</text>
+                  <ellipse cx="596" cy="62" rx="60" ry="34" fill="#f8eefb" stroke="#6a5da8" stroke-width="3"/>
+                  <text x="596" y="68" text-anchor="middle" fill="#4e4784" font-size="18" font-weight="900">Plasma</text>
+                  <path d="M146 184 H276" stroke="#2d6f95" stroke-width="5" marker-end="url(#arrow)"/>
+                  <path d="M276 211 H146" stroke="#2d6f95" stroke-width="5" marker-end="url(#arrow)"/>
+                  <path d="M402 184 H532" stroke="#2d6f95" stroke-width="5" marker-end="url(#arrow)"/>
+                  <path d="M532 211 H402" stroke="#2d6f95" stroke-width="5" marker-end="url(#arrow)"/>
+                  <path d="M142 150 C234 62 444 62 538 150" fill="none" stroke="#c4912f" stroke-width="5" marker-end="url(#arrow)"/>
+                  <path d="M538 244 C448 330 234 330 142 244" fill="none" stroke="#c4912f" stroke-width="5" marker-end="url(#arrow)"/>
+                  <text x="211" y="171" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">melting</text>
+                  <text x="211" y="240" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">freezing</text>
+                  <text x="468" y="171" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">boiling</text>
+                  <text x="468" y="240" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">condensation</text>
+                  <text x="340" y="78" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">sublimation</text>
+                  <text x="340" y="340" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">deposition</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <h3>Solid, Liquid, And Gas Particle Model</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Solids</th>
+                  <th>Liquids</th>
+                  <th>Gases</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Particle arrangement</td>
+                  <td>Closely packed in an ordered arrangement.</td>
+                  <td>Loosely arranged but still close together.</td>
+                  <td>Not arranged in any fixed way.</td>
+                </tr>
+                <tr>
+                  <td>Particle movement</td>
+                  <td>Vibrate about fixed positions.</td>
+                  <td>Move quite fast and slide past each other.</td>
+                  <td>Move freely and rapidly in all directions.</td>
+                </tr>
+                <tr>
+                  <td>Space between particles</td>
+                  <td>Small spaces.</td>
+                  <td>Small spaces, but larger than in a solid.</td>
+                  <td>Very large spaces.</td>
+                </tr>
+                <tr>
+                  <td>Forces of attraction</td>
+                  <td>Very strong; forces hold particles together.</td>
+                  <td>Weaker than in a solid; particles are not held in fixed places.</td>
+                  <td>Weakest; particles move about freely.</td>
+                </tr>
+                <tr>
+                  <td>Shape and volume</td>
+                  <td>Fixed shape and fixed volume.</td>
+                  <td>Fixed volume, takes the shape of the container.</td>
+                  <td>No fixed shape or volume; fills the container.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout">
+            <p><strong>Mercury example from the scan:</strong> mercury is a solid below about -39 deg C, a liquid between about -39 deg C and 357 deg C, and a gas above about 357 deg C.</p>
+          </div>
+
+          <h3>Plasma And Other States</h3>
+          <p>
+            Plasma is an ionized, high-energy state of matter. The lesson uses plasma displays,
+            fluorescent lamps, neon signs, plasma globes, lightning, the magnetosphere, solar
+            wind, stars, and space media as examples. It also notes that the plasma lamp was
+            invented by Nikola Tesla.
+          </p>
+          <div class="three-col">
+            <div class="fact">
+              <strong>Artificially produced plasma</strong>
+              <p>Plasma displays, TV screens, fluorescent lamps, neon signs, plasma balls, and plasma globes.</p>
+            </div>
+            <div class="fact">
+              <strong>Terrestrial plasma</strong>
+              <p>Lightning, plasma in Earth's magnetosphere, and the polar wind or plasma fountain.</p>
+            </div>
+            <div class="fact">
+              <strong>Space plasma</strong>
+              <p>Stars heated by nuclear fusion, interplanetary medium, intergalactic medium, and interstellar medium.</p>
+            </div>
+          </div>
+
+          <div class="fact-grid">
+            <div class="fact">
+              <strong>Bose-Einstein condensate</strong>
+              <p>A low-temperature state that forms close to absolute zero.</p>
+            </div>
+            <div class="fact">
+              <strong>Superfluids</strong>
+              <p>Some liquids near absolute zero have zero viscosity, meaning they flow without friction. Helium becomes superfluid below the lambda temperature, about 2.17 K.</p>
+            </div>
+            <div class="fact">
+              <strong>High-energy states</strong>
+              <p>The scan names plasma and degenerate matter as examples.</p>
+            </div>
+            <div class="fact">
+              <strong>Liquid crystals</strong>
+              <p>Only certain substances show this state. Cholesteryl benzoate has two melting points: at 145.5 deg C it becomes a cloudy liquid, and at 178.5 deg C it becomes clear.</p>
+            </div>
+          </div>
+
+          <h3>Sublimation And Deposition</h3>
+          <p>
+            Sublimation is a change from solid directly to gas. Deposition is a change from gas
+            directly to solid. The PDF shows dry ice/carbon dioxide, iodine, and ammonium chloride.
+          </p>
+          <div class="tag-list" aria-label="Sublimation and deposition examples">
+            <span class="tag">Carbon dioxide: CO<sub>2</sub></span>
+            <span class="tag">Iodine: I<sub>2</sub></span>
+            <span class="tag">Ammonium chloride: NH<sub>4</sub>Cl</span>
+          </div>
+        </section>
+
+        <section id="diffusion">
+          <h2>Brownian Motion, Diffusion, Osmosis, And Dialysis</h2>
+          <div class="two-col">
+            <div>
+              <h3>Brownian Motion</h3>
+              <p>
+                Brownian motion is the random motion of particles suspended in a medium, such as a
+                liquid or a gas. It is named after the botanist Robert Brown, who described the
+                motion in 1827 while observing pollen of <em>Clarkia pulchella</em> immersed in water.
+              </p>
+              <p>
+                Diffusion can be understood as the visible, large-scale result of random particle
+                motion at the microscopic level.
+              </p>
+            </div>
+            <div class="diagram">
+              <svg viewBox="0 0 560 330" role="img" aria-labelledby="brownianTitle brownianDesc">
+                <title id="brownianTitle">Brownian motion and diffusion</title>
+                <desc id="brownianDesc">Particles move randomly and spread from high concentration to low concentration.</desc>
+                <defs>
+                  <marker id="smallArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M0,0 L10,5 L0,10 Z" fill="#177e75"/>
+                  </marker>
+                </defs>
+                <rect x="20" y="28" width="520" height="252" rx="20" fill="#f9fbf7" stroke="#d9e3df" stroke-width="2"/>
+                <line x1="280" y1="38" x2="280" y2="270" stroke="#d9e3df" stroke-width="4" stroke-dasharray="12 10"/>
+                <text x="140" y="304" text-anchor="middle" fill="#5f6c77" font-size="18">higher concentration</text>
+                <text x="420" y="304" text-anchor="middle" fill="#5f6c77" font-size="18">lower concentration</text>
+                <g fill="#177e75">
+                  <circle cx="82" cy="78" r="9"/><circle cx="110" cy="116" r="9"/><circle cx="76" cy="159" r="9"/>
+                  <circle cx="142" cy="82" r="9"/><circle cx="170" cy="146" r="9"/><circle cx="137" cy="199" r="9"/>
+                  <circle cx="205" cy="91" r="9"/><circle cx="214" cy="175" r="9"/><circle cx="100" cy="219" r="9"/>
+                  <circle cx="236" cy="225" r="9"/>
+                </g>
+                <g fill="#d26a3a">
+                  <circle cx="340" cy="96" r="9"/><circle cx="395" cy="151" r="9"/><circle cx="467" cy="103" r="9"/>
+                  <circle cx="438" cy="222" r="9"/>
+                </g>
+                <g fill="none" stroke="#177e75" stroke-width="4" marker-end="url(#smallArrow)">
+                  <path d="M210 92 C238 88 256 96 282 106"/>
+                  <path d="M188 192 C230 186 252 174 300 168"/>
+                  <path d="M236 225 C266 232 291 229 324 218"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <h3>Key Definitions</h3>
+          <div class="fact-grid">
+            <div class="fact">
+              <strong>Diffusion</strong>
+              <p>Movement of particles from a region of higher concentration to a region of lower concentration.</p>
+            </div>
+            <div class="fact">
+              <strong>Osmosis</strong>
+              <p>Movement of solvent molecules, usually water, through a semipermeable membrane from a less concentrated solution into a more concentrated one.</p>
+            </div>
+            <div class="fact">
+              <strong>Dialysis</strong>
+              <p>Separation of molecules in solution by differences in their rates of diffusion through a semipermeable membrane.</p>
+            </div>
+            <div class="fact">
+              <strong>Why diffusion occurs</strong>
+              <p>Particles move randomly due to their natural kinetic energy. Diffusion and osmosis occur in living and nonliving systems.</p>
+            </div>
+          </div>
+
+          <h3>Rate Of Diffusion</h3>
+          <p>The scan highlights two factors that increase diffusion rate:</p>
+          <div class="formula-strip">
+            <span class="formula">Lower molecular mass</span>
+            <span class="formula">Higher temperature</span>
+          </div>
+
+          <h3>Solute, Solvent, And Solution</h3>
+          <p>A solution forms when a solute dissolves in a solvent.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Term</th>
+                  <th>Meaning</th>
+                  <th>Salt-water example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Solute</td>
+                  <td>The substance being dissolved.</td>
+                  <td>Salt</td>
+                </tr>
+                <tr>
+                  <td>Solvent</td>
+                  <td>The substance that dissolves the solute.</td>
+                  <td>Water</td>
+                </tr>
+                <tr>
+                  <td>Solution</td>
+                  <td>The mixture formed after dissolving.</td>
+                  <td>Salt water</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout">
+            <p>
+              The PDF asks: is a solution a compound or a mixture, and is it homogeneous or
+              heterogeneous? A solution is a homogeneous mixture, because the substances are
+              physically combined and evenly distributed rather than chemically bonded in a fixed ratio.
+            </p>
+          </div>
+        </section>
+
+        <section id="desalination">
+          <h2>Reverse Osmosis And Desalination Plants</h2>
+          <p>
+            Reverse osmosis uses applied pressure to push water through a semipermeable membrane
+            in the opposite direction from ordinary osmosis. Water molecules pass through, while
+            many dissolved salts and impurities are left behind.
+          </p>
+          <div class="diagram">
+            <svg viewBox="0 0 760 360" role="img" aria-labelledby="roTitle roDesc">
+              <title id="roTitle">Reverse osmosis desalination flow</title>
+              <desc id="roDesc">Sea water goes through screening, ultrafiltration, reverse osmosis, and post treatment.</desc>
+              <defs>
+                <marker id="roArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M0,0 L10,5 L0,10 Z" fill="#2d6f95"/>
+                </marker>
+              </defs>
+              <rect x="24" y="36" width="120" height="82" rx="12" fill="#e6f0fb" stroke="#2d6f95" stroke-width="3"/>
+              <text x="84" y="69" text-anchor="middle" fill="#254c62" font-size="18" font-weight="900">Sea</text>
+              <text x="84" y="93" text-anchor="middle" fill="#254c62" font-size="18" font-weight="900">water</text>
+              <g fill="#6a5da8">
+                <circle cx="62" cy="147" r="6"/><circle cx="88" cy="160" r="6"/><circle cx="114" cy="145" r="6"/>
+              </g>
+              <g transform="translate(188 32)">
+                <rect width="126" height="92" rx="12" fill="#eef7f3" stroke="#177e75" stroke-width="3"/>
+                <text x="63" y="32" text-anchor="middle" fill="#0f5d57" font-size="16" font-weight="900">1</text>
+                <text x="63" y="58" text-anchor="middle" fill="#0f5d57" font-size="18" font-weight="900">Screening</text>
+              </g>
+              <g transform="translate(356 32)">
+                <rect width="126" height="92" rx="12" fill="#fff7ef" stroke="#d26a3a" stroke-width="3"/>
+                <text x="63" y="32" text-anchor="middle" fill="#8a482a" font-size="16" font-weight="900">2</text>
+                <text x="63" y="58" text-anchor="middle" fill="#8a482a" font-size="18" font-weight="900">Ultra-</text>
+                <text x="63" y="80" text-anchor="middle" fill="#8a482a" font-size="18" font-weight="900">filtration</text>
+              </g>
+              <g transform="translate(524 32)">
+                <rect width="126" height="92" rx="12" fill="#f1f3fb" stroke="#6a5da8" stroke-width="3"/>
+                <text x="63" y="32" text-anchor="middle" fill="#4e4784" font-size="16" font-weight="900">3</text>
+                <text x="63" y="58" text-anchor="middle" fill="#4e4784" font-size="18" font-weight="900">Reverse</text>
+                <text x="63" y="80" text-anchor="middle" fill="#4e4784" font-size="18" font-weight="900">osmosis</text>
+              </g>
+              <rect x="616" y="182" width="126" height="92" rx="12" fill="#eef7f3" stroke="#177e75" stroke-width="3"/>
+              <text x="679" y="214" text-anchor="middle" fill="#0f5d57" font-size="16" font-weight="900">4</text>
+              <text x="679" y="240" text-anchor="middle" fill="#0f5d57" font-size="18" font-weight="900">Post</text>
+              <text x="679" y="262" text-anchor="middle" fill="#0f5d57" font-size="18" font-weight="900">treatment</text>
+              <g stroke="#2d6f95" stroke-width="5" marker-end="url(#roArrow)">
+                <path d="M144 78 H182"/>
+                <path d="M314 78 H350"/>
+                <path d="M482 78 H518"/>
+                <path d="M650 78 C704 91 712 129 688 176"/>
+              </g>
+              <g transform="translate(120 204)">
+                <rect x="0" y="0" width="300" height="92" rx="12" fill="#ffffff" stroke="#d9e3df" stroke-width="2"/>
+                <line x1="150" y1="12" x2="150" y2="80" stroke="#1d2730" stroke-width="5"/>
+                <text x="75" y="28" text-anchor="middle" fill="#5f6c77" font-size="16" font-weight="800">salt water</text>
+                <text x="225" y="28" text-anchor="middle" fill="#5f6c77" font-size="16" font-weight="800">fresh water</text>
+                <g fill="#6a5da8">
+                  <circle cx="40" cy="52" r="6"/><circle cx="64" cy="62" r="6"/><circle cx="88" cy="48" r="6"/><circle cx="112" cy="64" r="6"/>
+                </g>
+                <g fill="#177e75">
+                  <circle cx="205" cy="54" r="6"/><circle cx="238" cy="64" r="6"/><circle cx="262" cy="50" r="6"/>
+                </g>
+                <path d="M24 78 C78 100 112 98 142 78" fill="none" stroke="#d26a3a" stroke-width="4" marker-end="url(#roArrow)"/>
+                <text x="150" y="112" text-anchor="middle" fill="#5f6c77" font-size="15">applied pressure pushes water across the membrane</text>
+              </g>
+            </svg>
+          </div>
+          <div class="fact-grid">
+            <div class="fact">
+              <strong>1. Screening</strong>
+              <p>Seawater undergoes a two-stage mechanical filtration to remove coarse and fine particles.</p>
+            </div>
+            <div class="fact">
+              <strong>2. Ultrafiltration</strong>
+              <p>Filtration removes impurities, microorganisms, and bacteria of smaller sizes.</p>
+            </div>
+            <div class="fact">
+              <strong>3. Reverse osmosis unit</strong>
+              <p>Pre-treated seawater is pumped at high pressure through semipermeable membranes. Only water molecules pass through at this stage.</p>
+            </div>
+            <div class="fact">
+              <strong>4. Post treatment</strong>
+              <p>Water is disinfected, remineralised, and made potable with chemicals such as chlorine and fluoride.</p>
+            </div>
+          </div>
+          <p class="source-note">PUB reference printed in the scan: <code>https://www.pub.gov.sg/watersupply/fournationaltaps/desalinatedwater/tsdp</code></p>
+        </section>
+
+        <section id="atoms">
+          <h2>Atoms And Subatomic Structure</h2>
+          <p>
+            The lesson moves from Dalton's model to the modern idea that atoms contain smaller
+            particles. More than 99.94% of an atom's mass is in the nucleus.
+          </p>
+          <div class="two-col">
+            <div>
+              <ul>
+                <li>Protons have a positive electric charge.</li>
+                <li>Electrons have a negative electric charge.</li>
+                <li>Neutrons have no electric charge.</li>
+                <li>If the number of protons equals the number of electrons, the atom is electrically neutral.</li>
+                <li>If those numbers are different, the atom is positively or negatively charged.</li>
+                <li>The number of protons defines which chemical element the atom represents.</li>
+              </ul>
+            </div>
+            <div class="diagram">
+              <svg viewBox="0 0 460 320" role="img" aria-labelledby="atomTitle atomDesc">
+                <title id="atomTitle">Atom structure</title>
+                <desc id="atomDesc">An atom has a nucleus with protons and neutrons, and electrons outside the nucleus.</desc>
+                <rect x="20" y="20" width="420" height="280" rx="20" fill="#f9fbf7" stroke="#d9e3df" stroke-width="2"/>
+                <circle cx="230" cy="160" r="42" fill="#fff7ef" stroke="#d26a3a" stroke-width="4"/>
+                <circle cx="214" cy="150" r="13" fill="#d26a3a"/>
+                <circle cx="244" cy="151" r="13" fill="#c4912f"/>
+                <circle cx="226" cy="178" r="13" fill="#c4912f"/>
+                <circle cx="256" cy="177" r="13" fill="#d26a3a"/>
+                <ellipse cx="230" cy="160" rx="130" ry="52" fill="none" stroke="#177e75" stroke-width="4"/>
+                <ellipse cx="230" cy="160" rx="52" ry="130" fill="none" stroke="#177e75" stroke-width="4"/>
+                <ellipse cx="230" cy="160" rx="130" ry="52" transform="rotate(45 230 160)" fill="none" stroke="#2d6f95" stroke-width="4"/>
+                <circle cx="360" cy="160" r="11" fill="#6a5da8"/>
+                <circle cx="230" cy="30" r="11" fill="#6a5da8"/>
+                <circle cx="138" cy="252" r="11" fill="#6a5da8"/>
+                <text x="230" y="157" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="900">nucleus</text>
+                <text x="360" y="198" text-anchor="middle" fill="#4e4784" font-size="16" font-weight="800">electron</text>
+                <text x="214" y="124" text-anchor="middle" fill="#8a482a" font-size="16" font-weight="800">p+</text>
+                <text x="260" y="124" text-anchor="middle" fill="#8a482a" font-size="16" font-weight="800">n</text>
+              </svg>
+            </div>
+          </div>
+
+          <h3>Subatomic Particles</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Location</th>
+                  <th>Particle</th>
+                  <th>Symbol</th>
+                  <th>Relative charge</th>
+                  <th>Relative mass</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Inside the nucleus</td>
+                  <td>Proton</td>
+                  <td>p</td>
+                  <td>+1</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Inside the nucleus</td>
+                  <td>Neutron</td>
+                  <td>n</td>
+                  <td>0</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Outside the nucleus</td>
+                  <td>Electron</td>
+                  <td>e</td>
+                  <td>-1</td>
+                  <td>1/1840</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Proton Number And Nucleon Number</h3>
+          <ul>
+            <li>Proton number is also called the atomic number and is represented by <strong>Z</strong>.</li>
+            <li>Nucleon number is also called the mass number and is represented by <strong>A</strong>.</li>
+            <li>Neutron number is represented by <strong>N</strong>.</li>
+            <li>For a neutral atom, atomic number = number of protons = number of electrons.</li>
+            <li>Mass number = number of protons + number of neutrons.</li>
+          </ul>
+          <div class="formula-strip">
+            <span class="formula">A = Z + N</span>
+            <span class="formula">Z = number of protons</span>
+            <span class="formula">Neutral atom: protons = electrons</span>
+          </div>
+          <div class="callout">
+            <p><strong>Helium example:</strong> helium-4 has mass number 4, atomic number 2, and neutron number 2.</p>
+          </div>
+
+          <h3>Isotopes</h3>
+          <p>
+            Isotopes are atoms of the same element with the same number of protons but different
+            numbers of neutrons. Because the proton number stays the same, isotopes are still the
+            same element.
+          </p>
+        </section>
+
+        <section id="periodic-table">
+          <h2>Chemical Composition And The Periodic Table</h2>
+          <p>
+            Chemical composition means the chemical components that make up a substance. According
+            to chemical composition, matter can be classified as elements or non-elements; the
+            non-elements discussed here are compounds and mixtures.
+          </p>
+          <div class="diagram">
+            <svg viewBox="0 0 760 300" role="img" aria-labelledby="classTitle classDesc">
+              <title id="classTitle">Matter classification</title>
+              <desc id="classDesc">Matter is classified into elements, compounds, and mixtures.</desc>
+              <defs>
+                <marker id="classArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M0,0 L10,5 L0,10 Z" fill="#2d6f95"/>
+                </marker>
+              </defs>
+              <rect x="300" y="24" width="160" height="62" rx="14" fill="#eef7f3" stroke="#177e75" stroke-width="4"/>
+              <text x="380" y="63" text-anchor="middle" fill="#0f5d57" font-size="24" font-weight="900">Matter</text>
+              <rect x="88" y="178" width="160" height="70" rx="14" fill="#fff7ef" stroke="#d26a3a" stroke-width="4"/>
+              <rect x="300" y="178" width="160" height="70" rx="14" fill="#f1f3fb" stroke="#6a5da8" stroke-width="4"/>
+              <rect x="512" y="178" width="160" height="70" rx="14" fill="#e6f0fb" stroke="#2d6f95" stroke-width="4"/>
+              <text x="168" y="219" text-anchor="middle" fill="#8a482a" font-size="22" font-weight="900">Elements</text>
+              <text x="380" y="219" text-anchor="middle" fill="#4e4784" font-size="22" font-weight="900">Compounds</text>
+              <text x="592" y="219" text-anchor="middle" fill="#254c62" font-size="22" font-weight="900">Mixtures</text>
+              <path d="M348 86 L190 172" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#classArrow)"/>
+              <path d="M380 88 V170" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#classArrow)"/>
+              <path d="M412 86 L570 172" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#classArrow)"/>
+              <text x="380" y="126" text-anchor="middle" fill="#5f6c77" font-size="16">classified by chemical composition</text>
+            </svg>
+          </div>
+
+          <div class="fact-grid">
+            <div class="fact">
+              <strong>Element</strong>
+              <p>A pure substance that cannot be broken down into two or more simpler substances by chemical processes.</p>
+            </div>
+            <div class="fact">
+              <strong>Compound</strong>
+              <p>A substance formed when atoms of two or more elements are chemically combined.</p>
+            </div>
+            <div class="fact">
+              <strong>Mixture</strong>
+              <p>A physical combination of substances. A solution is a homogeneous mixture.</p>
+            </div>
+            <div class="fact">
+              <strong>Chemical reaction</strong>
+              <p>A rearrangement of atoms. Physical changes involve no rearrangement of atoms, so the composition of molecules does not change.</p>
+            </div>
+          </div>
+
+          <h3>Physical Properties</h3>
+          <p>
+            Physical properties are qualities of a material that can be detected using our five
+            senses or a measuring device.
+          </p>
+
+          <h3>Chemical Symbols Of Elements</h3>
+          <ul>
+            <li>Each symbol may consist of one or two letters.</li>
+            <li>The first letter is always capitalized.</li>
+            <li>The second letter, when present, is lowercase.</li>
+          </ul>
+
+          <h3>Element Classification</h3>
+          <p>Elements are often classified by metallic and non-metallic properties and by their physical state at room temperature.</p>
+          <div class="tag-list" aria-label="Element classifications">
+            <span class="tag">Metals</span>
+            <span class="tag">Non-metals</span>
+            <span class="tag">Metalloids</span>
+            <span class="tag">Main-group elements</span>
+            <span class="tag">Transition metals</span>
+            <span class="tag">Inner transition metals</span>
+            <span class="tag">Alkali metals</span>
+            <span class="tag">Alkaline earth metals</span>
+            <span class="tag">Halogens</span>
+            <span class="tag">Noble gases</span>
+            <span class="tag">Lanthanides</span>
+            <span class="tag">Actinides</span>
+          </div>
+
+          <h3>Periodic Table</h3>
+          <p>
+            Scientists have classified all known elements into the periodic table. The periodic
+            table arranges elements by atomic number, electron configuration, and recurring
+            chemical properties. A periodic-table tile gives the atomic number, chemical symbol,
+            chemical name, and relative atomic mass.
+          </p>
+          <div class="two-col">
+            <div class="diagram">
+              <svg viewBox="0 0 460 310" role="img" aria-labelledby="tileTitle tileDesc">
+                <title id="tileTitle">Periodic table tile</title>
+                <desc id="tileDesc">A nitrogen tile with atomic number, symbol, name, and relative atomic mass.</desc>
+                <defs>
+                  <marker id="tileArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 Z" fill="#2d6f95"/>
+                  </marker>
+                </defs>
+                <rect x="76" y="42" width="190" height="230" rx="12" fill="#ffffff" stroke="#1d2730" stroke-width="5"/>
+                <text x="104" y="86" fill="#1d2730" font-size="36" font-weight="900">7</text>
+                <text x="171" y="168" text-anchor="middle" fill="#1d2730" font-size="92" font-weight="900">N</text>
+                <text x="171" y="208" text-anchor="middle" fill="#1d2730" font-size="25" font-weight="800">NITROGEN</text>
+                <text x="171" y="246" text-anchor="middle" fill="#1d2730" font-size="34">14.007</text>
+                <g stroke="#2d6f95" stroke-width="4" marker-end="url(#tileArrow)">
+                  <path d="M360 70 H274"/>
+                  <path d="M360 143 H274"/>
+                  <path d="M360 204 H274"/>
+                  <path d="M360 244 H274"/>
+                </g>
+                <text x="366" y="75" fill="#254c62" font-size="17" font-weight="800">atomic number</text>
+                <text x="366" y="148" fill="#254c62" font-size="17" font-weight="800">chemical symbol</text>
+                <text x="366" y="209" fill="#254c62" font-size="17" font-weight="800">chemical name</text>
+                <text x="366" y="249" fill="#254c62" font-size="17" font-weight="800">relative atomic mass</text>
+              </svg>
+            </div>
+            <div>
+              <p>
+                The atomic number is the number of protons. It defines what chemical element the
+                atom represents. For example, atomic/proton number 9 identifies fluorine.
+              </p>
+              <p>
+                The scan asks students to find copper, silver, and gold on the periodic table:
+                copper is Cu, atomic number 29; silver is Ag, atomic number 47; gold is Au,
+                atomic number 79.
+              </p>
+            </div>
+          </div>
+
+          <h3>Periodic Table Practice From The PDF</h3>
+          <div class="answer-list">
+            <div class="answer"><strong>One-letter element symbols:</strong> B, C, F, H, I, K, N, O, P, S, U, V, W, and Y.</div>
+            <div class="answer"><strong>Gases at room temperature:</strong> hydrogen, nitrogen, oxygen, fluorine, chlorine, helium, neon, argon, krypton, xenon, and radon.</div>
+            <div class="answer"><strong>Liquids at room temperature:</strong> mercury and bromine.</div>
+            <div class="answer"><strong>Element with atomic/proton number 9:</strong> fluorine.</div>
+            <div class="answer"><strong>Element with relative atomic mass 35.453:</strong> chlorine.</div>
+            <div class="answer"><strong>Radioactive element with the smallest atomic number:</strong> technetium.</div>
+            <div class="answer"><strong>Last non-radioactive element:</strong> lead.</div>
+          </div>
+        </section>
+
+        <section id="review">
+          <h2>Review And Source References</h2>
+          <div class="two-col">
+            <div>
+              <h3>Check Yourself</h3>
+              <ol>
+                <li>Explain why air is matter even though it is invisible.</li>
+                <li>Compare the particle arrangement and motion in solids, liquids, and gases.</li>
+                <li>State what happens during melting, freezing, boiling, condensation, sublimation, and deposition.</li>
+                <li>Explain why diffusion is faster at higher temperature.</li>
+                <li>Describe the difference between diffusion, osmosis, and dialysis.</li>
+                <li>Explain how reverse osmosis is used in desalination.</li>
+                <li>Use proton number, nucleon number, and neutron number in <strong>A = Z + N</strong>.</li>
+                <li>Use the periodic table to identify an element by atomic number, symbol, or relative atomic mass.</li>
+              </ol>
+            </div>
+            <div>
+              <h3>Video And Activity Links Printed In The Scan</h3>
+              <ul>
+                <li>Particle theory: <code>https://www.youtube.com/watch?v=fhnDxFdkzZs</code></li>
+                <li>Matter/particle theory: <code>https://www.youtube.com/watch?v=94tReSbyPYc</code></li>
+                <li>Diffusion simulation: <code>https://phet.colorado.edu/sims/html/diffusion/latest/diffusion_en.html</code></li>
+                <li>Dalton's playhouse: <code>https://www.visionlearning.com/library/animations/daltons_playhouse/</code></li>
+                <li>Atomic structure: <code>https://www.youtube.com/watch?v=ukGLH_NrFH8</code></li>
+                <li>Discovery of periodic table: <code>https://www.youtube.com/watch?v=O-48znAg7VE</code></li>
+                <li>Discovery of periodic table: <code>https://www.youtube.com/watch?v=fPnwBITSmgU</code></li>
+                <li>Overview of periodic table: <code>https://www.youtube.com/watch?v=uPkEGAHo78o</code></li>
+                <li>Physics: <code>https://www.youtube.com/watch?v=TTHazQeM8v8</code></li>
+                <li>Electricity: <code>https://www.youtube.com/watch?v=ru032Mfsfjg</code></li>
+              </ul>
+            </div>
+          </div>
+          <p class="source-note">
+            Rebuilt from the week 2 scanned PDF, <code>IMG_20260427_0002.pdf</code>. The duplicate diffusion/osmosis scan page was consolidated so the content appears once.
+          </p>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

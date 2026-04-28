@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 01: Introduction to Science Olympiad</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --surface: #ffffff;
+      --surface-soft: #eef7f3;
+      --ink: #1d2730;
+      --muted: #5f6c77;
+      --accent: #177e75;
+      --accent-strong: #0f5d57;
+      --warm: #d26a3a;
+      --gold: #c4912f;
+      --blue: #2d6f95;
+      --violet: #6a5da8;
+      --line: rgba(29, 39, 48, 0.14);
+      --shadow: 0 14px 36px rgba(29, 39, 48, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        linear-gradient(135deg, rgba(23, 126, 117, 0.1), transparent 28%),
+        linear-gradient(315deg, rgba(210, 106, 58, 0.12), transparent 28%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    nav a,
+    .toc a {
+      color: var(--accent-strong);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      margin-bottom: 26px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--warm);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.15rem, 5.5vw, 4rem);
+      line-height: 1;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.65;
+    }
+
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: inline-flex;
+      padding: 8px 11px;
+      border: 1px solid rgba(23, 126, 117, 0.22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .hero-visual,
+    .diagram,
+    .visual-panel {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual {
+      padding: 18px;
+    }
+
+    .hero-visual svg,
+    .diagram svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.48;
+    }
+
+    .lesson {
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      font-size: 1.05rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 14px;
+      border-left: 5px solid var(--warm);
+      border-radius: 8px;
+      background: #fff7ef;
+      color: #5f4636;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini-card,
+    .step,
+    .field,
+    .example,
+    .key-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+
+    .mini-card {
+      padding: 16px;
+    }
+
+    .mini-card strong,
+    .field strong,
+    .key-card strong {
+      color: var(--accent-strong);
+    }
+
+    .key-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .key-card {
+      padding: 16px;
+    }
+
+    .key-card p {
+      margin-top: 6px;
+      margin-bottom: 0;
+    }
+
+    .flow {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .step {
+      padding: 13px 14px;
+      color: var(--muted);
+    }
+
+    .step strong {
+      color: var(--ink);
+    }
+
+    .arrow {
+      color: var(--accent);
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .method-diagram {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.82fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
+      margin-top: 14px;
+    }
+
+    .method-steps {
+      display: grid;
+      gap: 10px;
+    }
+
+    .hypotheses {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .hypothesis {
+      min-height: 78px;
+      padding: 10px;
+      border: 1px solid rgba(45, 111, 149, 0.22);
+      border-radius: 10px;
+      background: #f1f7fb;
+      color: #315b70;
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .hypothesis.rejected {
+      border-style: dashed;
+      background: #f6f1ee;
+      color: #8a5d49;
+      text-decoration: line-through;
+    }
+
+    .prediction-strip {
+      margin-top: 10px;
+      padding: 14px;
+      border-radius: 10px;
+      background: var(--surface-soft);
+      color: var(--accent-strong);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .equation {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 0 4px;
+      font-size: clamp(1.15rem, 4vw, 2rem);
+      font-weight: 900;
+    }
+
+    .equation span {
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: var(--surface-soft);
+    }
+
+    .cycle {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .cycle-box {
+      padding: 18px;
+      border: 2px solid rgba(23, 126, 117, 0.28);
+      border-radius: 10px;
+      background: var(--surface-soft);
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .cycle-arrows {
+      display: grid;
+      gap: 8px;
+      color: var(--accent-strong);
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .reasoning-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .process-grid .step {
+      min-height: 72px;
+    }
+
+    .model-grid,
+    .fields-grid,
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .example {
+      display: grid;
+      gap: 10px;
+      place-items: center;
+      min-height: 96px;
+      padding: 14px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .example svg {
+      width: 92px;
+      height: 72px;
+    }
+
+    .law-theory {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .concept-box {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .concept-box h3 {
+      margin-top: 0;
+    }
+
+    .field-group {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .field-group h3 {
+      margin-top: 0;
+      color: var(--accent-strong);
+    }
+
+    .field {
+      padding: 14px;
+    }
+
+    .source {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 740px) {
+      .wrap {
+        padding-top: 24px;
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      .hero-grid,
+      .split,
+      .cycle,
+      .method-diagram,
+      .reasoning-grid,
+      .law-theory {
+        grid-template-columns: 1fr;
+      }
+
+      .cycle-arrows {
+        justify-items: start;
+        text-align: left;
+      }
+
+      .hypotheses {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a href="./">Science SPSO</a>
+      <a href="../">Dashboard</a>
+    </nav>
+
+    <header>
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Week 01</span>
+          <h1>Introduction to Science Olympiad</h1>
+          <p class="intro">
+            A readable web version of the first SPSO preparation handout. The wording keeps close to
+            the source, while the scanned diagrams have been rebuilt as clearer study visuals.
+          </p>
+          <ul class="toc">
+            <li><a href="#what-is-science">What Is Science?</a></li>
+            <li><a href="#explanations">Explanations</a></li>
+            <li><a href="#reasoning">Reasoning</a></li>
+            <li><a href="#inquiry">Inquiry</a></li>
+            <li><a href="#models">Models</a></li>
+            <li><a href="#theories-laws">Theories And Laws</a></li>
+            <li><a href="#fields">Fields</a></li>
+          </ul>
+        </div>
+        <figure class="hero-visual" aria-label="Science study illustration">
+          <svg viewBox="0 0 520 360" role="img">
+            <defs>
+              <linearGradient id="heroGradient" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#177e75"/>
+                <stop offset="0.55" stop-color="#2d6f95"/>
+                <stop offset="1" stop-color="#d26a3a"/>
+              </linearGradient>
+            </defs>
+            <rect x="26" y="26" width="468" height="308" rx="26" fill="#eef7f3"/>
+            <circle cx="176" cy="166" r="58" fill="#fff"/>
+            <ellipse cx="176" cy="166" rx="118" ry="34" fill="none" stroke="#177e75" stroke-width="9" transform="rotate(-20 176 166)"/>
+            <ellipse cx="176" cy="166" rx="118" ry="34" fill="none" stroke="#2d6f95" stroke-width="9" transform="rotate(25 176 166)"/>
+            <ellipse cx="176" cy="166" rx="118" ry="34" fill="none" stroke="#d26a3a" stroke-width="9" transform="rotate(88 176 166)"/>
+            <circle cx="176" cy="166" r="17" fill="url(#heroGradient)"/>
+            <path d="M338 78 h56 v78 l54 92 c11 19 -3 43 -25 43 h-114 c-22 0 -36 -24 -25 -43 l54 -92z" fill="#fff" stroke="#177e75" stroke-width="8" stroke-linejoin="round"/>
+            <path d="M318 244 h96 l23 39 h-142z" fill="#dff0ea"/>
+            <path d="M337 80 h59" stroke="#1d2730" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="368" cy="211" r="12" fill="#d26a3a"/>
+            <circle cx="397" cy="241" r="8" fill="#2d6f95"/>
+            <path d="M82 278 h186" stroke="#1d2730" stroke-width="8" stroke-linecap="round"/>
+            <path d="M101 274 v-68 h74 v68" fill="none" stroke="#1d2730" stroke-width="8" stroke-linejoin="round"/>
+            <path d="M115 224 h46" stroke="#1d2730" stroke-width="7" stroke-linecap="round"/>
+            <text x="76" y="72" fill="#0f5d57" font-size="31" font-weight="800">Science starts with evidence</text>
+          </svg>
+          <figcaption class="caption">The original cover used science icons; this version turns that idea into a cleaner study banner.</figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <main class="lesson">
+      <section id="what-is-science">
+        <h2>What Is Science?</h2>
+        <p>Science uses evidence to build testable explanations and predictions about natural phenomena. It also includes the knowledge generated through that process.</p>
+        <div class="key-grid">
+          <div class="key-card"><strong>Evidence-based</strong><p>Scientific ideas need observations, measurements, or experimental results behind them.</p></div>
+          <div class="key-card"><strong>Testable</strong><p>A scientific explanation must lead to predictions that can be checked.</p></div>
+          <div class="key-card"><strong>A process</strong><p>Science is not just a collection of facts; it is a way of investigating nature.</p></div>
+          <div class="key-card"><strong>Reasoned</strong><p>Understanding nature means using reasoning, not passive observation or judgement.</p></div>
+        </div>
+        <p class="note">Video reference from the source page: <strong>What is Science?</strong> https://www.youtube.com/watch?v=wVLaf10T0zI</p>
+      </section>
+
+      <section>
+        <h2>Science In A Real World</h2>
+        <p>The source diagram shows science as an iterative filter: observations create questions, questions lead to hypotheses, and experiments remove weak explanations.</p>
+        <div class="method-diagram" aria-label="Scientific testing flow">
+          <div class="method-steps">
+            <div class="step"><strong>1. Observe</strong><br>Notice a pattern or event.</div>
+            <div class="step"><strong>2. Ask</strong><br>Turn the observation into a question.</div>
+            <div class="step"><strong>3. Test</strong><br>Use experiments to compare explanations.</div>
+            <div class="step"><strong>4. Predict</strong><br>Use the strongest hypothesis to make new predictions.</div>
+          </div>
+          <div>
+            <div class="hypotheses">
+              <div class="hypothesis rejected">Hypothesis 1</div>
+              <div class="hypothesis">Hypothesis 2</div>
+              <div class="hypothesis rejected">Hypothesis 3</div>
+              <div class="hypothesis rejected">Hypothesis 4</div>
+              <div class="hypothesis">Hypothesis 5</div>
+            </div>
+            <div class="prediction-strip">Experiments reject weak hypotheses; confirmed predictions strengthen the explanation.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="explanations">
+        <h2>What Is A Scientific Explanation?</h2>
+        <div class="equation" aria-label="Claim plus evidence plus reasoning equals explanation">
+          <span>Claim</span>
+          <strong>+</strong>
+          <span>Evidence</span>
+          <strong>+</strong>
+          <span>Reasoning</span>
+          <strong>=</strong>
+          <span>Explanation</span>
+        </div>
+        <div class="split">
+          <div class="mini-card">
+            <strong>Claim</strong>
+            <p>What do you know?</p>
+          </div>
+          <div class="mini-card">
+            <strong>Evidence</strong>
+            <p>How do you know that?</p>
+          </div>
+          <div class="mini-card">
+            <strong>Reasoning</strong>
+            <p>Why does your evidence support your claim?</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="reasoning">
+        <h2>The Cycle Of Science</h2>
+        <div class="diagram" aria-label="Observation and theory cycle">
+          <svg viewBox="0 0 760 260" role="img">
+            <defs>
+              <marker id="arrowHead" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4">
+                <path d="M0,0 L8,4 L0,8 Z" fill="#177e75"/>
+              </marker>
+            </defs>
+            <rect x="66" y="92" width="186" height="76" rx="14" fill="#eef7f3" stroke="#177e75" stroke-width="3"/>
+            <text x="159" y="138" text-anchor="middle" fill="#1d2730" font-size="25" font-weight="800">Observation</text>
+            <rect x="508" y="92" width="186" height="76" rx="14" fill="#fff7ef" stroke="#d26a3a" stroke-width="3"/>
+            <text x="601" y="138" text-anchor="middle" fill="#1d2730" font-size="25" font-weight="800">Theory</text>
+            <path d="M244 84 C340 22 454 22 548 84" fill="none" stroke="#177e75" stroke-width="7" marker-end="url(#arrowHead)"/>
+            <path d="M516 178 C420 238 306 238 212 178" fill="none" stroke="#177e75" stroke-width="7" marker-end="url(#arrowHead)"/>
+            <text x="380" y="52" text-anchor="middle" fill="#0f5d57" font-size="22" font-weight="800">Induction</text>
+            <text x="380" y="226" text-anchor="middle" fill="#0f5d57" font-size="22" font-weight="800">Deduction</text>
+          </svg>
+        </div>
+        <p class="note">Scientific reasoning is both inductive and deductive.</p>
+
+        <div class="reasoning-grid">
+          <div class="mini-card">
+            <h3>Inductive Reasoning</h3>
+            <p>Moves from specific observations to broader generalizations and theories.</p>
+            <ul>
+              <li>Observe and measure.</li>
+              <li>Detect patterns and regularities.</li>
+              <li>Form a tentative hypothesis.</li>
+              <li>Develop a broader conclusion or theory.</li>
+            </ul>
+            <p class="note">Example: Adam's dog has four legs. Alice's dog has four legs. Therefore, all dogs have four legs.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Deductive Reasoning</h3>
+            <p>Works from a general idea toward a specific hypothesis and test.</p>
+            <ul>
+              <li>Start with a theory about a topic.</li>
+              <li>Narrow it into a testable hypothesis.</li>
+              <li>Collect observations or data.</li>
+              <li>Test whether the specific case fits.</li>
+            </ul>
+            <p class="note">Example: All dogs have four legs. Eric's pet is a dog. Therefore, Eric's pet has four legs.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="inquiry">
+        <h2>Scientific Inquiry</h2>
+        <ul>
+          <li>The process used by scientists to research a question is called scientific inquiry.</li>
+          <li>Trying to find the answers to a question is called the scientific method.</li>
+          <li>A scientific inquiry begins with a question about the world around us and how it works.</li>
+          <li>After a question has been identified, the next step is to collect all possible information that relates to the investigation by doing background research, making observations, and conducting experiments.</li>
+        </ul>
+
+        <h3>Science Processes</h3>
+        <div class="diagram" aria-label="Scientific process cycle">
+          <svg viewBox="0 0 820 360" role="img">
+            <defs>
+              <marker id="processArrow" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4">
+                <path d="M0,0 L8,4 L0,8 Z" fill="#2d6f95"/>
+              </marker>
+            </defs>
+            <circle cx="410" cy="180" r="72" fill="#eef7f3" stroke="#177e75" stroke-width="5"/>
+            <text x="410" y="172" text-anchor="middle" fill="#0f5d57" font-size="23" font-weight="900">Scientific</text>
+            <text x="410" y="202" text-anchor="middle" fill="#0f5d57" font-size="23" font-weight="900">Process</text>
+            <g fill="#fff" stroke="#2d6f95" stroke-width="3">
+              <rect x="344" y="20" width="132" height="52" rx="12"/>
+              <rect x="520" y="72" width="150" height="52" rx="12"/>
+              <rect x="594" y="224" width="150" height="52" rx="12"/>
+              <rect x="344" y="288" width="132" height="52" rx="12"/>
+              <rect x="76" y="224" width="150" height="52" rx="12"/>
+              <rect x="150" y="72" width="150" height="52" rx="12"/>
+            </g>
+            <g fill="#1d2730" font-size="18" font-weight="800" text-anchor="middle">
+              <text x="410" y="53">Ask Question</text>
+              <text x="595" y="105">Research</text>
+              <text x="669" y="257">Experiment</text>
+              <text x="410" y="321">Analyze Data</text>
+              <text x="151" y="257">Conclude</text>
+              <text x="225" y="105">Reflect</text>
+            </g>
+            <path d="M468 61 C510 69 536 77 558 97" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#processArrow)"/>
+            <path d="M640 124 C678 154 685 190 676 224" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#processArrow)"/>
+            <path d="M608 266 C566 292 522 305 476 311" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#processArrow)"/>
+            <path d="M344 313 C292 306 244 288 206 266" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#processArrow)"/>
+            <path d="M152 224 C134 175 154 132 199 111" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#processArrow)"/>
+            <path d="M280 79 C310 63 330 56 344 52" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#processArrow)"/>
+          </svg>
+        </div>
+        <p class="note">Example topic from the source: Galileo, mass, weight, force, and speed. Video reference: https://www.youtube.com/watch?v=NMM8vx9vDiE</p>
+      </section>
+
+      <section id="models">
+        <h2>Use Models In Science</h2>
+        <p>
+          A model is a representation of something that is too small, too big, or too expensive to observe
+          in real life. Since models simplify things to make observing and thinking about them easier,
+          they are very useful tools for scientists.
+        </p>
+        <div class="model-grid">
+          <div class="example">
+            <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M10 44 L108 18 L75 52 L96 66 L62 58 L39 74 L47 52 Z" fill="#2d6f95"/></svg>
+            Aircraft model
+          </div>
+          <div class="example">
+            <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M14 18 L108 40 L14 62 L40 42 Z" fill="#fff7ef" stroke="#d26a3a" stroke-width="5" stroke-linejoin="round"/><path d="M40 42 L108 40" stroke="#d26a3a" stroke-width="4"/></svg>
+            Paper airplane
+          </div>
+          <div class="example">
+            <svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="60" cy="40" r="11" fill="#d26a3a"/><ellipse cx="60" cy="40" rx="46" ry="14" fill="none" stroke="#177e75" stroke-width="4"/><circle cx="99" cy="40" r="6" fill="#2d6f95"/></svg>
+            Solar system model
+          </div>
+          <div class="example">
+            <svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="60" cy="39" r="9" fill="#c4912f"/><g fill="#d26a3a"><ellipse cx="60" cy="18" rx="11" ry="20"/><ellipse cx="60" cy="62" rx="11" ry="20"/><ellipse cx="39" cy="39" rx="20" ry="11"/><ellipse cx="81" cy="39" rx="20" ry="11"/></g></svg>
+            Flower model
+          </div>
+          <div class="example">
+            <svg viewBox="0 0 120 80" aria-hidden="true"><g stroke="#5f6c77" stroke-width="5"><line x1="34" y1="40" x2="60" y2="22"/><line x1="60" y1="22" x2="88" y2="42"/><line x1="60" y1="22" x2="61" y2="62"/></g><g fill="#177e75"><circle cx="34" cy="40" r="12"/><circle cx="60" cy="22" r="12"/><circle cx="88" cy="42" r="12"/><circle cx="61" cy="62" r="12"/></g></svg>
+            Molecular model
+          </div>
+        </div>
+      </section>
+
+      <section id="theories-laws">
+        <h2>Scientific Ideas, Theories, And Laws</h2>
+        <div class="law-theory">
+          <div class="concept-box">
+            <h3>Scientific Theory</h3>
+            <p>A theory is a proposed explanation that has been tested extensively and is supported by many observations.</p>
+            <p>It helps answer: why does this happen?</p>
+          </div>
+          <div class="concept-box">
+            <h3>Scientific Law</h3>
+            <p>A law is a rule based on many observations. It describes how something in nature behaves.</p>
+            <p>It helps answer: what pattern happens?</p>
+          </div>
+        </div>
+        <p class="note">Scientific ideas often start as predictions. Evidence can support, weaken, or reject those predictions.</p>
+
+        <h3>Theories Or Laws?</h3>
+        <div class="examples-grid">
+          <div class="example">Mendel's Law of Inheritance</div>
+          <div class="example">Newton's Law of Gravity</div>
+          <div class="example">First and Second Laws of Thermodynamics</div>
+          <div class="example">Einstein's Theory of Relativity</div>
+        </div>
+      </section>
+
+      <section id="fields">
+        <h2>Fields Of Science</h2>
+        <div class="fields-grid">
+          <div class="field-group">
+            <h3>Life Science</h3>
+            <div class="field"><strong>Biology</strong><p>Living things and how organisms function and interact.</p></div>
+            <div class="field"><strong>Genetics</strong><p>Inherited instructions carried in cells and bodies.</p></div>
+            <div class="field"><strong>Zoology, Botany, Ecology</strong><p>Animals, plants, and organisms living together in habitats.</p></div>
+            <div class="field"><strong>Microbiology and Medicine</strong><p>Small living structures, diagnosis, treatment, and health.</p></div>
+          </div>
+          <div class="field-group">
+            <h3>Chemical Science</h3>
+            <div class="field"><strong>Chemistry</strong><p>Atoms, elements, substances, and how they combine or change.</p></div>
+            <div class="field"><strong>Biochemistry</strong><p>Chemical reactions inside living cells.</p></div>
+            <div class="field"><strong>Organic, Inorganic, Electrochemistry</strong><p>Carbon compounds, nonliving substances, and electric currents from reactions.</p></div>
+            <div class="field"><strong>Nuclear Chemistry</strong><p>Atoms that break apart and release powerful radiation.</p></div>
+          </div>
+          <div class="field-group">
+            <h3>Physical And Earth Science</h3>
+            <div class="field"><strong>Physics</strong><p>Matter, motion, forces, energy, light, and natural laws.</p></div>
+            <div class="field"><strong>Mechanics, Optics, Electromagnetism</strong><p>Motion, light, electric currents, and magnetic fields.</p></div>
+            <div class="field"><strong>Thermodynamics and Wave Theory</strong><p>Energy flow and wave phenomena such as sound.</p></div>
+            <div class="field"><strong>Astronomy, Geology, Meteorology</strong><p>Space, rocks and landscapes, and weather conditions.</p></div>
+          </div>
+        </div>
+        <p class="source">Recognition note: this page was rebuilt from the first scanned PDF, `IMG_20260427_0001.pdf`, without copying the PDF into the GitHub Pages folder.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
