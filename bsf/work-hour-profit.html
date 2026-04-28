@@ -508,7 +508,7 @@
         <div class="tips">
           <div class="tip">如果工时差额为正，说明按当前营业额和支出来看，还可以承受更多工时；如果为负，说明当前工时偏高。</div>
           <div class="tip">当前默认值已更新为：出勤人数 6、出勤工时数 63、店铺房租 49000、宿舍房租 5000、水电费 9000、设备摊销 30000。</div>
-          <div class="tip">当前规则已更新为：物料成本 = 营业额 ×（1 - 预估毛利），时薪按 16 自动计算；输入时会自动保存，下次打开会恢复上次填写内容。</div>
+          <div class="tip">当前规则已更新为：物料成本 = 营业额 ×（1 - 预估毛利），时薪按 16 自动计算；两个营业额会自动同步，输入时会自动保存，下次打开会恢复上次填写内容。</div>
         </div>
       </article>
     </section>
@@ -551,9 +551,14 @@
     function saveInputs() {
       const payload = {};
       INPUT_IDS.forEach((id) => {
-        payload[id] = document.getElementById(id).value;
+        const input = document.getElementById(id);
+        if (input) payload[id] = input.value;
       });
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      } catch (error) {
+        // Keep the calculator usable even if browser storage is blocked.
+      }
     }
 
     function loadInputs() {
@@ -562,13 +567,23 @@
         if (!raw) return;
         const payload = JSON.parse(raw);
         INPUT_IDS.forEach((id) => {
-          if (Object.prototype.hasOwnProperty.call(payload, id)) {
-            document.getElementById(id).value = payload[id];
+          const input = document.getElementById(id);
+          if (input && Object.prototype.hasOwnProperty.call(payload, id)) {
+            input.value = payload[id];
           }
         });
+        syncRevenueFields("revenue");
       } catch (error) {
         // Ignore broken local cache and continue with defaults.
       }
+    }
+
+    function syncRevenueFields(sourceId) {
+      const source = document.getElementById(sourceId);
+      const targetId = sourceId === "revenue" ? "materialRevenue" : "revenue";
+      const target = document.getElementById(targetId);
+      if (!source || !target) return;
+      target.value = source.value;
     }
 
     function updateCalculator() {
@@ -658,6 +673,16 @@
 
     document.querySelectorAll("input").forEach((input) => {
       input.addEventListener("input", () => {
+        if (input.id === "revenue" || input.id === "materialRevenue") {
+          syncRevenueFields(input.id);
+        }
+        saveInputs();
+        updateCalculator();
+      });
+      input.addEventListener("change", () => {
+        if (input.id === "revenue" || input.id === "materialRevenue") {
+          syncRevenueFields(input.id);
+        }
         saveInputs();
         updateCalculator();
       });
