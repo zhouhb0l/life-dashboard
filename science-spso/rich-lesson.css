@@ -251,7 +251,7 @@ li + li {
 .section-art img.generated-art {
   aspect-ratio: 16 / 9;
   max-height: 320px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 6px;
 }
 
