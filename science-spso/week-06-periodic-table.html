@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 06: Periodic Table</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --paper: #ffffff;
+      --soft: #eef7f3;
+      --soft-blue: #eef6fb;
+      --soft-warm: #fff7ef;
+      --ink: #1d2730;
+      --muted: #5f6c77;
+      --green: #177e75;
+      --green-strong: #0f5d57;
+      --blue: #2d6f95;
+      --blue-strong: #244f68;
+      --warm: #d26a3a;
+      --gold: #c4912f;
+      --violet: #6a5da8;
+      --line: rgba(29, 39, 48, 0.14);
+      --shadow: 0 14px 36px rgba(29, 39, 48, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      background:
+        linear-gradient(135deg, rgba(23, 126, 117, 0.1), transparent 30%),
+        linear-gradient(315deg, rgba(196, 145, 47, 0.12), transparent 28%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: var(--green-strong);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a,
+    p,
+    li,
+    code,
+    .pill,
+    .answer {
+      overflow-wrap: anywhere;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .hero > *,
+    .layout > *,
+    section,
+    .visual,
+    .toc-panel,
+    .fact,
+    .diagram {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--warm);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 3.35rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      line-height: 1.14;
+    }
+
+    h3 {
+      margin: 20px 0 9px;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .intro {
+      max-width: 760px;
+      font-size: 1.06rem;
+    }
+
+    .source-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-block;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 7px 10px;
+      border: 1px solid rgba(23, 126, 117, 0.22);
+      border-radius: 999px;
+      color: var(--green-strong);
+      background: rgba(238, 247, 243, 0.86);
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .visual,
+    section,
+    .toc-panel,
+    .fact,
+    .callout {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .visual {
+      padding: 18px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .visual img,
+    .diagram img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .toc-panel {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .toc-panel h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .toc {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(238, 247, 243, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .fact-grid,
+    .two-col,
+    .three-col,
+    .source-grid,
+    .mini-table-grid,
+    .trend-grid,
+    .element-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .fact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: 14px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .source-grid {
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      margin-top: 14px;
+    }
+
+    .mini-table-grid {
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      margin-top: 14px;
+    }
+
+    .trend-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: 14px;
+    }
+
+    .element-grid {
+      grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+      margin-top: 14px;
+    }
+
+    .fact {
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .fact strong {
+      color: var(--green-strong);
+    }
+
+    .fact p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.96rem;
+    }
+
+    .step-card {
+      display: grid;
+      align-content: start;
+      min-height: 150px;
+      padding: 14px;
+      border: 1px solid rgba(23, 126, 117, 0.2);
+      border-radius: 10px;
+      background: rgba(238, 247, 243, 0.72);
+    }
+
+    .step-card .num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 10px;
+      border-radius: 9px;
+      color: #ffffff;
+      background: var(--green);
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-card strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .step-card p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.94rem;
+    }
+
+    .callout {
+      margin-top: 14px;
+      padding: 14px;
+      border-left: 5px solid var(--warm);
+      border-radius: 8px;
+      background: #fff7ef;
+      box-shadow: none;
+    }
+
+    .callout p,
+    .callout li {
+      color: #5f4636;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 14px 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(238, 247, 243, 0.92);
+      font-size: 0.92rem;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.48;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .diagram {
+      margin: 14px 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #ffffff;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .answer {
+      padding: 12px 13px;
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      background: rgba(45, 111, 149, 0.08);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .answer strong {
+      color: var(--ink);
+    }
+
+    .formula {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(23, 126, 117, 0.08);
+      color: var(--ink);
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .element-tile {
+      min-height: 78px;
+      padding: 10px;
+      border: 1px solid rgba(23, 126, 117, 0.22);
+      border-radius: 9px;
+      background: rgba(238, 247, 243, 0.74);
+      text-align: center;
+    }
+
+    .element-tile strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1.25rem;
+      line-height: 1.1;
+    }
+
+    .element-tile span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.25;
+    }
+
+    .source-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(29, 39, 48, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-size: 0.92em;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .layout,
+      .two-col,
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+        padding-top: 26px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      .visual {
+        padding: 12px;
+      }
+    }
+  </style>
+
+  <style>
+    .generated-art { max-width: 100%; }
+    .visual img.generated-art,
+    .hero-visual img.generated-art {
+      max-height: min(520px, 58vh);
+      object-fit: contain;
+    }
+    .diagram img.generated-art {
+      max-height: min(680px, 72vh);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .section-art {
+      width: min(100%, 820px);
+      margin: 12px auto 16px;
+      padding: 10px;
+      border: 1px solid rgba(29, 39, 48, 0.14);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(29, 39, 48, 0.07);
+      overflow: hidden;
+    }
+    .section-art img.generated-art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    @media (max-width: 640px) {
+      .section-art { width: 100%; padding: 12px; }
+      .section-art img.generated-art { max-height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Lesson navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./week-05-chemical-methods-and-bonds.html">Week 05</a>
+      <a href="./week-07-ecology.html">Week 07</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Week 06 | SPSO Preparatory Course</span>
+        <h1>Periodic Table</h1>
+        <p class="intro">
+          The periodic table is a pattern map for atoms. This rebuilt chapter turns the
+          scanned Week 06 handout into a revision guide for electron shells, groups, periods,
+          trends, noble gases, halogens, alkali metals, transition metals, reactivity,
+          corrosion, and semiconductors.
+        </p>
+        <div class="source-line" aria-label="Source details">
+          <span class="pill">By Ms Yanan</span>
+          <span class="pill">Source: IMG_20260427_0006.pdf</span>
+          <span class="pill">13 scanned pages</span>
+        </div>
+      </div>
+
+      <figure class="visual" aria-label="Periodic table concept illustration">
+        <img class="generated-art" src="./assets/generated/week-06-periodic-table-hero.webp" alt="Textbook-style illustration for Periodic Table." width="1448" height="1086" loading="eager" style="display:block;width:100%;height:auto;border-radius:8px;">
+        <figcaption class="caption">The scan keeps returning to electron arrangement: outer electrons explain why elements in a group behave similarly.</figcaption>
+      </figure>
+    </header>
+
+    <div class="layout">
+      <aside class="toc-panel">
+        <h2>Lesson Map</h2>
+        <ol class="toc">
+          <li><a href="#source-map">Source Map</a></li>
+          <li><a href="#structure">Atomic Structure</a></li>
+          <li><a href="#reading">Reading The Table</a></li>
+          <li><a href="#trends">Periodic Trends</a></li>
+          <li><a href="#radius">Radius</a></li>
+          <li><a href="#noble-gases">Noble Gases</a></li>
+          <li><a href="#halogens">Halogens</a></li>
+          <li><a href="#chlorine">Chlorine Uses And Safety</a></li>
+          <li><a href="#alkali">Alkali Metals</a></li>
+          <li><a href="#transition">Transition Metals</a></li>
+          <li><a href="#reactivity">Metal Reactivity</a></li>
+          <li><a href="#corrosion">Corrosion</a></li>
+          <li><a href="#semiconductors">Semiconductors</a></li>
+          <li><a href="#review">Review</a></li>
+        </ol>
+      </aside>
+
+      <main class="content">
+        <section id="source-map">
+          <h2>Page-By-Page Source Map</h2>
+          <p>
+            The scanned PDF has thirteen pages. The rebuilt chapter preserves the chemistry
+            notes, filled-in blanks, equations, trend statements, and review prompts, while
+            drawing clearer diagrams for revision.
+          </p>
+          <div class="source-grid">
+            <div class="step-card"><span class="num">1</span><strong>Overview</strong><p>Structure of atoms, reading the periodic table, noble gases, bonding, halogens, alkali metals, trends, and semiconductors.</p></div>
+            <div class="step-card"><span class="num">2-3</span><strong>Shells and table reading</strong><p>Electron shells, periods, groups, valence electrons, first 20 electron structures, and periodic table trends.</p></div>
+            <div class="step-card"><span class="num">4</span><strong>Across a period</strong><p>Period 3 metals to non-metals, oxide nature, and atomic radius decreasing across a period.</p></div>
+            <div class="step-card"><span class="num">5-6</span><strong>Radius and stable shells</strong><p>Atomic and ionic radius visualization, visible-light scale, and Group 0 noble gases. These two scan pages repeat the same content.</p></div>
+            <div class="step-card"><span class="num">7-10</span><strong>Noble gases and halogens</strong><p>Noble gas properties, Group 17 halogens, displacement, chlorine toxicity, disinfectant use, and bleach comparison.</p></div>
+            <div class="step-card"><span class="num">10-11</span><strong>Alkali and transition metals</strong><p>Group 1 properties, trends down the group, and transition metals.</p></div>
+            <div class="step-card"><span class="num">12</span><strong>Reactivity series</strong><p>Metal reactivity, reactions with water, acid, salt solutions, and displacement reactions.</p></div>
+            <div class="step-card"><span class="num">13</span><strong>Corrosion and wrap-up</strong><p>Rusting, copper patina, and the final revision checklist. The margins also contain unrelated handwritten doodle notes.</p></div>
+          </div>
+        </section>
+
+        <section id="structure">
+          <h2>Structure Of Atoms</h2>
+          <p>
+            The arrangement of electrons around the nucleus of an atom is very important
+            because it determines many chemical properties. Each shell holds a different
+            maximum number of electrons and has a different energy level.
+          </p>
+          <div class="fact-grid">
+            <div class="fact"><strong>1st shell</strong><p>Holds 2 electrons in the introductory shell model.</p></div>
+            <div class="fact"><strong>2nd shell</strong><p>Holds 8 electrons.</p></div>
+            <div class="fact"><strong>3rd shell</strong><p>Treated as holding 8 electrons for the first 20 elements in this lesson.</p></div>
+          </div>
+          <div class="diagram" aria-label="Electron shell model">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-06-periodic-table-diagram-01.webp" alt="Textbook-style illustration: Electron shell model." width="386" height="460" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+        </section>
+
+        <section id="reading">
+          <h2>How To Read The Periodic Table</h2>
+          <p>
+            Chemical reactions are easier to predict when you know where an element sits in
+            the periodic table.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-06-periodic-table-reading-section.webp" alt="Scientific plate illustration for How To Read The Periodic Table." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="fact-grid">
+            <div class="fact"><strong>Period</strong><p>Horizontal rows of elements are called periods. The period number tells how many occupied electron shells the atom has.</p></div>
+            <div class="fact"><strong>Group</strong><p>Vertical columns are called groups. Elements in the same group have the same number of valence electrons in this simple model.</p></div>
+            <div class="fact"><strong>Valence shell</strong><p>The outer shell furthest away from the nucleus.</p></div>
+            <div class="fact"><strong>Valence electron</strong><p>An electron in the outer shell. Valence electrons control many bonding and reactivity patterns.</p></div>
+          </div>
+
+          <h3>Electronic Structures For Proton Numbers 1-20</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Element</th><th>Proton number</th><th>Electronic structure</th><th>Period</th><th>Group pattern</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Hydrogen, H</td><td>1</td><td>1</td><td>1</td><td>1 valence electron</td></tr>
+                <tr><td>Helium, He</td><td>2</td><td>2</td><td>1</td><td>Group 0 noble gas</td></tr>
+                <tr><td>Lithium, Li</td><td>3</td><td>2,1</td><td>2</td><td>I</td></tr>
+                <tr><td>Beryllium, Be</td><td>4</td><td>2,2</td><td>2</td><td>II</td></tr>
+                <tr><td>Boron, B</td><td>5</td><td>2,3</td><td>2</td><td>III</td></tr>
+                <tr><td>Carbon, C</td><td>6</td><td>2,4</td><td>2</td><td>IV</td></tr>
+                <tr><td>Nitrogen, N</td><td>7</td><td>2,5</td><td>2</td><td>V</td></tr>
+                <tr><td>Oxygen, O</td><td>8</td><td>2,6</td><td>2</td><td>VI</td></tr>
+                <tr><td>Fluorine, F</td><td>9</td><td>2,7</td><td>2</td><td>VII</td></tr>
+                <tr><td>Neon, Ne</td><td>10</td><td>2,8</td><td>2</td><td>Group 0 noble gas</td></tr>
+                <tr><td>Sodium, Na</td><td>11</td><td>2,8,1</td><td>3</td><td>I</td></tr>
+                <tr><td>Magnesium, Mg</td><td>12</td><td>2,8,2</td><td>3</td><td>II</td></tr>
+                <tr><td>Aluminium, Al</td><td>13</td><td>2,8,3</td><td>3</td><td>III</td></tr>
+                <tr><td>Silicon, Si</td><td>14</td><td>2,8,4</td><td>3</td><td>IV</td></tr>
+                <tr><td>Phosphorus, P</td><td>15</td><td>2,8,5</td><td>3</td><td>V</td></tr>
+                <tr><td>Sulfur, S</td><td>16</td><td>2,8,6</td><td>3</td><td>VI</td></tr>
+                <tr><td>Chlorine, Cl</td><td>17</td><td>2,8,7</td><td>3</td><td>VII</td></tr>
+                <tr><td>Argon, Ar</td><td>18</td><td>2,8,8</td><td>3</td><td>Group 0 noble gas</td></tr>
+                <tr><td>Potassium, K</td><td>19</td><td>2,8,8,1</td><td>4</td><td>I</td></tr>
+                <tr><td>Calcium, Ca</td><td>20</td><td>2,8,8,2</td><td>4</td><td>II</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout">
+            <p><strong>Why reactions happen:</strong> atoms react because their outer electrons can be lost, gained, or shared to reach a more stable electron arrangement.</p>
+          </div>
+        </section>
+
+        <section id="trends">
+          <h2>Periodic Trends</h2>
+          <p>
+            A trend is a repeated pattern. The scan's trend graphic shows that properties
+            change predictably across periods and down groups.
+          </p>
+          <div class="diagram" aria-label="Periodic trend compass">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-06-periodic-table-diagram-02.webp" alt="Textbook-style illustration: Periodic trend compass." width="386" height="460" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <h3>Across Period 3</h3>
+          <p>
+            Metals are grouped on the left-hand side of a period, and non-metals are grouped
+            on the right-hand side. Period 3 is a good example.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Group</th><th>I</th><th>II</th><th>III</th><th>IV</th><th>V</th><th>VI</th><th>VII</th><th>0</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Symbol</td><td>Na</td><td>Mg</td><td>Al</td><td>Si</td><td>P</td><td>S</td><td>Cl</td><td>Ar</td></tr>
+                <tr><td>Name</td><td>Sodium</td><td>Magnesium</td><td>Aluminium</td><td>Silicon</td><td>Phosphorus</td><td>Sulfur</td><td>Chlorine</td><td>Argon</td></tr>
+                <tr><td>Properties</td><td colspan="3">Metallic</td><td>Metalloid</td><td colspan="4">Non-metallic</td></tr>
+                <tr><td>Nature of oxide</td><td colspan="2">Basic</td><td>Amphoteric</td><td colspan="5">Acidic or no common oxide for argon</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout">
+            <p><strong>Atomic radius across a period:</strong> atomic radius generally decreases from left to right because proton number increases while electrons enter the same shell, so the stronger positive nucleus pulls the negative electrons closer.</p>
+          </div>
+        </section>
+
+        <section id="radius">
+          <h2>Atomic Radius And Ionic Radius</h2>
+          <p>
+            Atomic radius is tiny: isolated neutral atoms range roughly from 30 pm to 300 pm.
+            That is far below the wavelength of visible light, so atoms cannot be seen with a
+            normal light microscope.
+          </p>
+          <div class="two-col">
+            <div class="diagram" aria-label="Cation and anion radius comparison">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-06-periodic-table-diagram-03.webp" alt="Textbook-style illustration: Cation and anion radius comparison." width="386" height="460" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div>
+              <div class="fact"><strong>Cations are smaller</strong><p>A metal atom that loses electrons has less electron repulsion and may lose its outer shell, so the positive ion becomes smaller.</p></div>
+              <div class="fact"><strong>Anions are larger</strong><p>A non-metal atom that gains electrons has greater electron repulsion, so the negative ion becomes larger.</p></div>
+              <div class="fact"><strong>Scan questions</strong><p>Largest non-radioactive atom: usually cesium. Smallest atom: helium by common atomic-radius tables, though hydrogen is often discussed as the simplest atom.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="noble-gases">
+          <h2>Group 0 Noble Gases</h2>
+          <p>
+            The stable configurations in the scan are the noble gases: helium, neon, argon,
+            krypton, xenon, and radon. They are called noble or inert gases because they are
+            generally unreactive.
+          </p>
+          <div class="fact-grid">
+            <div class="fact"><strong>Group</strong><p>Group 0 or VIII/VIIIA in older notation.</p></div>
+            <div class="fact"><strong>Particle form</strong><p>Monoatomic: they exist as single atoms.</p></div>
+            <div class="fact"><strong>Appearance</strong><p>Colourless gases at room temperature.</p></div>
+            <div class="fact"><strong>Water solubility</strong><p>Insoluble or only very slightly soluble in water.</p></div>
+            <div class="fact"><strong>Boiling point</strong><p>Increases down the group.</p></div>
+            <div class="fact"><strong>Density</strong><p>Generally increases down the group as atomic mass increases.</p></div>
+          </div>
+          <div class="diagram" aria-label="Noble gases group 0">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-06-periodic-table-diagram-04.webp" alt="Textbook-style illustration: Noble gases group 0." width="386" height="460" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="callout">
+            <p><strong>Why unreactive?</strong> Their lack of reactivity is due to electron configuration: full outer shells make electron loss, gain, or sharing unnecessary in ordinary conditions.</p>
+          </div>
+        </section>
+
+        <section id="halogens">
+          <h2>Group 17 Halogens</h2>
+          <p>
+            Halogens are Group VIIA or Group 17 elements: fluorine, chlorine, bromine, iodine,
+            astatine, and tennessine. They are reactive non-metals.
+          </p>
+          <div class="element-grid" aria-label="Halogen element tiles">
+            <div class="element-tile"><strong>F</strong><span>Fluorine</span></div>
+            <div class="element-tile"><strong>Cl</strong><span>Chlorine</span></div>
+            <div class="element-tile"><strong>Br</strong><span>Bromine</span></div>
+            <div class="element-tile"><strong>I</strong><span>Iodine</span></div>
+            <div class="element-tile"><strong>At</strong><span>Astatine</span></div>
+            <div class="element-tile"><strong>Ts</strong><span>Tennessine</span></div>
+          </div>
+          <div class="fact-grid">
+            <div class="fact"><strong>Valence electrons</strong><p>Halogens have 7 electrons in their valence shell.</p></div>
+            <div class="fact"><strong>Ion formed</strong><p>They accept 1 electron to form ions with a -1 charge, such as F<sup>-</sup> and Cl<sup>-</sup>.</p></div>
+            <div class="fact"><strong>Redox role</strong><p>They are oxidizers because they gain electrons from other substances.</p></div>
+            <div class="fact"><strong>Down-group trends</strong><p>Melting and boiling points increase, colours become darker, and reactivity decreases down the group.</p></div>
+          </div>
+
+          <h3>Chemical Properties Of Halogens</h3>
+          <p>
+            Halogens react with most metals to form salts called halides. They also undergo
+            displacement reactions with halide solutions.
+          </p>
+          <div class="diagram" aria-label="Halogen displacement reaction">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-06-periodic-table-diagram-05.webp" alt="Textbook-style illustration: Halogen displacement reaction." width="386" height="461" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="callout">
+            <p><strong>Why reactivity decreases down the group:</strong> atom size increases, so the nucleus attracts one more electron less strongly. It becomes harder for the atom to gain the electron needed for a -1 ion.</p>
+          </div>
+        </section>
+
+        <section id="chlorine">
+          <h2>Chlorine Uses And Safety</h2>
+          <p>
+            The scan gives a useful safety section on chlorine gas and bleach. Chlorine
+            chemistry is powerful, but it needs careful handling.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-06-periodic-table-chlorine-section.webp" alt="Scientific plate illustration for Chlorine Uses And Safety." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="fact-grid">
+            <div class="fact"><strong>Chlorine gas</strong><p>Cl<sub>2</sub> is a greenish-yellow gas with a pungent, irritating odour.</p></div>
+            <div class="fact"><strong>Toxicity</strong><p>It is poisonous and a pulmonary irritant that can damage the upper and lower respiratory tract.</p></div>
+            <div class="fact"><strong>History and industry</strong><p>Chlorine has many industrial uses, but it was also used as a chemical weapon in World War I.</p></div>
+            <div class="fact"><strong>Bleach warning</strong><p>Bleach is corrosive and can irritate skin and eyes. Mixed with certain cleaners, it can produce toxic gases such as chlorine gas.</p></div>
+          </div>
+
+          <h3>Chlorine As A Disinfectant</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Use from the scan</th><th>What chlorine chemistry does</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Water</td><td>Helps keep drinking water and recreational water safer by destroying waterborne pathogens linked with diseases such as cholera, typhoid fever, dysentery, hepatitis A, diarrhea, swimmer's ear, skin rashes, and athlete's foot.</td></tr>
+                <tr><td>Household disinfectant</td><td>Chlorine bleach whitens clothes and disinfects kitchen and bathroom surfaces.</td></tr>
+                <tr><td>Food and surfaces</td><td>Disinfects food-contact surfaces by destroying germs such as E. coli and salmonella. Chlorine chemistry is also used in agriculture and food safety systems.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Oxygen Bleach vs Chlorine Bleach</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Type</th><th>Active ingredient</th><th>Strength and fabric effect</th><th>Safety note from the scan</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Oxygen bleach</td><td>Oxygen, usually as peroxide</td><td>Gentler and safe for most fabrics; disinfects and whitens; more environmentally friendly.</td><td>Do not mix with vinegar.</td></tr>
+                <tr><td>Chlorine bleach</td><td>Chlorine, usually as hypochlorite</td><td>Stronger, but weakens fabrics; disinfects, whitens, and deodorizes.</td><td>Releases toxic compounds; do not mix with other products.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout">
+            <p><strong>Comparison:</strong> chlorine bleach is much stronger and more stable in the bottle; hydrogen peroxide is less damaging to fibres but decomposes to water and oxygen more readily.</p>
+          </div>
+        </section>
+
+        <section id="alkali">
+          <h2>Group 1 Alkali Metals</h2>
+          <p>
+            Alkali metals are Group IA or Group 1 elements. They are called alkali metals
+            because they react with water to form alkaline metal hydroxide solutions.
+          </p>
+          <div class="element-grid" aria-label="Alkali metal tiles">
+            <div class="element-tile"><strong>Li</strong><span>Lithium</span></div>
+            <div class="element-tile"><strong>Na</strong><span>Sodium</span></div>
+            <div class="element-tile"><strong>K</strong><span>Potassium</span></div>
+            <div class="element-tile"><strong>Rb</strong><span>Rubidium</span></div>
+            <div class="element-tile"><strong>Cs</strong><span>Cesium</span></div>
+            <div class="element-tile"><strong>Fr</strong><span>Francium</span></div>
+          </div>
+          <div class="fact-grid">
+            <div class="fact"><strong>Metal or non-metal?</strong><p>Alkali elements are metals.</p></div>
+            <div class="fact"><strong>Redox role</strong><p>They are reducers because they lose electrons.</p></div>
+            <div class="fact"><strong>Valence electrons</strong><p>They have 1 electron in the valence shell.</p></div>
+            <div class="fact"><strong>Ion formed</strong><p>They lose 1 electron to form +1 ions, such as Na<sup>+</sup> and K<sup>+</sup>.</p></div>
+            <div class="fact"><strong>Conductivity</strong><p>As metals, they conduct electricity.</p></div>
+          </div>
+          <div class="diagram" aria-label="Alkali metal trends">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-06-periodic-table-diagram-06.webp" alt="Textbook-style illustration: Alkali metal trends." width="386" height="461" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+        </section>
+
+        <section id="transition">
+          <h2>Transition Elements</h2>
+          <p>
+            Transition elements, also called transition metals, are the block of metals found
+            between groups II and III in the simplified periodic table layout.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-06-periodic-table-transition-section.webp" alt="Scientific plate illustration for Transition Elements." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="fact-grid">
+            <div class="fact"><strong>Examples in the scan</strong><p>Iron, copper, zinc, nickel, as well as gold and silver.</p></div>
+            <div class="fact"><strong>High melting and boiling points</strong><p>Their melting and boiling points are generally higher than those of Group 1 and Group 2 metals.</p></div>
+            <div class="fact"><strong>Coloured compounds</strong><p>Many transition metals form coloured compounds, which is useful in tests and pigments.</p></div>
+          </div>
+          <div class="callout">
+            <p><strong>Extra note:</strong> zinc is often grouped with transition metals in school-level periodic table maps, although stricter definitions treat it differently because its common ion has a full d-subshell.</p>
+          </div>
+        </section>
+
+        <section id="reactivity">
+          <h2>Metal Reactivity</h2>
+          <p>
+            The reactivity series orders metals by how easily they react. The scan lists three
+            ways to determine the order: reactions with cold water or steam, reactions with
+            dilute hydrochloric acid, and displacement from salt solutions.
+          </p>
+          <div class="diagram" aria-label="Metal reactivity series">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-06-periodic-table-diagram-07.webp" alt="Textbook-style illustration: Metal reactivity series." width="386" height="461" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="answer-list">
+            <div class="answer"><strong>Magnesium and copper sulfate:</strong> magnesium displaces copper from copper sulfate solution, so copper metal is precipitated.</div>
+            <div class="answer"><strong>Zinc and dilute hydrochloric acid:</strong> zinc dissolves and hydrogen gas is released: <span class="formula">Zn + 2HCl -> ZnCl<sub>2</sub> + H<sub>2</sub></span>.</div>
+            <div class="answer"><strong>Copper and dilute acid:</strong> copper does not dissolve in dilute hydrochloric acid because it is below hydrogen in the reactivity series.</div>
+            <div class="answer"><strong>Metal oxide with carbon:</strong> carbon can reduce oxides of metals below carbon in the series, producing metal and carbon oxide.</div>
+          </div>
+        </section>
+
+        <section id="corrosion">
+          <h2>Metal Corrosion</h2>
+          <p>
+            Rusting is the corrosion of iron. The scan defines rusting as the slow oxidation
+            of iron to form hydrated iron oxide.
+          </p>
+          <div class="two-col">
+            <div class="diagram" aria-label="Rusting conditions">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-06-periodic-table-diagram-08.webp" alt="Textbook-style illustration: Rusting conditions." width="386" height="461" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div>
+              <h3>Iron Corrosion</h3>
+              <p>Conditions from the scan: water and oxygen must be present with iron.</p>
+              <p><span class="formula">Fe + O<sub>2</sub> + H<sub>2</sub>O -> hydrated iron oxide</span></p>
+              <h3>Copper Patina</h3>
+              <p>Copper corrodes differently. It forms a green patina containing copper carbonate and copper hydroxide.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <p><strong>Patina equation from the scan:</strong> <span class="formula">2Cu + O<sub>2</sub> + CO<sub>2</sub> + H<sub>2</sub>O -> CuCO<sub>3</sub> + Cu(OH)<sub>2</sub></span>. This explains why copper statues can turn green instead of reddish-brown.</p>
+          </div>
+        </section>
+
+        <section id="semiconductors">
+          <h2>Semiconductors</h2>
+          <p>
+            The overview lists semiconductors, but the scanned pages do not develop the topic
+            in detail. The most useful connection is silicon: it sits near the metal/non-metal
+            boundary and has four valence electrons.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-06-periodic-table-semiconductors-section.webp" alt="Scientific plate illustration for Semiconductors." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="fact-grid">
+            <div class="fact"><strong>What they are</strong><p>Semiconductors conduct electricity better than insulators but worse than metals.</p></div>
+            <div class="fact"><strong>Why silicon matters</strong><p>Silicon is a metalloid in Period 3, Group IV. Its bonding network can be controlled in electronic devices.</p></div>
+            <div class="fact"><strong>Doping</strong><p>Adding tiny amounts of other elements changes the number of mobile charge carriers.</p></div>
+            <div class="fact"><strong>Link to this lesson</strong><p>Electron configuration and periodic position explain why semiconductor behaviour is tunable.</p></div>
+          </div>
+        </section>
+
+        <section id="review">
+          <h2>Wrap Up</h2>
+          <p>
+            The final scan page lists the main revision targets. Use this checklist to test
+            whether Week 06 is secure.
+          </p>
+          <div class="answer-list">
+            <div class="answer"><strong>Electron configuration and chemical bond:</strong> outer electrons explain losing, gaining, and sharing in chemical bonding.</div>
+            <div class="answer"><strong>Periods and groups:</strong> periods are horizontal rows; groups are vertical columns; group number often predicts valence electrons.</div>
+            <div class="answer"><strong>Noble gases:</strong> Group 0 elements are monoatomic, colourless, mostly insoluble gases with full outer shells and low reactivity.</div>
+            <div class="answer"><strong>Alkali metals:</strong> Group 1 metals have one valence electron, lose it to form +1 ions, and get more reactive down the group.</div>
+            <div class="answer"><strong>Halogens:</strong> Group 17 non-metals have seven valence electrons, gain one electron to form -1 ions, and get less reactive down the group.</div>
+            <div class="answer"><strong>Transition metals:</strong> they are central-block metals with high melting points and often coloured compounds.</div>
+            <div class="answer"><strong>Metal reactivity and corrosion:</strong> use the reactivity series to predict reactions; rusting needs iron, oxygen, and water.</div>
+          </div>
+          <p class="source-note">
+            Rebuilt from the Week 06 scanned PDF, <code>IMG_20260427_0006.pdf</code>. The chemistry diagrams are newly drawn in HTML/SVG. Unrelated handwritten marginal doodles on the final page were not used as lesson content.
+          </p>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

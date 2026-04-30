@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 03: Living Things</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --paper: #ffffff;
+      --soft: #eef7f3;
+      --soft-warm: #fff7ef;
+      --ink: #1d2730;
+      --muted: #5f6c77;
+      --accent: #177e75;
+      --accent-strong: #0f5d57;
+      --warm: #d26a3a;
+      --gold: #c4912f;
+      --blue: #2d6f95;
+      --violet: #6a5da8;
+      --line: rgba(29, 39, 48, 0.14);
+      --shadow: 0 14px 36px rgba(29, 39, 48, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      background:
+        linear-gradient(135deg, rgba(23, 126, 117, 0.1), transparent 28%),
+        linear-gradient(315deg, rgba(210, 106, 58, 0.12), transparent 30%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: var(--accent-strong);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a,
+    p,
+    li,
+    code,
+    .pill,
+    .answer {
+      overflow-wrap: anywhere;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .hero > *,
+    .layout > *,
+    section,
+    .visual,
+    .toc-panel,
+    .fact,
+    .diagram {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--warm);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 3.35rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      line-height: 1.14;
+    }
+
+    h3 {
+      margin: 20px 0 9px;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .intro {
+      max-width: 760px;
+      font-size: 1.06rem;
+    }
+
+    .source-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-block;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 7px 10px;
+      border: 1px solid rgba(23, 126, 117, 0.22);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      background: rgba(238, 247, 243, 0.82);
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .visual,
+    section,
+    .toc-panel,
+    .fact,
+    .callout {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .visual {
+      padding: 18px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .visual img,
+    .diagram img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .toc-panel {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .toc-panel h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .toc {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(238, 247, 243, 0.72);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .overview-grid,
+    .fact-grid,
+    .two-col,
+    .three-col,
+    .life-grid,
+    .source-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .overview-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .fact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: 14px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .life-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 14px;
+    }
+
+    .source-grid {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      margin-top: 14px;
+    }
+
+    .fact {
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .fact strong {
+      color: var(--accent-strong);
+    }
+
+    .fact p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.96rem;
+    }
+
+    .step-card {
+      display: grid;
+      align-content: start;
+      min-height: 150px;
+      padding: 14px;
+      border: 1px solid rgba(23, 126, 117, 0.2);
+      border-radius: 10px;
+      background: rgba(238, 247, 243, 0.68);
+    }
+
+    .step-card .num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 10px;
+      border-radius: 9px;
+      color: #ffffff;
+      background: var(--accent);
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-card strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .step-card p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.94rem;
+    }
+
+    .callout {
+      margin-top: 14px;
+      padding: 14px;
+      border-left: 5px solid var(--warm);
+      border-radius: 8px;
+      background: #fff7ef;
+      box-shadow: none;
+    }
+
+    .callout p,
+    .callout li {
+      color: #5f4636;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 14px 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(238, 247, 243, 0.9);
+      font-size: 0.92rem;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.48;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .diagram {
+      margin: 14px 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #ffffff;
+    }
+
+    .formula-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .formula {
+      padding: 10px 12px;
+      border: 1px solid rgba(45, 111, 149, 0.2);
+      border-radius: 8px;
+      color: #254c62;
+      background: rgba(45, 111, 149, 0.08);
+      font-weight: 850;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 7px 9px;
+      border: 1px solid rgba(106, 93, 168, 0.22);
+      border-radius: 8px;
+      color: #4e4784;
+      background: rgba(106, 93, 168, 0.08);
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .answer {
+      padding: 12px 13px;
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      background: rgba(45, 111, 149, 0.08);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .answer strong {
+      color: var(--ink);
+    }
+
+    .source-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(29, 39, 48, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-size: 0.92em;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .layout,
+      .two-col,
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-panel {
+        position: static;
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+        padding-top: 26px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      .visual {
+        padding: 12px;
+      }
+
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <style>
+    .generated-art { max-width: 100%; }
+    .visual img.generated-art,
+    .hero-visual img.generated-art {
+      max-height: min(520px, 58vh);
+      object-fit: contain;
+    }
+    .diagram img.generated-art {
+      max-height: min(680px, 72vh);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .section-art {
+      width: min(100%, 820px);
+      margin: 12px auto 16px;
+      padding: 10px;
+      border: 1px solid rgba(29, 39, 48, 0.14);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(29, 39, 48, 0.07);
+      overflow: hidden;
+    }
+    .section-art img.generated-art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    @media (max-width: 640px) {
+      .section-art { width: 100%; padding: 12px; }
+      .section-art img.generated-art { max-height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Lesson navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./week-02-matter-and-elements.html">Week 02</a>
+      <a href="./week-04-biodiversity.html">Week 04</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Week 03 | SPSO Preparatory Course</span>
+        <h1>Living Things</h1>
+        <p class="intro">
+          Biology asks what life is, how it may have started, and what all living things
+          share. This page rebuilds the scanned Week 03 handout into a cleaner study
+          lesson with richer explanations and diagrams for origin-of-life models,
+          first cells, photosynthesis, life processes, and the virus debate.
+        </p>
+        <div class="source-line" aria-label="Source details">
+          <span class="pill">By Dr Chen</span>
+          <span class="pill">Source: IMG_20260427_0003.pdf</span>
+          <span class="pill">13 scanned pages</span>
+        </div>
+      </div>
+
+      <figure class="visual" aria-label="Living things concept illustration">
+        <img class="generated-art" src="./assets/generated/week-03-living-things-hero.webp" alt="Textbook-style illustration for Living Things." width="1448" height="1086" loading="eager" style="display:block;width:100%;height:auto;border-radius:8px;">
+        <figcaption class="caption">The scan moves from early Earth chemistry to first cells, then to the features of living organisms. The page follows that same idea.</figcaption>
+      </figure>
+    </header>
+
+    <div class="layout">
+      <aside class="toc-panel">
+        <h2>Lesson Map</h2>
+        <ol class="toc">
+          <li><a href="#source-map">Source Map</a></li>
+          <li><a href="#origin">How Life Began</a></li>
+          <li><a href="#chemical-soup">Chemical Soup</a></li>
+          <li><a href="#first-cells">First Cells</a></li>
+          <li><a href="#oxygen">Oxygen And Land Life</a></li>
+          <li><a href="#biology">Biology</a></li>
+          <li><a href="#characteristics">Life Characteristics</a></li>
+          <li><a href="#viruses">Viruses Debate</a></li>
+          <li><a href="#review">Review</a></li>
+        </ol>
+      </aside>
+
+      <main class="content">
+        <section id="source-map">
+          <h2>Page-By-Page Source Map</h2>
+          <p>
+            The scanned PDF places two slide pages on most physical pages. This rebuilt lesson
+            keeps the topic order, but groups related slides together so the logic is easier to
+            study.
+          </p>
+          <div class="source-grid">
+            <div class="step-card"><span class="num">1</span><strong>Title and big question</strong><p>Living Things; How did life begin?</p></div>
+            <div class="step-card"><span class="num">2</span><strong>Early Earth and soup</strong><p>Toxic planet, cooling oceans, chemical soup, Miller-Urey.</p></div>
+            <div class="step-card"><span class="num">3</span><strong>Oparin-Haldane</strong><p>Building blocks, polymers, RNA world, membranes.</p></div>
+            <div class="step-card"><span class="num">4</span><strong>Vents and stromatolites</strong><p>Hydrothermal vents, first physical evidence, cyanobacteria.</p></div>
+            <div class="step-card"><span class="num">5</span><strong>Oxygen and quiz</strong><p>Photosynthesis changed Earth; RNA world multiple-choice question.</p></div>
+            <div class="step-card"><span class="num">6-8</span><strong>Life processes</strong><p>Biology, cells, nutrition, respiration, excretion.</p></div>
+            <div class="step-card"><span class="num">9-12</span><strong>Visible characteristics</strong><p>Growth, movement, reproduction, sensitivity, adaptability, constant state.</p></div>
+            <div class="step-card"><span class="num">13</span><strong>Viruses and wrap-up</strong><p>Are viruses alive? Review questions from the original handout.</p></div>
+          </div>
+        </section>
+
+        <section id="origin">
+          <h2>How Did Life Begin?</h2>
+          <p>
+            The source begins carefully: nobody knows exactly where and how life began. Earth
+            has changed so much that direct evidence of the earliest steps is incomplete.
+            Scientists therefore compare several models and ask which parts are supported by
+            chemistry, geology, fossils, and modern biology.
+          </p>
+          <div class="callout">
+            <p><strong>Exam lens:</strong> Treat origin-of-life ideas as hypotheses and models, not as a single memorized story. The strongest answers mention evidence and limitations.</p>
+          </div>
+
+          <div class="diagram" aria-label="Early Earth timeline">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-03-living-things-diagram-01.webp" alt="Textbook-style illustration: Early Earth timeline." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <div class="fact-grid">
+            <div class="fact"><strong>Toxic early atmosphere</strong><p>The scan compares early Earth to a hot toxic planet, with gases from volcanoes and deadly radiation.</p></div>
+            <div class="fact"><strong>Cooling made oceans</strong><p>As Earth cooled, water vapor condensed and rained down, forming oceans where chemistry could continue.</p></div>
+            <div class="fact"><strong>Life may have restarted</strong><p>The source notes that life could have stopped and started several times before stable survival conditions existed.</p></div>
+          </div>
+        </section>
+
+        <section id="chemical-soup">
+          <h2>Chemical Soup And The Miller-Urey Idea</h2>
+          <p>
+            The handout explains the chemical soup model: elements needed by life were present
+            on early Earth, but in a different mixture from today's atmosphere. Energy from
+            lightning or volcanic activity could drive reactions that form simple organic
+            compounds, which then wash into oceans and react further.
+          </p>
+
+          <div class="diagram" aria-label="Miller-Urey experiment simplified diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-03-living-things-diagram-02.webp" alt="Textbook-style illustration: Miller-Urey experiment simplified diagram." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <div class="two-col">
+            <div>
+              <h3>What The Scan Wants You To Know</h3>
+              <ul>
+                <li>Life probably began in the oceans.</li>
+                <li>Living things require carbon, hydrogen, nitrogen, oxygen, phosphorus, and sulphur.</li>
+                <li>Energy could drive reactions that make building blocks for life.</li>
+                <li>Miller-Urey demonstrated that some life-related organic molecules can form under prebiotic-style conditions.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Important Limitation</h3>
+              <p>
+                The experiment does not prove exactly how life started. It supports a smaller
+                claim: early-Earth-like chemistry can generate some organic building blocks.
+                That is why origin-of-life models still need membranes, information storage,
+                energy use, and self-copying chemistry.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="first-cells">
+          <h2>From Molecules To First Cells</h2>
+          <p>
+            The Oparin-Haldane model in the PDF describes a gradual route from inorganic
+            molecules to organic building blocks, polymers, self-copying molecules, and cell-like
+            compartments. The RNA world hypothesis adds a key idea: early RNA may have both stored
+            information and catalyzed reactions.
+          </p>
+
+          <div class="diagram" aria-label="Oparin-Haldane and RNA world flow">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-03-living-things-diagram-03.webp" alt="Textbook-style illustration: Oparin-Haldane and RNA world flow." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <div class="fact-grid">
+            <div class="fact"><strong>Building blocks</strong><p>Simple organic molecules such as amino acids can combine to make larger biological polymers.</p></div>
+            <div class="fact"><strong>Information</strong><p>RNA is important because it can carry genetic information and, in some cases, catalyze reactions.</p></div>
+            <div class="fact"><strong>Protection</strong><p>Fragile self-copying molecules need a boundary so useful products stay together.</p></div>
+          </div>
+
+          <h3>Phospholipid Membranes: The First "Skin"</h3>
+          <div class="two-col">
+            <div class="diagram" aria-label="Phospholipid bilayer diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-03-living-things-diagram-04.webp" alt="Textbook-style illustration: Phospholipid bilayer diagram." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div>
+              <p>
+                The scan calls this "growing a thick skin." A phospholipid has a polar head and
+                hydrophobic tails. In water, many phospholipids naturally arrange into bubbles
+                or bilayers. That gives early chemistry a compartment: useful molecules are kept
+                close together instead of drifting away.
+              </p>
+              <p>
+                A membrane alone is not life, but it is a crucial step toward a cell because a
+                cell must separate itself from the environment while still exchanging materials.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="oxygen">
+          <h2>Deep Sea Vents, Stromatolites, And Oxygen</h2>
+          <div class="three-col">
+            <div class="fact">
+              <strong>Hydrothermal vents</strong>
+              <p>Life may have begun around ocean-floor vents where heated, mineral-rich water supplied energy for chemical reactions.</p>
+            </div>
+            <div class="fact">
+              <strong>Stromatolites</strong>
+              <p>The source identifies stromatolites as early physical evidence for cell formation, about 3.5 billion years old.</p>
+            </div>
+            <div class="fact">
+              <strong>Cyanobacteria</strong>
+              <p>Stromatolites are built by mats of cyanobacteria. Their photosynthesis helped oxygenate the atmosphere.</p>
+            </div>
+          </div>
+
+          <div class="diagram" aria-label="Photosynthesis and oxygenation diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-03-living-things-diagram-05.webp" alt="Textbook-style illustration: Photosynthesis and oxygenation diagram." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <p>
+            Photosynthesis did more than feed organisms. Over long periods, it raised oxygen
+            levels, changed the chemistry of the atmosphere and oceans, and made complex
+            oxygen-using life more likely. This is why the scan says photosynthesis "turned
+            Earth green" and enabled complex life to prosper.
+          </p>
+          <div class="formula-strip" aria-label="Photosynthesis and respiration equations">
+            <span class="formula">photosynthesis: carbon dioxide + water + light -> glucose + oxygen</span>
+            <span class="formula">respiration: glucose + oxygen -> carbon dioxide + water + energy</span>
+          </div>
+        </section>
+
+        <section id="biology">
+          <h2>Biology Is The Science Of Life</h2>
+          <p>
+            Biology asks what life is, how living things differ from non-living things, how
+            many kinds of organisms exist, how organisms function, where they live, and how
+            they interact with other organisms and surroundings.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-03-living-things-biology-section.webp" alt="Scientific plate illustration for Biology Is The Science Of Life." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="overview-grid">
+            <div class="step-card"><span class="num">?</span><strong>What is life?</strong><p>Life is recognized by a full set of characteristics, not one feature alone.</p></div>
+            <div class="step-card"><span class="num">#</span><strong>How many types?</strong><p>Classification and biodiversity help organize the huge variety of organisms.</p></div>
+            <div class="step-card"><span class="num">fx</span><strong>How do they function?</strong><p>Cells, nutrition, respiration, excretion, and coordination keep organisms alive.</p></div>
+            <div class="step-card"><span class="num">eco</span><strong>Where and why?</strong><p>Ecology studies organisms in their habitats and interactions.</p></div>
+          </div>
+        </section>
+
+        <section id="characteristics">
+          <h2>What Do Living Things Have In Common?</h2>
+          <p>
+            The scan lists ten features. Non-living things may show one or two of these, but
+            they do not possess the full set. That is the key idea for exam questions.
+          </p>
+
+          <div class="life-grid">
+            <div class="fact"><strong>Cells</strong><p>Cells are the basic units of living organisms. Unicellular organisms have one cell; multicellular organisms have many specialized cells.</p></div>
+            <div class="fact"><strong>Nutrition</strong><p>Organisms need food or raw materials for energy, growth, and repair. Plants make food by photosynthesis.</p></div>
+            <div class="fact"><strong>Respiration</strong><p>Respiration releases usable energy from food substances for cell activities.</p></div>
+            <div class="fact"><strong>Excretion</strong><p>Excretion removes metabolic waste products made by chemical reactions in cells.</p></div>
+            <div class="fact"><strong>Growth and development</strong><p>Growth increases size and mass; development changes form and structure.</p></div>
+            <div class="fact"><strong>Movement</strong><p>Organisms can move by themselves. Animals, bacteria, and plants can all show movement.</p></div>
+            <div class="fact"><strong>Reproduction</strong><p>Reproduction makes new copies of organisms and prevents a species from disappearing.</p></div>
+            <div class="fact"><strong>Sensitivity</strong><p>Sensitivity is the ability to detect and respond to changes in the environment.</p></div>
+            <div class="fact"><strong>Adaptability</strong><p>Adaptations help organisms survive. Many adaptations develop over generations.</p></div>
+            <div class="fact"><strong>Constant state</strong><p>Living organisms maintain balance inside their bodies, such as body temperature around 36.5 degrees C.</p></div>
+          </div>
+
+          <h3>Cells: The Basic Unit</h3>
+          <div class="two-col">
+            <div class="diagram" aria-label="Simple cell diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-03-living-things-diagram-06.webp" alt="Textbook-style illustration: Simple cell diagram." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div>
+              <p>
+                The PDF labels a nucleus as a control centre, cytoplasm as watery material, and
+                the cell membrane as a skin that encloses cytoplasm. We can add one helpful idea:
+                the membrane is not just a wrapper. It controls exchange with the environment,
+                which is essential for nutrition, respiration, excretion, and homeostasis.
+              </p>
+            </div>
+          </div>
+
+          <h3>Respiration Is Not The Same As Breathing</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Process</th><th>What it means</th><th>Where it happens</th><th>Why it matters</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Breathing</td><td>Moving air in and out of the lungs.</td><td>Respiratory organs.</td><td>Exchanges oxygen and carbon dioxide with the outside air.</td></tr>
+                <tr><td>Cellular respiration</td><td>Breaking down food molecules to release energy.</td><td>Cells, especially mitochondria in aerobic respiration.</td><td>Provides ATP energy for cell activities.</td></tr>
+                <tr><td>Anaerobic respiration</td><td>Releasing energy without oxygen.</td><td>Cytoplasm.</td><td>Produces less ATP and may form ethanol, lactic acid, or other products depending on organism.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Movement, Response, And Homeostasis</h3>
+          <div class="diagram" aria-label="Stimulus response homeostasis loop">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-03-living-things-diagram-07.webp" alt="Textbook-style illustration: Stimulus response homeostasis loop." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <div class="callout">
+            <p>
+              <strong>Common trap:</strong> Movement does not always mean walking or running.
+              Bacteria can move with flagella, plants can coil tendrils or close traps, and
+              cells can move materials internally.
+            </p>
+          </div>
+        </section>
+
+        <section id="viruses">
+          <h2>Debate: Are Viruses Alive?</h2>
+          <p>
+            The source answer is subtle: a virus is not a living thing, but a life-like entity
+            on the border between living and non-living worlds. This is a good place to apply
+            the full-set rule for life characteristics.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-03-living-things-viruses-section.webp" alt="Scientific plate illustration for Debate: Are Viruses Alive?." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Evidence that seems life-like</th><th>Evidence against calling viruses living organisms</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Viruses contain genetic material such as DNA or RNA.</td><td>They are not made of cells.</td></tr>
+                <tr><td>They can evolve by mutation and natural selection.</td><td>They do not carry out independent metabolism.</td></tr>
+                <tr><td>They can make more viruses inside a host cell.</td><td>They cannot reproduce independently without hijacking host machinery.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="answer-list">
+            <div class="answer"><strong>Best SPSO phrasing:</strong> Viruses are generally considered non-living because they lack cellular structure and independent metabolism, even though they have genetic material and can evolve.</div>
+            <div class="answer"><strong>Connection to the lesson:</strong> This question tests why living things are defined by the full set of characteristics, not just one impressive feature.</div>
+          </div>
+        </section>
+
+        <section id="review">
+          <h2>Review And Source References</h2>
+          <div class="two-col">
+            <div>
+              <h3>Check Yourself</h3>
+              <ol>
+                <li>Why is the origin of life treated as a set of models rather than one settled story?</li>
+                <li>What did the Miller-Urey experiment show, and what did it not prove?</li>
+                <li>Why is RNA important in the RNA world hypothesis?</li>
+                <li>How could phospholipid membranes help self-copying molecules survive?</li>
+                <li>How did photosynthesis change the history of life on Earth?</li>
+                <li>List the characteristics of living organisms from the scan.</li>
+                <li>Explain the difference between breathing and cellular respiration.</li>
+                <li>Why are viruses described as life-like but not living?</li>
+              </ol>
+            </div>
+            <div>
+              <h3>Answers To The Scan's Wrap-Up</h3>
+              <div class="answer-list">
+                <div class="answer"><strong>Theories of origin:</strong> chemical soup/Oparin-Haldane, RNA world, membrane-first/protocell ideas, and hydrothermal vent settings.</div>
+                <div class="answer"><strong>Photosynthesis:</strong> it produced oxygen, changed the atmosphere, supported aerobic respiration, and allowed more complex life to prosper.</div>
+                <div class="answer"><strong>Living characteristics:</strong> cells, nutrition, respiration, excretion, growth and development, movement, reproduction, sensitivity, adaptability, and constant internal state.</div>
+              </div>
+            </div>
+          </div>
+
+          <h3>Multiple-Choice Check From The Scan</h3>
+          <p>Which best describes the RNA World Hypothesis?</p>
+          <div class="answer-list">
+            <div class="answer"><strong>Correct answer: B.</strong> It proposes that RNA molecules could store genetic information and catalyze reactions, making them key in early life.</div>
+            <div class="answer"><strong>Why not A?</strong> The hypothesis is about RNA before DNA/protein-dominated biology, not proteins as the first self-replicating molecules.</div>
+            <div class="answer"><strong>Why not C or D?</strong> Membranes and hydrothermal vents are important ideas, but they are not the RNA World Hypothesis itself.</div>
+          </div>
+
+          <h3>Video Links Printed In The Scan</h3>
+          <ul>
+            <li>The Mysterious Origins of Life on Earth: printed as a YouTube reference in the source scan.</li>
+            <li>Introduction to Photosynthesis: printed as a YouTube reference in the source scan.</li>
+            <li>What do Biologists do?: printed as a YouTube reference in the source scan.</li>
+          </ul>
+
+          <p class="source-note">
+            Rebuilt from the Week 03 scanned PDF, <code>IMG_20260427_0003.pdf</code>. The diagrams are newly drawn in HTML/SVG to make the original scanned ideas easier to read and revise.
+          </p>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

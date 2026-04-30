@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 04: Biodiversity</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --paper: #ffffff;
+      --soft: #eef7f3;
+      --soft-warm: #fff7ef;
+      --ink: #1d2730;
+      --muted: #5f6c77;
+      --accent: #177e75;
+      --accent-strong: #0f5d57;
+      --warm: #d26a3a;
+      --gold: #c4912f;
+      --blue: #2d6f95;
+      --violet: #6a5da8;
+      --line: rgba(29, 39, 48, 0.14);
+      --shadow: 0 14px 36px rgba(29, 39, 48, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      background:
+        linear-gradient(135deg, rgba(23, 126, 117, 0.1), transparent 28%),
+        linear-gradient(315deg, rgba(210, 106, 58, 0.12), transparent 30%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: var(--accent-strong);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a,
+    p,
+    li,
+    code,
+    .pill,
+    .answer {
+      overflow-wrap: anywhere;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .hero > *,
+    .layout > *,
+    section,
+    .visual,
+    .toc-panel,
+    .fact,
+    .diagram {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--warm);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 3.35rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      line-height: 1.14;
+    }
+
+    h3 {
+      margin: 20px 0 9px;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .intro {
+      max-width: 760px;
+      font-size: 1.06rem;
+    }
+
+    .source-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-block;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 7px 10px;
+      border: 1px solid rgba(23, 126, 117, 0.22);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      background: rgba(238, 247, 243, 0.82);
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .visual,
+    section,
+    .toc-panel,
+    .fact,
+    .callout {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .visual {
+      padding: 18px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .visual img,
+    .diagram img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .toc-panel {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .toc-panel h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .toc {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(238, 247, 243, 0.72);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .overview-grid,
+    .fact-grid,
+    .two-col,
+    .three-col,
+    .source-grid,
+    .species-grid,
+    .endangered-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .overview-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .fact-grid,
+    .species-grid {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: 14px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .source-grid {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      margin-top: 14px;
+    }
+
+    .endangered-grid {
+      grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+      margin-top: 14px;
+    }
+
+    .fact {
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .fact strong {
+      color: var(--accent-strong);
+    }
+
+    .fact p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.96rem;
+    }
+
+    .step-card {
+      display: grid;
+      align-content: start;
+      min-height: 150px;
+      padding: 14px;
+      border: 1px solid rgba(23, 126, 117, 0.2);
+      border-radius: 10px;
+      background: rgba(238, 247, 243, 0.68);
+    }
+
+    .step-card .num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 10px;
+      border-radius: 9px;
+      color: #ffffff;
+      background: var(--accent);
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-card strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .step-card p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.94rem;
+    }
+
+    .callout {
+      margin-top: 14px;
+      padding: 14px;
+      border-left: 5px solid var(--warm);
+      border-radius: 8px;
+      background: #fff7ef;
+      box-shadow: none;
+    }
+
+    .callout p,
+    .callout li {
+      color: #5f4636;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 14px 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(238, 247, 243, 0.9);
+      font-size: 0.92rem;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.48;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .diagram {
+      margin: 14px 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #ffffff;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 7px 9px;
+      border: 1px solid rgba(106, 93, 168, 0.22);
+      border-radius: 8px;
+      color: #4e4784;
+      background: rgba(106, 93, 168, 0.08);
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .answer {
+      padding: 12px 13px;
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      background: rgba(45, 111, 149, 0.08);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .answer strong {
+      color: var(--ink);
+    }
+
+    .mini-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 8px;
+      border-radius: 12px;
+      color: #ffffff;
+      background: var(--accent);
+      font-weight: 900;
+    }
+
+    .source-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(29, 39, 48, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-size: 0.92em;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .layout,
+      .two-col,
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-panel {
+        position: static;
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+        padding-top: 26px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      .visual {
+        padding: 12px;
+      }
+
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <style>
+    .generated-art { max-width: 100%; }
+    .visual img.generated-art,
+    .hero-visual img.generated-art {
+      max-height: min(520px, 58vh);
+      object-fit: contain;
+    }
+    .diagram img.generated-art {
+      max-height: min(680px, 72vh);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .section-art {
+      width: min(100%, 820px);
+      margin: 12px auto 16px;
+      padding: 10px;
+      border: 1px solid rgba(29, 39, 48, 0.14);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(29, 39, 48, 0.07);
+      overflow: hidden;
+    }
+    .section-art img.generated-art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    @media (max-width: 640px) {
+      .section-art { width: 100%; padding: 12px; }
+      .section-art img.generated-art { max-height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Lesson navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./week-03-living-things.html">Week 03</a>
+      <a href="./week-05-chemical-methods-and-bonds.html">Week 05</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Week 04 | SPSO Preparatory Course</span>
+        <h1>Biodiversity</h1>
+        <p class="intro">
+          Biodiversity is the variety of life, but studying it requires more than admiring
+          many organisms. We need classification tools, evolutionary trees, scientific names,
+          conservation awareness, and form-function thinking. This page rebuilds the scanned
+          Week 04 handout as a richer web lesson.
+        </p>
+        <div class="source-line" aria-label="Source details">
+          <span class="pill">By Dr Chen</span>
+          <span class="pill">Source: IMG_20260427_0004.pdf</span>
+          <span class="pill">10 scanned pages</span>
+        </div>
+      </div>
+
+      <figure class="visual" aria-label="Biodiversity concept illustration">
+        <img class="generated-art" src="./assets/generated/week-04-biodiversity-hero.webp" alt="Textbook-style illustration for Biodiversity." width="1448" height="1086" loading="eager" style="display:block;width:100%;height:auto;border-radius:8px;">
+        <figcaption class="caption">The scan moves from "many kinds of life" to classification and evolutionary relationships. The page follows that path.</figcaption>
+      </figure>
+    </header>
+
+    <div class="layout">
+      <aside class="toc-panel">
+        <h2>Lesson Map</h2>
+        <ol class="toc">
+          <li><a href="#source-map">Source Map</a></li>
+          <li><a href="#definition">Biodiversity</a></li>
+          <li><a href="#classification-tools">Classification Tools</a></li>
+          <li><a href="#kingdoms">Five Kingdoms</a></li>
+          <li><a href="#phylogeny">Phylogeny</a></li>
+          <li><a href="#animals">Animal Diversity</a></li>
+          <li><a href="#mollusks">Mollusks</a></li>
+          <li><a href="#names">Scientific Names</a></li>
+          <li><a href="#classification-system">Taxonomic Ranks</a></li>
+          <li><a href="#species-varieties">Species And Varieties</a></li>
+          <li><a href="#singapore">Singapore Species</a></li>
+          <li><a href="#squid">Squid Form And Function</a></li>
+          <li><a href="#review">Review</a></li>
+        </ol>
+      </aside>
+
+      <main class="content">
+        <section id="source-map">
+          <h2>Page-By-Page Source Map</h2>
+          <p>
+            The scanned PDF has twenty slide pages across ten physical pages. The rebuilt
+            chapter keeps all major examples, tables, diagrams, names, and wrap-up questions,
+            while grouping related ideas for clearer revision.
+          </p>
+          <div class="source-grid">
+            <div class="step-card"><span class="num">1</span><strong>Title and definition</strong><p>Week 04 Biodiversity; definition, species count, reasons to study diversity, and evolution.</p></div>
+            <div class="step-card"><span class="num">2</span><strong>Classification tools</strong><p>Classification by size, shape, colour, behavior, uses, function, materials; Venn diagrams and tables.</p></div>
+            <div class="step-card"><span class="num">3</span><strong>Keys and kingdoms</strong><p>Dichotomous keys and the five kingdoms table.</p></div>
+            <div class="step-card"><span class="num">4</span><strong>Phylogeny</strong><p>Common ancestry, three domains, and diversity of life.</p></div>
+            <div class="step-card"><span class="num">5-6</span><strong>Animal groups</strong><p>Vertebrate evolution, mollusks, cephalopods, and a phylogeny quiz.</p></div>
+            <div class="step-card"><span class="num">7-8</span><strong>Scientific naming</strong><p>Linnaeus, binomial names, naming rules, rank hierarchy, and naming considerations.</p></div>
+            <div class="step-card"><span class="num">9</span><strong>Varieties and conservation</strong><p>Brassica, dog breeds, and Singapore endangered species.</p></div>
+            <div class="step-card"><span class="num">10</span><strong>Squid and wrap-up</strong><p>Squid anatomy, dissection observation, and review questions.</p></div>
+          </div>
+        </section>
+
+        <section id="definition">
+          <h2>What Is Biodiversity?</h2>
+          <p>
+            Biodiversity is the diversity of all living organisms on Earth. The scan gives a
+            useful number: about 1.5 to 1.8 million species have been described by humans, and
+            many more unknown species likely remain.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-04-biodiversity-definition-section.webp" alt="Scientific plate illustration for What Is Biodiversity?." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="fact-grid">
+            <div class="fact"><span class="mini-badge">?</span><strong>Academic reasons</strong><p>Curiosity and scientific understanding: what exists, how it works, and how it evolved.</p></div>
+            <div class="fact"><span class="mini-badge">$</span><strong>Applied and commercial reasons</strong><p>Medicine, food, materials, farming, biomimicry, and other useful discoveries.</p></div>
+            <div class="fact"><span class="mini-badge">eco</span><strong>Ecosystem survival</strong><p>Diverse ecosystems often recover better from disturbance because many species share and support functions.</p></div>
+          </div>
+          <div class="callout">
+            <p><strong>Source idea:</strong> Evolution is the mechanism producing the diversity of life. Evolution means changes in heritable characteristics of biological populations over successive generations, driven by natural selection and genetic mutation.</p>
+          </div>
+        </section>
+
+        <section id="classification-tools">
+          <h2>How Do We Classify Things?</h2>
+          <p>
+            Classification creates order within diversity. Work is faster and easier when
+            things are organized into a system, and classification helps us understand
+            similarities and differences.
+          </p>
+          <div class="tag-list" aria-label="Classification characteristics">
+            <span class="tag">size</span>
+            <span class="tag">shape</span>
+            <span class="tag">colour</span>
+            <span class="tag">behavior</span>
+            <span class="tag">uses or functions</span>
+            <span class="tag">materials made of</span>
+          </div>
+
+          <h3>Venn Diagrams</h3>
+          <div class="two-col">
+            <div class="diagram" aria-label="Venn diagram examples">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-04-biodiversity-diagram-01.webp" alt="Textbook-style illustration: Venn diagram examples." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div>
+              <p>
+                The scan uses Venn diagrams for two kinds of examples: food categories and
+                multiples. Each circle represents one characteristic. The overlap shows items
+                that satisfy both characteristics.
+              </p>
+              <p>
+                Venn diagrams are excellent for similarity and difference, but they become
+                messy when too many characteristics are involved.
+              </p>
+            </div>
+          </div>
+
+          <h3>Tables Can Show More Information</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Animals</th><th>Eat plants</th><th>Eat animals</th><th>Eat plants and animals</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Live on land</td><td>Cow</td><td>Tiger</td><td>Chicken</td></tr>
+                <tr><td>Live in water</td><td>Water snail</td><td>Shark</td><td>Lobsters</td></tr>
+                <tr><td>Live on land and in water</td><td>Iguana</td><td>Frog</td><td>Catfish</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Dichotomous Keys</h3>
+          <p>
+            A key is a set of questions about the characteristics of things. A dichotomous key
+            uses paired choices, usually "yes" or "no", to identify an organism.
+          </p>
+          <div class="diagram" aria-label="Dichotomous key for mini beasts">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-04-biodiversity-diagram-02.webp" alt="Textbook-style illustration: Dichotomous key for mini beasts." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+        </section>
+
+        <section id="kingdoms">
+          <h2>The Five Kingdoms Of Living Things</h2>
+          <p>
+            The scan uses the five-kingdom system: animals, plants, fungi, protoctists, and
+            bacteria. It compares number of cells, cell wall, nucleus, locomotion, nutrition,
+            and reproduction.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-04-biodiversity-kingdoms-section.webp" alt="Scientific plate illustration for The Five Kingdoms Of Living Things." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Feature</th><th>Animals</th><th>Plants</th><th>Fungi</th><th>Protoctists</th><th>Bacteria</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Example</td><td>monkey</td><td>orchid</td><td>mushroom</td><td>green algae</td><td>bacteria</td></tr>
+                <tr><td>Number of cells</td><td>multicellular</td><td>multicellular</td><td>unicellular or multicellular</td><td>unicellular or multicellular</td><td>unicellular</td></tr>
+                <tr><td>Cell wall</td><td>absent</td><td>present</td><td>present</td><td>absent or present</td><td>present</td></tr>
+                <tr><td>Nucleus</td><td>present</td><td>present</td><td>present</td><td>present</td><td>absent</td></tr>
+                <tr><td>Locomotion</td><td>able to move around</td><td>unable to move around</td><td>unable to move around</td><td>some able, some unable</td><td>some able, some unable</td></tr>
+                <tr><td>Nutrition</td><td>consumers</td><td>producers</td><td>consumers</td><td>consumers or producers</td><td>consumers or producers</td></tr>
+                <tr><td>Reproduction</td><td>lay eggs or give birth</td><td>produce seeds or spores</td><td>produce spores or divide</td><td>produce spores or divide</td><td>by division</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout">
+            <p><strong>Added explanation:</strong> Bacteria lack a nucleus, so they are prokaryotes. Animals, plants, fungi, and protoctists have nuclei, so they are eukaryotes.</p>
+          </div>
+        </section>
+
+        <section id="phylogeny">
+          <h2>Phylogeny And The Three Domains</h2>
+          <p>
+            Phylogeny is the study of relationships among different groups of organisms and
+            their evolutionary development. It tries to trace the evolutionary history of life
+            and is based on the hypothesis that all living organisms share common ancestry.
+            The scan also states that molecular phylogeny supports the three-domain system.
+          </p>
+          <div class="diagram" aria-label="Three domains tree">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-04-biodiversity-diagram-03.webp" alt="Textbook-style illustration: Three domains tree." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="fact-grid">
+            <div class="fact"><strong>Phylogenetic tree</strong><p>A branching diagram showing inferred evolutionary relationships.</p></div>
+            <div class="fact"><strong>Common ancestor</strong><p>A past population from which two or more groups descended.</p></div>
+            <div class="fact"><strong>Molecular phylogeny</strong><p>Uses DNA, RNA, or protein evidence to infer relationships.</p></div>
+          </div>
+        </section>
+
+        <section id="animals">
+          <h2>Diversity Of Animals</h2>
+          <p>
+            The animal diversity slide uses a branching tree of chordates and vertebrates.
+            The key point is not that one modern animal "turns into" another; it is that
+            groups share common ancestors and new traits appear along branches.
+          </p>
+          <div class="diagram" aria-label="Simplified vertebrate trait tree">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-04-biodiversity-diagram-04.webp" alt="Textbook-style illustration: Simplified vertebrate trait tree." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <h3>Quiz From The Scan</h3>
+          <p>The scan asks which statement is correct using a major animal phylogeny.</p>
+          <div class="answer-list">
+            <div class="answer"><strong>Best answer from the printed tree: A.</strong> Arthropods are more closely related to mollusks than to chordates, because arthropods and mollusks are both inside the protostome side of the tree.</div>
+            <div class="answer"><strong>Why the other statements fail:</strong> Porifera are basal, so their common ancestor with cnidarians is not more recent than their common ancestor with protostomes; deuterostomes are not the earliest branching animals; cnidarians are equally distant from chordates and arthropods on that simplified tree.</div>
+          </div>
+        </section>
+
+        <section id="mollusks">
+          <h2>Diversity Of Mollusks And Cephalopods</h2>
+          <p>
+            Mollusks are soft-bodied invertebrates of the phylum Mollusca, usually wholly or
+            partly enclosed in a calcium carbonate shell secreted by a soft mantle covering
+            the body.
+          </p>
+          <div class="three-col">
+            <div class="fact"><strong>Gastropoda</strong><p>Snails, slugs, conchs, periwinkles, and sea slugs.</p></div>
+            <div class="fact"><strong>Bivalvia</strong><p>Clams, oysters, mussels, and scallops.</p></div>
+            <div class="fact"><strong>Cephalopoda</strong><p>Squid, octopuses, cuttlefish, and nautilus.</p></div>
+          </div>
+          <div class="diagram" aria-label="Mollusk classes concept diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-04-biodiversity-diagram-05.webp" alt="Textbook-style illustration: Mollusk classes concept diagram." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <p>
+            A cephalopod means "head-foot." The scan describes cephalopods as exclusively
+            marine animals with bilateral body symmetry, a prominent head, and arms or
+            tentacles modified from the primitive molluscan foot.
+          </p>
+        </section>
+
+        <section id="names">
+          <h2>Linnaeus' System For Scientific Names</h2>
+          <p>
+            Carolus Linnaeus is presented as the founder of modern taxonomy. His binomial
+            system gives each species a unique paired scientific name based on Latin-style
+            naming. The system is hierarchical, universal, practical, and internationally
+            recognized.
+          </p>
+          <div class="two-col">
+            <div>
+              <h3>Rules Of The Binomial System</h3>
+              <ul>
+                <li>The species name is always italicised or underlined.</li>
+                <li>The genus name begins with an uppercase letter.</li>
+                <li>The specific epithet is entirely lowercase, never all caps.</li>
+                <li>Example from the scan: pebble crab, <em>Xanthias lamarckii</em>.</li>
+              </ul>
+            </div>
+            <div class="diagram" aria-label="Binomial name card">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-04-biodiversity-diagram-06.webp" alt="Textbook-style illustration: Binomial name card." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          </div>
+
+          <h3>Other Types Of Names From The Scan</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>System</th><th>First part</th><th>Second part</th><th>Examples</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Human names</td><td>Family name</td><td>Given name</td><td>Lee Hsien Loong; Tan Benito; Weasley Ron; Weasley Ginny</td></tr>
+                <tr><td>Car names</td><td>Brand name</td><td>Model name</td><td>Porsche 911; BMW Z4; Toyota Altis; Toyota Vios</td></tr>
+                <tr><td>Scientific names</td><td>Genus</td><td>Specific epithet</td><td><em>Panthera leo</em>; <em>Panthera tigris</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Considerations When Naming Organisms</h3>
+          <div class="fact-grid">
+            <div class="fact"><strong>Novelty</strong><p>The name should not already be used for another organism.</p></div>
+            <div class="fact"><strong>Gender and etymology</strong><p>The name should follow accepted language conventions.</p></div>
+            <div class="fact"><strong>Descriptiveness</strong><p>A useful name may describe a feature, place, or relationship.</p></div>
+            <div class="fact"><strong>Length and mnemonic value</strong><p>Names should be usable and memorable where possible.</p></div>
+            <div class="fact"><strong>Ethics and honour</strong><p>Names can honour people, but should be respectful and appropriate.</p></div>
+          </div>
+          <div class="callout">
+            <p><strong>Examples from the source:</strong> <em>Dendrobium Joseph Schooling</em> is an honour name. The scan gives <em>Tianchiasaurus nedegoapeferima</em> as a bad-name example because it was built from many actor names: Sam Neill, Laura Dern, Jeff Goldblum, Sir Richard Attenborough, Bob Peck, Martin Ferrero, Ariana Richards, and Joseph Mazzello.</p>
+          </div>
+        </section>
+
+        <section id="classification-system">
+          <h2>Biological System Of Classification</h2>
+          <p>
+            Biologists use a natural biological classification system based on similarities
+            and differences between organisms. The hierarchy moves from broad and general to
+            narrow and specific.
+          </p>
+          <div class="diagram" aria-label="Taxonomic hierarchy">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-04-biodiversity-diagram-07.webp" alt="Textbook-style illustration: Taxonomic hierarchy." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <p>
+            In the scan, lion and tiger share the same genus, <em>Panthera</em>, but have
+            different species epithets: <em>leo</em> and <em>tigris</em>.
+          </p>
+        </section>
+
+        <section id="species-varieties">
+          <h2>Same Species, Different Varieties</h2>
+          <p>
+            The scan uses vegetables and dog breeds to show that large visible differences do
+            not always mean different species.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-04-biodiversity-species-varieties-section.webp" alt="Scientific plate illustration for Same Species, Different Varieties." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="two-col">
+            <div class="fact">
+              <strong><em>Brassica oleracea</em></strong>
+              <p>Kale, cabbage, kai-lan, cauliflower, broccoli, and Brussels sprouts are shown as varieties of one species. The scan crosses out frisee (<em>Cichorium endivia</em>) and lettuce (<em>Lactuca sativa</em>) because they are not the same species.</p>
+            </div>
+            <div class="fact">
+              <strong><em>Canis familiaris</em></strong>
+              <p>Golden retriever, beagle, chihuahua, husky, dalmatian, and German shepherd are shown as varieties or breeds of one domestic dog species in the source.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <p><strong>Added explanation:</strong> A species is often defined by reproductive compatibility and shared ancestry, not by appearance alone. Artificial selection can produce dramatic varieties within one species.</p>
+          </div>
+        </section>
+
+        <section id="singapore">
+          <h2>Singapore Endangered Species</h2>
+          <p>
+            The scan highlights local biodiversity using endangered species from Singapore.
+            This connects classification to conservation: once we can identify organisms, we
+            can monitor and protect them.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-04-biodiversity-singapore-section.webp" alt="Scientific plate illustration for Singapore Endangered Species." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="endangered-grid">
+            <div class="fact"><strong>Singapore freshwater crab</strong><p>Freshwater crab endemic to Singapore.</p></div>
+            <div class="fact"><strong>Raffles' banded langur</strong><p>A rare primate linked to forest habitat.</p></div>
+            <div class="fact"><strong>Hawksbill turtle</strong><p>A marine reptile threatened by habitat loss and human activity.</p></div>
+            <div class="fact"><strong>Sunda pangolin</strong><p>A scaly mammal vulnerable to trafficking and habitat loss.</p></div>
+            <div class="fact"><strong>Smooth-coated otter</strong><p>A charismatic aquatic mammal in Singapore waterways.</p></div>
+            <div class="fact"><strong>Cinnamon bush frog</strong><p>A small frog associated with forest habitats.</p></div>
+            <div class="fact"><strong>Neptune's cup sponge</strong><p>A distinctive marine sponge.</p></div>
+            <div class="fact"><strong>Harlequin butterfly</strong><p>A butterfly example from the conservation slide.</p></div>
+            <div class="fact"><strong>Straw-headed bulbul</strong><p>A songbird threatened by trapping and trade.</p></div>
+            <div class="fact"><strong>Singapore ginger</strong><p>A local plant species included in the source list.</p></div>
+          </div>
+        </section>
+
+        <section id="squid">
+          <h2>Form And Function Of Squid</h2>
+          <p>
+            The final content slide asks students to observe squid anatomy. This is form and
+            function biology: each structure has a job, and the whole body plan supports a
+            fast marine predator lifestyle.
+          </p>
+          <div class="diagram" aria-label="Simplified squid anatomy">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-04-biodiversity-diagram-08.webp" alt="Textbook-style illustration: Simplified squid anatomy." width="366" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Structure named in the scan</th><th>Function or interpretation</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>mantle and mantle cavity</td><td>Muscular body wall and space involved in water flow, movement, and respiration.</td></tr>
+                <tr><td>funnel</td><td>Directs water out for jet propulsion.</td></tr>
+                <tr><td>gill and gill heart</td><td>Gas exchange and pumping blood toward the gills.</td></tr>
+                <tr><td>systemic heart</td><td>Pumps oxygenated blood around the body.</td></tr>
+                <tr><td>ink sac</td><td>Releases ink for defense and escape.</td></tr>
+                <tr><td>brain, eye, stellate ganglion</td><td>Coordination, advanced vision, and rapid nerve control.</td></tr>
+                <tr><td>arms, tentacles, jaws, buccal mass, radula</td><td>Capturing, holding, and processing prey.</td></tr>
+                <tr><td>stomach, caecum, oesophagus, gonad</td><td>Digestion, nutrient processing, transport of food, and reproduction.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Observation from the scan: dissect and look inside a baby squid.</p>
+        </section>
+
+        <section id="review">
+          <h2>Review And Source References</h2>
+          <div class="two-col">
+            <div>
+              <h3>Wrap-Up Questions From The Scan</h3>
+              <ol>
+                <li>How do we classify living organisms?</li>
+                <li>Describe the binomial system.</li>
+                <li>What are the three domains and five kingdoms of living organisms?</li>
+              </ol>
+            </div>
+            <div>
+              <h3>High-Yield Answers</h3>
+              <div class="answer-list">
+                <div class="answer"><strong>Classification:</strong> group organisms by similarities, differences, evidence of relationship, and shared characteristics.</div>
+                <div class="answer"><strong>Binomial system:</strong> each species has a two-part Latin-style name: Genus plus specific epithet, such as <em>Panthera leo</em>.</div>
+                <div class="answer"><strong>Domains and kingdoms:</strong> three domains are Bacteria, Archaea, and Eucarya; the scan's five kingdoms are animals, plants, fungi, protoctists, and bacteria.</div>
+              </div>
+            </div>
+          </div>
+
+          <h3>Video Links Printed In The Scan</h3>
+          <ul>
+            <li>What is Biodiversity?: printed as a YouTube reference in the source scan.</li>
+            <li>Phylogeny / Evolutionary Relationship: printed as a YouTube reference in the source scan.</li>
+            <li>Human Evolution from Bacteria to Fish to You!: printed as a YouTube reference in the source scan.</li>
+          </ul>
+
+          <p class="source-note">
+            Rebuilt from the Week 04 scanned PDF, <code>IMG_20260427_0004.pdf</code>. The diagrams are newly drawn in HTML/SVG to make the original biodiversity, classification, and taxonomy ideas easier to revise.
+          </p>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

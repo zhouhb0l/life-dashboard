@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 09: Human Digestive System</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --paper: #ffffff;
+      --ink: #202631;
+      --muted: #5e6c78;
+      --line: rgba(32, 38, 49, 0.15);
+      --green: #2f7d58;
+      --green-dark: #225f45;
+      --blue: #286fa3;
+      --coral: #c95f3d;
+      --amber: #c38d23;
+      --plum: #76548d;
+      --soft-green: #edf7ef;
+      --soft-blue: #eaf3fa;
+      --soft-coral: #fff1eb;
+      --soft-amber: #fff7df;
+      --shadow: 0 14px 34px rgba(32, 38, 49, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        linear-gradient(135deg, rgba(47, 125, 88, 0.13), transparent 31%),
+        linear-gradient(315deg, rgba(40, 111, 163, 0.11), transparent 28%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--green-dark);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a,
+    p,
+    li,
+    code,
+    .pill,
+    .formula,
+    .mini-card {
+      overflow-wrap: anywhere;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 68px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .hero > *,
+    .layout > *,
+    section,
+    .visual,
+    .diagram,
+    .toc-panel {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--coral);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 3.35rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      line-height: 1.14;
+    }
+
+    h3 {
+      margin: 20px 0 9px;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .intro {
+      max-width: 780px;
+      font-size: 1.06rem;
+    }
+
+    .source-line,
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(47, 125, 88, 0.24);
+      color: var(--green-dark);
+      background: rgba(237, 247, 239, 0.9);
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .tag {
+      border-color: rgba(118, 84, 141, 0.25);
+      color: #5c416f;
+      background: rgba(118, 84, 141, 0.08);
+    }
+
+    .visual {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .visual img,
+    .diagram img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 252px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .toc-panel {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .toc-panel h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .toc {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(237, 247, 239, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-inner {
+      display: grid;
+      gap: 16px;
+    }
+
+    .two-col,
+    .three-col,
+    .fact-grid,
+    .organ-grid,
+    .answer-list,
+    .process-flow,
+    .liver-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fact-grid,
+    .organ-grid {
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+
+    .liver-grid {
+      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+      align-items: center;
+    }
+
+    .process-flow {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      counter-reset: flow;
+    }
+
+    .mini-card,
+    .organ-card,
+    .flow-step,
+    .callout,
+    .answer,
+    .diagram {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .mini-card,
+    .organ-card,
+    .flow-step {
+      min-width: 0;
+      padding: 15px;
+      box-shadow: 0 8px 22px rgba(32, 38, 49, 0.07);
+    }
+
+    .mini-card strong,
+    .organ-card strong,
+    .flow-step strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .mini-card p,
+    .organ-card p,
+    .flow-step p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .organ-card {
+      border-color: rgba(47, 125, 88, 0.24);
+      background: linear-gradient(180deg, rgba(237, 247, 239, 0.96), #ffffff);
+    }
+
+    .flow-step {
+      position: relative;
+      padding-top: 48px;
+    }
+
+    .flow-step::before {
+      counter-increment: flow;
+      content: counter(flow);
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: #ffffff;
+      background: var(--green);
+      font-weight: 900;
+    }
+
+    .callout {
+      padding: 15px;
+      border-left: 5px solid var(--coral);
+      background: var(--soft-coral);
+    }
+
+    .callout p,
+    .callout li {
+      color: #664231;
+    }
+
+    .answer {
+      padding: 12px 13px;
+      border-left: 4px solid var(--blue);
+      background: rgba(40, 111, 163, 0.08);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .answer strong {
+      color: var(--ink);
+    }
+
+    .diagram {
+      margin: 4px 0;
+      padding: 16px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 4px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(237, 247, 239, 0.92);
+      font-size: 0.92rem;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .formula {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(47, 125, 88, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-weight: 850;
+      line-height: 1.45;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(32, 38, 49, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-size: 0.92em;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .source-note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .layout,
+      .two-col,
+      .three-col,
+      .liver-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1160px);
+        padding-top: 26px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      section {
+        padding: 24px 0;
+      }
+
+      .visual,
+      .diagram {
+        padding: 12px;
+      }
+    }
+  </style>
+
+  <style>
+    .generated-art { max-width: 100%; }
+    .visual img.generated-art,
+    .hero-visual img.generated-art {
+      max-height: min(520px, 58vh);
+      object-fit: contain;
+    }
+    .diagram img.generated-art {
+      max-height: min(680px, 72vh);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .section-art {
+      width: min(100%, 820px);
+      margin: 12px auto 16px;
+      padding: 10px;
+      border: 1px solid rgba(29, 39, 48, 0.14);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(29, 39, 48, 0.07);
+      overflow: hidden;
+    }
+    .section-art img.generated-art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    @media (max-width: 640px) {
+      .section-art { width: 100%; padding: 12px; }
+      .section-art img.generated-art { max-height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Lesson navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./week-08-chemical-reactions.html">Week 08</a>
+      <a href="./week-10-heat-and-thermodynamics.html">Week 10</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Week 09 | SPSO Preparatory Course</span>
+        <h1>Human Digestive System</h1>
+        <p class="intro">
+          This rebuilt chapter converts the Week 09 scan into a clearer guide to nutrition,
+          the alimentary canal, enzymes, absorption, the hepatic portal route, liver
+          metabolism, red blood cell breakdown, and detoxification.
+        </p>
+        <div class="source-line" aria-label="Lesson facts">
+          <span class="pill">By Dr Chen</span>
+          <span class="pill">12 scanned pages reviewed</span>
+          <span class="pill">Science content rebuilt in HTML/SVG</span>
+        </div>
+      </div>
+      <div class="visual" aria-label="Digestive system overview visual">
+        <img class="generated-art" src="./assets/generated/week-09-human-digestive-system-hero.webp" alt="Textbook-style illustration for Human Digestive System." width="1448" height="1086" loading="eager" style="display:block;width:100%;height:auto;border-radius:8px;">
+        <p class="caption">Generated textbook-style illustration for Human Digestive System. Detailed labels and explanations remain in the HTML text for accuracy.</p>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc-panel" aria-label="Table of contents">
+        <h2>Study Path</h2>
+        <ul class="toc">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#nutrition">Nutrition Processes</a></li>
+          <li><a href="#tract">Digestive Tract</a></li>
+          <li><a href="#mouth">Mouth And Teeth</a></li>
+          <li><a href="#swallowing">Swallowing</a></li>
+          <li><a href="#stomach">Stomach And Accessory Organs</a></li>
+          <li><a href="#small-intestine">Small Intestine</a></li>
+          <li><a href="#enzymes">Enzymes</a></li>
+          <li><a href="#absorption">Absorption</a></li>
+          <li><a href="#liver">Liver Roles</a></li>
+          <li><a href="#review">Wrap Up</a></li>
+        </ul>
+      </aside>
+
+      <main class="content">
+        <section id="overview">
+          <div class="section-inner">
+            <h2>Big Picture</h2>
+            <p>
+              The cover places digestion among the major human body systems and shows food
+              as energy-producing, body-building, and body-regulating material. The rest of
+              the lesson explains how food becomes small soluble molecules, how these
+              molecules enter transport systems, and how the liver helps regulate and
+              process them.
+            </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-09-human-digestive-system-overview-section.webp" alt="Scientific plate illustration for Big Picture." width="1200" height="675" loading="lazy">
+          </figure>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>11 major body systems</strong><p>Digestive, skeletal, muscular, nervous, respiratory, circulatory, reproductive, lymphatic, urinary, endocrine, and integumentary.</p></div>
+              <div class="mini-card"><strong>Digestive focus</strong><p>Break large food molecules into soluble molecules small enough to be absorbed into blood or lymph.</p></div>
+              <div class="mini-card"><strong>Accessory organs</strong><p>The liver, gall bladder, and pancreas support digestion even though food does not pass through them.</p></div>
+              <div class="mini-card"><strong>Liver focus</strong><p>The scan gives the liver a major role in nutrient processing, glucose control, protein metabolism, red blood cell breakdown, and detoxification.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="nutrition">
+          <div class="section-inner">
+            <h2>What Is Nutrition?</h2>
+            <p>
+              Nutrition is the process by which organisms obtain food and energy for body
+              growth, repair, and maintenance.
+            </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-09-human-digestive-system-nutrition-section.webp" alt="Scientific plate illustration for What Is Nutrition?." width="1200" height="675" loading="lazy">
+          </figure>
+            <div class="process-flow">
+              <div class="flow-step"><strong>Feeding or ingestion</strong><p>Food is taken into the body.</p></div>
+              <div class="flow-step"><strong>Digestion</strong><p>Large food molecules are broken down into smaller, soluble molecules that can be absorbed into body cells.</p></div>
+              <div class="flow-step"><strong>Absorption</strong><p>Digested food substances enter the bloodstream and are transported to cells.</p></div>
+              <div class="flow-step"><strong>Assimilation</strong><p>Some absorbed food substances are converted into new protoplasm or used to provide energy.</p></div>
+              <div class="flow-step"><strong>Egestion</strong><p>Undigested material is eliminated from the body through the anus.</p></div>
+            </div>
+            <div class="callout">
+              <p><strong>Key distinction:</strong> digestion is chemical and physical breakdown; absorption is movement into transport fluids; assimilation is use by cells.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="tract">
+          <div class="section-inner">
+            <h2>Digestive Tract And Organs</h2>
+            <p>
+              Digestion takes place in the digestive tract, a continuous tube that starts at
+              the mouth and ends at the anus. The scan also calls this the gut or
+              alimentary canal, together with associated organs such as the liver, gall
+              bladder, and pancreas.
+            </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-09-human-digestive-system-tract-section.webp" alt="Scientific plate illustration for Digestive Tract And Organs." width="1200" height="675" loading="lazy">
+          </figure>
+            <div class="organ-grid">
+              <div class="organ-card"><strong>Mouth and mouth cavity</strong><p>Food enters, teeth chew, saliva moistens, and amylase begins starch digestion.</p></div>
+              <div class="organ-card"><strong>Pharynx</strong><p>Connects the buccal cavity to the oesophagus and larynx; swallowing is guarded by the epiglottis.</p></div>
+              <div class="organ-card"><strong>Oesophagus</strong><p>Muscular tube that moves food to the stomach by peristalsis.</p></div>
+              <div class="organ-card"><strong>Stomach</strong><p>Distensible muscular bag that churns food and mixes it with gastric juice.</p></div>
+              <div class="organ-card"><strong>Small intestine</strong><p>Duodenum, jejunum, and ileum; completes digestion and absorbs nutrients.</p></div>
+              <div class="organ-card"><strong>Large intestine</strong><p>Absorbs remaining water and mineral salts, forming drier waste.</p></div>
+              <div class="organ-card"><strong>Rectum and anus</strong><p>Rectum stores waste before elimination through the anus.</p></div>
+              <div class="organ-card"><strong>Liver, gall bladder, pancreas</strong><p>Produce, store, or release bile and digestive juices into the duodenum.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="mouth">
+          <div class="section-inner">
+            <h2>The Mouth And Buccal Cavity</h2>
+            <p>
+              Food enters through the mouth, or buccal cavity. Both physical and chemical
+              digestion happen here.
+            </p>
+            <div class="two-col">
+              <div>
+                <h3>Mouth Jobs</h3>
+                <ul>
+                  <li>Teeth break food into smaller pieces, making it easier to swallow.</li>
+                  <li>Chewing increases the surface area to volume ratio so enzymes can work more efficiently.</li>
+                  <li>Salivary glands secrete saliva, which moistens food and makes it easier to swallow.</li>
+                  <li>Saliva contains salivary amylase, which breaks starch into maltose.</li>
+                  <li>The optimum pH of salivary amylase is about 7.</li>
+                  <li>The tongue rolls food into a bolus, which is then swallowed.</li>
+                </ul>
+              </div>
+              <div class="diagram" aria-label="Mouth cavity diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-09-human-digestive-system-diagram-01.webp" alt="Textbook-style illustration: Mouth cavity diagram." width="316" height="451" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+
+            <h3>Dental Health</h3>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Temporary teeth</strong><p>Children have 20 temporary teeth.</p></div>
+              <div class="mini-card"><strong>Permanent teeth</strong><p>Adults usually have 32 permanent teeth.</p></div>
+              <div class="mini-card"><strong>Tooth types</strong><p>Incisor, canine, premolar, and molar.</p></div>
+              <div class="mini-card"><strong>Tooth layers</strong><p>A tooth consists of enamel, dentine, cementum, and pulp tissue.</p></div>
+            </div>
+            <div class="diagram" aria-label="Tooth health diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-09-human-digestive-system-diagram-02.webp" alt="Textbook-style illustration: Tooth health diagram." width="316" height="451" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          </div>
+        </section>
+
+        <section id="swallowing">
+          <div class="section-inner">
+            <h2>Pharynx, Epiglottis, And Oesophagus</h2>
+            <div class="two-col">
+              <div>
+                <h3>The Pharynx</h3>
+                <p>
+                  The pharynx is the part of the gut connecting the buccal cavity to the
+                  oesophagus and larynx. It also leads to the trachea. The larynx has a
+                  slit-like opening called the glottis.
+                </p>
+                <p>
+                  During swallowing, the larynx moves up and the epiglottis moves downward
+                  so the larynx is covered. This prevents food particles from entering the
+                  trachea.
+                </p>
+              </div>
+              <div class="diagram" aria-label="Epiglottis swallowing diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-09-human-digestive-system-diagram-03.webp" alt="Textbook-style illustration: Epiglottis swallowing diagram." width="317" height="451" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+
+            <h3>The Oesophagus</h3>
+            <ul>
+              <li>Food passes through the pharynx and enters the oesophagus, a muscular tube leading to the stomach.</li>
+              <li>The oesophagus has two layers of smooth muscle: an external longitudinal layer and an inner circular layer.</li>
+              <li>These muscles contract and relax alternately to produce wave-like contractions called peristalsis.</li>
+              <li>Food moves along the oesophagus due to peristalsis.</li>
+              <li>Digestion of starch by salivary amylase continues in the oesophagus.</li>
+            </ul>
+            <div class="callout">
+              <p><strong>Correction for clarity:</strong> the scan sentence about food entering the trachea appears to be missing "not." The biological point is that the epiglottis helps stop food from entering the trachea.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="stomach">
+          <div class="section-inner">
+            <h2>Stomach, Liver, Gall Bladder, And Pancreas</h2>
+            <div class="two-col">
+              <div>
+                <h3>The Stomach</h3>
+                <p>The stomach is a distensible muscular bag.</p>
+                <ul>
+                  <li>Deep pits in the stomach wall contain gastric glands.</li>
+                  <li>Gastric glands secrete mucus to protect the stomach wall and also secrete digestive juices.</li>
+                  <li>Peristalsis churns food, breaking it up and mixing it thoroughly with gastric juice.</li>
+                  <li>Food leaves the stomach in small quantities at regular intervals and enters the small intestine as chyme, a semi-liquid mass.</li>
+                </ul>
+              </div>
+              <div class="diagram" aria-label="Stomach diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-09-human-digestive-system-diagram-04.webp" alt="Textbook-style illustration: Stomach diagram." width="316" height="451" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+
+            <h3>Liver, Gall Bladder, And Pancreas</h3>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Liver and bile</strong><p>Liver cells produce and secrete bile, an alkaline greenish-yellow liquid containing bile salts and bile pigments.</p></div>
+              <div class="mini-card"><strong>Bile pigments</strong><p>Bile pigments are waste products and are removed with the faeces.</p></div>
+              <div class="mini-card"><strong>Gall bladder</strong><p>Stores bile temporarily and releases it to the duodenum through the bile duct.</p></div>
+              <div class="mini-card"><strong>Bile salts</strong><p>Emulsify large fat droplets into smaller droplets, increasing the surface area for lipase.</p></div>
+              <div class="mini-card"><strong>Pancreatic juice</strong><p>An alkaline solution containing trypsinogen, pancreatic amylase, and pancreatic lipase.</p></div>
+              <div class="mini-card"><strong>Pancreatic hormones</strong><p>The pancreas also secretes insulin and glucagon.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="small-intestine">
+          <div class="section-inner">
+            <h2>The Small Intestine</h2>
+            <p>
+              The small intestine has three parts: the U-shaped duodenum, the jejunum, and
+              the much-coiled ileum.
+            </p>
+            <div class="two-col">
+              <div>
+                <ul>
+                  <li>Food is moved through the small intestine by peristalsis.</li>
+                  <li>Small portions entering the small intestine help food become completely digested by enzymes.</li>
+                  <li>In the duodenum, chyme mixes with digestive juices from the pancreas, liver, gall bladder, and intestinal glands.</li>
+                  <li>Intestinal juice contains intestinal lipase, enterokinase, erepsin, maltase, lactase, sucrase, and other enzymes.</li>
+                  <li>All enzymes in the small intestine have an optimum pH under alkaline conditions.</li>
+                  <li>The jejunum and ileum mainly absorb nutrients and water.</li>
+                </ul>
+              </div>
+              <div class="diagram" aria-label="Small intestine parts diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-09-human-digestive-system-diagram-05.webp" alt="Textbook-style illustration: Small intestine parts diagram." width="317" height="451" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="enzymes">
+          <div class="section-inner">
+            <h2>Digestion Enzymes</h2>
+            <p>
+              Food is completely digested in the small intestine. The scan lists the enzyme
+              pathways for carbohydrate, fat, and protein digestion.
+            </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-09-human-digestive-system-enzymes-section.webp" alt="Scientific plate illustration for Digestion Enzymes." width="1200" height="675" loading="lazy">
+          </figure>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Food molecule or precursor</th>
+                    <th>Enzyme</th>
+                    <th>Product</th>
+                    <th>Where emphasized in the scan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Starch</td>
+                    <td>Salivary amylase</td>
+                    <td>Maltose</td>
+                    <td>Mouth and oesophagus; optimum pH about 7.</td>
+                  </tr>
+                  <tr>
+                    <td>Starch</td>
+                    <td>Pancreatic amylase</td>
+                    <td>Maltose, a disaccharide</td>
+                    <td>Small intestine.</td>
+                  </tr>
+                  <tr>
+                    <td>Maltose</td>
+                    <td>Maltase</td>
+                    <td>Two glucose molecules</td>
+                    <td>Small intestine.</td>
+                  </tr>
+                  <tr>
+                    <td>Sucrose</td>
+                    <td>Sucrase</td>
+                    <td>Glucose and fructose</td>
+                    <td>Small intestine.</td>
+                  </tr>
+                  <tr>
+                    <td>Lactose</td>
+                    <td>Lactase</td>
+                    <td>Glucose and galactose</td>
+                    <td>Small intestine.</td>
+                  </tr>
+                  <tr>
+                    <td>Fats</td>
+                    <td>Lipase</td>
+                    <td>Three fatty acids and glycerol</td>
+                    <td>Small intestine; bile improves lipase action by emulsifying fats.</td>
+                  </tr>
+                  <tr>
+                    <td>Trypsinogen</td>
+                    <td>Enterokinase</td>
+                    <td>Trypsin</td>
+                    <td>Small intestine activation step.</td>
+                  </tr>
+                  <tr>
+                    <td>Proteins</td>
+                    <td>Trypsin</td>
+                    <td>Polypeptides</td>
+                    <td>Small intestine.</td>
+                  </tr>
+                  <tr>
+                    <td>Polypeptides</td>
+                    <td>Peptidases / erepsin</td>
+                    <td>Amino acids</td>
+                    <td>Small intestine.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout">
+              <p><strong>Quiz correction:</strong> the scan shows a circled option near C, but the scientifically correct answer is B: pancreatic amylase in the small intestine converts starch into disaccharides. Option C is wrong because sucrase acts in the small intestine, not the mouth.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="absorption">
+          <div class="section-inner">
+            <h2>Adaptations For Absorption</h2>
+            <p>
+              Nutrients are absorbed from the lumen of the small intestine into the body.
+              The small intestine is adapted for this by greatly increasing surface area.
+            </p>
+            <div class="liver-grid">
+              <div>
+                <ul>
+                  <li>The inner wall has large circular folds.</li>
+                  <li>The inner wall has finger-like projections called villi.</li>
+                  <li>Each epithelial cell on a villus has smaller projections called microvilli.</li>
+                  <li>These adaptations create a larger surface for absorption.</li>
+                  <li>Villi contain capillaries and a lacteal, allowing nutrients to enter blood or lymph.</li>
+                </ul>
+              </div>
+              <div class="diagram" aria-label="Villus diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-09-human-digestive-system-diagram-06.webp" alt="Textbook-style illustration: Villus diagram." width="316" height="451" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+
+            <h3>The Large Intestine</h3>
+            <ul>
+              <li>The large intestine, or colon, is shaped like an inverted U.</li>
+              <li>It absorbs remaining water and mineral salts not absorbed by the small intestine.</li>
+              <li>Undigested waste moves along by peristalsis and becomes progressively drier.</li>
+              <li>Undigested waste is mainly cellulose, which humans cannot digest.</li>
+              <li>Waste is stored in the rectum before elimination through the anus; elimination of waste material is egestion.</li>
+            </ul>
+
+            <h3>Transport Of Products Of Digestion</h3>
+            <p>
+              As absorption takes place, blood in the villus capillaries becomes rich in
+              simple sugars and amino acids. These capillaries converge into the hepatic
+              portal vein, which leads to the liver.
+            </p>
+            <div class="diagram" aria-label="Hepatic portal vein transport diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-09-human-digestive-system-diagram-07.webp" alt="Textbook-style illustration: Hepatic portal vein transport diagram." width="316" height="451" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          </div>
+        </section>
+
+        <section id="liver">
+          <div class="section-inner">
+            <h2>The Liver Roles</h2>
+            <p>
+              The scan spends several slides on the liver because it is more than a bile
+              producer. It processes absorbed nutrients, stores or releases glucose, handles
+              amino acid excess, breaks down old blood materials, and detoxifies substances.
+            </p>
+
+            <h3>Carbohydrate Metabolism</h3>
+            <div class="liver-grid">
+              <div>
+                <ul>
+                  <li>The liver is involved in carbohydrate metabolism and regulation of blood glucose concentration.</li>
+                  <li>When blood glucose is high, islets of Langerhans in the pancreas secrete insulin.</li>
+                  <li>Insulin stimulates liver cells to convert glucose into glycogen, which is stored in the liver.</li>
+                  <li>When blood glucose is low, islets of Langerhans secrete glucagon.</li>
+                  <li>Glucagon stimulates liver cells to convert stored glycogen back into glucose and release it into the blood.</li>
+                </ul>
+              </div>
+              <div class="diagram" aria-label="Blood glucose regulation diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-09-human-digestive-system-diagram-08.webp" alt="Textbook-style illustration: Blood glucose regulation diagram." width="317" height="451" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+
+            <h3>Fat And Protein Metabolism</h3>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Bile and fat digestion</strong><p>The liver produces bile, an alkaline liquid that emulsifies fats.</p></div>
+              <div class="mini-card"><strong>Energy from fats</strong><p>The liver oxidises fats to produce energy.</p></div>
+              <div class="mini-card"><strong>Storage as fat</strong><p>Excess carbohydrates and proteins can be converted to fatty acids and glycerol, then exported and stored as fatty tissue.</p></div>
+              <div class="mini-card"><strong>Plasma proteins</strong><p>The liver synthesizes plasma proteins such as albumin and clotting factors such as fibrinogen.</p></div>
+              <div class="mini-card"><strong>Deamination</strong><p>The liver removes the amino group, -NH<sub>2</sub>, from excess amino acids.</p></div>
+              <div class="mini-card"><strong>Urea formation</strong><p>Ammonia is toxic to cells, so the liver converts nitrogen waste to urea, which is excreted in urine.</p></div>
+            </div>
+            <div class="diagram" aria-label="Deamination diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-09-human-digestive-system-diagram-09.webp" alt="Textbook-style illustration: Deamination diagram." width="316" height="451" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+            <h3>Breakdown Of Red Blood Cells</h3>
+            <div class="two-col">
+              <div>
+                <ul>
+                  <li>Aging red blood cells are removed by the spleen.</li>
+                  <li>Haemoglobin from red blood cells is brought to the liver and broken down.</li>
+                  <li>Iron from haemoglobin is stored in the liver for reuse.</li>
+                  <li>Other metabolic by-products form bile pigments.</li>
+                </ul>
+              </div>
+              <div class="mini-card">
+                <strong>Life cycle from the scan</strong>
+                <p>Amino acids, iron, folic acid, and vitamin B<sub>12</sub> support erythropoiesis in red bone marrow. Erythrocytes circulate for about 120 days, then expired cells break up in the liver and spleen.</p>
+              </div>
+            </div>
+
+            <h3>Detoxification</h3>
+            <p>
+              The liver breaks down toxic substances for excretion in urine or bile. The
+              scan uses alcohol as an example.
+            </p>
+            <div class="diagram" aria-label="Alcohol detoxification diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-09-human-digestive-system-diagram-10.webp" alt="Textbook-style illustration: Alcohol detoxification diagram." width="317" height="451" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div class="answer-list">
+              <div class="answer"><strong>Alcohol irritation:</strong> alcohol irritates oesophageal, stomach, and intestinal linings. Excessive alcohol consumption can lead to inflammation and ulcers.</div>
+              <div class="answer"><strong>Liver damage:</strong> excessive alcohol consumption can lead to inflammation, scarring, and destruction of liver cells.</div>
+              <div class="answer"><strong>Cirrhosis:</strong> liver cells are replaced with fibrous scar tissue, causing loss of liver function.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="review">
+          <div class="section-inner">
+            <h2>Wrap Up</h2>
+            <p>The source closes with three review prompts.</p>
+            <div class="answer-list">
+              <div class="answer"><strong>Explain the human digestive system:</strong> a continuous alimentary canal plus accessory organs breaks food down, absorbs nutrients, transports them to the liver and blood, and removes undigested waste.</div>
+              <div class="answer"><strong>List organs and enzymes:</strong> organs include mouth, pharynx, oesophagus, stomach, small intestine, large intestine, rectum, anus, liver, gall bladder, and pancreas. Enzymes include salivary amylase, pancreatic amylase, maltase, sucrase, lactase, lipase, enterokinase, trypsin, peptidases, and erepsin.</div>
+              <div class="answer"><strong>Roles of the liver:</strong> produces bile, regulates blood glucose, metabolizes fats and proteins, synthesizes plasma proteins and clotting factors, deaminates amino acids, breaks down old red blood cell materials, stores iron, forms bile pigments, and detoxifies substances.</div>
+            </div>
+
+            <h3>Printed Video And Activity Prompts</h3>
+            <ul>
+              <li>Experiment: Simulate a digestion process.</li>
+              <li>How Did Teeth Evolve? <a href="https://www.youtube.com/watch?v=wrpEjEqURJg" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=wrpEjEqURJg</code></a></li>
+              <li>Operation Ouch - The Epiglottis. <a href="https://www.youtube.com/watch?v=sLECPLLYafA" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=sLECPLLYafA</code></a></li>
+              <li>Observation: Recognise parts of an animal digestive system.</li>
+              <li>How Your Digestive System Works. <a href="https://www.youtube.com/watch?v=Og5xAdC8EUI" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=Og5xAdC8EUI</code></a></li>
+            </ul>
+            <p class="source-note">
+              Rebuilt from the Week 09 scanned PDF, <code>IMG_20260427_0009.pdf</code>. The final two scan frames contained unrelated handwritten login/game notes rather than digestive-system lesson content, so they were not reproduced in this public study page.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

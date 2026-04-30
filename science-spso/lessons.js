@@ -71,6 +71,7 @@ const LESSONS = [
   },
   {
     slug: "week-03-living-things",
+    standalone: "./week-03-living-things.html",
     label: "Week 03",
     title: "Living Things",
     by: "Dr Chen",
@@ -142,6 +143,7 @@ const LESSONS = [
   },
   {
     slug: "week-04-biodiversity",
+    standalone: "./week-04-biodiversity.html",
     label: "Week 04",
     title: "Biodiversity",
     by: "Dr Chen",
@@ -212,6 +214,7 @@ const LESSONS = [
   },
   {
     slug: "week-05-chemical-methods-and-bonds",
+    standalone: "./week-05-chemical-methods-and-bonds.html",
     label: "Week 05",
     title: "Chemicals, Separation Methods, And Bonds",
     by: "Ms Yanan",
@@ -282,6 +285,7 @@ const LESSONS = [
   },
   {
     slug: "week-06-periodic-table",
+    standalone: "./week-06-periodic-table.html",
     label: "Week 06",
     title: "Periodic Table",
     by: "Ms Yanan",
@@ -352,6 +356,7 @@ const LESSONS = [
   },
   {
     slug: "week-07-ecology",
+    standalone: "./week-07-ecology.html",
     label: "Week 07",
     title: "Ecology",
     by: "Dr Chen",
@@ -426,6 +431,7 @@ const LESSONS = [
     title: "Chemical Reactions",
     by: "Ms Yanan",
     source: "IMG_20260427_0008.pdf",
+    standalone: "./week-08-chemical-reactions.html",
     pages: 18,
     visual: "chemistry",
     visualCaption: "The first page shows methane combustion. The web version uses a general reaction image: reactants become products through atom rearrangement.",
@@ -497,6 +503,7 @@ const LESSONS = [
     title: "Human Digestive System",
     by: "Dr Chen",
     source: "IMG_20260427_0009.pdf",
+    standalone: "./week-09-human-digestive-system.html",
     pages: 12,
     visual: "digestion",
     visualCaption: "The source begins by placing digestion among body systems. This visual follows the path of food and emphasizes chemical breakdown.",
@@ -568,6 +575,7 @@ const LESSONS = [
     title: "Heat And Thermodynamics",
     by: "Ms Yanan",
     source: "IMG_20260427_0010.pdf",
+    standalone: "./week-10-heat-and-thermodynamics.html",
     pages: 20,
     visual: "heat",
     visualCaption: "The scanned lesson starts with heating experiments and a flame image. This visual separates heat flow modes and energy transfer.",
@@ -635,6 +643,7 @@ const LESSONS = [
   },
   {
     slug: "week-11-human-circulatory-system",
+    standalone: "./week-11-human-circulatory-system.html",
     label: "Week 11",
     title: "Human Circulatory System",
     by: "Dr Chen",
@@ -705,6 +714,7 @@ const LESSONS = [
   },
   {
     slug: "week-12-respiration-and-excretion",
+    standalone: "./week-12-respiration-and-excretion.html",
     label: "Week 12",
     title: "Respiration And Excretion",
     by: "Dr Chen",
@@ -776,6 +786,7 @@ const LESSONS = [
   },
   {
     slug: "week-13-cell-biology",
+    standalone: "./week-13-cell-biology.html",
     label: "Week 13",
     title: "Cell Biology",
     by: "Ms Yanan",
@@ -846,6 +857,7 @@ const LESSONS = [
   },
   {
     slug: "week-14-light-shadow-and-sound",
+    standalone: "./week-14-light-shadow-and-sound.html",
     label: "Week 14",
     title: "Light, Shadow, And Sound",
     by: "Ms Yanan",
@@ -916,6 +928,7 @@ const LESSONS = [
   },
   {
     slug: "week-15-reproductive-system",
+    standalone: "./week-15-reproductive-system.html",
     label: "Week 15",
     title: "Reproductive System",
     by: "Dr Chen",
@@ -986,6 +999,7 @@ const LESSONS = [
   },
   {
     slug: "week-16-senses",
+    standalone: "./week-16-senses.html",
     label: "Week 16",
     title: "Senses",
     by: "Dr Chen",
@@ -1057,6 +1071,7 @@ const LESSONS = [
   },
   {
     slug: "week-17-change-of-state-and-water-cycle",
+    standalone: "./week-17-change-of-state-and-water-cycle.html",
     label: "Week 17",
     title: "Change Of State And Water Cycle",
     by: "Ms Yanan",
@@ -1128,6 +1143,7 @@ const LESSONS = [
   },
   {
     slug: "week-18-homeostasis",
+    standalone: "./week-18-homeostasis.html",
     label: "Week 18",
     title: "Homeostasis",
     by: "Dr Chen",
@@ -1199,6 +1215,7 @@ const LESSONS = [
   },
   {
     slug: "week-19-forces",
+    standalone: "./week-19-forces.html",
     label: "Week 19",
     title: "Forces",
     by: "Ms Yanan",
@@ -1270,6 +1287,7 @@ const LESSONS = [
   },
   {
     slug: "week-20-biochemistry-and-polymers",
+    standalone: "./week-20-biochemistry-and-polymers.html",
     label: "Week 20",
     title: "Biochemistry And Polymers",
     by: "Ms Yanan",
@@ -1340,6 +1358,7 @@ const LESSONS = [
   },
   {
     slug: "term-test-1-nov-2025",
+    standalone: "./term-test-1-nov-2025.html",
     label: "Practice 01",
     title: "Nov 2025 Term Test 1",
     by: "Dr Chen",
@@ -1410,6 +1429,7 @@ const LESSONS = [
   },
   {
     slug: "mock-test-2-nov-2025",
+    standalone: "./mock-test-2-nov-2025.html",
     label: "Practice 02",
     title: "SPSO 2025 Mock Test 2",
     by: "Practice Paper",
@@ -1480,6 +1500,7 @@ const LESSONS = [
   },
   {
     slug: "p5-week-01-electricity",
+    standalone: "./p5-week-01-electricity.html",
     label: "P5 Week 01",
     title: "Electrical Energy",
     by: "Ms Yanan",
@@ -1548,6 +1569,848 @@ const LESSONS = [
       "Why must a circuit be complete for a bulb to light?",
       "Where should an ammeter be placed?",
       "Use V = IR to find resistance when V = 6 V and I = 2 A."
+    ]
+  },
+  {
+    slug: "p5-week-02-fundamental-botany",
+    standalone: "./p5-week-02-fundamental-botany.html",
+    label: "P5 Week 02",
+    title: "Fundamental Botany",
+    by: "Dr Chen",
+    source: "IMG_20260427_0024.pdf",
+    pages: 11,
+    visual: "plants",
+    visualCaption: "The scan moves from plant definition to leaves, photosynthesis, vascular tissues, and transport. The rebuilt page turns those ideas into one plant-system map.",
+    summary: "Plant definition, evolution, diversity, leaf structure, guard cells, photosynthesis, pigments, limiting factors, xylem, phloem, water transport, and translocation.",
+    pageFlow: [
+      { pages: "1-2", title: "Plant definition and evolution", detail: "Plants as photosynthetic eukaryotes, exceptions, and major evolutionary groups." },
+      { pages: "3-4", title: "Leaf structure", detail: "External and internal leaf structure, mesophyll tissue, epidermis, guard cells, and stomata." },
+      { pages: "5-7", title: "Photosynthesis", detail: "Equation, stages, splitting water, pigments, leaf colour, and limiting factors." },
+      { pages: "8-11", title: "Transport", detail: "Xylem, phloem, stem and root tissue, water movement, transpiration pull, and translocation." }
+    ],
+    sections: [
+      {
+        title: "What Plants Are",
+        text: "Plants are predominantly photosynthetic eukaryotes of kingdom Plantae, usually multicellular with cellulose cell walls and chloroplasts.",
+        bullets: [
+          "Not every photosynthetic organism is a plant.",
+          "Not every plant is photosynthetic.",
+          "Plant diversity supports food, medicine, materials, fuel, and ecosystem stability."
+        ]
+      },
+      {
+        title: "Leaf Structure",
+        text: "Leaves are adapted for photosynthesis and gas exchange.",
+        bullets: [
+          "A broad thin lamina increases surface area.",
+          "Palisade mesophyll cells contain many chloroplasts.",
+          "Spongy mesophyll has air spaces for gas diffusion.",
+          "Guard cells regulate stomata."
+        ]
+      },
+      {
+        title: "Photosynthesis",
+        text: "Photosynthesis converts carbon dioxide and water into sugars using light energy and chlorophyll.",
+        bullets: [
+          "Light-dependent reactions split water and release oxygen.",
+          "Light-independent reactions use carbon dioxide to form carbohydrate.",
+          "Light intensity, carbon dioxide, and temperature can limit the rate."
+        ]
+      },
+      {
+        title: "Transport",
+        text: "Vascular tissues connect roots, stems, and leaves.",
+        bullets: [
+          "Xylem transports water and mineral salts.",
+          "Phloem transports sugars and amino acids.",
+          "Transpiration pull is the main upward force for water movement.",
+          "Translocation moves sugars from source to sink."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Stoma", meaning: "Pore controlled by guard cells for gas exchange and water loss." },
+      { term: "Xylem", meaning: "Vascular tissue that carries water and mineral salts upward." },
+      { term: "Phloem", meaning: "Vascular tissue that carries sugars and amino acids." },
+      { term: "Transpiration", meaning: "Loss of water vapour from leaves through stomata." }
+    ],
+    checks: [
+      "Why are both opening and closing stomata important?",
+      "Explain why oxygen from photosynthesis comes from water.",
+      "Compare xylem and phloem structure and function."
+    ]
+  },
+  {
+    slug: "p5-week-03-electrical-systems-and-magnetism",
+    standalone: "./p5-week-03-electrical-systems-and-magnetism.html",
+    label: "P5 Week 03",
+    title: "Electrical Systems And Magnetism",
+    by: "Ms Yanan",
+    source: "IMG_20260427_0025.pdf",
+    pages: 13,
+    visual: "magnetism",
+    visualCaption: "The scan links electrical conductivity to magnetism, electromagnets, induction, and power generation.",
+    summary: "Conductors, insulators, semiconductors, magnetism, electromagnets, electromagnetic induction, AC/DC, motors, generators, and power stations.",
+    pageFlow: [
+      { pages: "1-4", title: "Conductivity", detail: "Insulators, semiconductors, metals, special cases, temperature effects, and superconductors." },
+      { pages: "5-8", title: "Magnetism", detail: "Magnetic dipoles, domains, poles, fields, attraction, repulsion, and magnetizing steel." },
+      { pages: "8-10", title: "Electromagnetism", detail: "Electromagnets, strength factors, and electromagnetic induction." },
+      { pages: "10-13", title: "Current and generation", detail: "DC, AC, motors, generators, and energy conversions in power plants." }
+    ],
+    sections: [
+      {
+        title: "Conductivity",
+        text: "Materials may behave as conductors, insulators, or semiconductors.",
+        bullets: [
+          "Pure metals usually conduct better than alloys.",
+          "Graphite conducts electricity although it is a non-metal.",
+          "Diamond conducts heat well but is an electrical insulator.",
+          "Semiconductor conductivity can be controlled by doping."
+        ]
+      },
+      {
+        title: "Magnetism",
+        text: "Magnets contain aligned magnetic domains.",
+        bullets: [
+          "A magnet has north and south poles.",
+          "Like poles repel and unlike poles attract.",
+          "Magnetic field lines are drawn from north to south outside the magnet.",
+          "Breaking a magnet creates smaller magnets, not isolated poles."
+        ]
+      },
+      {
+        title: "Electromagnets And Induction",
+        text: "Electric current can create magnetism, and changing magnetism can create current.",
+        bullets: [
+          "More current, more coils, and a soft iron core strengthen an electromagnet.",
+          "Electromagnetic induction is the basis of generators.",
+          "AC reverses direction while DC flows one way."
+        ]
+      },
+      {
+        title: "Motors And Generators",
+        text: "Motors and generators perform opposite energy conversions.",
+        bullets: [
+          "Motors convert electrical energy to kinetic energy.",
+          "Generators convert kinetic energy to electrical energy.",
+          "Power plants use turbines to spin generators."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Semiconductor", meaning: "Material with conductivity between conductor and insulator." },
+      { term: "Magnetic Domain", meaning: "Region where magnetic dipoles align." },
+      { term: "Electromagnet", meaning: "Temporary magnet produced by electric current." },
+      { term: "Induction", meaning: "Production of voltage or current by changing magnetic field." }
+    ],
+    checks: [
+      "Why do alloys usually conduct less well than pure metals?",
+      "How can an electromagnet be made stronger?",
+      "Compare motor and generator energy conversions."
+    ]
+  },
+  {
+    slug: "p5-week-04-plant-reproduction",
+    standalone: "./p5-week-04-plant-reproduction.html",
+    label: "P5 Week 04",
+    title: "Plant Reproduction",
+    by: "Dr Chen",
+    source: "IMG_20260427_0026.pdf",
+    pages: 11,
+    visual: "plants",
+    visualCaption: "The scan follows plant reproduction from regeneration and flower anatomy to pollination, double fertilisation, fruit, and seed dispersal.",
+    summary: "Asexual plant reproduction, regeneration, flowering plant life cycle, flower organs, gametophytes, pollination, double fertilisation, monocots and dicots, fruit development, fruit ripening, and seed dispersal.",
+    pageFlow: [
+      { pages: "1-3", title: "Reproduction strategies", detail: "Sexual and asexual reproduction, spores, seeds, cones, vegetative reproduction, and the opening quiz." },
+      { pages: "2-4", title: "Regeneration and flowers", detail: "Meristems, callus, flowering plant prevalence, life cycle, and floral organ structure." },
+      { pages: "5-8", title: "Gametes and pollination", detail: "Male and female gametophytes, pollen tube growth, pollination helpers, and self versus cross pollination." },
+      { pages: "9-11", title: "Fertilisation to dispersal", detail: "Double fertilisation, monocot versus dicot clues, fruit types, ripening, and seed dispersal." }
+    ],
+    sections: [
+      {
+        title: "Regeneration",
+        text: "Plants can keep growing and regenerate because meristems contain undifferentiated cells.",
+        bullets: [
+          "Apical meristems cause primary growth at shoot and root tips.",
+          "Lateral meristems cause secondary growth such as widening stems.",
+          "Callus tissue can form at wounds or in tissue culture.",
+          "Asexual reproduction can use stems, shoots, leaves, or roots."
+        ]
+      },
+      {
+        title: "Flower Structure",
+        text: "Typical flowers have four whorls of modified leaves.",
+        bullets: [
+          "Sepals protect the bud.",
+          "Petals attract pollinators.",
+          "Stamens make pollen.",
+          "Carpels contain stigma, style, ovary, and ovules."
+        ]
+      },
+      {
+        title: "Gametophytes And Pollination",
+        text: "Pollen is the male gametophyte, and the embryo sac is the female gametophyte.",
+        bullets: [
+          "Microsporocytes undergo meiosis to form haploid microspores.",
+          "Megasporocytes undergo meiosis, and usually one megaspore survives.",
+          "Pollination places pollen on a stigma.",
+          "A pollen tube grows down the style and delivers sperm."
+        ]
+      },
+      {
+        title: "Fruit And Seed Dispersal",
+        text: "After fertilisation, ovules become seeds and ovaries or related tissues form fruit.",
+        bullets: [
+          "Double fertilisation forms a zygote and triploid endosperm.",
+          "Simple, aggregate, multiple, and accessory fruits form in different ways.",
+          "Ethylene promotes fruit ripening.",
+          "Seeds disperse by wind, expulsion, animals, and water."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Meristem", meaning: "Region of undifferentiated plant cells that divide for continued growth." },
+      { term: "Pollination", meaning: "Transfer of pollen from anther to stigma." },
+      { term: "Double Fertilisation", meaning: "One sperm fertilises the egg, while another fuses with polar nuclei to form endosperm." },
+      { term: "Endosperm", meaning: "Food-storing tissue of a seed, usually triploid in flowering plants." }
+    ],
+    checks: [
+      "Why are both statements in the opening quiz false?",
+      "Explain two mechanisms that prevent self-fertilisation.",
+      "Outline double fertilisation and state what each product becomes."
+    ]
+  },
+  {
+    slug: "p5-week-05-energy",
+    standalone: "./p5-week-05-energy.html",
+    label: "P5 Week 05",
+    title: "Energy And Work",
+    by: "Ms Yanan",
+    source: "IMG_20260427_0027.pdf",
+    pages: 16,
+    visual: "energy",
+    visualCaption: "The scan connects energy sources, energy stores, work, power, efficiency, kWh, and electricity generation.",
+    summary: "Energy sources, conservation of energy, kinetic energy, gravitational potential energy, elastic and chemical potential energy, work, thermal energy, light, sound, nuclear energy, power, efficiency, Sankey diagrams, kWh, and electrical power generation.",
+    pageFlow: [
+      { pages: "1-3", title: "Energy and sources", detail: "Energy definition, renewable and non-renewable sources, and conservation of energy." },
+      { pages: "4-7", title: "Energy stores", detail: "Kinetic, gravitational potential, elastic potential, chemical potential, and archery conversion." },
+      { pages: "7-11", title: "Work and special forms", detail: "Work done, angled force, thermal energy, light, sound, and nuclear fission and fusion." },
+      { pages: "12-16", title: "Power and generation", detail: "Power formulas, efficiency, Sankey diagrams, kWh, electricity generation mix, hydro power, and coal power." }
+    ],
+    sections: [
+      {
+        title: "Energy And Conservation",
+        text: "Energy is the ability of an object or system to perform work.",
+        bullets: [
+          "Energy cannot be created or destroyed.",
+          "It can be changed into another form.",
+          "Renewable sources include sun, wind, running water, biomass, tidal, and geothermal energy.",
+          "Non-renewable sources include coal, natural gas, oil, and nuclear fuel."
+        ]
+      },
+      {
+        title: "Mechanical Energy",
+        text: "Mechanical energy combines kinetic and gravitational potential energy.",
+        bullets: [
+          "Kinetic energy depends on mass and speed squared.",
+          "Gravitational potential energy depends on mass, field strength, and height.",
+          "A roller coaster transfers GPE to KE downhill and KE to GPE uphill."
+        ]
+      },
+      {
+        title: "Work And Power",
+        text: "Work is energy transfer by force over distance, and power is energy transfer per unit time.",
+        bullets: [
+          "Work = force x distance in the direction of the force.",
+          "When force is angled, use the component along the displacement.",
+          "Power = work / time and electrical power = current x voltage.",
+          "kWh measures energy consumption."
+        ]
+      },
+      {
+        title: "Efficiency And Generation",
+        text: "Energy conversions often produce useful and wasted outputs.",
+        bullets: [
+          "Efficiency compares useful output with total input.",
+          "Sankey diagrams show energy transfers and losses.",
+          "Hydroelectric plants use moving water to spin turbines.",
+          "Coal power plants convert chemical energy to heat, steam motion, turbine motion, and electricity."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Kinetic Energy", meaning: "Energy an object has because it is moving." },
+      { term: "Work", meaning: "Energy transferred when force causes displacement." },
+      { term: "Power", meaning: "Rate of energy transfer or work done." },
+      { term: "Sankey Diagram", meaning: "Flow diagram that shows useful energy transfers and losses." }
+    ],
+    checks: [
+      "Why is kinetic energy a scalar even though velocity is a vector?",
+      "When does a force do no work on an object?",
+      "Explain the energy conversions in a coal power station."
+    ]
+  },
+  {
+    slug: "p5-week-06-science-process-skills",
+    standalone: "./p5-week-06-science-process-skills.html",
+    label: "P5 Week 06",
+    title: "Science Process Skills",
+    by: "Dr Chen",
+    source: "IMG_20260427_0028.pdf",
+    pages: 12,
+    visual: "experiment",
+    visualCaption: "The scan teaches experiment design, variables, controls, procedures, lab safety, data presentation, conclusions, and basic process skills.",
+    summary: "Scientific inquiry, hypothesis testing, procedure writing, independent and dependent variables, constants, treatment and control groups, placebo and double-blind experiments, lab safety, reliable data collection, graphs, conclusions, and six basic science process skills.",
+    pageFlow: [
+      { pages: "1-2", title: "Experiment design", detail: "Inquiry cycle, fertiliser case study, and repeatable procedure writing." },
+      { pages: "3-5", title: "Variables and controls", detail: "Independent variables, dependent variables, constants, treatment groups, placebo, double-blind design, and positive and negative controls." },
+      { pages: "6-8", title: "Safety and evidence", detail: "Lab safety, data collection, data presentation, scatter plots, and drawing conclusions." },
+      { pages: "8-12", title: "Process skills", detail: "Observation, communication, classification, measurement, inference, prediction, and wrap-up questions." }
+    ],
+    sections: [
+      {
+        title: "Scientific Inquiry",
+        text: "A good experiment starts with a clear question and a testable hypothesis.",
+        bullets: [
+          "Background research helps shape the hypothesis.",
+          "A repeatable procedure lets other scientists evaluate the results.",
+          "Results are analysed and used to support or revise the hypothesis.",
+          "Findings should be communicated clearly."
+        ]
+      },
+      {
+        title: "Variables And Controls",
+        text: "Controlled experiments test one factor while holding other factors constant.",
+        bullets: [
+          "The independent variable is changed on purpose.",
+          "The dependent variable is measured as the result.",
+          "Control variables are kept the same.",
+          "Positive and negative controls provide comparison points."
+        ]
+      },
+      {
+        title: "Data And Conclusions",
+        text: "Reliable conclusions require reliable data.",
+        bullets: [
+          "Record observations during the experiment.",
+          "Use tables, line graphs, bar graphs, pie charts, or scatter plots appropriately.",
+          "Check measurement, procedure, and equipment errors.",
+          "Repeat trials to reduce the effect of unwanted variables."
+        ]
+      },
+      {
+        title: "Six Process Skills",
+        text: "The six basic skills are integrated but also useful individually.",
+        bullets: [
+          "Observation uses the five senses.",
+          "Classification groups objects by selected characteristics.",
+          "Measurement uses correct instruments and units.",
+          "Inference explains observations, while prediction forecasts future observations."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Independent Variable", meaning: "Factor deliberately changed in an experiment." },
+      { term: "Dependent Variable", meaning: "Factor measured as the result of the independent variable." },
+      { term: "Control", meaning: "Comparison condition used to judge whether a change is caused by the independent variable." },
+      { term: "Inference", meaning: "Explanation or interpretation based on observations and evidence." }
+    ],
+    checks: [
+      "Identify the independent, dependent, and control variables in a plant-growth experiment.",
+      "Why does a clinical trial need a placebo or no-active-treatment control?",
+      "Choose the best graph type for a given data set and explain why."
+    ]
+  },
+  {
+    slug: "p5-week-07-mechanics",
+    standalone: "./p5-week-07-mechanics.html",
+    label: "P5 Week 07",
+    title: "Mechanics",
+    by: "Ms Yanan",
+    source: "IMG_20260427_0029.pdf",
+    pages: 12,
+    visual: "mechanics",
+    visualCaption: "The scan covers turning effects, levers, centre of gravity, stability, pendulums, pulleys, pressure, Pascal's principle, and atmospheric pressure.",
+    summary: "Turning effects, moment of a force, lever classes, centre of gravity, stability, ship stability, pendulum laws, pulleys, pressure calculations, pressure examples, Pascal's principle, hydraulics, crushed-can air pressure, and atmospheric pressure.",
+    pageFlow: [
+      { pages: "1-3", title: "Moments and levers", detail: "Turning effect, moment formula, balanced moments, three classes of lever, and worked lever examples." },
+      { pages: "4-6", title: "Stability and pendulum", detail: "Centre of gravity, toppling, stability, ship stability, centroids, and pendulum laws." },
+      { pages: "7", title: "Pulleys", detail: "Fixed and movable pulleys, rope tension, effort reduction, and distance tradeoff." },
+      { pages: "8-12", title: "Pressure and fluids", detail: "Pressure formula, area examples, Pascal's principle, hydraulic lifting, air pressure, and atmospheric pressure." }
+    ],
+    sections: [
+      {
+        title: "Moments",
+        text: "A moment is the turning effect of a force.",
+        bullets: [
+          "Moment = force x perpendicular distance from the pivot.",
+          "The unit is newton metre.",
+          "For balance, clockwise and anticlockwise moments are equal.",
+          "Levers use pivots to trade force and distance."
+        ]
+      },
+      {
+        title: "Centre Of Gravity",
+        text: "An object topples if the vertical line from its centre of gravity falls outside its base.",
+        bullets: [
+          "Lowering the centre of gravity improves stability.",
+          "Widening the base improves stability.",
+          "Standing passengers make a double-decker bus less stable.",
+          "Boat stability depends on weight, buoyancy, and line of action."
+        ]
+      },
+      {
+        title: "Pulleys And Pendulums",
+        text: "Pendulums depend mainly on length, and pulleys trade effort for pulling distance.",
+        bullets: [
+          "Pendulum period is proportional to the square root of length.",
+          "Ideal pendulum period is independent of bob mass and material.",
+          "Ideal rope tension is the same throughout one continuous rope.",
+          "More supporting rope segments reduce effort."
+        ]
+      },
+      {
+        title: "Pressure",
+        text: "Pressure equals force divided by area.",
+        bullets: [
+          "Small area increases pressure.",
+          "Large area decreases pressure.",
+          "Pascal's principle explains hydraulic lifting.",
+          "Atmospheric pressure comes from the weight of air."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Moment", meaning: "Turning effect of a force, equal to force times perpendicular distance from pivot." },
+      { term: "Centre Of Gravity", meaning: "Point through which an object's weight can be considered to act." },
+      { term: "Pressure", meaning: "Force per unit area." },
+      { term: "Pascal's Principle", meaning: "Pressure change in a confined incompressible fluid is transmitted throughout the fluid." }
+    ],
+    checks: [
+      "Calculate the parent weight needed to balance a see-saw.",
+      "Explain why widening a base increases stability.",
+      "Solve a pressure question and explain how changing area changes pressure."
+    ]
+  },
+  {
+    slug: "p5-week-08-chemistry-and-environment",
+    standalone: "./p5-week-08-chemistry-and-environment.html",
+    label: "P5 Week 08",
+    title: "Chemistry And The Environment",
+    by: "Ms Yanan",
+    source: "IMG_20260427_0030.pdf",
+    pages: 12,
+    visual: "chemistry",
+    visualCaption: "The scan connects electrochemistry and reaction rates to greenhouse gases, ozone depletion, acid rain, nitrogen cycling, and equation balancing.",
+    summary: "Electrolysis, electric cells, electrochemical and electrolytic cells, collision theory, factors affecting reaction speed, carbon and silicon, hydrocarbon boiling points, greenhouse gases, carbon cycle, carbon footprints, ozone depletion, acid rain, nitrogen cycle, balanced equations, and chemical experiment review.",
+    pageFlow: [
+      { pages: "1-3", title: "Electrochemistry", detail: "Electrolysis, electrolytic cell parts, electric cells, and electrochemical versus electrolytic cells." },
+      { pages: "3-5", title: "Reaction rates and elements", detail: "Collision theory, rate factors, carbon, silicon, metalloids, hydrocarbons, and fractional distillation." },
+      { pages: "5-10", title: "Greenhouse gases and carbon", detail: "Major greenhouse gases, photosynthesis and respiration, CO2 graphs, carbon cycle, carbon footprints, and emissions by food and lifestyle." },
+      { pages: "10-12", title: "Environment and review", detail: "Ozone depletion, acid rain, nitrogen cycle, balanced equations, and experiment review." }
+    ],
+    sections: [
+      {
+        title: "Electrochemistry",
+        text: "Electrolysis uses electrical energy to drive chemical decomposition, while simple cells use chemical reactions to produce electrical energy.",
+        bullets: [
+          "Electrolysis needs a battery, electrodes, and an electrolyte.",
+          "Electrolysis can purify copper, electroplate metals, and split water.",
+          "Electrochemical cells have spontaneous redox reactions.",
+          "Electrolytic cells have non-spontaneous redox reactions."
+        ]
+      },
+      {
+        title: "Reaction Speed",
+        text: "Collision theory explains how reaction speed changes.",
+        bullets: [
+          "Increasing concentration increases collision frequency.",
+          "Increasing temperature raises kinetic energy and successful collisions.",
+          "Increasing surface area exposes more reactant particles.",
+          "Catalysts lower activation energy."
+        ]
+      },
+      {
+        title: "Environmental Chemistry",
+        text: "The scan covers greenhouse gases, carbon cycles, ozone depletion, acid rain, and nitrogen cycling.",
+        bullets: [
+          "Greenhouse gases include CO2, methane, nitrous oxide, fluorinated gases, and water vapour.",
+          "Ozone-depleting substances include CFCs, HCFCs, and halons.",
+          "Acid rain forms when sulfur dioxide and nitrogen oxides react with water.",
+          "Nitrogen fixation converts atmospheric nitrogen into forms plants can use."
+        ]
+      },
+      {
+        title: "Chemical Review",
+        text: "The last page reviews equation balancing and familiar chemistry experiments.",
+        bullets: [
+          "Balance equations by changing coefficients, not formulas.",
+          "Biuret test detects proteins.",
+          "Eggshell and vinegar shows acid-carbonate reaction.",
+          "Lemon batteries demonstrate electrochemical cells."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Electrolysis", meaning: "Use of electricity to break down or decompose a compound." },
+      { term: "Catalyst", meaning: "Substance that increases reaction rate by providing a lower-energy pathway without being consumed." },
+      { term: "Ozone Depletion", meaning: "Loss of atmospheric ozone, especially stratospheric ozone, often caused by ozone-depleting substances." },
+      { term: "Nitrogen Fixation", meaning: "Conversion of atmospheric nitrogen into usable nitrogen compounds by bacteria or archaea." }
+    ],
+    checks: [
+      "Compare electrochemical and electrolytic cells.",
+      "Explain how each rate factor affects collision theory.",
+      "Describe how acid rain forms and name two effects.",
+      "Balance a combustion or displacement equation without changing formulas."
+    ]
+  },
+  {
+    slug: "p5-week-09-astronomy",
+    standalone: "./p5-week-09-astronomy.html",
+    label: "P5 Week 09",
+    title: "Astronomy",
+    by: "Dr Chen",
+    source: "IMG_20260427_0031.pdf",
+    pages: 10,
+    visual: "light",
+    visualCaption: "The scan moves from the universe to local solar-system objects: Big Bang evidence, redshift, galaxies, stars, parallax, planets, the Moon, eclipses, and comets.",
+    summary: "Astronomy as a science, origin of the universe, Big Bang theory, Doppler shift and redshift, cosmic microwave background, large-scale structure, star life cycles, galaxy types, star classification, parallax, constellations, solar-system formation, the Sun, planets, Pluto, the Moon, eclipses, asteroids, meteoroids, meteors, and comets.",
+    pageFlow: [
+      { pages: "1-2", title: "Astronomy and the universe", detail: "What astronomers study, universe-origin theories, Big Bang model, redshift, and expansion." },
+      { pages: "3-4", title: "Structure and stars", detail: "Cosmic microwave background, voids, filaments, galaxies, star life cycles, and star classification." },
+      { pages: "5-6", title: "Measuring space", detail: "Parallax, luminosity, constellations, and the formation of the solar system." },
+      { pages: "7-10", title: "Solar-system objects", detail: "Sun layers, planets, Pluto, the Moon, eclipses, asteroids, meteoroids, meteors, and comets." }
+    ],
+    sections: [
+      {
+        title: "Big Bang And Expansion",
+        text: "The Big Bang model explains that the universe began in a hot, dense early state and has expanded and cooled over time.",
+        bullets: [
+          "Steady-state and oscillating models are discussed as historical alternatives.",
+          "Redshift of distant galaxies supports expansion.",
+          "Cosmic microwave background radiation is leftover heat from the early universe.",
+          "Large-scale structure forms a web of voids, filaments, clusters, and galaxies."
+        ]
+      },
+      {
+        title: "Stars And Galaxies",
+        text: "Stars form from nebulae and spend much of their lives balancing gravity with outward pressure from fusion.",
+        bullets: [
+          "Mass determines how long a star lives and what it becomes.",
+          "Star colour depends on surface temperature.",
+          "Spiral, elliptical, and irregular galaxies have different shapes.",
+          "Apparent brightness depends on both luminosity and distance."
+        ]
+      },
+      {
+        title: "Distances And Patterns",
+        text: "Parallax is the direct way to measure distances to nearby stars.",
+        bullets: [
+          "A nearby star appears to shift against a distant background as Earth orbits the Sun.",
+          "A smaller parallax angle means a greater distance.",
+          "Constellations are apparent patterns in the sky, not usually physically close star groups.",
+          "Spectra help astronomers infer temperature and composition."
+        ]
+      },
+      {
+        title: "Solar System",
+        text: "The scan ends with the Sun, planets, Pluto, the Moon, eclipses, and small solar-system bodies.",
+        bullets: [
+          "The Sun provides the gravity, heat, and light that dominate the solar system.",
+          "Pluto is a dwarf planet because it has not cleared its orbital neighbourhood.",
+          "Solar and lunar eclipses depend on shadow alignment.",
+          "Comets are icy bodies; meteors are streaks of light from heated meteoroids."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Redshift", meaning: "Shift of light toward longer wavelengths, often showing that a distant object is moving away." },
+      { term: "Nebula", meaning: "Large cloud of gas and dust where stars may form." },
+      { term: "Parallax", meaning: "Apparent shift in position caused by viewing from different locations." },
+      { term: "Dwarf Planet", meaning: "Round object orbiting the Sun that has not cleared its orbital neighbourhood." }
+    ],
+    checks: [
+      "Explain how redshift supports an expanding universe.",
+      "Describe the life cycle of a Sun-like star.",
+      "Compare a solar eclipse and a lunar eclipse.",
+      "Distinguish asteroid, meteoroid, meteor, meteorite, and comet."
+    ]
+  },
+  {
+    slug: "p5-week-10-genetics-and-heredity",
+    standalone: "./p5-week-10-genetics-and-heredity.html",
+    label: "P5 Week 10",
+    title: "Genetics And Heredity",
+    by: "Ms Yanan",
+    source: "IMG_20260427_0032.pdf, IMG_20260427_0033.pdf, IMG_20260427_0034.pdf",
+    pages: 21,
+    visual: "cell",
+    visualCaption: "The genetics scanlets were consolidated into one complete lesson covering DNA, genetic coding, chromosomes, cell division, inheritance, disease, GMOs, and biofuel.",
+    summary: "DNA and nucleotide structure, complementary base pairing, DNA replication, central dogma, genetic code, sickle-cell disease, chromosomes, chromatin, cell cycle, mitosis, meiosis, Mendelian inheritance, phenotype and genotype, dominant and recessive traits, pedigree trees, ABO blood type, sex chromosomes, cancer, genetic diseases, mitochondrial inheritance, genetic engineering, GMOs, selective breeding, and biofuel.",
+    pageFlow: [
+      { pages: "1-4", title: "DNA and coding", detail: "Nucleotides, double helix, replication, DNA to RNA to protein, codons, and sickle-cell mutation." },
+      { pages: "5-7", title: "Chromosomes and division", detail: "Chromosome number, chromatin, cell cycle, mitosis, meiosis, and cytokinesis." },
+      { pages: "8-13", title: "Inheritance", detail: "Genes, alleles, Mendel, phenotype, genotype, dominant and recessive traits, pedigrees, ABO blood type, sex chromosomes, and X-linked traits." },
+      { pages: "14-18", title: "Disease and biotechnology", detail: "Genetic diseases, cancer, mitochondrial inheritance, genetic engineering, GMOs, selective breeding, risks, benefits, and biofuel." }
+    ],
+    sections: [
+      {
+        title: "DNA And Genetic Code",
+        text: "DNA is a large molecule made of nucleotide subunits, each with sugar, phosphate, and a base.",
+        bullets: [
+          "A pairs with T; C pairs with G.",
+          "Before division, DNA replicates using each old strand as a template.",
+          "A group of three bases forms a codon.",
+          "The order of codons determines the order of amino acids in a protein."
+        ]
+      },
+      {
+        title: "Cell Division",
+        text: "The cell cycle includes growth, DNA synthesis, preparation, mitosis, and cytokinesis.",
+        bullets: [
+          "Mitosis forms genetically identical daughter cells.",
+          "Meiosis forms gametes with half the chromosome number.",
+          "Chromosomes are DNA packaged with histone proteins.",
+          "Humans usually have 23 pairs of chromosomes."
+        ]
+      },
+      {
+        title: "Inheritance Patterns",
+        text: "Genes occur in pairs, one allele inherited from each parent.",
+        bullets: [
+          "Phenotype is the visible or physiological trait.",
+          "Genotype is the allele combination.",
+          "Dominant alleles can be expressed with one copy.",
+          "Pedigrees help trace inheritance through families."
+        ]
+      },
+      {
+        title: "Genetic Engineering",
+        text: "Genetic engineering transfers selected genes to change an organism's traits.",
+        bullets: [
+          "GMOs have DNA altered through genetic engineering.",
+          "Useful examples include insulin-producing bacteria and pest-resistant crops.",
+          "Possible risks include allergens, biodiversity effects, and seed-patent issues.",
+          "Biofuels are produced from biomass rather than fossil-fuel formation."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Gene", meaning: "DNA sequence that helps determine a trait, often by coding for a protein." },
+      { term: "Codon", meaning: "Three-base sequence that codes for an amino acid or stop signal." },
+      { term: "Genotype", meaning: "Allele combination of an organism." },
+      { term: "GMO", meaning: "Organism whose DNA has been altered through genetic engineering." }
+    ],
+    checks: [
+      "Explain how base pairing makes DNA replication possible.",
+      "Compare mitosis and meiosis.",
+      "Use a Punnett square to solve a dominant or recessive inheritance question.",
+      "Describe one advantage and one risk of genetic engineering."
+    ]
+  },
+  {
+    slug: "p5-week-11-earth-science",
+    standalone: "./p5-week-11-earth-science.html",
+    label: "P5 Week 11",
+    title: "Earth Science",
+    by: "Dr Chen",
+    source: "IMG_20260427_0035.pdf",
+    pages: 10,
+    visual: "water",
+    visualCaption: "The scan connects solid Earth, water, weather, and climate: Earth's structure, plate tectonics, rocks, oceans, freshwater, glaciers, atmosphere, and climate change.",
+    summary: "Earth's oblate shape, rotation, revolution, axial tilt, seasons, atmosphere, Earth structure, core and mantle, plate tectonics, mountains, volcanoes, earthquakes, rocks, minerals, soil, fossils, oceans, currents, tides, ocean zones, rivers, lakes, groundwater, caves, glaciers, water quality, weather, clouds, climate zones, Earth cycles, ice ages, greenhouse gases, and climate change.",
+    pageFlow: [
+      { pages: "1-2", title: "Planet and layers", detail: "Earth's movement, tilt, atmosphere, crust, mantle, core, and magnetic field." },
+      { pages: "3-4", title: "Geology", detail: "Plate tectonics, mountains, volcanoes, earthquakes, rocks, minerals, soil, and fossils." },
+      { pages: "5-7", title: "Water systems", detail: "Oceans, currents, tides, ocean zones, rivers, lakes, groundwater, caves, glaciers, and water quality." },
+      { pages: "8-10", title: "Weather and climate", detail: "Weather, cloud types, climate zones, orbital cycles, ice ages, greenhouse gases, and climate change." }
+    ],
+    sections: [
+      {
+        title: "Planet Earth",
+        text: "Earth is a slightly squashed sphere that rotates on a tilted axis and revolves around the Sun.",
+        bullets: [
+          "Rotation gives day and night.",
+          "Revolution and axial tilt produce seasons.",
+          "The atmosphere protects Earth and helps regulate temperature.",
+          "The iron-rich core helps generate Earth's magnetic field."
+        ]
+      },
+      {
+        title: "Plate Tectonics",
+        text: "Earth's crust is divided into plates that diverge, collide, and slide past one another.",
+        bullets: [
+          "Plate motion builds mountains and ocean trenches.",
+          "Volcanoes form where magma reaches weak crust.",
+          "Earthquakes occur when built-up stress is released along faults.",
+          "Rocks are igneous, sedimentary, or metamorphic."
+        ]
+      },
+      {
+        title: "Water On Earth",
+        text: "The scan follows water through oceans, rivers, lakes, groundwater, ice, and water-quality measurements.",
+        bullets: [
+          "Oceans cover more than 70 percent of Earth's surface.",
+          "Tides are caused mainly by the Moon's gravity.",
+          "Glaciers store much of Earth's freshwater.",
+          "Water quality can be judged by salinity, organisms, and dissolved solids."
+        ]
+      },
+      {
+        title: "Weather And Climate",
+        text: "Weather is day-to-day conditions; climate is the typical long-term pattern.",
+        bullets: [
+          "Cloud types include stratus, cumulus, cirrus, and cumulonimbus.",
+          "Climate is affected by latitude, altitude, coastlines, and ocean influence.",
+          "Orbital cycles affect climate over long timescales.",
+          "Modern climate change is linked to increased greenhouse gases."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Plate Tectonics", meaning: "Theory explaining movement of Earth's lithospheric plates." },
+      { term: "Fossil", meaning: "Preserved remains or traces of past life." },
+      { term: "Glacier", meaning: "Slow-moving river of ice." },
+      { term: "Climate", meaning: "Typical weather pattern of a place over long periods." }
+    ],
+    checks: [
+      "Outline Earth's layers from crust to core.",
+      "Explain how plate motion causes earthquakes or volcanoes.",
+      "Compare weather and climate.",
+      "Describe how greenhouse gases affect Earth's temperature."
+    ]
+  },
+  {
+    slug: "p5-week-12-microbiology-and-immunology",
+    standalone: "./p5-week-12-microbiology-and-immunology.html",
+    label: "P5 Week 12",
+    title: "Microbiology And Immunology",
+    by: "Dr Chen",
+    source: "IMG_20260427_0036.pdf",
+    pages: 10,
+    visual: "cell",
+    visualCaption: "The scan combines the study of microbes with body defenses: microscopes, vaccination, pasteurization, antibiotics, microbial classification, growth curves, immunity, antibodies, vaccines, and antigen tests.",
+    summary: "Branches of microbiology, microorganism size, compound and dissecting microscopes, Hooke, Leeuwenhoek, Jenner vaccination, Pasteur's swan-neck flask, pasteurization, UHT, Fleming and penicillin, microbial world classification, microbial growth curve, stationary phase quiz, human immune system, innate immunity, adaptive immunity, defense lines, inflammation, T and B cell development, antigens, antibodies, immunological memory, vaccine types, and antigen test kits.",
+    pageFlow: [
+      { pages: "1-2", title: "Microbiology and tools", detail: "Branches, size range, microscopes, and early observation tools." },
+      { pages: "3-4", title: "Discoveries and classification", detail: "Jenner, Pasteur, pasteurization, Fleming, antibiotics, and microbial groups." },
+      { pages: "5-6", title: "Growth and defenses", detail: "Growth curve phases, human immune system, innate and adaptive immunity, and defense lines." },
+      { pages: "7-10", title: "Immune responses", detail: "Inflammation, T and B cells, antigens, antibodies, memory, vaccines, and antigen test kits." }
+    ],
+    sections: [
+      {
+        title: "Microbiology",
+        text: "Microbiology studies the structure, function, classification, and importance of microorganisms.",
+        bullets: [
+          "Branches include bacteriology, virology, mycology, immunology, parasitology, microbial ecology, applied microbiology, and medical microbiology.",
+          "Viruses are generally smaller than bacteria.",
+          "Microscopes made direct observation of microbes possible.",
+          "Microbes can be harmful, harmless, or useful."
+        ]
+      },
+      {
+        title: "Historical Discoveries",
+        text: "The lesson highlights discoveries that changed medicine and food safety.",
+        bullets: [
+          "Jenner's cowpox observations led to vaccination against smallpox.",
+          "Pasteur's swan-neck flask supported germ theory.",
+          "Pasteurization reduces harmful microorganisms in food and drink.",
+          "Fleming's mold observation led to penicillin."
+        ]
+      },
+      {
+        title: "Microbial Growth",
+        text: "A closed culture passes through lag, log, stationary, and death phases.",
+        bullets: [
+          "Lag phase is adaptation.",
+          "Log phase is rapid exponential growth.",
+          "Stationary phase has equal rates of cell division and death.",
+          "Death phase occurs as nutrients run out and waste accumulates."
+        ]
+      },
+      {
+        title: "Immunity",
+        text: "Innate immunity is fast and broad; adaptive immunity is slower, specific, and can form memory.",
+        bullets: [
+          "External defenses include skin and mucous membranes.",
+          "Inflammation causes pain, redness, swelling, heat, and loss of function.",
+          "Antigens trigger antibody production.",
+          "Memory cells make secondary responses faster and stronger."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Microorganism", meaning: "Organism usually too small to see clearly without magnification." },
+      { term: "Antibiotic", meaning: "Substance that kills or inhibits bacteria." },
+      { term: "Antigen", meaning: "Substance that induces immune recognition or antibody production." },
+      { term: "Antibody", meaning: "Protein that binds a specific antigen." }
+    ],
+    checks: [
+      "Classify fungi, protists, bacteria, archaea, viruses, and prions.",
+      "Explain why Pasteur's flask experiment mattered.",
+      "Describe the four phases of microbial growth.",
+      "Compare innate and adaptive immunity."
+    ]
+  },
+  {
+    slug: "mock-test-1-mar-apr-2026",
+    standalone: "./mock-test-1-mar-apr-2026.html",
+    label: "Practice 03",
+    title: "SPSO Mock Test 1 Mar/Apr 2026",
+    by: "SPSO Mock Test",
+    source: "IMG_20260427_0037.pdf",
+    pages: 38,
+    visual: "exam",
+    visualCaption: "The scanned Google Form was rebuilt as a 40-question review page with answer reasoning for mixed science topics.",
+    summary: "Forty practice questions covering water pressure, wave speeds, experiment variables, active transport, supercritical water, enzyme temperature, specific heat, salts, telomerase, lemon batteries, enzyme substrates, hydrogen test, echolocation, projectile motion, food tests, concentration, metal markers, pitch, ohmic conductors, saliva pH, fractional distillation, particle models, half-life, circuits, Cartesian diver, levers, electromagnets, inheritance, starch digestion, induction, fireworks, energy, terminal velocity, enzyme denaturation, density, boiling point, GMOs, and electromagnet strength.",
+    pageFlow: [
+      { pages: "1-15", title: "Section A questions 1-17", detail: "Pressure, light and sound, variables, transport, phase behavior, enzymes, heat, salts, telomerase, batteries, substrates, hydrogen, echo, motion, food tests, concentration, and metal markers." },
+      { pages: "16-27", title: "Section A questions 18-30", detail: "Pitch, Ohm's law, pH, distillation, particle models, half-life, circuits, Cartesian diver, levers, doorbells, genetics, starch digestion, and electrostatic induction." },
+      { pages: "28-38", title: "Section B questions 31-40", detail: "Statement-combination questions on genetics, fireworks, energy, terminal velocity, enzymes, density, circuits, boiling point, GMOs, and electromagnets." }
+    ],
+    sections: [
+      {
+        title: "Section A",
+        text: "The first 30 questions are one-mark multiple-choice items requiring diagram reading and quick quantitative reasoning.",
+        bullets: [
+          "Several items require identifying the measured variable or reading a graph.",
+          "Physics questions include pressure, waves, sound, circuits, heat, forces, and electrostatics.",
+          "Chemistry questions include salts, distillation, half-life, and batteries.",
+          "Biology questions include enzymes, active transport, food tests, telomerase, and inheritance."
+        ]
+      },
+      {
+        title: "Section B",
+        text: "The last 10 questions use the scan's statement-combination format.",
+        bullets: [
+          "A means statements 1, 2, and 3 are correct.",
+          "B means statements 1 and 2 only are correct.",
+          "C means statements 2 and 3 only are correct.",
+          "D means statement 1 only is correct."
+        ]
+      },
+      {
+        title: "Review Strategy",
+        text: "The rebuilt page adds answer reasoning so students can learn from mistakes instead of memorizing letters.",
+        bullets: [
+          "Read the evidence in tables and diagrams before looking at options.",
+          "Convert units carefully, especially ml to L and minutes to half-lives.",
+          "For statement questions, judge each statement independently.",
+          "Flag ambiguous diagrams for teacher checking rather than guessing blindly."
+        ]
+      }
+    ],
+    terms: [
+      { term: "Dependent Variable", meaning: "Measured result in an experiment." },
+      { term: "Supercritical Fluid", meaning: "State above the critical temperature and pressure where gas and liquid distinction disappears." },
+      { term: "Half-Life", meaning: "Time taken for half of a radioactive sample to decay." },
+      { term: "Terminal Velocity", meaning: "Constant speed reached when drag balances weight." }
+    ],
+    checks: [
+      "Redo the concentration and half-life calculations without looking.",
+      "Explain three graph-based answers from the paper.",
+      "Choose five wrong answers and write why each is wrong.",
+      "Recheck the ambiguous Section B circuit question with the original answer key."
     ]
   }
 ];

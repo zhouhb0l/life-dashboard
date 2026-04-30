@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 10: Heat And Thermodynamics</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --ink: #202631;
+      --muted: #5f6d78;
+      --line: rgba(32, 38, 49, 0.15);
+      --red: #c65237;
+      --red-dark: #9e3d28;
+      --blue: #286fa3;
+      --blue-dark: #20557c;
+      --gold: #c58a22;
+      --green: #2d7b61;
+      --violet: #6a579c;
+      --soft-red: #fff0e9;
+      --soft-blue: #eaf3fb;
+      --soft-gold: #fff7df;
+      --soft-green: #eaf7f1;
+      --shadow: 0 14px 34px rgba(32, 38, 49, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        linear-gradient(135deg, rgba(198, 82, 55, 0.13), transparent 31%),
+        linear-gradient(315deg, rgba(40, 111, 163, 0.12), transparent 28%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--blue-dark);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a,
+    p,
+    li,
+    code,
+    .pill,
+    .formula,
+    .mini-card {
+      overflow-wrap: anywhere;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 68px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .hero > *,
+    .layout > *,
+    section,
+    .visual,
+    .diagram,
+    .toc-panel {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 3.25rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      line-height: 1.14;
+    }
+
+    h3 {
+      margin: 20px 0 9px;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .intro {
+      max-width: 780px;
+      font-size: 1.06rem;
+    }
+
+    .source-line,
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(198, 82, 55, 0.24);
+      color: var(--red-dark);
+      background: rgba(255, 240, 233, 0.9);
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .tag {
+      border-color: rgba(40, 111, 163, 0.25);
+      color: var(--blue-dark);
+      background: rgba(40, 111, 163, 0.08);
+    }
+
+    .visual {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .visual img,
+    .diagram img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 252px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .toc-panel {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .toc-panel h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .toc {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(255, 240, 233, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-inner {
+      display: grid;
+      gap: 16px;
+    }
+
+    .two-col,
+    .three-col,
+    .fact-grid,
+    .answer-list,
+    .mode-grid,
+    .law-grid,
+    .split-visual {
+      display: grid;
+      gap: 14px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fact-grid,
+    .mode-grid,
+    .law-grid {
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+
+    .split-visual {
+      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+      align-items: center;
+    }
+
+    .mini-card,
+    .mode-card,
+    .law-card,
+    .callout,
+    .answer,
+    .diagram {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .mini-card,
+    .mode-card,
+    .law-card {
+      min-width: 0;
+      padding: 15px;
+      box-shadow: 0 8px 22px rgba(32, 38, 49, 0.07);
+    }
+
+    .mini-card strong,
+    .mode-card strong,
+    .law-card strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .mini-card p,
+    .mode-card p,
+    .law-card p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .mode-card {
+      border-color: rgba(198, 82, 55, 0.24);
+      background: linear-gradient(180deg, rgba(255, 240, 233, 0.96), #ffffff);
+    }
+
+    .law-card {
+      border-color: rgba(40, 111, 163, 0.24);
+      background: linear-gradient(180deg, rgba(234, 243, 251, 0.98), #ffffff);
+    }
+
+    .callout {
+      padding: 15px;
+      border-left: 5px solid var(--gold);
+      background: var(--soft-gold);
+    }
+
+    .callout p,
+    .callout li {
+      color: #5e4a27;
+    }
+
+    .answer {
+      padding: 12px 13px;
+      border-left: 4px solid var(--blue);
+      background: rgba(40, 111, 163, 0.08);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .answer strong {
+      color: var(--ink);
+    }
+
+    .diagram {
+      margin: 4px 0;
+      padding: 16px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 4px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(255, 240, 233, 0.92);
+      font-size: 0.92rem;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .formula {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(198, 82, 55, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-weight: 850;
+      line-height: 1.45;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(32, 38, 49, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-size: 0.92em;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .source-note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .layout,
+      .two-col,
+      .three-col,
+      .split-visual {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1160px);
+        padding-top: 26px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      section {
+        padding: 24px 0;
+      }
+
+      .visual,
+      .diagram {
+        padding: 12px;
+      }
+    }
+  </style>
+
+  <style>
+    .generated-art { max-width: 100%; }
+    .visual img.generated-art,
+    .hero-visual img.generated-art {
+      max-height: min(520px, 58vh);
+      object-fit: contain;
+    }
+    .diagram img.generated-art {
+      max-height: min(680px, 72vh);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .section-art {
+      width: min(100%, 820px);
+      margin: 12px auto 16px;
+      padding: 10px;
+      border: 1px solid rgba(29, 39, 48, 0.14);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(29, 39, 48, 0.07);
+      overflow: hidden;
+    }
+    .section-art img.generated-art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    @media (max-width: 640px) {
+      .section-art { width: 100%; padding: 12px; }
+      .section-art img.generated-art { max-height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Lesson navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./week-09-human-digestive-system.html">Week 09</a>
+      <a href="./week-11-human-circulatory-system.html">Week 11</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Week 10 | SPSO Preparatory Course</span>
+        <h1>Heat And Thermodynamics</h1>
+        <p class="intro">
+          This chapter turns the Week 10 scan into a readable study guide on thermal
+          energy, temperature, specific heat, conduction, convection, radiation, thermal
+          expansion, bimetallic strips, liquid and gas expansion, ideal gas laws, and
+          absolute zero.
+        </p>
+        <div class="source-line" aria-label="Lesson facts">
+          <span class="pill">By Ms Yanan</span>
+          <span class="pill">20 scanned pages reviewed</span>
+          <span class="pill">Duplicate scan frames merged</span>
+        </div>
+      </div>
+      <div class="visual" aria-label="Heat and thermodynamics visual">
+        <img class="generated-art" src="./assets/generated/week-10-heat-and-thermodynamics-hero.webp" alt="Textbook-style illustration for Heat And Thermodynamics." width="1448" height="1086" loading="eager" style="display:block;width:100%;height:auto;border-radius:8px;">
+        <p class="caption">Generated textbook-style illustration for Heat And Thermodynamics. Detailed labels and explanations remain in the HTML text for accuracy.</p>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc-panel" aria-label="Table of contents">
+        <h2>Study Path</h2>
+        <ul class="toc">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#thermal-energy">Thermal Energy</a></li>
+          <li><a href="#heat-temperature">Heat Vs Temperature</a></li>
+          <li><a href="#transfer">Heat Transfer</a></li>
+          <li><a href="#conduction">Conduction</a></li>
+          <li><a href="#convection">Convection</a></li>
+          <li><a href="#radiation">Radiation</a></li>
+          <li><a href="#expansion">Expansion Basics</a></li>
+          <li><a href="#solid-expansion">Solid Expansion</a></li>
+          <li><a href="#bimetallic">Bimetallic Strips</a></li>
+          <li><a href="#liquid-gas">Liquids And Gases</a></li>
+          <li><a href="#gas-laws">Gas Laws</a></li>
+          <li><a href="#review">Wrap Up</a></li>
+        </ul>
+      </aside>
+
+      <main class="content">
+        <section id="overview">
+          <div class="section-inner">
+            <h2>Lesson Overview</h2>
+            <p>
+              The scan opens with a heating experiment and a flame image. The lesson has
+              three main strands: heat energy, temperature and changes of state; transfer
+              of heat by conduction, convection and radiation; and the effects of heat on
+              solids, liquids and gases.
+            </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-10-heat-and-thermodynamics-overview-section.webp" alt="Scientific plate illustration for Lesson Overview." width="1200" height="675" loading="lazy">
+          </figure>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Heat energy</strong><p>Thermal energy comes from the motion of particles and is measured in joules.</p></div>
+              <div class="mini-card"><strong>Temperature</strong><p>Temperature describes hotness and tracks the average kinetic energy of particles.</p></div>
+              <div class="mini-card"><strong>Heat transfer</strong><p>Heat moves by conduction, convection, and radiation.</p></div>
+              <div class="mini-card"><strong>Effects of heat</strong><p>Heating usually causes expansion; cooling usually causes contraction.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="thermal-energy">
+          <div class="section-inner">
+            <h2>Thermal Energy And Particles</h2>
+            <p>
+              Matter is made up of small particles: atoms and molecules. These particles
+              are in constant motion and have kinetic energy. When the same kind of
+              particles with the same mass move faster, they have more kinetic energy.
+            </p>
+            <div class="split-visual">
+              <div>
+                <ul>
+                  <li>Energy causes atoms and molecules to move, collide, or vibrate back and forth.</li>
+                  <li>Particle motion is the microscopic basis of heat.</li>
+                  <li>The more particles there are, the more total thermal energy an object can contain.</li>
+                  <li>Heat is a form of energy.</li>
+                </ul>
+              </div>
+              <div class="diagram" aria-label="Particle motion and heat diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-10-heat-and-thermodynamics-diagram-01.webp" alt="Textbook-style illustration: Particle motion and heat diagram." width="338" height="421" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+            <div class="callout">
+              <p><strong>Joule note from the scan:</strong> James Prescott Joule (1818-1889) helped show that heat is a type of energy. His paddle-wheel experiment converted mechanical work into thermal energy, demonstrating that water can be warmed without using fire.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="heat-temperature">
+          <div class="section-inner">
+            <h2>Heat And Temperature</h2>
+            <p>
+              Heat is a form of energy. The standard unit of energy is the joule, J. When
+              heat transfers to an object, the energy transferred depends on the mass of
+              the object, the substance it is made from, and the change in temperature.
+            </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-10-heat-and-thermodynamics-heat-temperature-section.webp" alt="Scientific plate illustration for Heat And Temperature." width="1200" height="675" loading="lazy">
+          </figure>
+            <p><span class="formula">E = c m &Delta;T</span></p>
+            <p>
+              Here, <code>E</code> is heat energy transferred, <code>c</code> is specific
+              heat capacity, <code>m</code> is mass, and <code>&Delta;T</code> is the
+              temperature change.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Substance</th>
+                    <th>Specific heat, J/(kg K)</th>
+                    <th>Study meaning</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Water</td><td>4186</td><td>Needs a lot of energy to warm; temperature changes slowly.</td></tr>
+                  <tr><td>Beryllium</td><td>1820</td><td>Higher than common metals listed below.</td></tr>
+                  <tr><td>Aluminium</td><td>900</td><td>Warms more easily than water.</td></tr>
+                  <tr><td>Glass</td><td>837</td><td>Poor conductor; uneven heating can cause cracking.</td></tr>
+                  <tr><td>Silicon</td><td>703</td><td>Semiconductor material.</td></tr>
+                  <tr><td>Iron (steel)</td><td>448</td><td>Low heat capacity compared with water.</td></tr>
+                  <tr><td>Copper</td><td>387</td><td>Conducts heat well and warms quickly.</td></tr>
+                  <tr><td>Silver</td><td>234</td><td>Excellent conductor.</td></tr>
+                  <tr><td>Gold</td><td>129</td><td>Low specific heat.</td></tr>
+                  <tr><td>Lead</td><td>128</td><td>Lowest in the scan table.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Heat Vs Temperature</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Heat</th>
+                    <th>Temperature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Unit</td>
+                    <td>Measured in joules or calories.</td>
+                    <td>Measured in degrees Celsius, kelvin, or Fahrenheit.</td>
+                  </tr>
+                  <tr>
+                    <td>Definition</td>
+                    <td>A form of internal energy or energy transferred because of a temperature difference.</td>
+                    <td>A measurement of hotness; related to average particle kinetic energy.</td>
+                  </tr>
+                  <tr>
+                    <td>Ability to do work</td>
+                    <td>Heat can do work.</td>
+                    <td>Temperature itself cannot do work.</td>
+                  </tr>
+                  <tr>
+                    <td>Property</td>
+                    <td>Transfers from higher temperature to lower temperature; depends on mass and material.</td>
+                    <td>Increases when heated and decreases when cooled; an intensive value.</td>
+                  </tr>
+                  <tr>
+                    <td>Is it matter?</td>
+                    <td>No.</td>
+                    <td>No.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="transfer">
+          <div class="section-inner">
+            <h2>Methods Of Heat Transfer</h2>
+            <p>Heat can be transferred in three ways: conduction, convection, and radiation.</p>
+            <div class="mode-grid">
+              <div class="mode-card"><strong>Conduction</strong><p>Heat passes through close particles by collisions and vibration.</p></div>
+              <div class="mode-card"><strong>Convection</strong><p>Heat is carried by moving liquids or gases when density changes create currents.</p></div>
+              <div class="mode-card"><strong>Radiation</strong><p>Heat travels as electromagnetic waves, including infrared, without needing a substance.</p></div>
+            </div>
+            <div class="diagram" aria-label="Three heat transfer modes diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-10-heat-and-thermodynamics-diagram-02.webp" alt="Textbook-style illustration: Three heat transfer modes diagram." width="339" height="421" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          </div>
+        </section>
+
+        <section id="conduction">
+          <div class="section-inner">
+            <h2>Conduction And Conductors</h2>
+            <p>
+              Conduction is heat transfer through particles that are close to each other.
+              Kinetic energy flows from one particle to nearby particles when they collide.
+              It occurs strongly in solids, can occur in liquids, and occurs in gases only
+              to a smaller extent.
+            </p>
+            <div class="split-visual">
+              <div>
+                <h3>Why Metals Conduct Heat Well</h3>
+                <ul>
+                  <li>Metals have free electrons that move easily and transfer energy beyond adjacent particles.</li>
+                  <li>Metals have a tight crystalline structure, so vibrations pass efficiently.</li>
+                  <li>Atoms in metals are packed densely and transmit heat vibrations readily.</li>
+                  <li>Wood is made of tiny fibers that are softer and more randomly organized, so heat vibrations are conducted less efficiently.</li>
+                </ul>
+              </div>
+              <div class="diagram" aria-label="Conduction in metal diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-10-heat-and-thermodynamics-diagram-03.webp" alt="Textbook-style illustration: Conduction in metal diagram." width="339" height="421" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+
+            <div class="two-col">
+              <div>
+                <h3>Good And Poor Conductors</h3>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>Good conductors of heat</th><th>Poor conductors of heat</th></tr></thead>
+                    <tbody>
+                      <tr><td>Silver</td><td>Plastic</td></tr>
+                      <tr><td>Copper</td><td>Wood</td></tr>
+                      <tr><td>Aluminium</td><td>Air</td></tr>
+                      <tr><td>Tin</td><td>Cork</td></tr>
+                      <tr><td>Iron</td><td>Water</td></tr>
+                      <tr><td>Stone</td><td>Styrofoam</td></tr>
+                      <tr><td>Graphite</td><td></td></tr>
+                      <tr><td>Diamond</td><td></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <h3>Thermal Conductivity Values</h3>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>Substance</th><th>Thermal conductivity, W m<sup>-1</sup> K<sup>-1</sup></th></tr></thead>
+                    <tbody>
+                      <tr><td>Air</td><td>0.026</td></tr>
+                      <tr><td>Styrofoam</td><td>0.033</td></tr>
+                      <tr><td>Water</td><td>0.6089</td></tr>
+                      <tr><td>Concrete</td><td>0.92</td></tr>
+                      <tr><td>Copper</td><td>384.1</td></tr>
+                      <tr><td>Natural diamond</td><td>895-1350</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="callout">
+              <p><strong>Why cotton, down feather, wool and fur insulate:</strong> they trap many tiny pockets of air. Air is a poor conductor, so less heat escapes. The scan also notes that polar bears have white fur for camouflage, black skin, and hollow hairs.</p>
+            </div>
+            <p>
+              Building insulation is important because it reduces heat flow: in winter it
+              slows heat loss from warm rooms, and in summer it slows heat gain from outside.
+            </p>
+          </div>
+        </section>
+
+        <section id="convection">
+          <div class="section-inner">
+            <h2>Convection</h2>
+            <p>
+              When water at the bottom of a flask is heated, it gains heat from the flame,
+              expands, and becomes less dense than the surrounding water. The less dense
+              water rises. Cooler water at the top is denser and sinks. This density
+              difference causes a convection current.
+            </p>
+            <div class="split-visual">
+              <div class="answer-list">
+                <div class="answer"><strong>Heated water:</strong> becomes less dense.</div>
+                <div class="answer"><strong>Less dense water:</strong> rises.</div>
+                <div class="answer"><strong>Cooler, denser water:</strong> sinks.</div>
+                <div class="answer"><strong>Result:</strong> a continuous convection current.</div>
+              </div>
+              <div class="diagram" aria-label="Convection current in a flask">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-10-heat-and-thermodynamics-diagram-04.webp" alt="Textbook-style illustration: Convection current in a flask." width="339" height="421" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+            <p>
+              The same idea explains room heating: warm air rises above a radiator, cooler
+              air falls near cold windows, and a circulation pattern forms.
+            </p>
+          </div>
+        </section>
+
+        <section id="radiation">
+          <div class="section-inner">
+            <h2>Radiation, Light, And Heat</h2>
+            <p>
+              Radiation is heat traveling in the form of visible and non-visible light. It
+              transfers energy directly without having to travel through a substance.
+              Infrared radiation has longer wavelength than visible light and can carry
+              heat from warm objects to cooler objects.
+            </p>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Sunlight</strong><p>Sunlight is the main source of heat for homes.</p></div>
+              <div class="mini-card"><strong>Thermal radiation</strong><p>Electromagnetic radiation generated by thermal motion of particles in matter.</p></div>
+              <div class="mini-card"><strong>Absorb or reflect</strong><p>Dark colours absorb more radiation; shiny or light colours reflect more radiation.</p></div>
+              <div class="mini-card"><strong>Absolute zero link</strong><p>All matter warmer than absolute zero emits thermal radiation.</p></div>
+            </div>
+            <div class="diagram" aria-label="Electromagnetic spectrum and infrared heat diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-10-heat-and-thermodynamics-diagram-05.webp" alt="Textbook-style illustration: Electromagnetic spectrum and infrared heat diagram." width="339" height="421" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div class="two-col">
+              <div class="mini-card">
+                <strong>Infrared uses</strong>
+                <p>Infrared is used in heat sensors, thermal imaging, and night vision equipment. You can feel infrared heat from a hot stove element even across a room.</p>
+              </div>
+              <div class="mini-card">
+                <strong>Microwave ovens</strong>
+                <p>Microwave ovens convert electrical energy into microwaves. These make molecules, especially water molecules, vibrate and heat the food.</p>
+              </div>
+            </div>
+            <div class="callout">
+              <p><strong>Flame note from the scan:</strong> a luminous flame is used for lighting, while a non-luminous flame is used for heating.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="expansion">
+          <div class="section-inner">
+            <h2>Effects Of Heat: Expansion And Contraction</h2>
+            <p>
+              In general, when matter gains heat it expands and occupies more space. When
+              matter loses heat, it contracts and occupies less space. Solids, liquids and
+              gases all expand when they gain heat.
+            </p>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Solids</strong><p>Usually expand the least because particles stay in fixed positions and vibrate more.</p></div>
+              <div class="mini-card"><strong>Liquids</strong><p>Usually expand more than solids because particles can move past each other.</p></div>
+              <div class="mini-card"><strong>Gases</strong><p>Expand and contract significantly more than solids and liquids.</p></div>
+            </div>
+            <div class="diagram" aria-label="Expansion particle diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-10-heat-and-thermodynamics-diagram-06.webp" alt="Textbook-style illustration: Expansion particle diagram." width="338" height="422" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          </div>
+        </section>
+
+        <section id="solid-expansion">
+          <div class="section-inner">
+            <h2>Solid Expansion And Contraction</h2>
+            <p>
+              The relative expansion divided by the change in temperature is called the
+              material's coefficient of linear thermal expansion. It generally varies with
+              temperature.
+            </p>
+            <div class="two-col">
+              <div>
+                <h3>Coefficients In The Scan</h3>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>Material</th><th>Fractional expansion per degree C x 10<sup>-6</sup></th></tr></thead>
+                    <tbody>
+                      <tr><td>Glass</td><td>9</td></tr>
+                      <tr><td>Quartz, fused</td><td>0.59</td></tr>
+                      <tr><td>Aluminium</td><td>24</td></tr>
+                      <tr><td>Brass</td><td>19</td></tr>
+                      <tr><td>Copper</td><td>17</td></tr>
+                      <tr><td>Iron</td><td>12</td></tr>
+                      <tr><td>Plastic pipe (PE)</td><td>50</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <h3>50 m Pipe Example</h3>
+                <p>
+                  The scan shows expansion rates for 50 m pipes with a +50 degree C
+                  temperature change. Plastic pipe types expand much more than metal pipe
+                  types; a 50 m PE pipe can expand by about 500 mm.
+                </p>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>Pipe type</th><th>Approximate expansion shown</th></tr></thead>
+                    <tbody>
+                      <tr><td>PVC</td><td>about 170 mm</td></tr>
+                      <tr><td>PE</td><td>about 500 mm</td></tr>
+                      <tr><td>PP</td><td>about 450 mm</td></tr>
+                      <tr><td>Copper</td><td>about 40 mm</td></tr>
+                      <tr><td>Cast iron</td><td>about 30 mm</td></tr>
+                      <tr><td>Stainless steel</td><td>about 25 mm</td></tr>
+                      <tr><td>Steel</td><td>about 35 mm</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <h3>Real-World Expansion Problems</h3>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Railway gaps</strong><p>Gaps between rails provide space for iron to expand and contract between summer and winter. Without gaps, rails may bend and cause derailment.</p></div>
+              <div class="mini-card"><strong>Steel bridge rollers</strong><p>One end of a steel bridge may rest on rollers with a gap so contraction in cold weather and expansion in hot weather do not damage the bridge.</p></div>
+              <div class="mini-card"><strong>Glass cracking</strong><p>Hot liquid heats the inside surface of a thick glass first. The inside expands while the cooler outer layer lags behind, so stress can crack the glass.</p></div>
+              <div class="mini-card"><strong>Pipe loops</strong><p>U-type expansion loops let long pipelines absorb thermal expansion and contraction.</p></div>
+            </div>
+            <div class="diagram" aria-label="Bridge and rail expansion diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-10-heat-and-thermodynamics-diagram-07.webp" alt="Textbook-style illustration: Bridge and rail expansion diagram." width="339" height="422" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          </div>
+        </section>
+
+        <section id="bimetallic">
+          <div class="section-inner">
+            <h2>Bimetallic Strips</h2>
+            <p>
+              Bimetallic strips are used in thermostats in refrigerators, ovens, irons and
+              heaters. They regulate temperature. By adjusting the size of the gap between
+              the strip and the contact, the temperature setting can be controlled.
+            </p>
+            <div class="split-visual">
+              <div>
+                <ul>
+                  <li>Two different metals are bonded together.</li>
+                  <li>When heated, the metal with the higher expansion coefficient expands more.</li>
+                  <li>That metal becomes the longer side of the curve when the strip is heated.</li>
+                  <li>When cooled, it becomes the shorter side of the curve.</li>
+                </ul>
+              </div>
+              <div class="diagram" aria-label="Bimetallic strip bending diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-10-heat-and-thermodynamics-diagram-08.webp" alt="Textbook-style illustration: Bimetallic strip bending diagram." width="339" height="422" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+            <h3>Fire Alarm Application</h3>
+            <div class="answer-list">
+              <div class="answer"><strong>1.</strong> In a fire, temperature rises and the bimetallic strip gains heat from the surroundings.</div>
+              <div class="answer"><strong>2.</strong> Brass expands more than iron for the same temperature rise, so the strip curves downward.</div>
+              <div class="answer"><strong>3.</strong> The strip touches the contact and closes the circuit.</div>
+              <div class="answer"><strong>4.</strong> Electric current flows through the circuit and the bell rings.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="liquid-gas">
+          <div class="section-inner">
+            <h2>Liquid And Gas Expansion</h2>
+            <div class="two-col">
+              <div>
+                <h3>Liquids</h3>
+                <ul>
+                  <li>Almost all liquids expand when heated and contract when cooled.</li>
+                  <li>Drink factories need to leave space when filling bottles or cans.</li>
+                  <li>Without allowance, bottles or cans may burst when liquid expands.</li>
+                  <li>In the scan's four-liquid comparison, water expands least and ether expands most under the same fair-test heating conditions.</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Gases</h3>
+                <ul>
+                  <li>Gas molecules are much farther apart than molecules in solids and liquids.</li>
+                  <li>Gas molecules move at high speed in all directions.</li>
+                  <li>Gases expand much more than solids and liquids when heated.</li>
+                  <li>If volume can change, gas volume increases as temperature rises and decreases as temperature drops.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="diagram" aria-label="Liquid and gas expansion diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-10-heat-and-thermodynamics-diagram-09.webp" alt="Textbook-style illustration: Liquid and gas expansion diagram." width="339" height="422" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div class="callout">
+              <p><strong>Bread and cake example:</strong> during baking, baking powder can break down and release carbon dioxide, or yeast can respire and release carbon dioxide. Gas expansion causes dough to rise.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="gas-laws">
+          <div class="section-inner">
+            <h2>Gas Laws And Absolute Zero</h2>
+            <p>
+              The scan links gas expansion to Charles' law and then broadens to the ideal
+              gas law using kinetic theory.
+            </p>
+            <div class="law-grid">
+              <div class="law-card"><strong>Boyle's law</strong><p><span class="formula">P &prop; 1/V</span> at constant temperature. In the scan: <code>P1V1 = P2V2</code>.</p></div>
+              <div class="law-card"><strong>Charles' law</strong><p><span class="formula">V &prop; T</span> at constant pressure. In the scan: <code>V1/T1 = V2/T2</code>.</p></div>
+              <div class="law-card"><strong>Gay-Lussac's law</strong><p><span class="formula">P &prop; T</span> at constant volume. The scan also names it Amontons' law.</p></div>
+              <div class="law-card"><strong>Avogadro's law</strong><p><span class="formula">V &prop; n</span> when temperature and pressure are constant.</p></div>
+              <div class="law-card"><strong>Ideal gas law</strong><p><span class="formula">PV = nRT</span>, combining pressure, volume, amount of gas, and absolute temperature.</p></div>
+            </div>
+            <div class="diagram" aria-label="Gas law piston diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-10-heat-and-thermodynamics-diagram-10.webp" alt="Textbook-style illustration: Gas law piston diagram." width="339" height="422" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div class="two-col">
+              <div class="mini-card">
+                <strong>Charles' law variables</strong>
+                <p>V1 is initial volume, T1 is initial absolute temperature, V2 is final volume, and T2 is final absolute temperature.</p>
+              </div>
+              <div class="mini-card">
+                <strong>Pipeline expansion loops</strong>
+                <p>U-type pipe loops absorb expansion in long pipelines, such as oil refinery piping, and help the pipeline handle expansion, contraction, and other forces.</p>
+              </div>
+            </div>
+
+            <h3>What Is Absolute Zero?</h3>
+            <ul>
+              <li>Absolute zero is taken as -273.15 degrees Celsius.</li>
+              <li>At absolute zero, nearly all molecular motion ceases.</li>
+              <li>The kelvin temperature scale sets zero at absolute zero by definition.</li>
+              <li>William Thomson, Lord Kelvin (1824-1907), set his scale with 0 at the temperature where all movement stops.</li>
+              <li>Kelvin is the primary unit of temperature measurement in the physical sciences and has the same interval size as a degree Celsius.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="review">
+          <div class="section-inner">
+            <h2>Wrap Up</h2>
+            <div class="answer-list">
+              <div class="answer"><strong>Thermal energy:</strong> particles in matter are always moving; faster motion means greater average kinetic energy and higher temperature.</div>
+              <div class="answer"><strong>Specific heat:</strong> use <code>E = c m Delta T</code>; water has a high specific heat capacity, while metals usually warm more quickly.</div>
+              <div class="answer"><strong>Heat transfer:</strong> conduction needs close particle interactions, convection needs moving fluids, and radiation uses electromagnetic waves.</div>
+              <div class="answer"><strong>Expansion:</strong> solids, liquids and gases usually expand when heated; gases show the largest expansion.</div>
+              <div class="answer"><strong>Thermodynamics:</strong> Charles' law connects gas volume and kelvin temperature; the ideal gas law combines pressure, volume, amount, and temperature.</div>
+            </div>
+
+            <h3>Printed Links And Activities</h3>
+            <ul>
+              <li>Joule's paddle-wheel experiment, misconception of temperature, aerogel, infrared radiation, light spectrum, black-body radiation, bimetallic strip, thermal insulation, gas laws, and thermodynamic-law videos were printed in the source scan.</li>
+              <li>Experiments named in the scan include bimetallic strip, liquid expansion, and gas expansion in balloons.</li>
+            </ul>
+            <p class="source-note">
+              Rebuilt from the Week 10 scanned PDF, <code>IMG_20260427_0010.pdf</code>. Repeated scan frames for conductor and radiation pages were merged, and diagrams were newly drawn in HTML/SVG for readability.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

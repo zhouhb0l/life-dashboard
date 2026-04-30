@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 05: Chemicals, Separation Methods, And Chemical Bonds</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --paper: #ffffff;
+      --soft: #eef6fb;
+      --soft-green: #eef7f3;
+      --soft-warm: #fff7ef;
+      --ink: #1d2730;
+      --muted: #5f6c77;
+      --accent: #2d6f95;
+      --accent-strong: #244f68;
+      --green: #177e75;
+      --warm: #d26a3a;
+      --gold: #c4912f;
+      --violet: #6a5da8;
+      --line: rgba(29, 39, 48, 0.14);
+      --shadow: 0 14px 36px rgba(29, 39, 48, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      background:
+        linear-gradient(135deg, rgba(45, 111, 149, 0.11), transparent 30%),
+        linear-gradient(315deg, rgba(210, 106, 58, 0.11), transparent 29%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: var(--accent-strong);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a,
+    p,
+    li,
+    code,
+    .pill,
+    .answer {
+      overflow-wrap: anywhere;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .hero > *,
+    .layout > *,
+    section,
+    .visual,
+    .toc-panel,
+    .fact,
+    .diagram {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--warm);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 3.1rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      line-height: 1.14;
+    }
+
+    h3 {
+      margin: 20px 0 9px;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .intro {
+      max-width: 760px;
+      font-size: 1.06rem;
+    }
+
+    .source-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-block;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 7px 10px;
+      border: 1px solid rgba(45, 111, 149, 0.22);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      background: rgba(238, 246, 251, 0.86);
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .visual,
+    section,
+    .toc-panel,
+    .fact,
+    .callout {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .visual {
+      padding: 18px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .visual img,
+    .diagram img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .toc-panel {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .toc-panel h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .toc {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(238, 246, 251, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .fact-grid,
+    .two-col,
+    .three-col,
+    .source-grid,
+    .method-grid,
+    .mini-table-grid,
+    .allotrope-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .fact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: 14px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .source-grid {
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      margin-top: 14px;
+    }
+
+    .method-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: 14px;
+    }
+
+    .mini-table-grid {
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      margin-top: 14px;
+    }
+
+    .allotrope-grid {
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      margin-top: 14px;
+    }
+
+    .fact {
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .fact strong {
+      color: var(--accent-strong);
+    }
+
+    .fact p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.96rem;
+    }
+
+    .step-card {
+      display: grid;
+      align-content: start;
+      min-height: 150px;
+      padding: 14px;
+      border: 1px solid rgba(45, 111, 149, 0.2);
+      border-radius: 10px;
+      background: rgba(238, 246, 251, 0.72);
+    }
+
+    .step-card .num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 10px;
+      border-radius: 9px;
+      color: #ffffff;
+      background: var(--accent);
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-card strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .step-card p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.94rem;
+    }
+
+    .callout {
+      margin-top: 14px;
+      padding: 14px;
+      border-left: 5px solid var(--warm);
+      border-radius: 8px;
+      background: #fff7ef;
+      box-shadow: none;
+    }
+
+    .callout p,
+    .callout li {
+      color: #5f4636;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 14px 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(238, 246, 251, 0.92);
+      font-size: 0.92rem;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.48;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .diagram {
+      margin: 14px 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #ffffff;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 7px 9px;
+      border: 1px solid rgba(106, 93, 168, 0.22);
+      border-radius: 8px;
+      color: #4e4784;
+      background: rgba(106, 93, 168, 0.08);
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .answer {
+      padding: 12px 13px;
+      border-left: 4px solid var(--green);
+      border-radius: 8px;
+      background: rgba(23, 126, 117, 0.08);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .answer strong {
+      color: var(--ink);
+    }
+
+    .formula {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(45, 111, 149, 0.08);
+      color: var(--ink);
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .particle {
+      display: grid;
+      place-items: center;
+      min-height: 78px;
+      border: 1px solid rgba(45, 111, 149, 0.18);
+      border-radius: 10px;
+      background: rgba(238, 246, 251, 0.72);
+      text-align: center;
+      font-weight: 850;
+      color: var(--accent-strong);
+    }
+
+    .source-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(29, 39, 48, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-size: 0.92em;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .layout,
+      .two-col,
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+        padding-top: 26px;
+      }
+
+      h1 {
+        font-size: 2.15rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      .visual {
+        padding: 12px;
+      }
+    }
+  </style>
+
+  <style>
+    .generated-art { max-width: 100%; }
+    .visual img.generated-art,
+    .hero-visual img.generated-art {
+      max-height: min(520px, 58vh);
+      object-fit: contain;
+    }
+    .diagram img.generated-art {
+      max-height: min(680px, 72vh);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .section-art {
+      width: min(100%, 820px);
+      margin: 12px auto 16px;
+      padding: 10px;
+      border: 1px solid rgba(29, 39, 48, 0.14);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(29, 39, 48, 0.07);
+      overflow: hidden;
+    }
+    .section-art img.generated-art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    @media (max-width: 640px) {
+      .section-art { width: 100%; padding: 12px; }
+      .section-art img.generated-art { max-height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Lesson navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./week-04-biodiversity.html">Week 04</a>
+      <a href="./week-06-periodic-table.html">Week 06</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Week 05 | SPSO Preparatory Course</span>
+        <h1>Chemicals, Separation Methods, And Chemical Bonds</h1>
+        <p class="intro">
+          This chapter rebuilds the scanned Week 05 handout into a chemistry map: particles,
+          elements, compounds, mixtures, separation methods, isotopes, allotropes, electron
+          configuration, ionic and covalent bonding, metallic bonding, alloys, and rusting.
+        </p>
+        <div class="source-line" aria-label="Source details">
+          <span class="pill">By Ms Yanan</span>
+          <span class="pill">Source: IMG_20260427_0005.pdf</span>
+          <span class="pill">16 scanned pages</span>
+        </div>
+      </div>
+
+      <figure class="visual" aria-label="Chemistry concept illustration">
+        <img class="generated-art" src="./assets/generated/week-05-chemical-methods-and-bonds-hero.webp" alt="Textbook-style illustration for Chemicals, Separation Methods, And Chemical Bonds." width="1448" height="1086" loading="eager" style="display:block;width:100%;height:auto;border-radius:8px;">
+        <figcaption class="caption">The scan ties two big ideas together: mixtures are separated by physical methods, while compounds form when atoms exchange or share electrons.</figcaption>
+      </figure>
+    </header>
+
+    <div class="layout">
+      <aside class="toc-panel">
+        <h2>Lesson Map</h2>
+        <ol class="toc">
+          <li><a href="#source-map">Source Map</a></li>
+          <li><a href="#particles">Particles</a></li>
+          <li><a href="#substances">Substances</a></li>
+          <li><a href="#compounds">Compounds</a></li>
+          <li><a href="#mixtures">Mixtures</a></li>
+          <li><a href="#separation">Separation</a></li>
+          <li><a href="#quiz">Quiz Answers</a></li>
+          <li><a href="#isotopes">Isotopes</a></li>
+          <li><a href="#allotropes">Allotropes</a></li>
+          <li><a href="#electron-config">Electron Configuration</a></li>
+          <li><a href="#ionic">Ionic Bonding</a></li>
+          <li><a href="#covalent">Covalent Bonding</a></li>
+          <li><a href="#metallic">Metals And Alloys</a></li>
+          <li><a href="#rusting">Rusting</a></li>
+          <li><a href="#review">Review</a></li>
+        </ol>
+      </aside>
+
+      <main class="content">
+        <section id="source-map">
+          <h2>Page-By-Page Source Map</h2>
+          <p>
+            The PDF scan has sixteen pages. Page 16 is mostly unrelated handwritten notes, so
+            the rebuild preserves the chemistry content from pages 1-15 and notes the blank
+            final scan in the source summary.
+          </p>
+          <div class="source-grid">
+            <div class="step-card"><span class="num">1</span><strong>Overview</strong><p>Atoms, molecules, ions, substances, separation, isotopes, allotropes, electron configuration, bonding, metals, and alloys.</p></div>
+            <div class="step-card"><span class="num">2</span><strong>Particles and substances</strong><p>Atoms, molecules, ions, elements, compounds, and mixtures with filled-in examples.</p></div>
+            <div class="step-card"><span class="num">3</span><strong>Compounds</strong><p>Fixed ratio, chemical formula, decomposition, sugar dehydration, water electrolysis, and compound properties.</p></div>
+            <div class="step-card"><span class="num">4</span><strong>Mixtures</strong><p>Homogeneous and heterogeneous mixtures; alloy as a mixture question.</p></div>
+            <div class="step-card"><span class="num">5-6</span><strong>Separation methods</strong><p>Magnet, filtration, sedimentation, evaporation, centrifuge, chromatography, distillation, and quiz answers.</p></div>
+            <div class="step-card"><span class="num">7-8</span><strong>Isotopes and allotropes</strong><p>Chlorine, hydrogen, carbon isotopes; carbon, oxygen, sulfur, and phosphorus allotropes.</p></div>
+            <div class="step-card"><span class="num">9-12</span><strong>Electron shells and bonds</strong><p>Valence electrons, first 20 electron configurations, noble gases, ionic bonding, and covalent bonding.</p></div>
+            <div class="step-card"><span class="num">13-15</span><strong>Metals, alloys, rusting</strong><p>Periodic trends, metallic bond, alloy examples, corrosion conditions, and wrap-up.</p></div>
+          </div>
+        </section>
+
+        <section id="particles">
+          <h2>Atoms, Molecules, And Ions</h2>
+          <p>
+            Chemistry explains matter by looking at particles. The scan begins by separating
+            three basic particle ideas: atoms, molecules, and ions.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-05-chemical-methods-and-bonds-particles-section.webp" alt="Scientific plate illustration for Atoms, Molecules, And Ions." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="fact-grid">
+            <div class="fact"><strong>Atoms</strong><p>Atoms are the smallest particles of an element. Noble gases are monatomic elements, meaning they exist naturally as single atoms.</p></div>
+            <div class="fact"><strong>Molecules</strong><p>A molecule is a group of two or more atoms that are chemically combined. Molecules may be elements or compounds.</p></div>
+            <div class="fact"><strong>Ions</strong><p>An ion is a charged particle that can make up compounds, such as sodium chloride, <span class="formula">NaCl</span>.</p></div>
+          </div>
+
+          <h3>Diatomic And Polyatomic Element Molecules</h3>
+          <div class="two-col">
+            <div class="fact">
+              <strong>Diatomic examples from the scan</strong>
+              <p>Hydrogen, iodine, chlorine, and oxygen commonly appear as two-atom molecules: H<sub>2</sub>, I<sub>2</sub>, Cl<sub>2</sub>, and O<sub>2</sub>.</p>
+            </div>
+            <div class="fact">
+              <strong>Polyatomic examples from the scan</strong>
+              <p>Sulfur, phosphorus, ozone, and fullerene can form molecules with more than two atoms, such as O<sub>3</sub> and C<sub>60</sub>.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <p><strong>Important distinction:</strong> a molecule can be an element, like O<sub>2</sub>, or a compound, like water, H<sub>2</sub>O. A compound always contains at least two different elements chemically combined.</p>
+          </div>
+        </section>
+
+        <section id="substances">
+          <h2>Elements, Compounds, And Mixtures</h2>
+          <p>
+            A central skill in this lesson is deciding whether a sample is an element, a
+            compound, or a mixture. The table below converts the filled-in scan into a cleaner
+            comparison.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Type</th><th>What it contains</th><th>Composition</th><th>How it can be separated or broken down</th><th>Examples</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Element</td><td>One type of atom</td><td>Fixed by identity of the element</td><td>Cannot be broken down into simpler substances by chemical processes</td><td>Mercury, copper, oxygen, chlorine</td></tr>
+                <tr><td>Compound</td><td>Two or more different types of atoms</td><td>Atoms chemically combined in a fixed proportion</td><td>Can be broken down by chemical processes such as electrolysis or thermal decomposition</td><td>Water, sodium chloride, sucrose</td></tr>
+                <tr><td>Mixture</td><td>Two or more substances not chemically combined</td><td>Variable composition</td><td>Separated by physical processes such as magnetic separation, filtration, evaporation, or distillation</td><td>Air, soil, tap water, cereal in milk</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="diagram" aria-label="Particle models for elements compounds and mixtures">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-01.webp" alt="Textbook-style illustration: Particle models for elements compounds and mixtures." width="358" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+        </section>
+
+        <section id="compounds">
+          <h2>Compounds And Chemical Formulae</h2>
+          <p>
+            A compound is a pure substance containing two or more elements chemically
+            combined in a fixed ratio. Its chemical formula tells us both the types of atoms
+            and the ratio of the different atoms present.
+          </p>
+          <div class="two-col">
+            <div class="fact">
+              <strong>Water</strong>
+              <p>Water is H<sub>2</sub>O: two hydrogen atoms and one oxygen atom in each molecule. Electrolysis can break water down into hydrogen and oxygen gases.</p>
+            </div>
+            <div class="fact">
+              <strong>Sodium chloride</strong>
+              <p>Common salt has properties very different from sodium metal and chlorine gas because the atoms become ions in an ionic lattice.</p>
+            </div>
+          </div>
+          <div class="diagram" aria-label="Compound decomposition examples">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-02.webp" alt="Textbook-style illustration: Compound decomposition examples." width="359" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="callout">
+            <p><strong>Added explanation:</strong> "Broken down" for a compound means its chemical bonds are changed. A physical method such as filtering cannot turn water into hydrogen and oxygen, because the atoms are chemically bonded.</p>
+          </div>
+        </section>
+
+        <section id="mixtures">
+          <h2>Mixtures</h2>
+          <p>
+            A mixture is made up of two or more substances that are not chemically combined.
+            The components are not fixed and can be present in any ratio.
+          </p>
+          <div class="two-col">
+            <div class="fact">
+              <strong>Heterogeneous mixtures</strong>
+              <p>The composition is non-uniform. Examples from the scan include cereal in milk, ice in soda, soil, and blood.</p>
+            </div>
+            <div class="fact">
+              <strong>Homogeneous mixtures</strong>
+              <p>The composition is uniform. Examples from the scan include vodka, air, rainwater, and steel.</p>
+            </div>
+          </div>
+          <div class="diagram" aria-label="Homogeneous and heterogeneous mixtures">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-03.webp" alt="Textbook-style illustration: Homogeneous and heterogeneous mixtures." width="359" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="callout">
+            <p><strong>Alloy question from the scan:</strong> an alloy is a mixture, not a compound. Many classroom alloy examples are homogeneous solid mixtures, although real alloys can sometimes contain more than one phase.</p>
+          </div>
+        </section>
+
+        <section id="separation">
+          <h2>Methods Of Separating Mixtures</h2>
+          <p>
+            Mixtures can be separated because their substances keep their own physical
+            properties. The right method depends on differences in magnetism, solubility,
+            particle size, boiling point, movement through paper, or density.
+          </p>
+          <div class="method-grid">
+            <div class="fact"><strong>Magnet</strong><p>Separates magnetic solids, such as iron filings, from non-magnetic solids.</p></div>
+            <div class="fact"><strong>Filter / sediment</strong><p>Separates an insoluble solid from a liquid by trapping the solid or allowing it to settle.</p></div>
+            <div class="fact"><strong>Evaporation</strong><p>Removes solvent to recover a dissolved solid, especially when the solid is stable on heating.</p></div>
+            <div class="fact"><strong>Centrifuge</strong><p>Spins mixtures so denser particles move outward faster and separate.</p></div>
+            <div class="fact"><strong>Chromatography</strong><p>Separates soluble substances that move at different speeds through paper or another stationary phase.</p></div>
+            <div class="fact"><strong>Distillation</strong><p>Separates liquids or recovers solvent using differences in boiling point.</p></div>
+          </div>
+
+          <h3>Choosing A Method</h3>
+          <div class="diagram" aria-label="Separation method decision map">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-04.webp" alt="Textbook-style illustration: Separation method decision map." width="359" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Problem</th><th>Method from the scan</th><th>Why it works</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Insoluble solid from liquid</td><td>Filtration</td><td>Filter paper traps the solid residue; liquid passes through as filtrate.</td></tr>
+                <tr><td>Soluble solid from liquid</td><td>Evaporation to dryness or crystallisation</td><td>The solvent leaves; dissolved solid remains or forms crystals.</td></tr>
+                <tr><td>Solid mixture where one is soluble</td><td>Use a suitable solvent</td><td>Only one solid dissolves, so it can be separated from the insoluble solid.</td></tr>
+                <tr><td>Solid mixture where one is magnetic</td><td>Use a magnet</td><td>The magnetic solid is attracted and removed.</td></tr>
+                <tr><td>Solid mixture where one sublimes</td><td>Sublimation</td><td>One solid changes directly to gas and can be re-deposited.</td></tr>
+                <tr><td>Liquid from a solution</td><td>Simple distillation</td><td>Solvent boils, vapor condenses, and is collected.</td></tr>
+                <tr><td>Immiscible liquids</td><td>Separating funnel</td><td>Liquids form layers because they do not mix and have different densities.</td></tr>
+                <tr><td>Miscible liquids</td><td>Fractional distillation</td><td>Liquids mix, so separation depends on different boiling points.</td></tr>
+                <tr><td>Several dissolved coloured substances</td><td>Paper chromatography</td><td>Substances travel different distances; a locating agent may reveal colourless substances.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="quiz">
+          <h2>Quiz Answers From The Scan</h2>
+          <p>
+            The scan includes a short quiz after the separation-method flowchart. The answers
+            below preserve the filled-in markings and add the chemistry reason.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-05-chemical-methods-and-bonds-quiz-section.webp" alt="Scientific plate illustration for Quiz Answers From The Scan." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="answer-list">
+            <div class="answer"><strong>True:</strong> Mercury cannot be broken down into simpler substances by chemical processes because mercury is an element.</div>
+            <div class="answer"><strong>False:</strong> The symbol of an element does not have to consist of two letters. Examples include H, C, O, N, S, and P.</div>
+            <div class="answer"><strong>True:</strong> A compound is a pure substance because it has a fixed chemical composition.</div>
+            <div class="answer"><strong>MCQ answer: C.</strong> Copper, soil, pure water contains an element, a mixture, and a compound. Copper is an element; soil is a mixture; pure water is a compound.</div>
+          </div>
+        </section>
+
+        <section id="isotopes">
+          <h2>Isotopes</h2>
+          <p>
+            Isotopes are atoms of the same element with the same number of protons and
+            electrons, but a different number of neutrons. Because neutron number changes,
+            isotope mass changes too.
+          </p>
+          <div class="two-col">
+            <div class="diagram" aria-label="Chlorine isotope comparison">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-05.webp" alt="Textbook-style illustration: Chlorine isotope comparison." width="358" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div>
+              <div class="fact"><strong>Same</strong><p>Number of protons, number of electrons, chemical identity, and most chemical behaviour.</p></div>
+              <div class="fact"><strong>Different</strong><p>Number of neutrons and mass. Radioactivity may differ between isotopes.</p></div>
+              <div class="fact"><strong>Stable isotope</strong><p>A stable isotope is not radioactive. The scan notes that there are about 400 stable isotopes.</p></div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Examples from the scan</th><th>Classification</th><th>Note</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Chlorine-35 and chlorine-37</td><td>Stable isotopes</td><td>Same 17 protons; different neutron numbers.</td></tr>
+                <tr><td>Hydrogen-3 and carbon-14</td><td>Radioactive isotopes</td><td>Hydrogen-3 is tritium; carbon-14 is used in dating once-living material.</td></tr>
+                <tr><td>Iodine-131, uranium-235, uranium-238</td><td>Radioactive isotopes</td><td>Useful in medicine, nuclear science, or dating, but require radiation safety.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="allotropes">
+          <h2>Allotropes</h2>
+          <p>
+            Allotropes are different structural forms of the same element. Because atoms are
+            connected or arranged differently, allotropes can show very different physical
+            properties and chemical behaviours.
+          </p>
+          <div class="allotrope-grid">
+            <div class="fact"><strong>Carbon</strong><p>Graphene, nanotube, fullerene, diamond, and graphite.</p></div>
+            <div class="fact"><strong>Oxygen</strong><p>Oxygen gas O<sub>2</sub> and ozone O<sub>3</sub>.</p></div>
+            <div class="fact"><strong>Sulfur</strong><p>Different sulfur structures can form under different conditions.</p></div>
+            <div class="fact"><strong>Phosphorus</strong><p>White, red, and black phosphorus. White phosphorus glows greenish in oxygen and is pyrophoric.</p></div>
+          </div>
+          <div class="diagram" aria-label="Carbon allotropes diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-06.webp" alt="Textbook-style illustration: Carbon allotropes diagram." width="359" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+        </section>
+
+        <section id="electron-config">
+          <h2>Electron Configuration</h2>
+          <p>
+            The arrangement of electrons around the nucleus determines many chemical
+            properties of an atom. Each shell holds a maximum number of electrons and has a
+            different energy level. In this introductory model, the first shell holds 2
+            electrons, the second holds 8, and the third is treated as holding 8 for the first
+            20 elements.
+          </p>
+          <div class="fact-grid">
+            <div class="fact"><strong>Valence shell</strong><p>The outer shell, furthest from the nucleus.</p></div>
+            <div class="fact"><strong>Valence electrons</strong><p>Electrons in the outer shell. They control many reactions and bonding patterns.</p></div>
+            <div class="fact"><strong>Period</strong><p>Horizontal rows of elements in the periodic table are called periods.</p></div>
+            <div class="fact"><strong>Group</strong><p>Vertical columns are groups. Elements in the same group have the same number of valence electrons in this model.</p></div>
+          </div>
+
+          <h3>Electronic Structures For Proton Numbers 1-20</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Element</th><th>Proton number</th><th>Electronic configuration</th><th>Valence electrons</th><th>Period</th><th>Group idea</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Hydrogen, H</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1 valence electron</td></tr>
+                <tr><td>Helium, He</td><td>2</td><td>2</td><td>2</td><td>1</td><td>Group 0 noble gas</td></tr>
+                <tr><td>Lithium, Li</td><td>3</td><td>2,1</td><td>1</td><td>2</td><td>I</td></tr>
+                <tr><td>Beryllium, Be</td><td>4</td><td>2,2</td><td>2</td><td>2</td><td>II</td></tr>
+                <tr><td>Boron, B</td><td>5</td><td>2,3</td><td>3</td><td>2</td><td>III</td></tr>
+                <tr><td>Carbon, C</td><td>6</td><td>2,4</td><td>4</td><td>2</td><td>IV</td></tr>
+                <tr><td>Nitrogen, N</td><td>7</td><td>2,5</td><td>5</td><td>2</td><td>V</td></tr>
+                <tr><td>Oxygen, O</td><td>8</td><td>2,6</td><td>6</td><td>2</td><td>VI</td></tr>
+                <tr><td>Fluorine, F</td><td>9</td><td>2,7</td><td>7</td><td>2</td><td>VII</td></tr>
+                <tr><td>Neon, Ne</td><td>10</td><td>2,8</td><td>8</td><td>2</td><td>Group 0 noble gas</td></tr>
+                <tr><td>Sodium, Na</td><td>11</td><td>2,8,1</td><td>1</td><td>3</td><td>I</td></tr>
+                <tr><td>Magnesium, Mg</td><td>12</td><td>2,8,2</td><td>2</td><td>3</td><td>II</td></tr>
+                <tr><td>Aluminium, Al</td><td>13</td><td>2,8,3</td><td>3</td><td>3</td><td>III</td></tr>
+                <tr><td>Silicon, Si</td><td>14</td><td>2,8,4</td><td>4</td><td>3</td><td>IV</td></tr>
+                <tr><td>Phosphorus, P</td><td>15</td><td>2,8,5</td><td>5</td><td>3</td><td>V</td></tr>
+                <tr><td>Sulfur, S</td><td>16</td><td>2,8,6</td><td>6</td><td>3</td><td>VI</td></tr>
+                <tr><td>Chlorine, Cl</td><td>17</td><td>2,8,7</td><td>7</td><td>3</td><td>VII</td></tr>
+                <tr><td>Argon, Ar</td><td>18</td><td>2,8,8</td><td>8</td><td>3</td><td>Group 0 noble gas</td></tr>
+                <tr><td>Potassium, K</td><td>19</td><td>2,8,8,1</td><td>1</td><td>4</td><td>I</td></tr>
+                <tr><td>Calcium, Ca</td><td>20</td><td>2,8,8,2</td><td>2</td><td>4</td><td>II</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Stable Configurations: Group 0 Noble Gases</h3>
+          <p>
+            Noble gases are unreactive because their outer shells are full. Helium has a full
+            first shell of 2 electrons; neon and argon have full outer shells of 8 electrons.
+          </p>
+          <div class="diagram" aria-label="Noble gas shell diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-07.webp" alt="Textbook-style illustration: Noble gas shell diagram." width="359" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+        </section>
+
+        <section id="ionic">
+          <h2>Chemical Bonds: Ionic Bonding</h2>
+          <p>
+            Atoms without full outer shells are reactive. To achieve a stable noble-gas-like
+            electronic configuration, atoms may lose, gain, or share electrons. When atoms
+            lose or gain electrons, they form ions.
+          </p>
+          <div class="fact-grid">
+            <div class="fact"><strong>Cation</strong><p>A positive ion. Metals often form cations by losing valence electrons, such as Na<sup>+</sup>.</p></div>
+            <div class="fact"><strong>Anion</strong><p>A negative ion. Non-metals often form anions by gaining electrons, such as Cl<sup>-</sup>.</p></div>
+            <div class="fact"><strong>Ionic bond</strong><p>The strong electrostatic force of attraction between positive and negative ions.</p></div>
+          </div>
+          <div class="diagram" aria-label="Sodium chloride ionic bonding">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-08.webp" alt="Textbook-style illustration: Sodium chloride ionic bonding." width="359" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="callout">
+            <p><strong>Source sentence, sharpened:</strong> when a metal reacts with a non-metal, metal atoms transfer valence electrons to non-metal atoms. Ions are formed, and both sides can reach a stable electronic configuration.</p>
+          </div>
+        </section>
+
+        <section id="covalent">
+          <h2>Covalent Bonding: Sharing Electrons</h2>
+          <p>
+            A covalent bond is formed by sharing electrons between two atoms. This often
+            happens between non-metal atoms. The scan uses hydrogen, chlorine, oxygen, and
+            water as examples.
+          </p>
+          <div class="diagram" aria-label="Covalent bonding examples">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-09.webp" alt="Textbook-style illustration: Covalent bonding examples." width="358" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="callout">
+            <p><strong>Small correction to remember:</strong> the scan lists oxygen, O<sub>2</sub>, under "common compounds", but oxygen gas is not a compound. It is a molecule of an element because it contains only oxygen atoms.</p>
+          </div>
+        </section>
+
+        <section id="metallic">
+          <h2>Metallic Bond, Metals, And Alloys</h2>
+          <p>
+            A metallic bond is the force of attraction between positive metal ions and the
+            "sea" of mobile electrons. This model explains why metals often conduct heat and
+            electricity, and why they can be malleable and ductile.
+          </p>
+          <div class="two-col">
+            <div class="diagram" aria-label="Metallic bonding diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-10.webp" alt="Textbook-style illustration: Metallic bonding diagram." width="359" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div>
+              <h3>Metal Properties From The Scan</h3>
+              <ul>
+                <li>Good conductors of heat and electricity.</li>
+                <li>High density.</li>
+                <li>High melting and boiling points.</li>
+                <li>Malleable and ductile.</li>
+                <li>Pure metals may react with air and water, and may wear away easily.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Alloys</h3>
+          <p>
+            An alloy is a mixture of a metal with one or a few other elements. Alloys can make
+            metals harder and stronger, lower melting points, improve appearance, and make
+            metals more resistant to corrosion.
+          </p>
+          <div class="diagram" aria-label="Pure metal and alloy lattice comparison">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-11.webp" alt="Textbook-style illustration: Pure metal and alloy lattice comparison." width="359" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Alloy from the scan</th><th>Composition</th><th>Important note</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Brass</td><td>About 70% copper and 30% zinc</td><td>Often used where a gold-like appearance and workability are useful.</td></tr>
+                <tr><td>Bronze</td><td>About 90% copper and 10% tin</td><td>Harder than copper and historically important for tools and statues.</td></tr>
+                <tr><td>Steel</td><td>Iron and carbon</td><td>Properties vary strongly with carbon content and processing.</td></tr>
+                <tr><td>Stainless steel</td><td>Iron alloy with at least 11% chromium, often combined with nickel</td><td>Chromium helps resist corrosion.</td></tr>
+                <tr><td>Solder</td><td>Tin and lead, Sn-Pb, in the source example</td><td>Very soft and low melting point. Lead is toxic and has been prohibited in many uses.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Periodic Table Trends From The Scan</h3>
+          <p>
+            The trends graphic in the scan is a quick map: metallic character generally
+            increases down and to the left; non-metallic character, ionisation energy, and
+            electronegativity generally increase up and to the right; atomic radius generally
+            increases down and to the left.
+          </p>
+        </section>
+
+        <section id="rusting">
+          <h2>Corrosion And Rusting</h2>
+          <p>
+            Rusting, or the corrosion of iron, is the process that produces rust. The scan
+            lists the conditions needed for rusting: iron, oxygen, and water.
+          </p>
+          <div class="two-col">
+            <div class="diagram" aria-label="Rusting condition diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-05-chemical-methods-and-bonds-diagram-12.webp" alt="Textbook-style illustration: Rusting condition diagram." width="359" height="332" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div>
+              <h3>How To Prevent Rusting</h3>
+              <ul>
+                <li>Keep iron dry or away from oxygen.</li>
+                <li>Paint, oil, grease, or plastic-coat the surface.</li>
+                <li>Galvanise with zinc or use sacrificial protection.</li>
+                <li>Use stainless steel or another corrosion-resistant alloy.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <p><strong>Rust formula idea:</strong> rust is hydrated iron(III) oxide, often written approximately as Fe<sub>2</sub>O<sub>3</sub>.xH<sub>2</sub>O. Salt water speeds rusting because ions help charge move through the water.</p>
+          </div>
+        </section>
+
+        <section id="review">
+          <h2>Wrap Up</h2>
+          <p>
+            The source closes with four revision targets. Use them as a checklist for this
+            Week 05 chapter.
+          </p>
+          <div class="answer-list">
+            <div class="answer"><strong>Separation methods for mixtures:</strong> choose the method from the property difference: particle size, magnetism, solubility, boiling point, density, or adsorption/solubility in chromatography.</div>
+            <div class="answer"><strong>Elements, allotropes, and isotopes:</strong> an element has one type of atom; allotropes are different structures of one element; isotopes are atoms of the same element with different neutron numbers.</div>
+            <div class="answer"><strong>Molecules and compounds:</strong> electron configuration explains why atoms lose, gain, or share electrons to form stable molecules and compounds.</div>
+            <div class="answer"><strong>Metal bonds and alloys:</strong> metallic bonding uses positive ions in a sea of mobile electrons; alloys tune the properties of metals by mixing in other elements.</div>
+          </div>
+
+          <h3>Video Links Printed In The Scan</h3>
+          <ul>
+            <li>Sugar dehydration by sulfuric acid, chromatography, distillation, physical separation methods, build-an-atom, electron configuration, noble gases, ionic bonding, covalent bonding, carbon allotropes, periodic table trends, alloys, and rusting were printed as video or web references in the source scan.</li>
+          </ul>
+          <p class="source-note">
+            Rebuilt from the Week 05 scanned PDF, <code>IMG_20260427_0005.pdf</code>. The diagrams are newly drawn in HTML/SVG so the original particle, separation, isotope, bonding, alloy, and rusting ideas are easier to revise.
+          </p>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

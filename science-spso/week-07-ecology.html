@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 07: Ecology</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --paper: #ffffff;
+      --soft: #eef7f3;
+      --soft-blue: #eef6fb;
+      --soft-warm: #fff7ef;
+      --ink: #1d2730;
+      --muted: #5f6c77;
+      --green: #177e75;
+      --green-strong: #0f5d57;
+      --blue: #2d6f95;
+      --warm: #d26a3a;
+      --gold: #c4912f;
+      --violet: #6a5da8;
+      --line: rgba(29, 39, 48, 0.14);
+      --shadow: 0 14px 36px rgba(29, 39, 48, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      background:
+        linear-gradient(135deg, rgba(23, 126, 117, 0.12), transparent 31%),
+        linear-gradient(315deg, rgba(196, 145, 47, 0.12), transparent 28%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: var(--green-strong);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a,
+    p,
+    li,
+    code,
+    .pill,
+    .answer {
+      overflow-wrap: anywhere;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .hero > *,
+    .layout > *,
+    section,
+    .visual,
+    .toc-panel,
+    .fact,
+    .diagram {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--warm);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 3.35rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      line-height: 1.14;
+    }
+
+    h3 {
+      margin: 20px 0 9px;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .intro {
+      max-width: 760px;
+      font-size: 1.06rem;
+    }
+
+    .source-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-block;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 7px 10px;
+      border: 1px solid rgba(23, 126, 117, 0.22);
+      border-radius: 999px;
+      color: var(--green-strong);
+      background: rgba(238, 247, 243, 0.86);
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .visual,
+    section,
+    .toc-panel,
+    .fact,
+    .callout {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .visual {
+      padding: 18px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .visual img,
+    .diagram img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .toc-panel {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .toc-panel h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .toc {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(238, 247, 243, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .fact-grid,
+    .two-col,
+    .three-col,
+    .source-grid,
+    .role-grid,
+    .impact-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .fact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: 14px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .source-grid {
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      margin-top: 14px;
+    }
+
+    .role-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      margin-top: 14px;
+    }
+
+    .impact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: 14px;
+    }
+
+    .fact {
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .fact strong {
+      color: var(--green-strong);
+    }
+
+    .fact p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.96rem;
+    }
+
+    .step-card {
+      display: grid;
+      align-content: start;
+      min-height: 150px;
+      padding: 14px;
+      border: 1px solid rgba(23, 126, 117, 0.2);
+      border-radius: 10px;
+      background: rgba(238, 247, 243, 0.72);
+    }
+
+    .step-card .num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 10px;
+      border-radius: 9px;
+      color: #ffffff;
+      background: var(--green);
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-card strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .step-card p {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: 0.94rem;
+    }
+
+    .callout {
+      margin-top: 14px;
+      padding: 14px;
+      border-left: 5px solid var(--warm);
+      border-radius: 8px;
+      background: #fff7ef;
+      box-shadow: none;
+    }
+
+    .callout p,
+    .callout li {
+      color: #5f4636;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 14px 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(238, 247, 243, 0.92);
+      font-size: 0.92rem;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.48;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .diagram {
+      margin: 14px 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #ffffff;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .answer {
+      padding: 12px 13px;
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      background: rgba(45, 111, 149, 0.08);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .answer strong {
+      color: var(--ink);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 7px 9px;
+      border: 1px solid rgba(106, 93, 168, 0.22);
+      border-radius: 8px;
+      color: #4e4784;
+      background: rgba(106, 93, 168, 0.08);
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    .formula {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(23, 126, 117, 0.08);
+      color: var(--ink);
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .source-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(29, 39, 48, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-size: 0.92em;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .layout,
+      .two-col,
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+        padding-top: 26px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      .visual {
+        padding: 12px;
+      }
+    }
+  </style>
+
+  <style>
+    .generated-art { max-width: 100%; }
+    .visual img.generated-art,
+    .hero-visual img.generated-art {
+      max-height: min(520px, 58vh);
+      object-fit: contain;
+    }
+    .diagram img.generated-art {
+      max-height: min(680px, 72vh);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .section-art {
+      width: min(100%, 820px);
+      margin: 12px auto 16px;
+      padding: 10px;
+      border: 1px solid rgba(29, 39, 48, 0.14);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(29, 39, 48, 0.07);
+      overflow: hidden;
+    }
+    .section-art img.generated-art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    @media (max-width: 640px) {
+      .section-art { width: 100%; padding: 12px; }
+      .section-art img.generated-art { max-height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Lesson navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./week-06-periodic-table.html">Week 06</a>
+      <a href="./week-08-chemical-reactions.html">Week 08</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Week 07 | SPSO Preparatory Course</span>
+        <h1>Ecology</h1>
+        <p class="intro">
+          Ecology studies how organisms interact with one another and with their environment.
+          This rebuilt chapter turns the scanned Week 07 handout into a clearer guide to
+          populations, habitats, communities, niches, ecosystems, food chains, energy flow,
+          nutrient cycles, human impacts, pollution, and conservation.
+        </p>
+        <div class="source-line" aria-label="Source details">
+          <span class="pill">By Dr Chen</span>
+          <span class="pill">Source: IMG_20260427_0007.pdf</span>
+          <span class="pill">12 scanned pages</span>
+        </div>
+      </div>
+
+      <figure class="visual" aria-label="Ecology concept illustration">
+        <img class="generated-art" src="./assets/generated/week-07-ecology-hero.webp" alt="Textbook-style illustration for Ecology." width="1448" height="1086" loading="eager" style="display:block;width:100%;height:auto;border-radius:8px;">
+        <figcaption class="caption">The central ecology idea is relationship: living organisms, non-living conditions, food, energy, nutrients, and human actions all affect one another.</figcaption>
+      </figure>
+    </header>
+
+    <div class="layout">
+      <aside class="toc-panel">
+        <h2>Lesson Map</h2>
+        <ol class="toc">
+          <li><a href="#source-map">Source Map</a></li>
+          <li><a href="#ecology">Ecology Questions</a></li>
+          <li><a href="#organization">Organization</a></li>
+          <li><a href="#ecosystems">Types Of Ecosystems</a></li>
+          <li><a href="#energy-nutrients">Energy And Nutrients</a></li>
+          <li><a href="#food-chain-roles">Food Chain Roles</a></li>
+          <li><a href="#balance">Nature's Balance</a></li>
+          <li><a href="#food-webs">Food Chains And Webs</a></li>
+          <li><a href="#pyramids">Trophic Pyramids</a></li>
+          <li><a href="#nutrient-cycles">Nutrient Cycles</a></li>
+          <li><a href="#human-impact">Human Impact</a></li>
+          <li><a href="#pollution">Pollution And Sewage</a></li>
+          <li><a href="#biomagnification">Biomagnification</a></li>
+          <li><a href="#positive-impact">Positive Impact</a></li>
+          <li><a href="#review">Review</a></li>
+        </ol>
+      </aside>
+
+      <main class="content">
+        <section id="source-map">
+          <h2>Page-By-Page Source Map</h2>
+          <p>
+            The PDF has twelve scanned pages. Page 1 and the last pages contain many unrelated
+            handwritten doodles in the margins; the rebuilt chapter keeps the ecology content
+            and the relevant printed questions.
+          </p>
+          <div class="source-grid">
+            <div class="step-card"><span class="num">1</span><strong>Ecology overview</strong><p>Definition of ecology, guiding questions, and adaptations.</p></div>
+            <div class="step-card"><span class="num">2-3</span><strong>Organization</strong><p>Population, habitat, abiotic and biotic features, community, niche, and ecosystem.</p></div>
+            <div class="step-card"><span class="num">4</span><strong>Ecosystem types</strong><p>Desert, cold/mountain-river habitat, rainforest, coral reef, and energy/nutrient flow.</p></div>
+            <div class="step-card"><span class="num">5-7</span><strong>Food relationships</strong><p>Producers, consumers, decomposers, predator-prey balance, food chains, food webs, and trophic levels.</p></div>
+            <div class="step-card"><span class="num">7-8</span><strong>Pyramids and cycles</strong><p>Energy pyramid, pyramid of numbers, nutrient cycling, and the carbon cycle.</p></div>
+            <div class="step-card"><span class="num">9-11</span><strong>Human impact</strong><p>Deforestation, pollution, sewage, eutrophication, inorganic waste, insecticides, and biomagnification.</p></div>
+            <div class="step-card"><span class="num">12</span><strong>Positive action</strong><p>Reforestation, afforestation, wildlife conservation, recycling, reducing, reusing, and wrap-up questions.</p></div>
+          </div>
+        </section>
+
+        <section id="ecology">
+          <h2>What Is Ecology?</h2>
+          <p>
+            Organisms continually interact with one another and with their surroundings, or
+            environment. Ecology is the study of these interactions.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-07-ecology-ecology-section.webp" alt="Scientific plate illustration for What Is Ecology?." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="fact-grid">
+            <div class="fact"><strong>Who lives here?</strong><p>Ecologists identify what animals, plants, fungi, microbes, and other living things occur in a place.</p></div>
+            <div class="fact"><strong>How do they interact?</strong><p>They study feeding, competition, cooperation, predation, disease, and reproduction.</p></div>
+            <div class="fact"><strong>How do surroundings affect them?</strong><p>Light, temperature, water, oxygen, soil, shelter, and space shape survival.</p></div>
+            <div class="fact"><strong>How will the place change?</strong><p>Ecologists ask what changes a lake, forest, reef, or field may undergo over time, and how those changes affect organisms.</p></div>
+          </div>
+          <div class="callout">
+            <p><strong>Adaptation idea from the scan:</strong> many organisms have special adaptations that help them survive better in their environment. An adaptation only makes sense in relation to the conditions where the organism lives.</p>
+          </div>
+        </section>
+
+        <section id="organization">
+          <h2>Ecological Organization</h2>
+          <p>
+            Ecology uses levels of organization so that a complicated living system can be
+            studied piece by piece.
+          </p>
+          <div class="diagram" aria-label="Ecological organization diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-01.webp" alt="Textbook-style illustration: Ecological organization diagram." width="342" height="262" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <h3>Population</h3>
+          <p>
+            A population is a group of individuals of the same species living in the same place
+            at the same time. Individuals may depend on one another to look out for predators,
+            hunt for food, and remember food and water sources. They also compete for food,
+            water, and shelter.
+          </p>
+          <div class="callout">
+            <p><strong>Population size:</strong> when resources are insufficient, individuals may move away or die faster than they reproduce, so population size decreases. When food and water are plentiful, population size usually increases.</p>
+          </div>
+
+          <h3>Habitat, Abiotic, And Biotic Features</h3>
+          <div class="two-col">
+            <div>
+              <p>
+                A habitat is the place where an organism lives. Each habitat has its own
+                environment. Organisms with features that help them live under those
+                conditions are said to be adapted to that habitat.
+              </p>
+              <p>
+                The environment of a habitat is made up of abiotic, non-living features and
+                biotic, living features.
+              </p>
+            </div>
+            <div class="diagram" aria-label="Abiotic and biotic features">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-02.webp" alt="Textbook-style illustration: Abiotic and biotic features." width="342" height="262" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          </div>
+          <p class="source-note">
+            The scan includes viruses under biotic features. In many biology courses, viruses
+            are treated as biological agents rather than cellular organisms, but they can still
+            affect living communities.
+          </p>
+
+          <h3>Community And Niche</h3>
+          <p>
+            A community is made of different populations of species living and interacting in
+            a habitat. Some depend on one another for survival while others compete for
+            resources. Each population within a community has its own niche.
+          </p>
+          <p>
+            A niche describes the role a species or population plays in a community. Different
+            populations that try to occupy the same niche compete for resources.
+          </p>
+          <div class="diagram" aria-label="Tree niche diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-03.webp" alt="Textbook-style illustration: Tree niche diagram." width="342" height="262" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <h3>Ecosystem</h3>
+          <p>
+            An ecosystem consists of organisms living together, different populations in a
+            habitat, interacting with each other and their environment. Non-living things such
+            as soil, light, air, and water, as well as living things such as plants and
+            animals, exist together and affect one another directly or indirectly. No living
+            thing exists alone.
+          </p>
+        </section>
+
+        <section id="ecosystems">
+          <h2>Types Of Ecosystems</h2>
+          <p>
+            The scan shows several ecosystem images: a dry desert-like habitat, a cold
+            mountain or river landscape, a rainforest, and a coral reef. The lesson point is
+            that ecosystems can look very different while still having interacting organisms,
+            abiotic conditions, energy flow, and nutrient cycling.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-07-ecology-ecosystems-section.webp" alt="Scientific plate illustration for Types Of Ecosystems." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="role-grid">
+            <div class="fact"><strong>Desert</strong><p>Low water, high temperature swings, and organisms adapted for water conservation.</p></div>
+            <div class="fact"><strong>Cold river or tundra landscape</strong><p>Temperature, water flow, ice, and short growing seasons shape life.</p></div>
+            <div class="fact"><strong>Rainforest</strong><p>High rainfall, layered vegetation, intense competition for light, and huge biodiversity.</p></div>
+            <div class="fact"><strong>Coral reef</strong><p>Warm shallow marine ecosystem with complex food webs and high sensitivity to water conditions.</p></div>
+          </div>
+        </section>
+
+        <section id="energy-nutrients">
+          <h2>Energy And Nutrient Flow</h2>
+          <p>
+            An ecosystem uses both energy and inorganic nutrients. Energy enters an ecosystem
+            as light and heat from the Sun. Inorganic nutrients such as carbon, oxygen,
+            nitrogen, and water are obtained from the abiotic environment.
+          </p>
+          <div class="two-col">
+            <div class="diagram" aria-label="Energy flow one way">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-04.webp" alt="Textbook-style illustration: Energy flow one way." width="342" height="262" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div class="diagram" aria-label="Nutrient cycling diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-05.webp" alt="Textbook-style illustration: Nutrient cycling diagram." width="342" height="263" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          </div>
+          <ul>
+            <li>Light energy is converted into chemical energy and passed from organism to organism.</li>
+            <li>Energy is lost as heat to the environment as it flows through the ecosystem.</li>
+            <li>The energy lost as heat cannot be recycled, so energy must be constantly supplied.</li>
+            <li>In a balanced ecosystem, nutrients are not lost because they are continually recycled.</li>
+          </ul>
+        </section>
+
+        <section id="food-chain-roles">
+          <h2>Players In A Food Chain</h2>
+          <p>
+            The scan divides organisms in feeding relationships into two main groups:
+            producers and consumers. Consumers can be further divided by what they eat.
+          </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-07-ecology-food-chain-roles-section.webp" alt="Scientific plate illustration for Players In A Food Chain." width="1200" height="675" loading="lazy">
+          </figure>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Role</th><th>How it obtains energy</th><th>Examples or notes</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Producer</td><td>Obtains energy from the Sun and makes food, usually by photosynthesis.</td><td>Plants, algae, phytoplankton.</td></tr>
+                <tr><td>Herbivore</td><td>Consumer that feeds on plants.</td><td>Grasshopper, rabbit.</td></tr>
+                <tr><td>Carnivore</td><td>Consumer that feeds on other animals.</td><td>Snake, owl, fox.</td></tr>
+                <tr><td>Omnivore</td><td>Consumer that feeds on both plants and animals.</td><td>Many birds and humans.</td></tr>
+                <tr><td>Scavenger</td><td>Feeds on dead matter.</td><td>Helps remove carcasses.</td></tr>
+                <tr><td>Detritivore</td><td>Eats detritus, dead or decaying organic matter.</td><td>Earthworms, woodlice.</td></tr>
+                <tr><td>Decomposer</td><td>Breaks down dead material chemically and releases nutrients.</td><td>Fungi and bacteria.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Observation prompt from the scan: identify a food chain in an aquarium.</p>
+        </section>
+
+        <section id="balance">
+          <h2>Nature's Balance</h2>
+          <p>
+            Population sizes of organisms are kept in balance. The predator-prey cycle in the
+            scan shows why "less predator" does not automatically mean "better."
+          </p>
+          <div class="diagram" aria-label="Predator prey cycle">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-06.webp" alt="Textbook-style illustration: Predator prey cycle." width="342" height="263" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="callout">
+            <p><strong>Thinking answer:</strong> fewer predators may first let prey increase, but too many prey can overuse food plants and habitat. Balanced predator-prey relationships can keep the whole community more stable.</p>
+          </div>
+        </section>
+
+        <section id="food-webs">
+          <h2>Food Chains And Food Webs</h2>
+          <p>
+            A food chain describes how energy is transferred from one organism to another
+            through feeding relationships.
+          </p>
+          <div class="diagram" aria-label="Food chain diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-07.webp" alt="Textbook-style illustration: Food chain diagram." width="342" height="263" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <p>
+            A food web shows the transfer of energy within a community. It consists of
+            multiple food chains and shows more complex relationships between organisms.
+            Organisms in a food web are interrelated, so a change in one population may
+            influence several populations.
+          </p>
+          <div class="callout">
+            <p><strong>Quiz note:</strong> the scan asks how many food chains are in the food-web diagram with foxes, owls, birds, rabbits, mice, grasshoppers, carrots, grasses, and grains. The printed choices are 8, 9, 10, and 11. When counting, start with a producer and follow each arrow path to a top consumer; different diagrams can count slightly differently depending on which arrows are visible.</p>
+          </div>
+        </section>
+
+        <section id="pyramids">
+          <h2>Trophic Levels And Pyramids</h2>
+          <p>
+            Each stage in a food chain, such as producer, primary consumer, secondary
+            consumer, and tertiary consumer, is called a trophic level.
+          </p>
+          <div class="two-col">
+            <div class="diagram" aria-label="Energy pyramid">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-08.webp" alt="Textbook-style illustration: Energy pyramid." width="342" height="263" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div>
+              <p>
+                The energy stored in organisms' bodies can be transferred through feeding
+                relationships. However, about 90% of the energy is lost during transfer as
+                heat or undigested matter.
+              </p>
+              <p>
+                The source diagram gives a helpful scale: 1,000,000 J of sunlight, 10,000 J
+                in producers, 1,000 J in primary consumers, 100 J in secondary consumers, and
+                10 J in tertiary consumers.
+              </p>
+              <div class="callout">
+                <p><strong>Thinking answer:</strong> energy transfer between trophic levels is not efficient. This is why food chains usually have only a few levels.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Pyramid Of Numbers</h3>
+          <p>
+            Trophic levels can also be represented by a pyramid of numbers. In a balanced
+            ecosystem, there are usually fewer consumers than producers because energy is lost
+            during transfer between trophic levels.
+          </p>
+          <div class="fact-grid">
+            <div class="fact"><strong>Normal pyramid</strong><p>Many producers support fewer primary consumers, fewer secondary consumers, and very few tertiary consumers.</p></div>
+            <div class="fact"><strong>Upside-down pyramid</strong><p>If one large producer, such as an oak tree, supports many insects and birds, the producer level can look smaller than the consumer level.</p></div>
+            <div class="fact"><strong>Irregular pyramid</strong><p>Parasitic food chains can look unusual, such as grass, rabbit, flea.</p></div>
+          </div>
+        </section>
+
+        <section id="nutrient-cycles">
+          <h2>Nutrient Cycling And The Carbon Cycle</h2>
+          <p>
+            Carbon, oxygen, nitrogen, and water are essential nutrients for life. In natural
+            ecosystems, these nutrients are released back into the soil when organisms die.
+            Decomposers break down dead organisms so the materials can return to the physical
+            environment and be used again by green plants.
+          </p>
+          <div class="diagram" aria-label="Carbon cycle diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-09.webp" alt="Textbook-style illustration: Carbon cycle diagram." width="342" height="262" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <p>
+            The scan asks about carbon sequestration. Carbon sequestration means storing
+            carbon away from the atmosphere, for example in forests, soils, oceans, or
+            geological stores.
+          </p>
+        </section>
+
+        <section id="human-impact">
+          <h2>Overview Of Human Impact</h2>
+          <p>
+            Human activity can damage ecosystems, but it can also protect and restore them.
+            The source divides human impact into negative and positive impacts.
+          </p>
+          <div class="diagram" aria-label="Human impact overview">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-10.webp" alt="Textbook-style illustration: Human impact overview." width="342" height="262" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+        </section>
+
+        <section id="pollution">
+          <h2>Negative Impacts: Deforestation, Pollution, And Sewage</h2>
+          <h3>Deforestation</h3>
+          <div class="fact-grid">
+            <div class="fact"><strong>Greenhouse effect</strong><p>Heat is trapped by greenhouse gases, causing temperature increase.</p></div>
+            <div class="fact"><strong>Landslides and floods</strong><p>Soil is more easily washed away without trees that hold soil and take up rainwater.</p></div>
+            <div class="fact"><strong>Endangering species</strong><p>Damage to the ecosystem may influence the survival of many species of plants and animals.</p></div>
+          </div>
+
+          <h3>Pollution</h3>
+          <div class="two-col">
+            <div class="fact"><strong>Air pollution</strong><p>Air pollution may cause smog and acid rain.</p></div>
+            <div class="fact"><strong>Land pollution</strong><p>When garbage is dumped in large areas, chemicals can seep into the soil.</p></div>
+          </div>
+
+          <h3>Sewage And Eutrophication</h3>
+          <p>
+            Water-carried waste matter from homes or industries is called sewage. Untreated
+            sewage should not be discharged into rivers or lakes because it may contain
+            disease-causing organisms.
+          </p>
+          <p>
+            Untreated sewage contains phosphates and nitrates. These nutrients feed algae and
+            water plants, promoting excessive growth and leading to eutrophication.
+          </p>
+          <div class="diagram" aria-label="Eutrophication process">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-11.webp" alt="Textbook-style illustration: Eutrophication process." width="342" height="262" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+          <h3>Sewage Treatment</h3>
+          <p>
+            Sewage is normally decomposed by microorganisms. In cities, sewage is treated in
+            water reclamation plants.
+          </p>
+          <div class="diagram" aria-label="Sewage treatment process">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-12.webp" alt="Textbook-style illustration: Sewage treatment process." width="342" height="262" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <p class="source-note">Video reference printed in the scan: NEWater, A Singapore Success Story.</p>
+        </section>
+
+        <section id="biomagnification">
+          <h2>Inorganic Wastes, Insecticides, And Biomagnification</h2>
+          <p>
+            Some industries dump large amounts of inorganic waste products into water bodies.
+            These wastes may contain poisonous heavy metals such as mercury, lead, arsenic,
+            and cadmium.
+          </p>
+          <p>
+            Insecticides are substances used to kill insects. The scan uses DDT as an example:
+            DDT is non-biodegradable and is passed along food chains, increasing in
+            concentration in organisms at higher trophic levels. This is called
+            bioamplification or biomagnification.
+          </p>
+          <div class="diagram" aria-label="Biomagnification pyramid">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-13.webp" alt="Textbook-style illustration: Biomagnification pyramid." width="342" height="263" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          <div class="callout">
+            <p><strong>Why it matters:</strong> top predators can receive the highest pollutant dose even if the water concentration is tiny, because each predator eats many contaminated prey over time.</p>
+          </div>
+        </section>
+
+        <section id="positive-impact">
+          <h2>Positive Impacts On The Environment</h2>
+          <p>
+            Humans can reduce damage and restore ecosystems. The scan lists three major
+            positive categories.
+          </p>
+          <div class="impact-grid">
+            <div class="fact"><strong>Reforestation and afforestation</strong><p>Major methods include planting fast-growing trees and connecting forests.</p></div>
+            <div class="fact"><strong>Wildlife conservation</strong><p>Can be done by protecting where animals live and using scientific research.</p></div>
+            <div class="fact"><strong>Recycling, reducing, reusing</strong><p>Major ways of reducing pollution and controlling waste.</p></div>
+          </div>
+          <h3>Recycling Aluminium</h3>
+          <div class="diagram" aria-label="Recycling aluminium process">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-07-ecology-diagram-14.webp" alt="Textbook-style illustration: Recycling aluminium process." width="342" height="263" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+        </section>
+
+        <section id="review">
+          <h2>Wrap Up</h2>
+          <p>The source closes with three revision prompts.</p>
+          <div class="answer-list">
+            <div class="answer"><strong>Explain the components in an ecosystem:</strong> an ecosystem includes organisms, populations, communities, abiotic factors, and interactions among them.</div>
+            <div class="answer"><strong>Describe the energy pyramid:</strong> producers form the base, consumers occupy higher trophic levels, and only a small fraction of energy transfers upward because most is lost as heat or waste.</div>
+            <div class="answer"><strong>State human impact on ecosystems:</strong> humans can harm ecosystems through deforestation, pollution, sewage, heavy metals, and persistent insecticides, but can help through conservation, reforestation, recycling, reducing, and reusing.</div>
+          </div>
+
+          <h3>Video Links Printed In The Scan</h3>
+          <ul>
+            <li>Coral reefs, carbon sequestration, air pollution, NEWater, and related ecology/environment references were printed in the source scan.</li>
+          </ul>
+          <p class="source-note">
+            Rebuilt from the Week 07 scanned PDF, <code>IMG_20260427_0007.pdf</code>. Diagrams are newly drawn in HTML/SVG for readability, and unrelated handwritten marginal notes were not treated as lesson content.
+          </p>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

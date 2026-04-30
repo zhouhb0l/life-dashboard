@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 08: Chemical Reactions</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #202832;
+      --muted: #5f6f7b;
+      --line: rgba(32, 40, 50, 0.15);
+      --teal: #147f7a;
+      --teal-dark: #0e5e5a;
+      --blue: #286ea8;
+      --indigo: #495a9c;
+      --coral: #cf6237;
+      --amber: #c58b22;
+      --green: #3d8552;
+      --soft-teal: #e9f6f4;
+      --soft-blue: #eaf3fb;
+      --soft-coral: #fff0e9;
+      --soft-amber: #fff7df;
+      --shadow: 0 14px 34px rgba(32, 40, 50, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        linear-gradient(135deg, rgba(20, 127, 122, 0.12), transparent 34%),
+        linear-gradient(315deg, rgba(207, 98, 55, 0.12), transparent 31%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--teal-dark);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a,
+    p,
+    li,
+    code,
+    .pill,
+    .formula,
+    .mini-card {
+      overflow-wrap: anywhere;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 68px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .hero > *,
+    .layout > *,
+    section,
+    .visual,
+    .diagram,
+    .toc-panel {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--coral);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 3.35rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      line-height: 1.14;
+    }
+
+    h3 {
+      margin: 20px 0 9px;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .intro {
+      max-width: 780px;
+      font-size: 1.06rem;
+    }
+
+    .source-line,
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(20, 127, 122, 0.24);
+      color: var(--teal-dark);
+      background: rgba(233, 246, 244, 0.88);
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .tag {
+      border-color: rgba(73, 90, 156, 0.25);
+      color: #384777;
+      background: rgba(73, 90, 156, 0.08);
+    }
+
+    .visual {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .visual img,
+    .diagram img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 252px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .toc-panel {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .toc-panel h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .toc {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(233, 246, 244, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-inner {
+      display: grid;
+      gap: 16px;
+    }
+
+    .two-col,
+    .three-col,
+    .fact-grid,
+    .reaction-grid,
+    .source-grid,
+    .cycle-grid,
+    .answer-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fact-grid,
+    .reaction-grid,
+    .source-grid {
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+
+    .cycle-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.95fr);
+      align-items: center;
+    }
+
+    .mini-card,
+    .reaction-card,
+    .callout,
+    .answer,
+    .diagram {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .mini-card,
+    .reaction-card {
+      padding: 15px;
+      min-width: 0;
+      box-shadow: 0 8px 22px rgba(32, 40, 50, 0.07);
+    }
+
+    .mini-card strong,
+    .reaction-card strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .mini-card p,
+    .reaction-card p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .reaction-card {
+      border-color: rgba(20, 127, 122, 0.22);
+      background: linear-gradient(180deg, rgba(233, 246, 244, 0.96), #ffffff);
+    }
+
+    .reaction-card .pattern {
+      display: inline-flex;
+      margin-bottom: 8px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--teal-dark);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .callout {
+      padding: 15px;
+      border-left: 5px solid var(--coral);
+      background: var(--soft-coral);
+    }
+
+    .callout p,
+    .callout li {
+      color: #664231;
+    }
+
+    .answer {
+      padding: 12px 13px;
+      border-left: 4px solid var(--blue);
+      background: rgba(40, 110, 168, 0.08);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .answer strong {
+      color: var(--ink);
+    }
+
+    .diagram {
+      margin: 4px 0;
+      padding: 16px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 4px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(233, 246, 244, 0.92);
+      font-size: 0.92rem;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .formula {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(20, 127, 122, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-weight: 850;
+      line-height: 1.45;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(32, 40, 50, 0.08);
+      color: var(--ink);
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-size: 0.92em;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .source-note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .layout,
+      .two-col,
+      .three-col,
+      .cycle-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1160px);
+        padding-top: 26px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      section {
+        padding: 24px 0;
+      }
+
+      .visual,
+      .diagram {
+        padding: 12px;
+      }
+    }
+  </style>
+
+  <style>
+    .generated-art { max-width: 100%; }
+    .visual img.generated-art,
+    .hero-visual img.generated-art {
+      max-height: min(520px, 58vh);
+      object-fit: contain;
+    }
+    .diagram img.generated-art {
+      max-height: min(680px, 72vh);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .section-art {
+      width: min(100%, 820px);
+      margin: 12px auto 16px;
+      padding: 10px;
+      border: 1px solid rgba(29, 39, 48, 0.14);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(29, 39, 48, 0.07);
+      overflow: hidden;
+    }
+    .section-art img.generated-art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    @media (max-width: 640px) {
+      .section-art { width: 100%; padding: 12px; }
+      .section-art img.generated-art { max-height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Lesson navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./week-07-ecology.html">Week 07</a>
+      <a href="./week-09-human-digestive-system.html">Week 09</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Week 08 | SPSO Preparatory Course</span>
+        <h1>Chemical Reactions</h1>
+        <p class="intro">
+          This chapter rebuilds the scanned Week 08 handout into a readable study guide:
+          reaction patterns, redox and combustion, acids and bases, pH, mole calculations,
+          carbonate tests, carbon dioxide, photosynthesis, respiration, ocean carbon sinks,
+          and ocean acidification.
+        </p>
+        <div class="source-line" aria-label="Lesson facts">
+          <span class="pill">By Ms Yanan</span>
+          <span class="pill">18 scanned pages converted to HTML</span>
+          <span class="pill">No PDF copied into the site</span>
+        </div>
+      </div>
+      <div class="visual" aria-label="Methane combustion visual">
+        <img class="generated-art" src="./assets/generated/week-08-chemical-reactions-hero.webp" alt="Textbook-style illustration for Chemical Reactions." width="1448" height="1086" loading="eager" style="display:block;width:100%;height:auto;border-radius:8px;">
+        <p class="caption">Generated textbook-style illustration for Chemical Reactions. Detailed labels and explanations remain in the HTML text for accuracy.</p>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc-panel" aria-label="Table of contents">
+        <h2>Study Path</h2>
+        <ul class="toc">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#reaction-types">Reaction Types</a></li>
+          <li><a href="#redox">Redox And Combustion</a></li>
+          <li><a href="#acids">Acids, Bases, pH</a></li>
+          <li><a href="#neutralization">Neutralization</a></li>
+          <li><a href="#moles">Moles And Mass</a></li>
+          <li><a href="#carbon">Carbon And CO2</a></li>
+          <li><a href="#cycle">Carbon Cycle</a></li>
+          <li><a href="#ocean">Ocean Carbon</a></li>
+          <li><a href="#review">Wrap Up</a></li>
+        </ul>
+      </aside>
+
+      <main class="content">
+        <section id="overview">
+          <div class="section-inner">
+            <h2>Lesson Overview</h2>
+            <p>
+              The scan opens with methane combustion and a lesson map. The central idea is
+              that chemical reactions rearrange atoms: reactants become products, while the
+              total number of each atom is conserved when the equation is balanced.
+            </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-08-chemical-reactions-overview-section.webp" alt="Scientific plate illustration for Lesson Overview." width="1200" height="675" loading="lazy">
+          </figure>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Four basic reaction types</strong><p>Synthesis, decomposition, single replacement, and double replacement.</p></div>
+              <div class="mini-card"><strong>Redox and combustion</strong><p>Oxidation, reduction, fuels, oxygen, and energy release as light and heat.</p></div>
+              <div class="mini-card"><strong>Acids and bases</strong><p>pH, indicators, neutralization, salts, water, and carbonate reactions.</p></div>
+              <div class="mini-card"><strong>Moles and carbon</strong><p>Relative atomic mass, molar mass, carbonates, carbon dioxide, and the carbon cycle.</p></div>
+            </div>
+            <div class="callout">
+              <p><strong>Exam habit:</strong> classify the reaction first, then balance the equation. Classification tells you the pattern; balancing checks conservation of atoms.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="reaction-types">
+          <div class="section-inner">
+            <h2>Four Basic Reaction Types</h2>
+            <p>
+              The Week 08 scan shows four symbolic patterns. Combustion is listed separately
+              because it is common, energetic, and often tested with hydrocarbons.
+            </p>
+            <div class="reaction-grid">
+              <div class="reaction-card">
+                <span class="pattern">A + B -&gt; AB</span>
+                <strong>Synthesis</strong>
+                <p>Two or more substances combine to make a larger product.</p>
+              </div>
+              <div class="reaction-card">
+                <span class="pattern">AB -&gt; A + B</span>
+                <strong>Decomposition</strong>
+                <p>One compound breaks into simpler substances.</p>
+              </div>
+              <div class="reaction-card">
+                <span class="pattern">AB + C -&gt; AC + B</span>
+                <strong>Single Replacement</strong>
+                <p>A more reactive element replaces a less reactive one in a compound.</p>
+              </div>
+              <div class="reaction-card">
+                <span class="pattern">AB + CD -&gt; AD + CB</span>
+                <strong>Double Replacement</strong>
+                <p>Ions exchange partners, often forming water, a gas, or an insoluble solid.</p>
+              </div>
+            </div>
+
+            <div class="diagram" aria-label="Reaction type diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-08-chemical-reactions-diagram-01.webp" alt="Textbook-style illustration: Reaction type diagram." width="338" height="421" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+            <h3>Recognize The Type Of Reaction</h3>
+            <p>
+              The scan includes practice equations with handwritten categories. The table
+              keeps the source answer and adds a balanced form when the printed equation was
+              not balanced.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Source equation</th>
+                    <th>Balanced equation</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>H<sub>2</sub> + O<sub>2</sub> -&gt; H<sub>2</sub>O</td>
+                    <td>2H<sub>2</sub> + O<sub>2</sub> -&gt; 2H<sub>2</sub>O</td>
+                    <td>Synthesis</td>
+                  </tr>
+                  <tr>
+                    <td>KI + Cl<sub>2</sub> -&gt; KCl + I<sub>2</sub></td>
+                    <td>2KI + Cl<sub>2</sub> -&gt; 2KCl + I<sub>2</sub></td>
+                    <td>Single replacement</td>
+                  </tr>
+                  <tr>
+                    <td>NaI + Pb(NO<sub>3</sub>)<sub>2</sub> -&gt; NaNO<sub>3</sub> + PbI<sub>2</sub></td>
+                    <td>2NaI + Pb(NO<sub>3</sub>)<sub>2</sub> -&gt; 2NaNO<sub>3</sub> + PbI<sub>2</sub></td>
+                    <td>Double replacement</td>
+                  </tr>
+                  <tr>
+                    <td>NaHCO<sub>3</sub> -&gt; Na<sub>2</sub>CO<sub>3</sub> + H<sub>2</sub>O + CO<sub>2</sub></td>
+                    <td>2NaHCO<sub>3</sub> -&gt; Na<sub>2</sub>CO<sub>3</sub> + H<sub>2</sub>O + CO<sub>2</sub></td>
+                    <td>Decomposition</td>
+                  </tr>
+                  <tr>
+                    <td>AgNO<sub>3</sub> + Cu -&gt; Cu(NO<sub>3</sub>)<sub>2</sub> + Ag</td>
+                    <td>2AgNO<sub>3</sub> + Cu -&gt; Cu(NO<sub>3</sub>)<sub>2</sub> + 2Ag</td>
+                    <td>Single replacement</td>
+                  </tr>
+                  <tr>
+                    <td>H<sub>2</sub>O + SO<sub>3</sub> -&gt; H<sub>2</sub>SO<sub>4</sub></td>
+                    <td>H<sub>2</sub>O + SO<sub>3</sub> -&gt; H<sub>2</sub>SO<sub>4</sub></td>
+                    <td>Synthesis</td>
+                  </tr>
+                  <tr>
+                    <td>KClO<sub>3</sub> -&gt; KCl + O<sub>2</sub></td>
+                    <td>2KClO<sub>3</sub> -&gt; 2KCl + 3O<sub>2</sub></td>
+                    <td>Decomposition</td>
+                  </tr>
+                  <tr>
+                    <td>BaCl<sub>2</sub> + Na<sub>2</sub>SO<sub>4</sub> -&gt; NaCl(aq) + BaSO<sub>4</sub></td>
+                    <td>BaCl<sub>2</sub> + Na<sub>2</sub>SO<sub>4</sub> -&gt; 2NaCl(aq) + BaSO<sub>4</sub>(s)</td>
+                    <td>Double replacement and precipitation</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="redox">
+          <div class="section-inner">
+            <h2>Oxidation, Reduction, And Combustion</h2>
+            <p>
+              Redox reactions include oxidation and reduction together. The handout connects
+              redox to synthesis, decomposition, single replacement, and combustion.
+            </p>
+            <div class="two-col">
+              <div class="mini-card">
+                <strong>Oxidation</strong>
+                <p>Gains oxygen, loses hydrogen, loses electrons, or increases oxidation state.</p>
+              </div>
+              <div class="mini-card">
+                <strong>Reduction</strong>
+                <p>Loses oxygen, gains hydrogen, gains electrons, or decreases oxidation state.</p>
+              </div>
+            </div>
+            <div class="diagram" aria-label="Redox electron transfer diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-08-chemical-reactions-diagram-02.webp" alt="Textbook-style illustration: Redox electron transfer diagram." width="339" height="421" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Reducers</strong><p>Metals often act as reducers because they can give out electrons. Some non-metals can also reduce other substances in the right reaction.</p></div>
+              <div class="mini-card"><strong>Oxidizers</strong><p>Oxygen and reactive non-metals such as fluorine and chlorine often accept electrons.</p></div>
+              <div class="mini-card"><strong>Single replacement clue</strong><p>A more reactive metal replaces a less reactive metal from its compound.</p></div>
+            </div>
+
+            <h3>Combustion Reaction</h3>
+            <p>
+              Combustion is a high-temperature, exothermic redox reaction between a fuel
+              and an oxidant, usually oxygen in air. It produces oxidized products and
+              releases energy as light and heat.
+            </p>
+            <div class="two-col">
+              <div class="mini-card">
+                <strong>Common fuels in the scan</strong>
+                <p>Hydrogen, hydrocarbons, carbon, alcohols, wood, coal, natural gas, gasoline, and oil.</p>
+              </div>
+              <div class="mini-card">
+                <strong>Common products</strong>
+                <p>Hydrogen burns to water vapor. Hydrocarbons burn completely to carbon dioxide and water vapor when oxygen is sufficient.</p>
+              </div>
+            </div>
+            <div class="callout">
+              <p><strong>Extra SPSO note:</strong> incomplete combustion has too little oxygen, so carbon monoxide or soot can form. Carbon monoxide is dangerous because it binds strongly to hemoglobin.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="acids">
+          <div class="section-inner">
+            <h2>Acids, Bases, And pH</h2>
+            <p>
+              The scan says the first scientific concept of acids and bases was provided by
+              Lavoisier around 1776. In the lesson model, acids contain many hydrogen ions
+              or protons, while bases contain many hydroxide ions.
+            </p>
+            <div class="three-col">
+              <div class="mini-card"><strong>Acid</strong><p>Lots of H<sup>+</sup> ions in solution. Acids turn litmus paper red and often taste sour, but lab chemicals must never be tasted.</p></div>
+              <div class="mini-card"><strong>Base</strong><p>Lots of OH<sup>-</sup> ions in solution. Bases turn litmus paper blue, can feel slimy, and often taste bitter in food examples.</p></div>
+              <div class="mini-card"><strong>Neutral</strong><p>pH 7, such as pure water. Neutral does not mean unreactive; it means neither acidic nor alkaline by pH.</p></div>
+            </div>
+            <div class="diagram" aria-label="pH scale diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-08-chemical-reactions-diagram-03.webp" alt="Textbook-style illustration: pH scale diagram." width="339" height="421" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Indicators</strong><p>Universal indicator, natural anthocyanin indicator such as purple cabbage, and methyl orange can show pH changes.</p></div>
+              <div class="mini-card"><strong>Vitamin C</strong><p>Vitamin C is an acid called ascorbic acid.</p></div>
+              <div class="mini-card"><strong>Proteins</strong><p>Proteins are made from amino acids.</p></div>
+              <div class="mini-card"><strong>Ammonia</strong><p>Ammonia, NH<sub>3</sub>, is a base chemical.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="neutralization">
+          <div class="section-inner">
+            <h2>Neutralization And Carbonates</h2>
+            <p>
+              Acid-base reactions are a form of double replacement. The scan gives the
+              general pattern and two examples.
+            </p>
+            <div class="diagram" aria-label="Neutralization diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-08-chemical-reactions-diagram-04.webp" alt="Textbook-style illustration: Neutralization diagram." width="339" height="421" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+
+            <h3>Acid Plus Carbonate</h3>
+            <p>
+              Vinegar and baking soda use a related pattern: an acid reacts with a carbonate
+              or hydrogencarbonate salt to produce a salt, carbon dioxide, and water.
+            </p>
+            <div class="two-col">
+              <div class="mini-card">
+                <strong>General pattern</strong>
+                <p><span class="formula">acid + carbonate salt -&gt; salt + CO<sub>2</sub> + H<sub>2</sub>O</span></p>
+              </div>
+              <div class="mini-card">
+                <strong>Baking soda and vinegar</strong>
+                <p><span class="formula">NaHCO<sub>3</sub> + CH<sub>3</sub>COOH -&gt; CH<sub>3</sub>COONa + H<sub>2</sub>O + CO<sub>2</sub></span></p>
+              </div>
+            </div>
+            <div class="answer-list">
+              <div class="answer"><strong>Product question:</strong> the scan answer is salt plus carbon dioxide plus water.</div>
+              <div class="answer"><strong>Purple cabbage experiment:</strong> cabbage juice contains anthocyanins, so it changes color in acids and bases.</div>
+              <div class="answer"><strong>Eggshell and vinegar:</strong> eggshell is mostly calcium carbonate, CaCO<sub>3</sub>. The gas produced is CO<sub>2</sub>.</div>
+              <div class="answer"><strong>Substitutions:</strong> lemon juice can replace vinegar because it is acidic. Baking soda can replace eggshell as a household carbonate source. Seashells and marble chips can replace eggshell because they also contain calcium carbonate.</div>
+            </div>
+            <div class="callout">
+              <p><strong>Useful balanced carbonate equation:</strong> CaCO<sub>3</sub> + 2CH<sub>3</sub>COOH -&gt; Ca(CH<sub>3</sub>COO)<sub>2</sub> + CO<sub>2</sub> + H<sub>2</sub>O.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="moles">
+          <div class="section-inner">
+            <h2>The Mole And Chemical Calculation</h2>
+            <p>
+              The handout moves from reaction patterns to amounts. The mole is a counting
+              unit for particles, like "dozen" but much larger.
+            </p>
+            <div class="two-col">
+              <div class="mini-card">
+                <strong>Relative atomic mass</strong>
+                <p>Carbon-12 is chosen as the standard atom. Other atomic masses are compared with 1/12 of the mass of one carbon-12 atom.</p>
+              </div>
+              <div class="mini-card">
+                <strong>Why some values are not whole numbers</strong>
+                <p>Elements can have isotopes in different natural abundances, so the average relative atomic mass can be decimal.</p>
+              </div>
+            </div>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>No unit</strong><p>Relative atomic mass, A<sub>r</sub>, and relative molecular or formula mass, M<sub>r</sub>, have no unit.</p></div>
+              <div class="mini-card"><strong>Carbon-12</strong><p>One mole of carbon-12 has mass 12 g, so its molar mass is 12 g/mol.</p></div>
+              <div class="mini-card"><strong>Avogadro constant</strong><p>One mole contains 6.02 x 10<sup>23</sup> particles.</p></div>
+              <div class="mini-card"><strong>Molar mass</strong><p>The molar mass of a substance equals its relative atomic, molecular, or formula mass in grams per mole.</p></div>
+            </div>
+            <div class="diagram" aria-label="Mole triangle diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-08-chemical-reactions-diagram-05.webp" alt="Textbook-style illustration: Mole triangle diagram." width="339" height="421" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <h3>Worked Examples From The Scan</h3>
+            <div class="answer-list">
+              <div class="answer"><strong>Mass of one mole of water:</strong> H<sub>2</sub>O has M<sub>r</sub> = 2(1) + 16 = 18, so one mole of water has mass 18 g.</div>
+              <div class="answer"><strong>Neutralization amount:</strong> HCl + NaOH -&gt; NaCl + H<sub>2</sub>O has a 1:1:1:1 mole ratio. One mole of HCl reacts with one mole of NaOH to form one mole of NaCl and one mole of water.</div>
+              <div class="answer"><strong>Masses produced:</strong> one mole NaCl has mass 23 + 35.5 = 58.5 g, and one mole water has mass 18 g.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="carbon">
+          <div class="section-inner">
+            <h2>Carbon, Its Group, And Carbon Dioxide</h2>
+            <p>
+              The scan connects carbonate reactions to carbon chemistry. Carbon is in group
+              IV, also called group 14 in the modern periodic table.
+            </p>
+            <div class="two-col">
+              <div>
+                <h3>Carbon Family</h3>
+                <div class="answer-list">
+                  <div class="answer"><strong>Carbon, C:</strong> non-metal and the basis of organic chemistry.</div>
+                  <div class="answer"><strong>Silicon, Si, and germanium, Ge:</strong> metalloids.</div>
+                  <div class="answer"><strong>Tin, Sn, lead, Pb, and flerovium, Fl:</strong> metals lower in the group.</div>
+                </div>
+              </div>
+              <div class="diagram" aria-label="Group 14 diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-08-chemical-reactions-diagram-06.webp" alt="Textbook-style illustration: Group 14 diagram." width="338" height="422" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>With hydrogen</strong><p>Carbon forms hydrocarbons used as refrigerants, lubricants, solvents, chemical feedstock, petrochemicals, and fossil fuels.</p></div>
+              <div class="mini-card"><strong>With oxygen and hydrogen</strong><p>Carbon forms sugars, alcohols, fats, aromatic esters, and carotenoids.</p></div>
+              <div class="mini-card"><strong>With nitrogen, sulfur, phosphorus</strong><p>Carbon compounds include alkaloids, amino acids, rubber products, DNA, RNA, and ATP.</p></div>
+              <div class="mini-card"><strong>Silicon dioxide</strong><p>Sand, glass, and quartz are silicon dioxide. Silicon is important in the semiconductor industry.</p></div>
+            </div>
+
+            <h3>Carbon Dioxide Properties</h3>
+            <div class="cycle-grid">
+              <div class="fact-grid">
+                <div class="mini-card"><strong>Structure</strong><p>CO<sub>2</sub> is linear: O=C=O.</p></div>
+                <div class="mini-card"><strong>Molar mass</strong><p>12 + 16 + 16 = 44 g/mol.</p></div>
+                <div class="mini-card"><strong>Density</strong><p>About 1.8 to 2.0 kg/m<sup>3</sup>, so it is denser than air.</p></div>
+                <div class="mini-card"><strong>Solubility</strong><p>The scan notes about 1.8 g CO<sub>2</sub> dissolving in roughly 0.9 to 1 L pure water.</p></div>
+              </div>
+              <div class="diagram" aria-label="Carbon dioxide molecule diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-08-chemical-reactions-diagram-07.webp" alt="Textbook-style illustration: Carbon dioxide molecule diagram." width="339" height="422" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+
+            <h3>Test For Carbon Dioxide</h3>
+            <p>
+              The scan gives limewater as the test. Carbon dioxide turns limewater milky or
+              chalky because calcium carbonate precipitate forms.
+            </p>
+            <div class="two-col">
+              <div class="mini-card">
+                <strong>Limewater test</strong>
+                <p><span class="formula">Ca(OH)<sub>2</sub> + CO<sub>2</sub> -&gt; CaCO<sub>3</sub> + H<sub>2</sub>O</span></p>
+              </div>
+              <div class="mini-card">
+                <strong>Weak acid in water</strong>
+                <p><span class="formula">CO<sub>2</sub> + H<sub>2</sub>O &lt;-&gt; H<sub>2</sub>CO<sub>3</sub></span></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="cycle">
+          <div class="section-inner">
+            <h2>Carbon Cycle, Photosynthesis, And Respiration</h2>
+            <p>
+              The carbon cycle section tracks how carbon dioxide is added to and removed
+              from the atmosphere.
+            </p>
+            <div class="cycle-grid">
+              <div>
+                <h3>Adding Carbon Dioxide</h3>
+                <ul>
+                  <li>Respiration by plants, animals, fungi, and microorganisms.</li>
+                  <li>Combustion of fuel such as wood, coal, natural gas, gasoline, and oil.</li>
+                  <li>Decomposition and decay of dead organisms and waste products.</li>
+                </ul>
+                <h3>Removing Carbon Dioxide</h3>
+                <ul>
+                  <li>Photosynthesis by plants and phytoplankton.</li>
+                  <li>Ocean uptake and long-term carbon storage.</li>
+                </ul>
+              </div>
+              <div class="diagram" aria-label="Carbon cycle diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-08-chemical-reactions-diagram-08.webp" alt="Textbook-style illustration: Carbon cycle diagram." width="339" height="422" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+
+            <h3>Photosynthesis Removes Carbon Dioxide</h3>
+            <p><span class="formula">6CO<sub>2</sub> + 6H<sub>2</sub>O -&gt; C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub></span></p>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>CO2 source</strong><p>Carbon dioxide is taken in through leaves.</p></div>
+              <div class="mini-card"><strong>Water source</strong><p>Water is taken in by roots.</p></div>
+              <div class="mini-card"><strong>Sunlight</strong><p>Sunlight supplies the light energy.</p></div>
+              <div class="mini-card"><strong>Chlorophyll</strong><p>Chlorophyll absorbs sunlight in chloroplasts.</p></div>
+            </div>
+            <div class="two-col">
+              <div class="mini-card">
+                <strong>Factors affecting rate</strong>
+                <p>Low light decreases the rate; after enough light, extra light has little effect. Too low or too high a temperature lowers the rate. Low CO<sub>2</sub> decreases the rate, but extra CO<sub>2</sub> above the optimum has little effect.</p>
+              </div>
+              <div class="mini-card">
+                <strong>What plants make from glucose</strong>
+                <p>Glucose molecules can join to make starch for storage and cellulose for cell walls. Glucose can also be changed into lipids for seed storage, and with nitrates from soil it can form amino acids and then proteins.</p>
+              </div>
+            </div>
+            <div class="callout">
+              <p><strong>Rainforest note:</strong> the scan calls rainforests the "lungs of the planet" and says they generate about 20% of the world's oxygen while reducing pollutant levels. A careful exam explanation is that rainforests photosynthesize, store carbon, and support biodiversity; their net oxygen contribution is balanced by respiration and decay over long periods.</p>
+            </div>
+
+            <h3>Respiration Adds Carbon Dioxide</h3>
+            <p><span class="formula">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub> -&gt; 6CO<sub>2</sub> + 6H<sub>2</sub>O + energy stored in ATP</span></p>
+            <p>
+              Oxygen supports respiration in animals, fungi, plants, and many microorganisms.
+              During respiration, chemical potential energy stored in food is converted into
+              useful forms of energy. Carbon dioxide is eventually released.
+            </p>
+
+            <h3>Combustion Of Fuel Adds Carbon Dioxide</h3>
+            <p>
+              Human activities add carbon dioxide when hydrocarbon fuels are burned. During
+              combustion, carbon in fossil fuels combines with oxygen in air to form carbon
+              dioxide and water vapor.
+            </p>
+          </div>
+        </section>
+
+        <section id="ocean">
+          <div class="section-inner">
+            <h2>Ocean Carbon Sink And Acidification</h2>
+            <p>
+              The scan finishes with the ocean as a carbon sink and the effect of added
+              carbon dioxide on ocean chemistry.
+            </p>
+            <div class="cycle-grid">
+              <div>
+                <h3>Removing Carbon Dioxide: Ocean Carbon Sink</h3>
+                <ul>
+                  <li>A carbon sink is a natural or artificial reservoir that absorbs and stores atmospheric carbon.</li>
+                  <li>Physical storage transfers carbon to the deep sea where it can be sequestered.</li>
+                  <li>Biological storage happens when carbon becomes organic matter, carbonate ions, shells, or sediments.</li>
+                </ul>
+              </div>
+              <div class="diagram" aria-label="Ocean carbon sink diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-08-chemical-reactions-diagram-09.webp" alt="Textbook-style illustration: Ocean carbon sink diagram." width="339" height="422" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            </div>
+
+            <h3>Ocean Acidification</h3>
+            <p>
+              More human-driven carbon dioxide dissolves into the ocean. The ocean is still
+              slightly basic, with average pH around 8.1, but absorbing more CO<sub>2</sub>
+              decreases pH and makes the ocean more acidic.
+            </p>
+            <div class="two-col">
+              <div class="mini-card">
+                <strong>Chemistry shown in the scan</strong>
+                <p><span class="formula">CO<sub>2</sub> + H<sub>2</sub>O + CO<sub>3</sub><sup>2-</sup> -&gt; 2HCO<sub>3</sub><sup>-</sup></span></p>
+              </div>
+              <div class="mini-card">
+                <strong>Biological effect</strong>
+                <p>Consuming carbonate ions can make calcification harder for corals and shellfish that need carbonate to build skeletons and shells.</p>
+              </div>
+            </div>
+            <div class="diagram" aria-label="Ocean pH trend diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-08-chemical-reactions-diagram-10.webp" alt="Textbook-style illustration: Ocean pH trend diagram." width="339" height="422" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          </div>
+        </section>
+
+        <section id="review">
+          <div class="section-inner">
+            <h2>Wrap Up</h2>
+            <p>The source closes with five review targets.</p>
+            <div class="fact-grid">
+              <div class="mini-card"><strong>Types of reactions</strong><p>Recognize synthesis, decomposition, single replacement, double replacement, and combustion.</p></div>
+              <div class="mini-card"><strong>Acid and base, pH</strong><p>Use pH, ions, indicators, and neutralization patterns to predict products.</p></div>
+              <div class="mini-card"><strong>Molar mass</strong><p>Use relative masses, Avogadro's constant, and mole ratios to calculate mass.</p></div>
+              <div class="mini-card"><strong>Carbon group</strong><p>Know carbon, silicon, germanium, tin, lead, and their broad behavior.</p></div>
+              <div class="mini-card"><strong>Carbon dioxide effect</strong><p>Connect CO<sub>2</sub> to photosynthesis, respiration, combustion, oceans, and acidification.</p></div>
+            </div>
+            <h3>Quick Checks</h3>
+            <div class="answer-list">
+              <div class="answer"><strong>Balance and classify:</strong> 2KClO<sub>3</sub> -&gt; 2KCl + 3O<sub>2</sub> is decomposition.</div>
+              <div class="answer"><strong>Predict a gas:</strong> acid plus carbonate produces carbon dioxide, which turns limewater milky.</div>
+              <div class="answer"><strong>Connect cycles:</strong> photosynthesis removes CO<sub>2</sub>, while respiration, decay, and fuel combustion add CO<sub>2</sub>.</div>
+            </div>
+            <p class="source-note">
+              Rebuilt from the Week 08 scanned PDF, <code>IMG_20260427_0008.pdf</code>. Duplicate scan frames were merged, and the final handwritten molecule labels for CO<sub>2</sub>, O<sub>2</sub>, and H<sub>2</sub>O were incorporated into the molecule diagrams.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

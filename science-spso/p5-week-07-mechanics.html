@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P5 Week 07: Mechanics</title>
+  <link rel="stylesheet" href="./rich-lesson.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="top-nav" aria-label="Lesson navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./p5-week-06-science-process-skills.html">P5 Week 06</a>
+      <a href="./p5-week-08-chemistry-and-environment.html">P5 Week 08</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">P5 Week 07 | SPSO Preparatory Course</span>
+        <h1>Mechanics</h1>
+        <p class="intro">
+          This lesson rebuilds the scanned mechanics chapter into a readable guide on
+          turning effects, levers, centre of gravity, stability, simple pendulums,
+          pulleys, pressure, Pascal's principle, and atmospheric pressure.
+        </p>
+        <div class="source-line" aria-label="Lesson facts">
+          <span class="pill">P5 Week 07</span>
+          <span class="pill">12 scanned sheets reviewed</span>
+          <span class="pill">Moments to pressure</span>
+        </div>
+      </div>
+      <div class="visual" aria-label="Mechanics overview">
+        <img class="generated-art" src="./assets/generated/p5-week-07-mechanics-hero.webp" alt="Textbook-style illustration for Mechanics." width="1448" height="1086" loading="eager" style="display:block;width:100%;height:auto;border-radius:8px;">
+        <p class="caption">Mechanics links forces to rotation, stability, oscillation, machines, and pressure.</p>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="toc-panel" aria-label="Table of contents">
+        <h2>Study path</h2>
+        <ol class="toc">
+          <li><a href="#moments">Turning Effects</a></li>
+          <li><a href="#levers">Levers</a></li>
+          <li><a href="#gravity">Centre Of Gravity</a></li>
+          <li><a href="#pendulum">Pendulum</a></li>
+          <li><a href="#pulleys">Pulleys</a></li>
+          <li><a href="#pressure">Pressure</a></li>
+          <li><a href="#examples">Pressure Examples</a></li>
+          <li><a href="#pascal">Pascal's Principle</a></li>
+          <li><a href="#air">Air Pressure</a></li>
+          <li><a href="#wrap">Wrap Up</a></li>
+        </ol>
+      </aside>
+
+      <div class="content">
+        <section id="moments">
+          <div class="section-inner">
+            <div>
+              <span class="eyebrow">Page 2</span>
+              <h2>Turning Effect And Moment Of A Force</h2>
+              <p>
+                The turning effect of a force is also called the moment of a force. The
+                moment is the product of the force and the perpendicular distance from
+                the line of action of the force to the pivot.
+              </p>
+            </div>
+            <figure class="section-art">
+              <img class="generated-art section-art-img" src="./assets/generated/sections/p5-week-07-mechanics-moments-section.webp" alt="Scientific plate illustration for Turning Effect And Moment Of A Force." width="1200" height="675" loading="lazy">
+            </figure>
+            <div class="two-col">
+              <div class="mini-card blue">
+                <strong>Moment formula</strong>
+                <p><span class="formula">moment = F x d</span></p>
+                <p>F is force in newtons, and d is perpendicular distance from the pivot in metres.</p>
+              </div>
+              <div class="mini-card gold">
+                <strong>Unit</strong>
+                <p>The unit for moment is newton metre, Nm.</p>
+                <p>Balanced object: clockwise moment = anticlockwise moment.</p>
+              </div>
+            </div>
+            <div class="answer">
+              <strong>See-saw example:</strong> a 250 N child sits 2.4 m from the pivot, and a parent sits 0.8 m from the pivot. For balance, parent weight x 0.8 = 250 x 2.4, so the parent weighs 750 N.
+            </div>
+          </div>
+        </section>
+
+        <section id="levers">
+          <div class="section-inner">
+            <div>
+              <span class="eyebrow">Page 3</span>
+              <h2>Three Classes Of Lever</h2>
+              <p>
+                Levers are rigid bars that rotate about a fulcrum. The three classes
+                differ by the order of fulcrum, load, and effort.
+              </p>
+            </div>
+            <figure class="section-art">
+              <img class="generated-art section-art-img" src="./assets/generated/sections/p5-week-07-mechanics-levers-section.webp" alt="Scientific plate illustration for Three Classes Of Lever." width="1200" height="675" loading="lazy">
+            </figure>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Class</th>
+                    <th>Arrangement</th>
+                    <th>Examples</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Class 1</td>
+                    <td>Fulcrum between load and effort.</td>
+                    <td>See-saw, scissors, pliers, crowbar.</td>
+                  </tr>
+                  <tr>
+                    <td>Class 2</td>
+                    <td>Load between fulcrum and effort.</td>
+                    <td>Wheelbarrow, nutcracker, bottle opener.</td>
+                  </tr>
+                  <tr>
+                    <td>Class 3</td>
+                    <td>Effort between fulcrum and load.</td>
+                    <td>Tweezers, broom, fishing rod, human forearm.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="two-col">
+              <div class="mini-card blue">
+                <strong>Wheelbarrow example</strong>
+                <p>Total weight is 150 N. The load acts 0.75 m from the wheel, and the handle force acts 1.5 m from the wheel. F x 1.5 = 150 x 0.75, so F = 75 N.</p>
+              </div>
+              <div class="mini-card green">
+                <strong>Foot pedal example</strong>
+                <p>A 20 N foot force acts 40 cm from the pivot, while the piston is 5 cm from the pivot. 20 x 40 = F x 5, so F = 160 N.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="gravity">
+          <div class="section-inner">
+            <div>
+              <span class="eyebrow">Pages 4-5</span>
+              <h2>Centre Of Gravity And Stability</h2>
+              <p>
+                The centre of gravity is the point where an object's weight can be
+                treated as acting. If an object is tilted, it topples when the vertical
+                line from its centre of gravity falls outside its base.
+              </p>
+            </div>
+            <div class="fact-grid">
+              <div class="mini-card red">
+                <strong>Double-decker bus</strong>
+                <p>Standing passengers raise the centre of gravity, making the bus less stable.</p>
+              </div>
+              <div class="mini-card blue">
+                <strong>Boat stability</strong>
+                <p>A boat is more stable when weight is low and the line of action stays within the base of support.</p>
+              </div>
+              <div class="mini-card green">
+                <strong>How to increase stability</strong>
+                <p>Lower the centre of gravity and widen the base.</p>
+              </div>
+              <div class="mini-card gold">
+                <strong>Shapes and centroid</strong>
+                <p>Different pipe and beam sections have different centre-of-gravity positions depending on their geometry.</p>
+              </div>
+            </div>
+            <div class="diagram" aria-label="Stability and centre of gravity diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/p5-week-07-mechanics-diagram-01.webp" alt="Textbook-style illustration: Stability and centre of gravity diagram." width="843" height="843" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+          </div>
+        </section>
+
+        <section id="pendulum">
+          <div class="section-inner">
+            <div>
+              <span class="eyebrow">Pages 5-6</span>
+              <h2>Simple Pendulum</h2>
+              <p>
+                The scan gives the standard simple pendulum relationship:
+                <span class="formula">T = 2 pi sqrt(L/g)</span>. The period is the time
+                for one complete oscillation.
+              </p>
+            </div>
+            <figure class="section-art">
+              <img class="generated-art section-art-img" src="./assets/generated/sections/p5-week-07-mechanics-pendulum-section.webp" alt="Scientific plate illustration for Simple Pendulum." width="1200" height="675" loading="lazy">
+            </figure>
+            <div class="two-col">
+              <div class="mini-card blue">
+                <strong>Length matters</strong>
+                <p>For a given place, the period of oscillation is directly proportional to the square root of the pendulum length.</p>
+              </div>
+              <div class="mini-card green">
+                <strong>Bob details do not matter ideally</strong>
+                <p>The period is independent of the bob's size, shape, mass, and material. For small swings, it is also treated as independent of amplitude.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="pulleys">
+          <div class="section-inner">
+            <div>
+              <span class="eyebrow">Page 7</span>
+              <h2>Pulleys</h2>
+              <p>
+                A pulley is a simple machine made of a grooved wheel with a rope or cable
+                passing through it. Pulleys can change the direction of a force and can
+                make lifting heavy objects easier.
+              </p>
+            </div>
+            <figure class="section-art">
+              <img class="generated-art section-art-img" src="./assets/generated/sections/p5-week-07-mechanics-pulleys-section.webp" alt="Scientific plate illustration for Pulleys." width="1200" height="675" loading="lazy">
+            </figure>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Set-Up From The Scan</th>
+                    <th>Effort For A 100 N Load</th>
+                    <th>Distance Pulled To Lift 10 cm</th>
+                    <th>Idea</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>One supporting rope segment</td>
+                    <td>100 N</td>
+                    <td>10 cm</td>
+                    <td>Changes direction only.</td>
+                  </tr>
+                  <tr>
+                    <td>Two supporting rope segments</td>
+                    <td>50 N</td>
+                    <td>20 cm</td>
+                    <td>Half the effort, twice the pull distance.</td>
+                  </tr>
+                  <tr>
+                    <td>Three supporting rope segments</td>
+                    <td>About 33 N</td>
+                    <td>30 cm</td>
+                    <td>One-third the effort, three times the pull distance.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout">
+              <p><strong>Ideal pulley rule:</strong> tension is the same in one continuous rope. The upward force on a movable pulley equals the sum of the supporting rope tensions.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="pressure">
+          <div class="section-inner">
+            <div>
+              <span class="eyebrow">Pages 8-9</span>
+              <h2>Pressure</h2>
+              <p>
+                Pressure depends on both force and area. This is why a stiletto heel can
+                feel more painful than a much heavier object spread over a larger area.
+              </p>
+            </div>
+            <figure class="section-art">
+              <img class="generated-art section-art-img" src="./assets/generated/sections/p5-week-07-mechanics-pressure-section.webp" alt="Scientific plate illustration for Pressure." width="1200" height="675" loading="lazy">
+            </figure>
+            <div class="two-col">
+              <div class="mini-card blue">
+                <strong>Formula</strong>
+                <p><span class="formula">Pressure = force / area</span></p>
+                <p>Force is measured in newtons, area in m^2, and pressure in N/m^2.</p>
+              </div>
+              <div class="mini-card gold">
+                <strong>Pascal</strong>
+                <p>Another name for N/m^2 is the pascal, Pa.</p>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Calculation</th>
+                    <th>Working</th>
+                    <th>Answer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Box weight 250 N on area 0.25 m^2</td>
+                    <td>P = 250 / 0.25</td>
+                    <td>1000 Pa</td>
+                  </tr>
+                  <tr>
+                    <td>Water force 6000 N over area 0.2 m x 0.5 m</td>
+                    <td>Area = 0.1 m^2, so P = 6000 / 0.1</td>
+                    <td>60000 Pa</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="examples">
+          <div class="section-inner">
+            <div>
+              <span class="eyebrow">Pages 9-10</span>
+              <h2>Increasing And Reducing Pressure</h2>
+            </div>
+            <figure class="section-art">
+              <img class="generated-art section-art-img" src="./assets/generated/sections/p5-week-07-mechanics-examples-section.webp" alt="Scientific plate illustration for Increasing And Reducing Pressure." width="1200" height="675" loading="lazy">
+            </figure>
+            <div class="two-col">
+              <div class="mini-card red">
+                <strong>Increase pressure by decreasing area</strong>
+                <p>A knife blade has a small contact area, so it produces enough pressure to cut fruit. Football boot studs have small contact areas, so they sink into the ground and provide grip.</p>
+              </div>
+              <div class="mini-card green">
+                <strong>Reduce pressure by increasing area</strong>
+                <p>Skis spread weight over a large area so the skier does not sink deeply into snow. Wall foundations use a large horizontal area so the wall does not sink into the ground.</p>
+              </div>
+            </div>
+            <div class="answer">
+              <strong>Circus nails quiz:</strong> the performer's weight is spread over a large area, which decreases the pressure.
+            </div>
+            <div class="answer">
+              <strong>Toy car quiz:</strong> each tyre has pressure 3.5 N/cm^2 and area 10 cm^2, so one tyre supports 35 N. Four tyres support 140 N.
+            </div>
+          </div>
+        </section>
+
+        <section id="pascal">
+          <div class="section-inner">
+            <div>
+              <span class="eyebrow">Page 11</span>
+              <h2>Pascal's Principle</h2>
+              <p>
+                Pascal's law states that a pressure change at any point in a confined
+                incompressible fluid is transmitted throughout the fluid so the same
+                pressure change occurs everywhere. The principle was established by
+                Blaise Pascal in 1653.
+              </p>
+            </div>
+            <div class="diagram" aria-label="Hydraulic lift diagram">
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/p5-week-07-mechanics-diagram-02.webp" alt="Textbook-style illustration: Hydraulic lift diagram." width="843" height="843" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
+            <div class="callout">
+              <p><strong>Hydraulic machines:</strong> if the output area is 10 times the input area, the output force can be 10 times the original force, ignoring losses.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="air">
+          <div class="section-inner">
+            <div>
+              <span class="eyebrow">Pages 11-12</span>
+              <h2>Air Pressure And Atmospheric Pressure</h2>
+              <p>
+                Air has weight and presses on everything it touches. Atmospheric pressure
+                is the force exerted on a surface by the column of air above it as gravity
+                pulls the air toward Earth.
+              </p>
+            </div>
+            <figure class="section-art">
+              <img class="generated-art section-art-img" src="./assets/generated/sections/p5-week-07-mechanics-air-section.webp" alt="Scientific plate illustration for Air Pressure And Atmospheric Pressure." width="1200" height="675" loading="lazy">
+            </figure>
+            <div class="fact-grid">
+              <div class="mini-card blue">
+                <strong>Crushed can experiment</strong>
+                <p>When air is removed from a can, outside atmospheric pressure can crush it inward.</p>
+              </div>
+              <div class="mini-card green">
+                <strong>One atmosphere</strong>
+                <p>About 1013 millibars, or 760 millimetres (29.92 inches) of mercury.</p>
+              </div>
+              <div class="mini-card gold">
+                <strong>Direction</strong>
+                <p>Air pressure acts in all directions, not only downward.</p>
+              </div>
+            </div>
+            <div class="answer">
+              <strong>Final quiz:</strong> air pressure is the result of the weight of a column of air pushing on an area; air exerts pressure everywhere; lowering the centre of gravity increases stability.
+            </div>
+          </div>
+        </section>
+
+        <section id="wrap">
+          <div class="section-inner">
+            <div>
+              <span class="eyebrow">Exam focus</span>
+              <h2>What To Remember</h2>
+            </div>
+            <div class="check-grid">
+              <div class="mini-card">
+                <strong>Moments</strong>
+                <p>Use force times perpendicular distance, and balance clockwise and anticlockwise moments.</p>
+              </div>
+              <div class="mini-card">
+                <strong>Stability</strong>
+                <p>An object topples when the vertical line from its centre of gravity falls outside its base.</p>
+              </div>
+              <div class="mini-card">
+                <strong>Pulleys</strong>
+                <p>More supporting rope segments reduce effort but increase the distance pulled.</p>
+              </div>
+              <div class="mini-card">
+                <strong>Pressure</strong>
+                <p>Pressure equals force divided by area, and fluid pressure changes are transmitted through confined fluids.</p>
+              </div>
+            </div>
+            <div class="source-note">
+              Source converted from IMG_20260427_0029.pdf. The scanned mechanics chapter was rebuilt into formula notes, worked examples, and explanatory diagrams.
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

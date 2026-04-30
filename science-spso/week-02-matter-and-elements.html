@@ -182,8 +182,8 @@
       overflow: hidden;
     }
 
-    .visual svg,
-    .diagram svg {
+    .visual img,
+    .diagram img {
       display: block;
       width: 100%;
       height: auto;
@@ -494,6 +494,43 @@
       }
     }
   </style>
+
+  <style>
+    .generated-art { max-width: 100%; }
+    .visual img.generated-art,
+    .hero-visual img.generated-art {
+      max-height: min(520px, 58vh);
+      object-fit: contain;
+    }
+    .diagram img.generated-art {
+      max-height: min(680px, 72vh);
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .section-art {
+      width: min(100%, 820px);
+      margin: 12px auto 16px;
+      padding: 10px;
+      border: 1px solid rgba(29, 39, 48, 0.14);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(29, 39, 48, 0.07);
+      overflow: hidden;
+    }
+    .section-art img.generated-art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    @media (max-width: 640px) {
+      .section-art { width: 100%; padding: 12px; }
+      .section-art img.generated-art { max-height: 260px; }
+    }
+  </style>
 </head>
 <body>
   <div class="wrap">
@@ -520,56 +557,7 @@
       </div>
 
       <div class="visual">
-        <svg viewBox="0 0 760 430" role="img" aria-labelledby="heroTitle heroDesc">
-          <title id="heroTitle">Particles, atoms, and elements</title>
-          <desc id="heroDesc">A diagram showing matter as particles in solid, liquid, and gas arrangements, with atoms made of subatomic particles.</desc>
-          <rect x="18" y="18" width="724" height="394" rx="28" fill="#f9fbf7" stroke="#d9e3df" stroke-width="2"/>
-          <g transform="translate(52 58)">
-            <text x="0" y="0" fill="#0f5d57" font-size="32" font-weight="900">Matter</text>
-            <text x="0" y="34" fill="#5f6c77" font-size="18">has mass, occupies space, and is made of tiny particles</text>
-          </g>
-          <g transform="translate(58 128)">
-            <rect width="190" height="210" rx="18" fill="#eef7f3" stroke="#177e75" stroke-width="3"/>
-            <text x="95" y="34" text-anchor="middle" fill="#0f5d57" font-size="24" font-weight="900">Solid</text>
-            <g fill="#177e75">
-              <circle cx="58" cy="74" r="14"/><circle cx="95" cy="74" r="14"/><circle cx="132" cy="74" r="14"/>
-              <circle cx="58" cy="111" r="14"/><circle cx="95" cy="111" r="14"/><circle cx="132" cy="111" r="14"/>
-              <circle cx="58" cy="148" r="14"/><circle cx="95" cy="148" r="14"/><circle cx="132" cy="148" r="14"/>
-            </g>
-            <text x="95" y="188" text-anchor="middle" fill="#5f6c77" font-size="16">packed; vibrate</text>
-          </g>
-          <g transform="translate(286 128)">
-            <rect width="190" height="210" rx="18" fill="#fff7ef" stroke="#d26a3a" stroke-width="3"/>
-            <text x="95" y="34" text-anchor="middle" fill="#8a482a" font-size="24" font-weight="900">Liquid</text>
-            <g fill="#d26a3a">
-              <circle cx="57" cy="84" r="14"/><circle cx="98" cy="70" r="14"/><circle cx="136" cy="91" r="14"/>
-              <circle cx="73" cy="123" r="14"/><circle cx="116" cy="127" r="14"/><circle cx="143" cy="157" r="14"/>
-              <circle cx="50" cy="158" r="14"/><circle cx="101" cy="169" r="14"/>
-            </g>
-            <path d="M54 55 C73 42 101 43 121 56" fill="none" stroke="#8a482a" stroke-width="4" stroke-linecap="round"/>
-            <path d="M118 190 C99 202 68 201 48 185" fill="none" stroke="#8a482a" stroke-width="4" stroke-linecap="round"/>
-            <text x="95" y="188" text-anchor="middle" fill="#5f6c77" font-size="16">slide past</text>
-          </g>
-          <g transform="translate(514 128)">
-            <rect width="190" height="210" rx="18" fill="#f1f3fb" stroke="#6a5da8" stroke-width="3"/>
-            <text x="95" y="34" text-anchor="middle" fill="#4e4784" font-size="24" font-weight="900">Gas</text>
-            <g fill="#6a5da8">
-              <circle cx="50" cy="79" r="12"/><circle cx="148" cy="73" r="12"/><circle cx="92" cy="116" r="12"/>
-              <circle cx="44" cy="164" r="12"/><circle cx="142" cy="160" r="12"/>
-            </g>
-            <g stroke="#4e4784" stroke-width="4" stroke-linecap="round">
-              <path d="M61 74 L88 57"/><path d="M135 75 L111 96"/><path d="M96 104 L122 93"/>
-              <path d="M55 160 L82 176"/><path d="M130 157 L107 140"/>
-            </g>
-            <text x="95" y="188" text-anchor="middle" fill="#5f6c77" font-size="16">far apart; free</text>
-          </g>
-          <g transform="translate(52 364)">
-            <circle cx="26" cy="16" r="16" fill="#c4912f"/>
-            <circle cx="20" cy="12" r="4" fill="#ffffff"/>
-            <circle cx="33" cy="20" r="4" fill="#ffffff"/>
-            <text x="58" y="22" fill="#1d2730" font-size="18" font-weight="800">Atoms contain protons, neutrons, and electrons.</text>
-          </g>
-        </svg>
+        <img class="generated-art" src="./assets/generated/week-02-matter-and-elements-hero.webp" alt="Textbook-style illustration for Matter and Elements." width="1448" height="1086" loading="eager" style="display:block;width:100%;height:auto;border-radius:8px;">
         <p class="caption">The PDF begins with particle theory, then connects particle motion to state changes and finally to atoms, elements, and the periodic table.</p>
       </div>
     </header>
@@ -597,6 +585,9 @@
             matter, diffusion/osmosis/dialysis, subatomic structure, and chemical composition
             of matter.
           </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-02-matter-and-elements-overview-section.webp" alt="Scientific plate illustration for Lesson Map." width="1200" height="675" loading="lazy">
+          </figure>
           <div class="overview-grid">
             <div class="step-card">
               <span class="num">1</span>
@@ -633,6 +624,9 @@
             Everyday objects that can be touched are ultimately composed of atoms, and atoms
             themselves are made of interacting subatomic particles.
           </p>
+          <figure class="section-art">
+            <img class="generated-art section-art-img" src="./assets/generated/sections/week-02-matter-and-elements-particle-theory-section.webp" alt="Scientific plate illustration for Particulate Nature Of Matter." width="1200" height="675" loading="lazy">
+          </figure>
           <div class="fact-grid">
             <div class="fact">
               <strong>Matter</strong>
@@ -704,7 +698,7 @@
               </tbody>
             </table>
           </div>
-          <p class="source-note">Video reference shown in the scan: <code>https://www.youtube.com/watch?v=fhnDxFdkzZs</code></p>
+          <p class="source-note">Video reference shown in the scan: <a href="https://www.youtube.com/watch?v=fhnDxFdkzZs" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=fhnDxFdkzZs</code></a></p>
         </section>
 
         <section id="states">
@@ -726,41 +720,8 @@
               </div>
             </div>
             <div class="diagram">
-              <svg viewBox="0 0 680 420" role="img" aria-labelledby="stateTitle stateDesc">
-                <title id="stateTitle">Changes of state</title>
-                <desc id="stateDesc">Solid, liquid, gas, and plasma with melting, freezing, boiling, condensation, sublimation, and deposition.</desc>
-                <defs>
-                  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                    <path d="M0,0 L10,5 L0,10 Z" fill="#2d6f95"/>
-                  </marker>
-                </defs>
-                <g font-family="Segoe UI, Tahoma, sans-serif">
-                  <rect x="26" y="158" width="116" height="76" rx="14" fill="#eef7f3" stroke="#177e75" stroke-width="4"/>
-                  <rect x="282" y="158" width="116" height="76" rx="14" fill="#fff7ef" stroke="#d26a3a" stroke-width="4"/>
-                  <rect x="538" y="158" width="116" height="76" rx="14" fill="#f1f3fb" stroke="#6a5da8" stroke-width="4"/>
-                  <text x="84" y="204" text-anchor="middle" fill="#0f5d57" font-size="22" font-weight="900">Solid</text>
-                  <text x="340" y="204" text-anchor="middle" fill="#8a482a" font-size="22" font-weight="900">Liquid</text>
-                  <text x="596" y="204" text-anchor="middle" fill="#4e4784" font-size="22" font-weight="900">Gas</text>
-                  <ellipse cx="84" cy="62" rx="72" ry="34" fill="#e6f0fb" stroke="#2d6f95" stroke-width="3"/>
-                  <text x="84" y="57" text-anchor="middle" fill="#254c62" font-size="16" font-weight="800">Bose-Einstein</text>
-                  <text x="84" y="77" text-anchor="middle" fill="#254c62" font-size="16" font-weight="800">condensate</text>
-                  <ellipse cx="596" cy="62" rx="60" ry="34" fill="#f8eefb" stroke="#6a5da8" stroke-width="3"/>
-                  <text x="596" y="68" text-anchor="middle" fill="#4e4784" font-size="18" font-weight="900">Plasma</text>
-                  <path d="M146 184 H276" stroke="#2d6f95" stroke-width="5" marker-end="url(#arrow)"/>
-                  <path d="M276 211 H146" stroke="#2d6f95" stroke-width="5" marker-end="url(#arrow)"/>
-                  <path d="M402 184 H532" stroke="#2d6f95" stroke-width="5" marker-end="url(#arrow)"/>
-                  <path d="M532 211 H402" stroke="#2d6f95" stroke-width="5" marker-end="url(#arrow)"/>
-                  <path d="M142 150 C234 62 444 62 538 150" fill="none" stroke="#c4912f" stroke-width="5" marker-end="url(#arrow)"/>
-                  <path d="M538 244 C448 330 234 330 142 244" fill="none" stroke="#c4912f" stroke-width="5" marker-end="url(#arrow)"/>
-                  <text x="211" y="171" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">melting</text>
-                  <text x="211" y="240" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">freezing</text>
-                  <text x="468" y="171" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">boiling</text>
-                  <text x="468" y="240" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">condensation</text>
-                  <text x="340" y="78" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">sublimation</text>
-                  <text x="340" y="340" text-anchor="middle" fill="#1d2730" font-size="16" font-weight="800">deposition</text>
-                </g>
-              </svg>
-            </div>
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-02-matter-and-elements-diagram-01.webp" alt="Textbook-style illustration: States of matter particle arrangements." width="488" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
           </div>
 
           <h3>Solid, Liquid, And Gas Particle Model</h3>
@@ -881,35 +842,8 @@
               </p>
             </div>
             <div class="diagram">
-              <svg viewBox="0 0 560 330" role="img" aria-labelledby="brownianTitle brownianDesc">
-                <title id="brownianTitle">Brownian motion and diffusion</title>
-                <desc id="brownianDesc">Particles move randomly and spread from high concentration to low concentration.</desc>
-                <defs>
-                  <marker id="smallArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                    <path d="M0,0 L10,5 L0,10 Z" fill="#177e75"/>
-                  </marker>
-                </defs>
-                <rect x="20" y="28" width="520" height="252" rx="20" fill="#f9fbf7" stroke="#d9e3df" stroke-width="2"/>
-                <line x1="280" y1="38" x2="280" y2="270" stroke="#d9e3df" stroke-width="4" stroke-dasharray="12 10"/>
-                <text x="140" y="304" text-anchor="middle" fill="#5f6c77" font-size="18">higher concentration</text>
-                <text x="420" y="304" text-anchor="middle" fill="#5f6c77" font-size="18">lower concentration</text>
-                <g fill="#177e75">
-                  <circle cx="82" cy="78" r="9"/><circle cx="110" cy="116" r="9"/><circle cx="76" cy="159" r="9"/>
-                  <circle cx="142" cy="82" r="9"/><circle cx="170" cy="146" r="9"/><circle cx="137" cy="199" r="9"/>
-                  <circle cx="205" cy="91" r="9"/><circle cx="214" cy="175" r="9"/><circle cx="100" cy="219" r="9"/>
-                  <circle cx="236" cy="225" r="9"/>
-                </g>
-                <g fill="#d26a3a">
-                  <circle cx="340" cy="96" r="9"/><circle cx="395" cy="151" r="9"/><circle cx="467" cy="103" r="9"/>
-                  <circle cx="438" cy="222" r="9"/>
-                </g>
-                <g fill="none" stroke="#177e75" stroke-width="4" marker-end="url(#smallArrow)">
-                  <path d="M210 92 C238 88 256 96 282 106"/>
-                  <path d="M188 192 C230 186 252 174 300 168"/>
-                  <path d="M236 225 C266 232 291 229 324 218"/>
-                </g>
-              </svg>
-            </div>
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-02-matter-and-elements-diagram-02.webp" alt="Textbook-style illustration: Brownian motion diffusion osmosis and dialysis." width="488" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
           </div>
 
           <h3>Key Definitions</h3>
@@ -986,62 +920,7 @@
             many dissolved salts and impurities are left behind.
           </p>
           <div class="diagram">
-            <svg viewBox="0 0 760 360" role="img" aria-labelledby="roTitle roDesc">
-              <title id="roTitle">Reverse osmosis desalination flow</title>
-              <desc id="roDesc">Sea water goes through screening, ultrafiltration, reverse osmosis, and post treatment.</desc>
-              <defs>
-                <marker id="roArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-                  <path d="M0,0 L10,5 L0,10 Z" fill="#2d6f95"/>
-                </marker>
-              </defs>
-              <rect x="24" y="36" width="120" height="82" rx="12" fill="#e6f0fb" stroke="#2d6f95" stroke-width="3"/>
-              <text x="84" y="69" text-anchor="middle" fill="#254c62" font-size="18" font-weight="900">Sea</text>
-              <text x="84" y="93" text-anchor="middle" fill="#254c62" font-size="18" font-weight="900">water</text>
-              <g fill="#6a5da8">
-                <circle cx="62" cy="147" r="6"/><circle cx="88" cy="160" r="6"/><circle cx="114" cy="145" r="6"/>
-              </g>
-              <g transform="translate(188 32)">
-                <rect width="126" height="92" rx="12" fill="#eef7f3" stroke="#177e75" stroke-width="3"/>
-                <text x="63" y="32" text-anchor="middle" fill="#0f5d57" font-size="16" font-weight="900">1</text>
-                <text x="63" y="58" text-anchor="middle" fill="#0f5d57" font-size="18" font-weight="900">Screening</text>
-              </g>
-              <g transform="translate(356 32)">
-                <rect width="126" height="92" rx="12" fill="#fff7ef" stroke="#d26a3a" stroke-width="3"/>
-                <text x="63" y="32" text-anchor="middle" fill="#8a482a" font-size="16" font-weight="900">2</text>
-                <text x="63" y="58" text-anchor="middle" fill="#8a482a" font-size="18" font-weight="900">Ultra-</text>
-                <text x="63" y="80" text-anchor="middle" fill="#8a482a" font-size="18" font-weight="900">filtration</text>
-              </g>
-              <g transform="translate(524 32)">
-                <rect width="126" height="92" rx="12" fill="#f1f3fb" stroke="#6a5da8" stroke-width="3"/>
-                <text x="63" y="32" text-anchor="middle" fill="#4e4784" font-size="16" font-weight="900">3</text>
-                <text x="63" y="58" text-anchor="middle" fill="#4e4784" font-size="18" font-weight="900">Reverse</text>
-                <text x="63" y="80" text-anchor="middle" fill="#4e4784" font-size="18" font-weight="900">osmosis</text>
-              </g>
-              <rect x="616" y="182" width="126" height="92" rx="12" fill="#eef7f3" stroke="#177e75" stroke-width="3"/>
-              <text x="679" y="214" text-anchor="middle" fill="#0f5d57" font-size="16" font-weight="900">4</text>
-              <text x="679" y="240" text-anchor="middle" fill="#0f5d57" font-size="18" font-weight="900">Post</text>
-              <text x="679" y="262" text-anchor="middle" fill="#0f5d57" font-size="18" font-weight="900">treatment</text>
-              <g stroke="#2d6f95" stroke-width="5" marker-end="url(#roArrow)">
-                <path d="M144 78 H182"/>
-                <path d="M314 78 H350"/>
-                <path d="M482 78 H518"/>
-                <path d="M650 78 C704 91 712 129 688 176"/>
-              </g>
-              <g transform="translate(120 204)">
-                <rect x="0" y="0" width="300" height="92" rx="12" fill="#ffffff" stroke="#d9e3df" stroke-width="2"/>
-                <line x1="150" y1="12" x2="150" y2="80" stroke="#1d2730" stroke-width="5"/>
-                <text x="75" y="28" text-anchor="middle" fill="#5f6c77" font-size="16" font-weight="800">salt water</text>
-                <text x="225" y="28" text-anchor="middle" fill="#5f6c77" font-size="16" font-weight="800">fresh water</text>
-                <g fill="#6a5da8">
-                  <circle cx="40" cy="52" r="6"/><circle cx="64" cy="62" r="6"/><circle cx="88" cy="48" r="6"/><circle cx="112" cy="64" r="6"/>
-                </g>
-                <g fill="#177e75">
-                  <circle cx="205" cy="54" r="6"/><circle cx="238" cy="64" r="6"/><circle cx="262" cy="50" r="6"/>
-                </g>
-                <path d="M24 78 C78 100 112 98 142 78" fill="none" stroke="#d26a3a" stroke-width="4" marker-end="url(#roArrow)"/>
-                <text x="150" y="112" text-anchor="middle" fill="#5f6c77" font-size="15">applied pressure pushes water across the membrane</text>
-              </g>
-            </svg>
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-02-matter-and-elements-diagram-03.webp" alt="Textbook-style illustration: Reverse osmosis desalination plant membrane." width="488" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
           </div>
           <div class="fact-grid">
             <div class="fact">
@@ -1061,7 +940,7 @@
               <p>Water is disinfected, remineralised, and made potable with chemicals such as chlorine and fluoride.</p>
             </div>
           </div>
-          <p class="source-note">PUB reference printed in the scan: <code>https://www.pub.gov.sg/watersupply/fournationaltaps/desalinatedwater/tsdp</code></p>
+          <p class="source-note">PUB reference printed in the scan: <a href="https://www.pub.gov.sg/watersupply/fournationaltaps/desalinatedwater/tsdp" target="_blank" rel="noopener noreferrer"><code>https://www.pub.gov.sg/watersupply/fournationaltaps/desalinatedwater/tsdp</code></a></p>
         </section>
 
         <section id="atoms">
@@ -1082,27 +961,8 @@
               </ul>
             </div>
             <div class="diagram">
-              <svg viewBox="0 0 460 320" role="img" aria-labelledby="atomTitle atomDesc">
-                <title id="atomTitle">Atom structure</title>
-                <desc id="atomDesc">An atom has a nucleus with protons and neutrons, and electrons outside the nucleus.</desc>
-                <rect x="20" y="20" width="420" height="280" rx="20" fill="#f9fbf7" stroke="#d9e3df" stroke-width="2"/>
-                <circle cx="230" cy="160" r="42" fill="#fff7ef" stroke="#d26a3a" stroke-width="4"/>
-                <circle cx="214" cy="150" r="13" fill="#d26a3a"/>
-                <circle cx="244" cy="151" r="13" fill="#c4912f"/>
-                <circle cx="226" cy="178" r="13" fill="#c4912f"/>
-                <circle cx="256" cy="177" r="13" fill="#d26a3a"/>
-                <ellipse cx="230" cy="160" rx="130" ry="52" fill="none" stroke="#177e75" stroke-width="4"/>
-                <ellipse cx="230" cy="160" rx="52" ry="130" fill="none" stroke="#177e75" stroke-width="4"/>
-                <ellipse cx="230" cy="160" rx="130" ry="52" transform="rotate(45 230 160)" fill="none" stroke="#2d6f95" stroke-width="4"/>
-                <circle cx="360" cy="160" r="11" fill="#6a5da8"/>
-                <circle cx="230" cy="30" r="11" fill="#6a5da8"/>
-                <circle cx="138" cy="252" r="11" fill="#6a5da8"/>
-                <text x="230" y="157" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="900">nucleus</text>
-                <text x="360" y="198" text-anchor="middle" fill="#4e4784" font-size="16" font-weight="800">electron</text>
-                <text x="214" y="124" text-anchor="middle" fill="#8a482a" font-size="16" font-weight="800">p+</text>
-                <text x="260" y="124" text-anchor="middle" fill="#8a482a" font-size="16" font-weight="800">n</text>
-              </svg>
-            </div>
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-02-matter-and-elements-diagram-04.webp" alt="Textbook-style illustration: Atom with nucleus electrons protons neutrons." width="488" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
           </div>
 
           <h3>Subatomic Particles</h3>
@@ -1176,27 +1036,7 @@
             non-elements discussed here are compounds and mixtures.
           </p>
           <div class="diagram">
-            <svg viewBox="0 0 760 300" role="img" aria-labelledby="classTitle classDesc">
-              <title id="classTitle">Matter classification</title>
-              <desc id="classDesc">Matter is classified into elements, compounds, and mixtures.</desc>
-              <defs>
-                <marker id="classArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-                  <path d="M0,0 L10,5 L0,10 Z" fill="#2d6f95"/>
-                </marker>
-              </defs>
-              <rect x="300" y="24" width="160" height="62" rx="14" fill="#eef7f3" stroke="#177e75" stroke-width="4"/>
-              <text x="380" y="63" text-anchor="middle" fill="#0f5d57" font-size="24" font-weight="900">Matter</text>
-              <rect x="88" y="178" width="160" height="70" rx="14" fill="#fff7ef" stroke="#d26a3a" stroke-width="4"/>
-              <rect x="300" y="178" width="160" height="70" rx="14" fill="#f1f3fb" stroke="#6a5da8" stroke-width="4"/>
-              <rect x="512" y="178" width="160" height="70" rx="14" fill="#e6f0fb" stroke="#2d6f95" stroke-width="4"/>
-              <text x="168" y="219" text-anchor="middle" fill="#8a482a" font-size="22" font-weight="900">Elements</text>
-              <text x="380" y="219" text-anchor="middle" fill="#4e4784" font-size="22" font-weight="900">Compounds</text>
-              <text x="592" y="219" text-anchor="middle" fill="#254c62" font-size="22" font-weight="900">Mixtures</text>
-              <path d="M348 86 L190 172" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#classArrow)"/>
-              <path d="M380 88 V170" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#classArrow)"/>
-              <path d="M412 86 L570 172" fill="none" stroke="#2d6f95" stroke-width="5" marker-end="url(#classArrow)"/>
-              <text x="380" y="126" text-anchor="middle" fill="#5f6c77" font-size="16">classified by chemical composition</text>
-            </svg>
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-02-matter-and-elements-diagram-05.webp" alt="Textbook-style illustration: Chemical composition and periodic table overview." width="488" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
           </div>
 
           <div class="fact-grid">
@@ -1257,31 +1097,8 @@
           </p>
           <div class="two-col">
             <div class="diagram">
-              <svg viewBox="0 0 460 310" role="img" aria-labelledby="tileTitle tileDesc">
-                <title id="tileTitle">Periodic table tile</title>
-                <desc id="tileDesc">A nitrogen tile with atomic number, symbol, name, and relative atomic mass.</desc>
-                <defs>
-                  <marker id="tileArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-                    <path d="M0,0 L10,5 L0,10 Z" fill="#2d6f95"/>
-                  </marker>
-                </defs>
-                <rect x="76" y="42" width="190" height="230" rx="12" fill="#ffffff" stroke="#1d2730" stroke-width="5"/>
-                <text x="104" y="86" fill="#1d2730" font-size="36" font-weight="900">7</text>
-                <text x="171" y="168" text-anchor="middle" fill="#1d2730" font-size="92" font-weight="900">N</text>
-                <text x="171" y="208" text-anchor="middle" fill="#1d2730" font-size="25" font-weight="800">NITROGEN</text>
-                <text x="171" y="246" text-anchor="middle" fill="#1d2730" font-size="34">14.007</text>
-                <g stroke="#2d6f95" stroke-width="4" marker-end="url(#tileArrow)">
-                  <path d="M360 70 H274"/>
-                  <path d="M360 143 H274"/>
-                  <path d="M360 204 H274"/>
-                  <path d="M360 244 H274"/>
-                </g>
-                <text x="366" y="75" fill="#254c62" font-size="17" font-weight="800">atomic number</text>
-                <text x="366" y="148" fill="#254c62" font-size="17" font-weight="800">chemical symbol</text>
-                <text x="366" y="209" fill="#254c62" font-size="17" font-weight="800">chemical name</text>
-                <text x="366" y="249" fill="#254c62" font-size="17" font-weight="800">relative atomic mass</text>
-              </svg>
-            </div>
+            <img class="generated-art diagram-art" src="./assets/generated/diagrams/week-02-matter-and-elements-diagram-06.webp" alt="Textbook-style illustration: Periodic table element tile and atomic-number concept." width="488" height="488" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px;">
+          </div>
             <div>
               <p>
                 The atomic number is the number of protons. It defines what chemical element the
@@ -1326,16 +1143,16 @@
             <div>
               <h3>Video And Activity Links Printed In The Scan</h3>
               <ul>
-                <li>Particle theory: <code>https://www.youtube.com/watch?v=fhnDxFdkzZs</code></li>
-                <li>Matter/particle theory: <code>https://www.youtube.com/watch?v=94tReSbyPYc</code></li>
-                <li>Diffusion simulation: <code>https://phet.colorado.edu/sims/html/diffusion/latest/diffusion_en.html</code></li>
-                <li>Dalton's playhouse: <code>https://www.visionlearning.com/library/animations/daltons_playhouse/</code></li>
-                <li>Atomic structure: <code>https://www.youtube.com/watch?v=ukGLH_NrFH8</code></li>
-                <li>Discovery of periodic table: <code>https://www.youtube.com/watch?v=O-48znAg7VE</code></li>
-                <li>Discovery of periodic table: <code>https://www.youtube.com/watch?v=fPnwBITSmgU</code></li>
-                <li>Overview of periodic table: <code>https://www.youtube.com/watch?v=uPkEGAHo78o</code></li>
-                <li>Physics: <code>https://www.youtube.com/watch?v=TTHazQeM8v8</code></li>
-                <li>Electricity: <code>https://www.youtube.com/watch?v=ru032Mfsfjg</code></li>
+                <li>Particle theory: <a href="https://www.youtube.com/watch?v=fhnDxFdkzZs" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=fhnDxFdkzZs</code></a></li>
+                <li>Matter/particle theory: <a href="https://www.youtube.com/watch?v=94tReSbyPYc" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=94tReSbyPYc</code></a></li>
+                <li>Diffusion simulation: <a href="https://phet.colorado.edu/sims/html/diffusion/latest/diffusion_en.html" target="_blank" rel="noopener noreferrer"><code>https://phet.colorado.edu/sims/html/diffusion/latest/diffusion_en.html</code></a></li>
+                <li>Dalton's playhouse: <a href="https://www.visionlearning.com/library/animations/daltons_playhouse/" target="_blank" rel="noopener noreferrer"><code>https://www.visionlearning.com/library/animations/daltons_playhouse/</code></a></li>
+                <li>Atomic structure: <a href="https://www.youtube.com/watch?v=ukGLH_NrFH8" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=ukGLH_NrFH8</code></a></li>
+                <li>Discovery of periodic table: <a href="https://www.youtube.com/watch?v=O-48znAg7VE" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=O-48znAg7VE</code></a></li>
+                <li>Discovery of periodic table: <a href="https://www.youtube.com/watch?v=fPnwBITSmgU" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=fPnwBITSmgU</code></a></li>
+                <li>Overview of periodic table: <a href="https://www.youtube.com/watch?v=uPkEGAHo78o" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=uPkEGAHo78o</code></a></li>
+                <li>Physics: <a href="https://www.youtube.com/watch?v=TTHazQeM8v8" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=TTHazQeM8v8</code></a></li>
+                <li>Electricity: <a href="https://www.youtube.com/watch?v=ru032Mfsfjg" target="_blank" rel="noopener noreferrer"><code>https://www.youtube.com/watch?v=ru032Mfsfjg</code></a></li>
               </ul>
             </div>
           </div>
