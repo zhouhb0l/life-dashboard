@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《勇气》幼儿疗愈绘本活动方案</title>
+  <style>
+    :root {
+      --bg: #f8f2e8;
+      --paper: #fffaf2;
+      --paper-strong: #fff4df;
+      --ink: #25302d;
+      --muted: #66746d;
+      --line: #e4d7c5;
+      --teal: #287a70;
+      --teal-dark: #155f58;
+      --gold: #c78a2f;
+      --rose: #c9665d;
+      --blue: #406f9c;
+      --shadow: 0 18px 48px rgba(52, 38, 23, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(255, 250, 242, 0.92), rgba(248, 242, 232, 0.98)),
+        var(--bg);
+    }
+
+    body.locked .page {
+      display: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .gate {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(21, 95, 88, 0.86), rgba(64, 111, 156, 0.84)),
+        url("./assets/hero-courage.png") center / cover;
+    }
+
+    body:not(.locked) .gate {
+      display: none;
+    }
+
+    .gate-panel {
+      width: min(460px, 100%);
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 18px;
+      padding: 26px;
+      background: rgba(255, 250, 242, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .gate-panel h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .gate-panel p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .gate-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    input,
+    button {
+      font: inherit;
+    }
+
+    .gate-form input {
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0 13px;
+      background: #fffdf8;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .gate-form input:focus {
+      border-color: rgba(40, 122, 112, 0.7);
+      box-shadow: 0 0 0 4px rgba(40, 122, 112, 0.12);
+    }
+
+    .btn {
+      min-height: 46px;
+      border: 0;
+      border-radius: 10px;
+      padding: 0 16px;
+      background: var(--teal);
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .gate-error {
+      min-height: 24px;
+      margin: 10px 0 0;
+      color: #a7443e;
+      font-weight: 700;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(228, 215, 197, 0.82);
+      background: rgba(255, 250, 242, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      min-height: 58px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 900;
+      color: var(--teal-dark);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav a,
+    .unlock {
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(40, 122, 112, 0.08);
+    }
+
+    .unlock {
+      border: 0;
+      color: var(--teal-dark);
+      cursor: pointer;
+    }
+
+    .hero {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 34px 0 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 18px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: rgba(199, 138, 47, 0.14);
+      color: #8a5b1f;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 0.98;
+      letter-spacing: 0;
+      color: #172925;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 720px;
+      color: #43504b;
+      line-height: 1.9;
+      font-size: 18px;
+    }
+
+    .hero-image {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(228, 215, 197, 0.9);
+      box-shadow: var(--shadow);
+      background: var(--paper);
+    }
+
+    .hero-image img {
+      aspect-ratio: 16 / 11;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .fact {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(255, 250, 242, 0.82);
+    }
+
+    .fact span {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .fact strong {
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .section {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0;
+    }
+
+    .band {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 244, 223, 0.58);
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+    }
+
+    .section p {
+      margin: 0;
+      color: #43504b;
+      line-height: 1.9;
+    }
+
+    .quote {
+      margin-top: 16px;
+      border-left: 5px solid var(--teal);
+      padding: 14px 18px;
+      background: var(--paper);
+      border-radius: 0 14px 14px 0;
+      box-shadow: 0 8px 24px rgba(52, 38, 23, 0.07);
+      color: #293834;
+      font-size: 18px;
+      line-height: 1.8;
+      font-weight: 800;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .image-panel {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .image-panel img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .image-panel figcaption {
+      padding: 12px 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .activity-list,
+    .steps,
+    .cards {
+      display: grid;
+      gap: 12px;
+    }
+
+    .activity {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(52, 38, 23, 0.06);
+    }
+
+    .activity h3 {
+      margin: 0 0 9px;
+      font-size: 21px;
+      color: var(--teal-dark);
+    }
+
+    .activity p + p {
+      margin-top: 8px;
+    }
+
+    .label {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: rgba(40, 122, 112, 0.09);
+      color: var(--teal-dark);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .cards {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .emotion-card {
+      min-height: 118px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: var(--paper);
+      display: grid;
+      align-content: center;
+      gap: 8px;
+    }
+
+    .emotion-card strong {
+      color: var(--teal-dark);
+      font-size: 18px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--paper);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    th,
+    td {
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.7;
+    }
+
+    th {
+      color: var(--teal-dark);
+      background: rgba(40, 122, 112, 0.08);
+      font-size: 15px;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .safety {
+      border: 1px solid rgba(201, 102, 93, 0.35);
+      border-radius: 16px;
+      padding: 18px;
+      background: rgba(201, 102, 93, 0.08);
+    }
+
+    .safety h3 {
+      margin: 0 0 10px;
+      color: #9f3e38;
+      font-size: 23px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 1.2em;
+      color: #43504b;
+      line-height: 1.85;
+    }
+
+    li + li {
+      margin-top: 5px;
+    }
+
+    .closing {
+      padding-bottom: 54px;
+    }
+
+    .print-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .secondary-btn {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 11px 14px;
+      background: var(--paper);
+      color: var(--teal-dark);
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .facts,
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .facts,
+      .cards,
+      .gate-form {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+    }
+
+    @media print {
+      .gate,
+      .topbar,
+      .print-actions {
+        display: none;
+      }
+
+      body.locked .page,
+      .page {
+        display: block;
+      }
+
+      body {
+        background: white;
+      }
+
+      .section,
+      .hero {
+        width: 100%;
+        padding: 18px 0;
+      }
+    }
+  </style>
+</head>
+<body class="locked">
+  <section class="gate" aria-label="访问验证">
+    <div class="gate-panel">
+      <h1>《勇气》幼儿疗愈活动</h1>
+      <p>这是一个受保护的活动方案页面。请输入访问口令后查看完整内容。</p>
+      <form class="gate-form" id="gateForm">
+        <input id="passcode" type="password" autocomplete="current-password" placeholder="请输入口令" aria-label="访问口令">
+        <button class="btn" type="submit">进入</button>
+      </form>
+      <p class="gate-error" id="gateError" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="../">Life Dashboard</a>
+        <nav class="nav" aria-label="页面导航">
+          <a href="#intro">绘本导入</a>
+          <a href="#yoga">亲子瑜伽</a>
+          <a href="#dark">微暗探索</a>
+          <a href="#emotion">情绪表达</a>
+          <a href="#safety">安全提醒</a>
+        </nav>
+        <button class="unlock" type="button" id="lockButton">锁定页面</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">幼儿疗愈绘本活动方案</span>
+          <h1>《勇气》主题：我敢试一试</h1>
+          <p class="lead">
+            这是一节面向 3—6 岁幼儿与家长的亲子活动。活动不是要求孩子“不要害怕”，而是让孩子在安全陪伴中体验：
+            我有一点害怕，但爸爸妈妈陪着我，我可以慢慢试一试。
+          </p>
+          <div class="facts" aria-label="活动信息">
+            <div class="fact"><span>适合年龄</span><strong>3—6 岁</strong></div>
+            <div class="fact"><span>活动形式</span><strong>绘本 + 瑜伽 + 探索</strong></div>
+            <div class="fact"><span>活动时长</span><strong>45—60 分钟</strong></div>
+            <div class="fact"><span>参与对象</span><strong>幼儿与父母</strong></div>
+          </div>
+        </div>
+        <figure class="hero-image">
+          <img src="./assets/hero-courage.png" alt="幼儿在爸爸妈妈陪伴下探索微暗空间的温暖插画">
+        </figure>
+      </section>
+
+      <section class="section band" id="intro">
+        <h2>核心目标</h2>
+        <p>
+          让孩子在安全、温暖、可控的亲子陪伴中，通过身体游戏、微暗房间探索和情绪表达，感受“勇气不是不害怕，而是害怕时也愿意尝试一点点”。
+          活动尊重孩子的节奏，允许观察、等待、拒绝和再次尝试。
+        </p>
+        <div class="quote">
+          勇气不一定是很大的事情。勇气可以是第一次尝试，可以是说出自己的害怕，也可以是在爸爸妈妈陪伴下，慢慢往前走一步。
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="grid-2">
+          <div>
+            <h2>一、绘本导入：什么是勇气？</h2>
+            <div class="steps">
+              <div class="activity">
+                <h3>观察封面</h3>
+                <p><span class="label">教师引导：</span>“你看到封面上的小朋友在做什么？”“他站在跳板上，可能是什么感觉？”“他会不会有一点紧张？可是他还站在那里，这就是一种勇气。”</p>
+              </div>
+              <div class="activity">
+                <h3>连接生活经验</h3>
+                <p><span class="label">可以提问：</span>“你有没有害怕过黑黑的房间？”“你有没有不敢尝试的新动作？”“今天我们不比赛谁最厉害，我们只练习一件事：我敢试一试。”</p>
+              </div>
+            </div>
+          </div>
+          <div class="activity">
+            <h3>材料准备</h3>
+            <ul>
+              <li>绘本《勇气》或封面图片。</li>
+              <li>瑜伽垫、软垫、抱枕、毛绒玩具。</li>
+              <li>星星灯、小夜灯、小手电筒、彩色纱巾。</li>
+              <li>勇气卡片、情绪卡片、勇气贴纸或小星星。</li>
+              <li>篮子、软球、终点标记和安全边界线。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band" id="yoga">
+        <div class="grid-2">
+          <div>
+            <h2>二、亲子瑜伽：身体里的勇气</h2>
+            <p>
+              亲子瑜伽可以设计成“勇气闯关”。动作不要求标准，重点是孩子感受到：我和爸爸妈妈一起完成了一件新事情。
+            </p>
+            <div class="pill-row">
+              <span class="pill">稳定感</span>
+              <span class="pill">安全感</span>
+              <span class="pill">身体控制</span>
+              <span class="pill">信任合作</span>
+              <span class="pill">表达边界</span>
+            </div>
+          </div>
+          <figure class="image-panel">
+            <img src="./assets/parent-yoga.png" alt="亲子瑜伽活动插画">
+            <figcaption>身体活动的重点不是完成高难度动作，而是在被牵住、被扶住、被接住时，体验“我可以试一试”。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="activity-list">
+          <div class="activity">
+            <h3>动作一：勇气小树</h3>
+            <p><span class="label">形式：</span>家长和孩子面对面站立，双手牵在一起。孩子尝试单脚站立，家长扶住孩子的手帮助平衡。</p>
+            <p><span class="label">引导语：</span>“我们像一棵小树一样站稳。小树也会摇一摇，但它不会倒，因为爸爸妈妈在旁边陪着。”</p>
+          </div>
+          <div class="activity">
+            <h3>动作二：亲子小船</h3>
+            <p><span class="label">形式：</span>家长和孩子面对面坐下，脚掌轻轻碰在一起，双手相牵。慢慢把脚抬起来，年龄小的孩子可以只抬一只脚。</p>
+            <p><span class="label">引导语：</span>“我们的小船要出发啦。海浪来了，身体会晃一晃，但是我们牵着手，就不会害怕。”</p>
+          </div>
+          <div class="activity">
+            <h3>动作三：勇气山洞</h3>
+            <p><span class="label">形式：</span>家长做下犬式或跪趴姿势，身体形成一个“山洞”。孩子可以先看一看、摸一摸，准备好后再慢慢爬过去。</p>
+            <p><span class="label">疗愈重点：</span>适合不敢马上尝试的孩子。等待也是被允许的，慢慢开始也是勇气。</p>
+          </div>
+          <div class="activity">
+            <h3>动作四：爸爸妈妈的大山</h3>
+            <p><span class="label">形式：</span>家长四肢跪地，像一座稳稳的大山。孩子轻轻趴在家长背上，感受被承托。</p>
+            <p><span class="label">注意：</span>不建议孩子站在家长背上。可以改为“趴在大山上休息”，帮助孩子放松身体。</p>
+          </div>
+          <div class="activity">
+            <h3>动作五：勇气小飞机</h3>
+            <p><span class="label">形式：</span>家长仰卧，双膝弯曲，小腿抬起。孩子趴在家长小腿上，家长双手扶住孩子的手或腋下。年龄小的孩子只做低空飞机。</p>
+            <p><span class="label">引导语：</span>“小飞机要起飞啦。你可以告诉爸爸妈妈：高一点、低一点、停下来。”</p>
+          </div>
+          <div class="activity">
+            <h3>动作六：双亲勇气桥</h3>
+            <p><span class="label">形式：</span>爸爸妈妈面对面坐下，双腿伸直或微弯，脚底相对形成“桥”。孩子从中间走过、爬过，或站在中间被两边牵着手。</p>
+            <p><span class="label">安全提醒：</span>地上铺瑜伽垫，孩子不能穿袜子，家长全程扶手，旁边最好有老师保护。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band" id="dark">
+        <div class="grid-2">
+          <figure class="image-panel">
+            <img src="./assets/dark-room.png" alt="微暗房间勇气探索插画">
+            <figcaption>微暗探索不是制造恐惧，而是在可控挑战中让孩子知道：我可以牵着爸爸妈妈的手，慢慢去看看。</figcaption>
+          </figure>
+          <div>
+            <h2>三、黑暗房间活动：在微暗里找到勇气</h2>
+            <p>
+              房间不需要完全漆黑。可以使用微暗灯光、星星灯、小夜灯和手电筒，让孩子既有一点挑战，又不会过度害怕。
+              老师可以先说明：“黑暗不是怪物，它只是光少了一点。”
+            </p>
+            <div class="quote">
+              害怕的时候，我们可以慢一点。你可以牵紧爸爸妈妈的手。你已经往前走了一步，这就是勇气。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>活动</th>
+                <th>玩法</th>
+                <th>疗愈重点</th>
+                <th>教师引导语</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>牵手走勇气路</td>
+                <td>孩子牵着家长的手，沿着垫子小路慢慢走。路上摸云朵抱枕、找星星灯、把勇气球放进篮子，终点抱抱爸爸妈妈。</td>
+                <td>在轻度不确定环境中建立可控感和安全感。</td>
+                <td>“你不用很快，只要一步一步来。”</td>
+              </tr>
+              <tr>
+                <td>手电筒找勇气</td>
+                <td>每组亲子拿一个小手电筒，在微暗房间里寻找勇气卡片。</td>
+                <td>把害怕具体化、游戏化，让孩子在寻找中慢慢适应黑暗。</td>
+                <td>“你找到的卡片，是今天属于你的勇气。”</td>
+              </tr>
+              <tr>
+                <td>影子变变变</td>
+                <td>家长用手电筒照墙，和孩子一起做手影，也可以观察影子变大变小。</td>
+                <td>帮助孩子理解有些害怕来自想象，看清楚以后就没那么可怕。</td>
+                <td>“影子看起来很大，其实只是光照出来的样子。”</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section band" id="emotion">
+        <h2>四、情绪表达：我害怕，但我可以说出来</h2>
+        <p>
+          亲子坐回垫子上，孩子可以选择一张情绪卡，或者由家长帮助表达。重点是让孩子知道：害怕可以被接纳，说出害怕本身也是一种勇气。
+        </p>
+        <div class="cards">
+          <div class="emotion-card">
+            <strong>我有一点害怕</strong>
+            <span>允许孩子承认害怕，不急着纠正。</span>
+          </div>
+          <div class="emotion-card">
+            <strong>我想试试看</strong>
+            <span>把“勇敢”变成小小一步，而不是一次完成。</span>
+          </div>
+          <div class="emotion-card">
+            <strong>我需要抱抱</strong>
+            <span>让孩子练习表达需求和边界。</span>
+          </div>
+          <div class="emotion-card">
+            <strong>我可以慢一点</strong>
+            <span>尊重节奏，让安全感先到达。</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="grid-2">
+          <div class="activity">
+            <h3>家长回应示例</h3>
+            <ul>
+              <li>“我看到你刚刚有一点紧张，但你还是试了一下。”</li>
+              <li>“你不用马上变勇敢，慢慢来就可以。”</li>
+              <li>“你说‘我害怕’的时候，也是一种勇气。”</li>
+              <li>“你可以告诉我：停下来、低一点、抱抱我。”</li>
+            </ul>
+          </div>
+          <div class="activity">
+            <h3>结束仪式：勇气抱抱</h3>
+            <p>家长抱住孩子，或和孩子额头碰额头，深呼吸三次。</p>
+            <p><span class="label">教师引导：</span>“吸气，抱一抱勇敢的自己。呼气，把害怕慢慢放下来。今天的勇气不是你一点都不怕，而是你愿意试一试。”</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band" id="safety">
+        <div class="safety">
+          <h3>安全与边界提醒</h3>
+          <ul>
+            <li>微暗房间不能完全漆黑，必须保留小夜灯或星星灯。</li>
+            <li>所有活动地面铺软垫，移走尖锐、硬质、易绊倒物品。</li>
+            <li>瑜伽动作以低风险、低高度、短暂停留为主，不做跳跃或倒立挑战。</li>
+            <li>孩子可以说“停”“不要”“抱抱我”，成人必须立即尊重。</li>
+            <li>教师需要观察孩子表情、身体僵硬、哭泣、退缩等信号，必要时降低难度或退出活动。</li>
+            <li>活动不比较谁更勇敢，不催促胆小的孩子，避免用“你看别人都敢”进行压力引导。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section closing">
+        <h2>方案中的疗愈意义</h2>
+        <p>
+          本次活动以绘本《勇气》为主题，通过亲子瑜伽、微暗环境探索和情绪表达，引导幼儿在安全、温暖、可控的环境中体验“勇气”。
+          活动并不强调幼儿必须克服恐惧，而是尊重幼儿的节奏，允许孩子观察、等待、拒绝和再次尝试。
+          亲子瑜伽中的身体接触、支撑与合作，有助于增强幼儿的安全感和信任感；微暗房间的探索活动，则帮助幼儿在轻度挑战中逐步适应不确定环境。
+          通过家长的陪伴、语言回应和身体支持，幼儿能够感受到：害怕是可以被接纳的，而勇气就是在被爱包围的时候，愿意迈出小小一步。
+        </p>
+        <div class="print-actions">
+          <button class="secondary-btn" type="button" onclick="window.print()">打印或保存为 PDF</button>
+          <a class="secondary-btn" href="../">返回首页</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const accessKey = "courage-therapy-access";
+    const passcode = atob("eXk=");
+    const gateForm = document.getElementById("gateForm");
+    const passcodeInput = document.getElementById("passcode");
+    const gateError = document.getElementById("gateError");
+    const lockButton = document.getElementById("lockButton");
+
+    function unlock() {
+      document.body.classList.remove("locked");
+      localStorage.setItem(accessKey, "ok");
+    }
+
+    function lock() {
+      localStorage.removeItem(accessKey);
+      document.body.classList.add("locked");
+      passcodeInput.value = "";
+      passcodeInput.focus();
+    }
+
+    if (localStorage.getItem(accessKey) === "ok") {
+      document.body.classList.remove("locked");
+    }
+
+    gateForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (passcodeInput.value.trim() === passcode) {
+        gateError.textContent = "";
+        unlock();
+      } else {
+        gateError.textContent = "口令不正确，请再试一次。";
+        passcodeInput.select();
+      }
+    });
+
+    lockButton.addEventListener("click", lock);
+  </script>
+</body>
+</html>
