@@ -197,14 +197,6 @@
       cursor: pointer;
     }
 
-    .hero {
-      padding: 32px 0 22px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
-      gap: 18px;
-      align-items: end;
-    }
-
     .eyebrow {
       display: inline-flex;
       width: fit-content;
@@ -292,37 +284,38 @@
       padding: 16px;
     }
 
-    .meeting-grid,
-    .snapshot-grid {
+    .meeting-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 12px;
     }
 
-    .meeting-card,
-    .project-card {
+    .meeting-card {
       display: grid;
-      gap: 10px;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
       border: 1px solid var(--line);
       border-radius: 8px;
       padding: 14px;
       background: #fbfcfa;
-      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .meeting-card:hover,
-    .project-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(45, 125, 97, 0.45);
-      box-shadow: 0 10px 24px rgba(21, 32, 28, 0.08);
-    }
-
-    .meeting-card h3,
-    .project-card h3 {
-      margin: 0;
+    .meeting-date {
+      color: var(--green);
       font-size: 20px;
+      font-weight: 900;
       line-height: 1.25;
-      letter-spacing: 0;
+    }
+
+    .meeting-date:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .meeting-card p {
+      margin: 0;
+      color: #43514d;
+      line-height: 1.55;
     }
 
     .tag-row {
@@ -514,17 +507,6 @@
       white-space: nowrap;
     }
 
-    .portfolio-layout {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 16px;
-      min-height: 0;
-    }
-
-    .quick-stats {
-      align-content: start;
-    }
-
     .portfolio-table {
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -535,12 +517,12 @@
 
     .project-row {
       display: grid;
-      grid-template-columns: minmax(220px, 1.5fr) 92px 116px 1.5fr;
+      grid-template-columns: minmax(220px, 1.25fr) 150px minmax(0, 1.8fr);
       gap: 10px;
       align-items: center;
-      padding: 9px 12px;
+      padding: 10px 12px;
       border-bottom: 1px solid var(--line);
-      min-height: 46px;
+      min-height: 44px;
       color: inherit;
     }
 
@@ -645,8 +627,6 @@
     }
 
     @media (max-width: 900px) {
-      .hero,
-      .portfolio-layout,
       .agenda-grid,
       .project-slide-grid,
       .closing-grid,
@@ -664,6 +644,10 @@
       }
 
       .project-row {
+        grid-template-columns: 1fr;
+      }
+
+      .meeting-card {
         grid-template-columns: 1fr;
       }
     }
@@ -712,43 +696,15 @@
 
     <main>
       <section class="index-view" id="index">
-        <div class="hero">
-          <div>
-            <span class="eyebrow">Protected workspace | passcode: meeting</span>
-            <h1>Meeting Preparation</h1>
-            <p class="lead">
-              This page is the presentation hub for group meetings. The index lists each meeting by date and theme.
-              Each deck opens as a Reveal.js presentation and starts with a project-progress summary.
-            </p>
-          </div>
-          <div class="stat-grid">
-            <div class="stat"><span>First meeting</span><strong>14 May 2026</strong></div>
-            <div class="stat"><span>Slide engine</span><strong>Reveal.js</strong></div>
-            <div class="stat"><span>Project source</span><strong>Daily Plan</strong></div>
-          </div>
-        </div>
-
         <section class="panel">
           <div class="panel-head">
             <div>
               <h2>Meeting Index</h2>
-              <p class="meta">Add future meetings here by date, theme, and short description.</p>
+              <p class="meta">Each date opens the presentation deck for that meeting.</p>
             </div>
           </div>
           <div class="panel-body">
             <div class="meeting-grid" id="meetingGrid"></div>
-          </div>
-        </section>
-
-        <section class="panel">
-          <div class="panel-head">
-            <div>
-              <h2>Project Snapshot</h2>
-              <p class="meta">Current project progress pulled from the daily-plan tracker. Click a card to open its slide in the May 14 deck.</p>
-            </div>
-          </div>
-          <div class="panel-body">
-            <div class="snapshot-grid" id="indexProjectSnapshot"></div>
           </div>
         </section>
       </section>
@@ -781,7 +737,7 @@
         date: "2026-05-14",
         dateLabel: "14 May 2026",
         theme: "Project portfolio update",
-        description: "First outline deck for group meeting project updates: TaN, HY application, recessed contact, phonon susceptibility, NEGF/Joule heating, QME, 1D chain, and Nonlocal SBH.",
+        description: "Project progress deck covering TaN, HY application, recessed contact, phonon susceptibility, NEGF/Joule heating, QME, 1D chain, and Nonlocal SBH.",
         tags: ["First meeting", "Project updates", "Reveal.js deck"]
       }
     ];
@@ -810,7 +766,6 @@
     const lockButton = document.getElementById("lockButton");
     const deckLockButton = document.getElementById("deckLockButton");
     const meetingGrid = document.getElementById("meetingGrid");
-    const indexProjectSnapshot = document.getElementById("indexProjectSnapshot");
     const slidesRoot = document.getElementById("slidesRoot");
     const notesButton = document.getElementById("notesButton");
     const printDeck = document.getElementById("printDeck");
@@ -896,30 +851,16 @@
 
     function renderMeetingIndex() {
       meetingGrid.innerHTML = meetings.map((meeting) => `
-        <a class="meeting-card" href="#deck/${meeting.id}">
-          <span class="meta">${meeting.dateLabel}</span>
-          <h3>${escapeHtml(meeting.theme)}</h3>
-          <p class="meta">${escapeHtml(meeting.description)}</p>
-          <span class="tag-row">
-            ${meeting.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
-          </span>
-        </a>
+        <div class="meeting-card">
+          <a class="meeting-date" href="#deck/${meeting.id}">${meeting.dateLabel}</a>
+          <p>${escapeHtml(meeting.description)}</p>
+        </div>
       `).join("");
-    }
-
-    function renderIndexProjectSnapshot() {
-      const projects = getProjectList();
-      indexProjectSnapshot.innerHTML = projects.length
-        ? projects.map((project) => projectCard(project)).join("")
-        : '<p class="meta">No research projects found in the daily-plan tracker yet.</p>';
     }
 
     function renderDeck() {
       const meeting = meetings[0];
       const projects = getProjectList();
-      const activeCount = projects.filter((project) => projectStatus(project) === "Active").length;
-      const waitingCount = projects.filter((project) => projectStatus(project) === "Waiting").length;
-      const completedCount = projects.filter((project) => projectStatus(project) === "Completed").length;
 
       slideKeys = [
         meeting.id,
@@ -929,55 +870,30 @@
       ];
 
       slidesRoot.innerHTML = [
-        summarySlide(meeting, projects, activeCount, waitingCount, completedCount),
+        summarySlide(meeting, projects),
         agendaSlide(),
         ...projects.map((project, index) => projectSlide(project, index + 3)),
         closingSlide(projects.length + 3)
       ].join("");
     }
 
-    function projectCard(project) {
-      const last = latestLog(project);
-      return `
-        <a class="project-card" href="#deck/${project.id}">
-          <span class="project-top">
-            <h3>${escapeHtml(project.name)}</h3>
-            <span class="percent">${Number(project.progress || 0)}%</span>
-          </span>
-          <span class="bar" style="--value:${Number(project.progress || 0)}%"><span></span></span>
-          <span class="tag-row">
-            <span class="status-pill ${statusClass(project)}">${escapeHtml(projectStatus(project))}</span>
-            <span class="tag">${escapeHtml(project.importance || "Medium")} importance</span>
-          </span>
-          <span class="meta">${escapeHtml(last?.note || "No update note yet.")}</span>
-        </a>
-      `;
-    }
-
-    function summarySlide(meeting, projects, activeCount, waitingCount, completedCount) {
+    function summarySlide(meeting, projects) {
       return `
         <section data-slide-key="${meeting.id}">
           <div class="slide-shell">
             <header class="slide-head">
               <div>
                 <span class="slide-kicker">${meeting.dateLabel} | ${escapeHtml(meeting.theme)}</span>
-                <h2>Project Summary And Progress</h2>
+                <h2>Project List And Progress Summary</h2>
               </div>
               <span class="slide-count">Slide 1</span>
             </header>
-            <div class="portfolio-layout">
-              <aside class="quick-stats">
-                <div class="stat"><span>Active</span><strong>${activeCount}</strong></div>
-                <div class="stat"><span>Waiting</span><strong>${waitingCount}</strong></div>
-                <div class="stat"><span>Completed</span><strong>${completedCount}</strong></div>
-              </aside>
-              <div class="portfolio-table">
-                ${projects.map((project) => projectSummaryRow(project)).join("")}
-              </div>
+            <div class="portfolio-table">
+              ${projects.map((project) => projectSummaryRow(project)).join("")}
             </div>
           </div>
           <aside class="notes">
-            Start from the portfolio level. Mention which tracks are active, which are waiting, and which item needs the most discussion today.
+            Start from the project list. For each project, give only the short progress summary, then move to the project slides that need discussion.
           </aside>
         </section>
       `;
@@ -988,10 +904,9 @@
       return `
         <a class="project-row" href="#deck/${project.id}">
           <strong>${escapeHtml(project.name)}</strong>
-          <span class="status-pill ${statusClass(project)}">${escapeHtml(projectStatus(project))}</span>
           <span>
             <span class="mini-bar" style="--value:${Number(project.progress || 0)}%"><span></span></span>
-            <span class="meta">${Number(project.progress || 0)}%</span>
+            <span class="meta">${Number(project.progress || 0)}% | ${escapeHtml(projectStatus(project))}</span>
           </span>
           <span class="meta">${escapeHtml(last?.note || "No update note yet.")}</span>
         </a>
@@ -1222,7 +1137,6 @@
       }
 
       renderMeetingIndex();
-      renderIndexProjectSnapshot();
       renderDeck();
       syncRoute();
     }
