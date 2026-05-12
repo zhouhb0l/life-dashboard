@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Meeting Slides</title>
+  <style>
+    :root {
+      --bg: #f6f7f3;
+      --surface: #ffffff;
+      --surface-soft: #eef3ee;
+      --ink: #16201d;
+      --muted: #65716d;
+      --line: #d8e0dc;
+      --green: #2e7d62;
+      --blue: #2f6fa4;
+      --amber: #b8792f;
+      --red: #a64e4e;
+      --shadow: 0 18px 48px rgba(22, 32, 29, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Aptos", "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(46, 125, 98, 0.16), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(47, 111, 164, 0.14), transparent 26%),
+        var(--bg);
+    }
+
+    body.locked .app {
+      display: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .gate {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(22, 32, 29, 0.82), rgba(47, 111, 164, 0.72)),
+        var(--bg);
+    }
+
+    body:not(.locked) .gate {
+      display: none;
+    }
+
+    .gate-panel {
+      width: min(460px, 100%);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 16px;
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow);
+    }
+
+    .gate-panel h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    .gate-panel p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .gate-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    .gate-form input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 0 12px;
+      outline: none;
+      background: #fbfcfa;
+    }
+
+    .gate-form input:focus {
+      border-color: rgba(46, 125, 98, 0.7);
+      box-shadow: 0 0 0 4px rgba(46, 125, 98, 0.12);
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 9px;
+      min-height: 44px;
+      padding: 0 14px;
+      background: var(--green);
+      color: white;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .error {
+      min-height: 22px;
+      margin: 10px 0 0;
+      color: var(--red);
+      font-weight: 800;
+    }
+
+    .app {
+      width: min(1440px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 18px 0 34px;
+    }
+
+    .topbar {
+      min-height: 58px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 10px 0;
+      background: rgba(246, 247, 243, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(216, 224, 220, 0.8);
+    }
+
+    .brand {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand strong {
+      font-size: 18px;
+      color: var(--green);
+    }
+
+    .brand span,
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a,
+    .nav button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: var(--surface);
+      color: var(--muted);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 32px 0 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 18px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(46, 125, 98, 0.1);
+      color: var(--green);
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 14px 0 0;
+      max-width: 820px;
+      color: #43514d;
+      line-height: 1.7;
+      font-size: 18px;
+    }
+
+    .stat-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      background: var(--surface);
+      box-shadow: 0 8px 22px rgba(22, 32, 29, 0.06);
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 3px;
+      font-size: 24px;
+      color: var(--green);
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .panel-body {
+      padding: 16px;
+    }
+
+    .meeting-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .project-index-panel {
+      margin-top: 16px;
+    }
+
+    .meeting-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px;
+      background: #fbfcfa;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .meeting-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(46, 125, 98, 0.45);
+    }
+
+    .meeting-card h3 {
+      margin: 0;
+      font-size: 21px;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 5px 8px;
+      background: rgba(47, 111, 164, 0.1);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .deck {
+      display: none;
+      padding-top: 18px;
+    }
+
+    body.deck-open .index-view {
+      display: none;
+    }
+
+    body.deck-open .deck {
+      display: grid;
+      gap: 16px;
+    }
+
+    .slide {
+      min-height: calc(100vh - 96px);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: clamp(20px, 4vw, 46px);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      display: grid;
+      align-content: start;
+      gap: 22px;
+      scroll-margin-top: 82px;
+    }
+
+    .slide-title {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+    }
+
+    .slide h2 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .slide-number {
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .project-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 13px;
+      background: #fbfcfa;
+      min-height: 156px;
+    }
+
+    .project-card:hover {
+      border-color: rgba(46, 125, 98, 0.5);
+      box-shadow: 0 0 0 4px rgba(46, 125, 98, 0.08);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .project-top h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .percent {
+      color: var(--green);
+      font-size: 24px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .bar {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #dfe7e2;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      width: var(--value);
+      background: linear-gradient(90deg, var(--green), var(--blue));
+    }
+
+    .outline-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 15px;
+      background: #fbfcfa;
+      min-height: 132px;
+    }
+
+    .box h3 {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 20px;
+    }
+
+    .box ul {
+      margin: 0;
+      padding-left: 1.1em;
+      color: #43514d;
+      line-height: 1.6;
+    }
+
+    .placeholder {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .deck-controls {
+      position: fixed;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      z-index: 30;
+      display: none;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 32px rgba(22, 32, 29, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    body.deck-open .deck-controls {
+      display: flex;
+    }
+
+    .deck-controls button,
+    .deck-controls a {
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: var(--surface-soft);
+      color: var(--ink);
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .deck-controls .primary {
+      background: var(--green);
+      color: white;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .slide-title,
+      .outline-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .slide {
+        min-height: auto;
+      }
+    }
+
+    @media print {
+      .gate,
+      .topbar,
+      .index-view,
+      .deck-controls {
+        display: none;
+      }
+
+      body.locked .app,
+      .app,
+      .deck {
+        display: block;
+      }
+
+      body {
+        background: white;
+      }
+
+      .slide {
+        break-after: page;
+        min-height: 100vh;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body class="locked">
+  <section class="gate" aria-label="Meeting page login">
+    <div class="gate-panel">
+      <h1>Group Meeting Slides</h1>
+      <p>This page is weakly protected for meeting preparation. Enter the passcode to open the meeting index and slide outlines.</p>
+      <form class="gate-form" id="gateForm">
+        <input id="passcode" type="password" placeholder="Passcode" autocomplete="current-password">
+        <button class="btn" type="submit">Open</button>
+      </form>
+      <p class="error" id="gateError" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="../">
+        <strong>Group Meeting Slides</strong>
+        <span>Project updates, progress, and discussion prompts</span>
+      </a>
+      <nav class="nav" aria-label="Navigation">
+        <a href="#index">Meeting Index</a>
+        <a href="#meeting-2026-05-14">May 14 Deck</a>
+        <button type="button" id="lockButton">Lock</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="index-view" id="index">
+        <div class="hero">
+          <div>
+            <span class="eyebrow">Protected workspace | passcode: meeting</span>
+            <h1>Meeting Preparation</h1>
+            <p class="lead">
+              This page is the presentation hub for group meetings. The index lists each meeting by date and theme.
+              Each deck starts with a portfolio summary from the daily-plan project tracker, then links into project-specific update slides.
+            </p>
+          </div>
+          <div class="stat-grid">
+            <div class="stat"><span>First meeting</span><strong>14 May 2026</strong></div>
+            <div class="stat"><span>Deck style</span><strong>Presentation</strong></div>
+            <div class="stat"><span>Project source</span><strong>Daily Plan</strong></div>
+          </div>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Meeting Index</h2>
+              <p class="meta">Add future meetings here by date, theme, and short description.</p>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="meeting-grid" id="meetingGrid"></div>
+          </div>
+        </section>
+
+        <section class="panel project-index-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Project Snapshot</h2>
+              <p class="meta">Current project progress pulled from the daily-plan tracker. Click a card to open the corresponding slide in the May 14 deck.</p>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="summary-grid" id="indexProjectSnapshot"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="deck" id="deckRoot" aria-label="Presentation deck"></section>
+    </main>
+  </div>
+
+  <div class="deck-controls" aria-label="Slide controls">
+    <button type="button" id="prevSlide">Prev</button>
+    <button type="button" class="primary" id="nextSlide">Next</button>
+    <a href="#index" id="backToIndex">Index</a>
+    <button type="button" id="printDeck">Print</button>
+  </div>
+
+  <script src="../daily-plan/data.js"></script>
+  <script src="../daily-plan/db.js"></script>
+  <script>
+    const PASSCODE = "meeting";
+    const ACCESS_KEY = "group-meetings-access";
+
+    const meetings = [
+      {
+        id: "meeting-2026-05-14",
+        date: "2026-05-14",
+        dateLabel: "14 May 2026",
+        theme: "Project portfolio update",
+        description: "First outline deck for group meeting project updates. Content placeholders are ready for TaN, HY application, recessed contact, phonon susceptibility, NEGF/Joule heating, QME, and other active tracks.",
+        tags: ["First meeting", "Project updates", "Discussion outline"]
+      }
+    ];
+
+    const preferredProjectIds = [
+      "tan-manuscript",
+      "hy-application-form",
+      "recessed-contact",
+      "phonon-susceptibility",
+      "negf-book",
+      "negf-phonon",
+      "high-order-qme",
+      "one-d-chain",
+      "nonlocal-sbh"
+    ];
+
+    const defaultState = window.DAILY_PLAN_DEFAULT_DATA || { projects: [], days: [] };
+    let state = defaultState;
+    const gateForm = document.getElementById("gateForm");
+    const passcodeInput = document.getElementById("passcode");
+    const gateError = document.getElementById("gateError");
+    const lockButton = document.getElementById("lockButton");
+    const meetingGrid = document.getElementById("meetingGrid");
+    const indexProjectSnapshot = document.getElementById("indexProjectSnapshot");
+    const deckRoot = document.getElementById("deckRoot");
+    const prevSlide = document.getElementById("prevSlide");
+    const nextSlide = document.getElementById("nextSlide");
+    const backToIndex = document.getElementById("backToIndex");
+    const printDeck = document.getElementById("printDeck");
+
+    function unlock() {
+      document.body.classList.remove("locked");
+      localStorage.setItem(ACCESS_KEY, "ok");
+    }
+
+    function lock() {
+      localStorage.removeItem(ACCESS_KEY);
+      document.body.classList.add("locked");
+      passcodeInput.value = "";
+      passcodeInput.focus();
+    }
+
+    if (localStorage.getItem(ACCESS_KEY) === "ok") {
+      unlock();
+    }
+
+    gateForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (passcodeInput.value.trim() === PASSCODE) {
+        gateError.textContent = "";
+        unlock();
+      } else {
+        gateError.textContent = "Incorrect passcode.";
+        passcodeInput.select();
+      }
+    });
+
+    lockButton.addEventListener("click", lock);
+
+    function getProjectList() {
+      const projectsById = new Map(state.projects.map((project) => [project.id, project]));
+      const ordered = preferredProjectIds
+        .map((id) => projectsById.get(id))
+        .filter(Boolean);
+      const used = new Set(ordered.map((project) => project.id));
+      const extras = state.projects
+        .filter((project) => !used.has(project.id) && project.category === "Research")
+        .sort((a, b) => b.progress - a.progress);
+      return [...ordered, ...extras];
+    }
+
+    function latestLog(project) {
+      return (project.log || [])
+        .slice()
+        .sort((a, b) => b.date.localeCompare(a.date))[0];
+    }
+
+    function projectStatus(project) {
+      if (project.finishDate || Number(project.progress) >= 100) return "Completed";
+      const last = latestLog(project);
+      const text = `${project.name} ${last?.note || ""}`.toLowerCase();
+      if (text.includes("wait") || text.includes("pending") || text.includes("not with me")) return "Waiting";
+      return "Active";
+    }
+
+    function renderMeetingIndex() {
+      meetingGrid.innerHTML = meetings.map((meeting) => `
+        <a class="meeting-card" href="#${meeting.id}">
+          <span class="meta">${meeting.dateLabel}</span>
+          <h3>${escapeHtml(meeting.theme)}</h3>
+          <p class="meta">${escapeHtml(meeting.description)}</p>
+          <span class="tag-row">
+            ${meeting.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
+          </span>
+        </a>
+      `).join("");
+    }
+
+    function renderIndexProjectSnapshot() {
+      const projects = getProjectList();
+      indexProjectSnapshot.innerHTML = projects.length
+        ? projects.map((project) => projectCard(project)).join("")
+        : '<p class="meta">No research projects found in the daily-plan tracker yet.</p>';
+    }
+
+    function renderDeck() {
+      const meeting = meetings[0];
+      const projects = getProjectList();
+      const activeCount = projects.filter((project) => projectStatus(project) === "Active").length;
+      const waitingCount = projects.filter((project) => projectStatus(project) === "Waiting").length;
+      const completedCount = projects.filter((project) => projectStatus(project) === "Completed").length;
+
+      const slides = [
+        summarySlide(meeting, projects, activeCount, waitingCount, completedCount),
+        meetingAgendaSlide(),
+        ...projects.map((project) => projectSlide(project)),
+        closingSlide()
+      ];
+
+      deckRoot.innerHTML = slides.join("");
+    }
+
+    function summarySlide(meeting, projects, activeCount, waitingCount, completedCount) {
+      return `
+        <article class="slide" id="${meeting.id}">
+          <div class="slide-title">
+            <div>
+              <span class="eyebrow">${meeting.dateLabel} | ${escapeHtml(meeting.theme)}</span>
+              <h2>Project Summary And Progress</h2>
+              <p class="lead">First page for the meeting deck. Click any project card during preparation to jump to its project slide. Progress values are read from the daily-plan project tracker.</p>
+            </div>
+            <span class="slide-number">Slide 1</span>
+          </div>
+          <div class="facts summary-grid">
+            <div class="stat"><span>Active</span><strong>${activeCount}</strong></div>
+            <div class="stat"><span>Waiting</span><strong>${waitingCount}</strong></div>
+            <div class="stat"><span>Completed</span><strong>${completedCount}</strong></div>
+          </div>
+          <div class="summary-grid">
+            ${projects.map((project) => projectCard(project)).join("")}
+          </div>
+        </article>
+      `;
+    }
+
+    function projectCard(project) {
+      const last = latestLog(project);
+      return `
+        <a class="project-card" href="#project-${project.id}">
+          <span class="project-top">
+            <h3>${escapeHtml(project.name)}</h3>
+            <span class="percent">${project.progress}%</span>
+          </span>
+          <span class="bar" style="--value:${project.progress}%"><span></span></span>
+          <span class="tag-row">
+            <span class="tag">${escapeHtml(projectStatus(project))}</span>
+            <span class="tag">${escapeHtml(project.importance || "Medium")} importance</span>
+          </span>
+          <span class="meta">${escapeHtml(last?.note || "No update note yet.")}</span>
+        </a>
+      `;
+    }
+
+    function meetingAgendaSlide() {
+      return `
+        <article class="slide" id="agenda">
+          <div class="slide-title">
+            <div>
+              <span class="eyebrow">Meeting Flow</span>
+              <h2>Suggested Agenda</h2>
+            </div>
+            <span class="slide-number">Slide 2</span>
+          </div>
+          <div class="outline-grid">
+            <div class="box">
+              <h3>1. Fast Progress Scan</h3>
+              <ul>
+                <li>What moved forward?</li>
+                <li>What is waiting on others or calculations?</li>
+                <li>Which result is mature enough to show?</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>2. Discussion Priorities</h3>
+              <ul>
+                <li>Which project needs group input?</li>
+                <li>Which paper direction is most promising?</li>
+                <li>What should be done before the next meeting?</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function projectSlide(project) {
+      const last = latestLog(project);
+      return `
+        <article class="slide" id="project-${project.id}">
+          <div class="slide-title">
+            <div>
+              <span class="eyebrow">${escapeHtml(projectStatus(project))} | ${escapeHtml(project.category || "Research")}</span>
+              <h2>${escapeHtml(project.name)}</h2>
+              <p class="lead">Current tracker progress: ${project.progress}%. Latest log: ${escapeHtml(last?.note || "No update note yet.")}</p>
+            </div>
+            <span class="slide-number">${project.progress}%</span>
+          </div>
+          <div class="outline-grid">
+            <div class="box">
+              <h3>Current Status</h3>
+              <ul>
+                <li class="placeholder">Fill in the concrete update for this meeting.</li>
+                <li class="placeholder">Add figure/result/file references if needed.</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Key Message</h3>
+              <ul>
+                <li class="placeholder">One sentence that the audience should remember.</li>
+                <li class="placeholder">Why this project matters now.</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Blockers Or Decisions</h3>
+              <ul>
+                <li class="placeholder">Waiting item, calculation status, missing data, or decision needed.</li>
+                <li class="placeholder">Question to ask during the meeting.</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Next Actions</h3>
+              <ul>
+                <li class="placeholder">Action 1 before next meeting.</li>
+                <li class="placeholder">Action 2 if time permits.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function closingSlide() {
+      return `
+        <article class="slide" id="closing">
+          <div class="slide-title">
+            <div>
+              <span class="eyebrow">Wrap Up</span>
+              <h2>Decisions And Next Meeting</h2>
+              <p class="lead">Use this slide during preparation to collect the final commitments from the meeting.</p>
+            </div>
+            <span class="slide-number">Final</span>
+          </div>
+          <div class="outline-grid">
+            <div class="box">
+              <h3>Decisions Made</h3>
+              <ul>
+                <li class="placeholder">Decision 1.</li>
+                <li class="placeholder">Decision 2.</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Next Meeting Inputs</h3>
+              <ul>
+                <li class="placeholder">Figures/results to prepare.</li>
+                <li class="placeholder">Questions to resolve before the next discussion.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function syncRoute() {
+      const hash = location.hash.replace("#", "");
+      document.body.classList.toggle("deck-open", Boolean(hash && hash !== "index"));
+      if (hash && hash !== "index") {
+        requestAnimationFrame(() => {
+          document.getElementById(hash)?.scrollIntoView({ block: "start" });
+        });
+      }
+    }
+
+    function currentSlideIndex() {
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      const viewportTop = window.scrollY + 110;
+      let current = 0;
+      slides.forEach((slide, index) => {
+        if (slide.offsetTop <= viewportTop) current = index;
+      });
+      return current;
+    }
+
+    function goSlide(delta) {
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      if (!slides.length) return;
+      const nextIndex = Math.max(0, Math.min(slides.length - 1, currentSlideIndex() + delta));
+      location.hash = slides[nextIndex].id;
+    }
+
+    prevSlide.addEventListener("click", () => goSlide(-1));
+    nextSlide.addEventListener("click", () => goSlide(1));
+    printDeck.addEventListener("click", () => window.print());
+    backToIndex.addEventListener("click", () => {
+      document.body.classList.remove("deck-open");
+    });
+
+    window.addEventListener("hashchange", syncRoute);
+    window.addEventListener("keydown", (event) => {
+      if (!document.body.classList.contains("deck-open")) return;
+      if (event.key === "ArrowRight" || event.key === "PageDown") goSlide(1);
+      if (event.key === "ArrowLeft" || event.key === "PageUp") goSlide(-1);
+      if (event.key === "Escape") location.hash = "index";
+    });
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    async function initialize() {
+      try {
+        if (window.DailyPlanDB?.load) {
+          state = await DailyPlanDB.load(defaultState);
+        }
+      } catch (error) {
+        state = defaultState;
+      }
+
+      renderMeetingIndex();
+      renderIndexProjectSnapshot();
+      renderDeck();
+      syncRoute();
+    }
+
+    initialize();
+  </script>
+</body>
+</html>
