@@ -4,42 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Meeting Slides</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="theme">
   <style>
     :root {
-      --bg: #f6f7f3;
+      --bg: #f5f7f4;
       --surface: #ffffff;
-      --surface-soft: #eef3ee;
-      --ink: #16201d;
-      --muted: #65716d;
-      --line: #d8e0dc;
-      --green: #2e7d62;
-      --blue: #2f6fa4;
-      --amber: #b8792f;
-      --red: #a64e4e;
-      --shadow: 0 18px 48px rgba(22, 32, 29, 0.12);
+      --surface-2: #edf3ef;
+      --ink: #15201c;
+      --muted: #66736e;
+      --line: #d8e1dc;
+      --green: #2d7d61;
+      --blue: #2e6f9f;
+      --amber: #b9782d;
+      --red: #a84d4d;
+      --shadow: 0 16px 42px rgba(21, 32, 28, 0.1);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family: "Aptos", "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
-      font-family: "Aptos", "Segoe UI", "Microsoft YaHei", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 12% 10%, rgba(46, 125, 98, 0.16), transparent 28%),
-        radial-gradient(circle at 88% 2%, rgba(47, 111, 164, 0.14), transparent 26%),
-        var(--bg);
     }
 
     body.locked .app {
       display: none;
+    }
+
+    body.deck-open {
+      overflow: hidden;
     }
 
     a {
@@ -57,9 +61,7 @@
       display: grid;
       place-items: center;
       padding: 24px;
-      background:
-        linear-gradient(135deg, rgba(22, 32, 29, 0.82), rgba(47, 111, 164, 0.72)),
-        var(--bg);
+      background: linear-gradient(135deg, #1d2c28, #2f5367);
     }
 
     body:not(.locked) .gate {
@@ -69,15 +71,16 @@
     .gate-panel {
       width: min(460px, 100%);
       border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: 16px;
+      border-radius: 8px;
       padding: 26px;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       box-shadow: var(--shadow);
     }
 
     .gate-panel h1 {
       margin: 0 0 8px;
       font-size: 30px;
+      line-height: 1.1;
       letter-spacing: 0;
     }
 
@@ -97,21 +100,22 @@
       width: 100%;
       min-height: 44px;
       border: 1px solid var(--line);
-      border-radius: 9px;
+      border-radius: 8px;
       padding: 0 12px;
       outline: none;
       background: #fbfcfa;
     }
 
     .gate-form input:focus {
-      border-color: rgba(46, 125, 98, 0.7);
-      box-shadow: 0 0 0 4px rgba(46, 125, 98, 0.12);
+      border-color: rgba(45, 125, 97, 0.7);
+      box-shadow: 0 0 0 4px rgba(45, 125, 97, 0.12);
     }
 
-    .btn {
+    .btn,
+    .toolbar-button {
       border: 0;
-      border-radius: 9px;
-      min-height: 44px;
+      border-radius: 8px;
+      min-height: 42px;
       padding: 0 14px;
       background: var(--green);
       color: white;
@@ -132,6 +136,11 @@
       padding: 18px 0 34px;
     }
 
+    body.deck-open .app {
+      width: 100%;
+      padding: 0;
+    }
+
     .topbar {
       min-height: 58px;
       display: flex;
@@ -142,9 +151,13 @@
       top: 0;
       z-index: 20;
       padding: 10px 0;
-      background: rgba(246, 247, 243, 0.9);
+      background: rgba(245, 247, 244, 0.94);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(216, 224, 220, 0.8);
+      border-bottom: 1px solid rgba(216, 225, 220, 0.9);
+    }
+
+    body.deck-open .topbar {
+      display: none;
     }
 
     .brand {
@@ -163,7 +176,8 @@
       font-size: 13px;
     }
 
-    .nav {
+    .nav,
+    .deck-toolbar {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
@@ -171,7 +185,9 @@
     }
 
     .nav a,
-    .nav button {
+    .nav button,
+    .deck-toolbar a,
+    .deck-toolbar button {
       border: 1px solid var(--line);
       border-radius: 999px;
       padding: 7px 10px;
@@ -194,7 +210,7 @@
       width: fit-content;
       border-radius: 999px;
       padding: 7px 10px;
-      background: rgba(46, 125, 98, 0.1);
+      background: rgba(45, 125, 97, 0.1);
       color: var(--green);
       font-weight: 900;
       font-size: 13px;
@@ -216,17 +232,18 @@
       font-size: 18px;
     }
 
-    .stat-grid {
+    .stat-grid,
+    .quick-stats {
       display: grid;
       gap: 10px;
     }
 
     .stat {
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 12px;
       background: var(--surface);
-      box-shadow: 0 8px 22px rgba(22, 32, 29, 0.06);
+      box-shadow: 0 8px 22px rgba(21, 32, 28, 0.06);
     }
 
     .stat span {
@@ -245,10 +262,14 @@
 
     .panel {
       border: 1px solid var(--line);
-      border-radius: 12px;
+      border-radius: 8px;
       background: var(--surface);
       box-shadow: var(--shadow);
       overflow: hidden;
+    }
+
+    .panel + .panel {
+      margin-top: 16px;
     }
 
     .panel-head {
@@ -264,40 +285,44 @@
     .panel-head h2 {
       margin: 0;
       font-size: 24px;
+      letter-spacing: 0;
     }
 
     .panel-body {
       padding: 16px;
     }
 
-    .meeting-grid {
+    .meeting-grid,
+    .snapshot-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 12px;
     }
 
-    .project-index-panel {
-      margin-top: 16px;
-    }
-
-    .meeting-card {
+    .meeting-card,
+    .project-card {
       display: grid;
       gap: 10px;
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 14px;
       background: #fbfcfa;
-      transition: transform 0.15s ease, border-color 0.15s ease;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .meeting-card:hover {
+    .meeting-card:hover,
+    .project-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(46, 125, 98, 0.45);
+      border-color: rgba(45, 125, 97, 0.45);
+      box-shadow: 0 10px 24px rgba(21, 32, 28, 0.08);
     }
 
-    .meeting-card h3 {
+    .meeting-card h3,
+    .project-card h3 {
       margin: 0;
-      font-size: 21px;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: 0;
     }
 
     .tag-row {
@@ -306,86 +331,30 @@
       flex-wrap: wrap;
     }
 
-    .tag {
+    .tag,
+    .status-pill {
       border-radius: 999px;
       padding: 5px 8px;
-      background: rgba(47, 111, 164, 0.1);
+      background: rgba(46, 111, 159, 0.1);
       color: var(--blue);
       font-size: 12px;
-      font-weight: 900;
-    }
-
-    .deck {
-      display: none;
-      padding-top: 18px;
-    }
-
-    body.deck-open .index-view {
-      display: none;
-    }
-
-    body.deck-open .deck {
-      display: grid;
-      gap: 16px;
-    }
-
-    .slide {
-      min-height: calc(100vh - 96px);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: clamp(20px, 4vw, 46px);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-      display: grid;
-      align-content: start;
-      gap: 22px;
-      scroll-margin-top: 82px;
-    }
-
-    .slide-title {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 16px;
-      align-items: start;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 16px;
-    }
-
-    .slide h2 {
-      margin: 0;
-      font-size: clamp(32px, 5vw, 58px);
-      line-height: 1.05;
-      letter-spacing: 0;
-    }
-
-    .slide-number {
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: var(--surface-soft);
-      color: var(--muted);
       font-weight: 900;
       white-space: nowrap;
     }
 
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 12px;
+    .status-pill.active {
+      background: rgba(45, 125, 97, 0.12);
+      color: var(--green);
     }
 
-    .project-card {
-      display: grid;
-      gap: 10px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 13px;
-      background: #fbfcfa;
-      min-height: 156px;
+    .status-pill.waiting {
+      background: rgba(185, 120, 45, 0.13);
+      color: var(--amber);
     }
 
-    .project-card:hover {
-      border-color: rgba(46, 125, 98, 0.5);
-      box-shadow: 0 0 0 4px rgba(46, 125, 98, 0.08);
+    .status-pill.completed {
+      background: rgba(46, 111, 159, 0.12);
+      color: var(--blue);
     }
 
     .project-top {
@@ -393,12 +362,6 @@
       justify-content: space-between;
       gap: 12px;
       align-items: flex-start;
-    }
-
-    .project-top h3 {
-      margin: 0;
-      font-size: 18px;
-      line-height: 1.25;
     }
 
     .percent {
@@ -422,31 +385,252 @@
       background: linear-gradient(90deg, var(--green), var(--blue));
     }
 
-    .outline-grid {
+    .deck-view {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      background: #f8faf8;
+      overflow: hidden;
+    }
+
+    body.deck-open .index-view {
+      display: none;
+    }
+
+    body.deck-open .deck-view {
+      display: block;
+    }
+
+    .deck-toolbar {
+      position: fixed;
+      top: 10px;
+      right: 12px;
+      z-index: 60;
+      opacity: 0.16;
+      transition: opacity 0.15s ease;
+    }
+
+    .deck-toolbar:hover,
+    .deck-toolbar:focus-within {
+      opacity: 1;
+    }
+
+    .deck-toolbar a,
+    .deck-toolbar button {
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 6px 20px rgba(21, 32, 28, 0.08);
+    }
+
+    .reveal {
+      height: 100vh;
+      color: var(--ink);
+      background: #f8faf8;
+      font-family: "Aptos", "Segoe UI", "Microsoft YaHei", sans-serif;
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal .slides section {
+      padding: 38px 54px;
+      height: 100%;
+    }
+
+    .reveal .slide-shell {
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .reveal .slide-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .reveal h2,
+    .reveal h3,
+    .reveal p {
+      letter-spacing: 0;
+      text-transform: none;
+      color: inherit;
+    }
+
+    .reveal h2 {
+      margin: 0;
+      font-size: 46px;
+      line-height: 1.05;
+      font-weight: 850;
+    }
+
+    .reveal h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--green);
+    }
+
+    .reveal p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.45;
+    }
+
+    .reveal ul {
+      margin: 0;
+      padding-left: 1.05em;
+    }
+
+    .reveal li {
+      margin: 0 0 7px;
+      font-size: 19px;
+      line-height: 1.38;
+    }
+
+    .slide-kicker {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(45, 125, 97, 0.1);
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .slide-count {
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .portfolio-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 16px;
+      min-height: 0;
+    }
+
+    .quick-stats {
+      align-content: start;
+    }
+
+    .portfolio-table {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.5fr) 92px 116px 1.5fr;
+      gap: 10px;
+      align-items: center;
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--line);
+      min-height: 46px;
+      color: inherit;
+    }
+
+    .project-row:last-child {
+      border-bottom: 0;
+    }
+
+    .project-row:hover {
+      background: #f4f8f5;
+    }
+
+    .project-row strong {
+      font-size: 16px;
+      line-height: 1.22;
+    }
+
+    .project-row .meta {
+      font-size: 12px;
+      line-height: 1.3;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .mini-bar {
+      height: 8px;
+      border-radius: 999px;
+      background: #dfe7e2;
+      overflow: hidden;
+    }
+
+    .mini-bar span {
+      display: block;
+      height: 100%;
+      width: var(--value);
+      background: linear-gradient(90deg, var(--green), var(--blue));
+    }
+
+    .agenda-grid,
+    .project-slide-grid,
+    .closing-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
+      min-height: 0;
     }
 
-    .box {
+    .content-box {
       border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 15px;
-      background: #fbfcfa;
-      min-height: 132px;
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--surface);
+      min-height: 0;
     }
 
-    .box h3 {
-      margin: 0 0 8px;
+    .project-status-grid {
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .progress-tile {
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 14px;
+    }
+
+    .progress-tile strong {
       color: var(--green);
-      font-size: 20px;
+      font-size: 48px;
+      line-height: 1;
     }
 
-    .box ul {
-      margin: 0;
-      padding-left: 1.1em;
+    .progress-tile span {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .latest-note {
       color: #43514d;
-      line-height: 1.6;
+      font-size: 18px;
+      line-height: 1.45;
     }
 
     .placeholder {
@@ -454,46 +638,20 @@
       font-style: italic;
     }
 
-    .deck-controls {
-      position: fixed;
-      left: 50%;
-      bottom: 14px;
-      transform: translateX(-50%);
-      z-index: 30;
-      display: none;
-      gap: 8px;
-      padding: 8px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 10px 32px rgba(22, 32, 29, 0.12);
-      backdrop-filter: blur(12px);
-    }
-
-    body.deck-open .deck-controls {
-      display: flex;
-    }
-
-    .deck-controls button,
-    .deck-controls a {
-      border: 0;
-      border-radius: 999px;
-      padding: 9px 12px;
-      background: var(--surface-soft);
-      color: var(--ink);
+    .load-error {
+      margin-top: 10px;
+      color: var(--red);
       font-weight: 900;
-      cursor: pointer;
-    }
-
-    .deck-controls .primary {
-      background: var(--green);
-      color: white;
     }
 
     @media (max-width: 900px) {
       .hero,
-      .slide-title,
-      .outline-grid {
+      .portfolio-layout,
+      .agenda-grid,
+      .project-slide-grid,
+      .closing-grid,
+      .project-status-grid,
+      .reveal .slide-head {
         grid-template-columns: 1fr;
       }
 
@@ -501,8 +659,12 @@
         display: none;
       }
 
-      .slide {
-        min-height: auto;
+      .app {
+        width: min(100% - 24px, 900px);
+      }
+
+      .project-row {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -510,24 +672,14 @@
       .gate,
       .topbar,
       .index-view,
-      .deck-controls {
-        display: none;
+      .deck-toolbar {
+        display: none !important;
       }
 
       body.locked .app,
       .app,
-      .deck {
-        display: block;
-      }
-
-      body {
-        background: white;
-      }
-
-      .slide {
-        break-after: page;
-        min-height: 100vh;
-        box-shadow: none;
+      .deck-view {
+        display: block !important;
       }
     }
   </style>
@@ -536,7 +688,7 @@
   <section class="gate" aria-label="Meeting page login">
     <div class="gate-panel">
       <h1>Group Meeting Slides</h1>
-      <p>This page is weakly protected for meeting preparation. Enter the passcode to open the meeting index and slide outlines.</p>
+      <p>This page is weakly protected for meeting preparation. Enter the passcode to open the meeting index and Reveal.js slides.</p>
       <form class="gate-form" id="gateForm">
         <input id="passcode" type="password" placeholder="Passcode" autocomplete="current-password">
         <button class="btn" type="submit">Open</button>
@@ -553,7 +705,7 @@
       </a>
       <nav class="nav" aria-label="Navigation">
         <a href="#index">Meeting Index</a>
-        <a href="#meeting-2026-05-14">May 14 Deck</a>
+        <a href="#deck/meeting-2026-05-14">May 14 Deck</a>
         <button type="button" id="lockButton">Lock</button>
       </nav>
     </header>
@@ -566,12 +718,12 @@
             <h1>Meeting Preparation</h1>
             <p class="lead">
               This page is the presentation hub for group meetings. The index lists each meeting by date and theme.
-              Each deck starts with a portfolio summary from the daily-plan project tracker, then links into project-specific update slides.
+              Each deck opens as a Reveal.js presentation and starts with a project-progress summary.
             </p>
           </div>
           <div class="stat-grid">
             <div class="stat"><span>First meeting</span><strong>14 May 2026</strong></div>
-            <div class="stat"><span>Deck style</span><strong>Presentation</strong></div>
+            <div class="stat"><span>Slide engine</span><strong>Reveal.js</strong></div>
             <div class="stat"><span>Project source</span><strong>Daily Plan</strong></div>
           </div>
         </div>
@@ -588,32 +740,37 @@
           </div>
         </section>
 
-        <section class="panel project-index-panel">
+        <section class="panel">
           <div class="panel-head">
             <div>
               <h2>Project Snapshot</h2>
-              <p class="meta">Current project progress pulled from the daily-plan tracker. Click a card to open the corresponding slide in the May 14 deck.</p>
+              <p class="meta">Current project progress pulled from the daily-plan tracker. Click a card to open its slide in the May 14 deck.</p>
             </div>
           </div>
           <div class="panel-body">
-            <div class="summary-grid" id="indexProjectSnapshot"></div>
+            <div class="snapshot-grid" id="indexProjectSnapshot"></div>
           </div>
         </section>
       </section>
 
-      <section class="deck" id="deckRoot" aria-label="Presentation deck"></section>
+      <section class="deck-view" id="deckView" aria-label="Reveal.js presentation deck">
+        <div class="deck-toolbar" aria-label="Deck tools">
+          <a href="#index">Index</a>
+          <button type="button" id="notesButton">Notes</button>
+          <button type="button" id="printDeck">Print</button>
+          <button type="button" id="deckLockButton">Lock</button>
+        </div>
+        <div class="reveal">
+          <div class="slides" id="slidesRoot"></div>
+        </div>
+      </section>
     </main>
-  </div>
-
-  <div class="deck-controls" aria-label="Slide controls">
-    <button type="button" id="prevSlide">Prev</button>
-    <button type="button" class="primary" id="nextSlide">Next</button>
-    <a href="#index" id="backToIndex">Index</a>
-    <button type="button" id="printDeck">Print</button>
   </div>
 
   <script src="../daily-plan/data.js"></script>
   <script src="../daily-plan/db.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
   <script>
     const PASSCODE = "meeting";
     const ACCESS_KEY = "group-meetings-access";
@@ -624,8 +781,8 @@
         date: "2026-05-14",
         dateLabel: "14 May 2026",
         theme: "Project portfolio update",
-        description: "First outline deck for group meeting project updates. Content placeholders are ready for TaN, HY application, recessed contact, phonon susceptibility, NEGF/Joule heating, QME, and other active tracks.",
-        tags: ["First meeting", "Project updates", "Discussion outline"]
+        description: "First outline deck for group meeting project updates: TaN, HY application, recessed contact, phonon susceptibility, NEGF/Joule heating, QME, 1D chain, and Nonlocal SBH.",
+        tags: ["First meeting", "Project updates", "Reveal.js deck"]
       }
     ];
 
@@ -643,32 +800,41 @@
 
     const defaultState = window.DAILY_PLAN_DEFAULT_DATA || { projects: [], days: [] };
     let state = defaultState;
+    let revealReady = false;
+    let pendingSlideKey = meetings[0].id;
+    let slideKeys = [];
+
     const gateForm = document.getElementById("gateForm");
     const passcodeInput = document.getElementById("passcode");
     const gateError = document.getElementById("gateError");
     const lockButton = document.getElementById("lockButton");
+    const deckLockButton = document.getElementById("deckLockButton");
     const meetingGrid = document.getElementById("meetingGrid");
     const indexProjectSnapshot = document.getElementById("indexProjectSnapshot");
-    const deckRoot = document.getElementById("deckRoot");
-    const prevSlide = document.getElementById("prevSlide");
-    const nextSlide = document.getElementById("nextSlide");
-    const backToIndex = document.getElementById("backToIndex");
+    const slidesRoot = document.getElementById("slidesRoot");
+    const notesButton = document.getElementById("notesButton");
     const printDeck = document.getElementById("printDeck");
+
+    function hasAccess() {
+      return !document.body.classList.contains("locked");
+    }
 
     function unlock() {
       document.body.classList.remove("locked");
       localStorage.setItem(ACCESS_KEY, "ok");
+      syncRoute();
     }
 
     function lock() {
       localStorage.removeItem(ACCESS_KEY);
+      document.body.classList.remove("deck-open");
       document.body.classList.add("locked");
       passcodeInput.value = "";
       passcodeInput.focus();
     }
 
     if (localStorage.getItem(ACCESS_KEY) === "ok") {
-      unlock();
+      document.body.classList.remove("locked");
     }
 
     gateForm.addEventListener("submit", (event) => {
@@ -683,23 +849,37 @@
     });
 
     lockButton.addEventListener("click", lock);
+    deckLockButton.addEventListener("click", lock);
+
+    printDeck.addEventListener("click", () => {
+      window.print();
+    });
+
+    notesButton.addEventListener("click", () => {
+      const notesPlugin = window.Reveal?.getPlugin?.("notes");
+      if (notesPlugin?.open) {
+        notesPlugin.open();
+      } else {
+        window.alert("Reveal speaker notes are available with the S key after the deck is open.");
+      }
+    });
 
     function getProjectList() {
-      const projectsById = new Map(state.projects.map((project) => [project.id, project]));
+      const projectsById = new Map((state.projects || []).map((project) => [project.id, project]));
       const ordered = preferredProjectIds
         .map((id) => projectsById.get(id))
         .filter(Boolean);
       const used = new Set(ordered.map((project) => project.id));
-      const extras = state.projects
+      const extras = (state.projects || [])
         .filter((project) => !used.has(project.id) && project.category === "Research")
-        .sort((a, b) => b.progress - a.progress);
+        .sort((a, b) => Number(b.progress || 0) - Number(a.progress || 0));
       return [...ordered, ...extras];
     }
 
     function latestLog(project) {
       return (project.log || [])
         .slice()
-        .sort((a, b) => b.date.localeCompare(a.date))[0];
+        .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))[0];
     }
 
     function projectStatus(project) {
@@ -710,9 +890,13 @@
       return "Active";
     }
 
+    function statusClass(project) {
+      return projectStatus(project).toLowerCase();
+    }
+
     function renderMeetingIndex() {
       meetingGrid.innerHTML = meetings.map((meeting) => `
-        <a class="meeting-card" href="#${meeting.id}">
+        <a class="meeting-card" href="#deck/${meeting.id}">
           <span class="meta">${meeting.dateLabel}</span>
           <h3>${escapeHtml(meeting.theme)}</h3>
           <p class="meta">${escapeHtml(meeting.description)}</p>
@@ -737,50 +921,32 @@
       const waitingCount = projects.filter((project) => projectStatus(project) === "Waiting").length;
       const completedCount = projects.filter((project) => projectStatus(project) === "Completed").length;
 
-      const slides = [
-        summarySlide(meeting, projects, activeCount, waitingCount, completedCount),
-        meetingAgendaSlide(),
-        ...projects.map((project) => projectSlide(project)),
-        closingSlide()
+      slideKeys = [
+        meeting.id,
+        "agenda",
+        ...projects.map((project) => project.id),
+        "closing"
       ];
 
-      deckRoot.innerHTML = slides.join("");
-    }
-
-    function summarySlide(meeting, projects, activeCount, waitingCount, completedCount) {
-      return `
-        <article class="slide" id="${meeting.id}">
-          <div class="slide-title">
-            <div>
-              <span class="eyebrow">${meeting.dateLabel} | ${escapeHtml(meeting.theme)}</span>
-              <h2>Project Summary And Progress</h2>
-              <p class="lead">First page for the meeting deck. Click any project card during preparation to jump to its project slide. Progress values are read from the daily-plan project tracker.</p>
-            </div>
-            <span class="slide-number">Slide 1</span>
-          </div>
-          <div class="facts summary-grid">
-            <div class="stat"><span>Active</span><strong>${activeCount}</strong></div>
-            <div class="stat"><span>Waiting</span><strong>${waitingCount}</strong></div>
-            <div class="stat"><span>Completed</span><strong>${completedCount}</strong></div>
-          </div>
-          <div class="summary-grid">
-            ${projects.map((project) => projectCard(project)).join("")}
-          </div>
-        </article>
-      `;
+      slidesRoot.innerHTML = [
+        summarySlide(meeting, projects, activeCount, waitingCount, completedCount),
+        agendaSlide(),
+        ...projects.map((project, index) => projectSlide(project, index + 3)),
+        closingSlide(projects.length + 3)
+      ].join("");
     }
 
     function projectCard(project) {
       const last = latestLog(project);
       return `
-        <a class="project-card" href="#project-${project.id}">
+        <a class="project-card" href="#deck/${project.id}">
           <span class="project-top">
             <h3>${escapeHtml(project.name)}</h3>
-            <span class="percent">${project.progress}%</span>
+            <span class="percent">${Number(project.progress || 0)}%</span>
           </span>
-          <span class="bar" style="--value:${project.progress}%"><span></span></span>
+          <span class="bar" style="--value:${Number(project.progress || 0)}%"><span></span></span>
           <span class="tag-row">
-            <span class="tag">${escapeHtml(projectStatus(project))}</span>
+            <span class="status-pill ${statusClass(project)}">${escapeHtml(projectStatus(project))}</span>
             <span class="tag">${escapeHtml(project.importance || "Medium")} importance</span>
           </span>
           <span class="meta">${escapeHtml(last?.note || "No update note yet.")}</span>
@@ -788,156 +954,254 @@
       `;
     }
 
-    function meetingAgendaSlide() {
+    function summarySlide(meeting, projects, activeCount, waitingCount, completedCount) {
       return `
-        <article class="slide" id="agenda">
-          <div class="slide-title">
-            <div>
-              <span class="eyebrow">Meeting Flow</span>
-              <h2>Suggested Agenda</h2>
-            </div>
-            <span class="slide-number">Slide 2</span>
-          </div>
-          <div class="outline-grid">
-            <div class="box">
-              <h3>1. Fast Progress Scan</h3>
-              <ul>
-                <li>What moved forward?</li>
-                <li>What is waiting on others or calculations?</li>
-                <li>Which result is mature enough to show?</li>
-              </ul>
-            </div>
-            <div class="box">
-              <h3>2. Discussion Priorities</h3>
-              <ul>
-                <li>Which project needs group input?</li>
-                <li>Which paper direction is most promising?</li>
-                <li>What should be done before the next meeting?</li>
-              </ul>
+        <section data-slide-key="${meeting.id}">
+          <div class="slide-shell">
+            <header class="slide-head">
+              <div>
+                <span class="slide-kicker">${meeting.dateLabel} | ${escapeHtml(meeting.theme)}</span>
+                <h2>Project Summary And Progress</h2>
+              </div>
+              <span class="slide-count">Slide 1</span>
+            </header>
+            <div class="portfolio-layout">
+              <aside class="quick-stats">
+                <div class="stat"><span>Active</span><strong>${activeCount}</strong></div>
+                <div class="stat"><span>Waiting</span><strong>${waitingCount}</strong></div>
+                <div class="stat"><span>Completed</span><strong>${completedCount}</strong></div>
+              </aside>
+              <div class="portfolio-table">
+                ${projects.map((project) => projectSummaryRow(project)).join("")}
+              </div>
             </div>
           </div>
-        </article>
+          <aside class="notes">
+            Start from the portfolio level. Mention which tracks are active, which are waiting, and which item needs the most discussion today.
+          </aside>
+        </section>
       `;
     }
 
-    function projectSlide(project) {
+    function projectSummaryRow(project) {
       const last = latestLog(project);
       return `
-        <article class="slide" id="project-${project.id}">
-          <div class="slide-title">
-            <div>
-              <span class="eyebrow">${escapeHtml(projectStatus(project))} | ${escapeHtml(project.category || "Research")}</span>
-              <h2>${escapeHtml(project.name)}</h2>
-              <p class="lead">Current tracker progress: ${project.progress}%. Latest log: ${escapeHtml(last?.note || "No update note yet.")}</p>
-            </div>
-            <span class="slide-number">${project.progress}%</span>
-          </div>
-          <div class="outline-grid">
-            <div class="box">
-              <h3>Current Status</h3>
-              <ul>
-                <li class="placeholder">Fill in the concrete update for this meeting.</li>
-                <li class="placeholder">Add figure/result/file references if needed.</li>
-              </ul>
-            </div>
-            <div class="box">
-              <h3>Key Message</h3>
-              <ul>
-                <li class="placeholder">One sentence that the audience should remember.</li>
-                <li class="placeholder">Why this project matters now.</li>
-              </ul>
-            </div>
-            <div class="box">
-              <h3>Blockers Or Decisions</h3>
-              <ul>
-                <li class="placeholder">Waiting item, calculation status, missing data, or decision needed.</li>
-                <li class="placeholder">Question to ask during the meeting.</li>
-              </ul>
-            </div>
-            <div class="box">
-              <h3>Next Actions</h3>
-              <ul>
-                <li class="placeholder">Action 1 before next meeting.</li>
-                <li class="placeholder">Action 2 if time permits.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <a class="project-row" href="#deck/${project.id}">
+          <strong>${escapeHtml(project.name)}</strong>
+          <span class="status-pill ${statusClass(project)}">${escapeHtml(projectStatus(project))}</span>
+          <span>
+            <span class="mini-bar" style="--value:${Number(project.progress || 0)}%"><span></span></span>
+            <span class="meta">${Number(project.progress || 0)}%</span>
+          </span>
+          <span class="meta">${escapeHtml(last?.note || "No update note yet.")}</span>
+        </a>
       `;
     }
 
-    function closingSlide() {
+    function agendaSlide() {
       return `
-        <article class="slide" id="closing">
-          <div class="slide-title">
-            <div>
-              <span class="eyebrow">Wrap Up</span>
-              <h2>Decisions And Next Meeting</h2>
-              <p class="lead">Use this slide during preparation to collect the final commitments from the meeting.</p>
+        <section data-slide-key="agenda">
+          <div class="slide-shell">
+            <header class="slide-head">
+              <div>
+                <span class="slide-kicker">Meeting Flow</span>
+                <h2>Suggested Agenda</h2>
+              </div>
+              <span class="slide-count">Slide 2</span>
+            </header>
+            <div class="agenda-grid">
+              <div class="content-box">
+                <h3>Fast Progress Scan</h3>
+                <ul>
+                  <li>What moved forward since the last update?</li>
+                  <li>Which items are waiting on collaborators or calculations?</li>
+                  <li>Which result is mature enough to show as a figure?</li>
+                </ul>
+              </div>
+              <div class="content-box">
+                <h3>Discussion Priorities</h3>
+                <ul>
+                  <li>Which project needs group input?</li>
+                  <li>Which paper direction is most promising?</li>
+                  <li>What should be finished before the next meeting?</li>
+                </ul>
+              </div>
             </div>
-            <span class="slide-number">Final</span>
           </div>
-          <div class="outline-grid">
-            <div class="box">
-              <h3>Decisions Made</h3>
-              <ul>
-                <li class="placeholder">Decision 1.</li>
-                <li class="placeholder">Decision 2.</li>
-              </ul>
-            </div>
-            <div class="box">
-              <h3>Next Meeting Inputs</h3>
-              <ul>
-                <li class="placeholder">Figures/results to prepare.</li>
-                <li class="placeholder">Questions to resolve before the next discussion.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+          <aside class="notes">
+            Keep this slide short. Use it to set the rhythm before moving into individual project slides.
+          </aside>
+        </section>
       `;
+    }
+
+    function projectSlide(project, slideNumber) {
+      const last = latestLog(project);
+      const progress = Number(project.progress || 0);
+      return `
+        <section data-slide-key="${project.id}">
+          <div class="slide-shell">
+            <header class="slide-head">
+              <div>
+                <span class="slide-kicker">${escapeHtml(projectStatus(project))} | ${escapeHtml(project.category || "Research")}</span>
+                <h2>${escapeHtml(project.name)}</h2>
+              </div>
+              <span class="slide-count">Slide ${slideNumber}</span>
+            </header>
+            <div class="project-status-grid">
+              <div class="content-box">
+                <h3>Latest Tracker Note</h3>
+                <p class="latest-note">${escapeHtml(last?.note || "No update note yet.")}</p>
+              </div>
+              <div class="progress-tile">
+                <strong>${progress}%</strong>
+                <span>${escapeHtml(projectStatus(project))}</span>
+              </div>
+            </div>
+            <div class="project-slide-grid">
+              <div class="content-box">
+                <h3>Current Status</h3>
+                <ul>
+                  <li class="placeholder">Fill in the concrete update for this meeting.</li>
+                  <li class="placeholder">Add figure, result, or file references if needed.</li>
+                </ul>
+              </div>
+              <div class="content-box">
+                <h3>Key Message</h3>
+                <ul>
+                  <li class="placeholder">One sentence that the audience should remember.</li>
+                  <li class="placeholder">Why this project matters now.</li>
+                </ul>
+              </div>
+              <div class="content-box">
+                <h3>Blockers Or Decisions</h3>
+                <ul>
+                  <li class="placeholder">Waiting item, calculation status, missing data, or decision needed.</li>
+                  <li class="placeholder">Question to ask during the meeting.</li>
+                </ul>
+              </div>
+              <div class="content-box">
+                <h3>Next Actions</h3>
+                <ul>
+                  <li class="placeholder">Action 1 before next meeting.</li>
+                  <li class="placeholder">Action 2 if time permits.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Present the latest note first, then state the scientific message and the decision needed from the group.
+          </aside>
+        </section>
+      `;
+    }
+
+    function closingSlide(slideNumber) {
+      return `
+        <section data-slide-key="closing">
+          <div class="slide-shell">
+            <header class="slide-head">
+              <div>
+                <span class="slide-kicker">Wrap Up</span>
+                <h2>Decisions And Next Meeting</h2>
+              </div>
+              <span class="slide-count">Slide ${slideNumber}</span>
+            </header>
+            <div class="closing-grid">
+              <div class="content-box">
+                <h3>Decisions Made</h3>
+                <ul>
+                  <li class="placeholder">Decision 1.</li>
+                  <li class="placeholder">Decision 2.</li>
+                </ul>
+              </div>
+              <div class="content-box">
+                <h3>Next Meeting Inputs</h3>
+                <ul>
+                  <li class="placeholder">Figures or results to prepare.</li>
+                  <li class="placeholder">Questions to resolve before the next discussion.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Close by turning discussion into commitments. Record names, files, and dates after the meeting if needed.
+          </aside>
+        </section>
+      `;
+    }
+
+    async function ensureReveal() {
+      if (!window.Reveal) {
+        showRevealLoadError();
+        return false;
+      }
+
+      if (revealReady) {
+        Reveal.sync();
+        Reveal.layout();
+        return true;
+      }
+
+      const plugins = [];
+      if (window.RevealNotes) plugins.push(RevealNotes);
+
+      await Reveal.initialize({
+        controls: true,
+        progress: true,
+        slideNumber: "c/t",
+        hash: false,
+        center: false,
+        width: 1280,
+        height: 720,
+        margin: 0.04,
+        transition: "slide",
+        backgroundTransition: "fade",
+        plugins
+      });
+
+      revealReady = true;
+      return true;
+    }
+
+    function showRevealLoadError() {
+      const existing = document.querySelector(".load-error");
+      if (existing) return;
+      const error = document.createElement("p");
+      error.className = "load-error";
+      error.textContent = "Reveal.js did not load. Check the internet connection and refresh this page.";
+      document.querySelector(".deck-view")?.prepend(error);
+    }
+
+    async function openDeck(slideKey) {
+      pendingSlideKey = slideKey || meetings[0].id;
+      document.body.classList.add("deck-open");
+      const ready = await ensureReveal();
+      if (!ready) return;
+      goToSlideKey(pendingSlideKey);
+    }
+
+    function showIndex() {
+      document.body.classList.remove("deck-open");
+    }
+
+    function goToSlideKey(slideKey) {
+      const index = slideKeys.indexOf(slideKey);
+      Reveal.slide(index >= 0 ? index : 0, 0);
+      Reveal.layout();
     }
 
     function syncRoute() {
-      const hash = location.hash.replace("#", "");
-      document.body.classList.toggle("deck-open", Boolean(hash && hash !== "index"));
-      if (hash && hash !== "index") {
-        requestAnimationFrame(() => {
-          document.getElementById(hash)?.scrollIntoView({ block: "start" });
-        });
+      if (!hasAccess()) return;
+      const hash = decodeURIComponent(location.hash.replace(/^#/, ""));
+      if (hash.startsWith("deck/")) {
+        openDeck(hash.replace(/^deck\//, "") || meetings[0].id);
+        return;
       }
+      showIndex();
     }
-
-    function currentSlideIndex() {
-      const slides = Array.from(document.querySelectorAll(".slide"));
-      const viewportTop = window.scrollY + 110;
-      let current = 0;
-      slides.forEach((slide, index) => {
-        if (slide.offsetTop <= viewportTop) current = index;
-      });
-      return current;
-    }
-
-    function goSlide(delta) {
-      const slides = Array.from(document.querySelectorAll(".slide"));
-      if (!slides.length) return;
-      const nextIndex = Math.max(0, Math.min(slides.length - 1, currentSlideIndex() + delta));
-      location.hash = slides[nextIndex].id;
-    }
-
-    prevSlide.addEventListener("click", () => goSlide(-1));
-    nextSlide.addEventListener("click", () => goSlide(1));
-    printDeck.addEventListener("click", () => window.print());
-    backToIndex.addEventListener("click", () => {
-      document.body.classList.remove("deck-open");
-    });
 
     window.addEventListener("hashchange", syncRoute);
-    window.addEventListener("keydown", (event) => {
-      if (!document.body.classList.contains("deck-open")) return;
-      if (event.key === "ArrowRight" || event.key === "PageDown") goSlide(1);
-      if (event.key === "ArrowLeft" || event.key === "PageUp") goSlide(-1);
-      if (event.key === "Escape") location.hash = "index";
-    });
 
     function escapeHtml(value) {
       return String(value)
