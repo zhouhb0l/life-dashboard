@@ -431,7 +431,7 @@
   ];
 
   var integratedQuestions = [];
-  for (var mixedIndex = 0; mixedIndex < 1000; mixedIndex += 1) {
+  for (var mixedIndex = 0; mixedIndex < 100; mixedIndex += 1) {
     var caseItem = CASE_STUDIES[mixedIndex % CASE_STUDIES.length];
     var caseBuilder = CASE_TEMPLATES[Math.floor(mixedIndex / CASE_STUDIES.length) % CASE_TEMPLATES.length];
     integratedQuestions.push(caseBuilder(caseItem, mixedIndex));
