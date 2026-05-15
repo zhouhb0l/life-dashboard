@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPSO Challenge Question Bank</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --ink: #202631;
+      --muted: #61707d;
+      --line: rgba(32, 38, 49, 0.14);
+      --blue: #286fa3;
+      --blue-dark: #1f557c;
+      --red: #c84d3c;
+      --red-dark: #963a2e;
+      --green: #2f7a5e;
+      --gold: #b9811f;
+      --soft-blue: #eaf3fb;
+      --soft-red: #fff0eb;
+      --soft-green: #eaf7f1;
+      --soft-gold: #fff7df;
+      --shadow: 0 14px 34px rgba(32, 38, 49, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        linear-gradient(135deg, rgba(40, 111, 163, 0.12), transparent 30%),
+        linear-gradient(315deg, rgba(47, 122, 94, 0.1), transparent 28%),
+        var(--bg);
+    }
+
+    a {
+      color: var(--blue-dark);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 72px;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .top-nav a,
+    .action {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 7px 11px;
+      border: 1px solid rgba(40, 111, 163, 0.24);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--blue-dark);
+      box-shadow: 0 8px 20px rgba(32, 38, 49, 0.06);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      font-size: 3.05rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      font-size: 1.12rem;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.02rem;
+    }
+
+    p,
+    li,
+    label,
+    .meta,
+    .result-line {
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .intro {
+      max-width: 780px;
+      margin-bottom: 0;
+      font-size: 1.06rem;
+    }
+
+    .stat-panel,
+    .toolbar,
+    .topic-panel,
+    .question-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 16px;
+    }
+
+    .stat {
+      min-height: 76px;
+      padding: 13px;
+      border-radius: 8px;
+      background: var(--soft-blue);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      color: var(--blue-dark);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(240px, 1fr) auto auto;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 22px;
+      padding: 16px;
+    }
+
+    .control {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    select,
+    input[type="search"] {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .action {
+      justify-content: center;
+      min-width: 120px;
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    .action:hover {
+      border-color: rgba(40, 111, 163, 0.42);
+      background: var(--soft-blue);
+    }
+
+    .bank-layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .topic-panel {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+    }
+
+    .topic-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .topic-button {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      width: 100%;
+      min-height: 38px;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: var(--soft-blue);
+      color: var(--blue-dark);
+      cursor: pointer;
+      font-weight: 800;
+      text-align: left;
+    }
+
+    .topic-button span {
+      overflow-wrap: anywhere;
+    }
+
+    .topic-button small {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .topic-button.active {
+      border-color: rgba(200, 77, 60, 0.32);
+      background: var(--soft-red);
+      color: var(--red-dark);
+    }
+
+    .questions-area {
+      min-width: 0;
+    }
+
+    .result-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .question-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .question-card {
+      padding: 18px;
+    }
+
+    .question-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--soft-gold);
+      color: #6b511d;
+    }
+
+    .prompt {
+      margin-bottom: 13px;
+      color: var(--ink);
+      font-size: 1.04rem;
+      font-weight: 750;
+      line-height: 1.52;
+    }
+
+    .choices {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 13px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .choice {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      color: var(--muted);
+    }
+
+    .choice-letter {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--soft-blue);
+      color: var(--blue-dark);
+      font-weight: 900;
+    }
+
+    .choice.correct {
+      border-color: rgba(47, 122, 94, 0.34);
+      background: var(--soft-green);
+      color: #315f4b;
+    }
+
+    .choice.correct .choice-letter {
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .answer-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .answer-toggle {
+      min-height: 36px;
+      padding: 7px 10px;
+      border: 1px solid rgba(47, 122, 94, 0.26);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--green);
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    .answer-toggle:hover {
+      background: var(--soft-green);
+    }
+
+    .explanation {
+      flex: 1 1 360px;
+      margin: 0;
+      padding: 10px 12px;
+      border-left: 4px solid var(--green);
+      border-radius: 8px;
+      background: var(--soft-green);
+      color: #315f4b;
+    }
+
+    .empty {
+      padding: 18px;
+      border: 1px dashed rgba(32, 38, 49, 0.24);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .toolbar,
+      .bank-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .topic-panel {
+        position: static;
+      }
+
+      .topic-list {
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1180px);
+        padding-top: 26px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .stat-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card,
+      .toolbar,
+      .topic-panel {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="top-nav" aria-label="Page navigation">
+      <a href="./index.html">Back to lessons</a>
+      <a href="./practice.html">Practice Lab</a>
+      <a href="./lesson.html">Compiled lesson map</a>
+      <a href="../">Dashboard</a>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="eyebrow">SPSO Challenge Bank</span>
+        <h1>Application Questions</h1>
+        <p class="intro">
+          A large multiple-choice bank across the SPSO preparation range. The questions emphasize applied reasoning,
+          implications, data interpretation, and connected scientific understanding rather than direct recall.
+        </p>
+      </div>
+      <div class="stat-panel" aria-label="Question bank summary">
+        <div class="stat"><strong id="topicCount">32</strong><span>Topics</span></div>
+        <div class="stat"><strong id="questionCount">320</strong><span>Questions</span></div>
+        <div class="stat"><strong id="corePerTopicCount">30</strong><span>Core per topic</span></div>
+        <div class="stat"><strong id="mixedCount">1000</strong><span>Mixed challenges</span></div>
+      </div>
+    </header>
+
+    <section class="toolbar" aria-label="Question controls">
+      <label class="control" for="topicFilter">
+        Topic
+        <select id="topicFilter"></select>
+      </label>
+      <label class="control" for="searchBox">
+        Search
+        <input id="searchBox" type="search" placeholder="Search prompts, options, explanations, or topics">
+      </label>
+      <button class="action" id="showAll" type="button">Show Answers</button>
+      <button class="action" id="hideAll" type="button">Hide Answers</button>
+    </section>
+
+    <main class="bank-layout">
+      <aside class="topic-panel" aria-label="Topic shortcuts">
+        <h2>Topics</h2>
+        <div class="topic-list" id="topicButtons"></div>
+      </aside>
+
+      <section class="questions-area" aria-label="Question list">
+        <div class="result-line" id="resultLine"></div>
+        <div class="question-list" id="questionList"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./question-bank.js"></script>
+  <script src="./question-bank-expansion.js"></script>
+  <script>
+    const topicFilter = document.getElementById("topicFilter");
+    const searchBox = document.getElementById("searchBox");
+    const questionList = document.getElementById("questionList");
+    const topicButtons = document.getElementById("topicButtons");
+    const resultLine = document.getElementById("resultLine");
+    const shownAnswers = new Set();
+
+    let activeTopic = "all";
+
+    function esc(value) {
+      return String(value || "").replace(/[&<>"']/g, function (char) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;"
+        }[char];
+      });
+    }
+
+    function answerLetter(index) {
+      return String.fromCharCode(65 + index);
+    }
+
+    function questionMatchesSearch(question, query) {
+      if (!query) {
+        return true;
+      }
+
+      const haystack = [
+        question.topicLabel,
+        question.topicTitle,
+        question.prompt,
+        question.explanation,
+        question.options.join(" ")
+      ].join(" ").toLowerCase();
+
+      return haystack.includes(query);
+    }
+
+    function filteredQuestions() {
+      const query = searchBox.value.trim().toLowerCase();
+      return QUESTION_BANK.filter(function (question) {
+        const topicMatch = activeTopic === "all" || question.topicSlug === activeTopic;
+        return topicMatch && questionMatchesSearch(question, query);
+      });
+    }
+
+    function setActiveTopic(topicSlug) {
+      activeTopic = topicSlug;
+      topicFilter.value = topicSlug;
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderTopicControls() {
+      topicFilter.innerHTML = [
+        '<option value="all">All topics</option>'
+      ].concat(QUESTION_TOPICS.map(function (topic) {
+        return '<option value="' + esc(topic.slug) + '">' + esc(topic.label + ": " + topic.title) + '</option>';
+      })).join("");
+
+      topicButtons.innerHTML = [
+        '<button class="topic-button active" type="button" data-topic="all"><span>All topics</span><small>' + QUESTION_BANK.length + '</small></button>'
+      ].concat(QUESTION_TOPICS.map(function (topic) {
+        return '<button class="topic-button" type="button" data-topic="' + esc(topic.slug) + '">' +
+          '<span>' + esc(topic.label) + '</span><small>' + topic.questions.length + '</small></button>';
+      })).join("");
+    }
+
+    function renderQuestion(question) {
+      const isShown = shownAnswers.has(question.id);
+      const choices = question.options.map(function (option, index) {
+        const correctClass = isShown && index === question.answer ? " correct" : "";
+        return '<li class="choice' + correctClass + '">' +
+          '<span class="choice-letter">' + answerLetter(index) + '</span>' +
+          '<span>' + esc(option) + '</span>' +
+        '</li>';
+      }).join("");
+
+      return '<article class="question-card" id="' + esc(question.id) + '">' +
+        '<div class="question-top">' +
+          '<div class="meta">' +
+            '<span class="pill">Q' + question.number + '</span>' +
+            '<span class="pill">' + esc(question.topicLabel) + '</span>' +
+            '<span class="pill">' + esc(question.topicTitle) + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<p class="prompt">' + esc(question.prompt) + '</p>' +
+        '<ol class="choices">' + choices + '</ol>' +
+        '<div class="answer-row">' +
+          '<button class="answer-toggle" type="button" data-id="' + esc(question.id) + '">' + (isShown ? "Hide answer" : "Show answer") + '</button>' +
+          (isShown ? '<p class="explanation"><strong>Answer ' + answerLetter(question.answer) + '.</strong> ' + esc(question.explanation) + '</p>' : "") +
+        '</div>' +
+      '</article>';
+    }
+
+    function render() {
+      const questions = filteredQuestions();
+      const topic = activeTopic === "all" ? "All topics" : (QUESTION_TOPICS.find(function (item) { return item.slug === activeTopic; }) || {}).title;
+      resultLine.innerHTML = '<span>' + questions.length + ' questions shown</span><span>' + esc(topic || "Selected topic") + '</span>';
+
+      Array.from(topicButtons.querySelectorAll(".topic-button")).forEach(function (button) {
+        button.classList.toggle("active", button.dataset.topic === activeTopic);
+      });
+
+      questionList.innerHTML = questions.length
+        ? questions.map(renderQuestion).join("")
+        : '<div class="empty">No questions match the current filter.</div>';
+    }
+
+    topicFilter.addEventListener("change", function () {
+      activeTopic = topicFilter.value;
+      render();
+    });
+
+    searchBox.addEventListener("input", render);
+
+    topicButtons.addEventListener("click", function (event) {
+      const button = event.target.closest("[data-topic]");
+      if (button) {
+        setActiveTopic(button.dataset.topic);
+      }
+    });
+
+    questionList.addEventListener("click", function (event) {
+      const button = event.target.closest("[data-id]");
+      if (!button) {
+        return;
+      }
+
+      if (shownAnswers.has(button.dataset.id)) {
+        shownAnswers.delete(button.dataset.id);
+      } else {
+        shownAnswers.add(button.dataset.id);
+      }
+      render();
+      document.getElementById(button.dataset.id).scrollIntoView({ block: "nearest" });
+    });
+
+    document.getElementById("showAll").addEventListener("click", function () {
+      filteredQuestions().forEach(function (question) {
+        shownAnswers.add(question.id);
+      });
+      render();
+    });
+
+    document.getElementById("hideAll").addEventListener("click", function () {
+      filteredQuestions().forEach(function (question) {
+        shownAnswers.delete(question.id);
+      });
+      render();
+    });
+
+    document.getElementById("topicCount").textContent = QUESTION_TOPICS.length;
+    document.getElementById("questionCount").textContent = QUESTION_BANK.length;
+    document.getElementById("corePerTopicCount").textContent = QUESTION_TOPICS
+      .filter(function (topic) { return topic.slug !== "interdisciplinary-challenge-set"; })
+      .reduce(function (minimum, topic) { return Math.min(minimum, topic.questions.length); }, Infinity);
+    document.getElementById("mixedCount").textContent = (findMixedTopic() || { questions: [] }).questions.length;
+
+    renderTopicControls();
+    render();
+
+    function findMixedTopic() {
+      return QUESTION_TOPICS.find(function (topic) {
+        return topic.slug === "interdisciplinary-challenge-set";
+      });
+    }
+  </script>
+</body>
+</html>
