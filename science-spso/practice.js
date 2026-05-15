@@ -233,6 +233,40 @@
     });
   }
 
+  function mixedCaseKey(question) {
+    var match = question.prompt.match(/^Case M\d+\s*-\s*([^(]+)\s*\(/);
+    return match ? match[1].trim().toLowerCase() : question.id;
+  }
+
+  function uniqueMixedCaseCount() {
+    var cases = {};
+    mixedQuestions().forEach(function (question) {
+      cases[mixedCaseKey(question)] = true;
+    });
+    return Object.keys(cases).length;
+  }
+
+  function addUniqueMixedCases(target, count, seed) {
+    var usedCases = {};
+    target.forEach(function (id) {
+      var question = questionById[id];
+      if (question && question.topicSlug === MIXED_SLUG) {
+        usedCases[mixedCaseKey(question)] = true;
+      }
+    });
+
+    rankedQuestions(mixedQuestions(), seed).forEach(function (question) {
+      var caseKey = mixedCaseKey(question);
+      if (target.length >= count) {
+        return;
+      }
+      if (!usedCases[caseKey] && target.indexOf(question.id) === -1) {
+        target.push(question.id);
+        usedCases[caseKey] = true;
+      }
+    });
+  }
+
   function topicQuestions(slug) {
     return QUESTION_BANK.filter(function (question) {
       return question.topicSlug === slug;
@@ -287,7 +321,7 @@
     var ids = [];
     addUnique(ids, dueQuestionPool(), phase.dailyTargets[0], today + ":due");
     addUnique(ids, weakQuestionPool(), phase.dailyTargets[1], today + ":weak");
-    addUnique(ids, mixedQuestions(), phase.dailyTargets[2], today + ":mixed");
+    addUniqueMixedCases(ids, phase.dailyTargets[2], today + ":mixed");
     addUnique(ids, QUESTION_BANK, phase.dailyTargets[2], today + ":fill");
 
     state.daily = { date: today, phase: phase.label, ids: ids };
@@ -303,7 +337,7 @@
     if (phase.daysLeft <= 0) {
       addUnique(ids, dueQuestionPool(), 3, today + ":exam:due");
       addUnique(ids, weakQuestionPool(), 6, today + ":exam:weak");
-      addUnique(ids, mixedQuestions(), phase.sprintSize, today + ":exam:mixed");
+      addUniqueMixedCases(ids, phase.sprintSize, today + ":exam:mixed");
       addUnique(ids, QUESTION_BANK, phase.sprintSize, today + ":exam:fill");
       return ids.slice(0, phase.sprintSize);
     }
@@ -311,7 +345,7 @@
     if (phase.daysLeft === 1) {
       addUnique(ids, dueQuestionPool(), 5, today + ":exam:due");
       addUnique(ids, weakQuestionPool(), 9, today + ":exam:weak");
-      addUnique(ids, mixedQuestions(), phase.sprintSize, today + ":exam:mixed");
+      addUniqueMixedCases(ids, phase.sprintSize, today + ":exam:mixed");
       addUnique(ids, QUESTION_BANK, phase.sprintSize, today + ":exam:fill");
       return ids.slice(0, phase.sprintSize);
     }
@@ -319,14 +353,14 @@
     if (phase.daysLeft === 2) {
       addUnique(ids, dueQuestionPool(), 8, today + ":exam:due");
       addUnique(ids, weakQuestionPool(), 24, today + ":exam:weak");
-      addUnique(ids, mixedQuestions(), phase.sprintSize, today + ":exam:mixed");
+      addUniqueMixedCases(ids, phase.sprintSize, today + ":exam:mixed");
       addUnique(ids, QUESTION_BANK, phase.sprintSize, today + ":exam:fill");
       return ids.slice(0, phase.sprintSize);
     }
 
     addUnique(ids, dueQuestionPool(), 6, today + ":exam:due");
     addUnique(ids, weakQuestionPool(), 14, today + ":exam:weak");
-    addUnique(ids, mixedQuestions(), phase.sprintSize, today + ":exam:mixed");
+    addUniqueMixedCases(ids, phase.sprintSize, today + ":exam:mixed");
     addUnique(ids, QUESTION_BANK, phase.sprintSize, today + ":exam:fill");
     return ids.slice(0, phase.sprintSize);
   }
@@ -338,7 +372,7 @@
         addUnique(ids, topicQuestions(topic.slug), ids.length + 1, "diagnostic:" + index);
       }
     });
-    addUnique(ids, mixedQuestions(), 20, "diagnostic:mixed");
+    addUniqueMixedCases(ids, 20, "diagnostic:mixed");
     return ids.slice(0, 20);
   }
 
@@ -364,7 +398,7 @@
     }
 
     if (mode === "mixed") {
-      addUnique(ids, mixedQuestions(), 12, today + ":mixed");
+      addUniqueMixedCases(ids, 12, today + ":mixed");
       return ids;
     }
 
@@ -376,7 +410,7 @@
     if (mode === "mock") {
       addUnique(ids, dueQuestionPool(), 8, today + ":mock:due");
       addUnique(ids, weakQuestionPool(), 24, today + ":mock:weak");
-      addUnique(ids, mixedQuestions(), 40, today + ":mock:mixed");
+      addUniqueMixedCases(ids, 40, today + ":mock:mixed");
       addUnique(ids, QUESTION_BANK, 40, today + ":mock:fill");
       return ids.slice(0, 40);
     }
@@ -845,6 +879,7 @@
     var nextAwardItems = nextAwards.map(function (award) {
       return renderAwardCard(award, true);
     }).join("");
+    var mixedCaseTotal = uniqueMixedCaseCount();
     var noticeMarkup = notice ? '<div class="empty-state">' + esc(notice) + '</div>' : "";
 
     root.innerHTML = '<section class="dashboard">' +
@@ -856,6 +891,7 @@
             '<div class="stat green"><strong>' + stats.accuracy + '%</strong><span>Accuracy</span></div>' +
             '<div class="stat"><strong>' + stats.attemptedQuestions + '</strong><span>Questions tried</span></div>' +
             '<div class="stat gold"><strong>' + stats.mastered + '</strong><span>Mastered</span></div>' +
+            '<div class="stat"><strong>' + mixedCaseTotal + '</strong><span>Unique mixed cases</span></div>' +
             '<div class="stat red"><strong>' + stats.due + '</strong><span>Due review</span></div>' +
             '<div class="stat gold"><strong>' + earned.length + '</strong><span>Awards earned</span></div>' +
           '</div>' +
@@ -867,7 +903,7 @@
             '<button class="mode-button" type="button" data-start="daily"><strong>Daily Quest</strong><span>Weak topics, due reviews, and mixed cases.</span></button>' +
             '<button class="mode-button" type="button" data-start="exam"><strong>Formal Test Sprint</strong><span>' + esc(examPhase().label) + ': ' + esc(examPhase().focus) + '</span></button>' +
             '<button class="mode-button" type="button" data-start="diagnostic"><strong>Diagnostic Sprint</strong><span>Quick map of current strengths.</span></button>' +
-            '<button class="mode-button" type="button" data-start="mixed"><strong>Mixed Missions</strong><span>Case questions using the whole science set.</span></button>' +
+            '<button class="mode-button" type="button" data-start="mixed"><strong>Mixed Missions</strong><span>' + mixedCaseTotal + ' unique cases using the whole science set.</span></button>' +
             '<button class="mode-button" type="button" data-start="mistakes"><strong>Mistake Review</strong><span>Recover questions that previously hurt.</span></button>' +
             '<button class="mode-button" type="button" data-start="mock"><strong>Mock Test</strong><span>Forty-question exam-style run, best before 18 May 2026.</span></button>' +
             '<button class="mode-button" type="button" data-start="weak"><strong>Weak Topic Drill</strong><span>' + esc(weak.slice(0, 3).map(function (slug) { return QUESTION_TOPICS.find(function (topic) { return topic.slug === slug; }).label; }).join(", ")) + '</span></button>' +
