@@ -2059,12 +2059,71 @@ function balancedOptions(question, targetAnswer) {
   };
 }
 
+function optionLength(option) {
+  return String(option || "").replace(/\s+/g, " ").trim().length;
+}
+
+function lengthenDistractor(option, targetLength, salt) {
+  var suffixes = [
+    ", while ignoring a fair comparison in the scenario",
+    ", even though the evidence would need a controlled repeat",
+    ", without checking whether another variable explains the result",
+    ", which treats a visible pattern as proof before testing the cause"
+  ];
+  var result = String(option || "");
+  var suffixIndex = salt % suffixes.length;
+
+  while (optionLength(result) <= targetLength) {
+    result = result.replace(/[.!?]$/, "");
+    result += suffixes[suffixIndex];
+    suffixIndex = (suffixIndex + 1) % suffixes.length;
+  }
+
+  return result;
+}
+
+function avoidLongestCorrectOption(balanced, salt) {
+  var correctLength = optionLength(balanced.options[balanced.answer]);
+  var longestDistractorIndex = -1;
+  var longestDistractorLength = -1;
+
+  balanced.options.forEach(function (option, index) {
+    if (index === balanced.answer) {
+      return;
+    }
+    var length = optionLength(option);
+    if (length > longestDistractorLength) {
+      longestDistractorLength = length;
+      longestDistractorIndex = index;
+    }
+  });
+
+  if (longestDistractorIndex === -1 || longestDistractorLength > correctLength) {
+    return balanced;
+  }
+
+  var options = balanced.options.slice();
+  options[longestDistractorIndex] = lengthenDistractor(
+    options[longestDistractorIndex],
+    correctLength,
+    salt
+  );
+
+  return {
+    options: options,
+    answer: balanced.answer
+  };
+}
+
 function rebuildQuestionBank() {
   var number = 0;
   QUESTION_BANK = QUESTION_TOPICS.flatMap(function (topicItem) {
     return topicItem.questions.map(function (question, questionIndex) {
       number += 1;
-      var balanced = balancedOptions(question, number - 1);
+      var balanced = avoidLongestCorrectOption(
+        balancedOptions(question, number - 1),
+        number + questionIndex
+      );
       return {
         id: topicItem.slug + "-" + String(questionIndex + 1).padStart(4, "0"),
         number: number,
