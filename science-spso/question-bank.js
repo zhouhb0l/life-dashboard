@@ -2065,7 +2065,7 @@ function optionLength(option) {
 
 function lengthenDistractor(option, targetLength, salt) {
   var suffixes = [
-    ", while ignoring a fair comparison in the scenario",
+    ", while ignoring a fair comparison in the setup",
     ", even though the evidence would need a controlled repeat",
     ", without checking whether another variable explains the result",
     ", which treats a visible pattern as proof before testing the cause"
@@ -2082,32 +2082,51 @@ function lengthenDistractor(option, targetLength, salt) {
   return result;
 }
 
-function avoidLongestCorrectOption(balanced, salt) {
+function avoidTopTwoCorrectOption(balanced, salt) {
   var correctLength = optionLength(balanced.options[balanced.answer]);
-  var longestDistractorIndex = -1;
-  var longestDistractorLength = -1;
+  var distractors = [];
 
   balanced.options.forEach(function (option, index) {
     if (index === balanced.answer) {
       return;
     }
-    var length = optionLength(option);
-    if (length > longestDistractorLength) {
-      longestDistractorLength = length;
-      longestDistractorIndex = index;
-    }
+    distractors.push({
+      index: index,
+      length: optionLength(option)
+    });
   });
 
-  if (longestDistractorIndex === -1 || longestDistractorLength > correctLength) {
+  if (distractors.length < 2) {
+    return balanced;
+  }
+
+  var longerCount = distractors.filter(function (distractor) {
+    return distractor.length > correctLength;
+  }).length;
+
+  if (longerCount >= 2) {
     return balanced;
   }
 
   var options = balanced.options.slice();
-  options[longestDistractorIndex] = lengthenDistractor(
-    options[longestDistractorIndex],
-    correctLength,
-    salt
-  );
+  var saltOffset = 0;
+
+  distractors.sort(function (a, b) {
+    return b.length - a.length;
+  });
+
+  distractors.forEach(function (distractor) {
+    if (longerCount >= 2 || optionLength(options[distractor.index]) > correctLength) {
+      return;
+    }
+    options[distractor.index] = lengthenDistractor(
+      options[distractor.index],
+      correctLength,
+      salt + saltOffset
+    );
+    longerCount += 1;
+    saltOffset += 1;
+  });
 
   return {
     options: options,
@@ -2120,7 +2139,7 @@ function rebuildQuestionBank() {
   QUESTION_BANK = QUESTION_TOPICS.flatMap(function (topicItem) {
     return topicItem.questions.map(function (question, questionIndex) {
       number += 1;
-      var balanced = avoidLongestCorrectOption(
+      var balanced = avoidTopTwoCorrectOption(
         balancedOptions(question, number - 1),
         number + questionIndex
       );
