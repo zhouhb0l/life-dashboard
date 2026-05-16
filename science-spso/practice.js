@@ -16,13 +16,20 @@
   var mixedTopic = QUESTION_TOPICS.find(function (topic) {
     return topic.slug === MIXED_SLUG;
   });
+  var practiceBank = QUESTION_BANK.filter(function (question) {
+    return !isScenarioQuestion(question);
+  });
   var questionById = {};
   var activeSession = null;
   var notice = "";
 
-  QUESTION_BANK.forEach(function (question) {
+  practiceBank.forEach(function (question) {
     questionById[question.id] = question;
   });
+
+  function isScenarioQuestion(question) {
+    return /^Scenario T\d+:/i.test(String(question.prompt || ""));
+  }
 
   function esc(value) {
     return String(value || "").replace(/[&<>"']/g, function (char) {
@@ -268,19 +275,19 @@
   }
 
   function topicQuestions(slug) {
-    return QUESTION_BANK.filter(function (question) {
+    return practiceBank.filter(function (question) {
       return question.topicSlug === slug;
     });
   }
 
   function coreQuestions() {
-    return QUESTION_BANK.filter(function (question) {
+    return practiceBank.filter(function (question) {
       return question.topicSlug !== MIXED_SLUG;
     });
   }
 
   function mixedQuestions() {
-    return QUESTION_BANK.filter(function (question) {
+    return practiceBank.filter(function (question) {
       return question.topicSlug === MIXED_SLUG;
     });
   }
@@ -301,7 +308,7 @@
   }
 
   function dueQuestionPool() {
-    return QUESTION_BANK.filter(function (question) {
+    return practiceBank.filter(function (question) {
       return dueNow(question.id) || attemptFor(question.id).wrong > attemptFor(question.id).correct;
     });
   }
@@ -322,7 +329,7 @@
     addUnique(ids, dueQuestionPool(), phase.dailyTargets[0], today + ":due");
     addUnique(ids, weakQuestionPool(), phase.dailyTargets[1], today + ":weak");
     addUniqueMixedCases(ids, phase.dailyTargets[2], today + ":mixed");
-    addUnique(ids, QUESTION_BANK, phase.dailyTargets[2], today + ":fill");
+    addUnique(ids, practiceBank, phase.dailyTargets[2], today + ":fill");
 
     state.daily = { date: today, phase: phase.label, ids: ids };
     saveState();
@@ -338,7 +345,7 @@
       addUnique(ids, dueQuestionPool(), 3, today + ":exam:due");
       addUnique(ids, weakQuestionPool(), 6, today + ":exam:weak");
       addUniqueMixedCases(ids, phase.sprintSize, today + ":exam:mixed");
-      addUnique(ids, QUESTION_BANK, phase.sprintSize, today + ":exam:fill");
+      addUnique(ids, practiceBank, phase.sprintSize, today + ":exam:fill");
       return ids.slice(0, phase.sprintSize);
     }
 
@@ -346,7 +353,7 @@
       addUnique(ids, dueQuestionPool(), 5, today + ":exam:due");
       addUnique(ids, weakQuestionPool(), 9, today + ":exam:weak");
       addUniqueMixedCases(ids, phase.sprintSize, today + ":exam:mixed");
-      addUnique(ids, QUESTION_BANK, phase.sprintSize, today + ":exam:fill");
+      addUnique(ids, practiceBank, phase.sprintSize, today + ":exam:fill");
       return ids.slice(0, phase.sprintSize);
     }
 
@@ -354,14 +361,14 @@
       addUnique(ids, dueQuestionPool(), 8, today + ":exam:due");
       addUnique(ids, weakQuestionPool(), 24, today + ":exam:weak");
       addUniqueMixedCases(ids, phase.sprintSize, today + ":exam:mixed");
-      addUnique(ids, QUESTION_BANK, phase.sprintSize, today + ":exam:fill");
+      addUnique(ids, practiceBank, phase.sprintSize, today + ":exam:fill");
       return ids.slice(0, phase.sprintSize);
     }
 
     addUnique(ids, dueQuestionPool(), 6, today + ":exam:due");
     addUnique(ids, weakQuestionPool(), 14, today + ":exam:weak");
     addUniqueMixedCases(ids, phase.sprintSize, today + ":exam:mixed");
-    addUnique(ids, QUESTION_BANK, phase.sprintSize, today + ":exam:fill");
+    addUnique(ids, practiceBank, phase.sprintSize, today + ":exam:fill");
     return ids.slice(0, phase.sprintSize);
   }
 
@@ -411,7 +418,7 @@
       addUnique(ids, dueQuestionPool(), 8, today + ":mock:due");
       addUnique(ids, weakQuestionPool(), 24, today + ":mock:weak");
       addUniqueMixedCases(ids, 40, today + ":mock:mixed");
-      addUnique(ids, QUESTION_BANK, 40, today + ":mock:fill");
+      addUnique(ids, practiceBank, 40, today + ":mock:fill");
       return ids.slice(0, 40);
     }
 
