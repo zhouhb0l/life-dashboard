@@ -399,7 +399,7 @@
       top: 10px;
       right: 12px;
       z-index: 60;
-      opacity: 0.16;
+      opacity: 0.04;
       transition: opacity 0.15s ease;
     }
 
@@ -426,8 +426,12 @@
     }
 
     .reveal .slides section {
-      padding: 38px 54px;
+      padding: 38px 54px 76px;
       height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .reveal .slide-shell {
@@ -444,6 +448,566 @@
       align-items: start;
       padding-bottom: 14px;
       border-bottom: 1px solid var(--line);
+    }
+
+    .science-slide {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 250, 248, 0.96)),
+        radial-gradient(circle at 88% 10%, rgba(46, 111, 159, 0.08), transparent 34%);
+    }
+
+    .science-slide::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+    }
+
+    .science-slide .slide-shell {
+      gap: 14px;
+    }
+
+    .science-slide .slide-head {
+      border-bottom: 0;
+      padding-bottom: 2px;
+      align-items: end;
+    }
+
+    .science-slide .slide-kicker {
+      margin-bottom: 8px;
+      background: transparent;
+      color: var(--green);
+      padding: 0;
+      font-size: 13px;
+    }
+
+    .science-slide h2 {
+      max-width: 980px;
+      font-size: 38px;
+      line-height: 1.05;
+    }
+
+    .science-slide .slide-count {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.86);
+    }
+
+    .slide-content {
+      min-height: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .status-board-content {
+      gap: 12px;
+    }
+
+    .project-slide-content {
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .science-slide-content {
+      grid-template-columns: minmax(0, 1fr);
+      align-items: stretch;
+      gap: 16px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .science-slide-content.has-figure {
+      grid-template-columns: minmax(250px, 0.36fr) minmax(0, 0.64fr);
+      gap: 18px;
+    }
+
+    .science-slide-content.result-dominant {
+      grid-template-columns: minmax(220px, 0.24fr) minmax(0, 0.76fr);
+    }
+
+    .science-slide-content.result-dominant .science-copy {
+      grid-template-rows: auto auto;
+      align-content: start;
+      min-height: 0;
+      padding: 14px 16px;
+    }
+
+    .science-slide-content.result-dominant .science-lead {
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .science-slide-content.result-dominant .big-takeaway {
+      font-size: 15px;
+      line-height: 1.28;
+    }
+
+    .science-slide-content.no-figure {
+      grid-template-columns: 1fr;
+    }
+
+    .science-slide-content.wide-panel-row {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .science-copy {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 12px;
+      overflow: hidden;
+      border-color: rgba(216, 225, 220, 0.95);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 14px 34px rgba(21, 32, 28, 0.07);
+    }
+
+    .science-lead {
+      color: #273730;
+      font-size: 22px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .reveal ul.science-points {
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      min-height: 0;
+      overflow: hidden;
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .reveal ul.science-points li {
+      position: relative;
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.34;
+      padding-left: 16px;
+      list-style: none;
+    }
+
+    .reveal ul.science-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .big-takeaway {
+      border-left: 5px solid var(--green);
+      border-radius: 6px;
+      padding: 10px 12px;
+      background: rgba(45, 125, 97, 0.1);
+      color: #26342f;
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 900;
+    }
+
+    .science-slide-content.has-figure .science-lead {
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .reveal .science-slide-content.has-figure ul.science-points {
+      gap: 7px;
+    }
+
+    .reveal .science-slide-content.has-figure ul.science-points li {
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .science-slide-content.has-figure .big-takeaway {
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .science-slide-content.no-figure .science-copy {
+      grid-template-rows: auto auto auto;
+      padding: 18px 8px 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .science-slide-content.no-figure .science-lead {
+      max-width: 1050px;
+      color: #1b2b25;
+      font-size: 28px;
+      line-height: 1.18;
+      font-weight: 850;
+    }
+
+    .reveal .science-slide-content.no-figure ul.science-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      align-content: stretch;
+      margin: 4px 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .reveal .science-slide-content.no-figure ul.science-points li {
+      min-height: 104px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--green);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #2d3c36;
+      font-size: 17px;
+      line-height: 1.32;
+      box-shadow: 0 12px 26px rgba(21, 32, 28, 0.06);
+      list-style: none;
+    }
+
+    .reveal .science-slide-content.no-figure ul.science-points li::before {
+      display: none;
+    }
+
+    .science-slide-content.no-figure .big-takeaway {
+      width: fit-content;
+      max-width: 980px;
+      margin-top: 2px;
+      font-size: 19px;
+    }
+
+    .science-slide-content.no-figure.motivation-grid .science-lead {
+      max-width: 1120px;
+      font-size: 25px;
+      line-height: 1.22;
+    }
+
+    .reveal .science-slide-content.no-figure.motivation-grid ul.science-points {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 0;
+    }
+
+    .reveal .science-slide-content.no-figure.motivation-grid ul.science-points li {
+      min-height: 88px;
+      font-size: 16px;
+      line-height: 1.28;
+    }
+
+    .science-slide-content.no-figure.motivation-grid .big-takeaway {
+      max-width: 1080px;
+      font-size: 18px;
+    }
+
+    .science-slide-content.no-figure.method-workflow .science-copy {
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    .science-slide-content.no-figure.method-workflow .science-lead {
+      max-width: 1120px;
+      font-size: 22px;
+    }
+
+    .method-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      min-height: 150px;
+    }
+
+    .method-node {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+      gap: 5px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--green);
+      border-radius: 8px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 12px 26px rgba(21, 32, 28, 0.06);
+    }
+
+    .method-node:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -8px;
+      width: 12px;
+      height: 12px;
+      border-top: 3px solid rgba(46, 111, 159, 0.55);
+      border-right: 3px solid rgba(46, 111, 159, 0.55);
+      transform: translateY(-50%) rotate(45deg);
+      background: transparent;
+      z-index: 2;
+    }
+
+    .reveal .method-node span {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 4px 7px;
+      background: rgba(46, 111, 159, 0.1);
+      color: var(--blue);
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .reveal .method-node strong {
+      font-size: 15px;
+      line-height: 1.15;
+      font-weight: 900;
+    }
+
+    .reveal .method-node p {
+      color: #43514d;
+      font-size: 12px;
+      line-height: 1.24;
+      font-weight: 700;
+    }
+
+    .reveal .science-slide-content.no-figure.method-workflow ul.science-points {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .reveal .science-slide-content.no-figure.method-workflow ul.science-points li {
+      min-height: 68px;
+      font-size: 13px;
+      line-height: 1.22;
+      padding: 10px;
+    }
+
+    .science-slide-content.no-figure.method-workflow .big-takeaway {
+      max-width: 1040px;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .science-slide-content.no-figure.formalism .science-copy {
+      grid-template-rows: auto auto auto auto;
+      align-content: start;
+      gap: 10px;
+    }
+
+    .science-slide-content.no-figure.formalism .science-lead {
+      max-width: 1120px;
+      font-size: 21px;
+      line-height: 1.25;
+    }
+
+    .equation-stack {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      min-height: 0;
+    }
+
+    .equation-stack.equation-count-1 {
+      grid-template-columns: 1fr;
+    }
+
+    .equation-stack.equation-count-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .equation-stack.equation-count-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .equation-stack.equation-count-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .equation-card {
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+      gap: 6px;
+      border: 1px solid rgba(216, 225, 220, 0.95);
+      border-left: 5px solid var(--blue);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 12px 26px rgba(21, 32, 28, 0.06);
+      overflow: hidden;
+    }
+
+    .equation-card span {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 4px 7px;
+      background: rgba(46, 111, 159, 0.1);
+      color: var(--blue);
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .equation-math {
+      color: #10251e;
+      font-size: 16px;
+      line-height: 1.18;
+      font-weight: 800;
+      min-height: 34px;
+      overflow: hidden;
+    }
+
+    .equation-math mjx-container {
+      margin: 0 !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+    }
+
+    .equation-math mjx-container[jax="CHTML"][display="true"] {
+      text-align: left !important;
+    }
+
+    .reveal .equation-card p {
+      color: #43514d;
+      font-size: 12px;
+      line-height: 1.25;
+      font-weight: 750;
+    }
+
+    .reveal .science-slide-content.no-figure.formalism ul.science-points {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-content: start;
+      gap: 9px;
+      margin-top: 0;
+    }
+
+    .reveal .science-slide-content.no-figure.formalism ul.science-points li {
+      min-height: 74px;
+      padding: 10px;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .science-slide-content.no-figure.formalism .big-takeaway {
+      max-width: 1080px;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .science-slide-content.wide-panel-row .science-copy {
+      grid-template-columns: 1.2fr 1.4fr 1fr;
+      grid-template-rows: auto;
+      align-items: start;
+      gap: 14px;
+      padding: 12px 14px;
+    }
+
+    .science-slide-content.wide-panel-row .science-lead,
+    .science-slide-content.wide-panel-row .big-takeaway {
+      font-size: 15px;
+      line-height: 1.28;
+    }
+
+    .reveal .science-slide-content.wide-panel-row ul.science-points {
+      gap: 4px;
+    }
+
+    .reveal .science-slide-content.wide-panel-row ul.science-points li {
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .science-slide-content.wide-panel-row .science-figure.figure-count-4 .science-figure-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: minmax(0, 1fr);
+    }
+
+    .science-figure {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 8px;
+      min-height: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .science-figure-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      height: 100%;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .science-figure.figure-count-2 .science-figure-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .science-slide-content.transfer-validation-layout .science-figure.figure-count-2 .science-figure-grid {
+      grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr);
+    }
+
+    .science-figure.figure-count-3 .science-figure-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .science-figure.figure-count-4 .science-figure-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    .figure-box {
+      position: relative;
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 16px 34px rgba(21, 32, 28, 0.08);
+      overflow: hidden;
+    }
+
+    .figure-box img {
+      position: absolute;
+      inset: 10px;
+      display: block;
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      margin: 0;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .figure-label {
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      border: 1px solid rgba(216, 225, 220, 0.95);
+      border-radius: 999px;
+      padding: 4px 7px;
+      background: rgba(255, 255, 255, 0.94);
+      color: #31413b;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 900;
+      box-shadow: 0 4px 12px rgba(21, 32, 28, 0.08);
+      z-index: 2;
+    }
+
+    .figure-caption {
+      color: #4a5753;
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 800;
     }
 
     .reveal h2,
@@ -507,49 +1071,195 @@
       white-space: nowrap;
     }
 
-    .portfolio-table {
+    .project-jump-nav {
+      position: absolute;
+      left: 54px;
+      bottom: 22px;
+      z-index: 8;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      max-width: min(760px, calc(100% - 108px));
+      padding: 6px;
+      border: 1px solid rgba(216, 225, 220, 0.9);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 24px rgba(21, 32, 28, 0.08);
+    }
+
+    .project-jump-nav a {
       border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-      overflow: hidden;
+      border-radius: 999px;
+      padding: 6px 9px;
+      background: #fbfcfa;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .project-jump-nav a:hover,
+    .project-jump-nav a.active {
+      border-color: rgba(45, 125, 97, 0.45);
+      background: rgba(45, 125, 97, 0.1);
+      color: var(--green);
+    }
+
+    .project-jump-nav.compact {
+      max-width: none;
+      padding: 5px;
+      gap: 5px;
+      opacity: 0.72;
+    }
+
+    .project-jump-nav.compact:hover,
+    .project-jump-nav.compact:focus-within {
+      opacity: 1;
+    }
+
+    .project-jump-nav.compact a {
+      padding: 6px 9px;
+      font-size: 11px;
+    }
+
+    .portfolio-table {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
       min-height: 0;
     }
 
-    .project-row {
-      display: grid;
-      grid-template-columns: minmax(220px, 1.25fr) 150px minmax(0, 1.8fr);
-      gap: 10px;
-      align-items: center;
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--line);
-      min-height: 44px;
-      color: inherit;
+    .project-slide-count {
+      position: absolute;
+      right: 54px;
+      bottom: 22px;
+      z-index: 9;
+      border: 1px solid rgba(216, 225, 220, 0.9);
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 900;
+      box-shadow: 0 8px 24px rgba(21, 32, 28, 0.08);
+      white-space: nowrap;
     }
 
-    .project-row:last-child {
-      border-bottom: 0;
+    .project-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 126px;
+      background: var(--surface);
+      color: inherit;
+      box-shadow: 0 10px 24px rgba(21, 32, 28, 0.07);
     }
 
     .project-row:hover {
-      background: #f4f8f5;
+      border-color: rgba(45, 125, 97, 0.32);
+      background: #fbfcfa;
+    }
+
+    .project-card-head,
+    .project-card-meta-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .project-card-head {
+      min-height: 28px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .project-card-meta-row {
+      align-items: center;
     }
 
     .project-row strong {
-      font-size: 16px;
-      line-height: 1.22;
+      font-size: 22px;
+      line-height: 1.15;
     }
 
     .project-row .meta {
-      font-size: 12px;
-      line-height: 1.3;
+      font-size: 16px;
+      line-height: 1.35;
+      color: #43514d;
       overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
 
+    .progress-cell {
+      display: block;
+      width: 100%;
+    }
+
+    .status-label {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 6px 9px;
+      background: rgba(45, 125, 97, 0.11);
+      color: var(--green);
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .status-label.status-complete {
+      background: rgba(46, 111, 159, 0.12);
+      color: var(--blue);
+    }
+
+    .status-label.status-waiting {
+      background: rgba(185, 120, 45, 0.14);
+      color: var(--amber);
+    }
+
+    .status-label.status-active {
+      background: rgba(45, 125, 97, 0.11);
+      color: var(--green);
+    }
+
+    .scope-label {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 6px 9px;
+      background: rgba(102, 115, 110, 0.1);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .scope-label.scope-featured {
+      background: rgba(45, 125, 97, 0.11);
+      color: var(--green);
+    }
+
+    .phase-label {
+      display: inline-block;
+      margin-top: 0;
+      color: #43514d;
+      font-size: 15px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
     .mini-bar {
-      height: 8px;
+      height: 10px;
       border-radius: 999px;
       background: #dfe7e2;
       overflow: hidden;
@@ -562,7 +1272,6 @@
       background: linear-gradient(90deg, var(--green), var(--blue));
     }
 
-    .agenda-grid,
     .project-slide-grid,
     .closing-grid {
       display: grid;
@@ -615,11 +1324,6 @@
       line-height: 1.45;
     }
 
-    .placeholder {
-      color: var(--muted);
-      font-style: italic;
-    }
-
     .load-error {
       margin-top: 10px;
       color: var(--red);
@@ -627,10 +1331,10 @@
     }
 
     @media (max-width: 900px) {
-      .agenda-grid,
       .project-slide-grid,
       .closing-grid,
       .project-status-grid,
+      .science-slide-content,
       .reveal .slide-head {
         grid-template-columns: 1fr;
       }
@@ -643,8 +1347,23 @@
         width: min(100% - 24px, 900px);
       }
 
-      .project-row {
+      .portfolio-table {
         grid-template-columns: 1fr;
+      }
+
+      .project-row {
+        min-height: 0;
+      }
+
+      .project-jump-nav {
+        left: 18px;
+        bottom: 14px;
+        max-width: calc(100% - 36px);
+      }
+
+      .project-slide-count {
+        right: 18px;
+        bottom: 14px;
       }
 
       .meeting-card {
@@ -712,6 +1431,7 @@
       <section class="deck-view" id="deckView" aria-label="Reveal.js presentation deck">
         <div class="deck-toolbar" aria-label="Deck tools">
           <a href="#index">Index</a>
+          <button type="button" id="fullscreenButton">Fullscreen</button>
           <button type="button" id="notesButton">Notes</button>
           <button type="button" id="printDeck">Print</button>
           <button type="button" id="deckLockButton">Lock</button>
@@ -727,9 +1447,10 @@
   <script src="../daily-plan/db.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/math/math.js"></script>
   <script>
-    const PASSCODE = "meeting";
-    const ACCESS_KEY = "group-meetings-access";
+    const PASSCODE = "go";
+    const ACCESS_KEY = "group-meetings-access-go";
 
     const meetings = [
       {
@@ -737,28 +1458,881 @@
         date: "2026-05-14",
         dateLabel: "14 May 2026",
         theme: "Project portfolio update",
-        description: "Project progress deck covering TaN, HY application, recessed contact, phonon susceptibility, NEGF/Joule heating, QME, 1D chain, and Nonlocal SBH.",
-        tags: ["First meeting", "Project updates", "Reveal.js deck"]
+        description: "Science discussion deck covering Nonlocal SBH, Recessed Contact, TaN thermal, NEGF phonon-phonon interaction, Layered material, and Phonon susceptibility.",
+        tags: ["First meeting", "Science discussion", "Reveal.js deck"]
       }
     ];
 
-    const preferredProjectIds = [
+    const DEFAULT_PROJECT_SLIDE_COUNT = 2;
+    const featuredProjectIds = [
       "tan-manuscript",
-      "hy-application-form",
-      "recessed-contact",
-      "phonon-susceptibility",
-      "negf-book",
-      "negf-phonon",
-      "high-order-qme",
       "one-d-chain",
-      "nonlocal-sbh"
+      "phonon-susceptibility"
+    ];
+
+    const visibleProjects = [
+      {
+        id: "nonlocal-sbh",
+        name: "Nonlocal SBH",
+        shortName: "SBH",
+        status: "Complete",
+        phase: "Submitted",
+        progress: 100,
+        summary: "Manuscript package has been submitted.",
+        progressItems: [
+          "Submitted package is manuscript v5.",
+          "Main manuscript, supplemental material, and cover letter are complete.",
+          "Next update depends on journal or reviewer response."
+        ],
+        messageItems: [
+          "The manuscript reframes SBH in 2D top contacts as a nonlocal edge response.",
+          "The key result is a finite defect-edge interaction length of about 1.1 nm, validated by Ti-MoS2 and Au-MoS2 DFT-NEGF calculations."
+        ],
+        showItems: [
+          "Problem: reported SBH values scatter by hundreds of meV for the same metal/2D semiconductor contact.",
+          "Model: remote defect perturbations modulate the edge lineup through a nonlocal kernel.",
+          "Validation: Ti-MoS2 and Au-MoS2 follow the same defect-edge length scale."
+        ],
+        discussionItems: [
+          "Is there any supporting point we should prepare now before comments arrive?"
+        ],
+        focusItems: [
+          "Keep the presentation short: submitted, complete, and waiting for response.",
+          "Mention only the core scientific claim if the audience needs context.",
+          "Avoid reopening technical details unless the group raises a concern."
+        ],
+        evidenceItems: [
+          "Manuscript, SI, and cover letter are all packaged.",
+          "Submission has already been made.",
+          "No new calculation is needed at this stage."
+        ],
+        nextItems: [
+          "Track journal or editorial response.",
+          "Prepare response material only when comments arrive."
+        ],
+        decisionItems: [
+          "No decision needed now; keep the project in monitoring mode."
+        ],
+        scienceSlides: [
+          {
+            kicker: "Nonlocal SBH | manuscript v5",
+            title: "SBH Variability Is A Nonlocal Edge Problem",
+            lead: "Manuscript v5 argues that Schottky-barrier height in top-contacted 2D semiconductors is not only a local interface parameter; it can be shifted by defects outside the metal-covered region.",
+            points: [
+              "Problem: reported MoS2 SBHs span about 0.05-0.95 eV for Au contacts and 0.05-0.46 eV for Ti contacts.",
+              "Conventional view: SBH is usually treated as a local interface property shaped by local pinning, local chemistry, or inhomogeneous-barrier averaging.",
+              "New question: because top-contact injection is edge-controlled, can a remote defect in the uncovered channel still modify the measured SBH?"
+            ],
+            figure: "assets/nonlocal-sbh/v5_figure1_schematic.png",
+            caption: "Manuscript v5 Fig. 1: a remote channel defect perturbs the contact edge and shifts the lateral barrier.",
+            layout: "figure-dominant",
+            takeaway: "The manuscript's central move is to treat the measured SBH as an edge observable coupled to the nearby defect environment."
+          },
+          {
+            kicker: "Nonlocal SBH | model",
+            title: "Model: Defect-To-Edge Response Kernel",
+            lead: "The lateral SBH is written as the conduction-band step across the contact edge, and its defect-induced shift is controlled by the edge-lineup response.",
+            points: [
+              "A defect source s_d(x) in the uncovered channel propagates toward the edge and changes the local lineup J.",
+              "The response range is lambda_l = sqrt(kappa/C_ch): larger in-plane dielectric response lets deeper channel defects remain coupled to the edge.",
+              "The response amplitude depends on the contact through K_e and chi_e: the metal controls how strongly the incoming perturbation is converted into barrier shift."
+            ],
+            figures: [
+              { src: "assets/nonlocal-sbh/v5_figure2_panel_a_range.png", label: "Range" },
+              { src: "assets/nonlocal-sbh/v5_figure2_panel_b_amplitude.png", label: "Amplitude" }
+            ],
+            caption: "Manuscript v5 Fig. 2: semiconductor electrostatics sets the length scale; contact stiffness tunes the amplitude.",
+            layout: "wide-panel-row",
+            takeaway: "The model separates the roles cleanly: the channel sets how far the defect influence travels, while the contact sets how large the barrier response is."
+          },
+          {
+            kicker: "Nonlocal SBH | DFT-NEGF validation",
+            title: "Ti-MoS2 And Au-MoS2 Share A 1.1 nm Interaction Length",
+            lead: "DFT-NEGF calculations validate the nonlocal model by moving a single sulfur vacancy from the contact edge into the MoS2 channel.",
+            points: [
+              "Both Ti-MoS2 and Au-MoS2 SBH curves are fit with a shared lambda_l = 1.10 nm.",
+              "Independent fits give lambda_l^Ti = 1.12 +/- 0.09 nm and lambda_l^Au = 1.09 +/- 0.07 nm.",
+              "The model window captures the Ti experimental spread and a substantial part of the Au spread, supporting nonlocal defect-edge coupling as a major source of SBH variability."
+            ],
+            figures: [
+              { src: "assets/nonlocal-sbh/v5_figure3_panel_a_sbh_distance.png", label: "DFT fit" },
+              { src: "assets/nonlocal-sbh/v5_figure3_panel_b_experiment.png", label: "Experiment window" }
+            ],
+            caption: "Manuscript v5 Fig. 3a,b: DFT-extracted SBH versus defect-edge distance and comparison with experimental SBH ranges.",
+            layout: "wide-panel-row",
+            takeaway: "The common length scale supports the manuscript's key physical claim: range is mainly governed by the MoS2 channel, not by the metal."
+          },
+          {
+            kicker: "Nonlocal SBH | LDOS mechanism",
+            title: "LDOS Maps Show The Barrier Shift At The Edge",
+            lead: "The atom-projected LDOS maps make the nonlocal mechanism visible: near-edge vacancies raise the lateral conduction-band step, while far-edge vacancies largely recover the low barrier.",
+            points: [
+              "Ti-MoS2: pristine Phi_B^lat = 0.16 eV; near-edge defect gives 0.58 eV; far-edge defect gives 0.17 eV.",
+              "Au-MoS2: near-edge defect gives Phi_B^lat = 0.68 eV, while large defect-edge separation gives 0.16 eV.",
+              "Thus, the same top-contact geometry can exhibit widely different effective SBHs depending on defect position near the injection edge."
+            ],
+            figures: [
+              { src: "assets/nonlocal-sbh/v5_figure3_ti_ldos.png", label: "Ti-MoS2" },
+              { src: "assets/nonlocal-sbh/v5_figure3_au_ldos.png", label: "Au-MoS2" }
+            ],
+            caption: "Manuscript v5 Fig. 3d-i: LDOS-derived conduction-band edges for pristine, near-edge-defect, and far-edge-defect cases.",
+            layout: "wide-panel-row",
+            takeaway: "Conclusion: the edge environment and spatial defect distribution are design variables for carrier injection in 2D top contacts."
+          }
+        ]
+      },
+      {
+        id: "recessed-contact",
+        name: "Recessed Contact",
+        shortName: "Recessed",
+        status: "Active",
+        phase: "Calculating",
+        progress: 75,
+        summary: "Single vacancy done; double vacancy running.",
+        progressItems: [
+          "Single vacancy: done.",
+          "Double vacancy: calculating.",
+          "The final comparison will decide the main figure storyline."
+        ],
+        messageItems: [
+          "The project is now a vacancy-comparison story.",
+          "Single vacancy provides the baseline; double vacancy will test whether the conclusion survives stronger defect perturbation."
+        ],
+        showItems: [
+          "Single-vacancy result as the completed reference.",
+          "Current double-vacancy calculation status.",
+          "Planned comparison: same metric, same visualization style, different vacancy strength."
+        ],
+        discussionItems: [
+          "Should the paper storyline wait for the double-vacancy result, or can the single-vacancy result already define the structure?"
+        ],
+        focusItems: [
+          "Use the single-vacancy case as the current baseline.",
+          "Use the double-vacancy calculation to test whether the vacancy trend is robust.",
+          "Keep the same comparison metric across the two vacancy models."
+        ],
+        evidenceItems: [
+          "Completed: single-vacancy model.",
+          "Running: double-vacancy model.",
+          "To compare: contact geometry, defect strength, and transport response."
+        ],
+        nextItems: [
+          "Check double-vacancy convergence and output quality.",
+          "Draft the vacancy-comparison figure once the calculation finishes."
+        ],
+        decisionItems: [
+          "Decide the minimum result needed before turning this into a manuscript figure set."
+        ],
+        scienceSlides: [
+          {
+            kicker: "Recessed Contact | main result",
+            title: "Recessed Geometry Suppresses The Near-Interface SBH Spike",
+            lead: "For single sulfur vacancies, the top contact shows a large barrier penalty when the vacancy is close to the injection interface, while the recessed contact stays much flatter.",
+            points: [
+              "Top-contact SBH falls from 0.58 eV at D0 to 0.17 eV at D10.",
+              "Recessed-contact SBH remains in a narrower 0.20-0.28 eV window across D0-D10.",
+              "Defensible claim: recessed contacts reduce extreme SBH variability from edge-proximal vacancies; they are not universally lower at every vacancy position."
+            ],
+            figure: "assets/recessed-contact/sbh_top_vs_recessed.png",
+            caption: "Interface SBH from fitted CBM steps, using the common D0-D10 sulfur-vacancy position labels.",
+            layout: "figure-dominant",
+            takeaway: "The strongest current result is robustness: recessed contact geometry makes the barrier less sensitive to vacancy position."
+          },
+          {
+            kicker: "Recessed Contact | LDOS evidence",
+            title: "LDOS/CBM Maps Show The Barrier Geometry Directly",
+            lead: "Representative fitted CBM envelopes make the top-versus-recessed contrast visible in real-space electronic structure.",
+            points: [
+              "At D0, the top-contact CBM step is high, while the recessed-contact CBM edge stays closer to the lower-barrier reference.",
+              "At D10, both geometries move toward weaker near-interface perturbation, but the top-contact trend remains more position-sensitive.",
+              "These panels are useful as mechanism evidence, while the compact SBH plot carries the main quantitative claim."
+            ],
+            figures: [
+              { src: "assets/recessed-contact/top_D0_ldos_cbm_curve.png", label: "Top D0" },
+              { src: "assets/recessed-contact/recessed_D0_ldos_cbm_curve.png", label: "Recessed D0" },
+              { src: "assets/recessed-contact/top_D10_ldos_cbm_curve.png", label: "Top D10" },
+              { src: "assets/recessed-contact/recessed_D10_ldos_cbm_curve.png", label: "Recessed D10" }
+            ],
+            caption: "Representative LDOS maps with fitted CBM curves from the clean paper-workspace output.",
+            layout: "wide-panel-row",
+            takeaway: "The LDOS view supports a physical picture: moving or recessing the contact changes how strongly the vacancy perturbs the injection barrier."
+          },
+          {
+            kicker: "Recessed Contact | transport support",
+            title: "Transmission Supports The Same Vacancy-Position Story",
+            lead: "First-pass transmission spectra and onset metrics support the LDOS/SBH interpretation, but this remains the part most tied to convergence and metric choices.",
+            points: [
+              "Representative D0/D6/D10 spectra show recessed contacts carry stronger transmission over the positive-energy window.",
+              "The 0-1 eV mean-transmission metric is high for recessed D0 and decays with vacancy position; top-contact values remain much smaller in this first-pass metric.",
+              "The onset-energy metric separates top and recessed contact response and should be finalized before manuscript-level claims."
+            ],
+            figures: [
+              { src: "assets/recessed-contact/transmission_representative_spectra.png", label: "Spectra" },
+              { src: "assets/recessed-contact/transmission_metrics_vs_defect_location.png", label: "Metrics" }
+            ],
+            caption: "Transmission comparison from the reproducible paper workspace.",
+            layout: "wide-panel-row",
+            takeaway: "Single-vacancy results are scientifically coherent; the running double-vacancy model will test whether the conclusion survives stronger disorder."
+          }
+        ]
+      },
+      {
+        id: "tan-manuscript",
+        name: "TaN thermal",
+        shortName: "TaN",
+        status: "Waiting",
+        phase: "Manuscript revision",
+        progress: 90,
+        summary: "Manuscript revision is waiting for next input.",
+        progressItems: [
+          "Progress is about 90%.",
+          "Spectral conductance and participation-ratio analysis have been added.",
+          "Current stage is manuscript revision, waiting for the next input."
+        ],
+        messageItems: [
+          "The thermal-transport story is nearly ready for manuscript revision.",
+          "Participation ratio and spectral conductance can be used together to explain which modes carry or lose heat."
+        ],
+        showItems: [
+          "Spectral conductance plot.",
+          "Participation-ratio result.",
+          "Short interpretation: acoustic Gamma modes are less localized, while high-k modes show stronger localization."
+        ],
+        discussionItems: [
+          "Is the localization-to-thermal-transport explanation clear enough for the revised manuscript?"
+        ],
+        focusItems: [
+          "Thermal analysis is close to revision-ready.",
+          "Spectral conductance and participation ratio support the localization story.",
+          "The project is waiting for the next manuscript input."
+        ],
+        evidenceItems: [
+          "Spectral conductance analysis has been added.",
+          "Participation-ratio analysis has been added.",
+          "Main interpretation should connect mode localization with thermal conductance."
+        ],
+        nextItems: [
+          "Keep the figure-message list concise.",
+          "Revise once the next manuscript input arrives."
+        ],
+        decisionItems: [
+          "Decide whether the revised manuscript needs one combined figure or separate analysis panels."
+        ],
+        scienceSlides: [
+          {
+            kicker: "TaN thermal | motivation, background, and gap",
+            title: "From High Thermal Conductivity To Coherent Conductance",
+            lead: "Efficient heat dissipation is essential for scaled electronics and high-power technologies; theta-TaN is a rare metallic nitride with reported ultrahigh thermal conductivity.",
+            points: [
+              "Why it matters: rapid heat removal is central to thermal management in micro/nanoelectronics, thin films, and high-power devices.",
+              "Why theta-TaN: transition-metal nitride robustness plus predicted ultrahigh thermal conductivity; experiments report >500 W m^-1 K^-1, and high-quality samples exceed 1000 W m^-1 K^-1.",
+              "Known bulk picture: theta-TaN thermal conductivity is attributed mainly to phonons, enabled by an acoustic-optical gap, acoustic-branch bunching, suppressed anharmonic scattering, and weak electron-phonon scattering.",
+              "Open gaps: carrier-resolved coherent conductance through finite regions is unknown; how N vacancies reshape conductance and carrier selection is also unknown."
+            ],
+            layout: "motivation-grid",
+            takeaway: "So we calculate carrier-resolved electronic and phononic conductance in pristine and N-vacancy theta-TaN using DFT-NEGF."
+          },
+          {
+            kicker: "TaN thermal | approach and workflow",
+            title: "Approach: Carrier-Resolved Coherent Conductance",
+            lead: "We compute electronic and phononic heat conductance for pristine and N-vacancy theta-TaN within one area-normalized coherent-transport convention.",
+            methodFlow: [
+              {
+                label: "Structure",
+                title: "VASP / PBE",
+                text: "Relax pristine and N-vacancy theta-TaN; prepare concentration-resolved finite transport geometries."
+              },
+              {
+                label: "Force field",
+                title: "ML Potential",
+                text: "Use the machine-learning-potential workflow to support large vacancy force-constant preparation and validation."
+              },
+              {
+                label: "Phonons",
+                title: "phonopy",
+                text: "Build second-order force constants, phonon dispersion, DOS, and acoustic-sum-rule-corrected vacancy IFCs."
+              },
+              {
+                label: "Transport",
+                title: "negfpy",
+                text: "Convert phonopy IFCs to harmonic phonon NEGF and evaluate transmission with hybrid transverse k sampling."
+              },
+              {
+                label: "Electrons",
+                title: "NanoDCAL NEGF",
+                text: "Compute electronic transmission and conductance from converged PBE-DZP electronic structures."
+              }
+            ],
+            points: [
+              "Carrier channels: electronic transmission from NanoDCAL; phonon transmission from phonopy -> negfpy.",
+              "Vacancy series: pristine, N 3.7%, N 12.5%, and N 25%; transport directions include x, y, and z.",
+              "Readouts: G/A, defect-induced conductance loss, spectral conductance, k/q maps, and phonon participation ratio."
+            ],
+            layout: "method-workflow",
+            takeaway: "Method logic: VASP/ML potential/phonopy prepare the phonon force constants, negfpy converts them into phonon NEGF transport, and NanoDCAL supplies the electronic NEGF channel."
+          },
+          {
+            kicker: "TaN thermal | result I",
+            title: "Electrons Dominate Coherent Heat Conductance",
+            lead: "At 300 K, electrons provide the larger coherent thermal conductance in every tested geometry and direction.",
+            points: [
+              "Pristine electronic G/A: 5.85e9 along x and 6.40e9 W m^-2 K^-1 along z.",
+              "Pristine phonon G/A: 1.15e9 along x and 0.872e9 W m^-2 K^-1 along z.",
+              "Electrons account for about 84-88% of pristine coherent conductance."
+            ],
+            figure: "assets/tan/figure1_panel_b_conductance_asset.png",
+            caption: "Carrier-resolved conductance at 300 K shows an electron-dominant coherent hierarchy.",
+            layout: "figure-dominant",
+            takeaway: "The coherent nanoscale limit reverses the intuition from phonon-enabled bulk thermal conductivity."
+          },
+          {
+            kicker: "TaN thermal | result II",
+            title: "N Vacancies Are Carrier-Selective Filters",
+            lead: "Vacancies suppress both heat-current channels, but the penalty is strongly carrier dependent.",
+            points: [
+              "Electronic conductance loss is moderate: about 35-42%.",
+              "Phonon conductance loss is much broader and can reach about 93%.",
+              "The same N vacancy filters phonon transport far more strongly than electronic transport."
+            ],
+            figure: "assets/tan/figure1_panel_c_loss_asset.png",
+            caption: "Defect-induced conductance loss separates the moderate electronic response from the much larger phonon response.",
+            layout: "figure-dominant",
+            takeaway: "N vacancies control both the magnitude and the carrier identity of transmitted heat."
+          },
+          {
+            kicker: "TaN thermal | electronic mechanism",
+            title: "Electronic Mechanism: Near-Fermi Channels Survive",
+            lead: "The electronic heat-current window remains near the Fermi level; vacancies mainly remove the most transparent k channels.",
+            points: [
+              "97.7-100.0% of electronic conductance lies within |E - EF| <= 0.2 eV.",
+              "Vacancies lower near-Fermi transmission amplitude rather than shifting the window.",
+              "High-transmission channels disappear, while finite metallic background transmission survives."
+            ],
+            figures: [
+              { src: "assets/tan/figure2_revised_panel_a_asset.png", label: "Spectral conductance" },
+              { src: "assets/tan/figure2_revised_panel_c_asset.png", label: "k-space channels" }
+            ],
+            caption: "Figure 2 links electronic spectral conductance to transverse k-space transmission-channel maps.",
+            layout: "figure-dominant",
+            takeaway: "The electron channel is degraded, not destroyed: that is why its conductance loss is moderate."
+          },
+          {
+            kicker: "TaN thermal | phonon mechanism",
+            title: "Phonon Mechanism: Spectral Filtering And Localization",
+            lead: "The phonon channel loses extended mid- and high-frequency modes, which explains the larger conductance penalty.",
+            points: [
+              "Residual phonon conductance shifts toward lower frequencies after vacancy formation.",
+              "Pristine acoustic modes are extended: mean PR = 0.517 with no sampled q point below PR = 0.40.",
+              "For modes above 450 cm^-1, localized-mode fraction rises from 0.5% to 20.5%, 50.8%, and 71.9%."
+            ],
+            figures: [
+              { src: "assets/tan/figure2_revised_panel_b_asset.png", label: "Phonon spectrum" },
+              { src: "assets/tan/figure2_revised_panel_d_asset.png", label: "Participation ratio" }
+            ],
+            caption: "Participation-ratio maps show broad low-PR regions after vacancy formation, especially away from Gamma.",
+            layout: "figure-dominant",
+            takeaway: "Vacancies remove the phonon channels that would otherwise transmit heat efficiently."
+          },
+          {
+            kicker: "TaN thermal | robustness and conclusion",
+            title: "Robust Carrier Selection Near Room Temperature",
+            lead: "The electron-dominant coherent hierarchy is stable across the 250-350 K thermal-management window.",
+            points: [
+              "Electron G/A remains larger than phonon G/A for x and z transport.",
+              "This coherent limit describes short regions, interfaces, and defective layers, not bulk diffusive conductivity.",
+              "Vacancy engineering can tune both heat-flow magnitude and carrier identity."
+            ],
+            figures: [
+              { src: "assets/tan/figure3_conductance_pristine_slide.png", label: "Pristine" },
+              { src: "assets/tan/figure3_conductance_N3p7pct_slide.png", label: "N 3.7%" },
+              { src: "assets/tan/figure3_conductance_N12p5pct_slide.png", label: "N 12.5%" },
+              { src: "assets/tan/figure3_conductance_N25pct_slide.png", label: "N 25%" }
+            ],
+            caption: "Figure 3 confirms that the electron-dominant coherent hierarchy is stable from 250 to 350 K.",
+            layout: "wide-panel-row",
+            takeaway: "N vacancies act as carrier-selective filters of coherent heat conductance in metallic theta-TaN."
+          }
+        ]
+      },
+      {
+        id: "negf-phonon",
+        name: "NEGF phonon-phonon interaction",
+        shortName: "NEGF p-p",
+        status: "Active",
+        phase: "Code development",
+        progress: 35,
+        summary: "Harmonic IFC-NEGF baseline is working; anharmonic self-energy development is next.",
+        progressItems: [
+          "Harmonic IFC-based phonon NEGF workflow is available in negfpy.",
+          "Legacy Fortran benchmark matching is documented.",
+          "Next milestone: add phonon-phonon self-energies and validate on a toy case."
+        ],
+        messageItems: [
+          "This is a code-development project with a validated harmonic baseline.",
+          "The immediate science target is inelastic phonon transport: decoherence, linewidth broadening, frequency shift, and ballistic-to-diffusive crossover."
+        ],
+        showItems: [
+          "Harmonic NEGF benchmark against legacy Fortran.",
+          "Current material-scale outputs from the IFC workflow.",
+          "Anharmonic NEGF implementation path and validation checklist."
+        ],
+        discussionItems: [
+          "What is the best minimal validation case before trying a realistic material?"
+        ],
+        focusItems: [
+          "Development target is phonon-phonon interaction inside the NEGF workflow.",
+          "A minimal validation case is more important than a full material-scale run now.",
+          "The first working version should have a clear benchmark."
+        ],
+        evidenceItems: [
+          "Current inputs are theory notes and existing NEGF code structure.",
+          "Validation should start from a small system where expected behavior is easy to inspect.",
+          "Only after validation should the code move to material-scale simulations."
+        ],
+        nextItems: [
+          "Choose the simplest test system.",
+          "Define the validation criterion for the first implementation checkpoint."
+        ],
+        decisionItems: [
+          "Agree on the first benchmark and what counts as a passing result."
+        ],
+        scienceSlides: [
+          {
+            kicker: "NEGF phonon-phonon | current result",
+            title: "Harmonic IFC-NEGF Baseline Is Now Usable",
+            lead: "Before adding phonon-phonon interaction, the code has a working harmonic transport baseline from force constants to phonon transmission and thermal conductance.",
+            points: [
+              "Existing workflow runs transmission, DOS, dispersion, and FCS directly from IFC files.",
+              "Study mode records input snapshots, manifests, reports, config hashes, IFC hashes, and run provenance.",
+              "The legacy graphene benchmark has a documented overlay showing agreement between Python negfpy settings and the old Fortran reference."
+            ],
+            figure: "assets/negf-phonon/Tw_benchmark_match.png",
+            caption: "Benchmark note: mass normalization and numerical symmetry settings recover the legacy Fortran transmission reference.",
+            layout: "figure-dominant",
+            takeaway: "This gives a stable base: the next physics can be added on top of a checked harmonic NEGF engine."
+          },
+          {
+            kicker: "NEGF phonon-phonon | material workflow",
+            title: "Material-Scale Harmonic Outputs Are Already Available",
+            lead: "The current code can already generate thermal conductance curves for multiple materials and directions, which makes it suitable for later anharmonic comparison.",
+            points: [
+              "The same IFC runner has produced graphene, borophene, phosphorene, TaN, stanene, and silicon examples.",
+              "TaN direction-resolved conductance outputs are available and match the broader TaN thermal project needs.",
+              "These harmonic curves will become the reference limit when phonon-phonon self-energies are added."
+            ],
+            figures: [
+              { src: "assets/negf-phonon/thermal_conductance_multi_material.png", label: "Multi-material" },
+              { src: "assets/negf-phonon/tan_thermal_conductance_xyz.png", label: "TaN x/y/z" }
+            ],
+            caption: "Application-scale outputs from the current harmonic IFC-NEGF workflow.",
+            layout: "wide-panel-row",
+            takeaway: "The project is no longer only a code skeleton; it has reusable harmonic material results."
+          },
+          {
+            kicker: "NEGF phonon-phonon | next physics",
+            title: "Anharmonic Extension: Add Phonon-Phonon Self-Energies",
+            lead: "The planned extension replaces purely coherent harmonic transport with a self-consistent inelastic channel inside the NEGF Green's function.",
+            methodFlow: [
+              {
+                label: "Baseline",
+                title: "Harmonic NEGF",
+                text: "Use existing IFC K matrix, lead self-energies, and ballistic transmission as the zero-interaction limit."
+              },
+              {
+                label: "Input",
+                title: "Third-order IFCs",
+                text: "Introduce Phi^(3) as the source of phonon-phonon scattering."
+              },
+              {
+                label: "SCBA",
+                title: "Sigma_pp",
+                text: "Construct retarded, lesser, and greater phonon-phonon self-energies."
+              },
+              {
+                label: "Solve",
+                title: "Self-consistency",
+                text: "Iterate frequency convolution and Green's functions until current and spectra are stable."
+              },
+              {
+                label: "Validate",
+                title: "Crossover",
+                text: "Recover ballistic limit as Phi^(3)->0; check broadening, shifts, and current conservation."
+              }
+            ],
+            points: [
+              "Target Green's function: Gr = [(omega+i eta)^2 I - K - SigmaL - SigmaR - Sigma_pp]^-1.",
+              "First validation should be a 1D or reduced model before silicon, graphene, TaN, interfaces, or defects.",
+              "Main numerical bottlenecks are frequency convolution, self-consistent iteration, k batching, and parallel frequency loops."
+            ],
+            layout: "method-workflow",
+            takeaway: "The most important next result is a minimal anharmonic validation, not a large material run."
+          }
+        ]
+      },
+      {
+        id: "one-d-chain",
+        name: "Layered material",
+        shortName: "Layered",
+        status: "Waiting",
+        phase: "Two done, three pending",
+        progress: 40,
+        summary: "Mo2S3 and TaSe2 done; three structures pending.",
+        progressItems: [
+          "Mo2S3: done.",
+          "TaSe2: done.",
+          "Other three candidate structures: pending."
+        ],
+        messageItems: [
+          "This project is currently a layered-material screening track.",
+          "Two structures are ready for comparison; three pending cases determine whether the trend is general."
+        ],
+        showItems: [
+          "Mo2S3: completed.",
+          "TaSe2: completed.",
+          "Three remaining candidates: pending status and expected completion path."
+        ],
+        discussionItems: [
+          "Should we keep screening broadly, or narrow the direction once the pending structures finish?"
+        ],
+        focusItems: [
+          "Mo2S3 calculation is done.",
+          "TaSe2 calculation is done.",
+          "Three remaining candidate structures are pending."
+        ],
+        evidenceItems: [
+          "Completed structures can already be compared for relaxation quality and basic trends.",
+          "Pending cases are needed before claiming a material-family trend.",
+          "The next useful output is a compact status table for all five structures."
+        ],
+        nextItems: [
+          "Monitor the pending structures.",
+          "Compare completed structures before deciding whether to narrow the material family."
+        ],
+        decisionItems: [
+          "Decide the screening criterion: stability, transport signal, or clearest publication direction."
+        ],
+        scienceSlides: [
+          {
+            kicker: "Layered material | results snapshot",
+            title: "Completed Results: Mo2S3 And TaSe2",
+            lead: "For this meeting, show only the completed results: Mo2S3 as the relaxed quasi-1D candidate and TaSe2 as the completed layered-metal reference.",
+            points: [
+              "Mo2S3: structural assignment, relaxation, dispersion, and DOS are available; final maximum force about 0.0087 eV/A.",
+              "TaSe2: relaxation, static SCF, band structure, and DOS are available; final maximum force about 0.00018 eV/A.",
+              "FePS3, Nb2Se3, and NbSe2 remain pending, so they are not used for scientific comparison today."
+            ],
+            figures: [
+              { src: "assets/layered/1Mo2S3_ab_crop.png", label: "Mo2S3" },
+              { src: "assets/layered/5TaSe2_ab_crop.png", label: "TaSe2" }
+            ],
+            caption: "Completed structures currently available for result discussion.",
+            layout: "figure-dominant",
+            takeaway: "The current result set supports a two-material comparison: quasi-1D Mo2S3 versus layered metallic TaSe2."
+          },
+          {
+            kicker: "Layered material | Mo2S3 structural verification",
+            title: "Observed Mo2S3 Pattern Matches The Structural Model",
+            lead: "Before discussing properties, we verify that the experimentally observed chain-like contrast corresponds to the Mo2S3 structural model used in the calculation.",
+            points: [
+              "Atomic-pattern check: the observed image and the structural model show the same repeated Mo-S motif and chain ordering.",
+              "Length-scale check: the model reference length is about 1.93 nm, close to the 2 nm experimental scale-bar length.",
+              "Mo-count check: over this matched length scale, the observed Mo count matches the model."
+            ],
+            figures: [
+              { src: "assets/layered/Mo2S3_experimental_observation_upscaled.png", label: "Experiment | 2 nm" },
+              { src: "assets/layered/Mo2S3_calculated_pattern_crop.png", label: "Model motif | ~1.93 nm" },
+              { src: "assets/layered/Mo2S3_periodic_model_crop.png", label: "Model overview" }
+            ],
+            caption: "Structural assignment is checked by comparing the experimental image with the model pattern, using the repeated motif and Mo count over nearly the same length scale.",
+            layout: "wide-panel-row",
+            takeaway: "The experimental image validates the structural model used for the Mo2S3 calculations."
+          },
+          {
+            kicker: "Layered material | Mo2S3 result",
+            title: "Mo2S3: Relaxed Quasi-1D Candidate",
+            lead: "Mo2S3 is the clearest completed chain-like candidate in the current set.",
+            points: [
+              "Relaxation converged cleanly with final TOTEN = -75.63704092 eV.",
+              "The CIF screening identifies monoclinic Mo2S3 as a likely quasi-1D material with short Mo-Mo contacts near 2.85 A.",
+              "Result to keep: Mo2S3 is structurally ready for follow-up electronic, phonon, or strain calculations."
+            ],
+            figures: [
+              { src: "assets/layered/1Mo2S3_ab_crop.png", label: "ab" },
+              { src: "assets/layered/1Mo2S3_ac_crop.png", label: "ac" },
+              { src: "assets/layered/1Mo2S3_bc_crop.png", label: "bc" }
+            ],
+            caption: "Relaxed Mo2S3 structure projections from the current VASP result.",
+            layout: "figure-dominant",
+            takeaway: "Mo2S3 is ready as the main quasi-1D target for the next round of physical-property calculations."
+          },
+          {
+            kicker: "Layered material | Mo2S3 electronic structure",
+            title: "Mo2S3: Dispersion And DOS Are Ready",
+            lead: "The electronic-structure result is now available for Mo2S3, using the SCF Fermi level for energy alignment.",
+            points: [
+              "Representative continuous band path: Gamma-Y-H-C-E-M1-A-X, aligned to E_F = 9.1954 eV.",
+              "Bands approach and cross the Fermi level along the representative path.",
+              "The two-plane Brillouin-zone path diagram links the plotted k-axis labels to reciprocal-space directions."
+            ],
+            figures: [
+              { src: "assets/layered/1Mo2S3_bandstructure.png", label: "Band" },
+              { src: "assets/layered/1Mo2S3_dos.png", label: "DOS" },
+              { src: "assets/layered/1Mo2S3_brillouin_path.png", label: "BZ path" }
+            ],
+            caption: "Mo2S3 band dispersion, total DOS, and two-plane Brillouin-zone path for Gamma-Y-H-C-E-M1-A-X; band and DOS use the SCF Fermi-level alignment.",
+            layout: "wide-panel-row",
+            takeaway: "Mo2S3 now has both structural verification and electronic-structure evidence ready for discussion."
+          },
+          {
+            kicker: "Layered material | TaSe2 result",
+            title: "TaSe2: Metallic Band Structure And DOS",
+            lead: "TaSe2 is the completed layered reference, with band and DOS plots aligned to the static-SCF Fermi level.",
+            points: [
+              "Band path: Gamma-M-K-Gamma-A-L-H-A with 90 band k-points and 16 bands.",
+              "Band 12 crosses the Fermi level in this calculation.",
+              "The two-plane Brillouin-zone path diagram clarifies the in-plane and out-of-plane directions used in the plot."
+            ],
+            figures: [
+              { src: "assets/layered/5TaSe2_bandstructure.png", label: "Band" },
+              { src: "assets/layered/5TaSe2_dos.png", label: "DOS" },
+              { src: "assets/layered/5TaSe2_brillouin_path.png", label: "BZ path" }
+            ],
+            caption: "TaSe2 electronic structure and two-plane Brillouin-zone path for Gamma-M-K-Gamma-A-L-H-A.",
+            layout: "wide-panel-row",
+            takeaway: "TaSe2 provides the metallic layered baseline for comparing against the quasi-1D candidate."
+          },
+          {
+            kicker: "Layered material | TaSe2 CDW check",
+            title: "TaSe2: Finite-q Imaginary Phonons",
+            lead: "The IFC scan shows negative phonon frequencies away from Gamma.",
+            points: [
+              "K mode: -1.5015 THz.",
+              "Best qz=0 minimum: about (0.2757, 0.4477, 0), -1.793 THz.",
+              "Best 3D minimum: about (0.2567, 0.7512, 0.3789), -2.967 THz."
+            ],
+            figures: [
+              { src: "assets/layered/tase2_cdw_phonon_dispersion.png", label: "Phonon dispersion" },
+              { src: "assets/layered/tase2_cdw_q_scan.png", label: "q scan" }
+            ],
+            caption: "Imaginary modes are finite-q, which is the phonon signature expected for a CDW/periodic lattice distortion.",
+            layout: "wide-panel-row",
+            takeaway: "The instability is not a simple Gamma distortion; it is a finite-q CDW candidate."
+          },
+          {
+            kicker: "Layered material | TaSe2 q to supercell",
+            title: "Unstable q Points Define Candidate Supercells",
+            lead: "Each candidate cell is chosen so q . R is an integer and the unstable mode folds to Gamma.",
+            points: [
+              "The initial displacement is the unstable eigenvector seed.",
+              "phase0 and phase90 were generated with max |u| = 0.04 A.",
+              "The K phase0 branch is the completed dense-k proof."
+            ],
+            figure: "assets/layered/tase2_cdw_candidate_supercells.png",
+            figureLabel: "Candidate table",
+            caption: "Candidate supercells, matrix rows, atom counts, seed distortions, and calculation status. The K row is the decisive calculation.",
+            layout: "result-dominant",
+            takeaway: "Only K phase0 is fully dense-k relaxed; the other q candidates are prepared or supporting checks."
+          },
+          {
+            kicker: "Layered material | TaSe2 decisive K-CDW",
+            title: "Dense K-CDW Relaxation Lowers Energy",
+            lead: "The K-mode seed relaxes into a lower-energy periodic lattice distortion.",
+            points: [
+              "K supercell: 9 atoms, index 3.",
+              "Dense comparison: 2x2x2 k mesh.",
+              "Energy lowering: -28.964 meV/TaSe2; final max force: 0.00921 eV/A."
+            ],
+            figure: "assets/layered/tase2_cdw_k_cdw_evidence.png",
+            figureLabel: "K-CDW evidence",
+            caption: "Parent positions, initial eigenvector seed, final relaxed K-CDW distortion, and dense-k energy lowering.",
+            layout: "result-dominant",
+            takeaway: "The distortion lowers the energy, supporting the CDW origin of the parent imaginary phonon."
+          }
+        ]
+      },
+      {
+        id: "phonon-susceptibility",
+        name: "Phonon susceptibility",
+        shortName: "Phonon susc.",
+        status: "Active",
+        phase: "Validation results",
+        progress: 70,
+        summary: "Defect susceptibility validated across toy, graphene, and TaN cases.",
+        progressItems: [
+          "Pristine-\\(G_0\\) \\(T\\)-matrix susceptibility framework is defined.",
+          "1D toy, graphene C-13, graphene vacancy, and TaN N-vacancy validation results are available.",
+          "High-concentration TaN vacancy transfer identifies the current limitation."
+        ],
+        messageItems: [
+          "Phonon susceptibility predicts how strongly phonon transmission responds to a specified local defect perturbation.",
+          "Correct local perturbations reproduce direct defect calculations; transferable perturbations work in moderate regimes and fail diagnostically at high vacancy concentration."
+        ],
+        showItems: [
+          "Formalism: \\(H=H_0+V_d\\), pristine \\(G_0\\), \\(T\\)-matrix response, and transmission susceptibility.",
+          "Definition and 1D validation.",
+          "Graphene C-13 exact mass-disorder benchmark.",
+          "Graphene vacancy transfer and TaN N-vacancy limitation."
+        ],
+        discussionItems: [
+          "How should we phrase the boundary: predictive in dilute/moderate regimes, diagnostic at high defect concentration?"
+        ],
+        focusItems: [
+          "Use pristine Green's functions and a local defect perturbation to estimate transmission loss.",
+          "Separate exact single-defect validation from transferable-defect prediction.",
+          "Use TaN high-concentration failure as a useful limitation, not as a negative result."
+        ],
+        evidenceItems: [
+          "1D pair correction improves finite-concentration conductance prediction.",
+          "Graphene C-13 mass perturbation matches direct finite-defect NEGF to roundoff.",
+          "Graphene vacancy \\(V_1\\) transfer gives conductance error about \\(0.0069\\); TaN N25% remains outside the one-defect-transfer regime."
+        ],
+        nextItems: [
+          "Convert the validation sequence into the clean manuscript figure story.",
+          "Clarify passivity/stability gating and cluster/pair correction as the next extension."
+        ],
+        decisionItems: [
+          "Decide whether the first manuscript should emphasize the method, the cross-system validation, or the TaN limitation."
+        ],
+        scienceSlides: [
+          {
+            kicker: "Phonon susceptibility | motivation",
+            title: "Pristine-Lattice Defect Susceptibility",
+            lead: "Some materials and phonon channels are defect-prone; others are defect-resilient.",
+            points: [],
+            figure: "assets/phonon-susceptibility/motivation_pristine_susceptibility.svg",
+            caption: "",
+            layout: "wide-panel-row",
+            takeaway: "Question: can pristine \\(G_0\\) + local \\(V_d\\) predict this susceptibility before building many defective supercells?"
+          },
+          {
+            kicker: "Phonon susceptibility | derivation 1",
+            title: "From A Local Defect To One-Defect Transmission",
+            lead: "The derivation is a sequence: define the local perturbation, propagate the pristine device, then insert the defect through a T matrix.",
+            equations: [
+              {
+                label: "1 | Defect model",
+                formula: "\\mathcal{H}_d=\\mathcal{H}_0+V_d",
+                note: "\\(\\mathcal{H}_0\\) is the pristine lattice operator; \\(V_d\\) is the local defect perturbation."
+              },
+              {
+                label: "2 | Pristine propagation",
+                formula: "\\begin{aligned}G_0^r=&\\big[(\\omega+i\\eta)^2I-\\mathcal{H}_0(\\mathbf{k})\\\\&-\\Sigma_L^r-\\Sigma_R^r\\big]^{-1}\\end{aligned}",
+                note: "\\(G_0\\) carries the clean device, lead self-energies, and channel mixing."
+              },
+              {
+                label: "3 | Defect scattering",
+                formula: "T_d^r=\\left[I-V_dG_0^r\\right]^{-1}V_d",
+                note: "The inverse resums repeated scattering from the same defect."
+              },
+              {
+                label: "4 | Transport response",
+                formula: "G_d^r=G_0^r+G_0^rT_d^rG_0^r,\\quad \\mathcal{T}_d=\\mathrm{Tr}[\\Gamma_LG_d^r\\Gamma_RG_d^a]",
+                note: "The local perturbation becomes a measurable defective transmission spectrum."
+              }
+            ],
+            points: [
+              "We start from pristine transport, then ask how one specified \\(V_d\\) changes it.",
+              "If \\(V_d\\) is exact in the same Hilbert space, the \\(T\\)-matrix result reproduces direct one-defect NEGF.",
+              "For vacancies or supercells, common-space embedding is the essential technical step."
+            ],
+            layout: "formalism",
+            takeaway: "First story step: a local structural defect is converted into an exact one-defect transmission response."
+          },
+          {
+            kicker: "Phonon susceptibility | derivation 2",
+            title: "From One Defect To A Susceptibility Map",
+            lead: "The susceptibility is the logarithmic transmission loss per defect strength, which is the additive quantity used to predict concentration trends.",
+            equations: [
+              {
+                label: "5 | One-defect log-loss",
+                formula: "\\chi_{\\mathcal{T}}^{(d)}(\\omega,\\mathbf{k})=-\\frac{1}{g_{\\mathrm{unit}}}\\ln\\frac{\\mathcal{T}_d+\\epsilon}{\\mathcal{T}_0+\\epsilon}",
+                note: "Positive \\(\\chi_{\\mathcal{T}}\\) means defect-induced transmission suppression in that channel."
+              },
+              {
+                label: "6 | Dilute prediction",
+                formula: "\\mathcal{T}(\\omega,\\mathbf{k},c)\\simeq\\mathcal{T}_0\\exp[-g_d(c)\\chi_{\\mathcal{T}}^{(d)}(\\omega,\\mathbf{k})]",
+                note: "Independent defects add in log-transmission space."
+              },
+              {
+                label: "7 | Interaction hierarchy",
+                formula: "-\\ln(\\mathcal{T}/\\mathcal{T}_0)\\simeq g\\chi^{(1)}+g^2\\chi^{(2)}+\\cdots",
+                note: "Pair or cluster terms appear when defects interact or reconstruct."
+              }
+            ],
+            points: [
+              "The map is spectral: it identifies which \\((\\omega,\\mathbf{k})\\) channels are vulnerable to defect \\(d\\).",
+              "Thermal conductance is obtained after Landauer integration of the predicted \\(\\mathcal{T}(\\omega,\\mathbf{k},c)\\).",
+              "High-concentration failure is not a formalism failure; it means the one-defect model must become pair or cluster susceptibility."
+            ],
+            layout: "formalism",
+            takeaway: "Second story step: exact one-defect response becomes a reusable map for dilute prediction and a diagnostic for when cluster terms are needed."
+          },
+          {
+            kicker: "Phonon susceptibility | concept and validation",
+            title: "A Defect-Resolved Susceptibility For Phonon Transmission",
+            lead: "1D chain validation of \\(\\chi_{\\mathcal{T}}^{(d)}\\).",
+            points: [],
+            figure: "assets/phonon-susceptibility/fig1_1d_validation.svg",
+            caption: "Pristine-\\(G_0\\) susceptibility predicts direct random-defect calculations; pair correction improves finite concentration.",
+            layout: "result-dominant",
+            takeaway: "Susceptibility ranks defect-sensitive channels."
+          },
+          {
+            kicker: "Phonon susceptibility | toy model pair correction",
+            title: "Toy Model: Momentum-Dependent Pair \\(T\\)-Matrix",
+            lead: "Low-concentration pair correction.",
+            points: [],
+            figure: "assets/phonon-susceptibility/toy_pair_tmatrix_transmission_examples.svg",
+            caption: "Momentum-dependent transmission examples from the pair \\(T\\)-matrix toy model.",
+            layout: "result-dominant",
+            takeaway: "Pair correction captures channel-dependent transmission loss."
+          },
+          {
+            kicker: "Phonon susceptibility | exact mass benchmark",
+            title: "Graphene C-13 Mass Disorder Gives An Exact Algebraic Check",
+            lead: "Exact mass perturbation benchmark.",
+            points: [],
+            figure: "assets/phonon-susceptibility/fig2_graphene_c13_mass_benchmark.svg",
+            caption: "C-13 mass disorder verifies the pristine-\\(G_0\\) implementation in graphene.",
+            layout: "result-dominant",
+            takeaway: "Mass disorder is reproduced to numerical precision."
+          },
+          {
+            kicker: "Phonon susceptibility | vacancy transfer",
+            title: "Graphene Vacancy: Local \\(V_1\\) Transfer Works In A Moderate Regime",
+            lead: "Vacancy perturbation transfer test.",
+            points: [],
+            figures: [
+              { src: "assets/phonon-susceptibility/transfer_v1_schematic.png", label: "Transfer idea" },
+              { src: "assets/phonon-susceptibility/fig3_graphene_vacancy_transfer.svg", label: "Validation" }
+            ],
+            caption: "Transfer means reusing a local reconstructed \\(V_1\\) from one vacancy cell as the defect perturbation in another cell.",
+            layout: "wide-panel-row transfer-validation-layout",
+            takeaway: "Local reconstruction is the transferable ingredient."
+          },
+          {
+            kicker: "Phonon susceptibility | 3D limitation",
+            title: "TaN N Vacancy: Exact In 3D, Limited At High Concentration",
+            lead: "3D N-vacancy validation and limitation.",
+            points: [],
+            figure: "assets/phonon-susceptibility/fig4_tan_n_vacancy_limit.svg",
+            caption: "Exact embedded \\(V_d\\) works; one-defect transfer breaks down at high vacancy concentration.",
+            layout: "result-dominant",
+            takeaway: "High concentration needs pair or cluster susceptibility."
+          }
+        ]
+      }
     ];
 
     const defaultState = window.DAILY_PLAN_DEFAULT_DATA || { projects: [], days: [] };
     let state = defaultState;
     let revealReady = false;
+    let revealEventsReady = false;
     let pendingSlideKey = meetings[0].id;
     let slideKeys = [];
+    let assetSlideKeys = new Set();
+    let closingSlideIndex = 0;
+    let assetViewMode = false;
 
     const gateForm = document.getElementById("gateForm");
     const passcodeInput = document.getElementById("passcode");
@@ -767,6 +2341,7 @@
     const deckLockButton = document.getElementById("deckLockButton");
     const meetingGrid = document.getElementById("meetingGrid");
     const slidesRoot = document.getElementById("slidesRoot");
+    const fullscreenButton = document.getElementById("fullscreenButton");
     const notesButton = document.getElementById("notesButton");
     const printDeck = document.getElementById("printDeck");
 
@@ -810,6 +2385,20 @@
       window.print();
     });
 
+    fullscreenButton.addEventListener("click", async () => {
+      const target = document.getElementById("deckView") || document.documentElement;
+      try {
+        if (!document.fullscreenElement && target.requestFullscreen) {
+          await target.requestFullscreen();
+        } else if (document.fullscreenElement && document.exitFullscreen) {
+          await document.exitFullscreen();
+        }
+      } catch (error) {
+        window.alert("Fullscreen is blocked by the browser. You can use F11 instead.");
+      }
+      if (window.Reveal?.layout) Reveal.layout();
+    });
+
     notesButton.addEventListener("click", () => {
       const notesPlugin = window.Reveal?.getPlugin?.("notes");
       if (notesPlugin?.open) {
@@ -820,40 +2409,61 @@
     });
 
     function getProjectList() {
-      const projectsById = new Map((state.projects || []).map((project) => [project.id, project]));
-      const ordered = preferredProjectIds
-        .map((id) => projectsById.get(id))
-        .filter(Boolean);
-      const used = new Set(ordered.map((project) => project.id));
-      const extras = (state.projects || [])
-        .filter((project) => !used.has(project.id) && project.category === "Research")
-        .sort((a, b) => Number(b.progress || 0) - Number(a.progress || 0));
-      return [...ordered, ...extras];
-    }
-
-    function latestLog(project) {
-      return (project.log || [])
-        .slice()
-        .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))[0];
+      return visibleProjects.map((project) => ({
+        ...project,
+        category: "Research"
+      }));
     }
 
     function projectStatus(project) {
-      if (project.finishDate || Number(project.progress) >= 100) return "Completed";
-      const last = latestLog(project);
-      const text = `${project.name} ${last?.note || ""}`.toLowerCase();
-      if (text.includes("wait") || text.includes("pending") || text.includes("not with me")) return "Waiting";
-      return "Active";
+      return project.status || "Active";
     }
 
-    function statusClass(project) {
-      return projectStatus(project).toLowerCase();
+    function isFeaturedProject(project) {
+      return featuredProjectIds.includes(project.id);
+    }
+
+    function getFeaturedProjects(projects) {
+      const projectsById = new Map(projects.map((project) => [project.id, project]));
+      return featuredProjectIds
+        .map((id) => projectsById.get(id))
+        .filter(Boolean);
+    }
+
+    function getAssetOnlyProjects(projects) {
+      return projects.filter((project) => !isFeaturedProject(project));
+    }
+
+    function projectSlideTotal(project) {
+      return project.scienceSlides?.length || DEFAULT_PROJECT_SLIDE_COUNT;
+    }
+
+    function projectSlideKeys(project) {
+      if (project.scienceSlides?.length) {
+        return project.scienceSlides.map((slide, index) => (
+          index === 0 ? project.id : `${project.id}-science-${index + 1}`
+        ));
+      }
+      return [project.id, `${project.id}-focus`];
+    }
+
+    function presentationSlideCount(featuredProjects) {
+      return 2
+        + featuredProjects.length
+        + featuredProjects.reduce((total, project) => total + projectSlideTotal(project), 0);
     }
 
     function renderMeetingIndex() {
+      const projects = getProjectList();
+      const featuredProjects = getFeaturedProjects(projects);
+      const mainSlides = presentationSlideCount(featuredProjects);
       meetingGrid.innerHTML = meetings.map((meeting) => `
         <div class="meeting-card">
           <a class="meeting-date" href="#deck/${meeting.id}">${meeting.dateLabel}</a>
-          <p>${escapeHtml(meeting.description)}</p>
+          <div>
+            <p>${escapeHtml(meeting.description)}</p>
+            <p class="meta">${mainSlides}-slide meeting flow | ${projects.length} reusable project assets</p>
+          </div>
         </div>
       `).join("");
     }
@@ -861,154 +2471,336 @@
     function renderDeck() {
       const meeting = meetings[0];
       const projects = getProjectList();
+      const featuredProjects = getFeaturedProjects(projects);
+      const assetOnlyProjects = getAssetOnlyProjects(projects);
+      const meetingSlideHtml = [summarySlide(meeting, projects, 1, meeting.id)];
+      const meetingSlideKeys = [meeting.id];
+      let nextSlideNumber = 2;
+
+      featuredProjects.forEach((project) => {
+        meetingSlideHtml.push(...renderProjectSlides(project, nextSlideNumber));
+        meetingSlideKeys.push(...projectSlideKeys(project));
+        nextSlideNumber += projectSlideTotal(project);
+
+        const returnSlideKey = `${meeting.id}-after-${project.id}`;
+        meetingSlideHtml.push(summarySlide(meeting, projects, nextSlideNumber, returnSlideKey, {
+          returnFromProject: project
+        }));
+        meetingSlideKeys.push(returnSlideKey);
+        nextSlideNumber += 1;
+      });
 
       slideKeys = [
-        meeting.id,
-        "agenda",
-        ...projects.map((project) => project.id),
-        "closing"
+        ...meetingSlideKeys,
+        "closing",
+        ...assetOnlyProjects.flatMap((project) => projectSlideKeys(project))
       ];
+      assetSlideKeys = new Set(assetOnlyProjects.flatMap((project) => projectSlideKeys(project)));
+      closingSlideIndex = slideKeys.indexOf("closing");
 
       slidesRoot.innerHTML = [
-        summarySlide(meeting, projects),
-        agendaSlide(),
-        ...projects.map((project, index) => projectSlide(project, index + 3)),
-        closingSlide(projects.length + 3)
+        ...meetingSlideHtml,
+        closingSlide(nextSlideNumber),
+        ...assetOnlyProjects.flatMap((project) => renderProjectSlides(project, null, { assetOnly: true }))
       ].join("");
     }
 
-    function summarySlide(meeting, projects) {
+    function renderProjectSlides(project, firstSlideNumber, options = {}) {
+      if (project.scienceSlides?.length) {
+        return project.scienceSlides.map((slide, index) => scienceProjectSlide(
+          project,
+          slide,
+          index,
+          firstSlideNumber === null ? null : firstSlideNumber + index,
+          options
+        ));
+      }
+      return [
+        projectSlide(project, firstSlideNumber, options),
+        projectFocusSlide(project, firstSlideNumber === null ? null : firstSlideNumber + 1, options)
+      ];
+    }
+
+    function summarySlide(meeting, projects, slideNumber = 1, slideKey = meeting.id, options = {}) {
+      const returnFromProject = options.returnFromProject;
+      const kicker = returnFromProject
+        ? `Back to project list | after ${returnFromProject.name}`
+        : `${meeting.dateLabel} | ${meeting.theme}`;
+      const notes = returnFromProject
+        ? `Return to the project list after ${returnFromProject.name}. Use this board to reset the discussion and choose the next project.`
+        : "Start from the project list. For each project, give only the short progress summary, then move to the project slides that need discussion.";
       return `
-        <section data-slide-key="${meeting.id}">
+        <section data-slide-key="${escapeHtml(slideKey)}">
           <div class="slide-shell">
             <header class="slide-head">
               <div>
-                <span class="slide-kicker">${meeting.dateLabel} | ${escapeHtml(meeting.theme)}</span>
-                <h2>Project List And Progress Summary</h2>
+                <span class="slide-kicker">${escapeHtml(kicker)}</span>
+                <h2>Project Status Board</h2>
               </div>
-              <span class="slide-count">Slide 1</span>
+              <span class="slide-count">Slide ${escapeHtml(slideNumber)}</span>
             </header>
-            <div class="portfolio-table">
-              ${projects.map((project) => projectSummaryRow(project)).join("")}
+            ${projectJumpNav()}
+            <div class="slide-content status-board-content">
+              <div class="portfolio-table">
+                ${projects.map((project) => projectSummaryRow(project)).join("")}
+              </div>
             </div>
           </div>
           <aside class="notes">
-            Start from the project list. For each project, give only the short progress summary, then move to the project slides that need discussion.
+            ${escapeHtml(notes)}
           </aside>
         </section>
       `;
     }
 
     function projectSummaryRow(project) {
-      const last = latestLog(project);
       return `
         <a class="project-row" href="#deck/${project.id}">
-          <strong>${escapeHtml(project.name)}</strong>
-          <span>
-            <span class="mini-bar" style="--value:${Number(project.progress || 0)}%"><span></span></span>
-            <span class="meta">${Number(project.progress || 0)}% | ${escapeHtml(projectStatus(project))}</span>
+          <span class="project-card-head">
+            <strong>${escapeHtml(project.name)}</strong>
+            ${discussBadge(project)}
           </span>
-          <span class="meta">${escapeHtml(last?.note || "No update note yet.")}</span>
+          <span class="project-card-meta-row">
+            <span class="status-label ${statusTone(projectStatus(project))}">${escapeHtml(projectStatus(project))}</span>
+            <span class="phase-label">${Number(project.progress || 0)}% | ${escapeHtml(project.phase || "Progress update")}</span>
+          </span>
+          <span class="progress-cell">
+            <span class="mini-bar" style="--value:${Number(project.progress || 0)}%"><span></span></span>
+          </span>
+          <span class="meta">${escapeHtml(project.summary || "Progress summary not set.")}</span>
         </a>
       `;
     }
 
-    function agendaSlide() {
+    function discussBadge(project) {
+      return isFeaturedProject(project)
+        ? `<span class="scope-label scope-featured">Discuss today</span>`
+        : "";
+    }
+
+    function scienceProjectSlide(project, slide, index, slideNumber, options = {}) {
+      const total = projectSlideTotal(project);
+      const slideKey = index === 0 ? project.id : `${project.id}-science-${index + 1}`;
+      const slideLabel = options.assetOnly ? `Asset ${index + 1}/${total}` : `Slide ${slideNumber}`;
+      const kickerLabel = options.assetOnly
+        ? `${project.shortName || project.name} | reusable science asset`
+        : slide.kicker || `${project.shortName || project.name} | science`;
+      const figures = slide.figures?.length
+        ? slide.figures
+        : slide.figure
+          ? [{ src: slide.figure, label: slide.figureLabel || "" }]
+          : [];
+      const figure = figures.length
+        ? `
+          <figure class="science-figure figure-count-${Math.min(figures.length, 4)}">
+            <div class="science-figure-grid">
+              ${figures.map((figureItem, figureIndex) => `
+                <div class="figure-box">
+                  ${figureItem.label ? `<span class="figure-label">${escapeHtml(figureItem.label)}</span>` : ""}
+                  <img src="${escapeHtml(figureItem.src)}" alt="${escapeHtml(figureItem.alt || figureItem.label || slide.title || project.name)}">
+                </div>
+              `).join("")}
+            </div>
+            <figcaption class="figure-caption">${escapeHtml(slide.caption || "")}</figcaption>
+          </figure>
+        `
+        : "";
+      const methodFlow = slide.methodFlow?.length
+        ? `
+          <div class="method-flow">
+            ${slide.methodFlow.map((step) => `
+              <div class="method-node">
+                <span>${escapeHtml(step.label || "")}</span>
+                <strong>${escapeHtml(step.title || "")}</strong>
+                <p>${escapeHtml(step.text || "")}</p>
+              </div>
+            `).join("")}
+          </div>
+        `
+        : "";
+      const equationStack = slide.equations?.length
+        ? `
+          <div class="equation-stack equation-count-${Math.min(slide.equations.length, 4)}">
+            ${slide.equations.map((equation) => `
+              <div class="equation-card">
+                <span>${escapeHtml(equation.label || "Equation")}</span>
+                <div class="equation-math">\\[${escapeHtml(equation.formula || "")}\\]</div>
+                <p>${escapeHtml(equation.note || "")}</p>
+              </div>
+            `).join("")}
+          </div>
+        `
+        : "";
+      const layoutClass = figures.length
+        ? `has-figure ${escapeHtml(slide.layout || "figure-dominant")}`
+        : `no-figure ${escapeHtml(slide.layout || "")}`;
+
       return `
-        <section data-slide-key="agenda">
+        <section class="science-slide" data-slide-key="${slideKey}">
           <div class="slide-shell">
             <header class="slide-head">
               <div>
-                <span class="slide-kicker">Meeting Flow</span>
-                <h2>Suggested Agenda</h2>
+                <span class="slide-kicker">${escapeHtml(kickerLabel)}</span>
+                <h2>${escapeHtml(slide.title || project.name)}</h2>
               </div>
-              <span class="slide-count">Slide 2</span>
+              <span class="slide-count">${escapeHtml(slideLabel)}</span>
             </header>
-            <div class="agenda-grid">
-              <div class="content-box">
-                <h3>Fast Progress Scan</h3>
-                <ul>
-                  <li>What moved forward since the last update?</li>
-                  <li>Which items are waiting on collaborators or calculations?</li>
-                  <li>Which result is mature enough to show as a figure?</li>
-                </ul>
+            ${projectJumpNav(project.id, "compact")}
+            <div class="slide-content science-slide-content ${layoutClass}">
+              <div class="content-box science-copy">
+                <p class="science-lead">${escapeHtml(slide.lead || project.summary || "")}</p>
+                ${equationStack}
+                ${methodFlow}
+                ${slide.points?.length ? bulletList(slide.points, "science-points") : ""}
+                ${slide.takeaway ? `<p class="big-takeaway">${escapeHtml(slide.takeaway)}</p>` : ""}
               </div>
-              <div class="content-box">
-                <h3>Discussion Priorities</h3>
-                <ul>
-                  <li>Which project needs group input?</li>
-                  <li>Which paper direction is most promising?</li>
-                  <li>What should be finished before the next meeting?</li>
-                </ul>
-              </div>
+              ${figure}
             </div>
+            ${projectSlideCount(index + 1, total)}
           </div>
           <aside class="notes">
-            Keep this slide short. Use it to set the rhythm before moving into individual project slides.
+            ${escapeHtml(slide.notes || slide.takeaway || project.summary || "")}
           </aside>
         </section>
       `;
     }
 
-    function projectSlide(project, slideNumber) {
-      const last = latestLog(project);
+    function projectSlide(project, slideNumber, options = {}) {
       const progress = Number(project.progress || 0);
+      const slideLabel = options.assetOnly ? "Asset 1/2" : `Slide ${slideNumber}`;
+      const kickerLabel = options.assetOnly
+        ? `${projectStatus(project)} | reusable asset`
+        : `${projectStatus(project)} | ${project.phase || project.category || "Research"}`;
       return `
         <section data-slide-key="${project.id}">
           <div class="slide-shell">
             <header class="slide-head">
               <div>
-                <span class="slide-kicker">${escapeHtml(projectStatus(project))} | ${escapeHtml(project.category || "Research")}</span>
+                <span class="slide-kicker">${escapeHtml(kickerLabel)}</span>
                 <h2>${escapeHtml(project.name)}</h2>
               </div>
-              <span class="slide-count">Slide ${slideNumber}</span>
+              <span class="slide-count">${escapeHtml(slideLabel)}</span>
             </header>
-            <div class="project-status-grid">
-              <div class="content-box">
-                <h3>Latest Tracker Note</h3>
-                <p class="latest-note">${escapeHtml(last?.note || "No update note yet.")}</p>
+            ${projectJumpNav(project.id)}
+            <div class="slide-content project-slide-content">
+              <div class="project-status-grid">
+                <div class="content-box">
+                  <h3>Overall Progress</h3>
+                  <p class="latest-note">${escapeHtml(project.summary || "Progress summary not set.")}</p>
+                </div>
+                <div class="progress-tile">
+                  <strong>${progress}%</strong>
+                  <span>${escapeHtml(projectStatus(project))} | ${escapeHtml(project.phase || "Progress update")}</span>
+                </div>
               </div>
-              <div class="progress-tile">
-                <strong>${progress}%</strong>
-                <span>${escapeHtml(projectStatus(project))}</span>
-              </div>
-            </div>
-            <div class="project-slide-grid">
-              <div class="content-box">
-                <h3>Current Status</h3>
-                <ul>
-                  <li class="placeholder">Fill in the concrete update for this meeting.</li>
-                  <li class="placeholder">Add figure, result, or file references if needed.</li>
-                </ul>
-              </div>
-              <div class="content-box">
-                <h3>Key Message</h3>
-                <ul>
-                  <li class="placeholder">One sentence that the audience should remember.</li>
-                  <li class="placeholder">Why this project matters now.</li>
-                </ul>
-              </div>
-              <div class="content-box">
-                <h3>Blockers Or Decisions</h3>
-                <ul>
-                  <li class="placeholder">Waiting item, calculation status, missing data, or decision needed.</li>
-                  <li class="placeholder">Question to ask during the meeting.</li>
-                </ul>
-              </div>
-              <div class="content-box">
-                <h3>Next Actions</h3>
-                <ul>
-                  <li class="placeholder">Action 1 before next meeting.</li>
-                  <li class="placeholder">Action 2 if time permits.</li>
-                </ul>
+              <div class="project-slide-grid">
+                <div class="content-box">
+                  <h3>Current Status</h3>
+                  ${bulletList(project.progressItems)}
+                </div>
+                <div class="content-box">
+                  <h3>Scientific Message</h3>
+                  ${bulletList(project.messageItems)}
+                </div>
+                <div class="content-box">
+                  <h3>What To Show</h3>
+                  ${bulletList(project.showItems)}
+                </div>
+                <div class="content-box">
+                  <h3>Question For Group</h3>
+                  ${bulletList(project.discussionItems)}
+                </div>
               </div>
             </div>
+            ${projectSlideCount(1)}
           </div>
           <aside class="notes">
-            Present the latest note first, then state the scientific message and the decision needed from the group.
+            Present the overall project state first, then mention the one discussion point that needs group input.
           </aside>
         </section>
       `;
+    }
+
+    function projectFocusSlide(project, slideNumber, options = {}) {
+      const slideLabel = options.assetOnly ? "Asset 2/2" : `Slide ${slideNumber}`;
+      return `
+        <section data-slide-key="${project.id}-focus">
+          <div class="slide-shell">
+            <header class="slide-head">
+              <div>
+                <span class="slide-kicker">${escapeHtml(project.shortName || project.name)} | ${options.assetOnly ? "asset focus" : "focus"}</span>
+                <h2>${escapeHtml(project.name)}: Focus</h2>
+              </div>
+              <span class="slide-count">${escapeHtml(slideLabel)}</span>
+            </header>
+            ${projectJumpNav(project.id)}
+            <div class="slide-content">
+              <div class="project-slide-grid">
+                <div class="content-box">
+                  <h3>Focus</h3>
+                  ${bulletList(project.focusItems)}
+                </div>
+                <div class="content-box">
+                  <h3>Evidence / Plan</h3>
+                  ${bulletList(project.evidenceItems)}
+                </div>
+                <div class="content-box">
+                  <h3>Next Check</h3>
+                  ${bulletList(project.nextItems)}
+                </div>
+                <div class="content-box">
+                  <h3>Decision Needed</h3>
+                  ${bulletList(project.decisionItems)}
+                </div>
+              </div>
+            </div>
+            ${projectSlideCount(2)}
+          </div>
+          <aside class="notes">
+            Use this slide for project-level discussion after the short status slide.
+          </aside>
+        </section>
+      `;
+    }
+
+    function statusTone(status) {
+      return `status-${String(status || "active").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+    }
+
+    function bulletList(items, className = "") {
+      const safeItems = items?.length ? items : ["Progress details are not set."];
+      const classAttribute = className ? ` class="${escapeHtml(className)}"` : "";
+      return `<ul${classAttribute}>${safeItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+    }
+
+    function projectJumpNav(activeProjectId = "", variant = "full") {
+      if (variant === "compact") {
+        const activeProject = visibleProjects.find((project) => project.id === activeProjectId);
+        return `
+          <nav class="project-jump-nav compact" aria-label="Jump to project">
+            <a href="#deck/${meetings[0].id}">Projects</a>
+            ${activeProject ? `
+              <a class="active" href="#deck/${activeProject.id}">
+                ${escapeHtml(activeProject.shortName || activeProject.name)}
+              </a>
+            ` : ""}
+          </nav>
+        `;
+      }
+
+      return `
+        <nav class="project-jump-nav" aria-label="Jump to project">
+          ${visibleProjects.map((project) => `
+            <a class="${project.id === activeProjectId ? "active" : ""}" href="#deck/${project.id}">
+              ${escapeHtml(project.shortName || project.name)}
+            </a>
+          `).join("")}
+        </nav>
+      `;
+    }
+
+    function projectSlideCount(current, total = DEFAULT_PROJECT_SLIDE_COUNT) {
+      return `<span class="project-slide-count">${current}/${total}</span>`;
     }
 
     function closingSlide(slideNumber) {
@@ -1018,29 +2810,36 @@
             <header class="slide-head">
               <div>
                 <span class="slide-kicker">Wrap Up</span>
-                <h2>Decisions And Next Meeting</h2>
+                <h2>Summary And Discussion Items</h2>
               </div>
               <span class="slide-count">Slide ${slideNumber}</span>
             </header>
-            <div class="closing-grid">
-              <div class="content-box">
-                <h3>Decisions Made</h3>
-                <ul>
-                  <li class="placeholder">Decision 1.</li>
-                  <li class="placeholder">Decision 2.</li>
-                </ul>
-              </div>
-              <div class="content-box">
-                <h3>Next Meeting Inputs</h3>
-                <ul>
-                  <li class="placeholder">Figures or results to prepare.</li>
-                  <li class="placeholder">Questions to resolve before the next discussion.</li>
-                </ul>
+            ${projectJumpNav()}
+            <div class="slide-content">
+              <div class="closing-grid">
+                <div class="content-box">
+                  <h3>Progress Summary</h3>
+                  <ul>
+                    <li>Nonlocal SBH has been submitted.</li>
+                    <li>TaN thermal is waiting in manuscript revision at about 90%.</li>
+                    <li>Recessed Contact is calculating the double-vacancy model.</li>
+                    <li>Layered material has two done and three pending.</li>
+                    <li>NEGF phonon-phonon has a working harmonic baseline; Phonon susceptibility has validation results.</li>
+                  </ul>
+                </div>
+                <div class="content-box">
+                  <h3>Open Discussion</h3>
+                  <ul>
+                    <li>How to frame the recessed-contact vacancy comparison.</li>
+                    <li>What first validation case is best for the NEGF phonon-phonon code.</li>
+                    <li>How to phrase the predictive range and limitation of phonon susceptibility.</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
           <aside class="notes">
-            Close by turning discussion into commitments. Record names, files, and dates after the meeting if needed.
+            Close by separating submitted, manuscript-stage, calculation-stage, and early-stage projects.
           </aside>
         </section>
       `;
@@ -1055,11 +2854,13 @@
       if (revealReady) {
         Reveal.sync();
         Reveal.layout();
+        bindRevealEvents();
         return true;
       }
 
       const plugins = [];
       if (window.RevealNotes) plugins.push(RevealNotes);
+      if (window.RevealMath?.MathJax3) plugins.push(RevealMath.MathJax3);
 
       await Reveal.initialize({
         controls: true,
@@ -1072,11 +2873,34 @@
         margin: 0.04,
         transition: "slide",
         backgroundTransition: "fade",
+        mathjax3: {
+          mathjax: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
+          tex: {
+            inlineMath: [["$", "$"], ["\\(", "\\)"]],
+            displayMath: [["\\[", "\\]"]]
+          }
+        },
         plugins
       });
 
       revealReady = true;
+      bindRevealEvents();
       return true;
+    }
+
+    function bindRevealEvents() {
+      if (revealEventsReady || !window.Reveal?.on) return;
+      Reveal.on("slidechanged", (event) => {
+        const slideKey = event.currentSlide?.dataset?.slideKey || "";
+        if (assetSlideKeys.has(slideKey) && !assetViewMode) {
+          Reveal.slide(closingSlideIndex, 0);
+          return;
+        }
+        if (!assetSlideKeys.has(slideKey)) {
+          assetViewMode = false;
+        }
+      });
+      revealEventsReady = true;
     }
 
     function showRevealLoadError() {
@@ -1102,6 +2926,7 @@
 
     function goToSlideKey(slideKey) {
       const index = slideKeys.indexOf(slideKey);
+      assetViewMode = assetSlideKeys.has(slideKey);
       Reveal.slide(index >= 0 ? index : 0, 0);
       Reveal.layout();
     }

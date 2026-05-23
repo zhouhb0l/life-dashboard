@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaSe2 CDW Verification Slides</title>
+  <style>
+    @page { size: 13.333in 7.5in; margin: 0; }
+    :root {
+      --ink: #13201c;
+      --muted: #5c6b66;
+      --line: #d8e1dc;
+      --panel: #f4f7f5;
+      --green: #2d7d61;
+      --red: #a84d4d;
+      --blue: #2e6f9f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e8edea;
+      color: var(--ink);
+      font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+    }
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      padding: 4.5vh 3.45vw 3.7vh;
+      background: white;
+      page-break-after: always;
+      overflow: hidden;
+      position: relative;
+    }
+    .slide::after {
+      content: "Layered material | TaSe2 CDW check";
+      position: absolute;
+      right: 3.45vw;
+      bottom: 2.1vh;
+      color: #87918d;
+      font-size: 11px;
+    }
+    .head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.8vw;
+      align-items: flex-start;
+      margin-bottom: 2.1vh;
+    }
+    .kicker {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.55vh;
+    }
+    h1 {
+      margin: 0;
+      font-size: 31px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.55vw;
+      max-width: 36vw;
+    }
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.8vh 0.8vw;
+      background: var(--panel);
+      color: #33413d;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .fig-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.92fr;
+      gap: 1.2vw;
+      height: 75.3vh;
+    }
+    .single-fig {
+      height: 78vh;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.05vh;
+      background: #fff;
+    }
+    figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1.05vh;
+      overflow: hidden;
+      position: relative;
+    }
+    figure img, .single-fig img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .label {
+      position: absolute;
+      left: 0.9vw;
+      top: 1.35vh;
+      padding: 0.55vh 0.6vw;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 900;
+      color: #23312d;
+    }
+    .caption {
+      margin-top: 1.05vh;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .note-strip {
+      position: absolute;
+      left: 3.45vw;
+      right: 3.45vw;
+      bottom: 5.1vh;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75vw;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 1.2vh 0.9vw;
+      font-size: 14px;
+      color: #30413b;
+    }
+    .metric strong {
+      display: block;
+      color: var(--green);
+      font-size: 20px;
+      margin-bottom: 0.02in;
+    }
+    .only-slide { display: none; }
+    body[data-slide="1"] #slide-1,
+    body[data-slide="2"] #slide-2,
+    body[data-slide="3"] #slide-3 { display: block; }
+    body[data-slide="1"] .slide:not(#slide-1),
+    body[data-slide="2"] .slide:not(#slide-2),
+    body[data-slide="3"] .slide:not(#slide-3) { display: none; }
+    @media print {
+      body { background: white; }
+      .slide { margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <section class="slide" id="slide-1">
+    <header class="head">
+      <div>
+        <div class="kicker">Slide 1 | IFC phonons</div>
+        <h1>TaSe<sub>2</sub>: finite-q imaginary phonons</h1>
+      </div>
+      <div class="badges">
+        <span class="badge">K: -1.5015 THz</span>
+        <span class="badge">qz=0 min: -1.793 THz</span>
+        <span class="badge">3D min: -2.967 THz</span>
+      </div>
+    </header>
+    <div class="fig-grid">
+      <figure>
+        <span class="label">1) dispersion</span>
+        <img src="assets/layered/tase2_cdw_phonon_dispersion.png" alt="TaSe2 phonon dispersion">
+      </figure>
+      <figure>
+        <span class="label">2) q scan</span>
+        <img src="assets/layered/tase2_cdw_q_scan.png" alt="TaSe2 q scan">
+      </figure>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-2">
+    <header class="head">
+      <div>
+        <div class="kicker">Slide 2 | q to supercell</div>
+        <h1>Unstable q points define candidate CDW supercells</h1>
+      </div>
+      <div class="badges">
+        <span class="badge">q . R = integer</span>
+        <span class="badge">seed: eigenvector mode 0</span>
+        <span class="badge">max |u| = 0.04 A</span>
+      </div>
+    </header>
+    <div class="single-fig">
+      <img src="assets/layered/tase2_cdw_candidate_supercells.png" alt="TaSe2 CDW candidate supercells">
+    </div>
+  </section>
+
+  <section class="slide" id="slide-3">
+    <header class="head">
+      <div>
+        <div class="kicker">Slide 3 | decisive K-CDW calculation</div>
+        <h1>Dense K-CDW relaxation lowers the energy</h1>
+      </div>
+      <div class="badges">
+        <span class="badge">9 atoms | index 3</span>
+        <span class="badge">2x2x2 k mesh</span>
+        <span class="badge">max force 0.00921 eV/A</span>
+      </div>
+    </header>
+    <div class="single-fig" style="height: 71.2vh;">
+      <img src="assets/layered/tase2_cdw_k_cdw_evidence.png" alt="TaSe2 K-CDW energy and atomic distortion evidence">
+    </div>
+    <div class="note-strip">
+      <div class="metric"><strong>-28.964 meV/TaSe2</strong>relaxed CDW lower than parent</div>
+      <div class="metric"><strong>0.04 A -> 0.291 A</strong>seed grows into relaxed PLD</div>
+      <div class="metric"><strong>Next check</strong>phonons of relaxed CDW cell</div>
+    </div>
+  </section>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const slide = params.get("slide");
+    if (slide) document.body.dataset.slide = slide;
+  </script>
+</body>
+</html>
