@@ -1,0 +1,4 @@
+daily-plan/.daily-plan-passphrase.txt
+daily-plan/*.code-workspace
+daily-plan/plain-data*.json
+daily-plan/*.decrypted.json

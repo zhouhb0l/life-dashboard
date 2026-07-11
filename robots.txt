@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /life-dashboard/daily-plan/
+Disallow: /daily-plan/

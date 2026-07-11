@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>Daily Plan</title>
   <style>
     :root {
@@ -31,6 +32,14 @@
       color: var(--ink);
     }
 
+    body.locked .shell {
+      display: none;
+    }
+
+    body:not(.locked) .vault {
+      display: none;
+    }
+
     button,
     input,
     select,
@@ -54,6 +63,49 @@
       padding: 20px 0 42px;
       display: grid;
       gap: 14px;
+    }
+
+    .vault {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .vault-panel {
+      width: min(440px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .vault-panel h1 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .vault-panel p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .vault-form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .vault-error {
+      min-height: 20px;
+      color: var(--red);
+      font-weight: 800;
+      font-size: 13px;
     }
 
     .topbar {
@@ -88,6 +140,19 @@
       color: rgba(249, 251, 248, 0.9);
       white-space: nowrap;
       font-weight: 700;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .top-actions .btn {
+      background: rgba(255, 255, 255, 0.12);
+      color: #f9fbf8;
     }
 
     .dashboard {
@@ -520,14 +585,32 @@
     }
   </style>
 </head>
-<body>
+<body class="locked">
+  <section class="vault" aria-label="Daily plan unlock">
+    <div class="vault-panel">
+      <h1>Daily Plan</h1>
+      <p>This page is encrypted. Enter the vault passphrase to decrypt it in this browser.</p>
+      <form class="vault-form" id="vaultForm">
+        <div class="field">
+          <label for="vaultPassphrase">Passphrase</label>
+          <input id="vaultPassphrase" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="btn primary" id="vaultSubmit" type="submit">Unlock</button>
+      </form>
+      <div class="vault-error" id="vaultError" role="status" aria-live="polite"></div>
+      <p>The passphrase is not stored in the page source.</p>
+    </div>
+  </section>
   <main class="shell">
     <header class="topbar">
       <div>
         <h1>Daily Plan</h1>
-        <p>Daily links open a full page for that day. Project links open a full page with the progress history, start date, progress records, and finish date when complete. Everything stays local in this browser.</p>
+        <p>Daily links open a full page for that day. Project links open a full page with the progress history, start date, progress records, and finish date when complete. Everything is stored as encrypted browser data.</p>
       </div>
-      <div class="date-pill" id="todayStamp"></div>
+      <div class="top-actions">
+        <div class="date-pill" id="todayStamp"></div>
+        <button class="btn" id="lockVaultButton" type="button">Lock</button>
+      </div>
     </header>
 
     <section class="dashboard">
@@ -566,7 +649,7 @@
       <aside class="editor">
         <div>
           <h2 class="section-title">Update</h2>
-          <p class="muted">Add daily notes or project progress. These edits are saved locally on this computer.</p>
+          <p class="muted">Add daily notes or project progress. These edits are saved as encrypted local data.</p>
         </div>
 
         <div class="field">
@@ -649,370 +732,35 @@
             <button class="btn primary" id="saveProgressButton" type="button">Save Progress</button>
             <button class="btn" id="finishProjectButton" type="button">Finish</button>
           </div>
-          <button class="btn danger" id="resetButton" type="button">Reset Sample Data</button>
+          <button class="btn danger" id="resetButton" type="button">Reset Vault Data</button>
         </div>
       </aside>
     </section>
   </main>
 
-  <script src="data.js"></script>
+  <script src="encrypted-data.js"></script>
+  <script src="crypto.js"></script>
   <script src="db.js"></script>
   <script>
-    const STORAGE_KEY = "daily-plan.journal-projects.local.v1";
     const todayIso = toIsoDate(new Date());
 
-    const DEFAULT_DATA = window.DAILY_PLAN_DEFAULT_DATA || {
-      dataVersion: 9,
-      days: [
-        {
-          id: "day-2026-04-21",
-          date: "2026-04-21",
-          summary: "Finished most Tingxie page work and completed Australia expense work pending G's verification.",
-          plans: [
-            "Finish the Tingxie page flow, then key in Chinese words and print on the weekend.",
-            "Treat Australia expense as done once G verifies it.",
-            "Keep urgent research projects visible even if no progress happened this week."
-          ],
-          done: [
-            "Almost completed the Tingxie page.",
-            "Completed the Australia expense page and prepared it for verification."
-          ],
-          thoughts: "The useful tracker needs project category, importance, and urgency so the page shows not only progress but also priority."
-        },
-        {
-          id: "day-2026-04-22",
-          date: "2026-04-22",
-          summary: "Submitted the T-CRP form and continued the workstation setup path.",
-          plans: [
-            "Submit the T-CRP form.",
-            "Continue workstation account and access setup."
-          ],
-          done: [
-            "Submitted the T-CRP form.",
-            "Kept workstation setup moving through the week."
-          ],
-          thoughts: "Admin work is moving well; the research items need clearer priority pressure."
-        },
-        {
-          id: "day-2026-04-23",
-          date: "2026-04-23",
-          summary: "Started VASP relaxation for the 1D chain and found NSCC relaxation is very slow.",
-          plans: [
-            "Run VASP relaxation for the 1D chain.",
-            "Watch NSCC relaxation performance and decide whether another route is needed."
-          ],
-          done: [
-            "Started VASP relaxation for the 1D chain.",
-            "Observed that relaxation at NSCC is very slow."
-          ],
-          thoughts: "The 1D chain may be promising, but the compute workflow itself needs attention."
-        },
-        {
-          id: "day-2026-04-24",
-          date: "2026-04-24",
-          summary: "Completed workstation setup and continued 1D chain relaxation work.",
-          plans: [
-            "Finish workstation setup.",
-            "Continue VASP relaxation for the 1D chain.",
-            "Plan weekend work: key in Chinese words for Tingxie, print, and start Nature Communications review."
-          ],
-          done: [
-            "Created the workstation account.",
-            "Activated the 050A port.",
-            "Installed Chrome and VS Code on the workstation.",
-            "Continued 1D chain VASP relaxation."
-          ],
-          thoughts: "The workstation is now ready. The next useful push is to close small life/admin tasks this weekend and restart important research tasks."
-        },
-        {
-          id: "day-2026-04-25",
-          date: "2026-04-25",
-          summary: "Weekend research catch-up: VASP relaxations made progress and Nature Communications review reading started.",
-          plans: [
-            "Check which VASP relaxations have finished and which are still running.",
-            "Read Nature Communications review papers and collect main comments.",
-            "Keep the weekend realistic: record progress first, then decide Monday priorities."
-          ],
-          done: [
-            "Mo2S3 VASP relaxation finished.",
-            "TaSe2 VASP relaxation finished.",
-            "The remaining VASP structures are still relaxing.",
-            "Read two articles on nature.com for the Nature Communications review."
-          ],
-          thoughts: "The weekend moved two important research lines forward. The review is no longer untouched, but it still needs a structured referee report."
-        },
-        {
-          id: "day-2026-04-27",
-          date: "2026-04-27",
-          summary: "New week starts with two anchors: finish the review process and turn completed VASP relaxations into next actions.",
-          plans: [
-            "Morning: check all running VASP jobs, save the current status, and inspect Mo2S3 and TaSe2 relaxed structures.",
-            "Late morning: write the Nature Communications review skeleton with summary, strengths, weaknesses, and required revisions.",
-            "Afternoon: complete the first full review draft and mark missing evidence or figures.",
-            "Before leaving: restart or adjust any failed or slow relaxations, then send yourself a short Tuesday handoff.",
-            "Start converting scanned OTE science notes into PDF notes for SPSO preparation.",
-            "Open Zhang Jian's TaN manuscript draft and make a first pass: mark major scientific, structure, and clarity issues."
-          ],
-          done: [
-            "Weekend update recorded: Mo2S3 and TaSe2 are relaxed; the rest are still relaxing.",
-            "Nature Communications status recorded: two nature.com articles read, review process not complete yet.",
-            "Provided feedback to Zhang Jian on the TaN manuscript."
-          ],
-          thoughts: "Today's pulse: do not scatter. The best Monday win is to convert weekend progress into written output and a clean compute-status table."
-        },
-        {
-          id: "day-2026-04-28",
-          date: "2026-04-28",
-          summary: "Completed the Nature Communications review; next keep VASP monitoring tight.",
-          plans: [
-            "Finalize the major comments for the Nature Communications review.",
-            "Check whether the remaining VASP relaxations converged overnight.",
-            "Begin extracting relaxed-structure parameters for Mo2S3 and TaSe2.",
-            "Convert the first major batch of scanned OTE science notes into PDF notes.",
-            "Write concrete suggested changes for the TaN manuscript draft and separate major from minor comments."
-          ],
-          done: [
-            "Completed the Nature Communications review."
-          ],
-          thoughts: "Big review loop closed. The next best use of the day is to keep compute status clean and move one smaller project forward without reopening too many fronts."
-        },
-        {
-          id: "day-2026-04-29",
-          date: "2026-04-29",
-          summary: "Submit or nearly submit the review, then return focus to publication tasks.",
-          plans: [
-            "Submit the Nature Communications review if the report is ready.",
-            "If not submitted, finish only the remaining specific comments and confidential note.",
-            "Spend one focused block on the Nonlocal SBH revision outline or SI structure.",
-            "Continue OTE science note conversion and check that the PDF notes are readable for SPSO review.",
-            "Send or prepare the TaN manuscript suggestions for Zhang Jian."
-          ],
-          done: [],
-          thoughts: "Midweek is where the review should stop occupying the whole mental desk."
-        },
-        {
-          id: "day-2026-04-30",
-          date: "2026-04-30",
-          summary: "Convert relaxation results into usable research notes and restart the Nonlocal SBH paper.",
-          plans: [
-            "Prepare a small table of relaxed VASP structures: material, status, convergence, next calculation.",
-            "Decide next calculations for Mo2S3 and TaSe2.",
-            "Draft or revise one concrete section of the Nonlocal SBH manuscript or SI.",
-            "Finish the main OTE scanned-note to PDF conversion if possible."
-          ],
-          done: [],
-          thoughts: "Thursday should make the compute work legible and reusable, not just running in the background."
-        },
-        {
-          id: "day-2026-05-01",
-          date: "2026-05-01",
-          summary: "Weekly consolidation: close loose ends and prepare next week's research direction.",
-          plans: [
-            "Review the week's VASP status and queue weekend jobs only if the inputs are clean.",
-            "Record what changed in the Nature Communications review and whether it is submitted.",
-            "Pick one main research writing target for next week: Nonlocal SBH, recessed contact, or NEGF book.",
-            "Review the converted OTE PDF notes and list any missing pages before SPSO preparation continues."
-          ],
-          done: [],
-          thoughts: "Friday is for reducing open loops so the next week starts cleaner."
-        }
-      ],
-      projects: [
-        {
-          id: "tan-manuscript",
-          name: "TaN manuscript revision suggestions for Zhang Jian",
-          category: "Research",
-          importance: "High",
-          urgency: "High",
-          startDate: "2026-04-27",
-          finishDate: "",
-          progress: 55,
-          log: [
-            { date: "2026-04-27", percent: 5, note: "Zhang Jian has provided a draft manuscript for the TaN project. Need to revise it urgently and suggest concrete changes." },
-            { date: "2026-04-27", percent: 55, note: "Provided feedback to Zhang Jian on the TaN manuscript. The project is not complete; it is now in the manuscript stage and waiting for the next round from Zhang Jian." }
-          ]
-        },
-        {
-          id: "nonlocal-sbh",
-          name: "Nonlocal SBH paper revision",
-          category: "Research",
-          importance: "High",
-          urgency: "High",
-          startDate: "2026-04-21",
-          finishDate: "",
-          progress: 15,
-          log: [
-            { date: "2026-04-21", percent: 10, note: "Listed the remaining revision and cover-letter work." },
-            { date: "2026-04-24", percent: 15, note: "No progress this week, but this is important. Need to revise the paper, draft the SI, and draft the cover letter." }
-          ]
-        },
-        {
-          id: "paper-reviews",
-          name: "Paper reviews: Physica Scripta and Nature Communications",
-          category: "Research",
-          importance: "High",
-          urgency: "High",
-          startDate: "2026-04-21",
-          finishDate: "2026-04-28",
-          progress: 100,
-          log: [
-            { date: "2026-04-21", percent: 15, note: "Identified both reviews and the likely order of work." },
-            { date: "2026-04-24", percent: 50, note: "Physica Scripta review submitted. Nature Communications review has not been started yet; planned for this weekend." },
-            { date: "2026-04-27", percent: 60, note: "Read two articles on nature.com for the Nature Communications review, but the review process is not complete yet." },
-            { date: "2026-04-28", percent: 100, note: "Completed the Nature Communications review. Both review tasks are now complete." }
-          ]
-        },
-        {
-          id: "negf-phonon",
-          name: "NEGF plus phonon-phonon interaction for material use",
-          category: "Research",
-          importance: "Medium",
-          urgency: "Medium",
-          startDate: "2026-04-21",
-          finishDate: "",
-          progress: 10,
-          log: [
-            { date: "2026-04-21", percent: 10, note: "Defined this as a longer technical development project." }
-          ]
-        },
-        {
-          id: "negf-book",
-          name: "NEGF method book chapters",
-          category: "Research",
-          importance: "High",
-          urgency: "Low",
-          startDate: "2026-04-21",
-          finishDate: "",
-          progress: 5,
-          log: [
-            { date: "2026-04-21", percent: 8, note: "Marked NEGF + DFT and Joule heating as the key chapter topics." },
-            { date: "2026-04-24", percent: 5, note: "No progress for months. Need to restart soon." }
-          ]
-        },
-        {
-          id: "recessed-contact",
-          name: "Recessed contact project",
-          category: "Research",
-          importance: "High",
-          urgency: "Medium",
-          startDate: "2026-04-21",
-          finishDate: "",
-          progress: 70,
-          log: [
-            { date: "2026-04-21", percent: 65, note: "Data organization and publication preparation remain the major blocks." },
-            { date: "2026-04-24", percent: 70, note: "Several case studies were completed long ago. The next main task is to organize them into a paper." }
-          ]
-        },
-        {
-          id: "high-order-qme",
-          name: "High-order QME code debugging",
-          category: "Research",
-          importance: "High",
-          urgency: "Medium",
-          startDate: "2026-04-21",
-          finishDate: "",
-          progress: 30,
-          log: [
-            { date: "2026-04-21", percent: 25, note: "Kept debugging as an active technical project." },
-            { date: "2026-04-24", percent: 30, note: "QD part is correct, but second-order phonon is still incorrect even for the equilibrium case. Need another debugging route, possibly analytical continuation. No work on this for about two weeks." }
-          ]
-        },
-        {
-          id: "one-d-chain",
-          name: "1D chain opportunity with Ruihuan",
-          category: "Research",
-          importance: "Medium",
-          urgency: "Medium",
-          startDate: "2026-04-21",
-          finishDate: "",
-          progress: 35,
-          log: [
-            { date: "2026-04-21", percent: 5, note: "Project opportunity identified; needs discussion and scope." },
-            { date: "2026-04-23", percent: 10, note: "Started VASP relaxation for the 1D chain." },
-            { date: "2026-04-24", percent: 15, note: "Continued VASP relaxation and found the relaxation at NSCC is very slow." },
-            { date: "2026-04-27", percent: 35, note: "Mo2S3 and TaSe2 have relaxed successfully. The remaining structures are still relaxing and need monitoring." }
-          ]
-        },
-        {
-          id: "t-crp",
-          name: "T-CRP project form",
-          category: "Research",
-          importance: "Medium",
-          urgency: "Low",
-          startDate: "2026-04-21",
-          finishDate: "2026-04-22",
-          progress: 100,
-          log: [
-            { date: "2026-04-21", percent: 30, note: "Form completion identified as the immediate admin target." },
-            { date: "2026-04-22", percent: 100, note: "Submitted the T-CRP form." }
-          ]
-        },
-        {
-          id: "workstation",
-          name: "Set up workstation",
-          category: "Research",
-          importance: "High",
-          urgency: "Low",
-          startDate: "2026-04-21",
-          finishDate: "2026-04-24",
-          progress: 100,
-          log: [
-            { date: "2026-04-21", percent: 20, note: "Workstation setup recorded as a practical infrastructure task." },
-            { date: "2026-04-22", percent: 45, note: "Created the workstation account and continued access setup." },
-            { date: "2026-04-24", percent: 100, note: "Completed workstation setup after activating the 050A port and installing Chrome and VS Code." }
-          ]
-        },
-        {
-          id: "australia-expense",
-          name: "Australia expense",
-          category: "Life",
-          importance: "Medium",
-          urgency: "Low",
-          startDate: "2026-04-21",
-          finishDate: "2026-04-21",
-          progress: 100,
-          log: [
-            { date: "2026-04-21", percent: 100, note: "Everything is done. After verification by G, this is considered complete." }
-          ]
-        },
-        {
-          id: "ote-science-notes",
-          name: "Convert scanned OTE science notes to PDF notes for SPSO",
-          category: "Life",
-          importance: "High",
-          urgency: "High",
-          startDate: "2026-04-27",
-          finishDate: "",
-          progress: 5,
-          log: [
-            { date: "2026-04-27", percent: 5, note: "New task added: convert scanned OTE science notes into PDF notes for SPSO preparation. SPSO is on 19 May, so the conversion should be finished within the next few days." }
-          ]
-        },
-        {
-          id: "tingxie",
-          name: "Tingxie page for Noel",
-          category: "Life",
-          importance: "Medium",
-          urgency: "Medium",
-          startDate: "2026-04-21",
-          finishDate: "",
-          progress: 90,
-          log: [
-            { date: "2026-04-21", percent: 90, note: "Page is almost complete. Need to key in the Chinese words and print; planned for this weekend." }
-          ]
-        }
-      ]
-    };
+    let DEFAULT_DATA = null;
 
-    let state = structuredClone(DEFAULT_DATA);
+    let state = { dataVersion: 0, days: [], projects: [] };
     let selectedType = "day";
     let selectedId = state.days[0]?.id || "";
+    let currentPassphrase = "";
 
     const els = {
+      vaultForm: document.getElementById("vaultForm"),
+      vaultPassphrase: document.getElementById("vaultPassphrase"),
+      vaultSubmit: document.getElementById("vaultSubmit"),
+      vaultError: document.getElementById("vaultError"),
       todayStamp: document.getElementById("todayStamp"),
       weeks: document.getElementById("weeks"),
       projects: document.getElementById("projects"),
       detail: document.getElementById("detail"),
+      lockVaultButton: document.getElementById("lockVaultButton"),
       addTodayButton: document.getElementById("addTodayButton"),
       newProjectButton: document.getElementById("newProjectButton"),
       entryType: document.getElementById("entryType"),
@@ -1146,20 +894,79 @@
     });
 
     els.resetButton.addEventListener("click", () => {
-      if (!confirm("Reset the local daily plan to sample data?")) return;
+      if (!confirm("Reset the encrypted daily plan to the bundled vault data?")) return;
       state = structuredClone(DEFAULT_DATA);
       selectedType = "day";
-      selectedId = state.days[0].id;
+      selectedId = state.days[0]?.id || "";
       saveState();
       render();
     });
 
+    els.vaultForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      await unlockVault();
+    });
+
+    els.lockVaultButton.addEventListener("click", lockVault);
+
+    async function unlockVault() {
+      const passphrase = els.vaultPassphrase.value;
+      els.vaultSubmit.disabled = true;
+      setVaultError("");
+
+      try {
+        DEFAULT_DATA = await DailyPlanCrypto.decryptEnvelope(window.DAILY_PLAN_ENCRYPTED_DATA, passphrase);
+        currentPassphrase = passphrase;
+        state = await loadState();
+        selectedType = "day";
+        selectedId = state.days[0]?.id || "";
+        readHash();
+        document.body.classList.remove("locked");
+        els.vaultPassphrase.value = "";
+        render();
+      } catch (error) {
+        currentPassphrase = "";
+        DEFAULT_DATA = null;
+        setVaultError(error.message);
+        els.vaultPassphrase.select();
+      } finally {
+        els.vaultSubmit.disabled = false;
+      }
+    }
+
+    function lockVault() {
+      currentPassphrase = "";
+      DEFAULT_DATA = null;
+      state = { dataVersion: 0, days: [], projects: [] };
+      selectedType = "day";
+      selectedId = "";
+      location.hash = "";
+      els.weeks.innerHTML = "";
+      els.projects.innerHTML = "";
+      els.detail.innerHTML = "";
+      els.projectSelect.innerHTML = "";
+      els.daySummary.value = "";
+      els.dayPlans.value = "";
+      els.dayDone.value = "";
+      els.dayThoughts.value = "";
+      document.body.classList.add("locked");
+      setVaultError("");
+      setTimeout(() => els.vaultPassphrase.focus(), 0);
+    }
+
+    function setVaultError(message) {
+      els.vaultError.textContent = message || "";
+    }
+
     async function loadState() {
-      return DailyPlanDB.load(DEFAULT_DATA);
+      return DailyPlanDB.load(DEFAULT_DATA, currentPassphrase);
     }
 
     function saveState() {
-      DailyPlanDB.save(state);
+      if (!currentPassphrase) return Promise.resolve();
+      return DailyPlanDB.save(state, currentPassphrase).catch((error) => {
+        console.error(error);
+      });
     }
 
     function selectItem(type, id) {
@@ -1503,15 +1310,7 @@
         .replaceAll("'", "&#039;");
     }
 
-    async function initialize() {
-      state = await loadState();
-      selectedId = state.days[0]?.id || "";
-      readHash();
-      saveState();
-      render();
-    }
-
-    initialize();
+    setTimeout(() => els.vaultPassphrase.focus(), 0);
   </script>
 </body>
 </html>

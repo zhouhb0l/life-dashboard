@@ -4,6 +4,7 @@
   const STORE_NAME = "records";
   const STATE_KEY = "main";
   const LEGACY_STORAGE_KEY = "daily-plan.journal-projects.local.v1";
+  const ENCRYPTED_STORAGE_KEY = "daily-plan.encrypted-state.v1";
 
   function clone(value) {
     return structuredClone(value);
@@ -67,26 +68,41 @@
     return record ? record.value : null;
   }
 
-  async function writeToDatabase(state) {
+  async function writeToDatabase(value) {
     await withStore("readwrite", (store) => store.put({
       id: STATE_KEY,
-      value: clone(state),
+      value: clone(value),
       updatedAt: new Date().toISOString()
     }));
   }
 
-  function readLegacy(defaultData) {
+  function readLocalStorage(key) {
     try {
-      const parsed = JSON.parse(localStorage.getItem(LEGACY_STORAGE_KEY));
-      if (isValidState(parsed)) return parsed;
+      const raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : null;
     } catch (error) {
       return null;
     }
-    return clone(defaultData);
   }
 
-  function writeLegacy(state) {
-    localStorage.setItem(LEGACY_STORAGE_KEY, JSON.stringify(state));
+  function writeEncryptedFallback(envelope) {
+    localStorage.setItem(ENCRYPTED_STORAGE_KEY, JSON.stringify(envelope));
+  }
+
+  function clearLegacyPlaintextStorage() {
+    try {
+      localStorage.removeItem(LEGACY_STORAGE_KEY);
+    } catch (error) {
+      // Local storage cleanup is best-effort only.
+    }
+  }
+
+  function clearEncryptedFallback() {
+    try {
+      localStorage.removeItem(ENCRYPTED_STORAGE_KEY);
+    } catch (error) {
+      // Local storage cleanup is best-effort only.
+    }
   }
 
   function isValidState(state) {
@@ -115,30 +131,56 @@
     };
   }
 
-  async function load(defaultData) {
-    try {
-      const databaseState = await readFromDatabase();
-      if (isValidState(databaseState)) {
-        const upgradedState = upgradeState(databaseState, defaultData);
-        if (upgradedState !== databaseState) await writeToDatabase(upgradedState);
-        return upgradedState;
-      }
-
-      const initialState = readLegacy(defaultData);
-      const upgradedState = upgradeState(initialState, defaultData);
-      await writeToDatabase(upgradedState);
-      return upgradedState;
-    } catch (error) {
-      return upgradeState(readLegacy(defaultData), defaultData);
-    }
+  async function decryptState(envelope, passphrase, defaultData) {
+    const state = await DailyPlanCrypto.decryptEnvelope(envelope, passphrase);
+    if (!isValidState(state)) throw new Error("Stored daily plan data is invalid.");
+    return upgradeState(state, defaultData);
   }
 
-  async function save(state) {
+  async function migratePlaintextState(state, passphrase, defaultData) {
+    const upgradedState = upgradeState(state, defaultData);
+    await save(upgradedState, passphrase);
+    clearLegacyPlaintextStorage();
+    return upgradedState;
+  }
+
+  async function load(defaultData, passphrase) {
     try {
-      await writeToDatabase(state);
+      const databaseValue = await readFromDatabase();
+      if (DailyPlanCrypto.isEnvelope(databaseValue)) {
+        return decryptState(databaseValue, passphrase, defaultData);
+      }
+      if (isValidState(databaseValue)) {
+        return migratePlaintextState(databaseValue, passphrase, defaultData);
+      }
     } catch (error) {
-      writeLegacy(state);
+      // Fall back to localStorage below.
     }
+
+    const encryptedFallback = readLocalStorage(ENCRYPTED_STORAGE_KEY);
+    if (DailyPlanCrypto.isEnvelope(encryptedFallback)) {
+      return decryptState(encryptedFallback, passphrase, defaultData);
+    }
+
+    const legacyPlaintext = readLocalStorage(LEGACY_STORAGE_KEY);
+    if (isValidState(legacyPlaintext)) {
+      return migratePlaintextState(legacyPlaintext, passphrase, defaultData);
+    }
+
+    return clone(defaultData);
+  }
+
+  async function save(state, passphrase) {
+    const envelope = await DailyPlanCrypto.encryptState(state, passphrase);
+
+    try {
+      await writeToDatabase(envelope);
+      clearEncryptedFallback();
+    } catch (error) {
+      writeEncryptedFallback(envelope);
+    }
+
+    clearLegacyPlaintextStorage();
   }
 
   window.DailyPlanDB = {

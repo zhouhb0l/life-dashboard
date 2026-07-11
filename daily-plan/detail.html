@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>Daily Plan Detail</title>
   <style>
     :root {
@@ -29,6 +30,24 @@
       color: var(--ink);
     }
 
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    body.locked .shell {
+      display: none;
+    }
+
+    body:not(.locked) .vault {
+      display: none;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -40,6 +59,73 @@
       padding: 20px 0 42px;
       display: grid;
       gap: 14px;
+    }
+
+    .vault {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .vault-panel {
+      width: min(440px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .vault-panel h1,
+    .vault-panel p {
+      margin: 0;
+    }
+
+    .vault-panel h1 {
+      font-size: 28px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .vault-panel p {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .vault-form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .vault-form label {
+      font-weight: 800;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .vault-form input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 11px;
+      outline: 0;
+      background: white;
+      color: var(--ink);
+    }
+
+    .vault-form input:focus {
+      border-color: rgba(47, 125, 92, 0.6);
+      box-shadow: 0 0 0 4px rgba(47, 125, 92, 0.1);
+    }
+
+    .vault-error {
+      min-height: 20px;
+      color: #b65454;
+      font-weight: 800;
+      font-size: 13px;
     }
 
     .topbar,
@@ -66,16 +152,34 @@
       letter-spacing: 0;
     }
 
-    .back {
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .back,
+    .lock-button,
+    .unlock-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 38px;
       padding: 9px 12px;
       border-radius: 8px;
+      font-weight: 800;
+    }
+
+    .back,
+    .lock-button {
       background: rgba(255, 255, 255, 0.12);
       color: #f9fbf8;
-      font-weight: 800;
+    }
+
+    .unlock-button {
+      background: var(--green);
+      color: white;
     }
 
     .panel {
@@ -241,71 +345,92 @@
     }
   </style>
 </head>
-<body>
+<body class="locked">
+  <section class="vault" aria-label="Daily plan unlock">
+    <div class="vault-panel">
+      <h1>Daily Plan</h1>
+      <p>This detail page is encrypted. Enter the vault passphrase to decrypt it in this browser.</p>
+      <form class="vault-form" id="vaultForm">
+        <label for="vaultPassphrase">Passphrase</label>
+        <input id="vaultPassphrase" type="password" autocomplete="current-password" required>
+        <button class="unlock-button" id="vaultSubmit" type="submit">Unlock</button>
+      </form>
+      <div class="vault-error" id="vaultError" role="status" aria-live="polite"></div>
+    </div>
+  </section>
   <main class="shell">
     <header class="topbar">
       <h1 id="pageTitle">Daily Plan Detail</h1>
-      <a class="back" href="index.html">Back To Index</a>
+      <div class="top-actions">
+        <a class="back" href="index.html">Back To Index</a>
+        <button class="lock-button" id="lockVaultButton" type="button">Lock</button>
+      </div>
     </header>
     <section class="panel" id="detail"></section>
   </main>
 
-  <script src="data.js"></script>
+  <script src="encrypted-data.js"></script>
+  <script src="crypto.js"></script>
   <script src="db.js"></script>
   <script>
-    const STORAGE_KEY = "daily-plan.journal-projects.local.v1";
-    const DEFAULT_DATA = window.DAILY_PLAN_DEFAULT_DATA || {
-      days: [
-        {
-          id: "day-2026-04-21",
-          date: "2026-04-21",
-          summary: "Organized the main research/admin tasks and clarified the next working board.",
-          plans: [
-            "Revise the nonlocal SBH paper and prepare the cover letter.",
-            "Review the Physica Scripta and Nature Communications papers.",
-            "Move NEGF method writing and code debugging into visible project progress."
-          ],
-          done: [
-            "Collected the major active tasks into one daily planning space.",
-            "Separated research work, admin items, and personal pages."
-          ],
-          thoughts: "The useful format is daily: each day needs its own page-like record, while projects need their own progress history."
-        },
-        {
-          id: "day-2026-04-22",
-          date: "2026-04-22",
-          summary: "Prepared the structure for tracking project percentages and day-by-day progress.",
-          plans: [
-            "Turn each project into a progress timeline.",
-            "Keep the daily record short on the index but detailed when opened."
-          ],
-          done: [
-            "Decided to keep files local and use the browser for saving updates."
-          ],
-          thoughts: "Short summaries make the weekly view easy to scan; details should be one click away."
-        }
-      ],
-      projects: [
-        { id: "nonlocal-sbh", name: "Nonlocal SBH paper revision", startDate: "2026-04-21", finishDate: "", progress: 20, log: [{ date: "2026-04-21", percent: 10, note: "Listed the remaining revision and cover-letter work." }, { date: "2026-04-22", percent: 20, note: "Separated paper revision from cover-letter preparation." }] },
-        { id: "paper-reviews", name: "Paper reviews: Physica Scripta and Nature Communications", startDate: "2026-04-21", finishDate: "", progress: 15, log: [{ date: "2026-04-21", percent: 15, note: "Identified both reviews and the likely order of work." }] },
-        { id: "negf-phonon", name: "NEGF plus phonon-phonon interaction for material use", startDate: "2026-04-21", finishDate: "", progress: 10, log: [{ date: "2026-04-21", percent: 10, note: "Defined this as a longer technical development project." }] },
-        { id: "negf-book", name: "NEGF method book chapters", startDate: "2026-04-21", finishDate: "", progress: 8, log: [{ date: "2026-04-21", percent: 8, note: "Marked NEGF + DFT and Joule heating as the key chapter topics." }] },
-        { id: "recessed-contact", name: "Recessed contact project", startDate: "2026-04-21", finishDate: "", progress: 65, log: [{ date: "2026-04-21", percent: 65, note: "Data organization and publication preparation remain the major blocks." }] },
-        { id: "high-order-qme", name: "High-order QME code debugging", startDate: "2026-04-21", finishDate: "", progress: 25, log: [{ date: "2026-04-21", percent: 25, note: "Kept debugging as an active technical project." }] },
-        { id: "one-d-chain", name: "1D chain opportunity with Ruihuan", startDate: "2026-04-21", finishDate: "", progress: 5, log: [{ date: "2026-04-21", percent: 5, note: "Project opportunity identified; needs discussion and scope." }] },
-        { id: "t-crp", name: "T-CRP project form", startDate: "2026-04-21", finishDate: "", progress: 30, log: [{ date: "2026-04-21", percent: 30, note: "Form completion identified as the immediate admin target." }] },
-        { id: "workstation", name: "Set up workstation", startDate: "2026-04-21", finishDate: "", progress: 20, log: [{ date: "2026-04-21", percent: 20, note: "Workstation setup recorded as a practical infrastructure task." }] },
-        { id: "australia-expense", name: "Australia expense", startDate: "2026-04-21", finishDate: "", progress: 80, log: [{ date: "2026-04-21", percent: 80, note: "Expense work is close to complete, pending final check." }] },
-        { id: "tingxie", name: "Tingxie page for Noel", startDate: "2026-04-21", finishDate: "", progress: 85, log: [{ date: "2026-04-21", percent: 85, note: "Page is usable; improvements can follow Noel's actual use." }] }
-      ]
-    };
+    let DEFAULT_DATA = null;
 
-    let state = structuredClone(DEFAULT_DATA);
+    let state = { dataVersion: 0, days: [], projects: [] };
+    let currentPassphrase = "";
     const detail = document.getElementById("detail");
     const pageTitle = document.getElementById("pageTitle");
+    const vaultForm = document.getElementById("vaultForm");
+    const vaultPassphrase = document.getElementById("vaultPassphrase");
+    const vaultSubmit = document.getElementById("vaultSubmit");
+    const vaultError = document.getElementById("vaultError");
+    const lockVaultButton = document.getElementById("lockVaultButton");
 
-    async function initialize() {
-      state = await loadState();
+    vaultForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      await unlockVault();
+    });
+
+    lockVaultButton.addEventListener("click", lockVault);
+
+    async function unlockVault() {
+      const passphrase = vaultPassphrase.value;
+      vaultSubmit.disabled = true;
+      setVaultError("");
+
+      try {
+        DEFAULT_DATA = await DailyPlanCrypto.decryptEnvelope(window.DAILY_PLAN_ENCRYPTED_DATA, passphrase);
+        currentPassphrase = passphrase;
+        state = await loadState();
+        document.body.classList.remove("locked");
+        vaultPassphrase.value = "";
+        renderRoute();
+      } catch (error) {
+        currentPassphrase = "";
+        DEFAULT_DATA = null;
+        setVaultError(error.message);
+        vaultPassphrase.select();
+      } finally {
+        vaultSubmit.disabled = false;
+      }
+    }
+
+    function lockVault() {
+      currentPassphrase = "";
+      DEFAULT_DATA = null;
+      state = { dataVersion: 0, days: [], projects: [] };
+      detail.innerHTML = "";
+      pageTitle.textContent = "Daily Plan Detail";
+      document.title = "Daily Plan Detail";
+      document.body.classList.add("locked");
+      setVaultError("");
+      setTimeout(() => vaultPassphrase.focus(), 0);
+    }
+
+    function setVaultError(message) {
+      vaultError.textContent = message || "";
+    }
+
+    function renderRoute() {
       const route = readRoute();
 
       if (route.type === "project") {
@@ -316,7 +441,7 @@
     }
 
     async function loadState() {
-      return DailyPlanDB.load(DEFAULT_DATA);
+      return DailyPlanDB.load(DEFAULT_DATA, currentPassphrase);
     }
 
     function readRoute() {
@@ -435,7 +560,7 @@
         .replaceAll("'", "&#039;");
     }
 
-    initialize();
+    setTimeout(() => vaultPassphrase.focus(), 0);
   </script>
 </body>
 </html>
