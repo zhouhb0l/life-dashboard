@@ -101,6 +101,20 @@
       gap: 10px;
     }
 
+    .remember-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .remember-row input {
+      width: auto;
+    }
+
     .vault-error {
       min-height: 20px;
       color: var(--red);
@@ -595,6 +609,10 @@
           <label for="vaultPassphrase">Passphrase</label>
           <input id="vaultPassphrase" type="password" autocomplete="current-password" required>
         </div>
+        <label class="remember-row" for="rememberVault">
+          <input id="rememberVault" type="checkbox" checked>
+          Remember on this device
+        </label>
         <button class="btn primary" id="vaultSubmit" type="submit">Unlock</button>
       </form>
       <div class="vault-error" id="vaultError" role="status" aria-live="polite"></div>
@@ -743,6 +761,7 @@
   <script src="db.js"></script>
   <script>
     const todayIso = toIsoDate(new Date());
+    const REMEMBERED_PASSPHRASE_KEY = "daily-plan.remembered-passphrase.v1";
 
     let DEFAULT_DATA = null;
 
@@ -754,6 +773,7 @@
     const els = {
       vaultForm: document.getElementById("vaultForm"),
       vaultPassphrase: document.getElementById("vaultPassphrase"),
+      rememberVault: document.getElementById("rememberVault"),
       vaultSubmit: document.getElementById("vaultSubmit"),
       vaultError: document.getElementById("vaultError"),
       todayStamp: document.getElementById("todayStamp"),
@@ -911,19 +931,17 @@
 
     async function unlockVault() {
       const passphrase = els.vaultPassphrase.value;
+      const shouldRemember = els.rememberVault.checked;
       els.vaultSubmit.disabled = true;
       setVaultError("");
 
       try {
-        DEFAULT_DATA = await DailyPlanCrypto.decryptEnvelope(window.DAILY_PLAN_ENCRYPTED_DATA, passphrase);
-        currentPassphrase = passphrase;
-        state = await loadState();
-        selectedType = "day";
-        selectedId = state.days[0]?.id || "";
-        readHash();
-        document.body.classList.remove("locked");
-        els.vaultPassphrase.value = "";
-        render();
+        await openVault(passphrase);
+        if (shouldRemember) {
+          rememberPassphrase(passphrase);
+        } else {
+          forgetPassphrase();
+        }
       } catch (error) {
         currentPassphrase = "";
         DEFAULT_DATA = null;
@@ -932,6 +950,18 @@
       } finally {
         els.vaultSubmit.disabled = false;
       }
+    }
+
+    async function openVault(passphrase) {
+      DEFAULT_DATA = await DailyPlanCrypto.decryptEnvelope(window.DAILY_PLAN_ENCRYPTED_DATA, passphrase);
+      currentPassphrase = passphrase;
+      state = await loadState();
+      selectedType = "day";
+      selectedId = state.days[0]?.id || "";
+      readHash();
+      document.body.classList.remove("locked");
+      els.vaultPassphrase.value = "";
+      render();
     }
 
     function lockVault() {
@@ -950,12 +980,52 @@
       els.dayDone.value = "";
       els.dayThoughts.value = "";
       document.body.classList.add("locked");
+      forgetPassphrase();
       setVaultError("");
       setTimeout(() => els.vaultPassphrase.focus(), 0);
     }
 
     function setVaultError(message) {
       els.vaultError.textContent = message || "";
+    }
+
+    function rememberPassphrase(passphrase) {
+      try {
+        localStorage.setItem(REMEMBERED_PASSPHRASE_KEY, passphrase);
+      } catch (error) {
+        setVaultError("Unlocked, but this browser could not remember the passphrase.");
+      }
+    }
+
+    function forgetPassphrase() {
+      try {
+        localStorage.removeItem(REMEMBERED_PASSPHRASE_KEY);
+      } catch (error) {
+        // Local storage cleanup is best-effort only.
+      }
+    }
+
+    async function tryRememberedUnlock() {
+      let passphrase = "";
+      try {
+        passphrase = localStorage.getItem(REMEMBERED_PASSPHRASE_KEY) || "";
+      } catch (error) {
+        passphrase = "";
+      }
+
+      if (!passphrase) {
+        setTimeout(() => els.vaultPassphrase.focus(), 0);
+        return;
+      }
+
+      try {
+        await openVault(passphrase);
+        els.rememberVault.checked = true;
+      } catch (error) {
+        forgetPassphrase();
+        setVaultError("Saved passphrase no longer works. Enter it again.");
+        setTimeout(() => els.vaultPassphrase.focus(), 0);
+      }
     }
 
     async function loadState() {
@@ -1310,7 +1380,7 @@
         .replaceAll("'", "&#039;");
     }
 
-    setTimeout(() => els.vaultPassphrase.focus(), 0);
+    tryRememberedUnlock();
   </script>
 </body>
 </html>
