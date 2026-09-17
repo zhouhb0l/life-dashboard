@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="忆阻器：会记忆的电子器件与存内计算。面向全院师生的学术报告，第一部分：为什么研究忆阻器。">
+  <meta name="description" content="忆阻器：会记忆的电子器件与存内计算。面向全院师生的学术报告，第一、二部分：研究动机与忆阻器的基本概念。">
   <meta name="color-scheme" content="light">
-  <title>忆阻器与存内计算 · 第一部分</title>
+  <title>忆阻器与存内计算 · 研究动机与基本概念</title>
   <link rel="icon" href="data:,">
   <!--
 Bundled Reveal.js 6.0.1
@@ -164,6 +164,31 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
   .moving-data { animation: none !important; }
   body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+.p2-wide-art { display: block; width: 1440px; height: 435px; margin-top: 28px; }
+.p2-operation-layout { display: grid; grid-template-columns: 1040px 1fr; gap: 42px; margin-top: 28px; height: 435px; }
+.p2-operation-layout > svg { width: 1040px; height: 440px; }
+.p2-operation-copy { border-left: 1px solid var(--rule); padding-left: 33px; padding-top: 4px; }
+.p2-operation-copy > div + div { margin-top: 21px; }
+.p2-operation-copy h3, .p2-loop-copy h3 { font-size: 29px; font-weight: 600; color: var(--teal); margin-bottom: 8px; }
+.p2-operation-copy p, .p2-loop-copy p { font-size: 24px; line-height: 1.6; }
+.p2-loop-layout { display: grid; grid-template-columns: 920px 1fr; gap: 67px; height: 451px; margin-top: 22px; }
+.p2-loop-layout > svg { width: 920px; height: 455px; }
+.p2-loop-copy { padding-top: 27px; }
+.p2-loop-copy > div { display: flex; gap: 24px; }
+.p2-loop-copy > div + div { margin-top: 24px; }
+.p2-step { color: var(--teal); font: 24px Consolas, monospace; margin-top: 6px; }
+.rust-text { color: var(--rust); }
+.p2-mechanisms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 37px; height: 426px; }
+.p2-mechanism h3 { font-size: 31px; color: var(--teal); font-weight: 600; margin-bottom: 12px; }
+.p2-mechanism svg { display: block; width: 440px; height: 238px; }
+.p2-mechanism p { font-size: 26px; line-height: 1.65; margin-top: 18px; }
+
+/* Part II, slides 11–13: scoped additions to the established deck style. */
+.tail-art { display: block; width: 1440px; height: 450px; margin-top: 25px; }
+.tail-art .svg-small.rust, .tail-art .svg-label.rust { fill: var(--rust); }
+.weight-slide .takeaway, .retention-slide .takeaway, .layered-slide .takeaway { margin-top: 17px; }
+.layered-slide .takeaway p { font-size: 33px; }
 </style>
 </head>
 <body>
@@ -221,7 +246,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </svg>
           <p class="opening-question">电阻，能记住过去的刺激吗？</p>
         </div>
-        <footer class="slide-footer"><span>为什么研究忆阻器</span><span class="page-no">01 / 06</span></footer>
+        <footer class="slide-footer"><span>为什么研究忆阻器</span><span class="page-no">01 / 13</span></footer>
         <aside class="notes">
           <h3>第 1 页 · 约 45 秒</h3>
           <p>大家好，今天想从一个很简单的问题开始：一个电阻，能不能记住之前发生过什么？</p>
@@ -281,7 +306,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         </div>
         <footer class="slide-footer">
           <span>简化架构示意 · 概念参考：<a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., Nano-Micro Lett. 16, 121 (2024)</a></span>
-          <span class="page-no">02 / 06</span>
+          <span class="page-no">02 / 13</span>
         </footer>
         <aside class="notes">
           <h3>第 2 页 · 约 65 秒</h3>
@@ -338,7 +363,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         </div>
         <footer class="slide-footer">
           <span>功率口径：<a href="https://doi.org/10.1073/pnas.2008173118" target="_blank" rel="noopener noreferrer">Levy &amp; Calvert, PNAS (2021)</a> · 突触可塑性：<a href="https://doi.org/10.1038/nature13294" target="_blank" rel="noopener noreferrer">Nabavi et al., Nature (2014)</a></span>
-          <span class="page-no">03 / 06</span>
+          <span class="page-no">03 / 13</span>
         </footer>
         <aside class="notes">
           <h3>第 3 页 · 约 70 秒</h3>
@@ -388,7 +413,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <div class="takeaway"><span class="takeaway-rule"></span><p>把<span class="accent-teal">“记住”与“响应”</span>放在同一器件中</p></div>
         <footer class="slide-footer">
           <span>功能类比示意 · <a href="https://doi.org/10.1038/nature13294" target="_blank" rel="noopener noreferrer">Nabavi et al., Nature (2014)</a> · <a href="https://doi.org/10.1038/nature14441" target="_blank" rel="noopener noreferrer">Prezioso et al., Nature (2015)</a></span>
-          <span class="page-no">04 / 06</span>
+          <span class="page-no">04 / 13</span>
         </footer>
         <aside class="notes">
           <h3>第 4 页 · 约 65 秒</h3>
@@ -448,7 +473,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         </div>
         <footer class="slide-footer">
           <span>功能示意 · 概念参考：<a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., Nano-Micro Lett. 16, 121 (2024)</a></span>
-          <span class="page-no">05 / 06</span>
+          <span class="page-no">05 / 13</span>
         </footer>
         <aside class="notes">
           <h3>第 5 页 · 约 60 秒</h3>
@@ -506,7 +531,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>一个电阻究竟怎样<span class="accent-teal">记住过去的刺激</span>？</p></div>
         <footer class="slide-footer">
           <span>节能机制与系统评估 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a> · <a href="https://doi.org/10.1038/s41586-023-06337-5" target="_blank" rel="noopener noreferrer">Ambrogio et al., Nature (2023)</a></span>
-          <span class="page-no">06 / 06</span>
+          <span class="page-no">06 / 13</span>
         </footer>
         <aside class="notes">
           <h3>第 6 页 · 约 65 秒</h3>
@@ -518,6 +543,412 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           <p class="note-source">Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，器件指标与阵列集成。Ambrogio et al., “An analog-AI chip for energy-efficient speech recognition and transcription”, <i>Nature</i> 620, 768–775 (2023), <a href="https://doi.org/10.1038/s41586-023-06337-5">DOI</a>，在具体任务上联合考察准确性、模拟计算及通信与外围实现。此页列设计方向和评价范围，不声称本报告展示了实测节能倍数。</p>
         </aside>
       </section>
+            <section class="slide basics-slide" id="stored-state" aria-labelledby="state-title">
+        <header class="slide-header">
+          <p class="section-label">第二部分 · 忆阻器的基本概念</p>
+          <h2 id="state-title">忆阻器<span class="accent-teal">记住了什么</span></h2>
+          <p class="slide-lead">过去的刺激改变内部状态，状态再影响今天的电流。</p>
+        </header>
+        <svg class="p2-wide-art" viewBox="0 0 1440 435" role="img" aria-labelledby="state-art-title state-art-desc">
+          <title id="state-art-title">不同刺激历史，在同样读取电压下产生不同电流</title>
+          <desc id="state-art-desc">同一个器件可以被准备到低电导或高电导状态。两次都用相同的小电压读取，低电导产生较小电流，高电导产生较大电流。图中粒子仅表示内部状态，不指定微观机制。</desc>
+          <defs><marker id="state-arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#91a69e" stroke-width="1.6"/></marker></defs>
+          <text x="205" y="38" text-anchor="middle" class="svg-label">过去的刺激</text>
+          <text x="681" y="38" text-anchor="middle" class="svg-label">器件内部状态</text>
+          <text x="1180" y="38" text-anchor="middle" class="svg-label">相同的小电压读取</text>
+          <path d="M40 65H1400" stroke="#d8e1db" stroke-width="1.5"/>
+          <g class="fragment" data-fragment-index="0">
+            <path d="M78 152h59v-37h31v37h43v-37h31v37h66" fill="none" stroke="#718799" stroke-width="3"/>
+            <text x="205" y="205" text-anchor="middle" class="svg-small">准备状态 A</text>
+            <path d="M346 153H500" fill="none" stroke="#91a69e" stroke-width="2" marker-end="url(#state-arrow)"/>
+            <rect x="542" y="105" width="278" height="88" rx="5" fill="#edf0f3" stroke="#91a5b4" stroke-width="2"/>
+            <path d="M572 105v88M790 105v88" stroke="#91a5b4" stroke-width="9"/>
+            <g fill="#9aafbb"><circle cx="610" cy="130" r="7"/><circle cx="697" cy="133" r="7"/><circle cx="658" cy="163" r="7"/><circle cx="752" cy="163" r="7"/></g>
+            <text x="681" y="231" text-anchor="middle" class="svg-small">低电导 · 电流较难通过</text>
+            <path d="M852 153H1006" fill="none" stroke="#91a69e" stroke-width="2" marker-end="url(#state-arrow)"/>
+            <rect x="1050" y="137" width="78" height="27" rx="3" fill="#8299aa"/>
+            <text x="1145" y="160" class="svg-label">较小电流</text>
+          </g>
+          <g class="fragment" data-fragment-index="1">
+            <path d="M78 332h59v-59h31v59h43v-59h31v59h66" fill="none" stroke="#167e68" stroke-width="3"/>
+            <text x="205" y="385" text-anchor="middle" class="svg-small">准备状态 B</text>
+            <path d="M346 333H500" fill="none" stroke="#91a69e" stroke-width="2" marker-end="url(#state-arrow)"/>
+            <rect x="542" y="285" width="278" height="88" rx="5" fill="#deeee6" stroke="#5d9c84" stroke-width="2"/>
+            <path d="M572 285v88M790 285v88" stroke="#5d9c84" stroke-width="9"/>
+            <g fill="#167e68"><circle cx="608" cy="329" r="7"/><circle cx="644" cy="329" r="7"/><circle cx="680" cy="329" r="7"/><circle cx="716" cy="329" r="7"/><circle cx="752" cy="329" r="7"/></g>
+            <text x="681" y="411" text-anchor="middle" class="svg-small">高电导 · 电流更容易通过</text>
+            <path d="M852 333H1006" fill="none" stroke="#91a69e" stroke-width="2" marker-end="url(#state-arrow)"/>
+            <rect x="1050" y="317" width="255" height="27" rx="3" fill="#167e68"/>
+            <text x="1180" y="390" text-anchor="middle" class="svg-label teal">较大电流</text>
+          </g>
+        </svg>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>记住的是<span class="accent-teal">可读出的内部状态</span></p></div>
+        <footer class="slide-footer"><span>原创概念图 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a> · 不对应实验数据</span><span class="page-no">07 / 13</span></footer>
+        <aside class="notes">
+          <h3>第 7 页 · 约 75 秒</h3>
+          <p>上一部分以“电阻怎样记住过去”结束。这里先给一个可以测量的答案：过去的刺激改变了器件内部的状态，而这个状态会影响之后通过它的电流。</p>
+          <p><b>第一次前进：状态 A。</b>把同一个器件准备到状态 A，再用一个较小的电压读取，得到较小电流。我们称它为低电导状态，也就是在这个读取条件下的高阻状态。</p>
+          <p><b>第二次前进：状态 B。</b>用另一段刺激历史改变它，再施加相同读取电压，电流变大了。比较时要保持读取条件一致。两行表示同一个器件在不同历史下的两次测量，不是两个样品的差别。</p>
+          <p><b>第三次前进：记忆的含义。</b>这里的记忆是一个可写入、可读出的内部状态。图中粒子仅帮助表示状态变化；不同材料可以用不同物理过程实现它。接下来先看我们怎样写入和读取这个状态。</p>
+          <p class="note-source">概念参考：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，§2 器件结构与开关机制。采用广义忆阻器件的工作性定义，不等同于理想电荷–磁通忆阻器的严格定义。电导在指定读取电压附近描述导电能力；器件可能存在非线性。读取电压、刺激幅度和条形长度均为示意，无实测数值或保持时间结论。</p>
+        </aside>
+      </section>
+
+      <section class="slide basics-slide" id="write-read-reset" aria-labelledby="write-title">
+        <header class="slide-header">
+          <p class="section-label">第二部分 · 忆阻器的基本概念</p>
+          <h2 id="write-title"><span class="accent-teal">写入、读取</span>与复位</h2>
+          <p class="slide-lead">写入改变状态，读取识别状态，复位回到约定状态。</p>
+        </header>
+        <div class="p2-operation-layout">
+          <svg viewBox="0 0 1040 440" role="img" aria-labelledby="write-art-title write-art-desc">
+            <title id="write-art-title">双极性器件的写入、读取和复位示意</title>
+            <desc id="write-art-desc">首先用小正脉冲读取低电导状态，再施加较大的正写入脉冲变为高电导，用同样小脉冲读取；施加负复位脉冲回到低电导，最后再次读取。下图三个实心点是读出结果，虚线是状态变化示意。</desc>
+            <path d="M112 52V243M112 139H1000M112 281V408H1000" class="axis"/>
+            <text x="13" y="66" class="svg-small">电压</text><text x="13" y="303" class="svg-small">电导</text>
+            <text x="126" y="164" class="svg-micro">0</text><text x="985" y="436" text-anchor="end" class="svg-small">时间 →</text>
+            <g class="fragment" data-fragment-index="0">
+              <text x="202" y="33" text-anchor="middle" class="svg-label">读取</text>
+              <path d="M151 139h36v-22h30v22h43" fill="none" stroke="#718799" stroke-width="3"/>
+              <circle cx="202" cy="380" r="7" fill="#718799"/>
+              <text x="153" y="369" class="svg-micro">低</text>
+            </g>
+            <g class="fragment" data-fragment-index="1">
+              <text x="387" y="33" text-anchor="middle" class="svg-label teal">写入</text>
+              <path d="M306 139h52V66h58v73h64" fill="none" stroke="#167e68" stroke-width="3.5"/>
+              <text x="571" y="33" text-anchor="middle" class="svg-label">读取</text>
+              <path d="M522 139h34v-22h30v22h42" fill="none" stroke="#718799" stroke-width="3"/>
+              <path d="M202 380H387V305H571" fill="none" stroke="#65a58d" stroke-width="3" stroke-dasharray="6 6"/>
+              <circle cx="571" cy="305" r="7" fill="#167e68"/>
+              <text x="589" y="289" class="svg-micro teal">高</text>
+            </g>
+            <g class="fragment" data-fragment-index="2">
+              <text x="758" y="33" text-anchor="middle" class="svg-label rust">复位</text>
+              <path d="M677 139h52v73h58v-73h64" fill="none" stroke="#b45d3c" stroke-width="3.5"/>
+              <text x="929" y="33" text-anchor="middle" class="svg-label">读取</text>
+              <path d="M883 139h31v-22h30v22h47" fill="none" stroke="#718799" stroke-width="3"/>
+              <path d="M571 305H758V380H929" fill="none" stroke="#65a58d" stroke-width="3" stroke-dasharray="6 6"/>
+              <circle cx="929" cy="380" r="7" fill="#718799"/>
+              <text x="947" y="371" class="svg-micro">低</text>
+            </g>
+            <text x="520" y="260" text-anchor="middle" class="svg-micro">● 读出结果　　虚线：内部状态的概念变化</text>
+          </svg>
+          <div class="p2-operation-copy">
+            <div class="fragment" data-fragment-index="0"><h3>小信号读出</h3><p>尽量不改变状态，<br>同时分辨电流差异。</p></div>
+            <div class="fragment" data-fragment-index="1"><h3>两种状态编码</h3><p>低电导、高电导<br>可约定表示 0 和 1。</p></div>
+            <div class="fragment" data-fragment-index="2"><h3>复位后再写入</h3><p>可重复使用；<br>脉冲条件由器件决定。</p></div>
+          </div>
+        </div>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>读取要<span class="accent-teal">分得清</span>，也要尽量<span class="accent-teal">不扰动状态</span></p></div>
+        <footer class="slide-footer"><span>双极性阻变概念示意 · 极性与幅度非通用规则 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a></span><span class="page-no">08 / 13</span></footer>
+        <aside class="notes">
+          <h3>第 8 页 · 约 90 秒</h3>
+          <p>记忆器件需要区分两类操作：改变状态，以及辨认状态。上面是施加的电压，下面是电导；实心点表示读取时获得的结果，虚线只是内部状态变化的概念轨迹。</p>
+          <p><b>第一次前进：读取初始状态。</b>用较小的探测电压读到低电导。小信号的目的是减少扰动，但读信号过小又可能难以分辨状态。重复读取是否改变状态，需要实验验证。</p>
+          <p><b>第二次前进：写入后再读。</b>一个合适的写入脉冲使器件进入高电导。再用和刚才相同的读脉冲，就能比较电流。高低电导可以约定表示 1 和 0；对应关系可以反过来，没有天然的 0 或 1。</p>
+          <p><b>第三次前进：复位。</b>这个双极性示例用相反方向的脉冲回到低电导，随后再次读取。常说的“擦除”在这里是把器件复位到约定状态，并不意味着没有内部状态了。SET 通常指高阻到低阻，RESET 指低阻到高阻；具体电压极性、幅度、时间和是否需要限流取决于器件。</p>
+          <p>有些器件还能稳定地区分多个电导等级，用于多级存储或表示权重，稍后会看到。先把这些分开的读写过程变成连续电压扫描，就得到下一页的阻变回线。</p>
+          <p class="note-source">Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，§2 开关机制、§3 器件性能与 §5 存储和计算。图为概念示意，不对应给定器件的真实电压或时间；不承诺读取绝对无扰动或任意次数的耐久性。</p>
+        </aside>
+      </section>
+
+      <section class="slide basics-slide" id="switching-loop" aria-labelledby="loop-title">
+        <header class="slide-header">
+          <p class="section-label">第二部分 · 忆阻器的基本概念</p>
+          <h2 id="loop-title">怎样读懂<span class="accent-teal">阻变回线</span></h2>
+          <p class="slide-lead">沿箭头改变电压，观察电流如何随状态变化。</p>
+        </header>
+        <div class="p2-loop-layout">
+          <svg viewBox="0 0 920 455" role="img" aria-labelledby="loop-art-title loop-art-desc">
+            <title id="loop-art-title">双极性阻变电流电压回线及扫描方向</title>
+            <desc id="loop-art-desc">横轴电压、纵轴有符号电流。由零向正电压扫描时从高阻切换到低阻，再沿低阻分支返回零；向负电压扫描时从低阻复位到高阻，再沿高阻分支回到零。正负极性仅为此示例。同一小正读取电压下两种状态的电流不同。</desc>
+            <defs>
+              <marker id="loop-teal-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#167e68"/></marker>
+              <marker id="loop-rust-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#b45d3c"/></marker>
+            </defs>
+            <path d="M36 242H872M440 435V45" class="axis"/>
+            <text x="452" y="29" class="svg-small">电流 I</text><text x="870" y="277" text-anchor="end" class="svg-small">电压 V</text>
+            <text x="418" y="269" class="svg-micro">0</text><text x="836" y="232" class="svg-micro">+</text><text x="54" y="232" class="svg-micro">−</text>
+            <g class="fragment" data-fragment-index="0">
+              <path d="M440 242L700 214L700 112L820 52L440 242" fill="none" stroke="#167e68" stroke-width="4" stroke-linejoin="round"/>
+              <path d="M553 230L618 223" fill="none" stroke="#167e68" stroke-width="2.5" marker-end="url(#loop-teal-arrow)"/>
+              <path d="M700 190V142" fill="none" stroke="#167e68" stroke-width="2.5" marker-end="url(#loop-teal-arrow)"/>
+              <path d="M638 143L583 170" fill="none" stroke="#167e68" stroke-width="2.5" marker-end="url(#loop-teal-arrow)"/>
+              <text x="722" y="173" class="svg-label teal">SET</text>
+              <text x="550" y="100" class="svg-small teal">低阻态</text><text x="723" y="218" class="svg-small">高阻态</text>
+            </g>
+            <g class="fragment" data-fragment-index="1">
+              <path d="M440 242L240 342L240 264L60 284L440 242" fill="none" stroke="#b45d3c" stroke-width="4" stroke-linejoin="round"/>
+              <path d="M375 275L311 307" fill="none" stroke="#b45d3c" stroke-width="2.5" marker-end="url(#loop-rust-arrow)"/>
+              <path d="M240 325V283" fill="none" stroke="#b45d3c" stroke-width="2.5" marker-end="url(#loop-rust-arrow)"/>
+              <path d="M103 279L183 270" fill="none" stroke="#b45d3c" stroke-width="2.5" marker-end="url(#loop-rust-arrow)"/>
+              <text x="104" y="354" class="svg-label rust">RESET</text>
+              <text x="82" y="314" class="svg-small">高阻态</text><text x="300" y="353" class="svg-small">低阻态</text>
+            </g>
+            <g class="fragment" data-fragment-index="2">
+              <path d="M536 183V295" stroke="#93a59d" stroke-width="2" stroke-dasharray="4 5"/>
+              <circle cx="536" cy="194" r="6" fill="#faf9f5" stroke="#167e68" stroke-width="3"/>
+              <circle cx="536" cy="231.7" r="6" fill="#faf9f5" stroke="#167e68" stroke-width="3"/>
+              <text x="559" y="308" class="svg-small">同一读电压</text>
+              <text x="559" y="342" class="svg-small">两种电流</text>
+            </g>
+            <text x="455" y="438" text-anchor="middle" class="svg-micro">扫描：0 → 正电压 → 0 → 负电压 → 0　｜　示意坐标，无实验数值</text>
+          </svg>
+          <div class="p2-loop-copy">
+            <div class="fragment" data-fragment-index="0"><span class="p2-step">01</span><div><h3>置位 SET</h3><p>高阻 → 低阻<br>相同电压下电流更大</p></div></div>
+            <div class="fragment" data-fragment-index="1"><span class="p2-step rust-text">02</span><div><h3>复位 RESET</h3><p>低阻 → 高阻<br>电压极性取决于器件</p></div></div>
+            <div class="fragment" data-fragment-index="2"><span class="p2-step">03</span><div><h3>比较读出</h3><p>在同一电压处，<br>比较两条状态分支</p></div></div>
+          </div>
+        </div>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>回线显示<span class="accent-teal">路径依赖</span>；保持多久，需要另测</p></div>
+        <footer class="slide-footer"><span>双极性阻变示例 · 原创概念图 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a></span><span class="page-no">09 / 13</span></footer>
+        <aside class="notes">
+          <h3>第 9 页 · 约 95 秒</h3>
+          <p>后面研究中经常出现电流–电压曲线。横轴是施加的电压，纵轴是测得的有符号电流。我们从原点出发，先扫正电压，返回零，再扫负电压并返回零。这里画的是一种简化双极性阻变示例，方便读图。</p>
+          <p><b>第一次前进：SET。</b>起初器件在高阻态，正电压逐渐增加时电流较小。达到写入条件后，内部状态改变，切换到低阻态，电流增大。沿箭头往回扫，在同样的正电压下，电流会比来程大；在这张简化图中，低阻线更陡。</p>
+          <p><b>第二次前进：RESET。</b>继续扫到负电压，在这个例子中相反方向的刺激使器件回到高阻。负半轴要比较电流的绝对值：低阻态的电流幅度更大。真实器件可能出现渐变、突变、整流、不对称或限流，这里都没有展开。SET 和 RESET 的正负方向也可以与图中相反。</p>
+          <p><b>第三次前进：同电压比较。</b>竖虚线选定一个小读取电压，两个圆点对应两种状态的电流。读图时要同时看电压、扫描方向和器件经历的历史。回线说明本次扫描中响应具有路径依赖；不能仅凭它证明断电后仍能保存多年。保持时间需要撤去写入刺激后，在不同等待时间单独读取。</p>
+          <p>这些不同分支背后，究竟是器件内部什么发生了变化？下一页看三种代表性的物理路径。</p>
+          <p class="note-source">Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，§2 阻变机制与 §3 性能。示意回线不来自 AEM 2023 或任何器件实测。原点相交、线性分支和突变为教学简化，不作为所有忆阻器的必要图形特征，也不能单独排除其他滞回机制。</p>
+        </aside>
+      </section>
+
+      <section class="slide basics-slide" id="microscopic-mechanisms" aria-labelledby="mechanisms-title">
+        <header class="slide-header">
+          <p class="section-label">第二部分 · 忆阻器的基本概念</p>
+          <h2 id="mechanisms-title">电阻记忆的<span class="accent-teal">微观来源</span></h2>
+          <p class="slide-lead">不同材料，可以用不同的物理过程保存状态。</p>
+        </header>
+        <div class="p2-mechanisms">
+          <div class="p2-mechanism fragment" data-fragment-index="0">
+            <h3>导电通道改变</h3>
+            <svg viewBox="0 0 440 238" role="img" aria-label="电极之间的导电细丝从断开到连通，电流路径随之改变">
+              <rect x="27" y="42" width="154" height="146" rx="3" fill="#edf2ec"/><rect x="258" y="42" width="154" height="146" rx="3" fill="#edf2ec"/>
+              <path d="M27 42H181M27 188H181M258 42H412M258 188H412" stroke="#8197a5" stroke-width="13"/>
+              <path d="M100 50l9 38-12 22M107 149l-7 31" stroke="#b99462" stroke-width="13" stroke-linecap="round" fill="none"/>
+              <path d="M331 50l9 38-12 27 9 34-7 31" stroke="#167e68" stroke-width="13" stroke-linecap="round" fill="none"/>
+              <path d="M201 115h34m-9-8 9 8-9 8" stroke="#8ea79b" stroke-width="2" fill="none"/>
+              <text x="104" y="227" text-anchor="middle" class="svg-small">断开</text><text x="335" y="227" text-anchor="middle" class="svg-small">连通</text>
+            </svg>
+            <p>离子或缺陷重新分布，<br>改变局部导电路径。</p>
+          </div>
+          <div class="p2-mechanism fragment" data-fragment-index="1">
+            <h3>界面势垒改变</h3>
+            <svg viewBox="0 0 440 238" role="img" aria-label="界面附近的缺陷或电荷改变电子跨越的能量门槛，高势垒和低势垒作概念对比">
+              <path d="M35 188H182M261 188H410" class="axis"/>
+              <path d="M47 169H77V60Q126 60 165 139" fill="none" stroke="#b99462" stroke-width="4"/>
+              <path d="M273 169H303V111Q352 111 393 139" fill="none" stroke="#167e68" stroke-width="4"/>
+              <path d="M58 155l27-15M284 155l27-15" stroke="#718799" stroke-width="2"/>
+              <g fill="#718799"><circle cx="47" cy="164" r="6"/><circle cx="273" cy="164" r="6"/></g>
+              <path d="M202 117h31m-9-8 9 8-9 8" stroke="#8ea79b" stroke-width="2" fill="none"/>
+              <text x="105" y="227" text-anchor="middle" class="svg-small">门槛较高</text><text x="335" y="227" text-anchor="middle" class="svg-small">门槛较低</text>
+              <text x="220" y="28" text-anchor="middle" class="svg-micro">电子能量门槛示意</text>
+            </svg>
+            <p>缺陷或电荷改变界面，<br>调节电子进入的难易。</p>
+          </div>
+          <div class="p2-mechanism fragment" data-fragment-index="2">
+            <h3>结构或极化改变</h3>
+            <svg viewBox="0 0 440 238" role="img" aria-label="以极化方向翻转为例，两种状态可改变电势分布与电流响应">
+              <rect x="29" y="44" width="154" height="143" rx="3" fill="#edf0f3" stroke="#9aafba" stroke-width="1.5"/><rect x="259" y="44" width="154" height="143" rx="3" fill="#e5f1e9" stroke="#8ab49d" stroke-width="1.5"/>
+              <g fill="none" stroke="#7e96a6" stroke-width="3"><path d="M66 142V87m-9 12 9-12 9 12M107 142V87m-9 12 9-12 9 12M148 142V87m-9 12 9-12 9 12"/></g>
+              <g fill="none" stroke="#167e68" stroke-width="3"><path d="M296 87v55m-9-12 9 12 9-12M337 87v55m-9-12 9 12 9-12M378 87v55m-9-12 9 12 9-12"/></g>
+              <path d="M204 116h29m-9-8 9 8-9 8" stroke="#8ea79b" stroke-width="2" fill="none"/>
+              <text x="220" y="227" text-anchor="middle" class="svg-small">以极化方向翻转为例</text>
+            </svg>
+            <p>结构、相态或极化变化，<br>改变电流响应。</p>
+          </div>
+        </div>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p><span class="accent-teal">内部状态改变</span>，把刺激历史留在器件中</p></div>
+        <footer class="slide-footer"><span>代表性机制，可能共存 · 原创示意，非原子结构或实测能带 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a></span><span class="page-no">10 / 13</span></footer>
+        <aside class="notes">
+          <h3>第 10 页 · 约 80 秒</h3>
+          <p>前面把器件内部统称为“状态”。现在把它具体化。这里选三个代表性的路径，不要求大家记材料名称，也不表示机制只有这三种或彼此独立。</p>
+          <p><b>第一次前进：导电通道。</b>外加刺激使离子或缺陷重新分布，可能形成、加粗或打断局部导电细丝。通路连通程度改变，电流就不同。图中只有一条通道，实际可以更加复杂。</p>
+          <p><b>第二次前进：界面门槛。</b>即使没有一根贯穿的细丝，界面附近的电荷和缺陷也能改变电子进入半导体时跨越的能量门槛。这里的高低门槛是能量示意，不是几何台阶。后半场我们的研究会进一步讨论这种接触势垒如何随缺陷变化。</p>
+          <p><b>第三次前进：结构或极化。</b>材料的结构、相态或电极化发生变化，也可能改变它的导电响应。右图只画极化方向翻转这一例子，没有声称所有二维材料都具有铁电性。</p>
+          <p>共同点是刺激改变状态，状态影响电流。仅凭一条阻变回线往往不能唯一识别机制，还需要结构、电学或其他证据。知道电导能够被改变之后，我们再看怎样用它表示一个连接的权重。</p>
+          <p class="note-source">Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，§2 与 Fig. 2：导电细丝、接触势垒、电荷俘获、相变和铁电极化等机制。图为原创教学简图，不是该综述或 AEM 论文的实验图；不同机制可能共存，材料与器件几何决定具体行为。</p>
+        </aside>
+      </section>
+
+      <section class="slide weight-slide" id="programmable-weight" aria-labelledby="weight-title">
+        <header class="slide-header">
+          <p class="section-label">第二部分 · 忆阻器的基本概念</p>
+          <h2 id="weight-title">把连接强弱写成<span class="accent-teal">电导状态</span></h2>
+          <p class="slide-lead">人工突触的“权重”，可以用器件的导电能力来表示。</p>
+        </header>
+        <svg class="tail-art weight-art" viewBox="0 0 1440 450" role="img" aria-labelledby="weight-art-title weight-art-desc">
+          <title id="weight-art-title">脉冲调节电导，固定小电压读取不同电流</title>
+          <desc id="weight-art-desc">左图为多级电导随编程脉冲逐步增加和减小的概念示意，不代表所有器件都能实现平滑或对称的更新。右图以相同小读取电压下三个状态的相对电流说明权重强弱。无实验数据或性能数值。</desc>
+          <defs><marker id="weight-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L7 4L0 8" fill="none" stroke="#167e68" stroke-width="1.5"/></marker></defs>
+          <line x1="830" y1="22" x2="830" y2="413" stroke="#d8e1dc" stroke-width="1.5"/>
+          <g class="fragment" data-fragment-index="0">
+            <text x="398" y="42" text-anchor="middle" class="svg-heading">用脉冲调节状态</text>
+            <text x="39" y="85" class="svg-small">电导 G</text>
+            <path d="M103 96V311H760" class="axis"/>
+            <path d="M121 280H194V234H272V191H350V153H429V120H493" fill="none" stroke="#167e68" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M493 120H541V156H599V199H657V246H723" fill="none" stroke="#b45d3c" stroke-width="5" stroke-linejoin="round"/>
+            <g fill="#167e68"><circle cx="160" cy="280" r="5"/><circle cx="231" cy="234" r="5"/><circle cx="311" cy="191" r="5"/><circle cx="388" cy="153" r="5"/><circle cx="466" cy="120" r="5"/></g>
+            <g fill="#b45d3c"><circle cx="570" cy="156" r="5"/><circle cx="628" cy="199" r="5"/><circle cx="690" cy="246" r="5"/></g>
+            <text x="748" y="342" text-anchor="end" class="svg-small">编程脉冲序列</text>
+            <path d="M165 387H187V360H201V387H265V360H279V387H343V360H357V387H421V360H435V387H466" fill="none" stroke="#167e68" stroke-width="2.7"/>
+            <path d="M507 387H534V408H548V387H592V408H606V387H650V408H664V387H708" fill="none" stroke="#b45d3c" stroke-width="2.7"/>
+            <text x="316" y="91" text-anchor="middle" class="svg-small teal">增强</text>
+            <text x="630" y="91" text-anchor="middle" class="svg-small rust">减弱</text>
+          </g>
+          <g class="fragment" data-fragment-index="1">
+            <text x="1120" y="42" text-anchor="middle" class="svg-heading">用小电压读取权重</text>
+            <text x="1120" y="91" text-anchor="middle" class="svg-small">相同读取条件，比较输出电流</text>
+            <text x="888" y="151" class="svg-small">电导状态</text>
+            <text x="1260" y="151" text-anchor="middle" class="svg-small">读取电流</text>
+            <g transform="translate(0 185)">
+              <text x="898" y="27" class="svg-label">较低</text><rect x="995" y="0" width="84" height="37" rx="5" fill="#d7e5e0" stroke="#739d8d" stroke-width="2"/>
+              <path d="M1093 18H1145" stroke="#167e68" stroke-width="2" marker-end="url(#weight-arrow)"/>
+              <rect x="1183" y="3" width="65" height="30" rx="3" fill="#8eb8a8"/>
+            </g>
+            <g transform="translate(0 260)">
+              <text x="898" y="27" class="svg-label">中等</text><rect x="995" y="0" width="84" height="37" rx="5" fill="#9ac7b7" stroke="#438c74" stroke-width="2"/>
+              <path d="M1093 18H1145" stroke="#167e68" stroke-width="2" marker-end="url(#weight-arrow)"/>
+              <rect x="1183" y="3" width="127" height="30" rx="3" fill="#4f9c83"/>
+            </g>
+            <g transform="translate(0 335)">
+              <text x="898" y="27" class="svg-label">较高</text><rect x="995" y="0" width="84" height="37" rx="5" fill="#438c74" stroke="#167e68" stroke-width="2"/>
+              <path d="M1093 18H1145" stroke="#167e68" stroke-width="2" marker-end="url(#weight-arrow)"/>
+              <rect x="1183" y="3" width="191" height="30" rx="3" fill="#167e68"/>
+            </g>
+            <text x="1120" y="419" text-anchor="middle" class="svg-small teal">电导越大，读取电流越大</text>
+          </g>
+        </svg>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>实现人工突触，需要<span class="accent-teal">可控、可重复的权重更新</span></p></div>
+        <footer class="slide-footer"><span>原创概念示意 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., Nano-Micro Lett. (2024)</a> · <a href="https://doi.org/10.1038/nature14441" target="_blank" rel="noopener noreferrer">Prezioso et al., Nature (2015)</a></span><span class="page-no">11 / 13</span></footer>
+        <aside class="notes">
+          <h3>第 11 页 · 约 75 秒</h3>
+          <p>前面用“连接强弱”解释了权重。现在回到器件：电导描述导电能力，我们可以选择一种映射，把不同电导状态当作不同的连接权重。这里先讨论非负权重的直觉。</p>
+          <p><b>第一次前进：编程。</b>对能够进行多级调节的器件，电脉冲可以逐步改变电导。左图用一组脉冲使电导增加，另一组使它减小。这里的脉冲形状和台阶只是概念示意；实际更新可能不均匀、不对称，还可能存在随机波动。不是每一种忆阻器天然都能平滑地调节很多级。</p>
+          <p><b>第二次前进：读取。</b>在相同、足够小的读取电压下，比较三个已经写好的状态：电导越大，读取电流越大。因此，存下来的状态会影响输入信号传过去的强度。比较时还需要保持其他读取条件一致，并尽量避免读取改变状态。</p>
+          <p><b>第三次前进：可用性。</b>要让这种器件成为有用的人工突触，关键是能否把权重写到需要的范围，并在多次操作中可靠地重现。它对应的是连接强弱这一功能，不代表单个器件完整复制了生物突触。</p>
+          <p>写入以后还要问：这个权重能保持多久？下一页把状态保持与状态逐渐恢复分开来看。</p>
+          <p class="note-source">概念参考：<a href="https://doi.org/10.1007/s40820-024-01335-2">Zhou et al., Nano-Micro Letters 16, 121 (2024)</a>；可调忆阻网络实验：<a href="https://doi.org/10.1038/nature14441">Prezioso et al., Nature 521, 61–64 (2015)</a>。图中的曲线、脉冲和相对电流均为原创示意，没有复制或拟合实验数据。单个被动电导通常非负，表示负权重需要额外编码；编程脉冲需由学习规则或控制方法确定，本身不等于学习算法。线性读取近似及有符号权重的电路实现留到后续计算部分。</p>
+        </aside>
+      </section>
+
+      <section class="slide retention-slide" id="retention-relaxation" aria-labelledby="retention-title">
+        <header class="slide-header">
+          <p class="section-label">第二部分 · 忆阻器的基本概念</p>
+          <h2 id="retention-title"><span class="accent-teal">记住</span>与<span class="accent-rust">逐渐恢复</span></h2>
+          <p class="slide-lead">撤去刺激后，状态能够维持多久，需要单独测量。</p>
+        </header>
+        <svg class="tail-art retention-art" viewBox="0 0 1440 450" role="img" aria-labelledby="retention-art-title retention-art-desc">
+          <title id="retention-art-title">刺激撤去后，电导保持与电导弛豫的对比</title>
+          <desc id="retention-art-desc">左右图均从相同基线出发，经刺激后升高，在 t₀ 撤去刺激。左图的状态在显示的观察窗口内仍可分辨；右图逐渐回到基线。坐标无数值，两图不是特定器件的测量，也不表示永久保持。</desc>
+          <line x1="720" y1="25" x2="720" y2="421" stroke="#d8e1dc" stroke-width="1.5"/>
+          <g class="fragment" data-fragment-index="0">
+            <text x="350" y="40" text-anchor="middle" class="svg-heading">状态保持</text>
+            <rect x="236" y="79" width="418" height="251" fill="#eaf2ec" opacity=".65"/>
+            <text x="448" y="101" text-anchor="middle" class="svg-micro">所示观察窗口</text>
+            <path d="M93 83V330H663" class="axis"/>
+            <text x="29" y="73" class="svg-small">电导 G</text>
+            <text x="661" y="364" text-anchor="end" class="svg-small">时间 t</text>
+            <path d="M94 289H654" stroke="#b6c2c0" stroke-width="1.5" stroke-dasharray="6 7"/>
+            <text x="649" y="314" text-anchor="end" class="svg-micro">刺激前基线</text>
+            <path d="M235 109V337" stroke="#9babaa" stroke-width="1.5" stroke-dasharray="6 7"/>
+            <path d="M106 289H167L193 151H235C340 154 500 158 644 164" fill="none" stroke="#167e68" stroke-width="5" stroke-linejoin="round"/>
+            <circle cx="235" cy="152" r="5" fill="#167e68"/>
+            <text x="235" y="364" text-anchor="middle" class="svg-small">t₀</text>
+            <text x="235" y="395" text-anchor="middle" class="svg-small">撤去刺激</text>
+            <text x="456" y="207" text-anchor="middle" class="svg-label teal">状态仍可分辨</text>
+            <text x="354" y="443" text-anchor="middle" class="svg-small">非易失：无需持续供电维持状态</text>
+          </g>
+          <g class="fragment" data-fragment-index="1" transform="translate(742 0)">
+            <text x="349" y="40" text-anchor="middle" class="svg-heading">状态弛豫</text>
+            <rect x="236" y="79" width="418" height="251" fill="#f4eee7" opacity=".65"/>
+            <text x="448" y="101" text-anchor="middle" class="svg-micro">所示观察窗口</text>
+            <path d="M93 83V330H663" class="axis"/>
+            <text x="29" y="73" class="svg-small">电导 G</text>
+            <text x="661" y="364" text-anchor="end" class="svg-small">时间 t</text>
+            <path d="M94 289H654" stroke="#b6c2c0" stroke-width="1.5" stroke-dasharray="6 7"/>
+            <text x="649" y="314" text-anchor="end" class="svg-micro">刺激前基线</text>
+            <path d="M235 109V337" stroke="#9babaa" stroke-width="1.5" stroke-dasharray="6 7"/>
+            <path d="M106 289H167L193 151H235C263 186 292 230 336 255C410 284 523 287 644 289" fill="none" stroke="#b45d3c" stroke-width="5" stroke-linejoin="round"/>
+            <circle cx="235" cy="151" r="5" fill="#b45d3c"/>
+            <text x="235" y="364" text-anchor="middle" class="svg-small">t₀</text>
+            <text x="235" y="395" text-anchor="middle" class="svg-small">撤去刺激</text>
+            <text x="475" y="182" text-anchor="middle" class="svg-label rust">逐渐回到基线</text>
+            <text x="354" y="443" text-anchor="middle" class="svg-small">恢复过程可反映近期刺激的历史</text>
+          </g>
+        </svg>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>状态保持用于存储，<span class="accent-rust">状态弛豫也可参与时间信息处理</span></p></div>
+        <footer class="slide-footer"><span>概念曲线 · 非易失不等于永久保持 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a> · <a href="https://doi.org/10.1038/s41467-017-02337-y" target="_blank" rel="noopener noreferrer">Du et al., Nat. Commun. (2017)</a></span><span class="page-no">12 / 13</span></footer>
+        <aside class="notes">
+          <h3>第 12 页 · 约 75 秒</h3>
+          <p>上一页讨论如何把状态写进去。现在把写入刺激撤掉，看看后面会发生什么。两张图都以电导为纵轴、时间为横轴；t₀ 表示撤去刺激的时刻。虚线是刺激前的基线，浅色区域是正在观察的时间范围。</p>
+          <p><b>第一次前进：保持。</b>左图中，撤去刺激之后，状态在观察窗口内仍然能与初始状态区分。非易失的意思是保持状态不需要持续供电；它并不保证状态永久不变。保持时间需要结合温度、读出条件、允许漂移和判别阈值来测量，不能仅凭一条电压扫描回线判断。</p>
+          <p><b>第二次前进：弛豫。</b>右图中，器件状态逐渐回到基线。这种恢复在物理上称为弛豫。对长期保存权重，它可能是限制；对时间信息处理，衰减程度和时间尺度却可以反映近期刺激的历史。例如，刚发生的刺激与更早的刺激对当前状态的影响不同。</p>
+          <p><b>第三次前进：用途。</b>因此，哪一种特性更合适，要看任务需要保存稳定状态，还是需要利用随时间变化的状态。实际器件可能同时具有多个时间尺度，图中只是两种便于理解的情形。</p>
+          <p>这些状态与时间尺度最终由材料和结构决定。接下来用二维材料器件，看看我们还能加入哪些控制方式。</p>
+          <p class="note-source">背景参考：<a href="https://doi.org/10.1007/s40820-024-01335-2">Zhou et al., Nano-Micro Letters 16, 121 (2024)</a>，§3.1.3 与 §3.2。动态状态实验：<a href="https://doi.org/10.1038/s41467-017-02337-y">Du et al., “Reservoir computing using dynamic memristors for temporal information processing”, Nature Communications 8, 2204 (2017)</a>；该研究的后端读出训练含软件处理，本页仅引用动态状态参与时间处理的概念。两条曲线均为原创示意，不含测量数值，不来自 AEM 2023 的计算，也不用于推断具体器件的保持寿命。读出电路仍需要能量；“无需持续供电”仅指维持已写入状态。</p>
+        </aside>
+      </section>
+
+      <section class="slide layered-slide" id="two-dimensional-devices" aria-labelledby="layered-title">
+        <header class="slide-header">
+          <p class="section-label">第二部分 · 忆阻器的基本概念</p>
+          <h2 id="layered-title">二维材料与<span class="accent-teal">忆阻晶体管</span></h2>
+          <p class="slide-lead">原子级薄层与可组合的界面，为器件设计提供空间。</p>
+        </header>
+        <svg class="tail-art layered-art" viewBox="0 0 1440 450" role="img" aria-labelledby="layered-art-title layered-art-desc">
+          <title id="layered-art-title">二维材料两端忆阻器与三端忆阻晶体管的截面对比</title>
+          <desc id="layered-art-desc">左侧示意源极和漏极接触二维沟道的两端忆阻器，底部为支撑衬底。右侧增加与沟道通过绝缘层隔开的栅极，用电场提供额外控制。两图只表示一种平面结构，厚度未按比例。二维沟道或接触区域仍需具有依赖历史的内部状态，普通晶体管的瞬时栅控本身不等于记忆。</desc>
+          <defs><marker id="layered-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L7 4L0 8" fill="none" stroke="#167e68" stroke-width="1.5"/></marker><marker id="gate-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#b45d3c" stroke-width="1.5"/></marker></defs>
+          <line x1="720" y1="21" x2="720" y2="398" stroke="#d8e1dc" stroke-width="1.5"/>
+          <g class="fragment" data-fragment-index="0">
+            <text x="350" y="43" text-anchor="middle" class="svg-heading">两端忆阻器</text>
+            <text x="350" y="84" text-anchor="middle" class="svg-small">端间电压用于写入与读取</text>
+            <path d="M162 156V117H326M374 117H537V156" fill="none" stroke="#9aaab4" stroke-width="2"/>
+            <circle cx="350" cy="117" r="24" fill="#faf9f5" stroke="#7f9b90" stroke-width="1.8"/><text x="350" y="125" text-anchor="middle" class="svg-small teal">V</text>
+            <rect x="105" y="225" width="490" height="83" rx="3" fill="#edf0ee" stroke="#becbc5" stroke-width="1.5"/>
+            <rect x="105" y="211" width="490" height="14" fill="#79b69f" stroke="#4a917a" stroke-width="1.7"/>
+            <g fill="#c7d2d9" stroke="#8499a7" stroke-width="1.7"><rect x="107" y="156" width="110" height="55" rx="3"/><rect x="481" y="156" width="110" height="55" rx="3"/></g>
+            <text x="162" y="192" text-anchor="middle" class="svg-small">源极</text><text x="536" y="192" text-anchor="middle" class="svg-small">漏极</text>
+            <text x="350" y="190" text-anchor="middle" class="svg-small teal">二维沟道</text>
+            <g fill="#287f69"><circle cx="249" cy="218" r="3.2"/><circle cx="269" cy="218" r="3.2"/><circle cx="289" cy="218" r="3.2"/><circle cx="309" cy="218" r="3.2"/><circle cx="329" cy="218" r="3.2"/><circle cx="349" cy="218" r="3.2"/><circle cx="369" cy="218" r="3.2"/><circle cx="389" cy="218" r="3.2"/><circle cx="409" cy="218" r="3.2"/><circle cx="429" cy="218" r="3.2"/><circle cx="449" cy="218" r="3.2"/></g>
+            <text x="350" y="276" text-anchor="middle" class="svg-small">支撑衬底</text>
+            <text x="350" y="375" text-anchor="middle" class="svg-label">内部状态改变端间导电能力</text>
+          </g>
+          <g class="fragment" data-fragment-index="1" transform="translate(740 0)">
+            <text x="350" y="43" text-anchor="middle" class="svg-heading">三端忆阻晶体管</text>
+            <text x="350" y="84" text-anchor="middle" class="svg-small">增加栅极，提供额外调控</text>
+            <path d="M162 156V117H326M374 117H537V156" fill="none" stroke="#9aaab4" stroke-width="2"/>
+            <circle cx="350" cy="117" r="24" fill="#faf9f5" stroke="#7f9b90" stroke-width="1.8"/><text x="350" y="125" text-anchor="middle" class="svg-small teal">V</text>
+            <rect x="105" y="225" width="490" height="53" rx="2" fill="#f0e9df" stroke="#c5b6a1" stroke-width="1.5"/>
+            <rect x="105" y="278" width="490" height="30" rx="2" fill="#d3a48c" stroke="#b45d3c" stroke-width="1.5"/>
+            <rect x="105" y="211" width="490" height="14" fill="#79b69f" stroke="#4a917a" stroke-width="1.7"/>
+            <g fill="#c7d2d9" stroke="#8499a7" stroke-width="1.7"><rect x="107" y="156" width="110" height="55" rx="3"/><rect x="481" y="156" width="110" height="55" rx="3"/></g>
+            <text x="162" y="192" text-anchor="middle" class="svg-small">源极</text><text x="536" y="192" text-anchor="middle" class="svg-small">漏极</text>
+            <text x="350" y="190" text-anchor="middle" class="svg-small teal">二维沟道</text>
+            <g fill="#287f69"><circle cx="249" cy="218" r="3.2"/><circle cx="269" cy="218" r="3.2"/><circle cx="289" cy="218" r="3.2"/><circle cx="309" cy="218" r="3.2"/><circle cx="329" cy="218" r="3.2"/><circle cx="349" cy="218" r="3.2"/><circle cx="369" cy="218" r="3.2"/><circle cx="389" cy="218" r="3.2"/><circle cx="409" cy="218" r="3.2"/><circle cx="429" cy="218" r="3.2"/><circle cx="449" cy="218" r="3.2"/></g>
+            <text x="350" y="259" text-anchor="middle" class="svg-small">绝缘层</text>
+            <path d="M231 269V239" stroke="#b45d3c" stroke-width="2" marker-end="url(#gate-arrow)"/>
+            <path d="M467 269V239" stroke="#b45d3c" stroke-width="2" marker-end="url(#gate-arrow)"/>
+            <path d="M350 308V327H441" fill="none" stroke="#b45d3c" stroke-width="2"/>
+            <text x="454" y="334" class="svg-small rust">栅极</text>
+            <text x="350" y="375" text-anchor="middle" class="svg-label">栅控与依赖历史的状态共同作用</text>
+          </g>
+          <text x="720" y="431" text-anchor="middle" class="svg-small">记忆的判据仍是历史依赖；普通晶体管的即时栅控本身不等于记忆。</text>
+        </svg>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>单个器件存下一个状态，<span class="accent-teal">许多器件怎样协同计算？</span></p></div>
+        <footer class="slide-footer"><span>平面结构示意，厚度未按比例 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., Nano-Micro Lett. (2024)</a> · <a href="https://doi.org/10.1038/nature25747" target="_blank" rel="noopener noreferrer">Sangwan et al., Nature (2018)</a></span><span class="page-no">13 / 13</span></footer>
+        <aside class="notes">
+          <h3>第 13 页 · 约 80 秒</h3>
+          <p>二维材料是一个可以探索这些问题的材料平台。“二维”指单层可以薄到原子尺度，同时在平面方向延伸；器件也可能使用多层薄片。薄层和可以组合的界面，让沟道、接触与栅极之间的相互作用成为可设计的因素。材料薄本身并不自动产生记忆。</p>
+          <p><b>第一次前进：两端结构。</b>左图选一种平面两端器件作为例子。源极和漏极接触二维沟道，端间电压可用于写入或读取。历史依赖的状态可以位于沟道、接触或相关界面；内部状态的变化使端间导电能力发生变化。还有上下电极夹住薄层的垂直结构，这里暂不展开。</p>
+          <p><b>第二次前进：第三个端口。</b>右图加入栅极，它隔着绝缘层，主要通过电场提供额外控制，而不是让电流直接穿过绝缘层。把阻变记忆与这种栅控能力结合起来的器件，称为忆阻晶体管，英文是 memtransistor。栅极可以调节导电行为或开关条件，具体作用取决于结构与机制。</p>
+          <p>要区分两个概念：普通晶体管在改变栅压时电流改变，是即时的控制；我们讨论的记忆还要求在相同读取条件下，不同刺激历史对应可区分的状态。并非增加一个栅极，就自动获得这种记忆。</p>
+          <p><b>第三次前进：进入计算。</b>到这里，我们知道了忆阻器如何写入、读取和保持状态，也看到了不同的材料与器件结构。下一步是把视野从一个器件扩展到许多器件：单个器件存下一个状态，许多器件怎样协同计算？</p>
+          <p class="note-source">材料与结构背景：<a href="https://doi.org/10.1007/s40820-024-01335-2">Zhou et al., Nano-Micro Letters 16, 121 (2024)</a>。忆阻晶体管实验来源：<a href="https://doi.org/10.1038/nature25747">Sangwan et al., “Multi-terminal memtransistors from polycrystalline monolayer molybdenum disulfide”, Nature 554, 500–504 (2018)</a>。该工作中源漏偏压驱动缺陷迁移，栅极调节导电与开关行为，不是只由栅极写入。三端是这里选用的代表结构，忆阻晶体管也可以有更多端口。本页为原创结构示意，不是论文显微图的重现，不对特定结构的性能作承诺。</p>
+        </aside>
+      </section>
+
     </div>
   </div>
 
