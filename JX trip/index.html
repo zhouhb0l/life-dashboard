@@ -215,23 +215,25 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
   .iv-experimental-panel figcaption a { font-size:15px; margin-top:1px; }
 }
 
-.strict-definition-layout { display:grid; grid-template-columns:460px 1fr; gap:68px; height:445px; margin-top:28px; }
+.strict-definition-layout { display:grid; grid-template-columns:560px 1fr; gap:58px; height:570px; margin-top:26px; }
 .strict-definition-figure { margin:0; display:flex; flex-direction:column; align-items:center; }
-.strict-definition-figure img { display:block; width:396px; height:392px; object-fit:contain; background:#fff; margin:0; border:0; }
+.strict-definition-figure img { display:block; width:520px; height:515px; object-fit:contain; background:#fff; margin:0; border:0; }
 .strict-definition-figure figcaption { margin-top:10px; font-size:16px; color:var(--muted); line-height:1.4; text-align:center; }
 .strict-definition-copy { padding-top:0; }
-.strict-definition-copy h3 { font-size:27px; font-weight:600; color:var(--teal); margin-bottom:10px; }
-.strict-definition-integral { display:flex; align-items:center; justify-content:space-between; min-height:58px; gap:18px; font-size:26px; }
+.strict-definition-intro { font-size:23px; color:var(--muted) !important; margin-bottom:18px !important; }
+.strict-definition-copy h3 { font-size:24px; font-weight:600; color:var(--teal); margin-bottom:8px; }
+.strict-definition-integral { display:flex; align-items:center; justify-content:space-between; min-height:48px; gap:18px; font-size:22px; }
 .strict-definition-integral .math { white-space:nowrap; }
-.strict-definition-unit { font-size:20px; color:var(--muted); white-space:nowrap; }
-.strict-definition-law { border-top:1px solid var(--rule); padding-top:15px; margin-top:12px; }
-.strict-definition-constitutive { display:flex; align-items:center; gap:26px; font-size:28px; min-height:46px; }
-.strict-definition-single { font-size:22px; color:var(--muted); }
-.strict-definition-equations { display:flex; align-items:center; justify-content:space-between; gap:22px; min-height:69px; font-size:27px; }
+.strict-definition-unit { font-size:19px; color:var(--muted); white-space:nowrap; }
+.strict-definition-law { border-top:1px solid var(--rule); padding-top:12px; margin-top:12px; }
+.strict-definition-constitutive { display:flex; align-items:center; gap:26px; font-size:23px; min-height:40px; }
+.strict-definition-single { font-size:20px; color:var(--muted); }
+.strict-definition-equations { display:flex; align-items:center; justify-content:space-between; gap:22px; min-height:55px; font-size:22px; }
 .strict-definition-main { color:var(--teal); }
-.strict-definition-explanation { font-size:23px; line-height:1.45 !important; margin-top:2px !important; }
-.strict-definition-qualification { font-size:21px; line-height:1.4 !important; color:var(--muted) !important; margin-top:16px !important; }
-.strict-definition-slide .takeaway { margin-top:16px; }
+.strict-definition-explanation { font-size:20px; line-height:1.45 !important; margin-top:2px !important; }
+.strict-definition-qualification { font-size:19px; line-height:1.4 !important; color:var(--muted) !important; margin-top:12px !important; }
+.strict-definition-slide .takeaway { margin-top:20px; min-height:0; }
+.strict-definition-slide .takeaway p { font-size:27px; }
 
 .array-math-slide .slide-lead, .array-hardware-slide .slide-lead { font-size: 28px; }
 .array-math-layout { display: grid; grid-template-columns: 690px 702px; gap: 48px; margin-top: 29px; min-height: 455px; }
@@ -728,7 +730,6 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <header class="slide-header">
           <p class="section-label">第二部分 · 忆阻器的基本概念</p>
           <h2 id="strict-definition-title">理想忆阻器的<span class="accent-teal">严格定义</span></h2>
-          <p class="slide-lead">电荷与磁链之间的单值本构关系，定义随电荷状态变化的忆阻值。</p>
         </header>
         <div class="strict-definition-layout">
           <figure class="strict-definition-figure">
@@ -736,6 +737,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
             <figcaption>理想二端电路元件的变量关系<br>© 2008 Nature Publishing Group</figcaption>
           </figure>
           <div class="strict-definition-copy">
+            <p class="strict-definition-intro">电荷与磁链之间的单值本构关系，定义随电荷状态变化的忆阻值。</p>
             <div class="strict-definition-history fragment" data-fragment-index="0">
               <h3>电流与电压的时间积分</h3>
               <p class="strict-definition-integral"><span  class="math" data-tex="q(t)=q(t_0)+\int_{t_0}^{t}i(\tau)\,\mathrm{d}\tau"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>q</mi><mo stretchy="false">(</mo><msub><mi>t</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>+</mo><msubsup><mo>∫</mo><msub><mi>t</mi><mn>0</mn></msub><mi>t</mi></msubsup><mi>i</mi><mo stretchy="false">(</mo><mi>τ</mi><mo stretchy="false">)</mo><mtext> </mtext><mi mathvariant="normal">d</mi><mi>τ</mi></mrow><annotation encoding="application/x-tex">q(t)=q(t_0)+\int_{t_0}^{t}i(\tau)\,\mathrm{d}\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.4444em;vertical-align:-0.4559em;"></span><span class="mop"><span class="mop op-symbol small-op" style="margin-right:0.1945em;position:relative;top:-0.0006em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9885em;"><span style="top:-2.3442em;margin-left:-0.1945em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3173em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="katex-sizing reset-size3 size1 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.2579em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4559em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">i</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm">d</span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span></span></span></span></span><span class="strict-definition-unit">电荷 · C</span></p>
@@ -754,9 +756,9 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
               <p class="strict-definition-explanation">忆阻值 <span  class="math" data-tex="M(q)"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo stretchy="false">(</mo><mi>q</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">M(q)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">M</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mclose">)</span></span></span></span></span> 的单位为 Ω；电荷积分值决定当前忆阻值。</p>
             </div>
             <p class="strict-definition-qualification fragment" data-fragment-index="2">这里的 φ 是电压的时间积分；不要求器件采用磁性开关机制。</p>
+            <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>理想定义的关键：<br><span class="accent-teal">同一电荷状态，对应同一忆阻值</span></p></div>
           </div>
         </div>
-        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>理想定义的关键：<span class="accent-teal">同一电荷状态，对应同一忆阻值</span></p></div>
         <footer class="slide-footer"><span><a href="https://doi.org/10.1109/TCT.1971.1083337" target="_blank" rel="noopener noreferrer" title="Memristor-The missing circuit element">L. O. Chua, <i>IEEE Trans. Circuit Theory</i> <b>18</b>, 507–519 (1971)</a> · <a href="https://doi.org/10.1038/nature06932" target="_blank" rel="noopener noreferrer" title="The missing memristor found">D. B. Strukov et al., <i>Nature</i> <b>453</b>, 80–83 (2008)</a></span><span class="page-no">07 / 40</span></footer>
         <aside class="notes">
           <h3>第 7 页 · 约 90 秒</h3>
