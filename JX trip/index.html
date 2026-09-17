@@ -120,11 +120,8 @@ body { -webkit-font-smoothing: antialiased; }
 .energy-opportunity h3 { font-size: 30px; font-weight: 600; color: var(--teal); margin-bottom: 12px; }
 .energy-opportunity p { font-size: 25px; line-height: 1.6; }
 .system-energy { border-top: 1px solid #d0ddd4; margin-top: 28px; padding-top: 17px; }
-.energy-caption { font-size: 20px; color: var(--muted) !important; }
-.energy-ledger { display: flex; align-items: center; justify-content: space-between; padding: 13px 0 10px; }
-.energy-ledger span { font-size: 28px; }
-.energy-ledger b { font-size: 25px; color: #8da396; font-weight: 400; }
-.energy-metric { font-size: 21px; color: var(--muted) !important; }
+.energy-principle { font-size: 29px; }
+.energy-foundation { font-size: 24px; color: var(--muted) !important; margin-top: 15px !important; }
 .green-slide .takeaway { margin-top: 24px; }
 .reveal .fragment { transition-duration: .4s; }
 .reveal .controls { color: var(--teal); bottom: 8px; right: 12px; font-size: 8px; }
@@ -243,7 +240,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         </header>
         <svg class="architecture movement-architecture" viewBox="0 0 1440 435" role="img" aria-labelledby="movement-art-title movement-art-desc">
           <title id="movement-art-title">存储器与处理器分离的简化架构</title>
-          <desc id="movement-art-desc">存储器保存数据与权重，处理器执行运算。第一步展示从存储器读取数据与权重，第二步展示结果写回，第三步强调数据传输的时间和能耗开销。</desc>
+          <desc id="movement-art-desc">存储器保存数据与参数，处理器执行运算。第一步展示从存储器读取数据与参数，第二步展示结果写回，第三步强调数据传输的时间和能耗开销。</desc>
           <defs>
             <marker id="arrow-rust" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#bb603e" stroke-width="2"/></marker>
             <marker id="arrow-navy" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#536b82" stroke-width="2"/></marker>
@@ -255,7 +252,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
               <path d="M0 0H226V106H0Z M0 35H226 M0 71H226 M45 0V106 M90 0V106 M135 0V106 M180 0V106" fill="none" stroke="#bdc8d1" stroke-width="1.5"/>
               <g class="binary" text-anchor="middle"><text x="23" y="25">1</text><text x="68" y="25">0</text><text x="113" y="25">1</text><text x="158" y="25">1</text><text x="203" y="25">0</text><text x="23" y="60">0</text><text x="68" y="60">1</text><text x="113" y="60">0</text><text x="158" y="60">0</text><text x="203" y="60">1</text><text x="23" y="96">1</text><text x="68" y="96">1</text><text x="113" y="96">0</text><text x="158" y="96">1</text><text x="203" y="96">0</text></g>
             </g>
-            <text x="255" y="321" text-anchor="middle" class="svg-label">保存数据与权重</text>
+            <text x="255" y="321" text-anchor="middle" class="svg-label">保存数据与参数</text>
           </g>
           <g class="processor-block">
             <rect x="1018" y="72" width="334" height="286" rx="9" fill="#e9f2ef" stroke="#71a392" stroke-width="2"/>
@@ -266,7 +263,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
             <text x="1185" y="321" text-anchor="middle" class="svg-label">执行运算</text>
           </g>
           <g class="fragment" data-fragment-index="0">
-            <text x="719" y="128" text-anchor="middle" class="svg-label rust">读取数据与权重</text>
+            <text x="719" y="128" text-anchor="middle" class="svg-label rust">读取数据与参数</text>
             <path d="M447 162H991" fill="none" stroke="#bb603e" stroke-width="3" marker-end="url(#arrow-rust)"/>
             <rect class="moving-data forward" x="496" y="151" width="23" height="23" rx="3" fill="#bb603e"/>
             <rect class="moving-data forward delayed" x="664" y="151" width="23" height="23" rx="3" fill="#d89773"/>
@@ -276,7 +273,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
             <rect class="moving-data backward" x="904" y="261" width="23" height="23" rx="3" fill="#536b82"/>
             <text x="719" y="316" text-anchor="middle" class="svg-label">结果可写回存储器</text>
           </g>
-          <text x="720" y="407" text-anchor="middle" class="svg-small">例如图像识别：像素是输入，权重决定如何处理输入</text>
+          <text x="720" y="407" text-anchor="middle" class="svg-small">例如图像识别：像素是输入，模型参数决定如何处理输入</text>
         </svg>
         <div class="takeaway fragment" data-fragment-index="2">
           <span class="takeaway-rule rust-rule"></span>
@@ -289,9 +286,9 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <aside class="notes">
           <h3>第 2 页 · 约 65 秒</h3>
           <p><b>先看两端。</b>为什么要把记忆和计算放在一起讨论？这是常规计算的简化图。存储器保存数据和参数，处理器执行运算。</p>
-          <p><b>第一次前进：读取。</b>每次计算，相关数据要先被读出。以图像识别为例，像素是输入，而大量连接权重决定如何处理这些输入；运算过程中会反复使用它们。</p>
+          <p><b>第一次前进：读取。</b>每次计算，相关数据要先被读出。以图像识别为例，像素是输入，模型参数决定如何处理这些输入；运算过程中会反复使用它们。</p>
           <p><b>第二次前进：写回。</b>运算结果还可能写回存储器。芯片有缓存和复杂的调度来减少传输，这张图没有展开这些层次。数据移动本身仍然需要时间和能量。</p>
-          <p><b>第三次前进：开销。</b>对于数据密集的任务，传输可能成为重要限制。能否让一部分运算更靠近数据？我们先看看另一种处理信息的系统：大脑。</p>
+          <p><b>第三次前进：开销。</b>对于数据密集的任务，传输可能成为重要限制。如果存储的信息能够直接参与处理，能否减少一些搬运？大脑中，突触连接的状态与信号处理紧密关联，这给了我们一个值得借鉴的思路。</p>
           <p class="note-source">来源：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024)，引言。<a href="https://doi.org/10.1007/s40820-024-01335-2">论文 DOI</a>。此图是原创概念图，没有声称传输必然主导所有任务的能耗，也没有给出性能倍数。</p>
         </aside>
       </section>
@@ -300,7 +297,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <header class="slide-header">
           <p class="section-label">为什么研究忆阻器</p>
           <h2 id="brain-title">向大脑学习<span class="accent-teal">高能效计算</span></h2>
-          <p class="slide-lead">信息如何组织和处理，也值得借鉴。</p>
+          <p class="slide-lead">类脑计算：借鉴神经系统组织和处理信息的方式。</p>
         </header>
         <div class="brain-layout">
           <div class="brain-power">
@@ -337,7 +334,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         </div>
         <div class="takeaway fragment" data-fragment-index="2">
           <span class="takeaway-rule"></span>
-          <p><span class="accent-teal">类脑计算</span>：借鉴神经系统处理信息的方式</p>
+          <p>突触连接既<span class="accent-teal">保留状态</span>，也<span class="accent-teal">参与信号处理</span></p>
         </div>
         <footer class="slide-footer">
           <span>功率口径：<a href="https://doi.org/10.1073/pnas.2008173118" target="_blank" rel="noopener noreferrer">Levy &amp; Calvert, PNAS (2021)</a> · 突触可塑性：<a href="https://doi.org/10.1038/nature13294" target="_blank" rel="noopener noreferrer">Nabavi et al., Nature (2014)</a></span>
@@ -348,7 +345,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           <p>大脑给低能耗计算提供了一个有吸引力的参照。常引用的成人全脑代谢功率约为 20 瓦，这是量级估计，包含信号活动和维持生物组织等开销。Levy 与 Calvert 的能量审计在其更新口径下给出约 17 瓦。因此这里用“约 20 瓦”，不把它当作纯计算功率，也不与某块 GPU 直接计算效率倍数。</p>
           <p><b>第一次前进：网络。</b>神经元与突触组成分布式网络，信息在许多位置处理。大脑仍然需要通信，信号传输也消耗能量。</p>
           <p><b>第二次前进：可塑性。</b>突触连接的强弱会影响信号传递，也能随活动改变。这种可塑性是学习与记忆的重要基础之一，让存储的信息与后续信号处理紧密关联。</p>
-          <p><b>第三次前进：类脑计算。</b>类脑计算借鉴这些组织和工作方式，探索更高能效的硬件。大脑的低能耗由多种因素共同决定；存储与处理的紧密联系，是我们今天关注的一条工程启发。</p>
+          <p><b>第三次前进：存储与处理的联系。</b>突触连接既保留可改变的状态，也用这个状态影响后续信号。类脑计算借鉴这样的组织和工作方式。大脑的低能耗由多种因素共同决定；这里关注的是其中一条工程启发：能否让一个电子器件也同时承担这两种功能？</p>
           <p class="note-source">Levy &amp; Calvert, <i>PNAS</i> 118, e2008173118 (2021), <a href="https://doi.org/10.1073/pnas.2008173118">DOI</a>，摘要、能量审计与 Table 1。Nabavi et al., “Engineering a memory with LTD and LTP”, <i>Nature</i> 511, 348–352 (2014), <a href="https://doi.org/10.1038/nature13294">DOI</a>：对特定动物记忆的因果操控支持突触可塑性的作用。脑图为概念示意。</p>
         </aside>
       </section>
@@ -396,7 +393,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <aside class="notes">
           <h3>第 4 页 · 约 65 秒</h3>
           <p>我们把生物启发具体到一个连接。生物突触会影响前一个神经元的活动怎样传递到后一个神经元；在简化的人工网络中，我们用“权重”描述这种连接强弱。</p>
-          <p><b>第一次前进。</b>忆阻器可以用电导表示权重。电导越大，在同样读取电压下，电流通常越大。</p>
+          <p><b>第一次前进。</b>电导表示器件导电的能力。忆阻器可以用电导表示权重；电导越大，在同样读取电压下，电流通常越大。</p>
           <p><b>第二次前进。</b>生物连接可因活动改变；相应地，我们用电脉冲调节器件的电导。这里建立功能对应，不要求离子、缺陷或电极具有与生物突触相同的微观机制。</p>
           <p><b>第三次前进。</b>调节后的电导保留了状态，并影响下一次电流响应，于是“存储权重”与“使用权重”可以发生在同一个器件中。突触可塑性是生物记忆的重要基础之一，忆阻器实现的是其中若干抽象功能。把许多这样的器件连接起来，就得到下一页的计算阵列。</p>
           <p class="note-source">Nabavi et al., <i>Nature</i> 511, 348–352 (2014), <a href="https://doi.org/10.1038/nature13294">DOI</a>。Prezioso et al., “Training and operation of an integrated neuromorphic network based on metal-oxide memristors”, <i>Nature</i> 521, 61–64 (2015), <a href="https://doi.org/10.1038/nature14441">DOI</a>，实验展示可调忆阻交叉阵列的训练和简单图像分类。此处图形为原创功能示意。</p>
@@ -454,12 +451,13 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           <span class="page-no">05 / 06</span>
         </footer>
         <aside class="notes">
-          <h3>第 5 页 · 约 90 秒</h3>
-          <p>这就引出了存内计算。它的核心想法是，让保存的信息直接参与某些运算。在一种忆阻器阵列中，每个器件可以用电导保存一个权重。图中的颜色深浅仅用来区分电导状态，不对应实测数值。</p>
+          <h3>第 5 页 · 约 60 秒</h3>
+          <p>把许多器件连接起来，就引出了存内计算：让保存的信息直接参与某些运算。这里，每个器件用电导保存一个权重。</p>
           <p><b>第一次前进：输入。</b>输入由电压表示，器件产生的电流与输入和电导有关。</p>
-          <p><b>第二次前进：输出。</b>在电导近似固定、读出响应近似线性的条件下，多路电流汇合能完成加权求和。公式和阵列具体怎样读，我们稍后再看。图中横向输出箭头表示信息流程，实际阵列的电流沿相应列线汇合。</p>
-          <p><b>第三次前进：减少往返。</b>先抓住一个变化：权重留在阵列中，读取权重和执行相关运算可以在同一结构中发生，从而减少一部分反复搬运。输入、输出、控制和后续处理仍需要外围电路，最终收益也取决于任务和系统实现。</p>
-          <p>类脑计算关注从神经系统借鉴组织方式；存内计算关注运算发生的位置，两者在这里相遇。存内计算也可用于一般矩阵运算，并非所有存内计算都在模拟大脑。最后我们把这种设计与绿色计算的目标联系起来。</p>
+          <p><b>第二次前进：输出。</b>多路电流汇合，得到与输入和所存权重有关的结果。具体怎样完成加权求和，后面再展开。</p>
+          <p><b>第三次前进：减少往返。</b>关键是权重留在阵列中，直接参与运算，减少一部分反复搬运。输入、读出和控制仍需要外围电路。</p>
+          <p>类脑计算提供组织方式的启发，存内计算把部分运算放到存储的位置。接下来看看，这种设计为什么有望降低能耗。</p>
+          <p class="note-source"><b>讨论补充（不必逐句讲）：</b>加权求和依赖电导在读取期间近似固定、读出响应近似线性等条件。图中颜色仅区分电导状态，横向输出箭头表示信息流程；实际阵列电流沿相应列线汇合。存内计算也可用于一般矩阵运算，并非所有存内计算都在模拟大脑，最终收益取决于任务与系统实现。</p>
           <p class="note-source">来源：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024)，§4 阵列配置与集成、§5.1.2 MAC operation。<a href="https://doi.org/10.1007/s40820-024-01335-2">论文 DOI</a>。图为原创功能示意，不直接复制论文 Fig. 1。</p>
         </aside>
       </section>
@@ -497,16 +495,15 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
               <path d="M157 46H299" fill="none" stroke="#167e68" stroke-width="5" stroke-linecap="round"/>
               <circle cx="157" cy="46" r="5" fill="#167e68"/>
             </svg>
-            <h3>保留非易失权重</h3>
-            <p>可减少权重刷新开销，<br>具体取决于器件与系统。</p>
+            <h3>保持写入状态</h3>
+            <p>能保持状态的器件，<br>可减少反复刷新开销。</p>
           </div>
         </div>
         <div class="system-energy fragment" data-fragment-index="1">
-          <p class="energy-caption">评估范围：完整系统</p>
-          <div class="energy-ledger"><span>阵列运算</span><b>+</b><span>数据传输</span><b>+</b><span>读写与转换</span><b>+</b><span>控制电路</span></div>
-          <p class="energy-metric">例如：每次推理的总能耗，同时报告准确率与延迟</p>
+          <p class="energy-principle">节能收益，需要按<span class="accent-teal">完整系统</span>评估。</p>
+          <p class="energy-foundation">这些计算的基础：可靠地写入、保持与读取器件状态。</p>
         </div>
-        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>以更少的能量，<span class="accent-teal">完成同等质量的任务</span></p></div>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>一个电阻究竟怎样<span class="accent-teal">记住过去的刺激</span>？</p></div>
         <footer class="slide-footer">
           <span>节能机制与系统评估 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a> · <a href="https://doi.org/10.1038/s41586-023-06337-5" target="_blank" rel="noopener noreferrer">Ambrogio et al., Nature (2023)</a></span>
           <span class="page-no">06 / 06</span>
@@ -514,9 +511,10 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <aside class="notes">
           <h3>第 6 页 · 约 65 秒</h3>
           <p>为什么这些方向与绿色计算有关？这里先聚焦运行阶段的能耗：在任务与输出质量相当时，用更少的能量完成工作。</p>
-          <p><b>第一次前进：三个可能的节能来源。</b>减少反复搬运权重，利用阵列的并行运算，以及借助非易失器件减少权重刷新。这些都是可探索的机制，实际收益需要测量；非易失权重也不意味着芯片没有待机功耗。</p>
-          <p><b>第二次前进：系统账本。</b>阵列运算之外，数据传输、写入、读出、模数转换以及控制电路都消耗能量。完整评估要说明测量边界，也要报告准确率、延迟和使用的任务；写入训练成本与推理成本应按实际使用方式分别报告或摊销。</p>
-          <p><b>第三次前进：目标。</b>我们的目标是用更少能量完成同等质量的任务。绿色计算还涉及制造、使用寿命和供电来源等因素，本节只讨论运行能耗，不从单器件指标直接推导碳减排。下一部分，先从一个忆阻器如何写入和读取开始。</p>
+          <p><b>第一次前进：三个可能的节能来源。</b>减少反复搬运权重，让阵列并行参与运算，以及利用能保持状态的器件减少反复刷新。实际收益取决于器件和系统，需要在具体任务中测量。</p>
+          <p><b>第二次前进：完整系统。</b>阵列之外，输入、读出和控制也消耗能量。因此要看整个系统能否更节能。这些计算方式都依赖一个前提：器件能够可靠地记录状态，并用这个状态影响电流。</p>
+          <p><b>第三次前进：回到开场问题。</b>那么，一个电阻究竟怎样记住过去的刺激？下一部分，我们从它如何写入、保持和读取状态开始。</p>
+          <p class="note-source"><b>讨论补充（不必逐句讲）：</b>系统能耗包括阵列运算、数据传输、写入、读出、模数转换与控制电路。完整评估应说明测量边界，并在可比任务、准确率与延迟下比较；写入训练成本与推理成本应按使用方式分别报告或摊销。非易失器件可减少刷新需求，但不意味着芯片没有待机功耗。绿色计算还涉及制造、使用寿命和供电来源；本节只讨论运行能耗，不从单器件指标直接推导碳减排。</p>
           <p class="note-source">Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，器件指标与阵列集成。Ambrogio et al., “An analog-AI chip for energy-efficient speech recognition and transcription”, <i>Nature</i> 620, 768–775 (2023), <a href="https://doi.org/10.1038/s41586-023-06337-5">DOI</a>，在具体任务上联合考察准确性、模拟计算及通信与外围实现。此页列设计方向和评价范围，不声称本报告展示了实测节能倍数。</p>
         </aside>
       </section>
