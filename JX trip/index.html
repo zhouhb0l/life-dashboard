@@ -457,11 +457,11 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <header class="slide-header">
           <p class="section-label">为什么研究忆阻器</p>
           <h2 id="movement-title">计算中的<span class="accent-rust">数据搬运</span></h2>
-          <p class="slide-lead">存储与处理分离，使数据传输成为计算开销的重要来源。</p>
+          <p class="slide-lead">存储与处理分离，数据传输会消耗能量并增加时延。</p>
         </header>
         <svg class="architecture movement-architecture" viewBox="0 0 1440 435" role="img" aria-labelledby="movement-art-title movement-art-desc">
           <title id="movement-art-title">存储器与处理器分离的简化架构</title>
-          <desc id="movement-art-desc">存储器保存数据与参数，处理器执行运算。第一步展示从存储器读取数据与参数，第二步展示结果写回，第三步强调数据传输的时间和能耗开销。</desc>
+          <desc id="movement-art-desc">存储器保存数据与参数，处理器执行运算。第一步展示从存储器读取数据与参数，第二步展示结果写回，第三步强调数据传输带来的能耗与时延。</desc>
           <defs>
             <marker id="arrow-rust" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#bb603e" stroke-width="2"/></marker>
             <marker id="arrow-navy" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#536b82" stroke-width="2"/></marker>
@@ -494,22 +494,21 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
             <rect class="moving-data backward" x="904" y="261" width="23" height="23" rx="3" fill="#536b82"/>
             <text x="719" y="316" text-anchor="middle" class="svg-label">结果可写回存储器</text>
           </g>
-          <text x="720" y="407" text-anchor="middle" class="svg-small">例如图像识别：像素是输入，模型参数决定如何处理输入</text>
         </svg>
         <div class="takeaway fragment" data-fragment-index="2">
           <span class="takeaway-rule rust-rule"></span>
-          <p>反复传输带来<span class="accent-rust">时间与能耗开销</span></p>
+          <p>频繁的数据搬运增加<span class="accent-rust">能耗与时延</span></p>
         </div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a> · 架构示意</span>
+        <footer class="slide-footer"><span>架构示意</span>
           <span class="page-no">02 / 40</span>
         </footer>
         <aside class="notes">
           <h3>第 2 页 · 约 65 秒</h3>
           <p><b>先看两端。</b>为什么要把记忆和计算放在一起讨论？这是常规计算的简化图。存储器保存数据和参数，处理器执行运算。</p>
-          <p><b>第一步：读取。</b>每次计算，相关数据要先被读出。以图像识别为例，像素是输入，模型参数决定如何处理这些输入；运算过程中会反复使用它们。</p>
+          <p><b>第一步：读取。</b>执行运算前，需要从存储器读出相关数据和参数。运算过程中，同一批数据和参数可能被多次读取。</p>
           <p><b>第二步：写回。</b>运算结果还可能写回存储器。芯片有缓存和复杂的调度来减少传输，这张图没有展开这些层次。数据移动本身仍然需要时间和能量。</p>
-          <p><b>第三步：开销。</b>对于数据密集的任务，传输可能成为重要限制。如果存储的信息能够直接参与处理，能否减少一些搬运？大脑中，突触连接的状态与信号处理紧密关联，这给了我们一个值得借鉴的思路。</p>
-          <p class="note-source">来源：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024)，引言。<a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a>。此图是原创概念图，没有声称传输必然主导所有任务的能耗，也没有给出性能倍数。</p>
+          <p><b>第三步：能耗与时延。</b>对于数据密集的任务，传输可能成为重要限制。如果存储的信息能够直接参与处理，能否减少一些搬运？大脑中，突触连接的状态与信号处理紧密关联，这给了我们一个值得借鉴的思路。</p>
+          <p>此图为简化架构示意。数据传输对总能耗与执行时间的影响取决于任务、缓存与存储层次，并非在所有任务中都占主导。</p>
         </aside>
       </section>
 
@@ -523,7 +522,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           <div class="brain-power">
             <p class="power-number"><span class="approximately">约</span>20<span class="power-unit">W</span></p>
             <p class="power-description">成人全脑代谢功率</p>
-            <p class="power-caption">常用的量级估计<br>包含信号活动与生命维持等开销</p>
+            <p class="power-caption">常用的量级估计<br>包含信号活动与生命维持的能耗</p>
           </div>
           <figure class="brain-network">
             <svg viewBox="0 0 420 360" role="img" aria-labelledby="brain-network-title brain-network-desc">
@@ -561,7 +560,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         </footer>
         <aside class="notes">
           <h3>第 3 页 · 约 70 秒</h3>
-          <p>大脑给低能耗计算提供了一个有吸引力的参照。常引用的成人全脑代谢功率约为 20 瓦，这是量级估计，包含信号活动和维持生物组织等开销。Levy 与 Calvert 的能量审计在其更新口径下给出约 17 瓦。因此这里用“约 20 瓦”，不把它当作纯计算功率，也不与某块 GPU 直接计算效率倍数。</p>
+          <p>大脑给低能耗计算提供了一个有吸引力的参照。常引用的成人全脑代谢功率约为 20 瓦，这是量级估计，涵盖信号活动和维持生物组织的能量消耗。Levy 与 Calvert 的能量审计在其更新口径下给出约 17 瓦。因此这里用“约 20 瓦”，不把它当作纯计算功率，也不与某块 GPU 直接计算效率倍数。</p>
           <p><b>第一步：网络。</b>神经元与突触组成分布式网络，信息在许多位置处理。大脑仍然需要通信，信号传输也消耗能量。</p>
           <p><b>第二步：可塑性。</b>突触连接的强弱会影响信号传递，也能随活动改变。这种可塑性是学习与记忆的重要基础之一，让存储的信息与后续信号处理紧密关联。</p>
           <p><b>第三步：存储与处理的联系。</b>突触连接既保留可改变的状态，也用这个状态影响后续信号。类脑计算借鉴这样的组织和工作方式。大脑的低能耗由多种因素共同决定；这里关注的是其中一条工程启发：能否让一个电子器件也同时承担这两种功能？</p>
@@ -664,7 +663,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           <span class="takeaway-rule"></span>
           <p>权重留在阵列中，<span class="accent-teal">减少部分数据往返</span></p>
         </div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a> · 阵列功能示意</span>
+        <footer class="slide-footer"><span>阵列功能示意</span>
           <span class="page-no">05 / 40</span>
         </footer>
         <aside class="notes">
@@ -713,7 +712,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
               <circle cx="157" cy="46" r="5" fill="#167e68"/>
             </svg>
             <h3>保持已写入状态</h3>
-            <p>能保持状态的器件，<br>可减少反复刷新开销。</p>
+            <p>非易失器件可保持状态，<br>减少刷新所需的能耗。</p>
           </div>
         </div>
         <div class="system-energy fragment" data-fragment-index="1">
@@ -876,7 +875,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>读取需要兼顾<span class="accent-teal">状态分辨率与读扰动</span></p></div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a> · 双极性阻变示意</span><span class="page-no">09 / 40</span></footer>
+        <footer class="slide-footer"><span>双极性阻变示意</span><span class="page-no">09 / 40</span></footer>
         <aside class="notes">
           <h3>第 9 页 · 约 90 秒</h3>
           <p>记忆器件需要区分两类操作：改变状态，以及辨认状态。上面是施加的电压，下面是电导；实心点表示读取时获得的结果，虚线只是内部状态变化的概念轨迹。</p>
@@ -937,7 +936,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>I–V 滞回与<span class="accent-teal">状态保持</span>需要分别表征</p></div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1002/aelm.202201252" target="_blank" rel="noopener noreferrer" title="Design‐Dependent Switching Mechanisms of Schottky‐Barrier‐Modulated Memristors based on 2D Semiconductor">H. Zhou et al., <i>Adv. Electron. Mater.</i> <b>9</b>, 2201252 (2023)</a> · I–V 扫描示意</span><span class="page-no">10 / 40</span></footer>
+        <footer class="slide-footer"><span>I–V 扫描示意</span><span class="page-no">10 / 40</span></footer>
         <aside class="notes">
           <h3>第 10 页 · 约 95 秒</h3>
           <p>后面研究中经常出现电流–电压曲线。横轴是施加的电压，纵轴是测得的有符号电流。我们从原点出发，先扫正电压，返回零，再扫负电压并返回零。这里画的是一种简化双极性阻变示例，方便读图。</p>
@@ -1211,7 +1210,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </g>
         </svg>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>实现人工突触，需要<span class="accent-teal">可控、可重复的权重更新</span></p></div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1038/nature14441" target="_blank" rel="noopener noreferrer" title="Training and operation of an integrated neuromorphic network based on metal-oxide memristors">M. Prezioso et al., <i>Nature</i> <b>521</b>, 61–64 (2015)</a> · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a> · 电导编码示意</span><span class="page-no">15 / 40</span></footer>
+        <footer class="slide-footer"><span><a href="https://doi.org/10.1038/nature14441" target="_blank" rel="noopener noreferrer" title="Training and operation of an integrated neuromorphic network based on metal-oxide memristors">M. Prezioso et al., <i>Nature</i> <b>521</b>, 61–64 (2015)</a> · 电导编码示意</span><span class="page-no">15 / 40</span></footer>
         <aside class="notes">
           <h3>第 15 页 · 约 75 秒</h3>
           <p>前面用“连接强弱”解释了权重。现在回到器件：电导描述导电能力，我们可以选择一种映射，把不同电导状态当作不同的连接权重。这里先讨论非负权重的直觉。</p>
@@ -1260,7 +1259,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>乘法来自<span class="accent-teal">电流响应</span>，加法来自<span class="accent-teal">电流求和</span></p></div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a> · 线性读取近似</span><span class="page-no">16 / 40</span></footer>
+        <footer class="slide-footer"><span>线性读取近似</span><span class="page-no">16 / 40</span></footer>
         <aside class="notes">
           <h3>第 16 页 · 约 100 秒</h3>
           <p>上一页把一个电导看作一个权重。现在把很多个这样的器件连接起来：每一路电压表示一个输入，每一个器件保存一个连接权重，汇集的电流表示输出。这里讲的是读取已经写好的权重，暂时不改变电导。</p>
@@ -1402,12 +1401,12 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>器件指标的优先级取决于<span class="accent-teal">目标任务与工作条件</span></p></div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a> · 面向应用的性能评价</span><span class="page-no">19 / 40</span></footer>
+        <footer class="slide-footer"><span>面向应用的性能评价</span><span class="page-no">19 / 40</span></footer>
         <aside class="notes">
           <h3>第 19 页 · 约 65 秒</h3>
           <p>前面介绍了很多可以产生记忆的机制。但是出现记忆效应之后，还要问：这个器件是否适合我们要完成的任务？二维材料忆阻器综述把器件性能放在不同用途下讨论。</p>
           <p><b>第一步：保存信息。</b>如果要存储信息，或者在推理时反复使用已经写好的权重，希望状态在目标时间内保持，并且每次都读得清楚。</p>
-          <p><b>第二步：更新权重。</b>如果器件参与频繁的权重更新，就会反复写入，耐久性、更新重复性和写入开销会更加重要。图中台阶只是示意，不表示所有器件都能对称、线性地调节。</p>
+          <p><b>第二步：更新权重。</b>如果器件参与频繁的权重更新，就会反复写入，需要重点考察耐久性、更新重复性，以及写入能耗与时延。图中台阶只是示意，不表示所有器件都能对称、线性地调节。</p>
           <p><b>第三步：处理时间信号。</b>如果利用动态器件处理近期历史，状态恢复的时间尺度就要与输入信号的时间尺度匹配。保持得越久并不总是越合适。随机性也可以服务于某些概率任务，但需要可控制、可表征的统计特性。</p>
           <p>所以我们先明确任务，再决定指标的优先级。下一页把这些要求变成可以测量和报告的指标。</p>
           <p class="note-source">来源：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a>，关于人工突触、动态器件和随机性的讨论。图为原创概念图，纵向高低代表电导状态而非定量指标。延迟与完整写入流程属于任务评价的工程补充。</p>
@@ -1418,7 +1417,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <header class="slide-header">
           <p class="section-label">第三部分 · 器件指标、实现方式与材料选择</p>
           <h2 id="metric-list-title">二维忆阻器的<span class="accent-teal">五项核心指标</span></h2>
-          <p class="slide-lead">从编程开销、集成密度与可靠性评价器件性能。</p>
+          <p class="slide-lead">从编程能耗与电压、集成密度及可靠性评价器件性能。</p>
         </header>
         <table class="p3-metric-table" aria-label="二维材料忆阻器综述比较的五项核心器件指标、单位和物理含义">
           <colgroup><col style="width:23%"><col style="width:23%"><col style="width:54%"></colgroup>
@@ -1489,7 +1488,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>结合测试条件，比较不同器件平台的<span class="accent-teal">性能分布</span></p></div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a> · 概念示意</span><span class="page-no">21 / 40</span></footer>
+        <footer class="slide-footer"><span>概念示意</span><span class="page-no">21 / 40</span></footer>
         <aside class="notes">
           <h3>第 21 页 · 约 75 秒</h3>
           <p>这里用电导作为示意，把一致性与保持特性讲得更具体。每一张图都要结合目标状态以及允许的偏差来看。</p>
@@ -1538,7 +1537,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <header class="slide-header">
           <p class="section-label">第三部分 · 二维忆阻器的文献性能比较</p>
           <h2 id="nml-reliability-title">耐久性、保持特性与<span class="accent-teal">综合性能</span></h2>
-          <p class="slide-lead">器件适用性取决于编程开销、尺寸缩放能力与可靠性的共同约束。</p>
+          <p class="slide-lead">器件适用性取决于编程能耗与电压、尺寸缩放能力及可靠性。</p>
         </header>
         <div class="nml-comparison-grid">
           <figure class="nml-panel fragment" data-fragment-index="0">
@@ -1764,7 +1763,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>缺陷与接触结构调控<span class="accent-teal">载流子注入和电导状态</span></p></div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1002/aelm.202201252" target="_blank" rel="noopener noreferrer" title="Design‐Dependent Switching Mechanisms of Schottky‐Barrier‐Modulated Memristors based on 2D Semiconductor">H. Zhou et al., <i>Adv. Electron. Mater.</i> <b>9</b>, 2201252 (2023)</a> · 电子注入能带示意</span><span class="page-no">29 / 40</span></footer>
+        <footer class="slide-footer"><span>电子注入能带示意</span><span class="page-no">29 / 40</span></footer>
         <aside class="notes">
           <h3>第 29 页 · 约 75 秒</h3>
           <p>第三部分比较了不同路线，现在选择其中一个可以具体研究的问题：在接触控制的器件中，能否通过改变电子进入半导体的门槛，获得可调且可重复的导电响应？这就是我们接下来关注的肖特基势垒调控。</p>
@@ -1822,7 +1821,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>写入电场可以改变<span class="accent-teal">接触附近的空位分布</span></p></div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a> · <a href="https://doi.org/10.1002/adfm.201901106" target="_blank" rel="noopener noreferrer" title="Artificial Synapses Based on Multiterminal Memtransistors for Neuromorphic Application">L. Wang et al., <i>Adv. Funct. Mater.</i> <b>29</b>, 1901106 (2019)</a> · 迁移示意</span><span class="page-no">30 / 40</span></footer>
+        <footer class="slide-footer"><span><a href="https://doi.org/10.1002/adfm.201901106" target="_blank" rel="noopener noreferrer" title="Artificial Synapses Based on Multiterminal Memtransistors for Neuromorphic Application">L. Wang et al., <i>Adv. Funct. Mater.</i> <b>29</b>, 1901106 (2019)</a> · 迁移示意</span><span class="page-no">30 / 40</span></footer>
         <aside class="notes">
           <h3>第 30 页 · 约 75 秒</h3>
           <p>上一页把肖特基势垒理解为电子的入口门槛。现在看一种能够调节势垒的内部状态：硫空位。这里选取的是空位迁移与接触调控这一类忆阻器，并不代表所有 MoS₂ 器件都由同一种机制控制。</p>
@@ -2198,7 +2197,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>走向<span class="accent-teal">绿色计算</span>，最终要在完整系统中验证能耗收益</p></div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a> · <a href="https://doi.org/10.1002/aelm.202201252" target="_blank" rel="noopener noreferrer" title="Design‐Dependent Switching Mechanisms of Schottky‐Barrier‐Modulated Memristors based on 2D Semiconductor">H. Zhou et al., <i>Adv. Electron. Mater.</i> <b>9</b>, 2201252 (2023)</a></span><span class="page-no">39 / 40</span></footer>
+        <footer class="slide-footer"><span></span><span class="page-no">39 / 40</span></footer>
         <aside class="notes">
           <h3>第 39 页 · 约 75 秒</h3>
           <p>最后，从三个层次回顾今天的内容。</p>
