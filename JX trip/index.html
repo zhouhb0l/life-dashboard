@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="忆阻器：会记忆的电子器件与存内计算。面向全院师生的学术报告，第一、二部分：研究动机与忆阻器的基本概念。">
+  <meta name="description" content="面向全院师生的忆阻器报告：研究动机、基本概念、器件指标、实现路径与材料选择，以及肖特基势垒研究入口。">
   <meta name="color-scheme" content="light">
-  <title>忆阻器与存内计算 · 研究动机与基本概念</title>
+  <title>忆阻器与存内计算 · 器件指标、材料与接触物理</title>
   <link rel="icon" href="data:,">
   <!--
 Bundled Reveal.js 6.0.1
@@ -196,6 +196,64 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
 .tail-art .svg-small.rust, .tail-art .svg-label.rust { fill: var(--rust); }
 .weight-slide .takeaway, .retention-slide .takeaway, .layered-slide .takeaway { margin-top: 17px; }
 .layered-slide .takeaway p { font-size: 33px; }
+
+.p3-task-grid, .p3-consistency-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 48px; height: 435px; margin-top: 31px; }
+.p3-task h3, .p3-consistency h3 { font-size: 30px; font-weight: 600; color: var(--teal); margin-bottom: 20px; }
+.p3-task svg { display: block; width: 100%; height: 225px; }
+.p3-task p { font-size: 26px; line-height: 1.65; margin-top: 23px; }
+.p3-metric-table { table-layout: fixed; border-collapse: collapse; width: 100%; height: 435px; margin-top: 28px; font-size: 24px; line-height: 1.5; }
+.p3-metric-table th, .p3-metric-table td { text-align: left; vertical-align: middle; padding: 12px 18px 12px 0; border-bottom: 1px solid var(--rule); }
+.p3-metric-table thead th { color: var(--muted); font-size: 22px; font-weight: 400; padding-top: 0; padding-bottom: 13px; }
+.p3-metric-table tbody th { color: var(--teal); font-size: 27px; font-weight: 600; }
+.p3-consistency svg { display: block; width: 100%; height: 260px; }
+.p3-consistency h3 { font-size: 28px; margin-bottom: 15px; }
+.p3-consistency p { font-size: 26px; line-height: 1.65; margin-top: 15px; }
+.p3-consistency .p3-muted { font-size: 24px; color: var(--muted); }
+
+.p3-route-table, .p3-material-table, .p3-tradeoff-table { width: 1440px; margin-top: 28px; }
+.p3-route-row { display: grid; grid-template-columns: 350px 340px 355px 395px; align-items: center; border-bottom: 1px solid var(--rule); }
+.p3-route-row > div { padding: 19px 20px 19px 0; }
+.p3-route-row > div + div { padding-left: 24px; }
+.p3-route-heading { min-height: 48px; color: var(--muted); font-size: 23px; }
+.p3-route-heading > div { padding-top: 0; padding-bottom: 14px; }
+.p3-route-table h3, .p3-material-table h3, .p3-tradeoff-table h3 { font-size: 29px; font-weight: 600; color: var(--teal); line-height: 1.4; }
+.p3-route-table p { font-size: 26px; line-height: 1.7; }
+.p3-route-table h3 + p { font-size: 24px; color: var(--muted); margin-top: 8px; }
+.p3-route-table strong { font-weight: 500; color: var(--teal); }
+.p3-route-table-two { height: 423px; }
+.p3-route-table-two .p3-route-row:not(.p3-route-heading) { min-height: 181px; }
+.p3-route-table-three { height: 420px; }
+.p3-route-table-three .p3-route-row:not(.p3-route-heading) { min-height: 122px; }
+.p3-route-table-three .p3-route-row > div { padding-top: 12px; padding-bottom: 12px; }
+.p3-route-table-three .p3-route-heading > div { padding-top: 0; padding-bottom: 14px; }
+.p3-route-table-three h3 + p { margin-top: 3px; }
+.p3-routes-slide .takeaway { margin-top: 25px; }
+.p3-material-table { height: 424px; }
+.p3-material-row { display: grid; grid-template-columns: 238px 665px 537px; align-items: center; min-height: 74px; border-bottom: 1px solid var(--rule); }
+.p3-material-row > div { font-size: 27px; padding: 12px 12px 12px 0; }
+.p3-material-row > div + div { padding-left: 21px; }
+.p3-material-row.p3-route-heading { min-height: 48px; }
+.p3-material-row.p3-route-heading > div { font-size: 23px; padding-top: 0; padding-bottom: 14px; }
+.p3-material-table h3 { font-size: 28px; }
+.p3-tradeoff-table { margin-top: 22px; }
+.p3-tradeoff-row { display: grid; grid-template-columns: 720px 720px; align-items: center; min-height: 112px; border-bottom: 1px solid var(--rule); }
+.p3-tradeoff-row > div { padding: 13px 22px 13px 0; }
+.p3-tradeoff-row > div + div { padding-left: 43px; border-left: 1px solid var(--rule); }
+.p3-tradeoff-row.p3-route-heading { min-height: 44px; }
+.p3-tradeoff-row.p3-route-heading > div { padding-top: 0; padding-bottom: 13px; }
+.p3-tradeoff-row > div + div h3 { color: var(--rust); }
+.p3-tradeoff-table p { font-size: 25px; line-height: 1.6; margin-top: 6px; }
+.reveal .p3-integration-note { font-size: 23px; color: var(--muted); margin-top: 20px; }
+#two-dimensional-tradeoffs .takeaway { margin-top: 12px; }
+#two-dimensional-tradeoffs .takeaway p { font-size: 33px; }
+
+.p4-barrier-layout { display:grid; grid-template-columns:900px 1fr; gap:50px; height:445px; margin-top:26px; }
+.p4-barrier-layout > svg { display:block; width:900px; height:445px; }
+.p4-barrier-copy { padding-top:28px; }
+.p4-barrier-copy > div + div { margin-top:24px; }
+.p4-barrier-copy h3 { font-size:29px; font-weight:600; color:var(--teal); margin-bottom:9px; }
+.p4-barrier-copy p { font-size:25px; line-height:1.6; }
+.p4-sbh-english { font-size:20px; color:var(--muted); }
 </style>
 </head>
 <body>
@@ -253,7 +311,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </svg>
           <p class="opening-question">电阻，能记住过去的刺激吗？</p>
         </div>
-        <footer class="slide-footer"><span>为什么研究忆阻器</span><span class="page-no">01 / 14</span></footer>
+        <footer class="slide-footer"><span>为什么研究忆阻器</span><span class="page-no">01 / 22</span></footer>
         <aside class="notes">
           <h3>第 1 页 · 约 45 秒</h3>
           <p>大家好，今天想从一个很简单的问题开始：一个电阻，能不能记住之前发生过什么？</p>
@@ -313,7 +371,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         </div>
         <footer class="slide-footer">
           <span>简化架构示意 · 概念参考：<a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., Nano-Micro Lett. 16, 121 (2024)</a></span>
-          <span class="page-no">02 / 14</span>
+          <span class="page-no">02 / 22</span>
         </footer>
         <aside class="notes">
           <h3>第 2 页 · 约 65 秒</h3>
@@ -370,7 +428,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         </div>
         <footer class="slide-footer">
           <span>功率口径：<a href="https://doi.org/10.1073/pnas.2008173118" target="_blank" rel="noopener noreferrer">Levy &amp; Calvert, PNAS (2021)</a> · 突触可塑性：<a href="https://doi.org/10.1038/nature13294" target="_blank" rel="noopener noreferrer">Nabavi et al., Nature (2014)</a></span>
-          <span class="page-no">03 / 14</span>
+          <span class="page-no">03 / 22</span>
         </footer>
         <aside class="notes">
           <h3>第 3 页 · 约 70 秒</h3>
@@ -420,7 +478,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <div class="takeaway"><span class="takeaway-rule"></span><p>把<span class="accent-teal">“记住”与“响应”</span>放在同一器件中</p></div>
         <footer class="slide-footer">
           <span>功能类比示意 · <a href="https://doi.org/10.1038/nature13294" target="_blank" rel="noopener noreferrer">Nabavi et al., Nature (2014)</a> · <a href="https://doi.org/10.1038/nature14441" target="_blank" rel="noopener noreferrer">Prezioso et al., Nature (2015)</a></span>
-          <span class="page-no">04 / 14</span>
+          <span class="page-no">04 / 22</span>
         </footer>
         <aside class="notes">
           <h3>第 4 页 · 约 65 秒</h3>
@@ -480,13 +538,13 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         </div>
         <footer class="slide-footer">
           <span>功能示意 · 概念参考：<a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., Nano-Micro Lett. 16, 121 (2024)</a></span>
-          <span class="page-no">05 / 14</span>
+          <span class="page-no">05 / 22</span>
         </footer>
         <aside class="notes">
           <h3>第 5 页 · 约 60 秒</h3>
           <p>把许多器件连接起来，就引出了存内计算：让保存的信息直接参与某些运算。这里，每个器件用电导保存一个权重。</p>
           <p><b>第一次前进：输入。</b>输入由电压表示，器件产生的电流与输入和电导有关。</p>
-          <p><b>第二次前进：输出。</b>多路电流汇合，得到与输入和所存权重有关的结果。具体怎样完成加权求和，后面再展开。</p>
+          <p><b>第二次前进：输出。</b>多路电流汇合，得到与输入和所存权重有关的结果。这里先抓住权重直接参与运算的直觉，后面重点看支撑这类运算的器件需要具备什么性能。</p>
           <p><b>第三次前进：减少往返。</b>关键是权重留在阵列中，直接参与运算，减少一部分反复搬运。输入、读出和控制仍需要外围电路。</p>
           <p>类脑计算提供组织方式的启发，存内计算把部分运算放到存储的位置。接下来看看，这种设计为什么有望降低能耗。</p>
           <p class="note-source"><b>讨论补充（不必逐句讲）：</b>加权求和依赖电导在读取期间近似固定、读出响应近似线性等条件。图中颜色仅区分电导状态，横向输出箭头表示信息流程；实际阵列电流沿相应列线汇合。存内计算也可用于一般矩阵运算，并非所有存内计算都在模拟大脑，最终收益取决于任务与系统实现。</p>
@@ -538,7 +596,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>一个电阻究竟怎样<span class="accent-teal">记住过去的刺激</span>？</p></div>
         <footer class="slide-footer">
           <span>节能机制与系统评估 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a> · <a href="https://doi.org/10.1038/s41586-023-06337-5" target="_blank" rel="noopener noreferrer">Ambrogio et al., Nature (2023)</a></span>
-          <span class="page-no">06 / 14</span>
+          <span class="page-no">06 / 22</span>
         </footer>
         <aside class="notes">
           <h3>第 6 页 · 约 65 秒</h3>
@@ -590,7 +648,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </g>
         </svg>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>记住的是<span class="accent-teal">可读出的内部状态</span></p></div>
-        <footer class="slide-footer"><span>原创概念图 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a> · 不对应实验数据</span><span class="page-no">07 / 14</span></footer>
+        <footer class="slide-footer"><span>原创概念图 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a> · 不对应实验数据</span><span class="page-no">07 / 22</span></footer>
         <aside class="notes">
           <h3>第 7 页 · 约 75 秒</h3>
           <p>上一部分以“电阻怎样记住过去”结束。这里先给一个可以测量的答案：过去的刺激改变了器件内部的状态，而这个状态会影响之后通过它的电流。</p>
@@ -647,7 +705,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>读取要<span class="accent-teal">分得清</span>，也要尽量<span class="accent-teal">不扰动状态</span></p></div>
-        <footer class="slide-footer"><span>双极性阻变概念示意 · 极性与幅度非通用规则 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a></span><span class="page-no">08 / 14</span></footer>
+        <footer class="slide-footer"><span>双极性阻变概念示意 · 极性与幅度非通用规则 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a></span><span class="page-no">08 / 22</span></footer>
         <aside class="notes">
           <h3>第 8 页 · 约 90 秒</h3>
           <p>记忆器件需要区分两类操作：改变状态，以及辨认状态。上面是施加的电压，下面是电导；实心点表示读取时获得的结果，虚线只是内部状态变化的概念轨迹。</p>
@@ -708,7 +766,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>回线显示<span class="accent-teal">路径依赖</span>；保持多久，需要另测</p></div>
-        <footer class="slide-footer"><span>双极性阻变示例 · 原创概念图 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a></span><span class="page-no">09 / 14</span></footer>
+        <footer class="slide-footer"><span>双极性阻变示例 · 原创概念图 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a></span><span class="page-no">09 / 22</span></footer>
         <aside class="notes">
           <h3>第 9 页 · 约 95 秒</h3>
           <p>后面研究中经常出现电流–电压曲线。横轴是施加的电压，纵轴是测得的有符号电流。我们从原点出发，先扫正电压，返回零，再扫负电压并返回零。这里画的是一种简化双极性阻变示例，方便读图。</p>
@@ -789,7 +847,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           <text x="720" y="439" text-anchor="middle" class="svg-small">共同扫描：0 → 正电压 → 0 → 负电压 → 0　｜　高 / 低表示相对阻态</text>
         </svg>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>看回线，也要看<span class="accent-teal">扫描方向</span>；解释差异，需要走进器件内部</p></div>
-        <footer class="slide-footer"><span>据 <a href="https://doi.org/10.1002/aelm.202201252" target="_blank" rel="noopener noreferrer">Zhou et al., Adv. Electron. Mater. 9, 2201252 (2023)</a>，Fig. 1a / Table 1 重绘 · 概念示意，非实测数据</span><span class="page-no">10 / 14</span></footer>
+        <footer class="slide-footer"><span>据 <a href="https://doi.org/10.1002/aelm.202201252" target="_blank" rel="noopener noreferrer">Zhou et al., Adv. Electron. Mater. 9, 2201252 (2023)</a>，Fig. 1a / Table 1 重绘 · 概念示意，非实测数据</span><span class="page-no">10 / 22</span></footer>
         <aside class="notes">
           <h3>第 10 页 · 约 75 秒</h3>
           <p>上一页我们学会沿箭头读一条回线。这里再看响应的多样性。在我们 2023 年的工作中，我们整理了文献中二维半导体器件的四类代表性响应，并建立模型解释它们。四幅图采用相同的扫描顺序和示意坐标。</p>
@@ -874,7 +932,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </div>
         </div>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p><span class="accent-teal">内部状态改变</span>，把刺激历史留在器件中</p></div>
-        <footer class="slide-footer"><span>据综述 Fig. 2 归纳 · 原创概念图，非实测结构或能带 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a></span><span class="page-no">11 / 14</span></footer>
+        <footer class="slide-footer"><span>据综述 Fig. 2 归纳 · 原创概念图，非实测结构或能带 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a></span><span class="page-no">11 / 22</span></footer>
         <aside class="notes">
           <h3>第 11 页 · 约 90 秒</h3>
           <p>前面看的是电流怎样随扫描历史变化，现在再问一步：器件内部究竟什么发生了变化？我们在 2024 年的 NML 综述中，按这五条代表性路径梳理了已有二维器件研究。这是对文献的归纳，不是说所有例子都是我们做出的实验。大家先看每条路径改变了什么。</p>
@@ -935,7 +993,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </g>
         </svg>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>实现人工突触，需要<span class="accent-teal">可控、可重复的权重更新</span></p></div>
-        <footer class="slide-footer"><span>原创概念示意 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., Nano-Micro Lett. (2024)</a> · <a href="https://doi.org/10.1038/nature14441" target="_blank" rel="noopener noreferrer">Prezioso et al., Nature (2015)</a></span><span class="page-no">12 / 14</span></footer>
+        <footer class="slide-footer"><span>原创概念示意 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., Nano-Micro Lett. (2024)</a> · <a href="https://doi.org/10.1038/nature14441" target="_blank" rel="noopener noreferrer">Prezioso et al., Nature (2015)</a></span><span class="page-no">12 / 22</span></footer>
         <aside class="notes">
           <h3>第 12 页 · 约 75 秒</h3>
           <p>前面用“连接强弱”解释了权重。现在回到器件：电导描述导电能力，我们可以选择一种映射，把不同电导状态当作不同的连接权重。这里先讨论非负权重的直觉。</p>
@@ -943,7 +1001,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           <p><b>第二次前进：读取。</b>在相同、足够小的读取电压下，比较三个已经写好的状态：电导越大，读取电流越大。因此，存下来的状态会影响输入信号传过去的强度。比较时还需要保持其他读取条件一致，并尽量避免读取改变状态。</p>
           <p><b>第三次前进：可用性。</b>要让这种器件成为有用的人工突触，关键是能否把权重写到需要的范围，并在多次操作中可靠地重现。它对应的是连接强弱这一功能，不代表单个器件完整复制了生物突触。</p>
           <p>写入以后还要问：这个权重能保持多久？下一页把状态保持与状态逐渐恢复分开来看。</p>
-          <p class="note-source">概念参考：<a href="https://doi.org/10.1007/s40820-024-01335-2">Zhou et al., Nano-Micro Letters 16, 121 (2024)</a>；可调忆阻网络实验：<a href="https://doi.org/10.1038/nature14441">Prezioso et al., Nature 521, 61–64 (2015)</a>。图中的曲线、脉冲和相对电流均为原创示意，没有复制或拟合实验数据。单个被动电导通常非负，表示负权重需要额外编码；编程脉冲需由学习规则或控制方法确定，本身不等于学习算法。线性读取近似及有符号权重的电路实现留到后续计算部分。</p>
+          <p class="note-source">概念参考：<a href="https://doi.org/10.1007/s40820-024-01335-2">Zhou et al., Nano-Micro Letters 16, 121 (2024)</a>；可调忆阻网络实验：<a href="https://doi.org/10.1038/nature14441">Prezioso et al., Nature 521, 61–64 (2015)</a>。图中的曲线、脉冲和相对电流均为原创示意，没有复制或拟合实验数据。单个被动电导通常非负，表示负权重需要额外编码；编程脉冲需由学习规则或控制方法确定，本身不等于学习算法。第三部分重点讨论这些状态能否可靠实现；线性读出与有符号权重电路可作为交流中的补充话题。</p>
         </aside>
       </section>
 
@@ -993,7 +1051,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </g>
         </svg>
         <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>状态保持用于存储，<span class="accent-rust">状态弛豫也可参与时间信息处理</span></p></div>
-        <footer class="slide-footer"><span>概念曲线 · 非易失不等于永久保持 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a> · <a href="https://doi.org/10.1038/s41467-017-02337-y" target="_blank" rel="noopener noreferrer">Du et al., Nat. Commun. (2017)</a></span><span class="page-no">13 / 14</span></footer>
+        <footer class="slide-footer"><span>概念曲线 · 非易失不等于永久保持 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024)</a> · <a href="https://doi.org/10.1038/s41467-017-02337-y" target="_blank" rel="noopener noreferrer">Du et al., Nat. Commun. (2017)</a></span><span class="page-no">13 / 22</span></footer>
         <aside class="notes">
           <h3>第 13 页 · 约 75 秒</h3>
           <p>上一页讨论如何把状态写进去。现在把写入刺激撤掉，看看后面会发生什么。两张图都以电导为纵轴、时间为横轴；t₀ 表示撤去刺激的时刻。虚线是刺激前的基线，浅色区域是正在观察的时间范围。</p>
@@ -1051,16 +1109,340 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           </g>
           <text x="720" y="431" text-anchor="middle" class="svg-small">记忆的判据仍是历史依赖；普通晶体管的即时栅控本身不等于记忆。</text>
         </svg>
-        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>单个器件存下一个状态，<span class="accent-teal">许多器件怎样协同计算？</span></p></div>
-        <footer class="slide-footer"><span>平面结构示意，厚度未按比例 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., Nano-Micro Lett. (2024)</a> · <a href="https://doi.org/10.1038/nature25747" target="_blank" rel="noopener noreferrer">Sangwan et al., Nature (2018)</a></span><span class="page-no">14 / 14</span></footer>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>有了记忆功能，<span class="accent-teal">怎样才算一个好器件？</span></p></div>
+        <footer class="slide-footer"><span>平面结构示意，厚度未按比例 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., Nano-Micro Lett. (2024)</a> · <a href="https://doi.org/10.1038/nature25747" target="_blank" rel="noopener noreferrer">Sangwan et al., Nature (2018)</a></span><span class="page-no">14 / 22</span></footer>
         <aside class="notes">
           <h3>第 14 页 · 约 80 秒</h3>
           <p>二维材料是一个可以探索这些问题的材料平台。“二维”指单层可以薄到原子尺度，同时在平面方向延伸；器件也可能使用多层薄片。薄层和可以组合的界面，让沟道、接触与栅极之间的相互作用成为可设计的因素。材料薄本身并不自动产生记忆。</p>
           <p><b>第一次前进：两端结构。</b>左图选一种平面两端器件作为例子。源极和漏极接触二维沟道，端间电压可用于写入或读取。历史依赖的状态可以位于沟道、接触或相关界面；内部状态的变化使端间导电能力发生变化。还有上下电极夹住薄层的垂直结构，这里暂不展开。</p>
           <p><b>第二次前进：第三个端口。</b>右图加入栅极，它隔着绝缘层，主要通过电场提供额外控制，而不是让电流直接穿过绝缘层。把阻变记忆与这种栅控能力结合起来的器件，称为忆阻晶体管，英文是 memtransistor。栅极可以调节导电行为或开关条件，具体作用取决于结构与机制。</p>
           <p>要区分两个概念：普通晶体管在改变栅压时电流改变，是即时的控制；我们讨论的记忆还要求在相同读取条件下，不同刺激历史对应可区分的状态。并非增加一个栅极，就自动获得这种记忆。</p>
-          <p><b>第三次前进：进入计算。</b>到这里，我们知道了忆阻器如何写入、读取和保持状态，也看到了不同的材料与器件结构。下一步是把视野从一个器件扩展到许多器件：单个器件存下一个状态，许多器件怎样协同计算？</p>
+          <p><b>第三次前进：进入器件评价。</b>到这里，我们知道了忆阻器如何写入、读取和保持状态，也看到了不同的材料与器件结构。但是有记忆效应，还不等于适合某个应用。第三部分先问：怎样才算一个好器件？我们从任务和指标出发，再比较实现路径与材料选择。</p>
           <p class="note-source">材料与结构背景：<a href="https://doi.org/10.1007/s40820-024-01335-2">Zhou et al., Nano-Micro Letters 16, 121 (2024)</a>。忆阻晶体管实验来源：<a href="https://doi.org/10.1038/nature25747">Sangwan et al., “Multi-terminal memtransistors from polycrystalline monolayer molybdenum disulfide”, Nature 554, 500–504 (2018)</a>。该工作中源漏偏压驱动缺陷迁移，栅极调节导电与开关行为，不是只由栅极写入。三端是这里选用的代表结构，忆阻晶体管也可以有更多端口。本页为原创结构示意，不是论文显微图的重现，不对特定结构的性能作承诺。</p>
+        </aside>
+      </section>
+
+            <section class="slide metrics-intro-slide" id="good-device" aria-labelledby="good-device-title">
+        <header class="slide-header">
+          <p class="section-label">第三部分 · 器件指标、实现路径与材料选择</p>
+          <h2 id="good-device-title">怎样定义一个<span class="accent-teal">好器件</span></h2>
+          <p class="slide-lead">从任务出发，指标才有明确的优先级。</p>
+        </header>
+        <div class="p3-task-grid">
+          <div class="p3-task fragment" data-fragment-index="0">
+            <h3>保存信息</h3>
+            <svg viewBox="0 0 430 225" role="img" aria-label="写入后保持可分辨的电导，用于保存信息或固定推理权重">
+              <path d="M35 33V181H400" class="axis"/>
+              <path d="M47 159H391" stroke="#a5b5bd" stroke-width="2" stroke-dasharray="5 7"/>
+              <path d="M49 156H111V65H389" fill="none" stroke="#167e68" stroke-width="4"/>
+              <g fill="#167e68"><circle cx="174" cy="65" r="6"/><circle cx="259" cy="65" r="6"/><circle cx="344" cy="65" r="6"/></g>
+              <text x="237" y="112" text-anchor="middle" class="svg-small">多次读取，状态仍可分辨</text>
+              <text x="389" y="214" text-anchor="end" class="svg-small">时间 →</text>
+            </svg>
+            <p>状态稳定、读出可靠<br>例如：存储与固定权重推理</p>
+          </div>
+          <div class="p3-task fragment" data-fragment-index="1">
+            <h3>更新权重</h3>
+            <svg viewBox="0 0 430 225" role="img" aria-label="电导多次增加和减小，要求反复写入时更新可重复">
+              <path d="M35 33V181H400" class="axis"/>
+              <path d="M49 153H99V116H151V78H203V46H249V83H297V118H346V147H390" fill="none" stroke="#167e68" stroke-width="4"/>
+              <path d="M80 43H167m-10-7 10 7-10 7M284 161H371m-10-7 10 7-10 7" fill="none" stroke="#a07b60" stroke-width="2"/>
+              <text x="389" y="214" text-anchor="end" class="svg-small">写入次数 →</text>
+            </svg>
+            <p>反复写入、更新可重复<br>同时控制写入能耗与延迟</p>
+          </div>
+          <div class="p3-task fragment" data-fragment-index="2">
+            <h3>处理时序</h3>
+            <svg viewBox="0 0 430 225" role="img" aria-label="近期刺激累积改变状态，状态逐渐恢复，用于动态时间信息处理">
+              <path d="M35 33V181H400" class="axis"/>
+              <path d="M48 158H89V98Q120 133 149 139V63Q182 105 211 122V42Q268 139 391 157" fill="none" stroke="#b45d3c" stroke-width="4"/>
+              <path d="M89 180v-12M149 180v-12M211 180v-12" stroke="#b45d3c" stroke-width="3"/>
+              <text x="389" y="214" text-anchor="end" class="svg-small">时间 →</text>
+            </svg>
+            <p>合适的恢复时间<br>动态响应与输入节奏匹配</p>
+          </div>
+        </div>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>好器件，要在<span class="accent-teal">目标任务与工作条件</span>下达到要求</p></div>
+        <footer class="slide-footer"><span>概念示意，无实验数值 · 任务与性能：<a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024), §3</a></span><span class="page-no">15 / 22</span></footer>
+        <aside class="notes">
+          <h3>第 15 页 · 约 65 秒</h3>
+          <p>前面介绍了很多可以产生记忆的机制。但是出现记忆效应之后，还要问：这个器件是否适合我们要完成的任务？我们的 NML 综述把器件性能放在不同用途下讨论。</p>
+          <p><b>第一次前进：保存信息。</b>如果要存储信息，或者在推理时反复使用已经写好的权重，希望状态在目标时间内保持，并且每次都读得清楚。</p>
+          <p><b>第二次前进：更新权重。</b>如果器件参与频繁的权重更新，就会反复写入，耐久性、更新重复性和写入代价会更加重要。图中台阶只是示意，不表示所有器件都能对称、线性地调节。</p>
+          <p><b>第三次前进：处理时间信号。</b>如果利用动态器件处理近期历史，状态恢复的时间尺度就要与输入节奏匹配。保持得越久并不总是越合适。随机性也可以服务于某些概率任务，但需要可控制、可表征的统计特性。</p>
+          <p>所以我们先明确任务，再决定指标的优先级。下一页把这些要求变成可以测量和报告的指标。</p>
+          <p class="note-source">来源：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，§3.1 人工突触性能、§3.2 动态器件/人工神经元及 §3.1.4 随机性相关讨论。图为原创概念图，纵向高低代表电导状态而非定量指标。延迟与完整写入流程属于任务评价的工程补充。</p>
+        </aside>
+      </section>
+
+      <section class="slide metric-list-slide" id="device-metrics" aria-labelledby="metric-list-title">
+        <header class="slide-header">
+          <p class="section-label">第三部分 · 器件指标、实现路径与材料选择</p>
+          <h2 id="metric-list-title">一份器件<span class="accent-teal">指标清单</span></h2>
+          <p class="slide-lead">写得动、留得住、分得清，还要能够重复实现。</p>
+        </header>
+        <table class="p3-metric-table" aria-label="器件评价的五个方面、指标及对应问题">
+          <colgroup><col style="width:18%"><col style="width:35%"><col style="width:47%"></colgroup>
+          <thead><tr><th>评价方面</th><th>要报告的指标</th><th>它回答什么问题</th></tr></thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="0"><th scope="row">操作代价</th><td>写入能量、编程电压、操作时间</td><td>完成一次有效写入，需要多少能量与时间？</td></tr>
+            <tr class="fragment" data-fragment-index="0"><th scope="row">存储可靠性</th><td>保持时间、耐久次数</td><td>等待后能否读出？反复操作后能否工作？</td></tr>
+            <tr class="fragment" data-fragment-index="1"><th scope="row">状态分辨</th><td>开关比、可分辨的电导等级</td><td>在相同读取条件下，不同状态能否分开？</td></tr>
+            <tr class="fragment" data-fragment-index="1"><th scope="row">可重复性</th><td>器件间差异、循环间差异、良率</td><td>换一个器件、再写一次，结果有多大变化？</td></tr>
+            <tr class="fragment" data-fragment-index="2"><th scope="row">面积与集成</th><td>单元面积、选择与读写外围</td><td>能放多少单元？连接起来还能可靠运行吗？</td></tr>
+          </tbody>
+        </table>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>比较指标，也要比较<span class="accent-teal">测试条件与统计样本</span></p></div>
+        <footer class="slide-footer"><span>指标依据：<a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024), §3–4 / Fig. 3 / Table 1</a> · 操作时间与有效多级为任务评估补充</span><span class="page-no">16 / 22</span></footer>
+        <aside class="notes">
+          <h3>第 16 页 · 约 90 秒</h3>
+          <p>这些指标可以按五个问题来记。</p>
+          <p><b>第一次前进：代价与可靠性。</b>写入能量是一次有效状态改变过程中电压、电流和时间的共同结果；低电压不能单独代表低能量。保持时间回答等多久还能分辨状态，耐久次数回答反复操作多少次仍满足判据。这两个量不能互相替代。</p>
+          <p><b>第二次前进：分辨与重复。</b>开关比说明不同状态的读出差异，但多个电导等级能否真正使用，还取决于噪声、漂移和分布重叠。同一器件多次写入会变化，不同器件之间也会变化。良率需要先说明什么算工作正常，再报告满足判据的比例。</p>
+          <p><b>第三次前进：集成。</b>除了单元有多小，还要考虑选择器、栅极布线、输入读出和控制电路。单器件指标需要在阵列和系统中继续检验。</p>
+          <p>因此比较论文数字时，不能只看一个最大值或最小值。测试方法、工作条件和样本数，也属于结果本身。</p>
+          <p class="note-source">来源：<a href="https://doi.org/10.1007/s40820-024-01335-2">Zhou et al., NML 16, 121 (2024)</a>，§3.1.1 编程能量、§3.1.2 电压/面积、§3.1.3 耐久/保持、§3.1.4 D2D/C2C、Table 1 与 §4 集成。Fig. 3 是综述所纳入的文献数据，不是截至今天的性能排行榜；本页不把其 IRDS 2022 对照作为所有用途的统一合格线。操作时间和有效多级分辨作为工程补充，不声称它们都是 Fig. 3 的独立定量比较项。</p>
+          <p class="note-source"><b>讨论补充：</b>写入能量需给操作类型与测量范围，推理还需考虑读取能量；脉冲宽度不等于包含验证、转换和控制的完整延迟。保持应给温度、读出条件和失效判据，实测时长与长期外推应分开。耐久应注明脉冲或直流扫描及循环定义。一致性需给参数、器件数、循环数，不能把 SET 电压的离散自动等同于电导离散。系统能耗还包括外围、漏电和数据搬运。</p>
+        </aside>
+      </section>
+
+      <section class="slide consistency-slide" id="device-consistency" aria-labelledby="consistency-title">
+        <header class="slide-header">
+          <p class="section-label">第三部分 · 器件指标、实现路径与材料选择</p>
+          <h2 id="consistency-title">让所需状态<span class="accent-teal">可重复实现</span></h2>
+          <p class="slide-lead">同一目标，需要跨操作循环、跨器件、跨时间检验。</p>
+        </header>
+        <div class="p3-consistency-grid">
+          <div class="p3-consistency fragment" data-fragment-index="0">
+            <h3>同一器件，多次写入</h3>
+            <svg viewBox="0 0 430 260" role="img" aria-label="同一器件多次编程到相同目标，电导结果围绕目标有波动，示意循环间差异">
+              <rect x="51" y="104" width="344" height="63" fill="#e6f0e9"/>
+              <path d="M51 43V208H402" class="axis"/><path d="M51 135H395" stroke="#8aa89a" stroke-width="2" stroke-dasharray="5 6"/>
+              <text x="52" y="30" class="svg-small">读出电导</text>
+              <g fill="#167e68"><circle cx="88" cy="124" r="7"/><circle cx="146" cy="141" r="7"/><circle cx="204" cy="112" r="7"/><circle cx="262" cy="153" r="7"/><circle cx="320" cy="129" r="7"/><circle cx="378" cy="143" r="7"/></g>
+              <text x="395" y="247" text-anchor="end" class="svg-small">循环次数 →</text>
+            </svg>
+            <p>循环间差异<br><span class="p3-muted">同样操作，结果是否可重复？</span></p>
+          </div>
+          <div class="p3-consistency fragment" data-fragment-index="1">
+            <h3>多个器件，同样目标</h3>
+            <svg viewBox="0 0 430 260" role="img" aria-label="多个器件编程到同一目标时，结果分布不同，示意器件间差异">
+              <rect x="51" y="104" width="344" height="63" fill="#e6f0e9"/>
+              <path d="M51 43V208H402" class="axis"/><path d="M51 135H395" stroke="#8aa89a" stroke-width="2" stroke-dasharray="5 6"/>
+              <text x="52" y="30" class="svg-small">读出电导</text>
+              <g stroke="#748d9d" stroke-width="2"><path d="M94 115V152M165 105V130M236 131V165M307 83V111M378 139V173"/></g>
+              <g fill="#167e68"><circle cx="94" cy="134" r="7"/><circle cx="165" cy="117" r="7"/><circle cx="236" cy="148" r="7"/><circle cx="307" cy="97" r="7"/><circle cx="378" cy="156" r="7"/></g>
+              <text x="94" y="234" text-anchor="middle" class="svg-small">A</text><text x="165" y="234" text-anchor="middle" class="svg-small">B</text><text x="236" y="234" text-anchor="middle" class="svg-small">C</text><text x="307" y="234" text-anchor="middle" class="svg-small">D</text><text x="378" y="234" text-anchor="middle" class="svg-small">E</text>
+            </svg>
+            <p>器件间差异<br><span class="p3-muted">一批器件是否满足同一判据？</span></p>
+          </div>
+          <div class="p3-consistency fragment" data-fragment-index="2">
+            <h3>写入之后，等待再读</h3>
+            <svg viewBox="0 0 430 260" role="img" aria-label="多个已写入的电导状态随时间漂移，观察它们是否仍可分辨，示意保持质量">
+              <path d="M51 43V208H402" class="axis"/>
+              <text x="52" y="30" class="svg-small">读出电导</text>
+              <path d="M64 63C176 69 278 78 395 90M64 115C176 118 278 125 395 133M64 168C176 166 278 163 395 162" fill="none" stroke="#167e68" stroke-width="3.5"/>
+              <path d="M352 44V192" stroke="#a07b60" stroke-width="2" stroke-dasharray="5 6"/>
+              <text x="395" y="247" text-anchor="end" class="svg-small">等待时间 →</text>
+            </svg>
+            <p>保持质量<br><span class="p3-muted">漂移之后，不同状态还分得开吗？</span></p>
+          </div>
+        </div>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>不同实现路径，怎样满足这些<span class="accent-teal">可用性要求</span>？</p></div>
+        <footer class="slide-footer"><span>原创示意，非统计测量 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024), §3.1.3–3.1.4</a></span><span class="page-no">17 / 22</span></footer>
+        <aside class="notes">
+          <h3>第 17 页 · 约 75 秒</h3>
+          <p>这里用电导作为示意，把一致性和保持讲得更具体。每一张图都要结合目标状态以及允许的偏差来看。</p>
+          <p><b>第一次前进：跨循环。</b>同一个器件反复写入同样的目标，读出的电导可能有变化。浅色区域只是示意性的可接受范围，并不是某个标准给出的阈值。电导等级靠得越近，就越需要知道这些分布能否分开。</p>
+          <p><b>第二次前进：跨器件。</b>现在换成一批器件。即使操作相同，它们的平均响应和分布范围也可能不同。图中线段仅表示概念范围，不是标准差或置信区间。实际要报告测量参数、样本数、编程条件及判据。</p>
+          <p><b>第三次前进：跨时间。</b>写好后还要等待，再看各状态是否仍然可区分。这里关注保存信息的用途；对动态处理则要考察恢复时间及其重复性。</p>
+          <p>这解释了为什么一个器件漂亮的回线，还不足以说明一批器件可以可靠使用。下一步我们比较实现路径：不同物理机制提供什么能力，又让哪些指标更难控制？</p>
+          <p class="note-source">来源：<a href="https://doi.org/10.1007/s40820-024-01335-2">Zhou et al., NML 16, 121 (2024)</a>，§3.1.3 保持、§3.1.4 器件间与循环间差异，及 §4 阵列集成。本页用电导作原创教学示意；Table 1 的器件间差异项目具体涉及 SET 电压，不能当作本页电导分布的数据来源。图中没有数据点数、误差区间或性能数值的实验含义。允许离散的程度由任务、编码与校准方式共同决定。</p>
+        </aside>
+      </section>
+
+      <section class="slide p3-routes-slide" id="conducting-paths" aria-labelledby="conducting-paths-title">
+        <header class="slide-header">
+          <p class="section-label">第三部分 · 从性能指标到材料选择</p>
+          <h2 id="conducting-paths-title">实现路径：<span class="accent-teal">导电通道与接触界面</span></h2>
+          <p class="slide-lead">先看电阻在哪里改变，再判断它能否满足所需指标。</p>
+        </header>
+        <div class="p3-route-table p3-route-table-two" role="table" aria-label="导电细丝与接触界面路线的比较">
+          <div class="p3-route-row p3-route-heading" role="row">
+            <div role="columnheader">代表路线与材料</div><div role="columnheader">状态怎样改变</div><div role="columnheader">提供的机会</div><div role="columnheader">需要解决的问题</div>
+          </div>
+          <div class="p3-route-row fragment" data-fragment-index="0" role="row">
+            <div role="cell"><h3>导电细丝</h3><p>HfOₓ / TaOₓ；Ag / Cu<br>二维例：h-BN、MoS₂</p></div>
+            <div role="cell"><p>局域导电通道<br><strong>形成 ↔ 断开</strong></p></div>
+            <div role="cell"><p>结构紧凑<br>可获得较大开关比</p></div>
+            <div role="cell"><p>路径可能有随机性<br>多级更新需要控制</p></div>
+          </div>
+          <div class="p3-route-row fragment" data-fragment-index="1" role="row">
+            <div role="cell"><h3>接触 / 界面调控</h3><p>二维例：<br>MoS₂、ReS₂</p></div>
+            <div role="cell"><p>缺陷分布改变<br><strong>载流子注入</strong></p></div>
+            <div role="cell"><p>电导可逐渐调节<br>可引入栅极控制</p></div>
+            <div role="cell"><p>对接触与缺陷敏感<br>需提高响应一致性</p></div>
+          </div>
+        </div>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>从“能切换”走向<span class="accent-teal">“能按需要、重复地切换”</span></p></div>
+        <footer class="slide-footer"><span>代表性路线 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">NML (2024), §§1–3</a> · <a href="https://doi.org/10.1038/ncomms1737" target="_blank" rel="noopener noreferrer">金属细丝 (2012)</a> · <a href="https://doi.org/10.1038/s41467-021-27575-z" target="_blank" rel="noopener noreferrer">HfO₂ 缺陷成像 (2021)</a></span><span class="page-no">18 / 22</span></footer>
+        <aside class="notes">
+          <h3>第 18 页 · 约 70 秒</h3>
+          <p>前面已经知道怎样评价器件。现在把这些指标带回物理实现：我们可以让材料内部出现或消失一条导电通道，也可以改变电流进入材料时遇到的接触界面。</p>
+          <p><b>第一次前进：导电细丝。</b>在氧化物器件中，缺陷重排可以形成导电通路；活性金属电极中的银或铜也可以参与金属细丝的形成。HfOₓ 和 TaOₓ 是常见氧化物平台，Ag / Cu 在这里表示可能参与迁移的活性金属，不是说它们与每一种氧化物都必须组合。二维绝缘体 h-BN 和半导体 MoS₂ 也能作为阻变层。它们有紧凑结构和较大开关比的机会，但细丝的位置、尺寸和断裂过程会影响循环差异与器件差异；若希望逐级更新电导，就需要进一步控制这些过程。</p>
+          <p><b>第二次前进：接触或界面。</b>以综述中的 MoS₂ 和 ReS₂ 为例，缺陷迁移改变接触附近的状态，从而改变载流子注入。某些实现能够渐变调节电导，并增加栅极这一控制旋钮；代价是必须弄清接触、缺陷与加工差异怎样影响结果。这里比较的是代表性行为：细丝器件也能实现模拟电导，界面器件也可能出现突变。</p>
+          <p><b>第三次前进：联系指标。</b>问题不只是能不能切换，而是能否按任务要求稳定、重复地切换。接下来再看另外几种储存内部状态的方法。</p>
+          <p class="note-source">常见材料背景、二维实例与接触调控机制：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，§1、§§2.1–2.2、§3.1.4。补充原始研究：Ag / SiO₂ / Pt 细丝动力学，Yang et al. (2012), <a href="https://doi.org/10.1038/ncomms1737">DOI</a>；HfO₂ 中缺陷运动的直接成像 (2021), <a href="https://doi.org/10.1038/s41467-021-27575-z">DOI</a>。该页为基于机制的定性比较，不是同条件性能排名。NML 综述指出，MoS₂ 接触处硫空位对势垒的影响随电极金属变化；不能把“增加空位”理解为在所有器件中都降低势垒。缺陷与金属细丝过程也可能耦合。</p>
+        </aside>
+      </section>
+
+      <section class="slide p3-routes-slide" id="phase-polarization-light" aria-labelledby="phase-polarization-light-title">
+        <header class="slide-header">
+          <p class="section-label">第三部分 · 从性能指标到材料选择</p>
+          <h2 id="phase-polarization-light-title">实现路径：<span class="accent-teal">相态、极化与光</span></h2>
+          <p class="slide-lead">不同状态变量，带来不同控制方式与应用机会。</p>
+        </header>
+        <div class="p3-route-table p3-route-table-three" role="table" aria-label="相变、铁电极化和光响应路线的比较">
+          <div class="p3-route-row p3-route-heading" role="row">
+            <div role="columnheader">代表路线与材料</div><div role="columnheader">状态怎样改变</div><div role="columnheader">提供的机会</div><div role="columnheader">需要解决的问题</div>
+          </div>
+          <div class="p3-route-row fragment" data-fragment-index="0" role="row">
+            <div role="cell"><h3>相变</h3><p>GST；Li⁺ 插层 MoS₂</p></div>
+            <div role="cell"><p>改变材料相态<br>获得不同电导</p></div>
+            <div role="cell"><p>可构建多级状态</p></div>
+            <div role="cell"><p>需控制相分布<br>与状态稳定性</p></div>
+          </div>
+          <div class="p3-route-row fragment" data-fragment-index="1" role="row">
+            <div role="cell"><h3>铁电极化</h3><p>HZO；α-In₂Se₃</p></div>
+            <div role="cell"><p>极化方向与畴比例<br>影响通道或势垒</p></div>
+            <div role="cell"><p>用电场调节状态<br>可结合多端控制</p></div>
+            <div role="cell"><p>需检验保持、疲劳<br>与畴翻转差异</p></div>
+          </div>
+          <div class="p3-route-row fragment" data-fragment-index="2" role="row">
+            <div role="cell"><h3>光响应</h3><p>WS₂、WSe₂、SnS</p></div>
+            <div role="cell"><p>光激发与缺陷 / 陷阱<br>共同影响电导</p></div>
+            <div role="cell"><p>连接感知与记忆</p></div>
+            <div role="cell"><p>响应、复位与环境<br>依赖具体实现</p></div>
+          </div>
+        </div>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p><span class="accent-teal">光是输入方式</span>，可与缺陷、界面等机制共同作用</p></div>
+        <footer class="slide-footer"><span>代表性路线 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">NML (2024), §§2.3–2.5</a> · <a href="https://doi.org/10.1038/s41467-019-10980-w" target="_blank" rel="noopener noreferrer">GST (2019)</a> · <a href="https://doi.org/10.1038/s43246-023-00342-x" target="_blank" rel="noopener noreferrer">HZO (2023)</a></span><span class="page-no">19 / 22</span></footer>
+        <aside class="notes">
+          <h3>第 19 页 · 约 75 秒</h3>
+          <p><b>第一次前进：相变。</b>材料可以通过改变相态而改变电导。传统 GST 相变存储通常利用非晶与晶态之间的差异；NML 中的二维例子则是锂离子插层 MoS₂，使其在半导体性 2H 相与金属性 1T 相之间转变。它们都借助相态影响电导，具体原子过程与写入条件不同。多级电导需要控制相分布，稳定性也必须针对具体实现检验。</p>
+          <p><b>第二次前进：极化。</b>铁电材料可以用电场改变极化方向或畴的比例，从而影响电流。常见平台包括铪锆氧化物 HZO，二维例子是 α-In₂Se₃。对于器件，需要验证保持、重复翻转以及不同区域或不同器件之间的差异。NML 讨论的 α-In₂Se₃ 储备池计算还利用极化状态的逐渐衰退，所以铁电器件并不自动意味着永久保持。</p>
+          <p><b>第三次前进：光响应。</b>WS₂、WSe₂ 和 SnS 提供了把感知与记忆联系起来的机会。这里要区分输入和机制：光是一种刺激方式，真正记录历史的状态仍可能涉及缺陷、陷阱或界面变化。例如 NML 中的 WS₂ 示例涉及紫外光和含氧环境对缺陷的不同作用，而 SnS 可结合光、电刺激。不能把每种光响应都理解成相同的可逆过程。</p>
+          <p>这几类路径之间可以耦合，也不能简单地按材料名称一一对应。下一页把二维材料放回具体结构和状态变量中看。</p>
+          <p class="note-source">二维材料与机制：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，§§2.3–2.5；Li⁺ 插层 MoS₂ 原始研究：Zhu et al., <i>Nature Materials</i> 18, 141–148 (2019), <a href="https://doi.org/10.1038/s41563-018-0248-5">DOI</a>。传统平台补充：GST 结构弛豫与电阻漂移，Konstantinou et al. (2019), <a href="https://doi.org/10.1038/s41467-019-10980-w">DOI</a>；HZO 铁电与离子机制共存的器件，Halter et al. (2023), <a href="https://doi.org/10.1038/s43246-023-00342-x">DOI</a>。HZO 即铪锆氧化物；不同实现还可能有离子过程参与。图表的机会与问题是定性设计考虑，不宣称这些不同机制具有相同的能耗、保持时间或成熟度。</p>
+        </aside>
+      </section>
+
+      <section class="slide p3-routes-slide" id="materials-to-mechanisms" aria-labelledby="materials-to-mechanisms-title">
+        <header class="slide-header">
+          <p class="section-label">第三部分 · 从性能指标到材料选择</p>
+          <h2 id="materials-to-mechanisms-title">二维材料<span class="accent-teal">可以用在哪些路径中</span></h2>
+          <p class="slide-lead">同一种材料，可以通过不同结构承担不同功能。</p>
+        </header>
+        <div class="p3-material-table" role="table" aria-label="NML综述中二维材料与实现路径的代表性对应">
+          <div class="p3-material-row p3-route-heading" role="row"><div role="columnheader">实现路径</div><div role="columnheader">NML 中的代表材料</div><div role="columnheader">材料在其中的作用</div></div>
+          <div class="p3-material-row fragment" data-fragment-index="0" role="row"><div role="cell"><h3>导电细丝</h3></div><div role="cell">h-BN、MoS₂、PdSe₂、HfSe₂、BP</div><div role="cell">层间通路、晶界或氧化界面</div></div>
+          <div class="p3-material-row fragment" data-fragment-index="0" role="row"><div role="cell"><h3>空位 / 接触</h3></div><div role="cell">MoS₂、ReS₂</div><div role="cell">空位分布影响接触注入</div></div>
+          <div class="p3-material-row fragment" data-fragment-index="1" role="row"><div role="cell"><h3>光响应</h3></div><div role="cell">WS₂、WSe₂、SnS</div><div role="cell">光响应结合缺陷或陷阱态</div></div>
+          <div class="p3-material-row fragment" data-fragment-index="1" role="row"><div role="cell"><h3>相变</h3></div><div role="cell">Li⁺ 插层 MoS₂</div><div role="cell">2H ↔ 1T，相态改变电导</div></div>
+          <div class="p3-material-row fragment" data-fragment-index="2" role="row"><div role="cell"><h3>铁电极化</h3></div><div role="cell">α-In₂Se₃</div><div role="cell">极化改变局部电势与电导</div></div>
+        </div>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>选择的是<span class="accent-teal">材料、结构与刺激方式的组合</span></p></div>
+        <footer class="slide-footer"><span>依据综述整理的代表性对应 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">Zhou et al., NML (2024), Fig. 2、§2、Table 1</a></span><span class="page-no">20 / 22</span></footer>
+        <aside class="notes">
+          <h3>第 20 页 · 约 55 秒</h3>
+          <p>这张表把前面的路线与 NML 综述中的二维材料例子放在一起，不需要记住每一个化学式，重点是看到材料与机制并不是一一对应。</p>
+          <p><b>第一次前进：通道与接触。</b>绝缘体 h-BN 和多种二维半导体可以承载细丝型阻变。MoS₂ 既出现在细丝路线，也出现在空位调节接触的路线；电极、结构、缺陷与加工方式会改变主导过程。</p>
+          <p><b>第二次前进：光与相态。</b>WS₂、WSe₂ 和 SnS 的光响应可以与记忆状态结合。MoS₂ 经过锂离子插层又能进入相变路线，因此它并不只属于一种实现方式。</p>
+          <p><b>第三次前进：极化与选材原则。</b>α-In₂Se₃ 提供铁电极化这一状态变量。真正要设计的是材料、器件结构与刺激方式的组合，然后用前面讲的指标去检验它。</p>
+          <p class="note-source">材料映射依据 Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，Fig. 2、§§2.1–2.5、Table 1。细丝一行的材料名称包括相应氧化层或异质结构参与的实例：如 BP / POₓ、HfSe₂ / HfSeₓOᵧ、PdSe₂ / PdSeOₓ；不意味着所有裸材料都以相同过程阻变。ReS₂ 也有氧化物细丝相关实例，此表仅列代表性对应。WS₂ 与 WSe₂ 的光学行为依厚度、结构及激发条件变化。BP 为黑磷。表格没有给出同条件性能比较，也不排除多机制共存。</p>
+        </aside>
+      </section>
+
+      <section class="slide p3-routes-slide" id="two-dimensional-tradeoffs" aria-labelledby="two-dimensional-tradeoffs-title">
+        <header class="slide-header">
+          <p class="section-label">第三部分 · 从性能指标到材料选择</p>
+          <h2 id="two-dimensional-tradeoffs-title">二维材料的<span class="accent-teal">机会与代价</span></h2>
+          <p class="slide-lead">薄层、界面和缺陷，既提供设计空间，也需要精确控制。</p>
+        </header>
+        <div class="p3-tradeoff-table" role="table" aria-label="二维材料的设计机会与对应实现要求">
+          <div class="p3-tradeoff-row p3-route-heading" role="row"><div role="columnheader">提供的设计机会</div><div role="columnheader">需要满足的实现条件</div></div>
+          <div class="p3-tradeoff-row fragment" data-fragment-index="0" role="row">
+            <div role="cell"><h3>原子级薄层</h3><p>缩短作用距离，探索低电压调控</p></div>
+            <div role="cell"><h3>均匀与完整</h3><p>控制厚度、晶界与局部缺陷差异</p></div>
+          </div>
+          <div class="p3-tradeoff-row fragment" data-fragment-index="1" role="row">
+            <div role="cell"><h3>可设计的异质界面</h3><p>组合不同材料，调节电荷与离子通路</p></div>
+            <div role="cell"><h3>可重复的工艺</h3><p>控制污染、氧化与界面稳定性</p></div>
+          </div>
+          <div class="p3-tradeoff-row fragment" data-fragment-index="2" role="row">
+            <div role="cell"><h3>接触、缺陷与栅极协同</h3><p>增加调节电导与选择器件的自由度</p></div>
+            <div role="cell"><h3>从单器件到阵列</h3><p>同时验证一致性、良率与电路兼容性</p></div>
+          </div>
+        </div>
+        <p class="p3-integration-note fragment" data-fragment-index="2">已有与硅电路融合的验证；大面积制备与一致性仍需优化。</p>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>聚焦接触界面：怎样兼顾<span class="accent-teal">可调电导与可重复响应</span>？</p></div>
+        <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">NML (2024), §§2–4、展望</a> · <a href="https://doi.org/10.1038/s41586-023-05973-1" target="_blank" rel="noopener noreferrer">h-BN / CMOS (2023)</a> · <a href="https://doi.org/10.1038/s41565-025-01988-z" target="_blank" rel="noopener noreferrer">片上 BN 生长 (2025)</a></span><span class="page-no">21 / 22</span></footer>
+        <aside class="notes">
+          <h3>第 21 页 · 约 70 秒</h3>
+          <p>选择二维材料，并不是自动得到更好的忆阻器。它把一些难以在传统厚层材料中独立控制的因素，变成了新的设计空间，也带来了相应要求。</p>
+          <p><b>第一次前进：薄。</b>薄的功能层可能缩短电场、离子或电荷发挥作用的距离，提供低电压调控的机会；同时，局部缺陷、厚度和晶界差异也会更直接地影响器件。薄并不自动等于低系统能耗。</p>
+          <p><b>第二次前进：界面。</b>不同材料可以组成异质结构，调节电荷或离子通路。但我们必须控制制备过程中的污染、氧化以及长期稳定性，才能让每个器件重复出现预期行为。</p>
+          <p><b>第三次前进：器件与阵列。</b>接触、缺陷和栅极提供多个调控旋钮，还可以帮助选择阵列中的单元。最终仍要在阵列尺度验证一致性、良率和电路兼容性。二维材料已经有与硅电路融合的实验验证，近期也有降低生长温度、避免转移的进展；问题是怎样持续把这些机会变成可靠器件。</p>
+          <p>前面把不同路线展开比较，现在沿着其中一条深入：接触界面为什么可以控制电流？怎样让这种控制既可调，又可重复？下一部分聚焦肖特基势垒，并把这个问题接到我们的模型与接触设计工作。</p>
+          <p class="note-source">设计机会、器件差异与阵列要求：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2">DOI</a>，§§2–4、展望。集成实例：2023 年 h-BN 忆阻器与硅 CMOS 电路融合研究，<a href="https://doi.org/10.1038/s41586-023-05973-1">DOI</a>；2025 年片上直接生长氮化硼忆阻器研究，<a href="https://doi.org/10.1038/s41565-025-01988-z">DOI</a>，报道低于 380 °C 的生长与无需转移的流程。这些实例表明集成已有进展，不代表全部二维材料路线都采用相同工艺或已经满足量产要求。本页是设计权衡，不对二维材料与传统材料给出统一优劣排名。</p>
+        </aside>
+      </section>
+
+            <section class="slide schottky-opening-slide" id="schottky-barrier" aria-labelledby="schottky-title">
+        <header class="slide-header">
+          <p class="section-label">第四部分 · 聚焦肖特基势垒调控</p>
+          <h2 id="schottky-title">肖特基势垒：电子的<span class="accent-teal">入口门槛</span></h2>
+          <p class="slide-lead">在接触控制的一类器件中，界面门槛影响电子进入半导体的难易。</p>
+        </header>
+        <div class="p4-barrier-layout">
+          <svg viewBox="0 0 900 445" role="img" aria-labelledby="sbh-art-title sbh-art-desc">
+            <title id="sbh-art-title">金属到半导体电子注入的肖特基势垒概念图</title>
+            <desc id="sbh-art-desc">纵向为电子能量，横向为位置。金属位于左侧，半导体位于右侧，界面处导带边缘相对金属费米能级的差为电子肖特基势垒高度。虚线与实线示意界面势垒降低，不是具体器件的计算结果。</desc>
+            <rect x="95" y="68" width="235" height="289" fill="#e9eef1"/>
+            <rect x="330" y="68" width="477" height="289" fill="#edf4ee"/>
+            <path d="M95 40V381H835" class="axis"/>
+            <text x="96" y="28" class="svg-small">电子能量</text><text x="833" y="417" text-anchor="end" class="svg-small">位置 →</text>
+            <text x="210" y="97" text-anchor="middle" class="svg-label">金属</text><text x="578" y="97" text-anchor="middle" class="svg-label">半导体</text>
+            <g class="fragment" data-fragment-index="0">
+              <path d="M109 301H800" stroke="#8499a7" stroke-width="2" stroke-dasharray="7 6"/>
+              <text x="110" y="333" class="svg-small">费米能级</text>
+              <path d="M330 135C441 135 449 222 552 229H800" fill="none" stroke="#718799" stroke-width="4" stroke-dasharray="7 6"/>
+              <text x="597" y="214" class="svg-small">导带边缘</text>
+              <path d="M353 142V293M346 150l7-8 7 8M346 285l7 8 7-8" fill="none" stroke="#718799" stroke-width="2"/>
+              <text x="372" y="127" class="svg-label">势垒高度</text>
+            </g>
+            <g class="fragment" data-fragment-index="1">
+              <path d="M330 205C427 205 453 225 552 229H800" fill="none" stroke="#167e68" stroke-width="4"/>
+              <circle cx="218" cy="286" r="7" fill="#167e68"/>
+              <path d="M231 281Q275 187 340 194m-11-8 11 8-13 2" fill="none" stroke="#167e68" stroke-width="2.5"/>
+              <text x="464" y="276" class="svg-label teal">调节界面，改变注入门槛</text>
+            </g>
+          </svg>
+          <div class="p4-barrier-copy">
+            <div class="fragment" data-fragment-index="0"><h3>先确定“门槛”</h3><p>肖特基势垒高度<br><span class="p4-sbh-english">Schottky barrier height · SBH</span></p></div>
+            <div class="fragment" data-fragment-index="1"><h3>再寻找可调状态</h3><p>缺陷分布与接触结构，<br>可以影响局部势垒。</p></div>
+            <div class="fragment" data-fragment-index="2"><h3>回到器件指标</h3><p>电导能否可控地改变，<br>也能可重复地实现？</p></div>
+          </div>
+        </div>
+        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>我们的切入点：<span class="accent-teal">缺陷、接触与可编程电导</span></p></div>
+        <footer class="slide-footer"><span>电子注入概念示意，非计算能带 · <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer">NML (2024), §2.2</a> · <a href="https://doi.org/10.1002/aelm.202201252" target="_blank" rel="noopener noreferrer">Zhou et al., AEM (2023)</a></span><span class="page-no">22 / 22</span></footer>
+        <aside class="notes">
+          <h3>第 22 页 · 约 75 秒</h3>
+          <p>第三部分比较了不同路线，现在选择其中一个可以具体研究的问题：在接触控制的器件中，能否通过改变电子进入半导体的门槛，获得可调且可重复的导电响应？这就是我们接下来关注的肖特基势垒调控。</p>
+          <p><b>第一次前进：门槛的定义。</b>左边是金属，右边是半导体，纵向表示电子能量。对图中的电子注入而言，界面处半导体导带边缘与金属费米能级的能量差，就是电子肖特基势垒高度，简称 SBH。这里是电子情形；空穴注入的定义需要参照价带。</p>
+          <p><b>第二次前进：调控入口。</b>虚线到实线只表示一种势垒降低的概念过程。在其他条件相当、以热发射为主时，较低的势垒通常使电子更容易进入半导体。真实电流还与势垒宽度、隧穿、偏压、沟道和另一个接触有关，不能只由一个高度决定。缺陷与接触结构为调节这些条件提供了变量。</p>
+          <p><b>第三次前进：把物理问题接回指标。</b>我们既关心电导能否被写入，也关心写入是否可控、不同器件是否足够一致。AEM 工作研究缺陷迁移怎样产生开关；非局域势垒研究考察缺陷位置怎样影响接触；recessed contact 工作考察接触结构怎样改变这种敏感性。它们分别回答动态开关、空间影响和结构设计三个问题。</p>
+          <p class="note-source">来源：<a href="https://doi.org/10.1007/s40820-024-01335-2">Zhou et al., NML 16, 121 (2024)</a>，§2.2；<a href="https://doi.org/10.1002/aelm.202201252">Zhou et al., AEM 9, 2201252 (2023)</a>，接触势垒与双接触输运模型。图为原创电子注入示意，不是特定材料的自洽能带、偏压分布或定量计算。此页只给研究入口；近期静态势垒与输运工作不等同于已完成忆阻器的写入、保持或耐久验证。</p>
         </aside>
       </section>
 
