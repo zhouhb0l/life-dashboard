@@ -78,20 +78,17 @@ body { -webkit-font-smoothing: antialiased; }
 .rust-rule { background: var(--rust); }
 .slide-footer { position: absolute; left: 80px; right: 80px; bottom: 36px; border-top: 1px solid var(--rule); padding-top: 15px; display: flex; align-items: baseline; justify-content: space-between; color: var(--muted); font-size: 17px; line-height: 1.4; }
 .page-no { font: 18px Consolas, monospace; letter-spacing: .1em; white-space: nowrap; }
-.cover { background: radial-gradient(ellipse at 79% 44%, #eaf2e980, transparent 43%); }
-.cover-copy { position: absolute; left: 90px; top: 101px; width: 790px; }
-.overline { font-size: 19px; font-weight: 500; letter-spacing: .22em; color: var(--teal) !important; margin-bottom: 29px !important; }
-.reveal .cover h1 { font-size: 116px; line-height: 1.15; font-weight: 700; letter-spacing: .035em; }
-.cover-subtitle { font-size: 55px; font-weight: 500; line-height: 1.42 !important; margin-top: 30px !important; letter-spacing: -.025em; }
-.cover-scope { font-size: 26px; color: var(--muted) !important; margin-top: 25px !important; }
-.speaker { margin-top: 80px; padding-left: 21px; border-left: 3px solid var(--teal); display: flex; flex-direction: column; gap: 10px; }
-.speaker strong { font-size: 27px; font-weight: 600; }
-.speaker span { font-size: 17px; color: var(--muted); }
-.cover-visual { position: absolute; top: 141px; right: 73px; width: 600px; }
-.memory-art { width: 600px; height: 510px; }
-.opening-question { font-size: 27px; text-align: center; margin-top: 13px !important; color: var(--teal) !important; }
-.cover-visual .svg-label { font-size: 23px; }
-.cover-visual .svg-small { font-size: 20px; }
+.cover { background: radial-gradient(ellipse at 50% 34%, #edf4ef90, transparent 66%); }
+.cover-copy { position: absolute; left: 120px; right: 120px; top: 155px; text-align: center; }
+.reveal .cover h1 { font-size: 92px; line-height: 1.35; font-weight: 650; letter-spacing: .015em; }
+.cover-subtitle { font-size: 27px; font-weight: 400; line-height: 1.5 !important; margin-top: 28px !important; color: var(--muted) !important; }
+.speaker { margin-top: 86px; }
+.speaker strong { display: block; font-size: 36px; font-weight: 600; }
+.speaker strong span { margin-left: 18px; font-size: 32px; font-weight: 500; }
+.speaker-role { font-size: 25px; margin-top: 9px !important; color: var(--teal) !important; }
+.speaker-institute { font-size: 25px; margin-top: 27px !important; }
+.speaker-organization { font-size: 23px; margin-top: 5px !important; color: var(--muted) !important; }
+.cover .slide-footer { display: none; }
 .imc-architecture { height: 440px; margin-top: 26px; }
 .imc-architecture + .takeaway { margin-top: 16px; }
 .brain-layout { display: grid; grid-template-columns: 370px 420px 1fr; gap: 44px; align-items: center; height: 435px; margin-top: 28px; }
@@ -438,64 +435,21 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
     <div class="slides">
       <section class="slide cover" id="opening" aria-labelledby="cover-title">
         <div class="cover-copy">
-          <p class="overline">MEMRISTIVE DEVICES</p>
-          <h1 id="cover-title">忆阻器</h1>
-          <p class="cover-subtitle">物理机制<br>与存内计算</p>
-          <p class="cover-scope">二维材料、缺陷与接触界面的物理</p>
+          <h1 id="cover-title">忆阻器的物理机制<br><span class="accent-teal">与存内计算</span></h1>
+          <p class="cover-subtitle" lang="en">Memristors: Physical Mechanisms and In-Memory Computing</p>
           <div class="speaker">
-            <strong>Hangbo Zhou</strong>
-            <span>A*STAR · Institute of Advanced Intelligence and Computing</span>
+            <strong>周杭波 <span lang="en">Hangbo Zhou</span></strong>
+            <p class="speaker-role" lang="en">Senior Scientist II</p>
+            <p class="speaker-institute" lang="en">Institute of Advanced Intelligence and Computing</p>
+            <p class="speaker-organization" lang="en">A*STAR, Singapore</p>
           </div>
         </div>
-        <div class="cover-visual">
-          <svg class="memory-art" viewBox="0 0 600 510" role="img" aria-labelledby="memory-art-title memory-art-desc">
-            <title id="memory-art-title">电脉冲改变器件状态，电导记录刺激历史</title>
-            <desc id="memory-art-desc">上方为写入脉冲，中间为两端忆阻器的概念结构，下方为示意性的低电导与高电导状态。图形不对应特定材料或实验数据。</desc>
-            <defs>
-              <linearGradient id="active-layer" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#d0ebe5"/><stop offset="1" stop-color="#8ac5b7"/>
-              </linearGradient>
-              <pattern id="atomic-dots" width="25" height="24" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="2" fill="#278b78" opacity=".25"/></pattern>
-              <marker id="cover-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#247f6f" stroke-width="1.5"/></marker>
-            </defs>
-            <text x="300" y="40" text-anchor="middle" class="svg-label">外加刺激调控内部状态</text>
-            <path d="M170 95h38V67h32v28h33V67h32v28h33V67h32v28h38" class="pulse-line"/>
-            <path d="M300 117v35" stroke="#247f6f" stroke-width="2.5" marker-end="url(#cover-arrow)"/>
-            <g class="device-stack">
-              <path d="M160 244L340 178L478 232L298 299Z" fill="#d6e0e6" stroke="#718492" stroke-width="2"/>
-              <path d="M160 244v35l138 55v-35Z" fill="#a2b1bb"/>
-              <path d="M298 299v35l180-66v-36Z" fill="#728796"/>
-              <path d="M160 204L340 138L478 192L298 259Z" fill="url(#active-layer)" stroke="#438e7e" stroke-width="2"/>
-              <path d="M160 204L340 138L478 192L298 259Z" fill="url(#atomic-dots)"/>
-              <path d="M160 204v29l138 55v-29Z" fill="#5fa892"/>
-              <path d="M298 259v29l180-66v-30Z" fill="#3d8f7c"/>
-              <path d="M160 166L340 100L478 154L298 221Z" fill="#f3f5f6" stroke="#718492" stroke-width="2"/>
-              <path d="M160 166v25l138 55v-25Z" fill="#c7d1d8"/>
-              <path d="M298 221v25l180-66v-26Z" fill="#95a7b4"/>
-              <path d="M105 219h45" stroke="#247f6f" stroke-width="2"/>
-              <text x="92" y="225" text-anchor="end" class="svg-small">状态</text>
-            </g>
-            <g transform="translate(70 352)">
-              <text x="0" y="14" class="svg-small">电导</text>
-              <path d="M64 14v89h408" class="axis"/>
-              <path d="M78 80h124" fill="none" stroke="#7c8fa0" stroke-width="5" stroke-linecap="round"/>
-              <path d="M285 32h125" fill="none" stroke="#167e68" stroke-width="5" stroke-linecap="round"/>
-              <path d="M218 80l45-47" fill="none" stroke="#a5b7b4" stroke-width="2" stroke-dasharray="4 6"/>
-              <text x="141" y="59" text-anchor="middle" class="svg-small">状态 A</text>
-              <text x="347" y="72" text-anchor="middle" class="svg-small teal">状态 B</text>
-              <text x="471" y="130" text-anchor="end" class="svg-micro">概念示意，非实验数据</text>
-            </g>
-          </svg>
-          <p class="opening-question">电学响应如何记录刺激历史？</p>
-        </div>
-        <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a></span><span class="page-no">01 / 40</span></footer>
+        <footer class="slide-footer"><span></span><span class="page-no">01 / 40</span></footer>
         <aside class="notes">
           <h3>第 1 页 · 约 45 秒</h3>
           <p>大家好，今天想从一个很简单的问题开始：一个电阻，能不能记住之前发生过什么？</p>
-          <p>通常我们用电阻描述电流通过器件的难易程度。对这里讨论的忆阻器而言，外加刺激还可以改变器件内部的状态，因此在刺激结束之后，它对电流的响应可能与之前不同。这种可读出的状态，就是我们今天说的“记忆”。</p>
-          <p>右侧图中两种电导只用来建立直觉，不对应某个具体实验，也不限定所有忆阻器的结构或工作机制。</p>
+          <p>通常我们用电阻描述电流通过器件的难易程度。对这里讨论的忆阻器而言，施加电压或电流还可以改变器件内部的状态，因此在相同的读取条件下，先前施加的电激励可能使它呈现不同的电流响应。这种可读出的状态差异，是器件记忆功能的基础。</p>
           <p>接下来先看看计算中的能耗问题，以及大脑给我们的启发，再介绍忆阻器怎样参与计算。最后回到二维材料中的缺陷和接触界面，看看微观物理怎样决定器件的表现。</p>
-          <p class="note-source">概念依据：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024)，引言。<a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a>。示意图为本报告原创矢量图。</p>
         </aside>
       </section>
 
@@ -828,13 +782,13 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
         <header class="slide-header">
           <p class="section-label">第二部分 · 忆阻器的基本概念</p>
           <h2 id="state-title">广义忆阻系统：<span class="accent-teal">状态与电流耦合</span></h2>
-          <p class="slide-lead">内部状态随外加刺激演化，并调制器件的瞬时电流响应。</p>
+          <p class="slide-lead">内部状态随外加电激励演化，并调制器件的瞬时电流响应。</p>
         </header>
         <svg class="p2-wide-art" viewBox="0 0 1440 435" role="img" aria-labelledby="state-art-title state-art-desc">
-          <title id="state-art-title">不同刺激历史，在相同读取电压下产生不同电流</title>
+          <title id="state-art-title">不同电激励历史，在相同读取电压下产生不同电流</title>
           <desc id="state-art-desc">通过不同的写入操作，可将同一器件设为低电导或高电导状态。两次都用相同的小电压读取，低电导产生较小电流，高电导产生较大电流。图中粒子仅表示内部状态，不指定微观机制。</desc>
           <defs><marker id="state-arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#91a69e" stroke-width="1.6"/></marker></defs>
-          <text x="205" y="38" text-anchor="middle" class="svg-label">过去的刺激</text>
+          <text x="205" y="38" text-anchor="middle" class="svg-label">先前施加的电脉冲</text>
           <text x="681" y="38" text-anchor="middle" class="svg-label">器件内部状态</text>
           <text x="1180" y="38" text-anchor="middle" class="svg-label">相同的小电压读取</text>
           <path d="M40 65H1400" stroke="#d8e1db" stroke-width="1.5"/>
@@ -869,10 +823,10 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           <h3>第 8 页 · 约 75 秒</h3>
           <p>理想忆阻器用电荷积分 q 作为状态约束；实际材料器件通常需要更一般的内部状态变量。压控型广义忆阻系统用 i=G(x,v,t)v 描述读出响应，用 dx/dt=f(x,v,t) 描述状态演化，其中 x 可以是多维变量，例如空位分布、细丝形态或极化状态。输入为端电压 v，输出为端电流 i。</p>
           <p><b>第一步：状态 A。</b>将同一器件写入状态 A，再用一个较小的电压读取，得到较小电流。我们称它为低电导状态，也就是在这个读取条件下的高阻状态。</p>
-          <p><b>第二步：状态 B。</b>用另一段刺激历史改变它，再施加相同读取电压，电流变大了。比较时要保持读取条件一致。两行表示同一个器件在不同历史下的两次测量，不是两个样品的差别。</p>
-          <p><b>第三步：状态方程。</b>底部给出 Chua 与 Kang 的电压控制形式。G 可以依赖状态、电压与时间，并不要求器件在所有偏压下呈线性。状态动力学决定刺激如何改变材料；导电关系决定状态如何被读出。实际阻变器件是否适用这个模型，还需考虑电容、寄生电流与多端耦合等实验条件。接下来分别讨论编程、读取和复位。</p>
+          <p><b>第二步：状态 B。</b>施加另一组写入脉冲，改变器件的内部状态，再施加相同读取电压，电流变大了。比较时要保持读取条件一致。两行表示同一个器件在不同电激励历史下的两次测量，不是两个样品的差别。</p>
+          <p><b>第三步：状态方程。</b>底部给出 Chua 与 Kang 的电压控制形式。G 可以依赖状态、电压与时间，并不要求器件在所有偏压下呈线性。状态动力学决定电激励如何改变材料；导电关系决定状态如何被读出。实际阻变器件是否适用这个模型，还需考虑电容、寄生电流与多端耦合等实验条件。接下来分别讨论编程、读取和复位。</p>
           <p class="note-source">L. O. Chua &amp; S. M. Kang, “Memristive devices and systems,” <i>Proceedings of the IEEE</i> 64, 209–223 (1976), <a href="https://doi.org/10.1109/PROC.1976.10092" target="_blank" rel="noopener noreferrer" title="Memristive devices and systems">L. O. Chua &amp; S. M. Kang, <i>Proc. IEEE</i> <b>64</b>, 209–223 (1976)</a>。此处为单端口、电压控制的广义形式；理想荷控型忆阻器是更受约束的特例。G 有限时的过原点特性也不是识别所有实验寄生效应的充分条件。</p>
-          <p class="note-source">概念参考：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a>，器件结构与阻变机制。采用广义忆阻器件的操作性定义，不等同于理想电荷–磁链忆阻器的严格定义。电导在指定读取电压附近描述导电能力；器件可能存在非线性。读取电压、刺激幅度和条形长度均为示意，无实测数值或保持时间结论。</p>
+          <p class="note-source">概念参考：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a>，器件结构与阻变机制。采用广义忆阻器件的操作性定义，不等同于理想电荷–磁链忆阻器的严格定义。电导在指定读取电压附近描述导电能力；器件可能存在非线性。读取电压、写入脉冲幅度和条形长度均为示意，无实测数值或保持时间结论。</p>
         </aside>
       </section>
 
@@ -1402,7 +1356,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
           <p>二维材料是一个可以探索这些问题的材料平台。“二维”指单层可以薄到原子尺度，同时在平面方向延伸；器件也可能使用多层薄片。原子级薄层与可堆叠的异质界面，使沟道、接触和栅极之间的耦合更易于调控。材料薄本身并不自动产生记忆。</p>
           <p><b>第一步：两端结构。</b>左图选一种平面两端器件作为例子。源极和漏极接触二维沟道，端间电压可用于写入或读取。历史依赖的状态可以位于沟道、接触或相关界面；内部状态的变化使端间导电能力发生变化。还有上下电极夹住薄层的垂直结构，这里暂不展开。</p>
           <p><b>第二步：第三个端口。</b>右图加入栅极，它隔着绝缘层，主要通过电场提供额外控制，而不是让电流直接穿过绝缘层。把阻变记忆与这种栅控能力结合起来的器件，称为忆阻晶体管，英文是 memtransistor。栅极可以调节导电行为或开关条件，具体作用取决于结构与机制。</p>
-          <p>要区分两个概念：普通晶体管在改变栅压时电流改变，属于瞬时栅控响应；我们讨论的记忆还要求在相同读取条件下，不同刺激历史对应可区分的状态。并非增加一个栅极，就自动获得这种记忆。</p>
+          <p>要区分两个概念：普通晶体管在改变栅压时电流改变，属于瞬时栅控响应；我们讨论的记忆还要求在相同读取条件下，不同电激励历史对应可区分的状态。并非增加一个栅极，就自动获得这种记忆。</p>
           <p><b>第三步：进入器件评价。</b>到这里，我们知道了忆阻器如何写入、读取和保持状态，也看到了不同的材料与器件结构。但是有记忆效应，还不等于适合某个应用。第三部分先问：怎样才算一个好器件？我们从任务和指标出发，再比较实现路径与材料选择。</p>
           <p class="note-source">材料与结构背景：<a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a>。忆阻晶体管实验来源：<a href="https://doi.org/10.1038/nature25747" target="_blank" rel="noopener noreferrer" title="Multi-terminal memtransistors from polycrystalline monolayer molybdenum disulfide">V. K. Sangwan et al., <i>Nature</i> <b>554</b>, 500–504 (2018)</a>。该工作中源漏偏压驱动缺陷迁移，栅极调节导电与开关行为，不是只由栅极写入。三端是这里选用的代表结构，忆阻晶体管也可以有更多端口。本页为原创结构示意，不是论文显微图的重现，不对特定结构的性能作承诺。</p>
         </aside>
