@@ -1057,7 +1057,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
             </svg>
             <p>离子或缺陷移动，<br>导电通道连通或断开。</p>
           </div>
-          <div class="p2-mechanism fragment" data-fragment-index="0">
+          <div class="p2-mechanism fragment" data-fragment-index="1">
             <h3>空位迁移</h3>
             <svg viewBox="0 0 264 238" role="img" aria-label="空位分布改变可调节接触势垒。下方以较高和较低的电子能量门槛作概念对比，不表示所有材料的变化方向相同">
               <path d="M18 38V77M165 38V77" stroke="#8197a5" stroke-width="8"/>
@@ -1072,7 +1072,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
             </svg>
             <p>空位重新分布，<br>可调节接触处的势垒。</p>
           </div>
-          <div class="p2-mechanism fragment" data-fragment-index="1">
+          <div class="p2-mechanism fragment" data-fragment-index="2">
             <h3>光响应</h3>
             <svg viewBox="0 0 264 238" role="img" aria-label="光照可改变缺陷或电荷状态，从而改变导电能力；左图和右图代表刺激前后，不是实际原子结构">
               <rect x="10" y="94" width="94" height="83" rx="3" fill="#edf0f3" stroke="#a1b1bd" stroke-width="1.5"/>
@@ -1086,7 +1086,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
             </svg>
             <p>光改变缺陷或电荷态，<br>导电能力随之变化。</p>
           </div>
-          <div class="p2-mechanism fragment" data-fragment-index="2">
+          <div class="p2-mechanism fragment" data-fragment-index="3">
             <h3>相变</h3>
             <svg viewBox="0 0 264 238" role="img" aria-label="以两种不同的粒子排列表示结构相态改变，只作概念示意，不对应具体材料的原子结构">
               <path d="M23 68H93M23 109H93M23 150H93M23 68V150M58 68V150M93 68V150" fill="none" stroke="#b6c3cb" stroke-width="2"/>
@@ -1098,7 +1098,7 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
             </svg>
             <p>原子排列发生变化，<br>材料的导电性质改变。</p>
           </div>
-          <div class="p2-mechanism fragment" data-fragment-index="2">
+          <div class="p2-mechanism fragment" data-fragment-index="4">
             <h3>铁电极化</h3>
             <svg viewBox="0 0 264 238" role="img" aria-label="铁电材料中极化方向翻转，两种状态可改变电势分布与电流响应">
               <rect x="10" y="48" width="94" height="129" rx="3" fill="#edf0f3" stroke="#9aafba" stroke-width="1.5"/><rect x="160" y="48" width="94" height="129" rx="3" fill="#e5f1e9" stroke="#8ab49d" stroke-width="1.5"/>
@@ -1110,15 +1110,17 @@ kbd { font: .87em Consolas, monospace; opacity: .65; margin-left: 4px; }
             <p>极化方向发生翻转，<br>改变电势与电流响应。</p>
           </div>
         </div>
-        <div class="takeaway fragment" data-fragment-index="2"><span class="takeaway-rule"></span><p>微观状态演化形成<span class="accent-teal">历史依赖的电导响应</span></p></div>
+        <div class="takeaway fragment" data-fragment-index="5"><span class="takeaway-rule"></span><p>微观状态演化形成<span class="accent-teal">历史依赖的电导响应</span></p></div>
         <footer class="slide-footer"><span><a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a> · 机制示意</span><span class="page-no">13 / 41</span></footer>
         <aside class="notes">
           <h3>第 13 页 · 约 90 秒</h3>
           <p>前面看的是电流怎样随扫描历史变化，现在再问一步：器件内部究竟什么发生了变化？我们在 2024 年的 二维材料忆阻器综述中，按这五条代表性路径梳理了已有二维器件研究。这是对文献的归纳，不是说所有例子都是我们做出的实验。大家先看每条路径改变了什么。</p>
-          <p><b>第一步：细丝和空位。</b>离子或缺陷移动，可以让一条局部导电通道连通或断开。空位就是晶格中缺少原子的位置；空位的分布变化，还可以调节接触处电子需要跨越的势垒。第二幅图用较高与较低的势垒表示这种影响，实际变化方向取决于材料和接触。后面的研究会进一步讨论接触势垒。</p>
-          <p><b>第二步：光响应。</b>刺激也可以来自光。光改变缺陷或电荷状态，随后影响导电能力。这里要记住，状态的写入不一定只能依靠电压。</p>
-          <p><b>第三步：相变和铁电极化。</b>材料可以改变原子排列，进入导电性质不同的结构相；也可以在铁电材料中翻转极化方向，改变电势与电流响应。这是两条不同的物理路径。</p>
-          <p>这些机制的共同点是内部状态演化调制电流。回线形状通常不足以唯一识别微观机制，还需要结构、成分和动力学证据。接下来结合综述中的原始器件图、实测曲线和材料实例，逐一说明这些物理途径。</p>
+          <p><b>第一步：导电细丝形成。</b>离子或缺陷移动，可以让一条局部导电通道连通或断开。</p>
+          <p><b>第二步：空位迁移。</b>空位就是晶格中缺少原子的位置；空位的分布变化，还可以调节接触处电子需要跨越的势垒。第二幅图用较高与较低的势垒表示这种影响，实际变化方向取决于材料和接触。后面的研究会进一步讨论接触势垒。</p>
+          <p><b>第三步：光响应。</b>刺激也可以来自光。光改变缺陷或电荷状态，随后影响导电能力。这里要记住，状态的写入不一定只能依靠电压。</p>
+          <p><b>第四步：相变。</b>材料可以改变原子排列，进入导电性质不同的结构相。</p>
+          <p><b>第五步：铁电极化。</b>铁电材料的极化方向可以翻转，改变电势与电流响应。这与结构相变是不同的物理路径。</p>
+          <p><b>最后显示共同结论。</b>这些机制的共同点是内部状态演化调制电流。回线形状通常不足以唯一识别微观机制，还需要结构、成分和动力学证据。接下来结合综述中的原始器件图、实测曲线和材料实例，逐一说明这些物理途径。</p>
           <p class="note-source">来源：Zhou et al., <i>Nano-Micro Letters</i> 16, 121 (2024), <a href="https://doi.org/10.1007/s40820-024-01335-2" target="_blank" rel="noopener noreferrer" title="Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials">H. Zhou et al., <i>Nano-Micro Lett.</i> <b>16</b>, 121 (2024)</a>，器件结构、阻变机制与性能比较。五类原文为 conductive filament formation、vacancy migration、photon response、phase change 和 ferroelectricity。这里沿用综述的组织方式；它们不是穷尽、互斥的分类，光响应也可能涉及缺陷或电荷过程。图为原创教学示意，不对应具体晶体结构、原子数目或实测能带。高低势垒仅举一种可能的变化方向，未主张空位总会降低势垒；各种路径也不保证永久保持，保持与弛豫需要另行测量。</p>
         </aside>
       </section>
