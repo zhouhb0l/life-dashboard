@@ -1,0 +1,85 @@
+{
+  "schema": "group-meeting.au-top-contact-lateral.v1",
+  "date": "2026-10-28",
+  "quantity": "lateral electron band-edge step at contact edge",
+  "definition": "Ec_channel(0+) - Ec_covered(0-)",
+  "unit": "eV",
+  "source": "C:/Users/zhbho/OneDrive/Desktop/workspace/P7. NonlocalSBH/Figures/dft_sbh_prediction/scripts/SBHcurve_errorBar.py",
+  "source_lines": [
+    25,
+    49
+  ],
+  "interpretation": "Archived LDOS-extraction brackets; midpoint plus/minus half-range, not statistical confidence intervals.",
+  "pristine": {
+    "label": "P",
+    "lower": 0.15,
+    "upper": 0.15,
+    "central": 0.15,
+    "error_bar_status": "No independent range resolved in archived equal endpoints; do not present zero as proven exact uncertainty."
+  },
+  "records": [
+    {
+      "case": "F0",
+      "d_index": 0,
+      "lower": 0.65,
+      "upper": 0.7,
+      "central": 0.675,
+      "error_minus": 0.024999999999999967,
+      "error_plus": 0.024999999999999967,
+      "reported_nominal_distance_nm": 0
+    },
+    {
+      "case": "F2",
+      "d_index": 2,
+      "lower": 0.4,
+      "upper": 0.45,
+      "central": 0.42500000000000004,
+      "error_minus": 0.024999999999999994,
+      "error_plus": 0.024999999999999994,
+      "reported_nominal_distance_nm": 0.63
+    },
+    {
+      "case": "F4",
+      "d_index": 4,
+      "lower": 0.28,
+      "upper": 0.31,
+      "central": 0.29500000000000004,
+      "error_minus": 0.014999999999999986,
+      "error_plus": 0.014999999999999986,
+      "reported_nominal_distance_nm": 1.26
+    },
+    {
+      "case": "F6",
+      "d_index": 6,
+      "lower": 0.18,
+      "upper": 0.22,
+      "central": 0.2,
+      "error_minus": 0.020000000000000004,
+      "error_plus": 0.020000000000000004,
+      "reported_nominal_distance_nm": 1.89
+    },
+    {
+      "case": "F8",
+      "d_index": 8,
+      "lower": 0.14,
+      "upper": 0.18,
+      "central": 0.16,
+      "error_minus": 0.01999999999999999,
+      "error_plus": 0.01999999999999999,
+      "reported_nominal_distance_nm": 2.52
+    },
+    {
+      "case": "F10",
+      "d_index": 10,
+      "lower": 0.13,
+      "upper": 0.2,
+      "central": 0.165,
+      "error_minus": 0.035,
+      "error_plus": 0.035,
+      "reported_nominal_distance_nm": 3.15
+    }
+  ],
+  "plot_axis": "Vacancy-position case index n (labels 0d…10d), not a calibrated physical-distance axis.",
+  "geometry_caveat": "Archived raw geometry and final-paper nominal distance labels differ. F0→F2 Cartesian x displacement is 5.484 Å; manuscript nominal 2d is 6.3 Å. Preserve case identity without assigning physical distance to the plotted axis.",
+  "source_sha256": "3de8cf8588deb3a05837c4fd9db6a3bd32c712f45c9ef2a3c7925e37b1377ca8"
+}

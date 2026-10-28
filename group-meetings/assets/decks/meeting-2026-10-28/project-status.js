@@ -29,14 +29,14 @@ window.AUGUST_PROJECT_STATUS = Object.freeze({
       shortName: "Au–MoS₂",
       status: "New",
       phase: "Discussion focus",
-      summary: "Four electron SBHs with extraction sensitivity, atomic structures, and separate F10/R10 and F15/R15 PDOS evidence.",
+      summary: "Rod-contact electron barriers and evidence; previous top-contact structures, lateral SBH ranges and vertical PDOS.",
       externalDeck: {
         src: "assets/decks/meeting-2026-10-28/projects/au-mos2/rod/index.html",
         title: "Au/MoS₂: electron SBH and PDOS evidence",
-        sourceLabel: "Rod-contact study",
+        sourceLabel: "Rod and top contacts",
         sourceDate: "28 October 2026",
-        slideCount: 3,
-        sourceNote: "Adapted for the 28 October meeting from the existing five-slide AuMoS2_SBH.html, pinned to zhouhb0l/AuMoS2 commit d2554ed06a847f8173ef9f8d3cb58d7c03aceeb2 (26 October source). Three figure-led slides: four consistent far-core electron SBHs with primary extraction-sensitivity whiskers and coordinate-based atomic structures; F10/R10 evidence; F15/R15 evidence. The suffixes 10/15 are case labels, with actual Au widths printed on the structures. Each evidence slide shows original electron-side spatial PDOS, native PDOS versus EF, and the matched F−R extraction-sensitivity range. Technical detail remains in M notes. The sourceSha256 records the preserved original HTML at source/AuMoS2_SBH.original.html, not the adapted entry point. These remain exposed-sheet equilibrium spectral proxies. Use arrows or Space, F for fullscreen and M for sources.",
+        slideCount: 6,
+        sourceNote: "Adapted for the 28 October meeting from the existing five-slide AuMoS2_SBH.html, pinned to zhouhb0l/AuMoS2 commit d2554ed06a847f8173ef9f8d3cb58d7c03aceeb2 (26 October source). Three figure-led slides: four consistent far-core electron SBHs with primary extraction-sensitivity whiskers and coordinate-based atomic structures; F10/R10 evidence; F15/R15 evidence. The suffixes 10/15 are case labels, with actual Au widths printed on the structures. Each evidence slide shows original electron-side spatial PDOS, native PDOS versus EF, and the matched F−R extraction-sensitivity range. Three appended slides show archived top-contact P/0d/10d atomic structures, lateral band-edge-step SBHs with archived extraction brackets, and covered-Mo PDOS with vertical SBH explicitly unresolved. The rod exposed-sheet EC−EF proxy and top-contact channel-to-covered band-edge step are distinct. Case labels avoid assigning mismatched raw-coordinate and paper distance conventions. Technical detail remains in M notes. The sourceSha256 records the preserved original HTML at source/AuMoS2_SBH.original.html, not the adapted entry point. These remain exposed-sheet equilibrium spectral proxies. Use arrows or Space, F for fullscreen and M for sources.",
         sourceSha256: "3d3ccecaeb133ef88f443c17eacc67ced8b494c04fbf68db17ecafea69a64b64"
       }
     },

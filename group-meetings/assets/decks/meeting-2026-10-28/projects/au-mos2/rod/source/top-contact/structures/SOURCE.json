@@ -1,0 +1,94 @@
+{
+  "created": "2026-10-28",
+  "purpose": "Actual Au top-contact atomic structures, copied from the same P/F0/F10 calculations used by the P7 Au LDOS plotting script.",
+  "units": "angstrom",
+  "coordinateView": "Cartesian x-z projection; no bonds inferred",
+  "sourceRoot": "C:/Users/zhbho/OneDrive/Desktop/workspace/NSCCscratch/DeviceStudioProject/AuMoS2Au/AuMoS2SBH/",
+  "sourceMappingScript": "C:/Users/zhbho/OneDrive/Desktop/workspace/P7. NonlocalSBH/dataAnalysis/PLot_For_publication_Au/fittedLDOS.py",
+  "cellVectors": [
+    [
+      120.641,
+      0,
+      0
+    ],
+    [
+      2.74184,
+      4.749,
+      0
+    ],
+    [
+      0,
+      0,
+      27
+    ]
+  ],
+  "transportDirection": "x (front/back leads)",
+  "periodicTransverseDirection": "oblique in-plane vector (2.74184, 4.749, 0) angstrom; k-grid in scf.input is [1 4 1]",
+  "cases": {
+    "P": {
+      "sourceInput": "C:/Users/zhbho/OneDrive/Desktop/workspace/NSCCscratch/DeviceStudioProject/AuMoS2Au/AuMoS2SBH/P/Device/scf.input",
+      "sourceObject": "C:/Users/zhbho/OneDrive/Desktop/workspace/NSCCscratch/DeviceStudioProject/AuMoS2Au/AuMoS2SBH/P/Device/NanodcalObject.json",
+      "sourceInputSha256": "c536e86b1085900250c07ed733c7ac86403afd78c5a04ee4848ec4c5257b3a11",
+      "atomCount": 318,
+      "counts": {
+        "Mo": 66,
+        "S": 132,
+        "Au": 120
+      },
+      "missingSComparedWithP": []
+    },
+    "F0": {
+      "sourceInput": "C:/Users/zhbho/OneDrive/Desktop/workspace/NSCCscratch/DeviceStudioProject/AuMoS2Au/AuMoS2SBH/F0/Device/scf.input",
+      "sourceObject": "C:/Users/zhbho/OneDrive/Desktop/workspace/NSCCscratch/DeviceStudioProject/AuMoS2Au/AuMoS2SBH/F0/Device/NanodcalObject.json",
+      "sourceInputSha256": "507ff923820320c05787256be5975f425a7b8e518be00693fbeeb0431e55bf3e",
+      "atomCount": 316,
+      "counts": {
+        "Mo": 66,
+        "S": 130,
+        "Au": 120
+      },
+      "missingSComparedWithP": [
+        [
+          19.42160075,
+          2.77024999,
+          9.2777025
+        ],
+        [
+          107.16050075,
+          2.77024999,
+          9.2777025
+        ]
+      ]
+    },
+    "F10": {
+      "sourceInput": "C:/Users/zhbho/OneDrive/Desktop/workspace/NSCCscratch/DeviceStudioProject/AuMoS2Au/AuMoS2SBH/F10/Device/scf.input",
+      "sourceObject": "C:/Users/zhbho/OneDrive/Desktop/workspace/NSCCscratch/DeviceStudioProject/AuMoS2Au/AuMoS2SBH/F10/Device/NanodcalObject.json",
+      "sourceInputSha256": "9dd76e244bc2e1207e6aa7576113122800afb83b3aeced884607a35e0217bd1f",
+      "atomCount": 316,
+      "counts": {
+        "Mo": 66,
+        "S": 130,
+        "Au": 120
+      },
+      "missingSComparedWithP": [
+        [
+          46.83995075,
+          2.77024999,
+          9.2777025
+        ],
+        [
+          79.74215075,
+          2.77024999,
+          9.27849977
+        ]
+      ]
+    }
+  },
+  "notes": [
+    "Only genuine Au coordinates are shown. The P7 POSCAR files/defect_free/POSCAR contains Ti and was not used.",
+    "P has 318 atoms: Mo66 S132 Au120. F0 and F10 each have 316 atoms: Mo66 S130 Au120.",
+    "Each vacancy case removes two top-layer S atoms symmetrically, one near each Au contact.",
+    "0d/10d are the original source case labels. F0 to F10 vacancy displacement in the coordinates is 27.41835 angstrom; no generic 3.15 nm distance is imposed.",
+    "No central-channel length or contact-plane convention is asserted from atom extrema."
+  ]
+}

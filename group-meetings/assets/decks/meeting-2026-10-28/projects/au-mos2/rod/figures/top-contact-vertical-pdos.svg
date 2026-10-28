@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="540" viewBox="0 0 1440 540" role="img" aria-labelledby="title desc">
+<title id="title">Vertical SBH unresolved: covered Mo PDOS remains finite at the Fermi level</title>
+<desc id="desc">Unsmoothed five-Mo means from the interior of the left Au-covered contact, for P, F0 and F10. Common energy and DOS scales. No onset, fitted barrier, or uncertainty is assigned. The accompanying JSON records native curves, exact atom selection, units, hashes and provenance.</desc>
+<rect width="1440" height="540" fill="#faf9f6"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#182636">
+<text x="720" y="34" font-size="30" font-weight="700" text-anchor="middle">Mo states beneath Au</text>
+<text x="720" y="69" font-size="24" fill="#5b6773" text-anchor="middle">Finite spectral weight at the Fermi level</text>
+<rect x="50" y="87" width="420" height="373" rx="12" fill="#ffffff" stroke="#dfe3e6" stroke-width="1.2"/>
+<text x="260" y="118" text-anchor="middle" font-size="25" font-weight="700" fill="#697681">P · Pristine</text>
+<line x1="90" y1="382.000" x2="430" y2="382.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="80" y="389.000" font-size="22" text-anchor="end" fill="#5b6773">0.0</text>
+<line x1="90" y1="341.500" x2="430" y2="341.500" stroke="#e3e7ea" stroke-width="1"/>
+<text x="80" y="348.500" font-size="22" text-anchor="end" fill="#5b6773">0.2</text>
+<line x1="90" y1="301.000" x2="430" y2="301.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="80" y="308.000" font-size="22" text-anchor="end" fill="#5b6773">0.4</text>
+<line x1="90" y1="260.500" x2="430" y2="260.500" stroke="#e3e7ea" stroke-width="1"/>
+<text x="80" y="267.500" font-size="22" text-anchor="end" fill="#5b6773">0.6</text>
+<line x1="90" y1="220.000" x2="430" y2="220.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="80" y="227.000" font-size="22" text-anchor="end" fill="#5b6773">0.8</text>
+<line x1="90" y1="179.500" x2="430" y2="179.500" stroke="#e3e7ea" stroke-width="1"/>
+<text x="80" y="186.500" font-size="22" text-anchor="end" fill="#5b6773">1.0</text>
+<line x1="90" y1="139.000" x2="430" y2="139.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="80" y="146.000" font-size="22" text-anchor="end" fill="#5b6773">1.2</text>
+<line x1="90.000" y1="382" x2="90.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="90.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">−0.5</text>
+<line x1="175.000" y1="382" x2="175.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="175.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">−0.25</text>
+<line x1="260.000" y1="382" x2="260.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="260.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">0</text>
+<line x1="345.000" y1="382" x2="345.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="345.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">0.25</text>
+<line x1="430.000" y1="382" x2="430.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="430.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">0.5</text>
+<path d="M 90 139 V 382 H 430" fill="none" stroke="#63707c" stroke-width="1.5"/>
+<line x1="260" y1="139" x2="260" y2="382" stroke="#9aa4ac" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="268" y="166" font-size="22" fill="#63707c">E<tspan baseline-shift="sub" font-size="17">F</tspan></text>
+<polyline points="90.000,359.757 92.563,359.807 99.397,359.894 106.231,359.857 113.065,359.640 119.899,359.201 126.734,358.719 133.568,358.431 140.402,358.283 147.236,358.158 154.070,358.009 160.905,357.821 167.739,357.594 174.573,357.331 181.407,357.032 188.241,356.695 195.075,356.306 201.910,355.840 208.744,355.298 215.578,354.692 222.412,353.999 229.246,353.187 236.080,352.227 242.915,351.059 249.749,349.600 256.583,347.745 263.417,345.384 270.251,342.438 277.085,338.836 283.920,334.432 290.754,329.000 297.588,322.512 304.422,315.342 311.256,307.979 318.090,301.107 324.925,295.621 331.759,292.148 338.593,290.212 345.427,288.541 352.261,286.013 359.095,282.151 365.930,276.988 372.764,270.338 379.598,261.067 386.432,248.474 393.266,234.458 400.101,221.164 406.935,207.077 413.769,191.043 420.603,175.082 427.437,162.845 430.000,160.578" fill="none" stroke="#697681" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="260" cy="346.564" r="6.5" fill="#697681" stroke="#ffffff" stroke-width="2.5"/>
+<text x="260" y="447" font-size="23" text-anchor="middle" fill="#697681">Finite at E<tspan baseline-shift="sub" font-size="17">F</tspan>: 0.175</text>
+<rect x="515" y="87" width="420" height="373" rx="12" fill="#ffffff" stroke="#dfe3e6" stroke-width="1.2"/>
+<text x="725" y="118" text-anchor="middle" font-size="25" font-weight="700" fill="#7655a5">0d · Near-edge vacancies</text>
+<line x1="555" y1="382.000" x2="895" y2="382.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="545" y="389.000" font-size="22" text-anchor="end" fill="#5b6773">0.0</text>
+<line x1="555" y1="341.500" x2="895" y2="341.500" stroke="#e3e7ea" stroke-width="1"/>
+<text x="545" y="348.500" font-size="22" text-anchor="end" fill="#5b6773">0.2</text>
+<line x1="555" y1="301.000" x2="895" y2="301.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="545" y="308.000" font-size="22" text-anchor="end" fill="#5b6773">0.4</text>
+<line x1="555" y1="260.500" x2="895" y2="260.500" stroke="#e3e7ea" stroke-width="1"/>
+<text x="545" y="267.500" font-size="22" text-anchor="end" fill="#5b6773">0.6</text>
+<line x1="555" y1="220.000" x2="895" y2="220.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="545" y="227.000" font-size="22" text-anchor="end" fill="#5b6773">0.8</text>
+<line x1="555" y1="179.500" x2="895" y2="179.500" stroke="#e3e7ea" stroke-width="1"/>
+<text x="545" y="186.500" font-size="22" text-anchor="end" fill="#5b6773">1.0</text>
+<line x1="555" y1="139.000" x2="895" y2="139.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="545" y="146.000" font-size="22" text-anchor="end" fill="#5b6773">1.2</text>
+<line x1="555.000" y1="382" x2="555.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="555.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">−0.5</text>
+<line x1="640.000" y1="382" x2="640.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="640.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">−0.25</text>
+<line x1="725.000" y1="382" x2="725.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="725.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">0</text>
+<line x1="810.000" y1="382" x2="810.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="810.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">0.25</text>
+<line x1="895.000" y1="382" x2="895.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="895.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">0.5</text>
+<path d="M 555 139 V 382 H 895" fill="none" stroke="#63707c" stroke-width="1.5"/>
+<line x1="725" y1="139" x2="725" y2="382" stroke="#9aa4ac" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="733" y="166" font-size="22" fill="#63707c">E<tspan baseline-shift="sub" font-size="17">F</tspan></text>
+<polyline points="555.000,359.597 557.563,359.706 564.397,359.953 571.231,360.088 578.065,360.059 584.899,359.794 591.734,359.407 598.568,359.147 605.402,359.029 612.236,358.954 619.070,358.866 625.905,358.743 632.739,358.580 639.573,358.378 646.407,358.137 653.241,357.851 660.075,357.504 666.910,357.068 673.744,356.527 680.578,355.877 687.412,355.082 694.246,354.098 701.080,352.884 707.915,351.304 714.749,349.114 721.583,346.065 728.417,342.207 735.251,338.369 742.085,334.989 748.920,331.309 755.754,327.283 762.588,323.476 769.422,319.919 776.256,316.136 783.090,311.998 789.925,308.225 796.759,305.542 803.593,303.981 810.427,303.220 817.261,302.571 824.095,301.419 830.930,299.722 837.764,297.594 844.598,294.753 851.432,290.545 858.266,284.377 865.101,276.292 871.935,266.632 878.769,255.462 885.603,243.327 892.437,231.134 895.000,226.761" fill="none" stroke="#7655a5" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="725" cy="344.136" r="6.5" fill="#7655a5" stroke="#ffffff" stroke-width="2.5"/>
+<text x="725" y="447" font-size="23" text-anchor="middle" fill="#7655a5">Finite at E<tspan baseline-shift="sub" font-size="17">F</tspan>: 0.187</text>
+<rect x="980" y="87" width="420" height="373" rx="12" fill="#ffffff" stroke="#dfe3e6" stroke-width="1.2"/>
+<text x="1190" y="118" text-anchor="middle" font-size="25" font-weight="700" fill="#2b8067">10d · Farther vacancies</text>
+<line x1="1020" y1="382.000" x2="1360" y2="382.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="1010" y="389.000" font-size="22" text-anchor="end" fill="#5b6773">0.0</text>
+<line x1="1020" y1="341.500" x2="1360" y2="341.500" stroke="#e3e7ea" stroke-width="1"/>
+<text x="1010" y="348.500" font-size="22" text-anchor="end" fill="#5b6773">0.2</text>
+<line x1="1020" y1="301.000" x2="1360" y2="301.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="1010" y="308.000" font-size="22" text-anchor="end" fill="#5b6773">0.4</text>
+<line x1="1020" y1="260.500" x2="1360" y2="260.500" stroke="#e3e7ea" stroke-width="1"/>
+<text x="1010" y="267.500" font-size="22" text-anchor="end" fill="#5b6773">0.6</text>
+<line x1="1020" y1="220.000" x2="1360" y2="220.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="1010" y="227.000" font-size="22" text-anchor="end" fill="#5b6773">0.8</text>
+<line x1="1020" y1="179.500" x2="1360" y2="179.500" stroke="#e3e7ea" stroke-width="1"/>
+<text x="1010" y="186.500" font-size="22" text-anchor="end" fill="#5b6773">1.0</text>
+<line x1="1020" y1="139.000" x2="1360" y2="139.000" stroke="#e3e7ea" stroke-width="1"/>
+<text x="1010" y="146.000" font-size="22" text-anchor="end" fill="#5b6773">1.2</text>
+<line x1="1020.000" y1="382" x2="1020.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="1020.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">−0.5</text>
+<line x1="1105.000" y1="382" x2="1105.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="1105.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">−0.25</text>
+<line x1="1190.000" y1="382" x2="1190.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="1190.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">0</text>
+<line x1="1275.000" y1="382" x2="1275.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="1275.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">0.25</text>
+<line x1="1360.000" y1="382" x2="1360.000" y2="389" stroke="#63707c" stroke-width="1.5"/>
+<text x="1360.000" y="414" font-size="22" text-anchor="middle" fill="#5b6773">0.5</text>
+<path d="M 1020 139 V 382 H 1360" fill="none" stroke="#63707c" stroke-width="1.5"/>
+<line x1="1190" y1="139" x2="1190" y2="382" stroke="#9aa4ac" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="1198" y="166" font-size="22" fill="#63707c">E<tspan baseline-shift="sub" font-size="17">F</tspan></text>
+<polyline points="1020.000,359.822 1022.563,359.877 1029.397,359.979 1036.231,359.960 1043.065,359.763 1049.899,359.344 1056.734,358.872 1063.568,358.586 1070.402,358.441 1077.236,358.323 1084.070,358.182 1090.905,358.005 1097.739,357.790 1104.573,357.540 1111.407,357.256 1118.241,356.935 1125.075,356.565 1131.910,356.121 1138.744,355.603 1145.578,355.024 1152.412,354.362 1159.246,353.585 1166.080,352.666 1172.915,351.550 1179.749,350.156 1186.583,348.384 1193.417,346.128 1200.251,343.315 1207.085,339.877 1213.920,335.678 1220.754,330.501 1227.588,324.316 1234.422,317.466 1241.256,310.388 1248.090,303.694 1254.925,298.209 1261.759,294.611 1268.593,292.640 1275.427,291.179 1282.261,289.126 1289.095,286.005 1295.930,281.895 1302.764,276.775 1309.598,269.719 1316.432,259.511 1323.266,246.190 1330.101,231.281 1336.935,214.984 1343.769,196.591 1350.603,177.751 1357.437,162.255 1360.000,158.843" fill="none" stroke="#2b8067" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="1190" cy="347.256" r="6.5" fill="#2b8067" stroke="#ffffff" stroke-width="2.5"/>
+<text x="1190" y="447" font-size="23" text-anchor="middle" fill="#2b8067">Finite at E<tspan baseline-shift="sub" font-size="17">F</tspan>: 0.172</text>
+<text x="20" y="266" font-size="22" text-anchor="middle" transform="rotate(-90 20 266)">Mo PDOS (states eV⁻¹ Mo⁻¹)</text>
+<text x="720" y="497" font-size="26" text-anchor="middle">E − E<tspan baseline-shift="sub" font-size="20">F</tspan> (eV)</text>
+<text x="720" y="532" font-size="22" fill="#5b6773" text-anchor="middle">Left Au contact · mean PDOS of five covered Mo atoms</text>
+</g></svg>
