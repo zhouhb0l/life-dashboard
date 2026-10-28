@@ -153,11 +153,13 @@ Lateral barrier: Φlat=ECchannel(0+)−ECcovered(0−), a contact-edge conductio
 
 The horizontal whisker is LDOS extraction sensitivity, not a statistical confidence interval. Numeric source: `P7. NonlocalSBH/Figures/dft_sbh_prediction/scripts/SBHcurve_errorBar.py`, lines25–49. The exact script is preserved as `source/top-contact/SBHcurve_errorBar.original.py`, with SHA-256 in `lateral-sbh.json`. The pristine marker does not claim zero uncertainty. Farther-defect data remain in the source JSON but are not shown.
 
-### Spatial PDOS contours
+### Existing published PDOS contours
 
-`figures/top-contact-pdos-contours.svg` shows P andF0 using matching atom-projected DOS and geometry, common energy/color scales, and the archived coordinate rotation. Mo+S PDOS is summed within native Mo-centered strips and normalized by Mo count. Defect strips retain their missing-S projection rather than being rescaled to an ideal formula unit. Full source hashes, strip membership, native arrays, units, processing and display limits are recorded in `source/top-contact/spatial-pdos.json`. No manually cleared gap, fitted band-edge guide or invented spectral interpolation is introduced.
+At the user's request, the reconstructed spatial maps have been replaced by the existing published Figure3(g), pristine, and Figure3(h), near-edge-defect Au–MoS₂ contours. Source: `P7. NonlocalSBH/paper_workspace/response_V4/submission package/Figure3.png` (2782×1536), copied byte-exact to `source/top-contact/Figure3.published.original.png`. SHA-256: `c4fa87e1872122e30e1f1129fec9b94d10262c5531632d2307a16bb2d16935b0`.
 
-The separate covered-Mo line-spectra data remain in `vertical-pdos.json`; they support the unresolved vertical assignment. Native Hartree energies are multiplied by27.211383411 for eV, and inverse-energy DOS values are divided by the same factor. Native grid:200points over±2eV, spacing≈20.1meV, sourceEF=0.
+`figures/top-contact-pdos-published.svg` uses clipped viewports of the original source pixels. It preserves the original spectral image, black band-edge guides, energy/position tick labels, LDOS colors and rounded0.15/0.68eV annotations. The common original colorbar is retained. Panels are neither recomputed nor renormalized. Source coordinates, viewport rectangles and interpretation are in `source/top-contact/published-contours.json`. Only surrounding presentation titles and shared axis titles are added.
+
+The0.68eV published label rounds the archived0.675eV midpoint; the barrier-summary whisker remains0.650–0.700eV. Original LDOS display levels are retained without assigning the regenerated maps' states/eV/Mo normalization. Original guide curves are not a new vertical-barrier extraction; vertical SBH remains unresolved as selected by the user. The earlier reconstructed `spatial-pdos.json` and maps are archived but no longer displayed. The raw covered-Mo line spectra in `vertical-pdos.json` remain available as provenance for the unresolved vertical assignment.
 
 ### Source limits and reference
 

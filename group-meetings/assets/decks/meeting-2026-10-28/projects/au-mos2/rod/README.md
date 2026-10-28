@@ -31,6 +31,8 @@ remain alongside the separately named presentation figures. See
 
 ## One appended top-contact slide
 
-Slide4 combines the actual near-edge-vacancy top-contact setup in slide1's side-view style; vertical SBH marked unresolved; pristine lateral SBH0.150eV and near-edge-defect lateral SBH0.675±0.025eV; and pristine/defect spatial PDOS contours with common scales. The whisker is archived LDOS extraction sensitivity; pristine uncertainty remains unresolved.
+Slide4 combines the actual near-edge-vacancy top-contact setup in slide1's side-view style; vertical SBH marked unresolved; pristine lateral SBH0.150eV and near-edge-defect lateral SBH0.675±0.025eV; and the existing published pristine/defect PDOS contours from Figure3(g,h), retaining original band-edge guides and LDOS colors. The whisker is archived LDOS extraction sensitivity; pristine uncertainty remains unresolved.
 
 The earlier three top-contact screens have been replaced by this one summary. Their source data and separate derivative figures remain available but are not displayed. The first three rod-contact slides remain unchanged. The rod EC−EF proxy and top-contact channel-to-covered band-edge step are distinct quantities. Sources and processing are in source/top-contact/.
+
+The displayed contours are imported image viewports, not regenerated maps. The byte-exact source Figure3 and crop/hash manifest are preserved as source/top-contact/Figure3.published.original.png and published-contours.json.

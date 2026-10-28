@@ -1,0 +1,39 @@
+{
+  "created": "2026-10-28",
+  "request": "Reuse existing contour plots, not newly reconstructed maps",
+  "source": "C:/Users/zhbho/OneDrive/Desktop/workspace/P7. NonlocalSBH/paper_workspace/response_V4/submission package/Figure3.png",
+  "local_copy": "Figure3.published.original.png",
+  "sha256": "c4fa87e1872122e30e1f1129fec9b94d10262c5531632d2307a16bb2d16935b0",
+  "bytes": 1109674,
+  "image_dimensions": [
+    2782,
+    1536
+  ],
+  "panels": {
+    "pristine": "Figure3(g)",
+    "near_edge_defect": "Figure3(h)"
+  },
+  "crop_viewports_pixels": {
+    "pristine": {
+      "x": 1105,
+      "y": 1045,
+      "width": 590,
+      "height": 375
+    },
+    "near_edge": {
+      "x": 1695,
+      "y": 1045,
+      "width": 470,
+      "height": 375
+    },
+    "colorbar": {
+      "x": 2670,
+      "y": 720,
+      "width": 112,
+      "height": 655
+    }
+  },
+  "operation": "SVG viewports of unchanged source image pixels. Original band-edge curves, rounded barrier labels, LDOS colors and native tick labels retained; no spectral recalculation or pixel modification. Viewports explicitly clip adjacent panels and preserve source aspect ratios.",
+  "interpretation": "Original LDOS display scale is retained. Do not assign regenerated-map per-Mo eV normalization to this published display. Panel0.68eV rounds archived0.675eV midpoint; summary whisker remains0.650–0.700eV. Vertical barrier stays unresolved; original guides do not provide a new vertical extraction.",
+  "reference": "Zhou and Zhang, Nano Letters26,13130–13135(2026), doi:10.1021/acs.nanolett.6c03959"
+}
