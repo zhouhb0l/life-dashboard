@@ -1,0 +1,283 @@
+{
+  "analyzed_at_utc": "2026-10-24T03:32:18.884172+00:00",
+  "quantity": "Apparent PBE exposed-MoS2 spectral-edge barriers relative to the combined-system EF",
+  "baseline_settings": {
+    "region": "far_core",
+    "threshold_states_per_eV_per_fu": 0.01,
+    "gaussian_sigma_eV": 0.0,
+    "persistence_eV": 0.03
+  },
+  "baseline": {
+    "F": {
+      "Ev_eV": -1.2759735743910428,
+      "Ec_eV": 0.1895485214738834,
+      "resolved": true,
+      "reason": "sustained_spectral_onsets",
+      "phi_n_eV": 0.1895485214738834,
+      "phi_p_eV": 1.2759735743910428,
+      "gap_eV": 1.4655220958649262
+    },
+    "R": {
+      "Ev_eV": -1.3408373564308216,
+      "Ec_eV": 0.1450891876549322,
+      "resolved": true,
+      "reason": "sustained_spectral_onsets",
+      "phi_n_eV": 0.1450891876549322,
+      "phi_p_eV": 1.3408373564308216,
+      "gap_eV": 1.4859265440857539
+    }
+  },
+  "definitions": {
+    "phi_n": "Ec - EF",
+    "phi_p": "EF - Ev",
+    "EF_eV": 0,
+    "density": "Mo+S atomic PDOS sum divided by number of MoS2 formula units"
+  },
+  "energy_grid": {
+    "min_eV": -3,
+    "max_eV": 3,
+    "step_eV": 0.005,
+    "points": 1201
+  },
+  "groups": {
+    "contact_center": [
+      7,
+      8
+    ],
+    "wire_edges": [
+      6,
+      9
+    ],
+    "near_exposed": [
+      5,
+      10
+    ],
+    "intermediate_1": [
+      4,
+      11
+    ],
+    "intermediate_2": [
+      3,
+      12
+    ],
+    "far_outer": [
+      2,
+      13
+    ],
+    "far_middle": [
+      1,
+      14
+    ],
+    "far_core": [
+      0,
+      15
+    ],
+    "far_four": [
+      0,
+      1,
+      14,
+      15
+    ]
+  },
+  "validation_checks": {
+    "analytic_linear_onsets": true,
+    "isolated_gap_spike_rejected": true,
+    "metallic_and_missing_onsets_flagged": true
+  },
+  "cases": {
+    "F": {
+      "primary_sensitivity": {
+        "settings": 81,
+        "resolved_settings": 81,
+        "interpretation": "Method-sensitivity envelope, not statistical confidence interval.",
+        "phi_n_eV": {
+          "min": 0.1723707928496094,
+          "max": 0.20635080480544277,
+          "median": 0.18914723314536097
+        },
+        "phi_p_eV": {
+          "min": 1.2456366876168166,
+          "max": 1.2841976172757534,
+          "median": 1.260981207489357
+        },
+        "gap_eV": {
+          "min": 1.418007480466426,
+          "max": 1.4905484220811962,
+          "median": 1.449373308278536
+        }
+      },
+      "stress_sensitivity": {
+        "settings": 180,
+        "resolved_settings": 180,
+        "interpretation": "Method-sensitivity envelope, not statistical confidence interval.",
+        "phi_n_eV": {
+          "min": 0.11472034867765021,
+          "max": 0.21648536636159169,
+          "median": 0.17814907180663814
+        },
+        "phi_p_eV": {
+          "min": 1.1810599659452632,
+          "max": 1.2908521738879608,
+          "median": 1.25209730470175
+        },
+        "gap_eV": {
+          "min": 1.2967106644038864,
+          "max": 1.5073375402495526,
+          "median": 1.430050182163526
+        }
+      },
+      "far_six_strips_baseline_phi_n_spread_eV": 0.0006044189002296918,
+      "far_six_strips_baseline_phi_p_spread_eV": 0.018405405078815162,
+      "far_core_clearance_A": [
+        14.879628357519707,
+        15.542266187132913
+      ],
+      "contact_center_PDOS_at_EF": 0.1920171764498677,
+      "far_core_PDOS_at_EF": 5.069017913980565e-05,
+      "contact_to_far_core_EF_PDOS_ratio": 3788.0548009166873
+    },
+    "R": {
+      "primary_sensitivity": {
+        "settings": 81,
+        "resolved_settings": 81,
+        "interpretation": "Method-sensitivity envelope, not statistical confidence interval.",
+        "phi_n_eV": {
+          "min": 0.12019743420821576,
+          "max": 0.14538196004822956,
+          "median": 0.13328877711653056
+        },
+        "phi_p_eV": {
+          "min": 1.322096147183638,
+          "max": 1.3432053329317932,
+          "median": 1.3362548010753825
+        },
+        "gap_eV": {
+          "min": 1.4422935813918538,
+          "max": 1.4885825030964155,
+          "median": 1.4726242451745573
+        }
+      },
+      "stress_sensitivity": {
+        "settings": 180,
+        "resolved_settings": 180,
+        "interpretation": "Method-sensitivity envelope, not statistical confidence interval.",
+        "phi_n_eV": {
+          "min": 0.0609681263696586,
+          "max": 0.14640666342477043,
+          "median": 0.1200665816526546
+        },
+        "phi_p_eV": {
+          "min": 1.2603054581029358,
+          "max": 1.3471347066085155,
+          "median": 1.319812483548251
+        },
+        "gap_eV": {
+          "min": 1.3212735844725945,
+          "max": 1.493533866218063,
+          "median": 1.4405071441318824
+        }
+      },
+      "far_six_strips_baseline_phi_n_spread_eV": 2.748094874960305e-05,
+      "far_six_strips_baseline_phi_p_spread_eV": 0.0008481655016605583,
+      "far_core_clearance_A": [
+        15.980517888916113,
+        16.48118176083956
+      ],
+      "contact_center_PDOS_at_EF": 0.3562968853659359,
+      "far_core_PDOS_at_EF": 2.744749725249714e-05,
+      "contact_to_far_core_EF_PDOS_ratio": 12981.033647194206
+    }
+  },
+  "references": [
+    {
+      "topic": "Bulk DOS energies measured from the system Fermi energy",
+      "url": "https://docs.nanoacademic.com/nanodcal/input_reference/calculator_parameters/densityOfStates_input/"
+    },
+    {
+      "topic": "Vertical and lateral barriers are distinct; transport and band alignment can differ",
+      "doi": "10.1038/srep21786",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4772071/"
+    },
+    {
+      "topic": "Band character and many-body corrections matter for MoS2/Au alignment",
+      "doi": "10.1038/s41699-022-00349-x",
+      "url": "https://www.nature.com/articles/s41699-022-00349-x"
+    }
+  ],
+  "element_diagnostics": {
+    "Mo": {
+      "baseline_per_atom_threshold_0.01": {
+        "F": {
+          "Ev_eV": -1.2788736032257821,
+          "Ec_eV": 0.1910712598249224,
+          "resolved": true,
+          "reason": "sustained_spectral_onsets",
+          "phi_n_eV": 0.1910712598249224,
+          "phi_p_eV": 1.2788736032257821,
+          "gap_eV": 1.4699448630507046
+        },
+        "R": {
+          "Ev_eV": -1.3414756810188537,
+          "Ec_eV": 0.145115804130421,
+          "resolved": true,
+          "reason": "sustained_spectral_onsets",
+          "phi_n_eV": 0.145115804130421,
+          "phi_p_eV": 1.3414756810188537,
+          "gap_eV": 1.4865914851492747
+        }
+      },
+      "matched_primary_settings": 81,
+      "R_electron_offset_lower_count": 81,
+      "R_hole_offset_higher_count": 81
+    },
+    "S": {
+      "baseline_per_atom_threshold_0.01": {
+        "F": {
+          "Ev_eV": -1.2870461086274438,
+          "Ec_eV": 0.21715237150603517,
+          "resolved": true,
+          "reason": "sustained_spectral_onsets",
+          "phi_n_eV": 0.21715237150603517,
+          "phi_p_eV": 1.2870461086274438,
+          "gap_eV": 1.504198480133479
+        },
+        "R": {
+          "Ev_eV": -1.345364807409896,
+          "Ec_eV": 0.14683848947908176,
+          "resolved": true,
+          "reason": "sustained_spectral_onsets",
+          "phi_n_eV": 0.14683848947908176,
+          "phi_p_eV": 1.345364807409896,
+          "gap_eV": 1.4922032968889778
+        }
+      },
+      "matched_primary_settings": 81,
+      "R_electron_offset_lower_count": 72,
+      "R_hole_offset_higher_count": 81
+    },
+    "interpretation": "Mo corroborates the main Mo+S result. S conduction weight is weaker; a high per-S cutoff may skip the first conduction feature. Per-atom absolute cutoffs are diagnostics, not equivalent band-character projections."
+  },
+  "limitations": [
+    "Atom-PDOS threshold onsets are spectral proxies; isolated-layer band projections and transmission are not available.",
+    "Finite periodic wire arrays: farthest Mo columns are only about 15.5 A (F) and 16.5 A (R) from Au projection.",
+    "Far-band-edge plateau is tested within this cell; lateral-size and k-mesh convergence are not established.",
+    "PBE-DZP, NoSpin without explicit SOC; fixed supplied geometries. These are not quasiparticle or measured barriers.",
+    "F/R differ in Au count, wire width and contact area; their difference is not an isolated shape effect.",
+    "Metal-contacted MoS2 has appreciable in-gap DOS; no unique vertical band-edge barrier is assigned there.",
+    "Gaussian smoothing is a postprocessing sensitivity test, not an assumed physical lifetime or temperature broadening."
+  ],
+  "primary_matched_electron_barrier_difference": {
+    "R_minus_F_baseline_eV": -0.0444593338189512,
+    "min_eV": -0.06618539459718584,
+    "max_eV": -0.044302680828910646,
+    "settings": 81,
+    "R_lower_count": 81
+  },
+  "stress_matched_electron_barrier_difference": {
+    "R_minus_F_baseline_eV": -0.0444593338189512,
+    "min_eV": -0.07008620675204413,
+    "max_eV": -0.015909728962508793,
+    "settings": 180,
+    "R_lower_count": 180
+  }
+}

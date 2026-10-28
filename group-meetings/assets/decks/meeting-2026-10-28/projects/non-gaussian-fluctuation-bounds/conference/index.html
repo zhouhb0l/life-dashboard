@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Conference presentation on exact current-noise-conditioned bounds for non-Gaussian fluctuations in coherent transport.">
+  <title>Universal Bounds on Non-Gaussian Fluctuations</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../../../../vendor/reveal-6.0.1/dist/reset.css">
+  <link rel="stylesheet" href="../../../../../vendor/reveal-6.0.1/dist/reveal.css">
+  <link rel="stylesheet" href="../../../../../vendor/katex-0.18.4/katex.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="title-slide" data-section="Title">
+        <div class="slide-shell ng-title-layout">
+          <div class="ng-title-copy">
+            <p class="kicker">P08LMT · manuscript V5</p>
+            <h1>Universal bounds on non-Gaussian fluctuations</h1>
+            <p class="title-thesis">At known affinity, current and noise determine the complete Landauer interval of the third cumulant.</p>
+            <div class="title-tags" aria-label="Main contributions">
+              <span>Exact interval</span>
+              <span>Constructive converse</span>
+              <span>Interacting DQD exit</span>
+            </div>
+            <div class="ng-author"><strong>Hangbo Zhou · Yong-Wei Zhang</strong><span>IHPC, A*STAR, Singapore · 20 August 2026</span></div>
+          </div>
+          <div class="ng-title-visual" aria-label="Two count distributions with the same mean and variance but different third cumulants">
+            <div class="ng-distribution">
+              <svg viewBox="0 0 520 300" role="img" aria-label="Two probability distributions with matching mean and variance but different asymmetric tails">
+                <path d="M34 254 C88 251 111 88 253 79 C380 88 411 248 485 254" class="ng-curve blue-curve"></path>
+                <path d="M34 254 C93 251 119 102 237 82 C337 66 371 190 410 225 C436 248 463 253 485 254" class="ng-curve orange-curve"></path>
+                <path d="M242 255 C318 239 364 189 410 225 C438 248 463 253 485 254 Z" class="ng-tail"></path>
+                <line x1="255" y1="53" x2="255" y2="260" class="ng-mean"></line>
+              </svg>
+              <div class="ng-same"><span>same</span><b>C₁, C₂</b></div>
+              <div class="ng-different"><span>different</span><b>C₃</b></div>
+            </div>
+            <div class="ng-corridor">
+              <small>Landauer corridor</small>
+              <div><span>S<sub>+</sub></span><i></i></div>
+              <div class="inside"><b>compatible</b></div>
+              <div><span>S<sub>−</sub></span><i></i></div>
+              <em>interacting DQD</em>
+            </div>
+          </div>
+          <footer class="slide-footer"><span>Universal Bounds on Non-Gaussian Fluctuations in Coherent Transport</span><span>Speaker notes · press S</span></footer>
+        </div>
+        <aside class="notes">
+          <p>Good morning. I want to start from an inverse question. Suppose we measure the stationary current, its zero-frequency noise, and the third cumulant. Can those three numbers be reproduced by any two-terminal elastic Landauer transmission, or do they force us beyond that entire model class?</p>
+          <p>The key point is that I will not choose a transmission profile and fit it. At known affinity, the first two cumulants determine an exact interval in which the third cumulant must lie for every passive, elastic, noninteracting transmission, with arbitrary energy dependence and any finite number of channels. The condition is also sufficient: every point inside the interval has an elastic realization or is approached by a regular elastic limit.</p>
+          <p>I will first state and derive that interval. I will then follow the manuscript's Figure 2 from panel a to panel e: the interacting double-dot model, the parameter-space exit, the nonweak crossing, the exact elastic adversary, and the many-body correlation that tracks the exit. I will finish with what an experiment would actually need to measure.</p>
+        </aside>
+      </section>
+
+      <section data-section="Problem">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">01 · the information gap</p><h2>Current and noise can hide correlated transfer</h2><p class="dek">The Gaussian sector fixes the center and width of the counting record, but not its directional tail imbalance.</p></header>
+          <div class="ms-problem-layout">
+            <figure class="ng-paper-panel ng-motivation-schematic ms-problem-visual">
+              <div class="ng-distribution">
+                <svg viewBox="0 0 520 300" role="img" aria-label="Two distributions with matching mean and variance but different third cumulants">
+                  <path d="M34 254 C88 251 111 88 253 79 C380 88 411 248 485 254" class="ng-curve blue-curve"></path>
+                  <path d="M34 254 C93 251 119 102 237 82 C337 66 371 190 410 225 C436 248 463 253 485 254" class="ng-curve orange-curve"></path>
+                  <path d="M242 255 C318 239 364 189 410 225 C438 248 463 253 485 254 Z" class="ng-tail"></path>
+                  <line x1="255" y1="53" x2="255" y2="260" class="ng-mean"></line>
+                </svg>
+                <div class="ng-same"><span>same</span><b>C₁, C₂</b></div>
+                <div class="ng-different"><span>different</span><b>C₃</b></div>
+              </div>
+              <figcaption>Schematic from the manuscript introduction.</figcaption>
+            </figure>
+            <div class="ms-problem-copy">
+              <article><small>known tests</small><h3>Separate constraints are too broad</h3><p>The Gaussian window constrains \(F=C_2/C_1\); the marginal fermionic bound constrains \(S=C_3/C_1\). Neither asks whether the measured \(F\) and \(S\) belong to one common transmission.</p></article>
+              <article class="accent"><small>missing question</small><h3>Condition C₃ on the measured noise</h3><p>At fixed affinity and current, does any elastic transmission reproduce both \(C_2\) and \(C_3\)?</p></article>
+              <div class="ms-thesis"><span>Goal</span><strong>An exact existence test for the whole Landauer class</strong></div>
+            </div>
+          </div>
+          <footer class="slide-footer"><span>V5 introduction</span><span>Nonzero C₃ alone is not a witness</span></footer>
+        </div>
+        <aside class="notes">
+          <p>The motivation is not simply that the third cumulant is non-Gaussian. Elastic coherent scattering already produces a nonzero third cumulant, so nonzero skewness by itself does not identify interactions or inelasticity.</p>
+          <p>What the mean and noise miss is visible in this schematic. Two counting distributions can have the same center and the same Gaussian width while redistributing a small amount of probability between the two tails. The third cumulant is odd in those deviations, so it detects that directional imbalance.</p>
+          <p>There are already two relevant classes of bounds. The current-noise relation constrains the Fano factor, and the known marginal fermionic result constrains normalized skewness. But they are separate tests. They do not require the measured noise and skewness to arise from the same transmission.</p>
+          <p>So the manuscript asks a sharper question: once the affinity, current, and noise are fixed, what is the complete allowed interval of the third cumulant? That conditional interval is the object on the next slide.</p>
+        </aside>
+      </section>
+
+      <section data-section="Theorem">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">02 · exact Landauer closure</p><h2>Current and noise fix the full C₃ corridor</h2><p class="dek">Define \(A=\beta(\mu_L-\mu_R)>0\), \(F=C_2/C_1\), \(S=C_3/C_1\), \(\kappa=\coth(A/2)\), and \(a=\tanh(A/4)\).</p></header>
+          <div class="ng-theorem-v5-layout math-block">
+            <div class="ng-theorem-equations">
+              <article class="ng-bound-card gaussian"><small>Gaussian prerequisite</small><div>\[\kappa-a\le F\le\kappa\]</div><p>The measured current-noise pair must first be Landauer-compatible.</p></article>
+              <article class="ng-bound-card principal"><small>necessary and sufficient C₃ interval</small><div>\[2F^2-\kappa F+1-\kappa^2\le S\le1-(3\kappa-2a)(\kappa-F)\]</div><p>The strict interior and nondegenerate lower face are realizable; the upper face and formal endpoints are regular closure limits.</p></article>
+              <article class="ng-bound-card limit"><small>high-affinity limit</small><div>\[0\le F\le1,\quad F(2F-1)\le S\le F\]</div><p>The conditional interval becomes a simple wedge.</p></article>
+            </div>
+            <figure class="ng-paper-panel ng-v5-corridor">
+              <img src="assets/v5-fig1-universal-bounds.png" alt="Revised manuscript Figure 1: exact Landauer fluctuation corridor at affinity A equals 2 and transport-strength distributions realizing its bounds">
+              <figcaption>Revised Fig. 1 · (a) the exact conditional corridor; (b) transport-strength profiles for the upper limit, interior, and lower face.</figcaption>
+            </figure>
+          </div>
+          <div class="ng-iff-strip"><strong>Exact inverse test</strong><span>inside the closed corridor ⇔ an elastic realization or regular limiting realization exists</span></div>
+          <footer class="slide-footer"><span>V5 Eqs. (1)–(3) and Fig. 1</span><span>Arbitrary transmission shape and channel count</span></footer>
+        </div>
+        <aside class="notes">
+          <p>Here is the central result. We work with stationary particle counting between exactly two equal-temperature fermionic reservoirs. The affinity \(A\) is known and nonzero, and the current direction is chosen so that \(C_1\) is positive.</p>
+          <p>The first inequality is the exact Gaussian prerequisite. Once the measured \(F\) is inside that window, the second inequality gives the complete allowed interval for \(S\). This is not just a necessary witness. It is necessary and sufficient for the first three cumulants to admit an elastic two-terminal Landauer representation.</p>
+          <p><strong>Read panel a:</strong> “The dashed and dash-dotted vertical lines delimit the Gaussian-noise window, and the dotted horizontal lines show the older marginal-skewness window. The orange curves are the new conditional bounds. Once the measured \(F\) is fixed, the allowed \(S\) values are only those between the two orange curves.”</p>
+          <p><strong>Read panel b:</strong> “These three current-weighted transport-strength profiles explain the two faces. Concentrating all weight at one strength gives the nondegenerate lower face. Spreading weight between very weak and Pauli-saturated processes approaches the upper face. A broader interior profile produces a point strictly between them.”</p>
+          <p>The nondegenerate lower face is attainable for \(\kappa-a&lt;F&lt;\kappa\). The upper face and formal endpoints are approached by regular limits. That construction is written as a bounded moment problem on the next slide.</p>
+        </aside>
+      </section>
+
+      <section data-section="Proof">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">03 · why the bound is complete</p><h2>The transport problem is a bounded moment problem</h2><p class="dek">Noise fixes one current-weighted moment; the third cumulant fixes the next.</p></header>
+          <div class="ms-proof-layout math-block">
+            <div class="ms-proof-chain">
+              <article><small>directed transfer strength</small><div>\[x_n(E)=\mathcal T_n(E)\,[f_L(E)-f_R(E)]\in[0,a]\]</div><p>Every energy-channel process has bounded support.</p></article>
+              <i>→</i>
+              <article><small>current-weighted measure</small><div>\[d\rho_n(E)=\frac{x_n(E)}{C_1}\frac{dE}{2\pi}\]</div><p>The total current normalizes a probability measure.</p></article>
+              <i>→</i>
+              <article><small>measured moments</small><div>\[m=\kappa-F,\qquad r=\frac{S-1+3\kappa m}{2}\]</div><p>\(F\) fixes \(m\); \(S\) fixes \(r\).</p></article>
+            </div>
+            <figure class="ng-support-construction ms-support-construction">
+              <figcaption>Construct the support on \([0,a]\)</figcaption>
+              <div class="ng-support-example one"><small>lower face</small><div><span>0</span><i><b></b></i><span>a</span></div><p>one strength at \(x=m\)</p></div>
+              <div class="ng-support-example two"><small>interior</small><div><span>0</span><i><b></b><b></b></i><span>a</span></div><p>two positive support points</p></div>
+              <div class="ng-support-example edge"><small>upper face</small><div><span>0</span><i><b></b><b></b></i><span>a</span></div><p>limit toward \(0\) and \(a\)</p></div>
+            </figure>
+          </div>
+          <div class="ng-hausdorff"><small>Hausdorff body on [0,a]</small><div>\[0\le m\le a,\qquad m^2\le r\le am\]</div><p>Nonnegative variance gives the lower face; bounded support gives the upper face. Substitution yields the theorem.</p></div>
+          <footer class="slide-footer"><span>V5 Eqs. (4)–(9)</span><span>Necessity, tightness, and constructive sufficiency</span></footer>
+        </div>
+        <aside class="notes">
+          <p>The derivation is short because the Landauer problem can be recast as a truncated Hausdorff moment problem.</p>
+          <p>For each energy and channel, define the directed transfer strength \(x\) as the transmission multiplied by the reservoir occupation imbalance. Fermi statistics and passive transmission constrain \(x\) to the compact interval from zero to \(a\). Weighting these processes by their contribution to the current defines the probability measure shown in the middle.</p>
+          <p>The measured noise fixes the first moment, \(m=\kappa-F\). The third cumulant fixes the second moment, \(r\). A positive measure on a bounded interval must satisfy two elementary conditions: its variance is nonnegative, so \(r\ge m^2\), and bounded support gives \(r\le am\). Substituting the measured moments gives exactly the two faces of the corridor.</p>
+          <p>The converse is also physical. One transfer strength realizes the nondegenerate lower face for \(0&lt;m&lt;a\). Two strengths fill every strict interior point. The upper face and formal endpoints are approached by regular limits that mix very weak processes with Pauli-saturated ones. This is why passing the test means compatibility through \(C_3\); it does not prove that the real device is elastic. Now we test the bound on an interacting system.</p>
+        </aside>
+      </section>
+
+      <section data-section="DQD model">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">04 · manuscript Fig. 2a</p><h2>Coulomb occupation conditions the next transfer</h2><p class="dek">A spinless serial double dot is exactly Landauer at \(U=0\), but state-conditioned for \(U\neq0\).</p></header>
+          <div class="ng-dqd-layout">
+            <figure class="ng-paper-panel ng-fig2-a">
+              <img src="assets/v5-fig2a-dqd.png" alt="Manuscript Figure 2a: interacting serial double dot and counted transfer">
+              <figcaption>Fig. 2a · particle transfer is counted across the right contact.</figcaption>
+            </figure>
+            <div class="ng-dqd-copy math-block">
+              <div class="ng-hamiltonian">\[H_{\mathrm{DQD}}=\frac{\Delta}{2}(n_L-n_R)+t(d_L^\dagger d_R+d_R^\dagger d_L)+Un_Ln_R\]</div>
+              <div class="ng-parameter-grid">
+                <span><small>temperature</small><b>T = 0.1</b></span><span><small>detuning</small><b>Δ = −0.5</b></span><span><small>hopping</small><b>t = 0.4</b></span>
+                <span><small>bandwidth</small><b>W = 8</b></span><span><small>weak leads</small><b>(.025, .020)T</b></span><span><small>nonweak leads</small><b>(1.0, .8)T</b></span>
+              </div>
+              <article><b>U = 0</b><p>The Hamiltonian is quadratic and has an elastic Landauer representation.</p></article>
+              <article class="accent"><b>U ≠ 0</b><p>One occupation shifts the energy required for the next, correlating successive transfer cycles.</p></article>
+            </div>
+          </div>
+          <footer class="slide-footer"><span>V5 Eq. (11) and Fig. 2a</span><span>Weak- and nonweak-lead evidence</span></footer>
+        </div>
+        <aside class="notes">
+          <p>The manuscript tests the theorem on the minimal interacting conductor shown in Figure 2a: a spinless serial double quantum dot. We count net particle transfer across the right dot-reservoir contact.</p>
+          <p>The Hamiltonian contains detuning, coherent interdot hopping, and the interdot Coulomb repulsion \(U\). At \(U=0\), the model is quadratic. That is an important exact null: its full counting statistics admit an elastic Landauer description.</p>
+          <p>When \(U\) is nonzero, the physical logic changes. If one dot is occupied, the energy required to occupy the other dot is shifted. A tunneling event therefore changes the many-body state and the transition energies encountered by the next event. The transfer attempts are no longer independent trials through one fixed transmission.</p>
+          <p>We examine both weak and nonweak lead hybridization. The next slide shows the weak-coupling counted map, and the decisive nonweak line cut is evaluated with counted HEOM. Figure 2 then develops the evidence in order: parameter map, nonweak crossing, elastic boundary constructions, and microscopic correlation.</p>
+        </aside>
+      </section>
+
+      <section data-section="Weak map">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">05 · manuscript Fig. 2b</p><h2>The conditional C₃ test finds a selective exit</h2><p class="dek">Interaction opens a region where the separate tests pass but the joint Landauer criterion fails.</p></header>
+          <div class="ms-map-layout">
+            <figure class="ng-paper-panel ms-main-figure">
+              <img src="assets/v5-fig2b-map.png" alt="Manuscript Figure 2b: weak-lead parameter map of Landauer-compatible and exit regions">
+              <figcaption>Fig. 2b · weak-lead map in affinity and interaction.</figcaption>
+            </figure>
+            <div class="ms-map-key">
+              <article class="inside"><span></span><h3>Landauer compatible</h3><p>The measured \(C_1\), \(C_2\), and \(C_3\) admit an elastic representation.</p></article>
+              <article class="selective"><span></span><h3>Non-Gaussian exit only</h3><p>The Gaussian test passes; the conditional lower C₃ face fails.</p></article>
+              <article class="gaussian"><span></span><h3>Gaussian exit only</h3><p>The current-noise pair fails while the conditional C₃ test does not.</p></article>
+              <article class="mixed"><span></span><h3>Both tests exit</h3><p>The Gaussian and non-Gaussian compatibility conditions both fail.</p></article>
+            </div>
+          </div>
+          <div class="caveat-strip"><strong>Reading the map:</strong> this is a compatibility classification, not a thermodynamic phase diagram or a unique mechanism label.</div>
+          <footer class="slide-footer"><span>V5 Fig. 2b</span><span>Weak-lead interaction-affinity map</span></footer>
+        </div>
+        <aside class="notes">
+          <p>Panel b asks where the interacting calculation first leaves the Landauer body. The horizontal axis is affinity and the vertical axis is interaction strength.</p>
+          <p>[Point to the lower teal region.] Here, the first three cumulants are compatible with at least one elastic transmission. [Move into the orange region labelled non-Gaussian exit only.] This is the selective result: the Gaussian current-noise condition still passes, but the measured \(C_3\) lies outside the narrower interval fixed by that measured noise.</p>
+          <p>The upper-left region is a Gaussian-only exit, and the upper-middle region fails both conditions. Those are useful controls, but the manuscript's new information is the orange-only sector where the Gaussian test looks acceptable while the joint inverse test rejects every elastic transmission.</p>
+          <p>This is a model-compatibility boundary, not a thermodynamic phase transition and not a unique mechanism label. To see whether the selective exit survives beyond the weak-lead regime, we now take the nonweak line cut in panel c.</p>
+        </aside>
+      </section>
+
+      <section data-section="Crossing">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">06 · manuscript Fig. 2c</p><h2>At nonweak coupling, the joint lower face fails first</h2><p class="dek">For \(A=15\), the sign-stable crossing is bracketed between \(U/T=2.80\) and \(2.85\).</p></header>
+          <div class="ms-evidence-layout">
+            <figure class="ng-paper-panel ms-portrait-figure">
+              <img src="assets/v5-fig2c-crossing.png" alt="Manuscript Figure 2c: nonweak line cut showing the DQD leaving the lower Landauer corridor">
+              <figcaption>Fig. 2c · the DQD curve leaves the teal corridor while the separate margins remain inside.</figcaption>
+            </figure>
+            <div class="ms-evidence-copy math-block">
+              <article><small>fixed drive</small><h3>A = 15</h3><p>Nonweak lead hybridization \((\Gamma_L,\Gamma_R)/T=(1.0,0.8)\).</p></article>
+              <article class="accent"><small>first selective exit</small><h3>2.80 &lt; U/T &lt; 2.85</h3><p>The conditional lower deficit changes sign; the separate \(C_2\) and marginal-\(S\) margins remain allowed.</p></article>
+              <article><small>representative point</small><h3>U/T = 5</h3><div>\[F=0.887485,\qquad S=0.639385\]</div><p>The exact Landauer interval is \([0.687773,\;0.887236]\).</p></article>
+            </div>
+          </div>
+          <footer class="slide-footer"><span>V5 Fig. 2c; validated line-cut data</span><span>Quote the bracket, not an exact critical point</span></footer>
+        </div>
+        <aside class="notes">
+          <p>Panel c makes the selective exit explicit at nonweak coupling. We fix the affinity at fifteen and increase \(U/T\).</p>
+          <p>In the upper plot, the teal band is the complete Landauer interval of \(S\) at each interaction. The red DQD curve begins inside that band and then crosses below the lower face. In the lower plot, the red conditional deficit changes sign, while the dashed margins for the Gaussian noise and the marginal skewness remain on their allowed side.</p>
+          <p>The validated line data bracket the sign-stable crossing between \(U/T=2.80\) and \(2.85\). The label 2.8 on the figure is a compact display value; it is not an exact critical interaction.</p>
+          <p>At the representative point \(U/T=5\), the measured normalized third cumulant is about 0.639. Once the measured noise is imposed, every Landauer transmission must give at least 0.688. The gap is not relative to one guessed transmission; it is relative to the global lower boundary. Panel d now constructs the strongest possible elastic counterargument and shows that it still cannot reach the DQD value.</p>
+        </aside>
+      </section>
+
+      <section data-section="Elastic exclusion">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">07 · manuscript Fig. 2d–e</p><h2>The elastic mismatch is irreparable—and tracks many-body correlation</h2><p class="dek">Figure 2 closes the argument with the exact elastic extrema and an independent microscopic diagnostic.</p></header>
+          <div class="ms-combined-evidence">
+            <figure class="ng-paper-panel ms-wide-paper-figure">
+              <img src="assets/v5-fig2de-adversary-correlation.png" alt="Manuscript Figure 2d and 2e: elastic extrema compared with the interacting DQD and Landauer deficit versus irreducible occupation correlation">
+              <figcaption>Fig. 2d–e · current-noise-matched elastic interval and correlation along the same nonweak cut.</figcaption>
+            </figure>
+            <div class="ms-combined-copy math-block">
+              <article class="accent"><small>global elastic interval</small><h3>0.687773 ≤ S ≤ 0.887236</h3><p>The exact lower construction and upper regular limit preserve the measured \(C_1\) and \(C_2\); the DQD gives \(S=0.639385\).</p><div class="ms-gap-number">D<sub>L</sub> = 0.048389</div></article>
+              <div class="ng-kirr compact-equation">\[K_{\mathrm{irr}}=\langle n_Ln_R\rangle-\langle n_L\rangle\langle n_R\rangle+|\langle d_L^\dagger d_R\rangle|^2\]</div>
+              <article><small>independent support</small><h3>Pearson 0.94</h3><p>Along this DQD cut, the positive deficit grows with \(-K_{\mathrm{irr}}\), supporting Coulomb-conditioned transfer cycles.</p></article>
+              <div class="warning-strip"><strong>Interpretation:</strong> the correlation supports this model's mechanism; the C₃ exit alone does not uniquely diagnose interactions.</div>
+            </div>
+          </div>
+          <div class="ng-global-strip">The theorem has already optimized over every passive elastic transmission shape and every finite channel count.</div>
+          <footer class="slide-footer"><span>V5 Eqs. (9)–(12) and Fig. 2d–e</span><span>Exact exclusion plus mechanism support</span></footer>
+        </div>
+        <aside class="notes">
+          <p>This is the decisive comparison, and panels d and e belong together. In panel d, we do not compare the DQD with one convenient resonance or a fitted noninteracting model. The theorem supplies the exact global elastic extrema at the measured current and noise.</p>
+          <p>The lower construction makes every current-carrying process have one directed strength, which reaches the lower face. The upper construction mixes processes approaching zero strength with Pauli-saturated processes, reaching the opposite face as a regular limit. Both are conditioned on the same \(C_1\) and \(C_2\) as the interacting point.</p>
+          <p>The elastic interval is from 0.687773 to 0.887236, while counted HEOM gives 0.639385. The Landauer deficit is 0.048389. Because the proof already allowed arbitrary energy dependence and any finite number of channels, another resonance or channel cannot repair this mismatch.</p>
+          <p>Panel e then asks whether an independent many-body diagnostic follows the same trend. \(K_{\mathrm{irr}}\) vanishes for every number-conserving fermionic Gaussian state by Wick factorization. Along this nonweak cut, the positive deficit grows with \(-K_{\mathrm{irr}}\), with Pearson coefficient 0.94.</p>
+          <p>This supports the manuscript's microscopic story: Coulomb-conditioned occupation creates memory between successive transfer cycles. It remains an association within this model. The exclusion theorem itself does not identify a unique mechanism.</p>
+        </aside>
+      </section>
+
+      <section data-section="Measurement">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">08 · experimental decision</p><h2>The theorem becomes a direct counting protocol</h2><p class="dek">Acquire stationary counting windows at one operating point, retain their covariance, and test one exact interval.</p></header>
+          <div class="ms-measurement-flow">
+            <article><span>1</span><small>measure</small><h3>A, C₁, C₂, C₃</h3><p>Known reservoir parameters and independent or mixing-resolved stationary windows.</p></article>
+            <i>→</i>
+            <article><span>2</span><small>normalize</small><h3>F and S</h3><p>Compute \(F=C_2/C_1\) and \(S=C_3/C_1\) with the full estimator covariance.</p></article>
+            <i>→</i>
+            <article><span>3</span><small>compare</small><h3>S versus [S⁻, S⁺]</h3><p>Propagate uncertainty through both Landauer faces.</p></article>
+            <i>→</i>
+            <article><span>4</span><small>decide</small><h3>compatible or excluded</h3><p>Outside rejects the elastic class; inside remains a compatibility statement.</p></article>
+          </div>
+          <div class="ms-exposure">
+            <article><small>registered unit-count window design</small><b>2.24 × 10⁴</b><span>expected net transferred particles for a one-sided 3σ test with 90% power</span></article>
+            <article class="accent"><small>illustrative conversion</small><b>22.4 s</b><span>only if \(C_1=10^3\,\mathrm{s}^{-1}\) and detector/window assumptions are controlled</span></article>
+            <div><strong>What the decision means</strong><p>Exclude fixed passive elastic Landauer scattering through \(C_3\); do not infer a unique microscopic mechanism from the sign alone.</p></div>
+          </div>
+          <footer class="slide-footer"><span>V5 experimental discussion</span><span>Event exposure is the primary requirement</span></footer>
+        </div>
+        <aside class="notes">
+          <p>The operational protocol is deliberately small. At one fixed operating point, acquire stationary counting windows and estimate the first three particle-current cumulants with their joint covariance. The affinity and current sign convention must be fixed, and the windows must satisfy the independence or mixing assumptions used in the covariance model.</p>
+          <p>Normalize to \(F\) and \(S\), evaluate the two exact Landauer faces, and propagate the covariance through the comparison. If the uncertainty-qualified value of \(S\) lies outside the interval, every fixed passive elastic Landauer transmission is excluded through third order. If it lies inside, the data are compatible; that does not prove that the real mechanism is elastic.</p>
+          <p>For the registered independent-window design with \(\lambda=C_1\tau_w=1\), and with the leading covariance propagated from cumulants through \(C_6\), the representative DQD point requires \(2.24\times10^4\) expected net transferred particles for a one-sided three-sigma test with ninety percent power.</p>
+          <p>The 22.4-second conversion assumes an effective resolved net rate of \(10^3\) per second. Detector bandwidth, missed events, dead time, and correlations between windows require device-specific calibration. The exposure is therefore a design target under stated assumptions, not a detector-complete acquisition time. With that distinction, the final message is simple.</p>
+        </aside>
+      </section>
+
+      <section data-section="Conclusion">
+        <div class="slide-shell ng-takeaway-shell">
+          <header class="slide-header"><p class="kicker">09 · conclusion</p><h2>The third cumulant becomes an existence test</h2><p class="dek">One theorem and one interacting counterexample define a practical boundary for elastic single-particle transport.</p></header>
+          <div class="ng-takeaway-grid">
+            <article><span>1</span><small>exact theory</small><h3>C₁ and C₂ fix the allowed C₃ interval</h3><p>The result is necessary, sufficient, and independent of transmission shape or channel number.</p></article>
+            <article><span>2</span><small>Figure 2 evidence</small><h3>The interacting DQD exits selectively</h3><p>The separate Gaussian and marginal-skewness tests can pass while every elastic representation fails.</p></article>
+            <article><span>3</span><small>correct interpretation</small><h3>Model-class rejection, not mechanism identification</h3><p>The exit motivates correlated or inelastic modeling; the sign alone does not choose which one.</p></article>
+          </div>
+          <div class="ng-final-message">Three stationary cumulants can falsify every effective elastic transmission—<em>without reconstructing one.</em></div>
+          <div class="ng-next-row"><span><b>Stationary</b> long-time, zero-frequency counting</span><span><b>Two terminals</b> normal fermionic reservoirs at equal T</span><span><b>One-sided logic</b> outside excludes; inside is compatible</span></div>
+          <footer class="slide-footer"><span>Universal Bounds on Non-Gaussian Fluctuations in Coherent Transport</span><span>Questions</span></footer>
+        </div>
+        <aside class="notes">
+          <p>Let me close with three points.</p>
+          <p>First, at known affinity the current and noise determine the complete allowed interval of the third cumulant for the entire two-terminal elastic Landauer class. The result is both necessary and sufficient.</p>
+          <p>Second, the interacting double dot provides a selective counterexample. It can pass the current-noise condition and the marginal skewness test while lying below the exact conditional lower face. Figure 2 then closes the evidence chain with a nonweak crossing, exact elastic boundary constructions, and a many-body correlation that tracks the deficit.</p>
+          <p>Third, the conclusion is a model-class statement. A violation tells us that no fixed passive elastic transmission can reproduce the first three cumulants. It does not, by itself, tell us which richer mechanism is responsible.</p>
+          <p>The practical message is the sentence on the slide: three stationary cumulants can falsify every effective elastic transmission without reconstructing one. Thank you, and I am happy to take questions.</p>
+        </aside>
+      </section>
+    </div>
+  </div>
+
+  <div class="deck-progress" aria-hidden="true"><span id="deck-progress-fill"></span></div>
+  <div class="deck-counter" id="deck-counter" aria-live="polite"></div>
+
+  <script src="../../../../../vendor/reveal-6.0.1/dist/reveal.js"></script>
+  <script src="../../../../../vendor/reveal-6.0.1/plugin/notes/notes.js"></script>
+  <script src="../../../../../vendor/katex-0.18.4/katex.min.js"></script>
+  <script src="../../../../../vendor/katex-0.18.4/contrib/auto-render.min.js"></script>
+  <script src="deck.js"></script>
+</body>
+</html>

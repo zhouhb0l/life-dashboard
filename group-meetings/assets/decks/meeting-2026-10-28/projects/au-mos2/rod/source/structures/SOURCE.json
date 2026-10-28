@@ -1,0 +1,171 @@
+{
+  "repository": "zhouhb0l/AuMoS2",
+  "commit": "d2554ed06a847f8173ef9f8d3cb58d7c03aceeb2",
+  "figure": "../../figures/atomic-structures.svg",
+  "projection": {
+    "view": "x–z side view along periodic y",
+    "common_scale_px_per_A": 7.3,
+    "canvas_px": [
+      1600,
+      300
+    ],
+    "all_source_atoms": true,
+    "added_atoms": 0,
+    "added_bonds": 0,
+    "depth_order": "descending y, larger y drawn first",
+    "coordinates": "Direct, transformed with original lattice; no wrapping, recentering or replication",
+    "atomic_radii_px": {
+      "Au": 9.2,
+      "Mo": 7.3,
+      "S": 6.3
+    },
+    "note": "Circle radius is illustrative and species-dependent; centre positions and shared physical scale derive from coordinates."
+  },
+  "naming_note": "F10/R10 and F15/R15 are structure labels, not literal 10 nm and 15 nm rods.",
+  "files": [
+    {
+      "case": "F10",
+      "file": "F10_CONTCAR",
+      "source_path": "2026RodContact/F_10_CONTCAR",
+      "local_copy_source": "C:/Users/zhbho/OneDrive/Desktop/workspace/3. AuMoS2/2026RodContact/F_10_CONTCAR",
+      "git_blob_sha1": "b111b99af07e975de8f63b7850784e66d4c65555",
+      "sha256": "28f829ce63c4f2cbd1ca19f3e66b8f5c7e9bb1ab9e8c2433d704774a3b7b107a",
+      "lattice_A": [
+        [
+          44.246,
+          0,
+          0
+        ],
+        [
+          0,
+          19.155,
+          0
+        ],
+        [
+          0,
+          0,
+          40
+        ]
+      ],
+      "species": [
+        "Mo",
+        "S",
+        "Au"
+      ],
+      "counts": [
+        96,
+        192,
+        150
+      ],
+      "au_width_nm": 1.1059840508291998
+    },
+    {
+      "case": "R10",
+      "file": "R10_CONTCAR",
+      "source_path": "2026RodContact/R_10_CONTCAR",
+      "local_copy_source": "C:/Users/zhbho/OneDrive/Desktop/workspace/3. AuMoS2/2026RodContact/R_10_CONTCAR",
+      "git_blob_sha1": "aefc8f961e4c21f63a3f06102e7de378748aa428",
+      "sha256": "3a1ab52e7582da78311084f82626e26abc83b83e3b4a11add3c24fb4098c242e",
+      "lattice_A": [
+        [
+          44.246,
+          0,
+          0
+        ],
+        [
+          0,
+          19.155,
+          0
+        ],
+        [
+          0,
+          0,
+          40
+        ]
+      ],
+      "species": [
+        "Mo",
+        "S",
+        "Au"
+      ],
+      "counts": [
+        96,
+        192,
+        105
+      ],
+      "au_width_nm": 0.9020961403625481
+    },
+    {
+      "case": "F15",
+      "file": "F15_CONTCAR",
+      "source_path": "2026RodContact/rod15_equilibrium_20261024/sources/F15_CONTCAR",
+      "local_copy_source": null,
+      "git_blob_sha1": "38b790789884383ee3a428b3fb5dd4d71cc14304",
+      "sha256": "5478fd671036618c042a29ca27c767267d5f3c8c9101b5c17c38421adfbb5476",
+      "lattice_A": [
+        [
+          44.246,
+          0,
+          0
+        ],
+        [
+          0,
+          19.155,
+          0
+        ],
+        [
+          0,
+          0,
+          40
+        ]
+      ],
+      "species": [
+        "Mo",
+        "S",
+        "Au"
+      ],
+      "counts": [
+        96,
+        192,
+        200
+      ],
+      "au_width_nm": 1.5064953936936931
+    },
+    {
+      "case": "R15",
+      "file": "R15_CONTCAR",
+      "source_path": "2026RodContact/rod15_equilibrium_20261024/sources/R15_CONTCAR",
+      "local_copy_source": null,
+      "git_blob_sha1": "b4cb0398076975ba6a339af70fde2a30b619829e",
+      "sha256": "7921436ff654d51a99fcfcfd5428d2861eab3f2d0e2554d95490b588e5d43a34",
+      "lattice_A": [
+        [
+          44.246,
+          0,
+          0
+        ],
+        [
+          0,
+          19.155,
+          0
+        ],
+        [
+          0,
+          0,
+          40
+        ]
+      ],
+      "species": [
+        "Mo",
+        "S",
+        "Au"
+      ],
+      "counts": [
+        96,
+        192,
+        225
+      ],
+      "au_width_nm": 1.3170902792041992
+    }
+  ]
+}

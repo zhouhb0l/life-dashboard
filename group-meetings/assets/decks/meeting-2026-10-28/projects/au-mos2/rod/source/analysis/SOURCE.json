@@ -1,0 +1,35 @@
+{
+  "repository": "zhouhb0l/AuMoS2",
+  "commit": "d2554ed06a847f8173ef9f8d3cb58d7c03aceeb2",
+  "purpose": "Exact original far-core electron-SBH baselines and primary extraction-sensitivity envelopes for the 28 October 2026 meeting",
+  "files": [
+    {
+      "filename": "10-analysis_summary.json",
+      "source_path": "2026RodContact/sbh_analysis_20261024/analysis_summary.json",
+      "bytes": 8936,
+      "git_blob_sha1": "1951abeded3a56ca28ad5107b18f3d40f626dc26",
+      "sha256": "4941972d7b96070b1e99c94ad3167607c71f496e042c42f8cd36c7309616e3e4"
+    },
+    {
+      "filename": "15-analysis_summary.json",
+      "source_path": "2026RodContact/rod15_equilibrium_20261024/sbh_analysis/analysis_summary.json",
+      "bytes": 11309,
+      "git_blob_sha1": "66e95cfde11cdd13a5a1424acf91c076e25cde0e",
+      "sha256": "2928a5bbbadf84e4c40651ce54fd0ecb8dd0c1f00352a8e75ae9240ab1cb29fe"
+    },
+    {
+      "filename": "10-slide_data.json",
+      "source_path": "presentations/rod15_sbh_reveal/data/rod10_slide_data.json",
+      "bytes": 121569,
+      "git_blob_sha1": "103e900789143229204befb4316612accac3c842",
+      "sha256": "56df34a9e6af355d32828e2f5df2ad9d74a389c08adb6ca424aeae4da48095c1"
+    },
+    {
+      "filename": "15-slide_data.json",
+      "source_path": "presentations/rod15_sbh_reveal/data/slide_data.json",
+      "bytes": 123207,
+      "git_blob_sha1": "66902d1910f029a317c67833b2882bc026c2299a",
+      "sha256": "1f1afae4841425e0216e12e9368661f5afa0255213823680cb904cc902788375"
+    }
+  ]
+}

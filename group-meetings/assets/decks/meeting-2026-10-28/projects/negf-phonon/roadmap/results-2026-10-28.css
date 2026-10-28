@@ -1,0 +1,23 @@
+/* Styles apply only to the appended result slides. */
+.results-slide h2 { font-size: 44px; line-height: 1.08; margin-bottom: 20px; }
+.results-slide .results-lead { max-width: none; margin-bottom: 24px; font-size: 22px; line-height: 1.4; }
+.results-slide .status-table { font-size: 20px; }
+.results-slide .status-table th { font-size: 14px; padding: 15px 18px; }
+.results-slide .status-table td { padding: 18px; line-height: 1.35; }
+.results-slide .results-note { margin: 18px 0 0; color: #40546c; font-size: 20px; line-height: 1.45; }
+.results-slide .result-conclusion { flex-shrink: 0; margin: 18px 0 0; border-left: 4px solid var(--teal); padding-left: 17px; color: #244a64; font-size: 21px; line-height: 1.4; font-weight: 650; }
+.results-slide .result-warning { border-left-color: var(--orange); }
+.results-slide .results-footnote { flex-shrink: 0; margin-top: auto; padding-top: 16px; color: var(--muted); font-size: 14px; line-height: 1.4; }
+.results-slide .setup-table { font-size: 19px; }
+.results-slide .setup-table td { padding: 13px 18px; }
+.results-slide .setup-table td:first-child { width: 26%; font-weight: 650; color: #244a64; }
+.results-slide .result-plot { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; margin: 0; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.results-slide .result-plot img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.results-slide .scope-table { margin-top: 22px; font-size: 19px; }
+.results-slide .scope-table td { padding: 14px 18px; }
+.results-slide .scope-table td:first-child { width: 26%; font-weight: 650; color: #244a64; }
+.results-slide .result-pass { color: #1b6c4d; font-weight: 700; }
+.results-slide .result-pending { color: #8c5b14; font-weight: 700; }
+.results-slide .notes { display: none; }
+body:has(.results-slide.active) .counter { right: 210px; bottom: 20px; color: var(--muted); }
+@media(max-width:850px) { .results-slide h2 { font-size: 35px; } .results-slide .result-plot { flex: none; height: 45vh; } }

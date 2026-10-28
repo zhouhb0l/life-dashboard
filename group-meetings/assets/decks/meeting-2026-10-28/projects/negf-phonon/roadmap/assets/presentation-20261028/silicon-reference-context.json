@@ -1,0 +1,273 @@
+{
+  "schema": "group-meeting.silicon-reference-context.v1",
+  "meeting_date": "2026-10-28",
+  "purpose": "Provenance for the silicon central-region length shown with the results on slide 9.",
+  "derivation_scope": "Lengths are arithmetic derived from the pinned crystal lattice, frozen transport matrix and declared layer counts. They are not separately exported length measurements or a new transport calculation.",
+  "current_setup": {
+    "model": "preserved fitted complete-center-energy research surrogate",
+    "g": 0.03,
+    "temperatures_K": [
+      305,
+      295
+    ],
+    "eta_lead_solver_units": 0.0015625,
+    "eta_device_solver_units": 0,
+    "full_green_dof": 216,
+    "device_principal_layers": 9,
+    "principal_layer_dof": 24,
+    "atoms_per_principal_layer": 8,
+    "transport_cells_per_principal_layer": 1,
+    "center_layers_zero_based": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "active_vertex_dof": 132,
+    "completed_transverse_q_meshes_at_601_nodes": [
+      [
+        4,
+        1
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "signed_frequency_range_solver_units": [
+      -7.5,
+      7.5
+    ]
+  },
+  "crystal_and_transport": {
+    "lattice_length_unit": "angstrom",
+    "primitive_lattice_rows_angstrom": [
+      [
+        0,
+        2.716780015,
+        2.716780015
+      ],
+      [
+        2.716780015,
+        0,
+        2.716780015
+      ],
+      [
+        2.716780015,
+        2.716780015,
+        0
+      ]
+    ],
+    "primitive_off_diagonal_b_angstrom": 2.716780015,
+    "conventional_cubic_a_angstrom": 5.43356003,
+    "transport_supercell_matrix_rows": [
+      [
+        -1,
+        1,
+        1
+      ],
+      [
+        1,
+        -1,
+        1
+      ],
+      [
+        1,
+        1,
+        -1
+      ]
+    ],
+    "row_vector_lattice_convention": "A_transport = S A_primitive",
+    "derived_transport_lattice_rows_angstrom": [
+      [
+        5.43356003,
+        0,
+        0
+      ],
+      [
+        0,
+        5.43356003,
+        0
+      ],
+      [
+        0,
+        0,
+        5.43356003
+      ]
+    ],
+    "transport_coordinate": "first transport coordinate, Cartesian x",
+    "transport_direction": "[100]",
+    "principal_layer_repeat_nm": 0.543356003
+  },
+  "nominal_lengths": {
+    "selected_center_energy_region": {
+      "principal_cell_count": 5,
+      "definition": "Five complete center-energy cells, zero-based layers 2 through 6 inclusive; nominal cell-boundary region [2a, 7a).",
+      "formula": "L_center = 5 a",
+      "length_nm": 2.716780015,
+      "display_length_nm": 2.72,
+      "interpretation": "Nominal anharmonic center-selection length, not the phonon mean free path and not a sharp truncation of every cubic endpoint derivative."
+    },
+    "full_green_device": {
+      "principal_cell_count": 9,
+      "definition": "Nine principal cells, zero-based layers 0 through 8 inclusive, including harmonic/contact buffers.",
+      "formula": "L_device = 9 a",
+      "length_nm": 4.890204027,
+      "display_length_nm": 4.89
+    }
+  },
+  "endpoint_support": {
+    "complete_outer_derivatives_retained": true,
+    "crop_derivatives": false,
+    "active_atom_count": 44,
+    "selected_center_atom_count": 40,
+    "support_layers_zero_based": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "fully_active_center_layers_zero_based": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "left_extra_endpoint_layer_zero_based": 1,
+    "left_extra_endpoint_atom_count": 2,
+    "left_extra_endpoint_dof": [
+      24,
+      25,
+      26,
+      30,
+      31,
+      32
+    ],
+    "right_extra_endpoint_layer_zero_based": 7,
+    "right_extra_endpoint_atom_count": 2,
+    "right_extra_endpoint_dof": [
+      171,
+      172,
+      173,
+      177,
+      178,
+      179
+    ],
+    "explanation": "The 132 active vertex coordinates comprise the 120 coordinates in five center cells plus twelve required endpoint coordinates in adjacent buffer layers. A seven-layer bounding support does not make all seven layers fully anharmonic and is not a second nominal center-region length."
+  },
+  "mean_free_path": {
+    "used_as_input": false,
+    "extracted_from_current_results": false,
+    "explanation": "No numerical phonon mean free path ell is assigned. The specified length is the geometry of the selected central interaction-energy region; ell would be mode/frequency dependent and requires separate extraction."
+  },
+  "sources": [
+    {
+      "role": "Latest curated setup binding",
+      "repository": "zhouhb0l/negfpy",
+      "commit": "2ef67f5292b7aa448eff2cc0aa71a36155af4d0a",
+      "path": "docs/research-results/converged-20261028/data/converged-results.json",
+      "local_preserved_copy": "assets/converged-20261028/updates/2ef67f5292b7/data/converged-results.json",
+      "url": "https://github.com/zhouhb0l/negfpy/blob/2ef67f5292b7aa448eff2cc0aa71a36155af4d0a/docs/research-results/converged-20261028/data/converged-results.json",
+      "proof": "common_physics records nine device layers, center layers [2,6], 216 full Green DOF, 132 active vertex DOF, coupling and temperatures."
+    },
+    {
+      "role": "Frozen pre-consolidation study driver and exact active endpoint addresses",
+      "repository": "zhouhb0l/negfpy",
+      "commit": "13e1ee6d1cd72a2fcc36d287404ca9da433a3d31",
+      "path": "scripts/run_site_energy_convergence.py",
+      "git_blob_sha1": "6b96ed54bc02e34d212d0b645f21d031fc956f9d",
+      "url": "https://github.com/zhouhb0l/negfpy/blob/13e1ee6d1cd72a2fcc36d287404ca9da433a3d31/scripts/run_site_energy_convergence.py",
+      "proof_lines": {
+        "feedback_dof_addresses": [
+          74,
+          205
+        ],
+        "frozen_physics_and_transport_matrix": [
+          249,
+          269
+        ],
+        "complete_center_vertex_rebuild": [
+          458,
+          467
+        ]
+      },
+      "expected_layered_geometry_sha256": "778afae03a7f83580b6eac8ab5529901cbf25fee7fa3ebacbdded85c50a85ab5"
+    },
+    {
+      "role": "Principal-layer size verification in the study geometry builder",
+      "repository": "zhouhb0l/negfpy",
+      "commit": "13e1ee6d1cd72a2fcc36d287404ca9da433a3d31",
+      "path": "scripts/run_transverse_material_map.py",
+      "git_blob_sha1": "b4c91c3e826b4b821c233fb01c2dce23564e4c5f",
+      "url": "https://github.com/zhouhb0l/negfpy/blob/13e1ee6d1cd72a2fcc36d287404ca9da433a3d31/scripts/run_transverse_material_map.py#L117",
+      "proof_lines": [
+        117,
+        121
+      ],
+      "proof": "build_layered_device_mapping receives the frozen transport matrix; the driver requires 24 principal-layer DOF and principal_cells == 1."
+    },
+    {
+      "role": "Pinned silicon primitive and conventional-cell lattice in angstrom",
+      "repository": "zhouhb0l/negfpy",
+      "commit": "2ef67f5292b7aa448eff2cc0aa71a36155af4d0a",
+      "path": "validation/materials/si-pbesol-phono3py-4.4.0/phase-a-fixture/phono3py_disp.yaml",
+      "git_blob_sha1": "ad71d0cfbdc8c19ea8248b4f11e62e7734152895",
+      "url": "https://github.com/zhouhb0l/negfpy/blob/2ef67f5292b7aa448eff2cc0aa71a36155af4d0a/validation/materials/si-pbesol-phono3py-4.4.0/phase-a-fixture/phono3py_disp.yaml#L30",
+      "proof_lines": {
+        "length_unit": [
+          11,
+          13
+        ],
+        "primitive_lattice": [
+          30,
+          34
+        ],
+        "conventional_lattice": [
+          47,
+          51
+        ]
+      }
+    }
+  ],
+  "harmonic_reference": {
+    "status": "user_corrected_harmonic_currents_times_10",
+    "definition": "Same FC2, contacts, q/frequency grid, geometry and reservoir temperatures, Sigma_pp=0 / FC3 off.",
+    "visible_result_shown": true,
+    "source_record_to_request": "/scratch/users/astar/ihpc/zhouhb/NEGFPy/diagnostics/20261026-site-energy-feedback-001/runtime/site-energy-feedback-result.json",
+    "source_expected_bytes": 184409,
+    "source_expected_sha256": "d9227c06dda6072c6b687da62b9989497898684ec2e7c4e30ca994f54feb457e",
+    "record_selection": "First evaluated_records entry with input_sigma_is_zero=true; use its currents. Verify matched contact/FC2/grid/temperature context before display.",
+    "pin_source": "https://github.com/zhouhb0l/negfpy/blob/13e1ee6d1cd72a2fcc36d287404ca9da433a3d31/scripts/run_site_energy_convergence.py",
+    "comparison_data": "harmonic-comparison-20261028.json",
+    "frequency_intervals": [
+      600,
+      900,
+      1200
+    ],
+    "heat_currents_nW": [
+      3.866,
+      3.889,
+      3.892
+    ],
+    "q_grid_transverse": [
+      4,
+      1
+    ],
+    "temperatures_K": [
+      305,
+      295
+    ],
+    "unit_conversion_applied": true,
+    "raw_harmonic_record_uploaded": false,
+    "user_requested_multiplier": 10
+  }
+}

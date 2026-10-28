@@ -1,0 +1,69 @@
+{
+  "schema": "group-meeting.user-provided-harmonic-comparison.v1",
+  "date": "2026-10-28",
+  "provenance": {
+    "harmonic": "Supplied directly by the user in this slide-preparation chat for q=(4,1), reservoirs 305/295 K. The user subsequently corrected the harmonic values by explicitly instructing multiplication by 10.",
+    "raw_harmonic_file_provided": false,
+    "anharmonic_commit": "2ef67f5292b7aa448eff2cc0aa71a36155af4d0a",
+    "anharmonic_source": "assets/converged-20261028/updates/2ef67f5292b7/data/converged-results.json"
+  },
+  "quantity": "left heat current",
+  "display_unit": "nW",
+  "q_grid_transverse": [
+    4,
+    1
+  ],
+  "temperatures_K": [
+    305,
+    295
+  ],
+  "harmonic": {
+    "interaction": "FC3 off / Sigma_pp=0",
+    "reported_precision_decimal_places": 3,
+    "frequency_intervals": [
+      600,
+      900,
+      1200
+    ],
+    "heat_currents_nW": [
+      3.866,
+      3.889,
+      3.892
+    ],
+    "unit_conversion_applied": true,
+    "original_values_as_reported": [
+      0.3866,
+      0.3889,
+      0.3892
+    ],
+    "user_requested_multiplier": 10,
+    "conversion_description": "Explicit user correction: multiply the three originally supplied harmonic values by 10."
+  },
+  "scba": {
+    "g": 0.03,
+    "cubic_amplitude_scale": 0.03,
+    "purpose": "Scale the cubic interaction to facilitate SCBA convergence.",
+    "records": [
+      {
+        "source_id": "original",
+        "frequency_intervals": 600,
+        "frequency_nodes": 601,
+        "heat_current_nW": 3.8657247158324317
+      },
+      {
+        "source_id": "f901",
+        "frequency_intervals": 900,
+        "frequency_nodes": 901,
+        "heat_current_nW": 3.8619283827847233
+      },
+      {
+        "source_id": "f1201",
+        "frequency_intervals": 1200,
+        "frequency_nodes": 1201,
+        "heat_current_nW": 3.8883877172110637
+      }
+    ]
+  },
+  "interpretation": "Harmonic heat currents use the explicit user-corrected values 3.866, 3.889 and 3.892 nW. SCBA currents are unchanged source records. The raw harmonic file has not yet been uploaded; no claim of independently audited harmonic normalization or a new physical mechanism is made.",
+  "source_of_g_semantics": "https://github.com/zhouhb0l/negfpy/blob/2ef67f5292b7aa448eff2cc0aa71a36155af4d0a/src/negfpy/anharmonic/transverse_channel_feedback.py#L326"
+}

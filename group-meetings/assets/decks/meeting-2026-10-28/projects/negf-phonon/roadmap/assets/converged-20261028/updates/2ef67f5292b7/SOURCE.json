@@ -1,0 +1,29 @@
+{
+  "commit": "2ef67f5292b7aa448eff2cc0aa71a36155af4d0a",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4963,
+      "git_blob_sha1": "e42d0474affa6077df6c465851fdfef814839690",
+      "sha256": "9814216b4ae6c0300a04f786c3cad2c79c48e4595b7e153fd3d35b45b4428dbe"
+    },
+    {
+      "path": "data/converged-results.json",
+      "bytes": 25348,
+      "git_blob_sha1": "7913da1226a25505b4696aef6ffb5036200cb391",
+      "sha256": "2234d901a46c7d827db14ce9dffa566f66570810406d4673b5e4d49e8d2d6a58"
+    },
+    {
+      "path": "data/converged-currents.csv",
+      "bytes": 3683,
+      "git_blob_sha1": "72548e68b1251f54b43476849a3a354b8084605e",
+      "sha256": "5355b428d58e810c8cb39979cdddf56689eb86b4dabf53d943e7afce46d780c2"
+    },
+    {
+      "path": "figures/q-direction-comparison.svg",
+      "bytes": 10318,
+      "git_blob_sha1": "c52378ade6f40f409accceb2ca33a710ee286ade",
+      "sha256": "10359930fa1cd5d25673e2409842a3ce6a1ffeab3b2d41c26dbc7a1215ace864"
+    }
+  ]
+}

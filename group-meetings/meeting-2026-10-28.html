@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Independent group meeting deck for 28 October 2026.">
+  <title>Group Meeting | 28 October 2026</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/vendor/reveal-6.0.1/dist/reset.css">
+  <link rel="stylesheet" href="assets/vendor/reveal-6.0.1/dist/reveal.css">
+  <link rel="stylesheet" href="assets/decks/meeting-2026-10-28/styles.css">
+</head>
+<body class="locked">
+  <main class="gate" id="gate" aria-labelledby="gate-title">
+    <div class="gate-card">
+      <span class="eyebrow">Independent meeting deck</span>
+      <p class="gate-date">Wednesday · 28 October 2026</p>
+      <h1 id="gate-title">Group Meeting</h1>
+      <p class="gate-copy">Enter the group-meeting passcode to open this working deck.</p>
+      <form id="gate-form" class="gate-form">
+        <label for="passcode">Passcode</label>
+        <div class="gate-row">
+          <input id="passcode" name="passcode" type="password" autocomplete="current-password" required>
+          <button type="submit">Open deck</button>
+        </div>
+        <p id="gate-error" class="gate-error" role="alert" aria-live="polite"></p>
+      </form>
+      <p class="gate-note">Working draft · archived separately from earlier meetings</p>
+    </div>
+  </main>
+
+  <nav class="deck-toolbar" id="deck-toolbar" aria-label="Deck actions" hidden>
+    <a href="index.html">Meeting index</a>
+    <span aria-hidden="true">/</span>
+    <span id="section-label">Project status</span>
+    <button id="lock-button" type="button">Lock</button>
+  </nav>
+
+  <div class="reveal" aria-hidden="true">
+    <div class="slides" id="slides-root">
+      <section class="status-opening" data-section-label="Project status">
+        <div class="frame overview-frame">
+          <header class="overview-header">
+            <div>
+              <span class="eyebrow">Group Meeting · Wednesday</span>
+              <h1>Project Status Board</h1>
+              <p>Ten research threads · select a project to open its detail view</p>
+            </div>
+            <div class="meeting-stamp" aria-label="28 October 2026">
+              <small>WED</small><strong>28</strong><span>OCT · 2026</span>
+            </div>
+          </header>
+
+          <div class="overview-grid" id="overview-grid" aria-label="Research projects"></div>
+
+          <div class="overview-footer">
+            <div class="board-legend" aria-label="Project categories">
+              <span class="legend-item completed-key">Published / accepted</span>
+              <span class="legend-item discussion-key">Discussion focus</span>
+              <span class="legend-item other-key">Other projects</span>
+            </div>
+            <p><i aria-hidden="true"></i>Statuses updated · 28 October 2026</p>
+          </div>
+        </div>
+        <aside class="notes">
+          <p>This is the meeting-level project board. Select a project to open its detail view.</p>
+          <p><strong>Nonlocal SBH publication reference:</strong> Hangbo Zhou and Yong-Wei Zhang, “Nonlocal Electrostatic Origin of Schottky-Barrier Variability in 2D Contacts,” <i>Nano Letters</i> 26 (38), 13130–13135 (2026).</p>
+          <p><strong>DOI:</strong> <a href="https://doi.org/10.1021/acs.nanolett.6c03959" target="_blank" rel="noopener noreferrer">10.1021/acs.nanolett.6c03959</a></p>
+          <p><strong>Publication link:</strong> <a href="https://doi.org/10.1021/acs.nanolett.6c03959" target="_blank" rel="noopener noreferrer">https://doi.org/10.1021/acs.nanolett.6c03959</a></p>
+        </aside>
+      </section>
+    </div>
+  </div>
+
+  <script src="assets/vendor/reveal-6.0.1/dist/reveal.js"></script>
+  <script src="assets/vendor/reveal-6.0.1/plugin/notes/notes.js"></script>
+  <script src="assets/decks/meeting-2026-10-28/project-status.js"></script>
+  <script src="assets/decks/meeting-2026-10-28/project-data.js"></script>
+  <script src="assets/decks/meeting-2026-10-28/tan-project-data.js"></script>
+  <script src="assets/decks/meeting-2026-10-28/wte2-project-data.js"></script>
+  <script src="assets/decks/meeting-2026-10-28/deck.js"></script>
+</body>
+</html>

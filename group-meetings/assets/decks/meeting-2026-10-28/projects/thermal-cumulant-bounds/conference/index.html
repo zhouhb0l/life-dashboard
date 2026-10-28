@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Conference-style project deck on a four-temperature heat-current shape witness.">
+  <title>Bounds on Thermal Cumulants | Four-temperature heat-current witness</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../../../../vendor/reveal-6.0.1/dist/reset.css">
+  <link rel="stylesheet" href="../../../../../vendor/reveal-6.0.1/dist/reveal.css">
+  <link rel="stylesheet" href="../../../../../vendor/katex-0.18.4/katex.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="title-slide" data-section="Title">
+        <div class="slide-shell title-layout">
+          <div class="title-copy">
+            <p class="kicker">Bounds on Thermal Cumulants · P10 project</p>
+            <h1>Four-temperature bounds on passive heat-current shapes</h1>
+            <p class="title-thesis">Four steady mean-current measurements can reject a stationary two-terminal bosonic representation with a fixed, passive, temperature-independent nonnegative transmission—even when positivity, monotonicity, and convexity all pass.</p>
+            <div class="title-tags" aria-label="Project highlights">
+              <span>Derivative-free</span>
+              <span>HEOM-validated</span>
+              <span>Calibration-aware</span>
+            </div>
+          </div>
+          <div class="title-visual" aria-hidden="true">
+            <div class="temperature-node"><small>hot inverse temperature</small><b>β₀</b></div>
+            <div class="temperature-node"><small>equal spacing</small><b>β₁</b></div>
+            <div class="temperature-node"><small>equal spacing</small><b>β₂</b></div>
+            <div class="temperature-node"><small>fourth point</small><b>β₃</b></div>
+            <div class="stencil-line"><span>+1</span><span>−3</span><span>+3</span><span>−1</span></div>
+            <div class="witness-badge"><small>shape witness</small><strong>W₃ &lt; 0</strong></div>
+          </div>
+          <footer class="slide-footer"><span>Group meeting · 20 August 2026</span><span>P10 audit · 8 August 2026 · speaker notes: press S</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>four temperatures</mark> · <mark>mean heat current</mark> · <mark>model rejection</mark> · <mark>fixed transmission</mark></p>
+          <p><strong>Say:</strong> “Today I want to show a very economical test of the usual harmonic Landauer picture. We calculate—or eventually measure—the <strong>steady mean heat current</strong> at only four hot-side temperatures. A particular weighted sum of those four values becomes negative, although the current still looks positive, monotone, and convex.”</p>
+          <p><strong>Clarify the title:</strong> The portfolio name is “Bounds on Thermal Cumulants,” but the result demonstrated here is <strong>not</strong> a bound on a stochastic heat cumulant or full counting statistics. The observable is the <strong>mean current as a function of temperature</strong>. Here β is inverse temperature, β=1/(k<sub>B</sub>T), so a smaller β means a hotter bath.</p>
+          <p><strong>Main claim:</strong> A negative W<sub>3</sub> rules out one narrow model class: a stationary two-terminal bosonic Landauer description with one <strong>nonnegative, passive, temperature-independent transmission</strong>. It does not yet tell us which microscopic mechanism replaces that model.</p>
+          <p><strong>Transition:</strong> “First, let me show why the ordinary checks can miss this incompatibility.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Motivation">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">01 · motivation</p><h2>A current can look ordinary—and still be non-Landauer</h2><p class="dek">Each added current probes a subtler response: reversal, NDTC, β-curvature, then the hidden four-point face.</p></header>
+          <div class="motivation-grid">
+            <article class="shape-card pass"><div class="shape-rule math-block">\(J\ge0\)</div><small>order 0 · one current</small><h3>Direction</h3><p>Heat follows the imposed hot-to-cold bias.</p><div class="shape-anomaly"><small>if it fails</small><strong>Current reversal</strong></div><b>M14 · PASS</b></article>
+            <article class="shape-card pass"><div class="shape-rule math-block">\(-\Delta_\beta J\ge0\)</div><small>order 1 · two currents</small><h3>Monotonicity</h3><p>Heating the hot bath raises the current.</p><div class="shape-anomaly"><small>if it fails</small><strong>Sampled NDTC / slope reversal</strong></div><b>M14 · PASS</b></article>
+            <article class="shape-card pass"><div class="shape-rule math-block">\(\Delta_\beta^2J\ge0\)</div><small>order 2 · three currents</small><h3>β-convexity</h3><p>\(J(\beta_h)\) bends upward; the middle point stays below its chord.</p><div class="shape-anomaly"><small>if it fails</small><strong>β-curvature anomaly—not by itself NDTC</strong></div><b>M14 · PASS</b></article>
+            <article class="shape-card fail"><div class="shape-rule math-block">\(W_3=-\Delta_\beta^3J\ge0\)</div><small>order 3 · four currents</small><h3>Four-point witness</h3><p>The next Landauer face combines all four currents.</p><div class="shape-anomaly"><small>observed</small><strong>W₃ &lt; 0 · passive Landauer null fails</strong></div><b>M14 · FAIL</b></article>
+          </div>
+          <div class="claim-strip"><strong>The hierarchy:</strong> M14 has no current reversal, no sampled NDTC, and no β-curvature failure—yet \(W_3&lt;0\) rejects the fixed passive, temperature-independent Landauer class.</div>
+          <footer class="slide-footer"><span>P10 theorem · lower-order shape faces</span><span>Convexity is tested versus inverse temperature βₕ—not Tₕ</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>current reversal</mark> · <mark>sampled NDTC</mark> · <mark>β-convexity</mark> · <mark>four-point witness</mark></p>
+          <p><strong>Orient the axis first:</strong> “All differences here are taken on nodes ordered by increasing hot inverse temperature β<sub>h</sub> = 1/(k<sub>B</sub>T<sub>h</sub>). Moving to larger β means making the hot bath colder and reducing the thermal bias. We define J as positive when energy leaves the hot reservoir and crosses the conductor toward the cold side.”</p>
+          <p><strong>Order zero—direction:</strong> “On the hot domain β<sub>h</sub> ≤ β<sub>c</sub>, the fixed passive Landauer model requires J ≥ 0. This is the expected hot-to-cold direction. A negative value would be <strong>current reversal</strong>. In the stated passive two-equilibrium-bath setting this cannot occur without leaving an assumption, but do not call it refrigeration or a second-law violation until all work sources, reservoirs, and terminals are included.”</p>
+          <p><strong>Order one—response:</strong> “For two neighboring β nodes, −Δ<sub>β</sub>J = J<sub>i</sub> − J<sub>i+1</sub> ≥ 0. Because the left node is hotter, this says that heating the hot bath raises the current. Failure means the current falls as the thermal bias grows: <strong>negative differential thermal conductance</strong>, or NDTC, over that sampled interval. M14 passes, so there is no sampled NDTC here.”</p>
+          <p><strong>Order two—shape:</strong> “For three equally spaced β nodes, Δ<sub>β</sub><sup>2</sup>J = J<sub>i</sub> − 2J<sub>i+1</sub> + J<sub>i+2</sub> ≥ 0. Geometrically, the middle current must lie below the chord joining its neighbors: J bends upward when plotted against β. A failure is a <strong>loss of β-convexity</strong>, or an inverse-temperature curvature anomaly. It can occur while J remains positive and while heating still increases J, so it is not automatically NDTC.”</p>
+          <p><strong>Translate the curvature into temperature language:</strong> “For a smooth curve, ∂<sub>β</sub><sup>2</sup>J = k<sub>B</sub><sup>2</sup>T<sub>h</sub><sup>2</sup> d[T<sub>h</sub><sup>2</sup>(∂J/∂T<sub>h</sub>)]/dT<sub>h</sub>. A finite-node convexity failure therefore implies that T<sub>h</sub><sup>2</sup>(∂J/∂T<sub>h</sub>) decreases somewhere in the sampled interval. The differential conductance need not be negative there, so this is not automatically NDTC. Our targeted search found no broadly established standalone name for β<sub>h</sub>-curvature failure; ‘β-curvature anomaly’ is the precise descriptive term used here.”</p>
+          <p><strong>Order three—hidden failure:</strong> “M14 passes direction, monotonicity, and β-convexity. Only the four-point quantity W<sub>3</sub> = −Δ<sub>β</sub><sup>3</sup>J fails. So the red card is not reversal, NDTC, or loss of convexity; it is the first hidden fixed-Landauer shape failure.”</p>
+          <p><strong>Claim boundary and transition:</strong> “Passing the lower faces does not prove a Landauer model. It only shows that the familiar lower-order anomalies are absent at these sampled nodes. The next question is why a fixed passive transmission imposes the stronger hierarchy.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Literature">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">02 · literature background</p><h2>The missing link is a finite-temperature shape hierarchy</h2><p class="dek">Existing work supplies the transport framework, fluctuation statistics, and nonlinear examples; P10 connects them to a four-node mean-current test.</p></header>
+          <div class="literature-timeline">
+            <article><span>2006</span><h3>Harmonic Landauer</h3><p>NEGF establishes the bosonic transmission picture for harmonic junctions.</p><small>Dhar &amp; Roy</small></article>
+            <article><span>2007–11</span><h3>Heat FCS</h3><p>Fluctuation symmetry and cumulant-generating functions characterize harmonic transport.</p><small>Saito &amp; Dhar</small></article>
+            <article><span>2015–22</span><h3>Nonlinear quantum transport</h3><p>HEOM, strong-coupling, and rectification studies reveal current shapes beyond simple baselines.</p><small>Kato–Tanimura; Ming; Liu; Wang</small></article>
+            <article><span>2025–26</span><h3>Modern boundary</h3><p>Hidden NDTC and a modern analysis of the harmonic interfacial Landauer scope.</p><small>Zhang; Dai &amp; Tian</small></article>
+            <article class="gap"><span>P10</span><h3>Operational gap</h3><p>No exact collision was found for a four-temperature, first-failing (m=3) mean-current witness.</p><small>Focused audit; not an absolute priority claim</small></article>
+          </div>
+          <div class="precision-note"><b>Novelty boundary.</b> The proposed contribution is the divided-difference hierarchy and its four-temperature operationalization—not the Landauer formula, HEOM, or nonlinear heat transport themselves.</div>
+          <footer class="slide-footer"><span>Primary literature audit in P10/literature_and_gap.md</span><span>Fresh focused search checked 19 August 2026</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>Landauer framework</mark> · <mark>full counting statistics</mark> · <mark>nonlinear response</mark> · <mark>targeted gap</mark></p>
+          <p><strong>Say:</strong> “The ingredients are established, but their connection is the point. Dhar and Roy provide the harmonic Landauer comparison class. Saito and Dhar develop heat full counting statistics, or <strong>FCS</strong>, which describes the whole distribution of transferred heat. HEOM and nonlinear-response studies show that interacting conductors can have behavior beyond simple baselines.”</p>
+          <p><strong>Separate nearby ideas:</strong> Negative differential thermal conductance is essentially an <strong>order-one</strong> anomaly: the current itself turns nonmonotone. Our anchor does not do that. It remains monotone and convex and first fails only at <strong>order three</strong>. Also, although FCS papers discuss current cumulants, our test uses only the temperature dependence of the <strong>first cumulant—the mean current</strong>.</p>
+          <p><strong>Claim boundary:</strong> The focused audit through 8 August, followed by a focused check on 19 August, did not find the same all-order inverse-temperature hierarchy used as a four-node test. Say “we found no exact collision in this targeted search,” not “this is the first ever.” A broader priority search is still needed before publication.</p>
+          <p><strong>Transition:</strong> “To understand exactly what the test can reject, we now define the null model.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Null model">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">03 · comparison class</p><h2>The null is narrow, explicit, and falsifiable</h2><p class="dek">We test a fixed passive bosonic Landauer transmission—not every harmonic-looking or classical model.</p></header>
+          <div class="null-layout">
+            <div class="equation-stage math-block">
+              <small>steady two-terminal heat current</small>
+              <div class="display-math">\[J(\beta_h)=\int_0^\infty d\omega\;\omega\,\tau(\omega)\left[n_B(\beta_h\omega)-n_B(\beta_c\omega)\right]\]</div>
+              <p>Hot inverse temperature \(\beta_h\) varies; cold inverse temperature \(\beta_c\) is fixed.</p>
+            </div>
+            <div class="assumption-stack">
+              <article><b>01</b><div><h3>Passive</h3><p>\(\tau(\omega)\ge 0\).</p></div></article>
+              <article><b>02</b><div><h3>Fixed</h3><p>\(\tau\) is independent of both bath temperatures.</p></div></article>
+              <article><b>03</b><div><h3>Stationary</h3><p>Two-terminal bosonic transport with a steady mean current.</p></div></article>
+              <article><b>04</b><div><h3>Hot domain</h3><p>\(0&lt;\beta_h\le\beta_c\) for the order-zero sign.</p></div></article>
+            </div>
+          </div>
+          <div class="warning-strip">A violation rejects this representation. It does <strong>not</strong> identify the missing mechanism.</div>
+          <footer class="slide-footer"><span>Dhar &amp; Roy, J. Stat. Phys. 125, 801 (2006)</span><span>Dai &amp; Tian, MRS Commun. 16, 710 (2026)</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>null model</mark> · <mark>passive</mark> · <mark>fixed transmission</mark> · <mark>inverse temperature</mark></p>
+          <p><strong>Read the equation in words:</strong> “The current is a sum over bosonic frequencies. At each frequency, the transmission τ tells us how strongly that channel carries heat, and the bracket is the difference between the hot and cold Bose occupations.” The function n<sub>B</sub> is the Bose–Einstein occupation. The cold inverse temperature β<sub>c</sub> is fixed; only β<sub>h</sub> is varied.</p>
+          <p><strong>Define the assumptions:</strong> <strong>Passive</strong> means τ(ω) ≥ 0: no channel actively supplies energy. <strong>Fixed</strong> means the same τ must explain all four temperatures; we are not allowed to refit it at every point. <strong>Stationary two-terminal</strong> means one hot bath, one cold bath, and a settled mean current. The order-zero sign is asserted on the hot domain 0 &lt; β<sub>h</sub> ≤ β<sub>c</sub>.</p>
+          <p><strong>Interpret a violation:</strong> If W<sub>3</sub> &lt; 0, there is no single nonnegative, temperature-independent τ in this representation that fits the four currents. Temperature-dependent contacts, saturation, an active or nonthermal bath, or inelastic/self-consistent transport could all fall outside the null. The test does <strong>not</strong> choose among them.</p>
+          <p><strong>Transition:</strong> “The reason this narrow model has such a strong shape constraint comes directly from Bose statistics.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Theory">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">04 · our theory</p><h2>Bose statistics hide a positive Laplace transform</h2><p class="dek">That structure forces every signed derivative—and every signed divided difference—to have a fixed sign.</p></header>
+          <div class="derivation-flow">
+            <article><span>1</span><small>Bose expansion</small><div class="math-block">\[n_B(\beta\omega)=\sum_{k\ge1}e^{-k\beta\omega}\]</div><p>Expand the temperature-dependent Bose factor.</p></article>
+            <i aria-hidden="true">→</i>
+            <article><span>2</span><small>change variable</small><div class="math-block">\[F(\beta)=\int_0^\infty e^{-\beta s}q(s)\,ds\]</div><p>Absorb the fixed cold contribution into a constant.</p></article>
+            <i aria-hidden="true">→</i>
+            <article><span>3</span><small>positive density</small><div class="math-block">\[q(s)=s\sum_{k\ge1}\frac{\tau(s/k)}{k^2}\ge0\]</div><p>Passivity makes \(F\) completely monotone.</p></article>
+          </div>
+          <div class="theorem-card math-block"><span>Theorem</span><div>\[(-1)^m[\beta_0,\ldots,\beta_m]J\ge0\qquad (m\ge1)\]</div><p>For equal spacing, divided differences reduce—up to a positive factor—to signed forward differences. Order zero is the separate hot-domain statement \(J\ge0\).</p></div>
+          <footer class="slide-footer"><span>P10/theory/theorem.md · finite-node hierarchy</span><span>No numerical differentiation required</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>positive mixture</mark> · <mark>Laplace transform</mark> · <mark>complete monotonicity</mark> · <mark>divided difference</mark></p>
+          <p><strong>Give the intuition before the algebra:</strong> “A Bose occupation can be expanded as a sum of decaying exponentials. Because the transmission is nonnegative, every exponential enters with a nonnegative weight. Therefore the hot-dependent part of the current is a <strong>positive mixture of decays</strong>.” That positive mixture is what mathematicians call a Laplace transform of a nonnegative density.</p>
+          <p><strong>Walk across the slide:</strong> Step 1 expands n<sub>B</sub>. Step 2 collects the exponentials into F(β). Step 3 shows the weight q(s) is nonnegative because τ is nonnegative. Such an F is <strong>completely monotone</strong>: its derivatives alternate signs. The measured current is J(β<sub>h</sub>) = F(β<sub>h</sub>) − F(β<sub>c</sub>); subtracting the fixed cold constant does not change any difference of order one or higher.</p>
+          <p><strong>Define the bracket:</strong> [β<sub>0</sub>, …, β<sub>m</sub>]J is a <strong>divided difference</strong>, the finite-sample analogue of an m-th derivative. The theorem starts at m = 1. The m = 0 statement is separately J ≥ 0 on the hot domain.</p>
+          <p><strong>Transition:</strong> “For four equally spaced inverse temperatures, this abstract theorem becomes one simple weighted sum.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Protocol">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">05 · four-temperature protocol</p><h2>The next shape test is one weighted sum</h2><p class="dek">Measure the current at four equally spaced inverse temperatures: \(\beta_j=\beta_0+jh\).</p></header>
+          <div class="protocol-layout">
+            <div class="stencil-board">
+              <div class="stencil-node"><small>\(\beta_0\)</small><b>\(J_0\)</b><span>+1</span></div>
+              <div class="stencil-node"><small>\(\beta_1\)</small><b>\(J_1\)</b><span>−3</span></div>
+              <div class="stencil-node"><small>\(\beta_2\)</small><b>\(J_2\)</b><span>+3</span></div>
+              <div class="stencil-node"><small>\(\beta_3\)</small><b>\(J_3\)</b><span>−1</span></div>
+              <div class="stencil-axis" aria-hidden="true"></div>
+            </div>
+            <div class="protocol-result math-block"><small>fixed-Landauer bound</small><div>\[W_3=-\Delta_h^3J_0=J_0-3J_1+3J_2-J_3\ge0\]</div><p class="negative-result">Observed \(W_3&lt;0\) ⇒ reject the null.</p></div>
+          </div>
+          <div class="hierarchy-row"><span><b>\(J\ge0\)</b><small>positivity</small></span><i>→</i><span><b>\(-\Delta J\ge0\)</b><small>monotonicity</small></span><i>→</i><span><b>\(\Delta^2J\ge0\)</b><small>convexity</small></span><i>→</i><span class="active"><b>\(-\Delta^3J\ge0\)</b><small>four-point face</small></span></div>
+          <footer class="slide-footer"><span>Operational input: four steady mean currents</span><span>Nonuniform temperatures: use divided differences</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>equal spacing in β</mark> · <mark>1, −3, +3, −1</mark> · <mark>one-way certificate</mark></p>
+          <p><strong>Say:</strong> “Choose four points equally spaced in <strong>inverse temperature</strong>, not equally spaced in temperature. Call the four measured currents J<sub>0</sub> through J<sub>3</sub>. Multiply them by 1, −3, +3, and −1, then add. That number is W<sub>3</sub>.”</p>
+          <p><strong>Explain the sign:</strong> Every current in the fixed passive Landauer class must give W<sub>3</sub> ≥ 0. Therefore a value below zero is a direct rejection certificate. We do not divide by h<sup>3</sup>, because h<sup>3</sup> is positive and we only need the sign. If the four β values are not equally spaced, this raw stencil is invalid and the divided-difference formula must be used.</p>
+          <p><strong>Emphasize the asymmetry of the logic:</strong> <strong>Failure is decisive</strong> for the stated null. <strong>Passing is not decisive</strong>, because finitely many inequalities do not construct a physical transmission or prove the model globally.</p>
+          <p><strong>Transition:</strong> “We now need a controlled conductor on which to test whether this fourth face can fail while the lower faces still pass.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Model">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">06 · validation system</p><h2>M14: an interacting two-qubit heat conductor</h2><p class="dek">A small, controlled model lets us compare HEOM, global Davies, and a nonsecular second-order solver.</p></header>
+          <div class="model-layout">
+            <div class="model-diagram" aria-label="Two qubits coupled to hot and cold baths">
+              <div class="bath hot"><small>hot bath</small><b>\(\beta_h\)</b><span>\(\sigma_x^L\)</span></div>
+              <div class="connector"></div>
+              <div class="qubit"><small>left qubit</small><b>\(\varepsilon_L=1.2\)</b><span>\(\sigma_z^L\)</span></div>
+              <div class="coupling"><b>\(J_x=0.9\)</b><span>\(\sigma_x^L\sigma_x^R\)</span><b>\(J_z=-0.3\)</b><span>\(\sigma_z^L\sigma_z^R\)</span></div>
+              <div class="qubit"><small>right qubit</small><b>\(\varepsilon_R=0.7\)</b><span>\(\sigma_z^R\)</span></div>
+              <div class="connector"></div>
+              <div class="bath cold"><small>cold bath</small><b>\(\beta_c=3.0\)</b><span>\(\sigma_x^R\)</span></div>
+            </div>
+            <div class="model-equation math-block">\[H=\frac{\varepsilon_L}{2}\sigma_z^L+\frac{\varepsilon_R}{2}\sigma_z^R+J_x\sigma_x^L\sigma_x^R+J_z\sigma_z^L\sigma_z^R\]</div>
+            <div class="parameter-grid"><span><small>hot sweep</small><b>0.3 → 2.1</b><em>step 0.3</em></span><span><small>cutoff</small><b>1.2</b><em>both baths</em></span><span><small>reorganization</small><b>2 × 10⁻⁴</b><em>per bath</em></span><span><small>anchor</small><b>P4D2</b><em>HEOM</em></span></div>
+          </div>
+          <footer class="slide-footer"><span>P10 M14 frozen receipt · generated for 8 August 2026</span><span>Local \(\sigma_x\) bath coupling</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>M14 two-qubit model</mark> · <mark>HEOM</mark> · <mark>Davies</mark> · <mark>K2</mark></p>
+          <p><strong>Introduce the model physically:</strong> “M14 is a minimal heat conductor made from two coupled two-level systems. The left qubit talks to the hot bath and the right qubit to the cold bath through local σ<sub>x</sub> couplings. The J<sub>x</sub> and J<sub>z</sub> terms couple the two qubits internally.” The cold inverse temperature is 3.0, while the hot inverse temperature runs from 0.3 to 2.1 in steps of 0.3. The <strong>first four nodes</strong> define the witness highlighted on the next slide.</p>
+          <p><strong>Explain the methods without jargon overload:</strong> <strong>HEOM</strong>, the hierarchical equations of motion, retains bath memory through a controlled hierarchy and is our primary numerical anchor. <strong>Global Davies</strong> is a weak-coupling Markovian master equation and serves as a transparent control. <strong>K2</strong> is a second-order, nonsecular calculation that keeps population–coherence coupling omitted by a fully secular treatment.</p>
+          <p><strong>Why compare them:</strong> The reorganization energy is weak, so the controlled approximations should be informative, while HEOM lets us check that the result is not created by one approximation. P4D2 means four Padé terms and hierarchy depth two; we later refine both labels.</p>
+          <p><strong>Transition:</strong> “With that model fixed, here is the central numerical result.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Anchor result">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">07 · anchor result</p><h2>Lower-order shape tests pass; the four-point face fails</h2><p class="dek">Three solver pipelines agree on the sign and close magnitude of the violation.</p></header>
+          <div class="evidence-top-row">
+            <figure class="evidence-panel">
+              <svg viewBox="0 0 2900 1133" role="img" aria-label="Panels a and b: current sweep and signed finite-difference hierarchy"><image href="assets/evidence_figure.png" width="2900" height="2266"></image></svg>
+              <figcaption><b>a–b</b> Positive mean current across the sweep; \(J\), \(-\Delta J\), and \(\Delta^2J\) pass while \(W_3=-\Delta^3J&lt;0\).</figcaption>
+            </figure>
+          </div>
+          <div class="result-metrics"><span><small>HEOM · P4D2</small><b>−3.34554 × 10⁻⁶</b></span><span><small>global Davies</small><b>−3.32637 × 10⁻⁶</b></span><span><small>nonsecular K2</small><b>−3.33283 × 10⁻⁶</b></span><span class="pass"><small>minimum \(\Delta^2J\)</small><b>+9.00372 × 10⁻⁷</b></span></div>
+          <footer class="slide-footer"><span>Frozen P10 evidence figure, panels a–b</span><span>All values in audited model units</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>first failed face</mark> · <mark>negative W₃</mark> · <mark>lower orders pass</mark> · <mark>cross-method agreement</mark></p>
+          <p><strong>Start with the plot, not the numbers:</strong> “The current curve in panel a looks completely ordinary: it is positive and smooth over the seven-temperature sweep. The shaded region identifies the first four-node window. Panel b applies the hierarchy: the order-zero current, signed first difference, and second difference all stay on the allowed side, but the <strong>first four-node W<sub>3</sub> stencil</strong> is negative.”</p>
+          <p><strong>Then use the metric cards:</strong> HEOM gives W<sub>3</sub> = −3.34554 × 10<sup>−6</sup>. Global Davies and nonsecular K2 give nearby negative values. The minimum convexity margin is still positive, +9.00372 × 10<sup>−7</sup>, so the result is not ordinary nonmonotonicity or loss of convexity.</p>
+          <p><strong>State exactly what the red sign means:</strong> At least one four-node stencil is incompatible with every fixed, passive, temperature-independent Landauer transmission in the null. Do not imply that every third-difference window in the seven-node sweep is negative. The violation is <strong>not</strong> itself evidence for a unique mechanism.</p>
+          <p><strong>Transition:</strong> “Before interpreting it, we should ask whether this small negative number survives method and convergence checks.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Cross validation">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">08 · numerical confidence</p><h2>The violation survives method and hierarchy checks</h2><p class="dek">Agreement is not inferred from one solver or one truncation.</p></header>
+          <div class="validation-layout">
+            <div class="method-table">
+              <div class="table-head"><span>method</span><span>\(W_3\)</span><span>role</span></div>
+              <div><b>HEOM P4D2</b><span>−3.3455437839 × 10⁻⁶</span><em>primary anchor</em></div>
+              <div><b>Global Davies</b><span>−3.3263697583 × 10⁻⁶</span><em>weak-coupling control</em></div>
+              <div><b>K2 · M1024</b><span>−3.3328273706 × 10⁻⁶</span><em>nonsecular check</em></div>
+            </div>
+            <div class="convergence-stack">
+              <article><small>bath-memory refinement</small><b>P6D2</b><span>−3.3455435651 × 10⁻⁶</span></article>
+              <article><small>hierarchy-depth refinement</small><b>P4D3</b><span>−3.3454845568 × 10⁻⁶</span></article>
+              <article class="balance"><small>anchor current balance</small><b>≈ 1.05 × 10⁻¹⁸</b><span>numerically closed</span></article>
+            </div>
+          </div>
+          <div class="agreement-bar"><span>Davies</span><i></i><span>K2</span><i></i><span>HEOM</span><strong>same negative face</strong></div>
+          <footer class="slide-footer"><span>P10 README · anchor and convergence receipts</span><span>Manifest + fail-closed verifier passed</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>method check</mark> · <mark>Padé refinement</mark> · <mark>hierarchy depth</mark> · <mark>current balance</mark></p>
+          <p><strong>Read the table by role:</strong> “HEOM P4D2 is the primary anchor. Davies is a weak-coupling control. K2 is a nonsecular second-order check. These are three <strong>solver pipelines</strong>, not three mathematically independent exact solutions.” All three agree that the face is negative and give close magnitudes.</p>
+          <p><strong>Explain the refinement labels:</strong> Increasing P from 4 to 6 refines the representation of bath correlations. Increasing D from 2 to 3 deepens the HEOM hierarchy. Both changes move W<sub>3</sub> only slightly and leave its sign unchanged. The 10<sup>−18</sup> current-balance residual means the steady-state energy entering from one side and leaving from the other closes to numerical precision.</p>
+          <p><strong>Interpret conservatively:</strong> This combination makes a simple truncation or bookkeeping artifact unlikely. Say <strong>sign agreement and convergence stability</strong>; do not say exact agreement or exact solution.</p>
+          <p><strong>Transition:</strong> “The next question is whether this happens only at one finely tuned parameter point.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Robustness">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">09 · parameter robustness</p><h2>The negative face is not an isolated point</h2><p class="dek">Finite grids establish strict sampled margins and therefore open neighborhoods—not a proof for the full enclosing box.</p></header>
+          <div class="region-layout">
+            <figure class="evidence-panel panel-c">
+              <svg viewBox="0 1133 1500 1133" role="img" aria-label="Panel c: parameter map of the negative W3 region over Jx and Jz"><image href="assets/evidence_figure.png" width="2900" height="2266"></image></svg>
+              <figcaption><b>c</b> Central \(J_x\)–\(J_z\) HEOM slice; all nine points are negative.</figcaption>
+            </figure>
+            <div class="region-stats">
+              <article><b>243 / 243</b><p>Davies grid rows pass orders 0–2 and first fail at \(W_3\).</p></article>
+              <article><b>32 / 32</b><p>HEOM outer corners show the same face pattern.</p></article>
+              <article><b>9 / 9</b><p>Central HEOM slice remains negative; closest \(W_3=-2.3612\times10^{-6}\).</p></article>
+              <article><b>≤ 8.06 × 10⁻¹¹</b><p>Depth-3 drift at four audited corners.</p></article>
+            </div>
+          </div>
+          <div class="caveat-strip"><strong>Topology statement:</strong> under the stated continuous, nondegenerate generator dependence, strict sampled margins imply neighborhoods around sampled points—not every point in the enclosing hyperrectangle.</div>
+          <footer class="slide-footer"><span>HEOM outer-corner \(W_3\) range ≈ [−3.823, −2.642] × 10⁻⁶</span><span>outer-corner min density eigenvalue 8.279 × 10⁻⁴</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>robust sampled margins</mark> · <mark>open neighborhood</mark> · <mark>not a whole-box proof</mark></p>
+          <p><strong>Say:</strong> “We repeated the hierarchy test over several parameter sets. All 243 Davies records, all 32 HEOM outer-corner records, and all nine points in the central J<sub>x</sub>–J<sub>z</sub> slice pass orders zero through two and give a negative <strong>first W<sub>3</sub> stencil</strong>. Four depth-three checks change the value by no more than 8.06 × 10<sup>−11</sup>.”</p>
+          <p><strong>Explain the topology sentence plainly:</strong> A <strong>strict margin</strong> means the computed value is not sitting exactly at zero. If the generator and steady state vary continuously and remain nondegenerate, points sufficiently close to a recorded point must keep the same sign. That gives a small <strong>open neighborhood</strong> around each audited point.</p>
+          <p><strong>Do not overclaim:</strong> We did not evaluate every point between the grid nodes and did not perform interval arithmetic. Therefore the evidence does <strong>not</strong> prove that the entire enclosing rectangular box, or one globally connected region, has the property.</p>
+          <p><strong>Transition:</strong> “Robustness does not yet tell us what physical mechanism the witness diagnoses, so we need a deliberately simple counterexample.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Scope control">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">10 · scope control</p><h2>A saturable two-state channel can also fail the bound</h2><p class="dek">The witness excludes a transport representation; it does not uniquely diagnose a quantum mechanism.</p></header>
+          <div class="scope-layout">
+            <figure class="evidence-panel panel-d">
+              <svg viewBox="1500 1133 1400 1133" role="img" aria-label="Panel d: asymmetric two-level-system counterexample and threshold"><image href="assets/evidence_figure.png" width="2900" height="2266"></image></svg>
+              <figcaption><b>d</b> Audited asymmetric TLS control: lower faces pass while \(W_3&lt;0\).</figcaption>
+            </figure>
+            <div class="scope-copy">
+              <div class="threshold-card math-block"><small>analytic condition for a third-derivative failure somewhere in the hot domain</small><div>\[\Gamma_h>\sqrt{3}\,\Gamma_c\coth\!\left(\frac{\beta_c\varepsilon}{2}\right)\]</div><p>The audited 100:1 finite stencil gives \(W_3=-1.92443\times10^{-3}\).</p></div>
+              <div class="not-grid"><span>not coherence</span><span>not entanglement</span><span>not strong coupling</span><span>not non-Markovianity</span><span>not uniquely inelastic</span><span>not all classical models</span></div>
+            </div>
+          </div>
+          <div class="exact-claim"><small>exact conclusion</small><strong>The data are incompatible with a stationary two-terminal bosonic representation having a fixed, passive, temperature-independent nonnegative Landauer transmission.</strong></div>
+          <footer class="slide-footer"><span>P10 theorem · saturable-TLS scope control</span><span>Mechanism identification requires additional observables</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>scope control</mark> · <mark>saturation</mark> · <mark>representation witness</mark> · <mark>not mechanism identification</mark></p>
+          <p><strong>Say:</strong> “To stop ourselves from overinterpreting the result, we tested a single saturable two-state channel. It has no two-qubit entanglement and no need for a complicated many-body explanation. If the hot-side coupling is sufficiently stronger than the cold-side coupling, even this simple finite-capacity model can develop a third-order failure.”</p>
+          <p><strong>Explain the formula carefully:</strong> The displayed inequality is the analytic condition for a <strong>third-derivative failure somewhere</strong> in the hot domain. Separately, the audited 100:1 example uses the same finite temperature stencil and gives a negative finite W<sub>3</sub> while lower orders pass. Do not equate the derivative threshold with an exact threshold for this particular finite stencil.</p>
+          <p><strong>Scientific meaning:</strong> W<sub>3</sub> &lt; 0 is a <strong>representation witness</strong>: it says the fixed passive Landauer picture cannot reproduce the data. By itself it is not a witness of coherence, entanglement, interactions, strong coupling, memory, or even uniquely quantum behavior. Additional observables are required to identify a mechanism.</p>
+          <p><strong>Transition:</strong> “If we want to use this as an experimental test, the next issue is whether the negative sign can be resolved against uncertainty.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Error budget">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">11 · experimental certificate</p><h2>The stencil turns calibration into a covariance problem</h2><p class="dek">The same four coefficients define both the witness and its uncertainty.</p></header>
+          <div class="error-layout">
+            <div class="covariance-card math-block"><small>coefficient vector</small><div>\[\mathbf c=(1,-3,3,-1),\qquad \operatorname{Var}(W_3)=\mathbf c^{\mathsf T}\Sigma\mathbf c\]</div><p>Use the full covariance matrix when temperature or current errors are correlated across nodes.</p></div>
+            <div class="budget-grid">
+              <article><small>nominal five-standard-deviation current precision</small><b>\(\sigma_J&lt;1.49617\times10^{-7}\)</b><p>Independent, equal current errors.</p></article>
+              <article><small>inverse-temperature precision</small><b>\(\sigma_\beta&lt;0.002069\)</b><p>Equal absolute-error model; alternatively &lt;0.278% for equal fractional errors.</p></article>
+              <article><small>worst-case node bias</small><b>\(|b_j|&lt;4.18193\times10^{-7}\)</b><p>Uniform deterministic per-node envelope.</p></article>
+            </div>
+          </div>
+          <div class="invariance-row"><span><b>common additive offset</b> cancels</span><span><b>common positive gain</b> preserves sign</span><span><b>node-dependent drift</b> needs covariance + bias budget</span></div>
+          <footer class="slide-footer"><span>P10 theorem · statistical and deterministic certificates</span><span>Thresholds are in audited model units</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>covariance</mark> · <mark>five-standard-deviation target</mark> · <mark>systematic bias</mark> · <mark>common-mode cancellation</mark></p>
+          <p><strong>Start from the same coefficients:</strong> “The witness is a linear combination with coefficient vector c = (1, −3, 3, −1). Therefore its variance is c<sup>T</sup>Σc, where Σ contains the variances and correlations of the four <strong>current estimates</strong>.” <strong>Covariance</strong> means that errors at different nodes may move together rather than independently. Temperature-calibration errors must first be propagated through the local current-versus-β slopes—the Jacobian—before they are included in this current covariance.</p>
+          <p><strong>Explain the three budgets separately:</strong> Under independent equal current noise, the anchor would need σ<sub>J</sub> &lt; 1.49617 × 10<sup>−7</sup> for nominal five-standard-deviation separation. The inverse-temperature limits are also <strong>anchor-specific, nominal five-standard-deviation, local-Jacobian estimates</strong> under two alternative models: equal absolute uncertainty below 0.002069, or equal fractional uncertainty below 0.278%. The deterministic bound is a separate worst-case per-node bias budget.</p>
+          <p><strong>Give the useful intuition:</strong> The coefficients sum to zero, so one additive offset common to all four currents cancels. A common positive calibration gain rescales W<sub>3</sub> but cannot change its sign. Node-dependent drift does not cancel and must enter both the covariance and bias analysis.</p>
+          <p><strong>Caveat and transition:</strong> These thresholds are in audited model units, not yet laboratory specifications. “With that caveat, what can the test be used for?”</p>
+        </aside>
+      </section>
+
+      <section data-section="Applications">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">12 · potential applications</p><h2>Use the witness as a gate—not a mechanism label</h2><p class="dek">Its best role is to decide when a fixed harmonic transmission is no longer an adequate baseline.</p></header>
+          <div class="application-grid">
+            <article class="supported"><span>01</span><h3>Four-temperature model rejection</h3><p>A low-measurement-cost falsification gate for a fixed passive Landauer baseline.</p><small>Supported now</small></article>
+            <article class="supported"><span>02</span><h3>Model triage</h3><p>Signals that saturation, temperature-dependent contacts, inelastic/self-consistent channels, or nonthermal baths may be needed.</p><small>Supported as alternatives—not identified</small></article>
+            <article class="supported"><span>03</span><h3>Experiment design</h3><p>Plan repetitions for a chosen stencil using the full \(\mathbf c^{\mathsf T}\Sigma\mathbf c\) error budget.</p><small>Supported in model units</small></article>
+            <article class="supported"><span>04</span><h3>Numerical benchmark</h3><p>Cross-check Davies, K2, HEOM, and future solvers with a sensitive shape statistic.</p><small>Demonstrated in P10</small></article>
+          </div>
+          <div class="prospective-strip"><b>Prospective only:</b> platform-specific metrology, thermal-transistor diagnostics, and quantum-resource sensing require new theory and experiments.</div>
+          <footer class="slide-footer"><span>Application language follows the audited claim boundary</span><span>No device-performance claim is made</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>decision gate</mark> · <mark>model triage</mark> · <mark>experiment design</mark> · <mark>numerical benchmark</mark></p>
+          <p><strong>Say:</strong> “The strongest use is as a <strong>gate</strong>. Before fitting many Landauer parameters, take four mean-current values and test the sign. If the sign fails, stop trying to explain all four points with one fixed passive transmission.”</p>
+          <p><strong>Walk through the cards:</strong> First, it is a low-measurement-cost rejection test. Second, it performs <strong>model triage</strong>: a richer description may need saturation, temperature-dependent contacts, inelastic or self-consistent channels, or nonthermal reservoirs. That is a list of alternatives, not an identification result. Third, the covariance formula tells us how to allocate repetitions once a platform and node choice are fixed. Fourth, W<sub>3</sub> is a sensitive cross-check for numerical solvers.</p>
+          <p><strong>Separate present from future:</strong> Platform-specific metrology, thermal-transistor diagnostics, or quantum-resource sensing are <strong>prospective</strong>. P10 has not demonstrated a device benefit or an experimental implementation in physical units.</p>
+          <p><strong>Transition:</strong> “Those are diagnostic uses available immediately. The same four numbers also have a functional interpretation: a negative W<sub>3</sub> means a large thermal signal is compressed relative to the Landauer baseline.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Applications · compression">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">13 · potential application I</p><h2>Negative W₃ means finite-amplitude gain compression</h2><p class="dek">The same four currents compare a small inverse-temperature swing with one three times larger.</p></header>
+          <div class="application-response-layout">
+            <div class="application-equation-card math-block">
+              <small>the four sampled nodes</small>
+              <div class="application-node-row" aria-label="Four inverse-temperature nodes symmetric about beta bar">
+                <span><small>β₀</small><b>β̄ − 3a</b></span>
+                <span><small>β₁</small><b>β̄ − a</b></span>
+                <span><small>β₂</small><b>β̄ + a</b></span>
+                <span><small>β₃</small><b>β̄ + 3a</b></span>
+              </div>
+              <div class="display-math">\[S(a)=J_1-J_2,\qquad S(3a)=J_0-J_3\]</div>
+              <div class="identity-math">\[W_3=S(3a)-3S(a)\]</div>
+              <p>At the M14 anchor, β̄ = 0.75 and a = 0.15. The identity is exact for the four finite nodes—no derivative approximation is used.</p>
+            </div>
+            <div class="application-metric-stack">
+              <article class="application-metric"><small>fixed passive Landauer null</small><b>η<sub>comp</sub> ≥ 1</b><p>where η<sub>comp</sub> ≡ S(3a) / [3S(a)]: the normalized gain cannot decrease.</p></article>
+              <article class="application-metric observed"><small>HEOM anchor</small><b>η<sub>comp</sub> = 0.9498</b><p>Tripling the input amplitude gives 2.849 × the current swing—5.02% below triple scaling.</p></article>
+              <div class="application-solver-line"><b>Cross-method check</b> · HEOM / Davies / K2 = 0.9498 / 0.9501 / 0.9500</div>
+            </div>
+          </div>
+          <div class="application-boundary-strip"><b>Prospective function:</b> thermal-load stabilization or a current-limiter primitive. <b>Not yet shown:</b> a plateau, saturation, or useful device-level bandwidth.</div>
+          <footer class="slide-footer"><span>Derived from the first four frozen M14 current nodes</span><span>Finite-scale compression · current remains positive and monotone</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>inverse-temperature amplitude</mark> · <mark>current swing</mark> · <mark>normalized gain</mark> · <mark>finite-scale compression</mark></p>
+          <p><strong>Set up the four points:</strong> “Write the first four sampled inverse temperatures symmetrically around β̄. For the anchor, β̄ = 0.75 and a = 0.15, so the points are 0.3, 0.6, 0.9, and 1.2. Remember that β is inverse temperature: moving to smaller β means making the hot bath hotter.”</p>
+          <p><strong>Explain S:</strong> “S(a) is the steady-current swing when the hot inverse temperature is toggled between β̄ − a and β̄ + a. S(3a) is the swing for a three-times-wider toggle. The four-point stencil rearranges exactly to W<sub>3</sub> = S(3a) − 3S(a). No derivative approximation is used.”</p>
+          <p><strong>Interpret the metric:</strong> “If the response scaled linearly, tripling the input amplitude would triple the output swing. The fixed passive Landauer class is even more expansive: it requires η<sub>comp</sub> ≥ 1. The HEOM anchor gives η<sub>comp</sub> = 0.9498. Its wide swing is 2.849 times the small swing, which is 5.02 percent below triple scaling.”</p>
+          <p><strong>Claim boundary:</strong> “This is <strong>finite-amplitude gain compression</strong>. It does not mean the current decreases or has reached a plateau—the sampled current remains monotone. A practical current limiter would require the compression to persist over a much broader range and approach saturation.”</p>
+          <p><strong>Transition:</strong> “The same four currents also define a control protocol in which added fluctuations reduce a binary thermal signal.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Applications · dither">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">14 · potential application II</p><h2>Zero-mean inverse-temperature dither attenuates a probe</h2><p class="dek">The gate changes fluctuation amplitude while leaving its mean shift in β equal to zero.</p></header>
+          <div class="dither-layout">
+            <div class="dither-states">
+              <article class="dither-state math-block"><span>gate off</span><h3>Binary probe only</h3><p>The probe toggles between the inner nodes β₁ ↔ β₂.</p><div class="display-math">\[p=\pm a,\quad g=0,\qquad S_{\mathrm{off}}=J_1-J_2\]</div></article>
+              <article class="dither-state math-block"><span>gate on</span><h3>Add equal-dwell dither</h3><p>The probe samples β₀ ↔ β₁ and β₂ ↔ β₃ under g = ±2a.</p><div class="display-math">\[S_{\mathrm{on}}=\frac{(J_0-J_1)+(J_2-J_3)}{2}\]</div></article>
+            </div>
+            <div class="dither-verdict math-block">
+              <small>exact quasistatic identity</small>
+              <div class="display-math">\[S_{\mathrm{on}}-S_{\mathrm{off}}=\frac{W_3}{2}\]</div>
+              <div class="dither-compare"><span><b>Fixed Landauer · W₃ ≥ 0</b><br>the dither preserves or enhances the probe swing</span><span><b>M14 · W₃ &lt; 0</b><br>the dither attenuates the probe swing</span></div>
+              <div class="dither-anchor"><b>η<sub>gate</sub> ≡ S<sub>on</sub> / S<sub>off</sub> = 0.9247</b><p>2.22078 × 10⁻⁵ → 2.05351 × 10⁻⁵ · 7.53% attenuation</p><small>Davies / K2 M1024 = 0.9252 / 0.9250</small></div>
+            </div>
+          </div>
+          <div class="application-boundary-strip"><b>Prospective:</b> an all-thermal attenuator or fluctuation-gated valve. <b>Not implied:</b> rectification, heat pumping, amplification, or a large on/off ratio.</div>
+          <footer class="slide-footer"><span>Exact for settled plateau currents with equal dwell</span><span>Finite-speed operation requires dynamical modelling</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>binary probe</mark> · <mark>zero-mean β dither</mark> · <mark>quasistatic</mark> · <mark>attenuation</mark></p>
+          <p><strong>Define gate off:</strong> “Let a binary probe switch the hot inverse temperature by p = ±a around β̄. With the gate off, those are nodes β₁ and β₂, so the measured probe swing is S<sub>off</sub> = J₁ − J₂.”</p>
+          <p><strong>Define gate on:</strong> “Now add a gate shift g = ±2a, spending equal time at the two values. At g = −2a, the probe samples β₀ and β₁; at g = +2a, it samples β₂ and β₃. Average those two conditional probe swings. This gives S<sub>on</sub> = [(J₀ − J₁) + (J₂ − J₃)]/2. This is a probe-response swing, not the time-averaged DC current.”</p>
+          <p><strong>Show the exact link:</strong> “Subtracting the gate-off response gives exactly W<sub>3</sub>/2. Therefore the fixed passive Landauer null, W<sub>3</sub> ≥ 0, cannot attenuate the probe under this protocol; it predicts no change or enhancement. The HEOM anchor instead changes the swing from 2.22078 × 10<sup>−5</sup> to 2.05351 × 10<sup>−5</sup>, a 7.53 percent attenuation.”</p>
+          <p><strong>State the assumptions:</strong> “Zero mean refers to the added shift in <strong>inverse temperature</strong>, ⟨g⟩ = 0. It is not zero mean in T = 1/β, and the device still has a nonzero background bias relative to the cold bath. Each plateau must last much longer than the relaxation time; otherwise transient currents must be included.”</p>
+          <p><strong>Claim boundary:</strong> “This is a modest proof-of-principle attenuator. Calling it a high-contrast thermal valve would require a much smaller η<sub>gate</sub>, a finite-frequency dynamical calculation, and a control-cost analysis.”</p>
+          <p><strong>Transition:</strong> “So the four-point sign does two jobs: it rejects the Landauer baseline and points to a concrete, testable response function.”</p>
+        </aside>
+      </section>
+
+      <section data-section="Takeaways">
+        <div class="slide-shell takeaway-slide">
+          <header class="slide-header"><p class="kicker">15 · conclusion</p><h2>Four temperatures expose a hidden transport constraint</h2></header>
+          <div class="takeaway-list">
+            <article><b>1</b><p><strong>Theory.</strong> The hot-dependent part \(F\) is a positive Laplace transform and \(J(\beta_h)=F(\beta_h)-F(\beta_c)\), forcing an infinite divided-difference hierarchy.</p></article>
+            <article><b>2</b><p><strong>Evidence.</strong> M14 passes positivity, monotonicity, and convexity but violates \(W_3\ge0\), consistently across HEOM, Davies, and K2.</p></article>
+            <article><b>3</b><p><strong>Meaning.</strong> The violation rejects the stated fixed, passive, temperature-independent Landauer representation; it does not identify a unique microscopic mechanism.</p></article>
+          </div>
+          <div class="next-step-grid"><span><small>next theory</small><b>nonuniform-node optimization</b></span><span><small>next experiment</small><b>dither dynamics + physical units</b></span><span><small>next scholarship</small><b>full priority search before submission</b></span></div>
+          <div class="closing-claim">Measure four means. Test one sign. Then test whether the same nodes attenuate a thermal probe.</div>
+          <footer class="slide-footer"><span>P10 status: STRICT GO, narrow</span><span>Appendix follows</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>positive Laplace structure</mark> · <mark>first failure at W₃</mark> · <mark>exact model boundary</mark></p>
+          <p><strong>Conclude in three steps:</strong> “First, the hot-dependent function F—not the current J itself—is a positive Laplace transform. Because J = F − F(β<sub>c</sub>), all differences of order one and above inherit the alternating-sign hierarchy. Second, the interacting M14 conductor passes the familiar lower-order checks but gives a stable negative first W<sub>3</sub> stencil across three solver pipelines. Third, the meaning is narrow and exact: the data are incompatible with a <strong>stationary two-terminal bosonic Landauer representation having a fixed, passive, temperature-independent nonnegative transmission</strong>.”</p>
+          <p><strong>Add the functional interpretation:</strong> The same anchor gives a 5.02% reduction of normalized gain at the larger amplitude and 7.53% quasistatic attenuation under the symmetric dither protocol. These are exact consequences of the four frozen currents, but they are <strong>prospective device primitives</strong>, not yet a limiter, valve, or high-contrast switch.</p>
+          <p><strong>End with the operational line:</strong> “Measure four means. Test one sign. Then test whether the same nodes attenuate a thermal probe.” Pause here before discussing future work.</p>
+          <p><strong>If there is time:</strong> The immediate next steps are to optimize nonuniform temperature nodes, translate the covariance budget into platform-specific units, calculate finite-frequency dither dynamics and control cost, and run a broader literature search before a priority statement.</p>
+          <p><strong>Navigation:</strong> This is the end of the main talk. The next three slides are backup material for questions.</p>
+        </aside>
+      </section>
+
+      <section class="appendix-slide" data-section="Appendix · theorem details">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">A1 · theorem details</p><h2>Nonuniform nodes and invalidating assumptions</h2></header>
+          <div class="appendix-layout">
+            <div class="equation-stage math-block"><small>arbitrary ordered nodes · \(m\ge1\)</small><div class="display-math">\[(-1)^m[\beta_0,\ldots,\beta_m]J\ge0\]</div><p>Do not substitute an equal-grid finite difference when temperature nodes are nonuniform.</p></div>
+            <div class="invalid-grid">
+              <article><h3>Temperature-dependent \(\tau\)</h3><p>Contacts, self-consistent forces, or material properties change with bath temperature.</p></article>
+              <article><h3>Active or nonthermal baths</h3><p>The passive Bose-reservoir reduction no longer applies.</p></article>
+              <article><h3>Additional terminals</h3><p>Hidden reservoirs can change the two-terminal representation.</p></article>
+              <article><h3>Nonstationary protocol</h3><p>Transient data are outside the steady-current theorem.</p></article>
+            </div>
+          </div>
+          <div class="precision-note"><b>Converse warning.</b> Passing finitely many faces does not construct a valid \(\tau(\omega)\); failure of one face is the one-way certificate.</div>
+          <footer class="slide-footer"><span>P10/theory/theorem.md</span><span>Appendix A1</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>nonuniform nodes</mark> · <mark>divided differences</mark> · <mark>invalidating assumptions</mark> · <mark>one-way test</mark></p>
+          <p><strong>If asked about temperature placement:</strong> “The simple 1,−3,3,−1 stencil is valid only when the β nodes are equally spaced. For arbitrary ordered nodes, use the divided difference shown here; it includes the actual node spacings. Using the equal-grid stencil on a nonuniform grid can give the wrong test.”</p>
+          <p><strong>If asked when the theorem stops applying:</strong> A transmission that changes with temperature is no longer the same fixed τ. Active or nonthermal baths can violate the nonnegative Bose-mixture reduction. Hidden terminals change the two-terminal problem. Transient currents are outside a stationary theorem. Unresolved temperature averaging must also be incorporated into the comparison model.</p>
+          <p><strong>Repeat the logic:</strong> Failure of any valid face rejects the null at the sampled nodes. Passing a finite collection of faces does not construct τ(ω), does not prove global compatibility, and does not validate the underlying microscopic dynamics.</p>
+        </aside>
+      </section>
+
+      <section class="appendix-slide" data-section="Appendix · validation">
+        <div class="slide-shell">
+          <header class="slide-header compact"><p class="kicker">A2 · validation receipt</p><h2>Evidence package and numerical gates</h2></header>
+          <div class="receipt-layout">
+            <figure class="full-evidence"><img src="assets/evidence_figure.png" alt="Complete four-panel P10 evidence figure"><figcaption>Frozen P10 evidence figure: current, finite-difference hierarchy, parameter region, and TLS scope control.</figcaption></figure>
+            <div class="receipt-list">
+              <article><b>13 / 13</b><p>manifested content files passed SHA-256 verification</p></article>
+              <article><b>284 rows</b><p>243 Davies + 32 HEOM outer + 9 HEOM central processed records</p></article>
+              <article><b>4 checks</b><p>HEOM depth-3 corner refinements</p></article>
+              <article><b>≤ 3.063 × 10⁻¹⁸</b><p>maximum current-balance residual across HEOM outer points</p></article>
+              <article><b>400 dpi</b><p>native RGB evidence figure; vector PDF retained</p></article>
+            </div>
+          </div>
+          <footer class="slide-footer"><span>Audit freeze · 8 August 2026</span><span>Appendix A2 · local copy preserves source asset hashes</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>provenance</mark> · <mark>SHA-256 manifest</mark> · <mark>fail-closed verification</mark> · <mark>current balance</mark></p>
+          <p><strong>If asked about reproducibility:</strong> “The evidence is not copied from screenshots or recomputed by the presentation. It comes from the frozen P10 package dated 8 August. Thirteen content files are listed in a SHA-256 manifest; the verification script recomputes the stored differences, checks row counts and physical gates, and fails if an expected file or condition is missing.”</p>
+          <p><strong>Explain the counts:</strong> The 284 processed rows are 243 Davies grid points, 32 HEOM outer corners, and nine HEOM central points. Four additional depth-three HEOM calculations test hierarchy convergence. The maximum outer-corner current-balance residual is 3.063 × 10<sup>−18</sup>, and the stationary density matrices remain positive at the audited points.</p>
+          <p><strong>Provenance boundary:</strong> This deck contains exact local copies of the frozen evidence PNG, vector PDF, and caption. The canonical P10 source remains untouched. The manifest proves file identity and verification closure; it does not convert a finite parameter grid into a continuum proof.</p>
+        </aside>
+      </section>
+
+      <section class="appendix-slide" data-section="References">
+        <div class="slide-shell">
+          <header class="slide-header"><p class="kicker">A3 · selected references</p><h2>Literature and source boundary</h2></header>
+          <ol class="reference-list">
+            <li><b>Dhar &amp; Roy (2006)</b> Heat transport in harmonic lattices. <i>J. Stat. Phys.</i> 125, 801–820. <span>doi:10.1007/s10955-006-9235-3</span></li>
+            <li><b>Saito &amp; Dhar (2007)</b> Fluctuation theorem in quantum heat conduction. <i>Phys. Rev. Lett.</i> 99, 180601. <span>doi:10.1103/PhysRevLett.99.180601</span></li>
+            <li><b>Saito &amp; Dhar (2011)</b> Generating function formula of heat transfer. <i>Phys. Rev. E</i> 83, 041121. <span>doi:10.1103/PhysRevE.83.041121</span></li>
+            <li><b>Kato &amp; Tanimura (2015)</b> Quantum heat transport of a two-qubit system: Interplay between system-bath coherence and qubit-qubit coherence. <i>J. Chem. Phys.</i> 143, 064107. <span>doi:10.1063/1.4928192</span></li>
+            <li><b>Ming et al. (2016)</b> Nonlinear system-bath coupling and negative differential thermal conductance. <i>Phys. Rev. E</i> 93, 032127. <span>doi:10.1103/PhysRevE.93.032127</span></li>
+            <li><b>Liu et al. (2019)</b> Strong system-bath coupling induces negative differential thermal conductance and heat amplification in nonequilibrium two-qubit systems. <i>Phys. Rev. E</i> 99, 032114. <span>doi:10.1103/PhysRevE.99.032114</span></li>
+            <li><b>Wang et al. (2022)</b> Quantum theory of nonlinear thermal response. <i>Phys. Rev. B</i> 106, 035148. <span>doi:10.1103/PhysRevB.106.035148</span></li>
+            <li><b>Zhang et al. (2025)</b> Hidden negative differential thermal conductance. <i>Phys. Rev. A</i> 112, 042219. <span>doi:10.1103/jybm-5vs7</span></li>
+            <li><b>Dai &amp; Tian (2026)</b> On the Landauer formula in interfacial thermal transport. <i>MRS Commun.</i> 16, 710–714. <span>doi:10.1557/s43579-026-00941-y</span></li>
+            <li><b>Li, Wang &amp; Casati (2006)</b> Negative differential thermal resistance and thermal transistor. <i>Appl. Phys. Lett.</i> 88, 143501. <span>doi:10.1063/1.2191730</span></li>
+            <li><b>Wu, Wang &amp; Li (2012)</b> Heat current limiter and constant heat current source. <i>Phys. Rev. E</i> 85, 061112. <span>doi:10.1103/PhysRevE.85.061112</span></li>
+          </ol>
+          <div class="source-box"><b>Project source</b><p>P10 Heat-Current Shape Witness · README, theorem, literature audit, frozen receipt, and evidence package · audited 8 August 2026.</p></div>
+          <footer class="slide-footer"><span>Complete claim audit: P10/literature_and_gap.md</span><span>Appendix A3</span></footer>
+        </div>
+        <aside class="notes">
+          <p><strong>Key words:</strong> <mark>comparison class</mark> · <mark>closest prior work</mark> · <mark>bounded priority claim</mark></p>
+          <p><strong>Use this slide only for questions about prior art:</strong> Dhar and Roy anchor the harmonic Landauer model. Saito and Dhar anchor harmonic heat full counting statistics. Kato and Tanimura anchor the two-qubit HEOM framework. The later nonlinear-response and NDTC papers provide nearby physical context, while Dai and Tian clarify the modern scope of the interfacial Landauer expression. Li, Wang, and Casati provide the NDTR-transistor contrast; Wu, Wang, and Li provide a prior limiter/constant-current route. Neither device paper establishes the P10 compression identities.</p>
+          <p><strong>Keep the attribution precise:</strong> None of these papers is being cited as support for the P10 four-temperature theorem or for the M14 numbers. Conversely, P10 does not claim to invent Landauer transport, HEOM, FCS, or nonlinear heat-current behavior. Its proposed contribution is the inverse-temperature divided-difference hierarchy and the operational m = 3 witness.</p>
+          <p><strong>Priority language:</strong> The local audit records the closest sources and found no exact collision through its search date. That is a <strong>bounded search result</strong>, not proof of absolute priority. Before submission, repeat the search across author, title, citation, and full-text databases.</p>
+        </aside>
+      </section>
+    </div>
+  </div>
+
+  <div class="deck-progress" aria-hidden="true"><span id="deck-progress-fill"></span></div>
+  <div class="deck-counter" id="deck-counter" aria-live="polite"></div>
+  <script src="../../../../../vendor/reveal-6.0.1/dist/reveal.js"></script>
+  <script src="../../../../../vendor/reveal-6.0.1/plugin/notes/notes.js"></script>
+  <script src="../../../../../vendor/katex-0.18.4/katex.min.js"></script>
+  <script src="../../../../../vendor/katex-0.18.4/contrib/auto-render.min.js"></script>
+  <script src="deck.js"></script>
+</body>
+</html>
