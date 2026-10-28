@@ -29,10 +29,8 @@ remain alongside the separately named presentation figures. See
 `SOURCE.md`, `source/analysis/SOURCE.json` and
 `source/structures/SOURCE.json` for provenance and interpretation limits.
 
-## Appended top-contact results
+## One appended top-contact slide
 
-4. Actual top-contact P/0d/10d atomic structures, with both removed S sites marked in each vacancy cell.
-5. Lateral electron band-edge-step SBH versus archived vacancy-position case, with LDOS-extraction brackets.
-6. Covered-Mo PDOS for the same three representative structures; the vertical SBH is explicitly unresolved, as requested. No numerical vertical barrier or unsupported error bar is reported.
+Slide4 combines the actual near-edge-vacancy top-contact setup in slide1's side-view style; vertical SBH marked unresolved; pristine lateral SBH0.150eV and near-edge-defect lateral SBH0.675±0.025eV; and pristine/defect spatial PDOS contours with common scales. The whisker is archived LDOS extraction sensitivity; pristine uncertainty remains unresolved.
 
-The rod EC−EF proxy and the top-contact channel-to-covered band-edge step are distinct quantities. The new plots retain case labels instead of assigning physical distances because the preserved raw geometry and final-paper nominal length labels differ. Sources, units, brackets and atom selections are saved in source/top-contact/.
+The earlier three top-contact screens have been replaced by this one summary. Their source data and separate derivative figures remain available but are not displayed. The first three rod-contact slides remain unchanged. The rod EC−EF proxy and top-contact channel-to-covered band-edge step are distinct quantities. Sources and processing are in source/top-contact/.

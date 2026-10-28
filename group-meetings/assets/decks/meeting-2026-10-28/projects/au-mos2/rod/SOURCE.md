@@ -132,36 +132,35 @@ region. For the first three rod slides, an under-contact band edge, vertical tun
 activation energy, contact resistance or size-converged bulk-like channel
 is not established by these figures. These source limits are preserved.
 
-## Appended archived Au top-contact results (slides 4–6)
+## One appended archived Au top-contact summary (slide4)
 
-The original three rod-contact slide sections remain byte-identical. Three screens append the earlier Au top-contact evidence from the nonlocal-SBH project. The user selected raw vertical PDOS with “vertical SBH unresolved” because no unique covered-region conduction onset or defensible uncertainty can be extracted from these spectra.
+At the user's request, the former three top-contact screens are consolidated into a single final slide. It displays only the atomic setup, vertical SBH status, pristine and near-edge-defect lateral SBH, and pristine/defect spatial PDOS contours. The first three rod-contact sections remain byte-identical.
 
-### Atomic structures
+### Atomic side view
 
-Source: local `NSCCscratch/DeviceStudioProject/AuMoS2Au/AuMoS2SBH/{P,F0,F10}/Device/{scf.input,NanodcalObject.json}`, matched to the Au plotting pipeline in `P7. NonlocalSBH/dataAnalysis/PLot_For_publication_Au/fittedLDOS.py`. P has 66 Mo, 132 S and 120 Au; each defect cell has 66 Mo, 130 S and 120 Au. Two symmetric top-S sites are removed, one near each contact. Au has five metal layers at each end. `figures/top-contact-structures.svg` uses actual Cartesian x–z positions at one scale, no added atoms or bonds. Both missing sites are marked with hollow circles. Coordinates, input hashes and source paths are in `source/top-contact/structures/`.
+`figures/top-contact-setup-sideview.svg` follows slide1's flat, outlined atom style and exact Au/Mo/S colors. It draws the actual F0 setup (66Mo,130S,120Au), with two mirrored top-S vacancies marked by hollow circles. Equal physical x/z scale, no bonds or replicated cells. Source: `NSCCscratch/DeviceStudioProject/AuMoS2Au/AuMoS2SBH/F0/Device/{scf.input,NanodcalObject.json}`. Compact coordinates, source paths and hashes are in `source/top-contact/structures/`.
 
-Raw Cartesian x cell: 120.641 Å. The archived plotting pipeline rotates positions by 30°. F0→F2 displacement is 5.484 Å in original Cartesian x, while the final-paper nominal 2d label is 6.3 Å. The slide retains 0d…10d as source case labels without converting this axis to nanometres. No channel length, interface plane or corrected manuscript fit is inferred.
+### Barriers
 
-### Lateral electron SBH
+Vertical SBH is unresolved, as explicitly selected by the user: finite covered-Mo PDOS at EF does not support a unique zero-DOS conduction onset/error bar. The earlier approximately0.10eV estimate and manual drawing guides are not displayed as extracted results.
 
-Definition: Φlat = ECchannel(0+) − ECcovered(0−), the channel-to-covered conduction-edge step at the contact edge. This differs from the rod exposed-sheet EC−EF proxy; the datasets are not plotted as one estimator.
+Lateral barrier: Φlat=ECchannel(0+)−ECcovered(0−), a contact-edge conduction-band step. This differs from the EC−EF exposed-sheet proxy in the rod slides.
 
-| Case | Midpoint (eV) | Archived extraction bracket (eV) |
+| Displayed case | Midpoint(eV) | Archived extraction bracket(eV) |
 |---|---:|---:|
-| Pristine | 0.150 | equal source endpoints; uncertainty unresolved |
-| 0d | 0.675 | 0.650–0.700 |
-| 2d | 0.425 | 0.400–0.450 |
-| 4d | 0.295 | 0.280–0.310 |
-| 6d | 0.200 | 0.180–0.220 |
-| 8d | 0.160 | 0.140–0.180 |
-| 10d | 0.165 | 0.130–0.200 |
+| Pristine |0.150|equal source endpoints; uncertainty unresolved|
+| Near-edge vacancies(F0/0d) |0.675|0.650–0.700(±0.025)|
 
-Numeric source: `P7. NonlocalSBH/Figures/dft_sbh_prediction/scripts/SBHcurve_errorBar.py`, lines 25–49. Byte-exact script is preserved as `source/top-contact/SBHcurve_errorBar.original.py`; SHA-256 is recorded in `lateral-sbh.json`. The figure is reproduced by `build-top-contact-figures.mjs`. Dots are bracket midpoints; whiskers are the exact LDOS extraction bounds, not standard deviations or confidence intervals. Pristine is a reference line without a claimed error range. Lines between vacancy points guide the eye and are not a fit.
+The horizontal whisker is LDOS extraction sensitivity, not a statistical confidence interval. Numeric source: `P7. NonlocalSBH/Figures/dft_sbh_prediction/scripts/SBHcurve_errorBar.py`, lines25–49. The exact script is preserved as `source/top-contact/SBHcurve_errorBar.original.py`, with SHA-256 in `lateral-sbh.json`. The pristine marker does not claim zero uncertainty. Farther-defect data remain in the source JSON but are not shown.
 
-The final manuscript/figure rounds near/far Au values to about 0.68/0.16 eV. Reference: Zhou and Zhang, *Nonlocal Electrostatic Origin of Schottky-Barrier Variability in 2D Contacts*, Nano Letters **26**, 13130–13135 (2026), https://doi.org/10.1021/acs.nanolett.6c03959.
+### Spatial PDOS contours
 
-### Vertical PDOS and unresolved barrier
+`figures/top-contact-pdos-contours.svg` shows P andF0 using matching atom-projected DOS and geometry, common energy/color scales, and the archived coordinate rotation. Mo+S PDOS is summed within native Mo-centered strips and normalized by Mo count. Defect strips retain their missing-S projection rather than being rescaled to an ideal formula unit. Full source hashes, strip membership, native arrays, units, processing and display limits are recorded in `source/top-contact/spatial-pdos.json`. No manually cleared gap, fitted band-edge guide or invented spectral interpolation is introduced.
 
-Source atom-PDOS: `AuMoS2SBH/{P,F0,F10}/Device/DOS/DensityOfStates.json`, with matching geometry. Mean over five interior covered Mo atoms at the left Au contact after the original 30° coordinate rotation. Native energies and DOS are converted from Hartree to eV consistently; EF=0 is the source energy reference. The full 200-point ±2 eV curves, unit conversions, selected atom indices, source SHA-256 hashes and coordinates are recorded in `source/top-contact/vertical-pdos.json`. The figure shows the native samples near EF, without smoothing, baseline subtraction or zeroing of spectral tails.
+The separate covered-Mo line-spectra data remain in `vertical-pdos.json`; they support the unresolved vertical assignment. Native Hartree energies are multiplied by27.211383411 for eV, and inverse-energy DOS values are divided by the same factor. Native grid:200points over±2eV, spacing≈20.1meV, sourceEF=0.
 
-Finite covered-region PDOS through EF prevents a unique zero-DOS conduction-onset assignment. A numerical vertical SBH/error bar is therefore not shown. The older approximately 0.10 eV benchmark value has no archived uncertainty; the `phi_a` values in the old plotting script are hand-chosen drawing guides. Neither is reused as extracted vertical data. This does not establish a zero barrier or a transport activation energy. Contact/region variation and geometry conventions require validation before assigning a quantitative vertical onset.
+### Source limits and reference
+
+The preserved raw x cell is120.641Å and the plotting pipeline rotates coordinates by30°. Some raw-coordinate displacements differ from final-paper nominal distance labels. This slide makes no calibrated defect-distance claim. All three original expanded top-contact figures and their source datasets are retained as derivatives, not additional visible slides. No new DFT calculation is implied.
+
+Reference: Hangbo Zhou and Yong-Wei Zhang, *Nonlocal Electrostatic Origin of Schottky-Barrier Variability in 2D Contacts*, Nano Letters26(38),13130–13135(2026), https://doi.org/10.1021/acs.nanolett.6c03959.
