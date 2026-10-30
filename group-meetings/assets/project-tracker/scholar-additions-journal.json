@@ -1,0 +1,723 @@
+{
+  "version": 1,
+  "source": "Three missing journal articles identified from the user-supplied Google Scholar profile list, independently verified against primary publishers and publisher-deposited Crossref records. Metadata snapshots omit abstracts and reference lists.",
+  "verifiedOn": "2026-10-30",
+  "projects": [
+    {
+      "id": "point-defect-au-mos2-2022",
+      "title": "The effects of point defect type, location, and density on the Schottky barrier height of Au/MoS2 heterojunction: a first-principles study",
+      "shortName": "Point defects & SBH",
+      "journal": "Scientific Reports",
+      "focus": false,
+      "notes": "",
+      "authorship": "coauthor",
+      "authors": [
+        "Viacheslav Sorkin",
+        "Hangbo Zhou",
+        "Zhi Gen Yu",
+        "Kah-Wee Ang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2022,
+      "doi": "10.1038/s41598-022-22913-7",
+      "sourceUrl": "https://doi.org/10.1038/s41598-022-22913-7",
+      "sourceNote": "Verified publisher-deposited Crossref metadata and the Scientific Reports article page. Hangbo Zhou is second-listed; the first-listed author is Viacheslav Sorkin. Article 18001 is the original research paper, distinct from its later Author Correction (article 21086). The published milestone is the publisher-deposited published-online date. Initialization, draft, submission, review, acceptance, and proofreading dates are unknown.",
+      "volume": "12",
+      "issue": "1",
+      "pages": "",
+      "articleNumber": "18001",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://www.nature.com/articles/s41598-022-22913-7",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s41598-022-22913-7",
+      "metadataVerifiedOn": "2026-10-30",
+      "currentStatus": "",
+      "statusLabel": "",
+      "statusAsOf": "",
+      "statusNote": "",
+      "manuscriptId": "",
+      "projectKind": "paper",
+      "submissionState": "",
+      "records": [],
+      "events": [
+        {
+          "id": "pub-point-defect-au-mos2-2022-published-2022-10-26",
+          "type": "published",
+          "date": "2022-10-26",
+          "note": "Publisher-deposited Crossref published-online date. Source: https://api.crossref.org/works/10.1038/s41598-022-22913-7",
+          "journal": "Scientific Reports"
+        }
+      ]
+    },
+    {
+      "id": "artificial-synapses-review-2022",
+      "title": "Recent progress on 2D materials-based artificial synapses",
+      "shortName": "Artificial synapses review",
+      "journal": "Critical Reviews in Solid State and Materials Sciences",
+      "focus": false,
+      "notes": "",
+      "authorship": "coauthor",
+      "authors": [
+        "Chao Zhang",
+        "Hangbo Zhou",
+        "Shuai Chen",
+        "Gang Zhang",
+        "Zhi Gen Yu",
+        "Dongzhi Chi",
+        "Yong-Wei Zhang",
+        "Kah-Wee Ang"
+      ],
+      "publicationYear": 2022,
+      "doi": "10.1080/10408436.2021.1935212",
+      "sourceUrl": "https://doi.org/10.1080/10408436.2021.1935212",
+      "sourceNote": "Verified publisher-deposited Crossref metadata and Taylor & Francis publisher search extract. Hangbo Zhou is second-listed; the first-listed author is Chao Zhang. Published online on 7 June 2021; the bibliographic issue year is 2022 (volume 47, issue 5, pages 665-690; Crossref print date 3 September 2022). The timeline uses the real first-online date rather than assigning an issue date as publication. No initial-work, submission, review, acceptance, or proofreading dates are supplied.",
+      "volume": "47",
+      "issue": "5",
+      "pages": "665-690",
+      "articleNumber": "",
+      "publisher": "Informa UK Limited",
+      "publicationUrl": "https://www.tandfonline.com/doi/full/10.1080/10408436.2021.1935212",
+      "metadataSource": "https://api.crossref.org/works/10.1080/10408436.2021.1935212",
+      "metadataVerifiedOn": "2026-10-30",
+      "currentStatus": "",
+      "statusLabel": "",
+      "statusAsOf": "",
+      "statusNote": "",
+      "manuscriptId": "",
+      "projectKind": "paper",
+      "submissionState": "",
+      "records": [],
+      "events": [
+        {
+          "id": "pub-artificial-synapses-review-2022-published-2021-06-07",
+          "type": "published",
+          "date": "2021-06-07",
+          "note": "Publisher-deposited Crossref published-online date. Source: https://api.crossref.org/works/10.1080/10408436.2021.1935212",
+          "journal": "Critical Reviews in Solid State and Materials Sciences"
+        }
+      ]
+    },
+    {
+      "id": "covalent-bilayer-bas-2021",
+      "title": "High thermal conductivity in covalently bonded bi-layer honeycomb boron arsenide",
+      "shortName": "Covalent bilayer BAs",
+      "journal": "Materials Today Physics",
+      "focus": false,
+      "notes": "",
+      "authorship": "coauthor",
+      "authors": [
+        "Yanxiao Hu",
+        "Yan Yin",
+        "Guangqian Ding",
+        "Jun Liu",
+        "Hangbo Zhou",
+        "Wenlin Feng",
+        "Gang Zhang",
+        "Dengfeng Li"
+      ],
+      "publicationYear": 2021,
+      "doi": "10.1016/j.mtphys.2021.100346",
+      "sourceUrl": "https://doi.org/10.1016/j.mtphys.2021.100346",
+      "sourceNote": "Verified publisher-deposited Crossref metadata, Elsevier public article API, and ScienceDirect publisher search extract. All eight full author names are transcribed from the publisher CRediT author statement; the header and Crossref use initials. Hangbo Zhou is fifth-listed and Yanxiao Hu is first-listed. The publisher CRediT statement names Wenlin Feng; inconsistent aggregator expansions are not used. Publication is known to the March 2021 issue only: Crossref date-parts are [2021,3]. Elsevier coverDate 2021-03-31 accompanies coverDisplayDate March 2021 and is an issue cover date, not evidence of a day-level first-online date. No exact-day published milestone is invented. No initial-work, submission, review, acceptance, or proofreading dates are known.",
+      "volume": "17",
+      "issue": "",
+      "pages": "",
+      "articleNumber": "100346",
+      "publisher": "Elsevier BV",
+      "publicationUrl": "https://www.sciencedirect.com/science/article/pii/S2542529321000079",
+      "metadataSource": "https://api.crossref.org/works/10.1016/j.mtphys.2021.100346",
+      "metadataVerifiedOn": "2026-10-30",
+      "currentStatus": "",
+      "statusLabel": "",
+      "statusAsOf": "",
+      "statusNote": "",
+      "manuscriptId": "",
+      "projectKind": "paper",
+      "submissionState": "",
+      "records": [],
+      "events": []
+    }
+  ],
+  "verification": [
+    {
+      "projectId": "point-defect-au-mos2-2022",
+      "verifiedOn": "2026-10-30",
+      "sourceUrl": "https://api.crossref.org/works/10.1038/s41598-022-22913-7",
+      "primaryPublisherUrl": "https://www.nature.com/articles/s41598-022-22913-7",
+      "crossrefMetadata": {
+        "DOI": "10.1038/s41598-022-22913-7",
+        "type": "journal-article",
+        "title": [
+          "The effects of point defect type, location, and density on the Schottky barrier height of Au/MoS2 heterojunction: a first-principles study"
+        ],
+        "author": [
+          {
+            "given": "Viacheslav",
+            "family": "Sorkin",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Hangbo",
+            "family": "Zhou",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Zhi Gen",
+            "family": "Yu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kah-Wee",
+            "family": "Ang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yong-Wei",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "Scientific Reports"
+        ],
+        "publisher": "Springer Science and Business Media LLC",
+        "volume": "12",
+        "issue": "1",
+        "article-number": "18001",
+        "published": {
+          "date-parts": [
+            [
+              2022,
+              10,
+              26
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2022,
+              10,
+              26
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2022,
+              10,
+              26
+            ]
+          ]
+        },
+        "URL": "https://doi.org/10.1038/s41598-022-22913-7",
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41598-022-22913-7"
+          }
+        },
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41598-022-22913-7.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41598-022-22913-7",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41598-022-22913-7.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ]
+      },
+      "evidenceNote": "Verified publisher-deposited Crossref metadata and the Scientific Reports article page. Hangbo Zhou is second-listed; the first-listed author is Viacheslav Sorkin. Article 18001 is the original research paper, distinct from its later Author Correction (article 21086). The published milestone is the publisher-deposited published-online date. Initialization, draft, submission, review, acceptance, and proofreading dates are unknown."
+    },
+    {
+      "projectId": "artificial-synapses-review-2022",
+      "verifiedOn": "2026-10-30",
+      "sourceUrl": "https://api.crossref.org/works/10.1080/10408436.2021.1935212",
+      "primaryPublisherUrl": "https://www.tandfonline.com/doi/full/10.1080/10408436.2021.1935212",
+      "crossrefMetadata": {
+        "DOI": "10.1080/10408436.2021.1935212",
+        "type": "journal-article",
+        "title": [
+          "Recent progress on 2D materials-based artificial synapses"
+        ],
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-4481-1476",
+            "authenticated-orcid": false,
+            "given": "Chao",
+            "family": "Zhang",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "School of Materials Science and Engineering, Anhui University of Science and Technology, Huainan, China"
+              },
+              {
+                "name": "Institute of High Performance Computing, A*STAR, Singapore, Singapore"
+              },
+              {
+                "name": "Department of Electrical and Computer Engineering, National University of Singapore, Singapore, Singapore"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Hangbo",
+            "family": "Zhou",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of High Performance Computing, A*STAR, Singapore, Singapore"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Shuai",
+            "family": "Chen",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of High Performance Computing, A*STAR, Singapore, Singapore"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Gang",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of High Performance Computing, A*STAR, Singapore, Singapore"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Zhi Gen",
+            "family": "Yu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of High Performance Computing, A*STAR, Singapore, Singapore"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Dongzhi",
+            "family": "Chi",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of Materials Research and Engineering, A*STAR, Singapore, Singapore"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Yong-Wei",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of High Performance Computing, A*STAR, Singapore, Singapore"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Kah-Wee",
+            "family": "Ang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Electrical and Computer Engineering, National University of Singapore, Singapore, Singapore"
+              },
+              {
+                "name": "Institute of Materials Research and Engineering, A*STAR, Singapore, Singapore"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "Critical Reviews in Solid State and Materials Sciences"
+        ],
+        "publisher": "Informa UK Limited",
+        "volume": "47",
+        "issue": "5",
+        "page": "665-690",
+        "published": {
+          "date-parts": [
+            [
+              2021,
+              6,
+              7
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2021,
+              6,
+              7
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2022,
+              9,
+              3
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021,
+              6,
+              7
+            ]
+          ]
+        },
+        "URL": "https://doi.org/10.1080/10408436.2021.1935212",
+        "resource": {
+          "primary": {
+            "URL": "https://www.tandfonline.com/doi/full/10.1080/10408436.2021.1935212"
+          }
+        },
+        "link": [
+          {
+            "URL": "https://www.tandfonline.com/doi/pdf/10.1080/10408436.2021.1935212",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ]
+      },
+      "evidenceNote": "Verified publisher-deposited Crossref metadata and Taylor & Francis publisher search extract. Hangbo Zhou is second-listed; the first-listed author is Chao Zhang. Published online on 7 June 2021; the bibliographic issue year is 2022 (volume 47, issue 5, pages 665-690; Crossref print date 3 September 2022). The timeline uses the real first-online date rather than assigning an issue date as publication. No initial-work, submission, review, acceptance, or proofreading dates are supplied.",
+      "additionalPrimarySources": [
+        {
+          "sourceUrl": "https://www.tandfonline.com/doi/abs/10.1080/10408436.2021.1935212",
+          "verificationMethod": "Publisher search extract states Published online: 07 Jun 2021 and pages 665-690; full page request returned HTTP403. Crossref confirms all eight full author names and first-online/print dates.",
+          "publishedOnline": "2021-06-07"
+        }
+      ]
+    },
+    {
+      "projectId": "covalent-bilayer-bas-2021",
+      "verifiedOn": "2026-10-30",
+      "sourceUrl": "https://api.crossref.org/works/10.1016/j.mtphys.2021.100346",
+      "primaryPublisherUrl": "https://www.sciencedirect.com/science/article/pii/S2542529321000079",
+      "crossrefMetadata": {
+        "DOI": "10.1016/j.mtphys.2021.100346",
+        "type": "journal-article",
+        "title": [
+          "High thermal conductivity in covalently bonded bi-layer honeycomb boron arsenide"
+        ],
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-2790-7396",
+            "authenticated-orcid": false,
+            "given": "Y.",
+            "family": "Hu",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Y.",
+            "family": "Yin",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "G.",
+            "family": "Ding",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "J.",
+            "family": "Liu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "H.",
+            "family": "Zhou",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "W.",
+            "family": "Feng",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9812-8106",
+            "authenticated-orcid": false,
+            "given": "G.",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "D.",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "Materials Today Physics"
+        ],
+        "publisher": "Elsevier BV",
+        "volume": "17",
+        "page": "100346",
+        "article-number": "100346",
+        "published": {
+          "date-parts": [
+            [
+              2021,
+              3
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2021,
+              3
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021,
+              3
+            ]
+          ]
+        },
+        "URL": "https://doi.org/10.1016/j.mtphys.2021.100346",
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2542529321000079"
+          }
+        },
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S2542529321000079?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S2542529321000079?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ]
+      },
+      "evidenceNote": "Verified publisher-deposited Crossref metadata, Elsevier public article API, and ScienceDirect publisher search extract. All eight full author names are transcribed from the publisher CRediT author statement; the header and Crossref use initials. Hangbo Zhou is fifth-listed and Yanxiao Hu is first-listed. The publisher CRediT statement names Wenlin Feng; inconsistent aggregator expansions are not used. Publication is known to the March 2021 issue only: Crossref date-parts are [2021,3]. Elsevier coverDate 2021-03-31 accompanies coverDisplayDate March 2021 and is an issue cover date, not evidence of a day-level first-online date. No exact-day published milestone is invented. No initial-work, submission, review, acceptance, or proofreading dates are known.",
+      "additionalPrimarySources": [
+        {
+          "sourceUrl": "https://api.elsevier.com/content/article/pii/S2542529321000079?httpAccept=application/json",
+          "metadata": {
+            "full-text-retrieval-response": {
+              "coredata": {
+                "prism:url": "https://api.elsevier.com/content/article/pii/S2542529321000079",
+                "dc:identifier": "doi:10.1016/j.mtphys.2021.100346",
+                "eid": "1-s2.0-S2542529321000079",
+                "prism:doi": "10.1016/j.mtphys.2021.100346",
+                "pii": "S2542-5293(21)00007-9",
+                "dc:title": "High thermal conductivity in covalently bonded bi-layer honeycomb boron arsenide ",
+                "prism:publicationName": "Materials Today Physics",
+                "prism:aggregationType": "Journal",
+                "prism:issn": "25425293",
+                "prism:coverDate": "2021-03-31",
+                "prism:coverDisplayDate": "March 2021",
+                "openaccess": "0",
+                "openaccessArticle": false,
+                "openaccessType": null,
+                "openArchiveArticle": false,
+                "openaccessSponsorName": null,
+                "openaccessSponsorType": null,
+                "openaccessUserLicense": null,
+                "link": [
+                  {
+                    "@href": "https://api.elsevier.com/content/article/pii/S2542529321000079",
+                    "@rel": "self",
+                    "@_fa": "true"
+                  },
+                  {
+                    "@href": "https://www.sciencedirect.com/science/article/pii/S2542529321000079",
+                    "@rel": "scidir",
+                    "@_fa": "true"
+                  }
+                ]
+              }
+            }
+          },
+          "interpretation": "coverDate is paired with coverDisplayDate March 2021; retain only month precision, do not add a day-level milestone."
+        },
+        {
+          "sourceUrl": "https://www.sciencedirect.com/science/article/abs/pii/S2542529321000079",
+          "section": "CRediT author statement",
+          "authorsInOrder": [
+            "Yanxiao Hu",
+            "Yan Yin",
+            "Guangqian Ding",
+            "Jun Liu",
+            "Hangbo Zhou",
+            "Wenlin Feng",
+            "Gang Zhang",
+            "Dengfeng Li"
+          ],
+          "verificationMethod": "Publisher content surfaced in web search; full page request returned HTTP403. Crossref independently confirms the ordered eight author initials/surnames.",
+          "datePrecision": "month",
+          "publicationMonth": "2021-03"
+        }
+      ]
+    }
+  ]
+}

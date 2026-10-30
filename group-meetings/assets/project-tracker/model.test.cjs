@@ -378,4 +378,64 @@ assert.equal(M.journeyMilestones(transferredPaper).find(item => item.type === 's
 assert.deepEqual(M.journeyMilestones({ events: [] }).map(item => item.event), [null, null, null, null]);
 assert.equal(M.journeyMilestones(recessedContact).find(item => item.type === 'accepted').event.date, '2026-10-15');
 assert.equal(M.journeyMilestones(recessedContact).find(item => item.type === 'published').event, null, 'publishing rights completion does not become publication');
+const correctionReference = {
+  relation: 'correction', title: 'Author Correction: A published result', authors: ['First Author', 'Hangbo Zhou', 'Last Author'],
+  doi: '10.1038/s41598-022-25621-4', publicationYear: 2022, journal: 'Scientific Reports', volume: '12', issue: '1', pages: '',
+  articleNumber: '21086', publisher: 'Springer Nature', publicationUrl: 'https://www.nature.com/articles/s41598-022-25621-4',
+  sourceUrl: 'https://doi.org/10.1038/s41598-022-25621-4', sourceNote: 'A related correction, not an independent project.', publishedOn: '2022-12-06'
+};
+const coverReference = { relation: 'cover', title: 'Cover picture for a published result', authors: ['Hangbo Zhou'],
+  doi: '10.1002/adfm.201870213', publicationYear: 2018, journal: 'Advanced Functional Materials', volume: '28', issue: '31', pages: '',
+  articleNumber: '1870213', publisher: 'Wiley', publicationUrl: 'https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.201870213',
+  sourceUrl: '', sourceNote: 'Related cover artwork.', publishedOn: '2018-07-30' };
+const withRelated = { ...bibliography, publicationType: 'journal_article', relatedPublications: [correctionReference, coverReference] };
+const relatedBackup = M.validateBackup(JSON.stringify({ version: 1, projects: [withRelated] }), { today: AS_OF });
+assert.equal(relatedBackup.valid, true);
+assert.equal(relatedBackup.value.projects[0].publicationType, 'journal_article');
+assert.deepEqual(relatedBackup.value.projects[0].relatedPublications, withRelated.relatedPublications, 'full related metadata and ordered authors survive backup roundtrip');
+assert.equal(M.validateProject(paper([]), { today: AS_OF }).value.publicationType, '');
+assert.deepEqual(M.validateProject(paper([]), { today: AS_OF }).value.relatedPublications, []);
+assert.equal(M.validateProject({ ...bibliography, publicationType: 'book_chapter' }, { today: AS_OF }).valid, true);
+assert.equal(M.validateProject({ ...bibliography, publicationType: 'correction' }, { today: AS_OF }).valid, false, 'a correction is related metadata, not a separate published project type');
+assert.equal(M.publicationLink(correctionReference), correctionReference.publicationUrl, 'related references need no events to provide a safe publication link');
+assert.equal(M.journalReference(correctionReference), 'Scientific Reports 12(1), Article 21086 (2022)');
+assert.equal(M.formatReference(correctionReference), 'First Author, Hangbo Zhou, Last Author. Author Correction: A published result. Scientific Reports 12(1), Article 21086 (2022). https://doi.org/10.1038/s41598-022-25621-4');
+const draftWithRelated = { ...paper([]), relatedPublications: [correctionReference] };
+assert.equal(M.summarize(draftWithRelated, AS_OF).complete, false, 'related publication dates do not publish the parent project');
+assert.equal(M.summarize(draftWithRelated, AS_OF).totalDays, 0, 'related publication dates do not create project duration');
+assert.equal(M.journeyMilestones(draftWithRelated).some(item => item.event), false, 'related references create no parent milestones');
+const checkRelated = list => M.validateProject({ ...bibliography, relatedPublications: list }, { today: AS_OF });
+assert.equal(checkRelated([{ ...correctionReference, publicationUrl: 'javascript:alert(1)' }]).valid, false);
+assert.equal(checkRelated([{ ...correctionReference, sourceUrl: 'data:text/html,<script>alert(1)</script>' }]).valid, false);
+assert.equal(checkRelated([{ ...correctionReference, sourceUrl: 'https://user:pass@example.org/data' }]).valid, false);
+assert.equal(checkRelated([correctionReference, { ...coverReference, doi: correctionReference.doi.toUpperCase() }]).valid, false, 'related DOI identity is case-insensitive');
+assert.equal(checkRelated([{ ...correctionReference, doi: bibliography.doi.toUpperCase() }]).valid, false, 'parent DOI cannot be repeated as a related work');
+assert.equal(checkRelated([{ ...correctionReference, doi: `https://doi.org/${bibliography.doi}` }]).valid, false, 'parent DOI URLs normalize to the same identity');
+assert.equal(checkRelated([{ ...correctionReference, doi: '', publicationUrl: `https://doi.org/${bibliography.doi}` }]).valid, false, 'parent DOI cannot be repeated solely through a related landing URL');
+assert.equal(checkRelated([correctionReference, { ...coverReference, publicationUrl: correctionReference.publicationUrl + '#section' }]).valid, false, 'fragment-only changes do not hide duplicate related URLs');
+assert.equal(checkRelated([{ ...correctionReference, sourceUrl: correctionReference.publicationUrl }]).valid, true, 'one entry may use the same landing page as its source');
+assert.equal(checkRelated([{ ...correctionReference, relation: 'retraction' }]).valid, false);
+assert.equal(checkRelated([{ ...correctionReference, publishedOn: '2026-02-30' }]).valid, false);
+assert.equal(checkRelated([{ ...correctionReference, publishedOn: '2026-11-01' }]).valid, false);
+assert.equal(checkRelated([{ ...correctionReference, publicationYear: 2027 }]).valid, false);
+assert.equal(checkRelated([{ ...correctionReference, publicationYear: '2022' }]).valid, false);
+assert.equal(checkRelated([{ ...correctionReference, authors: ['Author', 42] }]).valid, false);
+assert.equal(checkRelated([{ ...correctionReference, authors: Array(1001).fill('Author') }]).valid, false);
+assert.equal(checkRelated(Array(31).fill(correctionReference)).valid, false);
+const minimalRelated = checkRelated([{ relation: 'supplement', title: 'Supporting information' }]);
+assert.equal(minimalRelated.valid, true);
+assert.equal(minimalRelated.value.relatedPublications[0].publishedOn, '');
+assert.equal(minimalRelated.value.relatedPublications[0].publicationYear, null);
+assert.deepEqual(minimalRelated.value.relatedPublications[0].authors, []);
+const chapterReference = { title: 'Thermal Transport Theory', authors: ['Hangbo Zhou', 'Gang Zhang'], publicationType: 'book_chapter',
+  journal: 'Thermal Transport in Carbon-Based Nanomaterials', pages: '1-18', publisher: 'Elsevier', publicationYear: 2017,
+  doi: '10.1016/B978-0-32-346240-2.00001-7' };
+assert.equal(M.journalReference(chapterReference), 'In: Thermal Transport in Carbon-Based Nanomaterials, pp. 1–18 (Elsevier, 2017)');
+assert.equal(M.formatReference(chapterReference), 'Hangbo Zhou, Gang Zhang. Thermal Transport Theory. In: Thermal Transport in Carbon-Based Nanomaterials, pp. 1–18 (Elsevier, 2017). https://doi.org/10.1016/B978-0-32-346240-2.00001-7');
+assert.equal(M.journalReference({ ...chapterReference, publisher: '' }), 'In: Thermal Transport in Carbon-Based Nanomaterials, pp. 1–18 (2017)');
+assert.equal(M.journalReference({ ...chapterReference, pages: '' }), 'In: Thermal Transport in Carbon-Based Nanomaterials (Elsevier, 2017)');
+assert.equal(M.journalReference({ ...chapterReference, journal: '', pages: '', publisher: '', publicationYear: null }), '', 'missing chapter metadata creates no blank punctuation');
+assert.equal(M.journalReference({ ...chapterReference, journal: '', publisher: '', publicationYear: null }), 'pp. 1–18');
+assert.equal(M.journalReference({ ...chapterReference, publicationYear: null, events: [event('published', '2017-06-08')] }), 'In: Thermal Transport in Carbon-Based Nanomaterials, pp. 1–18 (Elsevier, 2017)', 'chapters may use an actual publication event to supply citation year');
+assert.equal(M.journalReference({ ...chapterReference, publicationType: 'journal_article' }), 'Thermal Transport in Carbon-Based Nanomaterials, 1-18 (2017)', 'standard article references retain their existing formatting');
 console.log('Paper tracker model: all lifecycle, duration, parser, and backup checks passed.');

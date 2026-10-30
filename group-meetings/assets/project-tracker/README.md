@@ -10,9 +10,9 @@ node tools/preview-project-tracker.cjs
 
 Then open `http://127.0.0.1:4173/project-progress.html`. Keep using the same browser and URL for the same saved workspace. File URLs, localhost ports, and different browsers have separate storage. Stop the preview with Ctrl+C.
 
-The supplied workspace contains **43 projects**: 32 published papers, eight reviewed current projects, and three earlier undated project placeholders. The published library has 18 first-author papers (including explicitly shared first authorship) and 14 co-author papers. Sources are 31 article PDFs in `workspace/My Published papers`, primary publisher records where needed, and existing publisher metadata for the 2026 Nonlocal SBH paper. Two theses were excluded.
+The supplied workspace contains **47 projects**: 36 main published works, eight reviewed current projects, and three earlier undated project placeholders. The published works comprise **35 journal articles and one book chapter**, with 19 first-author works (including explicitly shared first authorship) and 17 co-author works. Sources include 31 article PDFs in `workspace/My Published papers`, existing publisher metadata for the 2026 Nonlocal SBH paper, and a 45-entry Google Scholar reconciliation checked against primary publishers. Two local theses were excluded from the published-paper library.
 
-There are **119 dated milestones**: 99 publication-history dates, 14 Recessed Contact milestones, two TaN milestones, three LMT milestones, and the graphene/h-BN submission. There are also **70 dated document/work records**, which are evidence of activity rather than completed lifecycle stages. The earlier secondary TaN review-return note for 14 October is retained as a work record, not a confirmed milestone. Initialization, draft completion, and missing reviewer-return or response dates were not invented.
+There are **121 dated milestones**: 101 publication-history dates, 14 Recessed Contact milestones, two TaN milestones, three LMT milestones, and the graphene/h-BN submission. There are also **70 dated document/work records**, which are evidence of activity rather than completed lifecycle stages. The Scholar additions contribute two exact publication dates; the year-only article and chapter do not create fabricated day-level milestones. The earlier secondary TaN review-return note for 14 October is retained as a work record, not a confirmed milestone. Initialization, draft completion, and missing reviewer-return or response dates were not invented.
 
 Publication evidence is in [publications-source.json](publications-source.json); the consolidated current-project data is in [current-projects.json](current-projects.json). The original four evidence manifests are [contact and TaN](current-projects-contact-tan.json), [susceptibility and LMT](current-projects-susceptibility-lmt.json), [WTe₂ and proton transfer](current-projects-wte2-proton.json), and [book and graphene/h-BN](current-projects-book-sliding.json). [Editorial updates](current-projects-editorial-updates.json) applies the later user-supplied Recessed Contact journal history, TaN portal row, and LMT APS history while retaining the original provenance. [paper-progress-library.json](paper-progress-library.json) is the complete importable tracker backup. The example workspace remains fictional and separate from your data. No meeting deck, dated deck asset, or research file outside this repository was edited.
 
@@ -57,11 +57,26 @@ Reports reached the journal on 10 August and 12 September. These remain document
 
 ## Publication details and citations
 
-The **Published papers** library displays every published paper with its complete title, ordered author list, journal, volume, issue, pages or article number, citation year, DOI, and authorship. Search by title, author, journal, or DOI, and filter first-author/co-author papers separately. The library is independent of the timeline's date window, so older references remain accessible.
+The **Published works** library displays every main published work with its complete title, ordered author list, journal or book, volume, issue, pages or article number, citation year, DOI, and authorship. A publication-type badge distinguishes the book chapter. Search by title, author, journal, or DOI, and filter first-author/co-author works separately. The library is independent of the timeline's date window, so older references remain accessible.
 
 Select a title or **Publication page** to visit its publisher in a new tab. **Details**, or selecting a published paper's name in the timeline, opens its full reference, publisher, publication date, DOI, and recorded history. **Copy citation** copies the formatted full reference; if browser clipboard access is unavailable, the citation is selected for manual copying. **Edit paper / timeline** retains access to the existing editor.
 
-Volume, issue, pages/article number, and publisher URLs for all 32 papers were checked against publisher-deposited Crossref records. [publication-metadata.json](publication-metadata.json) retains the raw verification responses and notes, including two date discrepancies with the original PDFs. Bibliography fields survive export/import along with the original data.
+Volume, issue, pages/article number, and publisher URLs for the initial 32 papers were checked against publisher-deposited Crossref records. [publication-metadata.json](publication-metadata.json) retains those verification responses and notes, including two date discrepancies with the original PDFs. [scholar-additions-journal.json](scholar-additions-journal.json) and [scholar-additions-related.json](scholar-additions-related.json) retain the later publisher checks and selected metadata snapshots. Bibliography fields and related-publication metadata survive export/import along with the original data.
+
+## Google Scholar reconciliation
+
+The expandable **Google Scholar checked · 45 entries** audit records a decision for every entry in the user's [pasted profile list](scholar-profile-2026-10-30.json); [scholar-audit-2026-10-30.json](scholar-audit-2026-10-30.json) retains the structured reconciliation. The 45 rows comprise 32 matched works, four new works, two companion notices (correction and cover), and seven other entries requiring duplicate/type/metadata decisions. It adds three missing journal articles and one authored book chapter:
+
+| Added work | Bibliographic year and timeline precision |
+| --- | --- |
+| The effects of point defect type, location, and density on the Schottky barrier height of Au/MoS₂ heterojunction: a first-principles study | Scientific Reports 12, 18001 (2022); first online 26 October 2022. |
+| Recent progress on 2D materials-based artificial synapses | Critical Reviews in Solid State and Materials Sciences 47, 665–690 (2022); first online 7 June 2021. The citation year and timeline date remain distinct. |
+| High thermal conductivity in covalently bonded bi-layer honeycomb boron arsenide | Materials Today Physics 17, 100346 (2021); year only, without an invented publication day. |
+| Thermal Transport Theory | Chapter in Thermal Transport in Carbon-Based Nanomaterials, pp. 1–18 (2017); year only. Registered DOI: `10.1016/B978-0-32-346240-2.00001-7`. |
+
+Corrections, cover pictures, preprints, and supporting information are shown under **Related publications** for the corresponding work rather than counted as additional research projects. The Scientific Reports author correction is linked to its original article; the Advanced Functional Materials cover is linked to the existing borophene research paper. The arXiv 2202.11037 association with the existing 2022 PRB localized-phonon paper remains a **tentative relationship**, since no formal publisher/arXiv link was verified. Supporting information is a companion to the InSe paper.
+
+The audit also identifies the duplicated Chinese Physics B entry, the whole edited book as distinct from Hangbo's authored chapter, and the thesis as a separate work type outside this published library. Two incorrect entries are excluded: “rsc.li/nanoscale” points to an unrelated article whose authors do not include Hangbo Zhou, and “Auxeticity in Metals…” is a wrong-title attribution rather than a second boron-nanotube paper. These decisions preserve the supplied list without inflating the main publication count.
 
 ## Enter dates
 
@@ -129,7 +144,7 @@ Backup shape:
 {"version":1,"projects":[{"id":"paper-1","title":"Paper title","shortName":"","journal":"","focus":true,"notes":"Next task","events":[{"id":"event-1","type":"initialized","date":"2026-04-01","note":"","journal":""}]}]}
 ```
 
-Projects may additionally retain authorship, full bibliography, `currentStatus`, `statusLabel`, `statusAsOf`, `statusNote`, `submissionState`, manuscript ID, project kind, and dated `records` with their labels, sources, and notes. These status/evidence fields survive export/import independently of milestone history.
+Projects may additionally retain authorship, full bibliography, `publicationType`, linked `relatedPublications`, `currentStatus`, `statusLabel`, `statusAsOf`, `statusNote`, `submissionState`, manuscript ID, project kind, and dated `records` with their labels, sources, and notes. These bibliography/status/evidence fields survive export/import independently of milestone history.
 
 ## Verification
 

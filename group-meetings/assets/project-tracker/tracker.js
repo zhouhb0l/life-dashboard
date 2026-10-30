@@ -6,6 +6,8 @@
   const $ = id => document.getElementById(id);
   const escape = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const clone = value => JSON.parse(JSON.stringify(value));
+  const doiKey = value => String(value||'').trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,'').toLowerCase();
+  const webKey = value => {try{const url=new URL(value);url.hash='';return url.href;}catch(_){return '';}};
   const milestone = type => M.MILESTONES.find(item => item.type === type);
   let today = M.today(), workspace = clone(window.PAPER_TRACKER_SEED), demo = false;
   let demoProjects = clone(M.DEMO_PROJECTS), filter = 'all', roleFilter = 'all', editing = null, parsed = null, imported = null;
@@ -84,22 +86,38 @@
   function syncProjectFile() {
     const revision = window.PAPER_TRACKER_SEED_REVISION;
     if (!revision) return;
-    try {if(localStorage.getItem(KEY+'.source-revision')===revision)return;}catch(_){}
+    const currentRevision=window.PAPER_TRACKER_CURRENT_SOURCE_REVISION||revision;
+    let previousRevision='',previousCurrentRevision='';
+    try {
+      previousRevision=localStorage.getItem(KEY+'.source-revision')||'';
+      if(previousRevision===revision)return;
+      previousCurrentRevision=localStorage.getItem(KEY+'.current-source-revision')||(previousRevision===currentRevision?previousRevision:'');
+    }catch(_){}
     const checked=M.validateBackup(window.PAPER_TRACKER_SEED,{today});
     if(!checked.valid){notify('Project file data needs attention: '+checked.errors[0]);return;}
     const byId=new Map(workspace.projects.map(project=>[project.id,project]));
     let added=0;const conflicts=[];
     for(const source of checked.value.projects){
-      const existing=byId.get(source.id);
+      const existing=byId.get(source.id)||(source.doi?[...byId.values()].find(project=>doiKey(project.doi)===doiKey(source.doi)):null);
       if(!existing){byId.set(source.id,clone(source));added++;continue;}
       const corrections=(window.PAPER_TRACKER_EVENT_CORRECTIONS||[]).filter(item=>item.projectId===source.id);
       const retainedEvents=existing.events.filter(event=>!corrections.some(item=>event.id===item.id&&event.type===item.type&&event.date===item.date&&typeof item.expectedNote==='string'&&(event.note||'')===item.expectedNote&&(event.journal||'')===item.expectedJournal));
       const merged={...existing};
       if(source.shortName && existing.title===source.shortName)merged.title=source.title;
-      for(const key of ['journal','doi','sourceUrl','sourceNote','publicationYear','shortName','volume','issue','pages','articleNumber','publisher','publicationUrl','metadataSource','metadataVerifiedOn']) if(!merged[key] && source[key])merged[key]=source[key];
+      for(const key of ['journal','doi','sourceUrl','sourceNote','publicationYear','shortName','volume','issue','pages','articleNumber','publisher','publicationUrl','metadataSource','metadataVerifiedOn','publicationType']) if(!merged[key] && source[key])merged[key]=source[key];
+      merged.relatedPublications=clone(existing.relatedPublications||[]);
+      for(const item of source.relatedPublications||[]){
+        const urls=[item.publicationUrl,item.sourceUrl].map(webKey).filter(Boolean);
+        const matching=merged.relatedPublications.find(record=>{
+          if(record.doi&&item.doi)return doiKey(record.doi)===doiKey(item.doi);
+          return [record.publicationUrl,record.sourceUrl].map(webKey).some(url=>url&&urls.includes(url));
+        });
+        if(matching){for(const [key,value] of Object.entries(item))if(matching[key]==null||matching[key]===''||(Array.isArray(matching[key])&&!matching[key].length))matching[key]=clone(value);}
+        else merged.relatedPublications.push(clone(item));
+      }
       if(!merged.authors?.length)merged.authors=source.authors;
       if(!merged.authorship || merged.authorship==='unknown')merged.authorship=source.authorship;
-      const updateCurrent=(window.PAPER_TRACKER_CURRENT_UPDATE_IDS||[]).includes(source.id);
+      const updateCurrent=previousCurrentRevision!==currentRevision&&(window.PAPER_TRACKER_CURRENT_UPDATE_IDS||[]).includes(source.id);
       if(updateCurrent){
         for(const key of ['title','journal','authorship','authors','manuscriptId','projectKind','submissionState'])if(source[key] && (!(Array.isArray(source[key]))||source[key].length))merged[key]=clone(source[key]);
         if(['recessed-contact','tan-thermal','non-gaussian-bounds'].includes(source.id)&&source.sourceNote&&existing.sourceNote!==source.sourceNote&&!existing.sourceNote?.startsWith(source.sourceNote))merged.sourceNote=source.sourceNote+(existing.sourceNote?'\n\nEarlier notes (superseded where corrected above):\n'+existing.sourceNote:'');
@@ -123,13 +141,13 @@
         valid=M.validateProject(merged,{today});
         conflicts.push(existing.shortName||existing.title);
       }
-      if(valid.valid)byId.set(source.id,valid.value);else if(!conflicts.includes(existing.shortName||existing.title))conflicts.push(existing.shortName||existing.title);
+      if(valid.valid)byId.set(existing.id,valid.value);else if(!conflicts.includes(existing.shortName||existing.title))conflicts.push(existing.shortName||existing.title);
     }
     const next=M.validateBackup({version:1,projects:[...byId.values()]},{today});
     if(!next.valid){notify('Publication import needs attention: '+next.errors[0]);return;}
     remember();workspace=next.value;const saved=save();
-    if(saved&&!conflicts.length){try{localStorage.setItem(KEY+'.source-revision',revision);}catch(_){}}
-    if(conflicts.length)notify(`Current statuses were updated where possible. Conflicting milestone dates need review for: ${conflicts.join(', ')}. Existing history was kept.`);
+    if(saved&&!conflicts.length){try{localStorage.setItem(KEY+'.source-revision',revision);localStorage.setItem(KEY+'.current-source-revision',currentRevision);}catch(_){}}
+    if(conflicts.length)notify(`Conflicting imported records need review for: ${conflicts.join(', ')}. Existing history was kept.`);
     else if(added)notify(`${added} project records added. Current statuses and source details were updated; existing edits were preserved.`);
   }
 
@@ -150,6 +168,7 @@
     $('focus-count').textContent = `${focus.length} ${focus.length === 1 ? 'project' : 'projects'}`;
     $('focus-list').innerHTML = focus.length ? focus.map(({project,summary}) => `<button type="button" class="focus-card" data-edit="${escape(project.id)}"><span class="focus-meta"><span class="pill phase-${summary.phase}">${escape(summary.stage)}</span>${project.focus ? '<span class="focus-star" aria-label="Pinned">★</span>' : ''}</span><strong class="focus-title">${escape(project.shortName || project.title)}</strong><span class="focus-action">${escape(project.notes || summary.nextAction)}</span><span class="focus-footer"><span>${summary.submissionState==='not_submitted' ? 'Not submitted' : summary.statusUndated ? 'Stage start date not recorded' : summary.latestEvent ? `${summary.elapsedDays} ${summary.elapsedDays===1?'day':'days'} in this stage` : summary.complete ? 'Published' : 'Add dates to begin'}</span>${rolePill(project)}<span aria-hidden="true">↗</span></span></button>`).join('') : '<div class="empty-state"><span class="empty-symbol" aria-hidden="true">◎</span><div><strong>Your next step starts here.</strong><p class="empty-copy">Add milestone dates to a paper. Active work will appear here automatically, or pin any paper yourself.</p></div></div>';
     renderTimeline(summaries);
+    renderScholarAudit();
     renderPublications();
     $('project-count').textContent = `${projects.length} projects · ${projects.filter(project => project.events.length || project.records?.length).length} with dated records${demo ? ' · Example data' : ''}`;
     storageStatus();
@@ -238,14 +257,32 @@
   }
 
   function publicationDOILink(project){return M.publicationLink({...project,publicationUrl:'',sourceUrl:''});}
+  function relatedPublicationsMarkup(project){
+    if(!project.relatedPublications?.length)return '';
+    const labels={correction:'Author correction',cover:'Cover feature',preprint:'Related preprint · possible earlier version',supplement:'Supporting information'};
+    return `<div class="publication-related"><details><summary>Related publications &amp; material · ${project.relatedPublications.length}</summary>${project.relatedPublications.map(item=>{
+      const href=M.publicationLink(item);
+      return `<article class="related-publication"><span class="publication-type">${labels[item.relation]}</span><h4>${href?`<a href="${escape(href)}" target="_blank" rel="noopener noreferrer">${escape(item.title)} ↗</a>`:escape(item.title)}</h4><p class="fullauthors">${escape((item.authors||[]).join(', '))}</p><p class="ref">${escape(M.journalReference(item))}${item.publishedOn?' · '+escape(dateLabel(item.publishedOn)):''}</p>${item.doi?`<p class="ref">DOI: ${escape(item.doi)}</p>`:''}<p class="note">${escape(item.sourceNote||'')}</p></article>`;
+    }).join('')}</details></div>`;
+  }
+  function renderScholarAudit(){
+    const box=$('scholar-audit'),audit=window.PAPER_TRACKER_SCHOLAR_AUDIT;
+    box.hidden=!audit?.entries?.length;if(box.hidden)return;
+    const labels={already_present:'Already tracked',added:'Added',related:'Companion notice',duplicate:'Duplicate',preprint:'Preprint',misattributed:'Flagged metadata',book_container:'Book volume',thesis:'Thesis',supplement:'Supplement'};
+    box.innerHTML=`<summary>Google Scholar checked · ${audit.entries.length} entries · ${audit.summary.added} missing works added</summary><p class="scholar-audit-summary">The supplied library contains ${audit.summary.journalArticles} journal articles and ${audit.summary.bookChapters} authored book chapter, each with a unique DOI. The correction and cover feature remain linked to their parent papers. The table records the decision for every Scholar entry. Citation years and first-online dates may differ.</p><div class="scholar-audit-scroll" tabindex="0" role="region" aria-label="All Google Scholar comparison decisions"><table class="scholar-audit-table"><thead><tr><th scope="col">Decision</th><th scope="col">Scholar entry</th><th scope="col">What was checked</th></tr></thead><tbody>${audit.entries.map(row=>{
+      const project=currentProjects().find(item=>row.targetDoi&&doiKey(item.doi)===doiKey(row.targetDoi));
+      const sourceUrl=M.publicationLink({sourceUrl:row.verificationUrls?.[0]||''});
+      return `<tr><td>${escape(labels[row.status]||row.status)}</td><td>${row.number}. ${escape(row.title)}<br><small>${escape(row.reference)}</small>${project?`<br><button type="button" class="text-link" data-publication="${escape(project.id)}">View tracked work</button>`:''}</td><td>${escape(row.decision)}${sourceUrl?` <a href="${escape(sourceUrl)}" target="_blank" rel="noopener noreferrer">Source ↗</a>`:''}</td></tr>`;
+    }).join('')}</tbody></table></div>`;
+  }
   function renderPublications(){
     const published=M.sortProjects(currentProjects(),today).filter(project=>M.summarize(project,today).complete);
     const query=$('publication-search').value.trim().toLowerCase(),role=$('publication-role').value;
-    const visible=published.filter(project=>(role==='all'||(project.authorship||'unknown')===role)&&(!query||`${project.title} ${(project.authors||[]).join(' ')} ${project.journal} ${project.doi}`.toLowerCase().includes(query)));
-    $('publication-count').textContent=`${visible.length} of ${published.length} papers`;
+    const visible=published.filter(project=>(role==='all'||(project.authorship||'unknown')===role)&&(!query||`${project.title} ${(project.authors||[]).join(' ')} ${project.journal} ${project.doi} ${(project.relatedPublications||[]).map(item=>`${item.title} ${item.doi} ${(item.authors||[]).join(' ')}`).join(' ')}`.toLowerCase().includes(query)));
+    $('publication-count').textContent=`${visible.length} of ${published.length} works`;
     $('publication-library').innerHTML=visible.length?visible.map((project,index)=>{
       const href=M.publicationLink(project),doiHref=publicationDOILink(project);
-      return `<article class="publication-card"><div class="publication-card-header"><span class="publication-number">${String(index+1).padStart(2,'0')} · ${project.publicationYear || project.events.find(event=>event.type==='published')?.date.slice(0,4) || 'Published'}</span>${rolePill(project)}</div><h3 class="publication-title">${href?`<a href="${escape(href)}" target="_blank" rel="noopener noreferrer">${escape(project.title)} <span aria-hidden="true">↗</span></a>`:escape(project.title)}</h3><p class="publication-authors">${escape((project.authors||[]).join(', ') || 'Authors not recorded yet.')}</p><p class="publication-reference">${escape(M.journalReference(project))}</p><div class="publication-card-footer">${project.doi?`<span class="publication-doi">DOI: ${doiHref?`<a href="${escape(doiHref)}" target="_blank" rel="noopener noreferrer">${escape(project.doi)}</a>`:escape(project.doi)}</span>`:'<span class="publication-doi">DOI not recorded</span>'}<div class="publication-actions"><button class="button ghost small" type="button" data-copy-citation="${escape(project.id)}">Copy citation</button><button class="button secondary small" type="button" data-publication="${escape(project.id)}">Details</button>${href?`<a class="button secondary small" href="${escape(href)}" target="_blank" rel="noopener noreferrer">Publication page ↗</a>`:''}</div></div></article>`;
+      return `<article class="publication-card"><div class="publication-card-header"><span class="publication-number">${String(index+1).padStart(2,'0')} · ${project.publicationYear || project.events.find(event=>event.type==='published')?.date.slice(0,4) || 'Published'}</span>${rolePill(project)}${project.publicationType==='book_chapter'?'<span class="publication-type">Book chapter</span>':''}</div><h3 class="publication-title">${href?`<a href="${escape(href)}" target="_blank" rel="noopener noreferrer">${escape(project.title)} <span aria-hidden="true">↗</span></a>`:escape(project.title)}</h3><p class="publication-authors">${escape((project.authors||[]).join(', ') || 'Authors not recorded yet.')}</p><p class="publication-reference">${escape(M.journalReference(project))}</p><div class="publication-card-footer">${project.doi?`<span class="publication-doi">DOI: ${doiHref?`<a href="${escape(doiHref)}" target="_blank" rel="noopener noreferrer">${escape(project.doi)}</a>`:escape(project.doi)}</span>`:'<span class="publication-doi">DOI not recorded</span>'}<div class="publication-actions"><button class="button ghost small" type="button" data-copy-citation="${escape(project.id)}">Copy citation</button><button class="button secondary small" type="button" data-publication="${escape(project.id)}">Details</button>${href?`<a class="button secondary small" href="${escape(href)}" target="_blank" rel="noopener noreferrer">Publication page ↗</a>`:''}</div></div>${relatedPublicationsMarkup(project)}</article>`;
     }).join(''):'<div class="empty-state"><strong>No matching publications.</strong><p class="empty-copy">Try another title, author, journal, or authorship.</p></div>';
   }
   function openPublication(id){
@@ -255,9 +292,10 @@
     $('publication-detail-authors').textContent=(project.authors||[]).join(', ') || 'Authors not recorded yet.';
     $('publication-detail-role').innerHTML=rolePill(project);
     const pubDate=M.sortEvents(project.events).findLast(event=>event.type==='published')?.date;
-    const facts=[['Journal',project.journal],['Citation year',project.publicationYear],['Volume',project.volume],['Issue',project.issue],['Pages',project.pages],['Article number',project.articleNumber],['Publisher',project.publisher],['Published online',pubDate?dateLabel(pubDate):'Exact date not recorded'],['DOI',project.doi]];
+    const facts=[['Type',project.publicationType==='book_chapter'?'Book chapter':'Journal article'],[project.publicationType==='book_chapter'?'Book':'Journal',project.journal],['Citation year',project.publicationYear],['Volume',project.volume],['Issue',project.issue],['Pages',project.pages],['Article number',project.articleNumber],['Publisher',project.publisher],['Published online',pubDate?dateLabel(pubDate):'Exact date not recorded'],['DOI',project.doi]];
     $('publication-facts').innerHTML=facts.filter(([,value])=>value).map(([label,value])=>`<div><dt>${label}</dt><dd>${label==='DOI'&&publicationDOILink(project)?`<a href="${escape(publicationDOILink(project))}" target="_blank" rel="noopener noreferrer">${escape(value)}</a>`:escape(value)}</dd></div>`).join('');
     $('publication-citation').value=M.formatReference(project);
+    $('publication-detail-related').innerHTML=relatedPublicationsMarkup(project);
     $('publication-detail-history').innerHTML=`<ol>${M.sortEvents(project.events).map(event=>`<li><strong>${escape(dateLabel(event.date))} · ${escape(milestone(event.type).label)}</strong>${event.note?`<p>${escape(event.note)}</p>`:''}</li>`).join('')}</ol>${project.sourceNote?`<p class="form-hint">${escape(project.sourceNote)}</p>`:''}${project.metadataSource?`<p class="form-hint">Citation metadata: ${escape(project.metadataSource)}${project.metadataVerifiedOn?' · checked '+escape(project.metadataVerifiedOn):''}</p>`:''}`;
     const href=M.publicationLink(project);$('detail-publication-link').hidden=!href;if(href)$('detail-publication-link').href=href;else $('detail-publication-link').removeAttribute('href');
     document.querySelector('.publication-detail-history').open=false;

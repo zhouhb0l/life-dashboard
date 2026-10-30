@@ -209,6 +209,79 @@
       return url.href;
     } catch (_) { return ''; }
   }
+  function doiKey(value) {
+    let key = referenceText(value).replace(/^doi:\s*/i, '').replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '');
+    try { key = decodeURIComponent(key); } catch (_) { /* Compare the original text if encoding is malformed. */ }
+    return key.toLowerCase();
+  }
+  function referenceUrlKey(value) {
+    const safe = safeWebUrl(value);
+    if (!safe) return '';
+    const url = new URL(safe);
+    url.hash = '';
+    return /^(?:dx\.)?doi\.org$/i.test(url.hostname) ? `doi:${doiKey(url.pathname.slice(1))}` : url.href;
+  }
+  function normalizeRelated(input, parentDoi, asOf) {
+    const records = [], errors = [];
+    if (input == null) return { records, errors };
+    if (!Array.isArray(input) || input.length > 30) return { records, errors: ['relatedPublications must be an array with at most 30 entries.'] };
+    const seenDois = new Set(), seenUrls = new Set(), parentKey = doiKey(parentDoi);
+    input.forEach((item, index) => {
+      const prefix = `Related publication ${index + 1}: `;
+      if (!item || typeof item !== 'object' || Array.isArray(item)) { errors.push(prefix + 'must be an object.'); return; }
+      const before = errors.length;
+      const field = (key, maximum, required = false) => {
+        const value = item[key];
+        if (value == null && !required) return '';
+        if (typeof value !== 'string' || (required && !value.trim()) || value.length > maximum) {
+          errors.push(prefix + `${key} must be ${required ? 'a nonempty' : 'a'} string of at most ${maximum} characters.`);
+          return '';
+        }
+        return value.trim();
+      };
+      const relation = field('relation', 30, true), title = field('title', 300, true);
+      if (!['correction', 'cover', 'preprint', 'supplement'].includes(relation)) errors.push(prefix + 'relation must be correction, cover, preprint, or supplement.');
+      const doi = field('doi', 300), journal = field('journal', 300);
+      const volume = field('volume', 500), issue = field('issue', 500), pages = field('pages', 500);
+      const articleNumber = field('articleNumber', 500), publisher = field('publisher', 500);
+      const publicationUrl = field('publicationUrl', 2000), sourceUrl = field('sourceUrl', 2000), sourceNote = field('sourceNote', 10000);
+      const publishedOn = field('publishedOn', 10);
+      const publicationYear = item.publicationYear == null ? null : item.publicationYear;
+      if (publicationYear !== null && (!Number.isInteger(publicationYear) || publicationYear < 1000 || publicationYear > Number(asOf.slice(0, 4)))) {
+        errors.push(prefix + `publicationYear must be an integer from 1000 through ${asOf.slice(0, 4)}, or null.`);
+      }
+      if (publishedOn && (!Number.isFinite(dateToDay(publishedOn)) || publishedOn > asOf)) errors.push(prefix + 'publishedOn must be a valid nonfuture YYYY-MM-DD date.');
+      const authors = [];
+      if (item.authors != null) {
+        if (!Array.isArray(item.authors) || item.authors.length > 1000) errors.push(prefix + 'authors must be an array with at most 1,000 names.');
+        else item.authors.forEach((author, authorIndex) => {
+          if (typeof author !== 'string' || !author.trim() || author.length > 300) errors.push(prefix + `author ${authorIndex + 1} must be a nonempty name of at most 300 characters.`);
+          else authors.push(author.trim());
+        });
+      }
+      const key = doiKey(doi);
+      if (key) {
+        if (key === parentKey) errors.push(prefix + 'DOI repeats the parent publication.');
+        if (seenDois.has(key)) errors.push(prefix + 'duplicate DOI in relatedPublications.');
+        seenDois.add(key);
+      }
+      // Identical source/landing links within one entry are fine; duplicate works
+      // identified by the same link in different entries must be resolved.
+      const entryUrls = new Set();
+      for (const [name, value] of [['publicationUrl', publicationUrl], ['sourceUrl', sourceUrl]]) {
+        if (!value) continue;
+        if (!safeWebUrl(value)) { errors.push(prefix + `${name} must be an http or https URL without credentials.`); continue; }
+        const urlKey = referenceUrlKey(value);
+        if (seenUrls.has(urlKey)) errors.push(prefix + 'duplicate URL in relatedPublications.');
+        if (parentKey && urlKey === `doi:${parentKey}`) errors.push(prefix + 'DOI URL repeats the parent publication.');
+        entryUrls.add(urlKey);
+      }
+      for (const urlKey of entryUrls) seenUrls.add(urlKey);
+      if (errors.length === before) records.push({ relation, title, authors, doi, publicationYear, journal, volume, issue, pages,
+        articleNumber, publisher, publicationUrl, sourceUrl, sourceNote, publishedOn });
+    });
+    return { records, errors };
+  }
   function doiUrl(value) {
     const doi = referenceText(value);
     if (!/^10\.\d{4,9}\/[\x21-\x7E]+$/.test(doi)) return '';
@@ -228,6 +301,12 @@
     const body = [journalVolume, location].filter(Boolean).join(', ');
     const publication = sortEvents(project.events).findLast(event => event.type === 'published' && Number.isFinite(dateToDay(event.date)));
     const year = Number.isInteger(project.publicationYear) ? project.publicationYear : publication?.date.slice(0, 4);
+    if (project.publicationType === 'book_chapter') {
+      const chapterPages = pages ? `pp. ${pages.replace(/(\d)\s*[-–—]\s*(?=\d)/g, '$1–')}` : '';
+      const container = [journal ? `In: ${journal}` : '', chapterPages].filter(Boolean).join(', ');
+      const imprint = [referenceText(project.publisher), year].filter(Boolean).join(', ');
+      return [container, imprint ? `(${imprint})` : ''].filter(Boolean).join(' ');
+    }
     return [body, year ? `(${year})` : ''].filter(Boolean).join(' ');
   }
   function formatReference(project) {
@@ -343,9 +422,11 @@
     const statusAsOf = stringField(input, 'statusAsOf', false, 10);
     const statusNote = stringField(input, 'statusNote', false, 10000);
     const manuscriptId = stringField(input, 'manuscriptId', false, 200);
+    const publicationType = stringField(input, 'publicationType', false, 30);
     const submissionState = stringField(input, 'submissionState', false, 30);
     const projectKind = input.projectKind == null ? 'paper' : input.projectKind;
     if (!['paper', 'book'].includes(projectKind)) errors.push('projectKind must be paper or book.');
+    if (!['', 'journal_article', 'book_chapter'].includes(publicationType)) errors.push('publicationType must be empty, journal_article, or book_chapter.');
     if (!['', 'not_submitted', 'submitted'].includes(submissionState)) errors.push('submissionState must be empty, not_submitted, or submitted.');
     if (currentStatus && !TYPES.has(currentStatus)) errors.push('currentStatus must be a known milestone type or empty.');
     if ((currentStatus && !statusAsOf) || (statusAsOf && (!Number.isFinite(dateToDay(statusAsOf)) || statusAsOf > asOf))) {
@@ -416,11 +497,14 @@
         });
       }
     }
+    const related = normalizeRelated(input.relatedPublications, doi, asOf);
+    errors.push(...related.errors);
     return { valid: errors.length === 0, errors, value: errors.length ? null : {
       id, title, shortName, journal, focus: input.focus === true, notes, authorship, authors,
       publicationYear, doi, sourceUrl, sourceNote, volume, issue, pages, articleNumber, publisher,
       publicationUrl, metadataSource, metadataVerifiedOn, currentStatus, statusLabel, statusAsOf, statusNote,
-      manuscriptId, projectKind, submissionState, records: sortEvents(records), events: sortEvents(events)
+      manuscriptId, projectKind, publicationType, relatedPublications: related.records,
+      submissionState, records: sortEvents(records), events: sortEvents(events)
     } };
   }
   function validateBackup(input, options = {}) {

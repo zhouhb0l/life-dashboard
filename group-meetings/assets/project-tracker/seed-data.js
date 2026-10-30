@@ -1,8 +1,617 @@
-/* Published references and current project evidence. See publications-source.json and current-projects-*.json.
-   A new source revision merges current statuses and records while retaining browser edits and milestone history. */
-window.PAPER_TRACKER_SEED_REVISION = "recessed-history-2026-10-30-v5";
+/* Published references, reviewed project evidence, and the 45-entry Scholar reconciliation.
+   Source updates retain browser edits and milestone history. */
+window.PAPER_TRACKER_SEED_REVISION = "scholar-audit-2026-10-30-v6";
+window.PAPER_TRACKER_CURRENT_SOURCE_REVISION = "recessed-history-2026-10-30-v5";
 window.PAPER_TRACKER_CURRENT_UPDATE_IDS = ["recessed-contact","tan-thermal","phonon-susceptibility","non-gaussian-bounds","wte2-moire","proton-transfer","negf-method-book","interlayer-sliding-graphene-hbn"];
 window.PAPER_TRACKER_EVENT_CORRECTIONS = [{"projectId":"tan-thermal","id":"tan-thermal-reviews_received-2026-10-14","type":"reviews_received","date":"2026-10-14","notePrefix":"Secondary source:","reason":"Retain the unverified meeting-note review-return date as documentary evidence. Confirmed portal dates now define the measured journal interval; the actual response-submission date is still unknown.","expectedNote":"Secondary source: dated meeting notes explicitly say second-round reviewer PDF received 14 October 2026. Original editorial email is not available; date should be confirmed against correspondence. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\PagesOnGithub\\group-meetings\\assets\\decks\\meeting-2026-10-28\\tan-project-data.js (notes at line 213 and repeated).","expectedJournal":""}];
+window.PAPER_TRACKER_SCHOLAR_AUDIT = {
+  "version": 1,
+  "verifiedOn": "2026-10-30",
+  "source": "Google Scholar profile text pasted by Hangbo Zhou in this chat on 30 October 2026. Titles, abbreviated author lists, references and years are retained for comparison; they are not treated as publisher-verified metadata.",
+  "profile": {
+    "name": "Hangbo Zhou",
+    "affiliation": "Institute of High Performance Computing, ASTAR",
+    "citations": 1531,
+    "hIndex": 23,
+    "i10Index": 28,
+    "asOf": "2026-10-30"
+  },
+  "summary": {
+    "scholarEntries": 45,
+    "alreadyPresent": 32,
+    "added": 4,
+    "publishedWorks": 36,
+    "journalArticles": 35,
+    "bookChapters": 1,
+    "companionPublications": 2
+  },
+  "entries": [
+    {
+      "number": 1,
+      "title": "Nonlocal Electrostatic Origin of Schottky-Barrier Variability in 2D Contacts",
+      "year": 2026,
+      "reference": "Nano Letters 26 (38), 13130-13135",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "nonlocal-sbh",
+      "targetDoi": "10.1021/acs.nanolett.6c03959",
+      "verificationUrls": [
+        "https://pubs.acs.org/nalefd/article/26/38/13130/5430890/Nonlocal-Electrostatic-Origin-of-Schottky-Barrier"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Revealing the Stability and Conductivity of 1D Structures in 2D Semiconducting Lattices",
+      "year": 2025,
+      "reference": "The Journal of Physical Chemistry C 129 (1), 670-676",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1021-acs-jpcc-4c06240",
+      "targetDoi": "10.1021/acs.jpcc.4c06240",
+      "verificationUrls": [
+        "https://pubs.acs.org/doi/10.1021/acs.jpcc.4c06240"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Defect engineering and hydrogen-induced reversibility in metallic states of MoS 2 grain boundaries",
+      "year": 2025,
+      "reference": "Nanoscale 17 (38), 22226-22234",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1039-d5nr02232k",
+      "targetDoi": "10.1039/d5nr02232k",
+      "verificationUrls": [
+        "https://pubs.rsc.org/nr/article/17/38/22226-22234/901399"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Impact of grain boundaries on the electronic properties and Schottky barrier height in MoS 2@ Au heterojunctions",
+      "year": 2025,
+      "reference": "Physical Chemistry Chemical Physics 27 (2), 905-914",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1039-d4cp03686g",
+      "targetDoi": "10.1039/d4cp03686g",
+      "verificationUrls": [
+        "https://pubs.rsc.org/cp/article/27/2/905-914/844121"
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials",
+      "year": 2024,
+      "reference": "Nano-Micro Letters 16 (1), 121",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1007-s40820-024-01335-2",
+      "targetDoi": "10.1007/s40820-024-01335-2",
+      "verificationUrls": [
+        "https://link.springer.com/article/10.1007/s40820-024-01335-2"
+      ]
+    },
+    {
+      "number": 6,
+      "title": "An Atomically Resolved Schottky Barrier Height Approach for Bridging the Gap between Theory and Experiment at Metal–Semiconductor Heterojunctions",
+      "year": 2024,
+      "reference": "ACS Applied Materials & Interfaces 16 (17), 22166-22176",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1021-acsami-4c02294",
+      "targetDoi": "10.1021/acsami.4c02294",
+      "verificationUrls": [
+        "https://pubs.acs.org/doi/10.1021/acsami.4c02294"
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Design‐Dependent Switching Mechanisms of Schottky‐Barrier‐Modulated Memristors based on 2D Semiconductor",
+      "year": 2023,
+      "reference": "Advanced Electronic Materials 9 (6), 2201252",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1002-aelm-202201252",
+      "targetDoi": "10.1002/aelm.202201252",
+      "verificationUrls": [
+        "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aelm.202201252"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Anharmonic quantum thermal transport across a van der Waals interface",
+      "year": 2023,
+      "reference": "MRS Bulletin 48 (6), 614-622",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1557-s43577-022-00456-6",
+      "targetDoi": "10.1557/s43577-022-00456-6",
+      "verificationUrls": [
+        "https://link.springer.com/article/10.1557/s43577-022-00456-6"
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Author Correction: The effects of point defect type, location, and density on the Schottky barrier height of Au/MoS2 heterojunction: a first-principles study",
+      "year": 2022,
+      "reference": "Scientific Reports 12, 21086",
+      "status": "related",
+      "decision": "Author Correction, Scientific Reports 12, 21086, DOI 10.1038/s41598-022-25621-4. Linked to the original article (entry 11); not a second research project.",
+      "projectId": "point-defect-au-mos2-2022",
+      "targetDoi": "10.1038/s41598-022-22913-7",
+      "verificationUrls": [
+        "https://www.nature.com/articles/s41598-022-25621-4"
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Effects of localized phonons on interfacial thermal conductance",
+      "year": 2022,
+      "reference": "Physical Review B 106 (19), 195435",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1103-physrevb-106-195435",
+      "targetDoi": "10.1103/PhysRevB.106.195435",
+      "verificationUrls": [
+        "https://link.aps.org/doi/10.1103/PhysRevB.106.195435"
+      ]
+    },
+    {
+      "number": 11,
+      "title": "The effects of point defect type, location, and density on the Schottky barrier height of Au/MoS2 heterojunction: a first-principles study",
+      "year": 2022,
+      "reference": "Scientific Reports 12 (1), 18001",
+      "status": "added",
+      "decision": "Missing original journal article added with its complete publisher reference.",
+      "projectId": "point-defect-au-mos2-2022",
+      "targetDoi": "10.1038/s41598-022-22913-7",
+      "verificationUrls": [
+        "https://www.nature.com/articles/s41598-022-22913-7"
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Recent progress on 2D materials-based artificial synapses",
+      "year": 2022,
+      "reference": "Critical Reviews in Solid State and Materials Sciences 47 (5), 665-690",
+      "status": "added",
+      "decision": "Missing review added. Citation/issue year 2022 is distinct from first-online date 7 June 2021.",
+      "projectId": "artificial-synapses-review-2022",
+      "targetDoi": "10.1080/10408436.2021.1935212",
+      "verificationUrls": [
+        "https://www.tandfonline.com/doi/full/10.1080/10408436.2021.1935212"
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Effects of high order interatomic potential on elastic phonon scatterings",
+      "year": 2022,
+      "reference": "arXiv preprint arXiv:2202.11037",
+      "status": "preprint",
+      "decision": "Preprint retained as a possible earlier version of the existing PRB paper. Identical author order and related content suggest a match, but neither arXiv nor Crossref formally links them. Not counted as another published paper.",
+      "projectId": "pub-10-1103-physrevb-106-195435",
+      "targetDoi": "10.1103/PhysRevB.106.195435",
+      "verificationUrls": [
+        "https://arxiv.org/abs/2202.11037"
+      ]
+    },
+    {
+      "number": 14,
+      "title": "rsc. li/nanoscale",
+      "year": 2022,
+      "reference": "Nanoscale 14 (9286), 9278-9285",
+      "status": "misattributed",
+      "decision": "The cited pages 9278–9285 identify a silver-nanoprism paper by Kosuke Sugawa and colleagues, DOI 10.1039/D2NR01725C; Hangbo Zhou is not an author. “rsc.li/nanoscale” is journal boilerplate, not a paper title. Existing Nanoscale review pages 9209–9217 remain correct.",
+      "projectId": "",
+      "targetDoi": "",
+      "verificationUrls": [
+        "https://pubs.rsc.org/en/content/articlepdf/2022/nr/d2nr01725c"
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Computational predictions of quantum thermal transport across nanoscale interfaces",
+      "year": 2022,
+      "reference": "Nanoscale 14 (26), 9209-9217",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1039-d2nr01131j",
+      "targetDoi": "10.1039/d2nr01131j",
+      "verificationUrls": [
+        "https://pubs.rsc.org/nr/article/14/26/9209-9217/776522"
+      ]
+    },
+    {
+      "number": 16,
+      "title": "High thermal conductivity in covalently bonded bi-layer honeycomb boron arsenide",
+      "year": 2021,
+      "reference": "Materials Today Physics 17, 100346",
+      "status": "added",
+      "decision": "Missing journal article added. March 2021 issue is verified; exact first-online day remains unknown.",
+      "projectId": "covalent-bilayer-bas-2021",
+      "targetDoi": "10.1016/j.mtphys.2021.100346",
+      "verificationUrls": [
+        "https://www.sciencedirect.com/science/article/pii/S2542529321000079"
+      ]
+    },
+    {
+      "number": 17,
+      "title": "Three-Fold Enhancement of In-Plane Thermal Conductivity of Borophene through Metallic Atom Intercalation",
+      "year": 2020,
+      "reference": "Nano Letters 20 (10), 7619-7626",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1021-acs-nanolett-0c03135",
+      "targetDoi": "10.1021/acs.nanolett.0c03135",
+      "verificationUrls": [
+        "https://pubs.acs.org/doi/10.1021/acs.nanolett.0c03135"
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Three-terminal interface as a thermoelectric generator beyond the Seebeck effect",
+      "year": 2020,
+      "reference": "Physical Review B 101 (23), 235305",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1103-physrevb-101-235305",
+      "targetDoi": "10.1103/PhysRevB.101.235305",
+      "verificationUrls": [
+        "https://link.aps.org/doi/10.1103/PhysRevB.101.235305"
+      ]
+    },
+    {
+      "number": 19,
+      "title": "The important role of strain on phonon hydrodynamics in diamond-like bi-layer graphene",
+      "year": 2020,
+      "reference": "Nanotechnology 31 (33), 335711",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1088-1361-6528-ab8ee1",
+      "targetDoi": "10.1088/1361-6528/ab8ee1",
+      "verificationUrls": [
+        "https://iopscience.iop.org/article/10.1088/1361-6528/ab8ee1"
+      ]
+    },
+    {
+      "number": 20,
+      "title": "Phonon stability and phonon transport of graphene-like borophene",
+      "year": 2020,
+      "reference": "Nanotechnology 31 (31), 315709",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1088-1361-6528-ab824c",
+      "targetDoi": "10.1088/1361-6528/ab824c",
+      "verificationUrls": [
+        "https://iopscience.iop.org/article/10.1088/1361-6528/ab824c"
+      ]
+    },
+    {
+      "number": 21,
+      "title": "Neural network representation and optimization of thermoelectric states of multiple interacting quantum dots",
+      "year": 2020,
+      "reference": "Physical Chemistry Chemical Physics 22 (28), 16165-16173",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1039-d0cp02894k",
+      "targetDoi": "10.1039/d0cp02894k",
+      "verificationUrls": [
+        "https://pubs.rsc.org/cp/article/22/28/16165-16173/680045"
+      ]
+    },
+    {
+      "number": 22,
+      "title": "High thermal conductivity driven by the unusual phonon relaxation time platform in 2D monolayer boron arsenide",
+      "year": 2020,
+      "reference": "RSC Advances 10 (42), 25305-25310",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1039-d0ra04737f",
+      "targetDoi": "10.1039/d0ra04737f",
+      "verificationUrls": [
+        "https://pubs.rsc.org/ra/article/10/42/25305-25310/702276"
+      ]
+    },
+    {
+      "number": 23,
+      "title": "Auxeticity in Metals and Periodic Metallic Porous Structures Induced by Elastic Instabilities",
+      "year": 2019,
+      "reference": "Physica Status Solidi B Basic Research 256 (8), 1900122",
+      "status": "misattributed",
+      "decision": "Conflicting record: the Auxeticity title belongs to DOI 10.1002/pssb.201800122, volume 256(1), 1800122, by Duc Tam Ho, Cao Thang Nguyen, Soon-Yong Kwon, and Sung Youb Kim. Hangbo Zhou is not an author. The supplied volume/article number and coauthors instead belong to the hydrogenated boron-nanotube paper (entry 24), which is already included.",
+      "projectId": "",
+      "targetDoi": "",
+      "verificationUrls": [
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/pssb.201800122",
+        "https://onlinelibrary.wiley.com/doi/10.1002/pssb.201900122"
+      ]
+    },
+    {
+      "number": 24,
+      "title": "The ultrahigh quantum thermal conductance of hydrogenated boron nanotubes",
+      "year": 2019,
+      "reference": "physica status solidi (b) 256 (8), 1900122",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1002-pssb-201900122",
+      "targetDoi": "10.1002/pssb.201900122",
+      "verificationUrls": [
+        "https://onlinelibrary.wiley.com/doi/10.1002/pssb.201900122"
+      ]
+    },
+    {
+      "number": 25,
+      "title": "From Two-to Three-Dimensional van der Waals Layered Structures of Boron Crystals: An Ab Initio Study",
+      "year": 2019,
+      "reference": "ACS Omega 4 (5), 8015-8021",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1021-acsomega-9b00534",
+      "targetDoi": "10.1021/acsomega.9b00534",
+      "verificationUrls": [
+        "https://pubs.acs.org/acsodf/article/4/5/8015/1444755/From-Two-to-Three-Dimensional-van-der-Waals"
+      ]
+    },
+    {
+      "number": 26,
+      "title": "Orbitally driven giant thermal conductance associated with abnormal strain dependence in hydrogenated graphene-like borophene",
+      "year": 2019,
+      "reference": "npj Computational Materials 5 (1), 47",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1038-s41524-019-0183-2",
+      "targetDoi": "10.1038/s41524-019-0183-2",
+      "verificationUrls": [
+        "https://www.nature.com/articles/s41524-019-0183-2"
+      ]
+    },
+    {
+      "number": 27,
+      "title": "The effects of curvature on the thermal conduction of bent silicon nanowire",
+      "year": 2019,
+      "reference": "Journal of Applied Physics 125 (8), 082505",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1063-1-5054323",
+      "targetDoi": "10.1063/1.5054323",
+      "verificationUrls": [
+        "https://pubs.aip.org/jap/article/125/8/082505/133427/The-effects-of-curvature-on-the-thermal-conduction"
+      ]
+    },
+    {
+      "number": 28,
+      "title": "Borophene: Stretch‐Driven Increase in Ultrahigh Thermal Conductance of Hydrogenated Borophene and Dimensionality Crossover in Phonon Transmission (Adv. Funct. Mater. 31/2018)",
+      "year": 2018,
+      "reference": "Advanced Functional Materials 28 (31), 1870213",
+      "status": "related",
+      "decision": "Distinct DOI 10.1002/adfm.201870213 is a Cover Picture for the existing research article 1801685 (entry 29). Full cover citation linked to that paper; not another study.",
+      "projectId": "pub-10-1002-adfm-201801685",
+      "targetDoi": "10.1002/adfm.201801685",
+      "verificationUrls": [
+        "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adfm.201870213"
+      ]
+    },
+    {
+      "number": 29,
+      "title": "Stretch‐Driven Increase in Ultrahigh Thermal Conductance of Hydrogenated Borophene and Dimensionality Crossover in Phonon Transmission",
+      "year": 2018,
+      "reference": "Advanced Functional Materials 28 (31), 1801685",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1002-adfm-201801685",
+      "targetDoi": "10.1002/adfm.201801685",
+      "verificationUrls": [
+        "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.201801685"
+      ]
+    },
+    {
+      "number": 30,
+      "title": "General theories and features of interfacial thermal transport",
+      "year": 2018,
+      "reference": "Chin. Phys. B 27 (3), 034401-034401; authors Z Hangbo, Z Gang",
+      "status": "duplicate",
+      "decision": "Duplicate of entry 31: same title, journal, volume and article 034401. Abbreviated journal and reversed/transliterated author forms do not create another paper.",
+      "projectId": "pub-10-1088-1674-1056-27-3-034401",
+      "targetDoi": "10.1088/1674-1056/27/3/034401",
+      "verificationUrls": [
+        "https://iopscience.iop.org/article/10.1088/1674-1056/27/3/034401"
+      ]
+    },
+    {
+      "number": 31,
+      "title": "General theories and features of interfacial thermal transport",
+      "year": 2018,
+      "reference": "Chinese Physics B 27 (3), 034401; authors H Zhou, G Zhang",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1088-1674-1056-27-3-034401",
+      "targetDoi": "10.1088/1674-1056/27/3/034401",
+      "verificationUrls": [
+        "https://iopscience.iop.org/article/10.1088/1674-1056/27/3/034401"
+      ]
+    },
+    {
+      "number": 32,
+      "title": "Unusual phonon behavior and ultra-low thermal conductance of monolayer InSe",
+      "year": 2017,
+      "reference": "Nanoscale 10 (1), 480-487",
+      "status": "already_present",
+      "decision": "Already included. First online publication was 29 November 2017; the journal issue/citation year is 2018. Both are retained.",
+      "projectId": "pub-10-1039-c7nr07779c",
+      "targetDoi": "10.1039/c7nr07779c",
+      "verificationUrls": [
+        "https://pubs.rsc.org/nr/article/10/1/480-487/573642"
+      ]
+    },
+    {
+      "number": 33,
+      "title": "Superior lattice thermal conductance of single-layer borophene",
+      "year": 2017,
+      "reference": "npj 2D Materials and Applications 1 (1), 14",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1038-s41699-017-0018-2",
+      "targetDoi": "10.1038/s41699-017-0018-2",
+      "verificationUrls": [
+        "https://www.nature.com/articles/s41699-017-0018-2"
+      ]
+    },
+    {
+      "number": 34,
+      "title": "Thermal transport in carbon-based nanomaterials",
+      "year": 2017,
+      "reference": "G Zhang; Elsevier",
+      "status": "book_container",
+      "decision": "This is the complete volume edited by Gang Zhang, not a separate Hangbo Zhou authored book. The authored chapter (entry 35) is included.",
+      "projectId": "pub-10-1016-b978-0-32-346240-2-00001-7",
+      "targetDoi": "10.1016/B978-0-32-346240-2.00001-7",
+      "verificationUrls": [
+        "https://www.sciencedirect.com/book/edited-volume/9780323462402/thermal-transport-in-carbon-based-nanomaterials"
+      ]
+    },
+    {
+      "number": 35,
+      "title": "Thermal Transport Theory",
+      "year": 2017,
+      "reference": "H Zhou, G Zhang; Thermal Transport in Carbon-Based Nanomaterials, 1-18",
+      "status": "added",
+      "decision": "Missing authored book chapter added: Hangbo Zhou and Gang Zhang, pages 1–18. Publisher-registered DOI is 10.1016/B978-0-32-346240-2.00001-7; only the year 2017 is verified.",
+      "projectId": "pub-10-1016-b978-0-32-346240-2-00001-7",
+      "targetDoi": "10.1016/B978-0-32-346240-2.00001-7",
+      "verificationUrls": [
+        "https://www.sciencedirect.com/science/chapter/edited-volume/pii/B9780323462402000017"
+      ]
+    },
+    {
+      "number": 36,
+      "title": "Modulating Carrier Density and Transport Properties of MoS2 by Organic Molecular Doping and Defect Engineering",
+      "year": 2016,
+      "reference": "Chemistry of Materials 28 (23), 8611-8621",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1021-acs-chemmater-6b03539",
+      "targetDoi": "10.1021/acs.chemmater.6b03539",
+      "verificationUrls": [
+        "https://pubs.acs.org/doi/10.1021/acs.chemmater.6b03539"
+      ]
+    },
+    {
+      "number": 37,
+      "title": "Phonon transport in a one-dimensional harmonic chain with long-range interaction and mass disorder",
+      "year": 2016,
+      "reference": "Physical Review E 94 (5), 052123",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1103-physreve-94-052123",
+      "targetDoi": "10.1103/PhysRevE.94.052123",
+      "verificationUrls": [
+        "https://link.aps.org/doi/10.1103/PhysRevE.94.052123"
+      ]
+    },
+    {
+      "number": 38,
+      "title": "Thermoelectric properties of phosphorene at the nanoscale",
+      "year": 2016,
+      "reference": "Journal of Materials Research 31, 3179-3186",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1557-jmr-2016-333",
+      "targetDoi": "10.1557/jmr.2016.333",
+      "verificationUrls": [
+        "https://link.springer.com/article/10.1557/jmr.2016.333"
+      ]
+    },
+    {
+      "number": 39,
+      "title": "Quantum thermal transport in stanene",
+      "year": 2016,
+      "reference": "Physical Review B 94 (4), 045423",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1103-physrevb-94-045423",
+      "targetDoi": "10.1103/PhysRevB.94.045423",
+      "verificationUrls": [
+        "https://link.aps.org/doi/10.1103/PhysRevB.94.045423"
+      ]
+    },
+    {
+      "number": 40,
+      "title": "ELECTRON-PHONON INTERACTION AND QUANTUM TRANSPORT IN NANOSTRUCTURES",
+      "year": 2015,
+      "reference": "Z HANGBO; thesis",
+      "status": "thesis",
+      "decision": "Thesis/dissertation entry, retained in this audit and excluded from the journal-paper/chapter count. Earlier local thesis PDFs were also excluded from that count.",
+      "projectId": "",
+      "targetDoi": "",
+      "verificationUrls": []
+    },
+    {
+      "number": 41,
+      "title": "Effects of electron-phonon interaction on thermal and electrical transport through molecular nano-conductors",
+      "year": 2015,
+      "reference": "AIP Advances 5 (5), 053204",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1063-1-4917017",
+      "targetDoi": "10.1063/1.4917017",
+      "verificationUrls": [
+        "https://pubs.aip.org/adv/article/5/5/053204/977841/Effects-of-electron-phonon-interaction-on-thermal"
+      ]
+    },
+    {
+      "number": 42,
+      "title": "Thermoelectric transport through a quantum nanoelectromechanical system and its backaction",
+      "year": 2015,
+      "reference": "Physical Review B 91 (4), 045410",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1103-physrevb-91-045410",
+      "targetDoi": "10.1103/PhysRevB.91.045410",
+      "verificationUrls": [
+        "https://link.aps.org/doi/10.1103/PhysRevB.91.045410"
+      ]
+    },
+    {
+      "number": 43,
+      "title": "Boosting thermoelectric efficiency using time-dependent control",
+      "year": 2015,
+      "reference": "Scientific reports 5",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1038-srep14870",
+      "targetDoi": "10.1038/srep14870",
+      "verificationUrls": [
+        "https://www.nature.com/articles/srep14870"
+      ]
+    },
+    {
+      "number": 44,
+      "title": "Improved Dyson series expansion for steady-state quantum transport beyond the weak coupling limit: Divergences and resolution",
+      "year": 2014,
+      "reference": "The Journal of chemical physics 141 (19), 194101",
+      "status": "already_present",
+      "decision": "Already present with a matching title and publisher DOI.",
+      "projectId": "pub-10-1063-1-4901274",
+      "targetDoi": "10.1063/1.4901274",
+      "verificationUrls": [
+        "https://pubs.aip.org/jcp/article/141/19/194101/152552/Improved-Dyson-series-expansion-for-steady-state"
+      ]
+    },
+    {
+      "number": 45,
+      "title": "Supporting information of “Unusual phonon behavior and ultra-low thermal conductance of monolayer InSe”",
+      "year": null,
+      "reference": "H Zhou, Y Cai, G Zhang, YW Zhang",
+      "status": "supplement",
+      "decision": "Supporting information for the original InSe article (entry 32). Linked through its publisher article page; not an independent paper.",
+      "projectId": "pub-10-1039-c7nr07779c",
+      "targetDoi": "10.1039/c7nr07779c",
+      "verificationUrls": [
+        "https://pubs.rsc.org/nr/article/10/1/480-487/573642"
+      ]
+    }
+  ]
+};
 window.PAPER_TRACKER_SEED = {
   "version": 1,
   "projects": [
@@ -38,6 +647,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "Editorial Manager row MTP-D-26-02001R2 states Initial Date Submitted: 24 August 2026; Status Date: 29 October 2026; Current Status: Completed - Accept; Date Final Disposition Set: 29 October 2026; Final Disposition: Accept. The row was supplied by the user on 30 October. Live portal access requires login in the assistant session.",
       "manuscriptId": "MTP-D-26-02001R2",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "submitted",
       "records": [
         {
@@ -181,6 +792,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "User confirms the reviewer response has been submitted. Awaiting the next journal decision as of 30 October 2026. The exact response-submission date was not established from local files; cover-letter dates are retained as artifacts, not lifecycle completion dates.",
       "manuscriptId": "NSR_MS-2026-2621",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [
         {
@@ -265,6 +878,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "User-supplied APS history confirms transfer from Physical Review Letters to Physical Review B on 25 September 2026 and PRB acknowledgment on 28 September. Referee invitations were sent in October. Messages received on 14 and 19 October are explicitly not reports; they do not establish author receipt of reviewer feedback.",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "submitted",
       "records": [
         {
@@ -451,6 +1066,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "User explicitly confirms the WTe2 manuscript has not been submitted as of 30 October 2026. It remains in internal manuscript revision.",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "not_submitted",
       "records": [
         {
@@ -525,6 +1142,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "User explicitly confirms the proton-transfer manuscript has not been submitted as of 30 October 2026. It remains in internal manuscript revision.",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "not_submitted",
       "records": [
         {
@@ -603,6 +1222,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "The user's 23-entry journal history confirms acceptance on 15 October, entry into publishing and rights on 24 October, and completion of publishing and rights on 26 October 2026. This confirms neither proofreading completion nor online publication. Both scientific revision rounds and all three technical-amendment cycles are dated separately.",
       "manuscriptId": "84098ac7-7abb-4504-9cf6-661a1c68438a",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "submitted",
       "records": [
         {
@@ -864,6 +1485,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "User explicitly confirms the NEGF method book has not been submitted as of 30 October 2026. Writing continues.",
       "manuscriptId": "",
       "projectKind": "book",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "not_submitted",
       "records": [
         {
@@ -917,6 +1540,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "The user supplies the successful submission confirmation, identifies co-authorship, and states submission on 2 October. The year is 2026 in the current project context. Editorial screening versus external peer review is not distinguished by the receipt.",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -956,6 +1581,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": []
@@ -987,6 +1614,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": []
@@ -1018,6 +1647,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": []
@@ -1037,7 +1668,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2026,
       "doi": "10.1021/acs.nanolett.6c03959",
       "sourceUrl": "https://doi.org/10.1021/acs.nanolett.6c03959",
-      "sourceNote": "Verified publisher-deposited Crossref metadata already saved locally and full publication citation in meeting-2026-10-28.html. Published-online date only; initialization, submission and review history unknown. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\PagesOnGithub\\output\\jx-nanoletters-published-metadata.json",
+      "sourceNote": "Verified publisher-deposited Crossref metadata already saved locally and full publication citation in meeting-2026-10-28.html. Published-online date only; initialization, submission and review history unknown.",
       "volume": "26",
       "issue": "38",
       "pages": "13130-13135",
@@ -1052,6 +1683,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1082,7 +1715,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2025,
       "doi": "10.1039/d5nr02232k",
       "sourceUrl": "https://doi.org/10.1039/d5nr02232k",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "17",
       "issue": "38",
       "pages": "22226-22234",
@@ -1097,6 +1730,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1140,7 +1775,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2025,
       "doi": "10.1021/acs.jpcc.4c06240",
       "sourceUrl": "https://doi.org/10.1021/acs.jpcc.4c06240",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "129",
       "issue": "1",
       "pages": "670-676",
@@ -1155,6 +1790,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1206,7 +1843,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2025,
       "doi": "10.1039/d4cp03686g",
       "sourceUrl": "https://doi.org/10.1039/d4cp03686g",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "27",
       "issue": "2",
       "pages": "905-914",
@@ -1221,6 +1858,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1265,7 +1904,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2024,
       "doi": "10.1021/acsami.4c02294",
       "sourceUrl": "https://doi.org/10.1021/acsami.4c02294",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "16",
       "issue": "17",
       "pages": "22166-22176",
@@ -1280,6 +1919,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1330,7 +1971,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2024,
       "doi": "10.1007/s40820-024-01335-2",
       "sourceUrl": "https://doi.org/10.1007/s40820-024-01335-2",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Crossbar array memristor review.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page.",
       "volume": "16",
       "issue": "1",
       "pages": "",
@@ -1345,6 +1986,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1390,7 +2033,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2023,
       "doi": "10.1002/aelm.202201252",
       "sourceUrl": "https://doi.org/10.1002/aelm.202201252",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "9",
       "issue": "6",
       "pages": "",
@@ -1405,6 +2048,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1448,7 +2093,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2023,
       "doi": "10.1557/s43577-022-00456-6",
       "sourceUrl": "https://doi.org/10.1557/s43577-022-00456-6",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Three phonon vdw.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page.",
       "volume": "48",
       "issue": "6",
       "pages": "614-622",
@@ -1463,6 +2108,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1498,7 +2145,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2022,
       "doi": "10.1103/PhysRevB.106.195435",
       "sourceUrl": "https://doi.org/10.1103/PhysRevB.106.195435",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "106",
       "issue": "19",
       "pages": "",
@@ -1513,6 +2160,30 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [
+        {
+          "relation": "preprint",
+          "title": "Effects of high order interatomic potential on elastic phonon scatterings",
+          "authors": [
+            "Hangbo Zhou",
+            "Gang Zhang",
+            "Yong-Wei Zhang"
+          ],
+          "doi": "10.48550/arXiv.2202.11037",
+          "publicationYear": 2022,
+          "journal": "arXiv",
+          "volume": "",
+          "issue": "",
+          "pages": "",
+          "articleNumber": "",
+          "publisher": "arXiv",
+          "publicationUrl": "https://arxiv.org/abs/2202.11037",
+          "sourceUrl": "https://arxiv.org/abs/2202.11037",
+          "sourceNote": "Possible earlier version of this paper; the formal relationship is not verified. The primary arXiv record and APS article have identical three-author order and matching fourth-order/localized-phonon interface-scattering subject matter. The arXiv landing page does not provide a journal reference or published DOI, and the Crossref relation object is empty. The primary sources therefore support a likely match rather than a formally declared equivalence.",
+          "publishedOn": "2022-02-22"
+        }
+      ],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1547,6 +2218,77 @@ window.PAPER_TRACKER_SEED = {
       ]
     },
     {
+      "id": "point-defect-au-mos2-2022",
+      "title": "The effects of point defect type, location, and density on the Schottky barrier height of Au/MoS2 heterojunction: a first-principles study",
+      "shortName": "Point defects & SBH",
+      "journal": "Scientific Reports",
+      "focus": false,
+      "notes": "",
+      "authorship": "coauthor",
+      "authors": [
+        "Viacheslav Sorkin",
+        "Hangbo Zhou",
+        "Zhi Gen Yu",
+        "Kah-Wee Ang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2022,
+      "doi": "10.1038/s41598-022-22913-7",
+      "sourceUrl": "https://doi.org/10.1038/s41598-022-22913-7",
+      "sourceNote": "Verified publisher-deposited Crossref metadata and the Scientific Reports article page. Hangbo Zhou is second-listed; the first-listed author is Viacheslav Sorkin. Article 18001 is the original research paper, distinct from its later Author Correction (article 21086). The published milestone is the publisher-deposited published-online date. Initialization, draft, submission, review, acceptance, and proofreading dates are unknown.",
+      "volume": "12",
+      "issue": "1",
+      "pages": "",
+      "articleNumber": "18001",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://www.nature.com/articles/s41598-022-22913-7",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s41598-022-22913-7",
+      "metadataVerifiedOn": "2026-10-30",
+      "currentStatus": "",
+      "statusLabel": "",
+      "statusAsOf": "",
+      "statusNote": "",
+      "manuscriptId": "",
+      "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [
+        {
+          "relation": "correction",
+          "title": "Author Correction: The effects of point defect type, location, and density on the Schottky barrier height of Au/MoS2 heterojunction: a first-principles study",
+          "authors": [
+            "Viacheslav Sorkin",
+            "Hangbo Zhou",
+            "Zhi Gen Yu",
+            "Kah-Wee Ang",
+            "Yong-Wei Zhang"
+          ],
+          "doi": "10.1038/s41598-022-25621-4",
+          "publicationYear": 2022,
+          "journal": "Scientific Reports",
+          "volume": "12",
+          "issue": "1",
+          "pages": "",
+          "articleNumber": "21086",
+          "publisher": "Springer Nature",
+          "publicationUrl": "https://www.nature.com/articles/s41598-022-25621-4",
+          "sourceUrl": "https://www.nature.com/articles/s41598-022-25621-4",
+          "sourceNote": "The publisher labels this item Author Correction and explicitly links the original article. It corrects the omission of Kah-Wee Ang and Yong-Wei Zhang as corresponding authors; it does not report a second research study. Date and bibliography are also confirmed in publisher-deposited Crossref JSON.",
+          "publishedOn": "2022-12-06"
+        }
+      ],
+      "submissionState": "",
+      "records": [],
+      "events": [
+        {
+          "id": "pub-point-defect-au-mos2-2022-published-2022-10-26",
+          "type": "published",
+          "date": "2022-10-26",
+          "note": "Publisher-deposited Crossref published-online date. Source: https://api.crossref.org/works/10.1038/s41598-022-22913-7",
+          "journal": "Scientific Reports"
+        }
+      ]
+    },
+    {
       "id": "pub-10-1039-d2nr01131j",
       "title": "Computational predictions of quantum thermal transport across nanoscale interfaces",
       "shortName": "",
@@ -1563,7 +2305,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2022,
       "doi": "10.1039/d2nr01131j",
       "sourceUrl": "https://doi.org/10.1039/d2nr01131j",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "14",
       "issue": "26",
       "pages": "9209-9217",
@@ -1578,6 +2320,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1605,6 +2349,98 @@ window.PAPER_TRACKER_SEED = {
       ]
     },
     {
+      "id": "artificial-synapses-review-2022",
+      "title": "Recent progress on 2D materials-based artificial synapses",
+      "shortName": "Artificial synapses review",
+      "journal": "Critical Reviews in Solid State and Materials Sciences",
+      "focus": false,
+      "notes": "",
+      "authorship": "coauthor",
+      "authors": [
+        "Chao Zhang",
+        "Hangbo Zhou",
+        "Shuai Chen",
+        "Gang Zhang",
+        "Zhi Gen Yu",
+        "Dongzhi Chi",
+        "Yong-Wei Zhang",
+        "Kah-Wee Ang"
+      ],
+      "publicationYear": 2022,
+      "doi": "10.1080/10408436.2021.1935212",
+      "sourceUrl": "https://doi.org/10.1080/10408436.2021.1935212",
+      "sourceNote": "Verified publisher-deposited Crossref metadata and Taylor & Francis publisher search extract. Hangbo Zhou is second-listed; the first-listed author is Chao Zhang. Published online on 7 June 2021; the bibliographic issue year is 2022 (volume 47, issue 5, pages 665-690; Crossref print date 3 September 2022). The timeline uses the real first-online date rather than assigning an issue date as publication. No initial-work, submission, review, acceptance, or proofreading dates are supplied.",
+      "volume": "47",
+      "issue": "5",
+      "pages": "665-690",
+      "articleNumber": "",
+      "publisher": "Informa UK Limited",
+      "publicationUrl": "https://www.tandfonline.com/doi/full/10.1080/10408436.2021.1935212",
+      "metadataSource": "https://api.crossref.org/works/10.1080/10408436.2021.1935212",
+      "metadataVerifiedOn": "2026-10-30",
+      "currentStatus": "",
+      "statusLabel": "",
+      "statusAsOf": "",
+      "statusNote": "",
+      "manuscriptId": "",
+      "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
+      "submissionState": "",
+      "records": [],
+      "events": [
+        {
+          "id": "pub-artificial-synapses-review-2022-published-2021-06-07",
+          "type": "published",
+          "date": "2021-06-07",
+          "note": "Publisher-deposited Crossref published-online date. Source: https://api.crossref.org/works/10.1080/10408436.2021.1935212",
+          "journal": "Critical Reviews in Solid State and Materials Sciences"
+        }
+      ]
+    },
+    {
+      "id": "covalent-bilayer-bas-2021",
+      "title": "High thermal conductivity in covalently bonded bi-layer honeycomb boron arsenide",
+      "shortName": "Covalent bilayer BAs",
+      "journal": "Materials Today Physics",
+      "focus": false,
+      "notes": "",
+      "authorship": "coauthor",
+      "authors": [
+        "Yanxiao Hu",
+        "Yan Yin",
+        "Guangqian Ding",
+        "Jun Liu",
+        "Hangbo Zhou",
+        "Wenlin Feng",
+        "Gang Zhang",
+        "Dengfeng Li"
+      ],
+      "publicationYear": 2021,
+      "doi": "10.1016/j.mtphys.2021.100346",
+      "sourceUrl": "https://doi.org/10.1016/j.mtphys.2021.100346",
+      "sourceNote": "Verified publisher-deposited Crossref metadata, Elsevier public article API, and ScienceDirect publisher search extract. All eight full author names are transcribed from the publisher CRediT author statement; the header and Crossref use initials. Hangbo Zhou is fifth-listed and Yanxiao Hu is first-listed. The publisher CRediT statement names Wenlin Feng; inconsistent aggregator expansions are not used. Publication is known to the March 2021 issue only: Crossref date-parts are [2021,3]. Elsevier coverDate 2021-03-31 accompanies coverDisplayDate March 2021 and is an issue cover date, not evidence of a day-level first-online date. No exact-day published milestone is invented. No initial-work, submission, review, acceptance, or proofreading dates are known.",
+      "volume": "17",
+      "issue": "",
+      "pages": "",
+      "articleNumber": "100346",
+      "publisher": "Elsevier BV",
+      "publicationUrl": "https://www.sciencedirect.com/science/article/pii/S2542529321000079",
+      "metadataSource": "https://api.crossref.org/works/10.1016/j.mtphys.2021.100346",
+      "metadataVerifiedOn": "2026-10-30",
+      "currentStatus": "",
+      "statusLabel": "",
+      "statusAsOf": "",
+      "statusNote": "",
+      "manuscriptId": "",
+      "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
+      "submissionState": "",
+      "records": [],
+      "events": []
+    },
+    {
       "id": "pub-10-1021-acs-nanolett-0c03135",
       "title": "Three-Fold Enhancement of In-Plane Thermal Conductivity of Borophene through Metallic Atom Intercalation",
       "shortName": "",
@@ -1623,7 +2459,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2020,
       "doi": "10.1021/acs.nanolett.0c03135",
       "sourceUrl": "https://doi.org/10.1021/acs.nanolett.0c03135",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "20",
       "issue": "10",
       "pages": "7619-7626",
@@ -1638,6 +2474,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1683,7 +2521,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2020,
       "doi": "10.1039/d0ra04737f",
       "sourceUrl": "https://doi.org/10.1039/d0ra04737f",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "10",
       "issue": "42",
       "pages": "25305-25310",
@@ -1698,6 +2536,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1740,7 +2580,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2020,
       "doi": "10.1039/d0cp02894k",
       "sourceUrl": "https://doi.org/10.1039/d0cp02894k",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "22",
       "issue": "28",
       "pages": "16165-16173",
@@ -1755,6 +2595,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1798,7 +2640,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2020,
       "doi": "10.1103/PhysRevB.101.235305",
       "sourceUrl": "https://doi.org/10.1103/PhysRevB.101.235305",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "101",
       "issue": "23",
       "pages": "",
@@ -1813,6 +2655,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1866,7 +2710,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2020,
       "doi": "10.1088/1361-6528/ab8ee1",
       "sourceUrl": "https://doi.org/10.1088/1361-6528/ab8ee1",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "31",
       "issue": "33",
       "pages": "",
@@ -1881,6 +2725,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -1933,7 +2779,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2020,
       "doi": "10.1088/1361-6528/ab824c",
       "sourceUrl": "https://doi.org/10.1088/1361-6528/ab824c",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "31",
       "issue": "31",
       "pages": "",
@@ -1948,6 +2794,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2002,7 +2850,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2019,
       "doi": "10.1021/acsomega.9b00534",
       "sourceUrl": "https://doi.org/10.1021/acsomega.9b00534",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "4",
       "issue": "5",
       "pages": "8015-8021",
@@ -2017,6 +2865,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2065,7 +2915,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2019,
       "doi": "10.1038/s41524-019-0183-2",
       "sourceUrl": "https://doi.org/10.1038/s41524-019-0183-2",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 H-borophene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page.",
       "volume": "5",
       "issue": "1",
       "pages": "",
@@ -2080,6 +2930,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2125,7 +2977,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2019,
       "doi": "10.1002/pssb.201900122",
       "sourceUrl": "https://doi.org/10.1002/pssb.201900122",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "256",
       "issue": "8",
       "pages": "",
@@ -2140,6 +2992,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2183,7 +3037,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2019,
       "doi": "10.1063/1.5054323",
       "sourceUrl": "https://doi.org/10.1063/1.5054323",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "125",
       "issue": "8",
       "pages": "",
@@ -2198,6 +3052,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2250,7 +3106,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2018,
       "doi": "10.1002/adfm.201801685",
       "sourceUrl": "https://doi.org/10.1002/adfm.201801685",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "28",
       "issue": "31",
       "pages": "",
@@ -2265,6 +3121,40 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [
+        {
+          "relation": "cover",
+          "title": "Borophene: Stretch-Driven Increase in Ultrahigh Thermal Conductance of Hydrogenated Borophene and Dimensionality Crossover in Phonon Transmission (Adv. Funct. Mater. 31/2018)",
+          "authors": [
+            "Dengfeng Li",
+            "Jia He",
+            "Guangqian Ding",
+            "QiQi Tang",
+            "Yan Ying",
+            "Junjie He",
+            "Chengyong Zhong",
+            "Yi Liu",
+            "Chunbao Feng",
+            "Qilong Sun",
+            "Hangbo Zhou",
+            "Ping Zhou",
+            "Gang Zhang"
+          ],
+          "doi": "10.1002/adfm.201870213",
+          "publicationYear": 2018,
+          "journal": "Advanced Functional Materials",
+          "volume": "28",
+          "issue": "31",
+          "pages": "",
+          "articleNumber": "1870213",
+          "publisher": "Wiley-VCH",
+          "publicationUrl": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.201870213",
+          "sourceUrl": "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adfm.201870213",
+          "sourceNote": "Wiley explicitly classifies this DOI as Cover Picture. Its description identifies the illustrated original research article as article number 1801685, already present in the tracker. First-online and issue dates are different and retained separately.",
+          "publishedOn": "2018-07-30"
+        }
+      ],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2306,7 +3196,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2018,
       "doi": "10.1088/1674-1056/27/3/034401",
       "sourceUrl": "https://doi.org/10.1088/1674-1056/27/3/034401",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "27",
       "issue": "3",
       "pages": "",
@@ -2321,6 +3211,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2364,7 +3256,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2018,
       "doi": "10.1039/c7nr07779c",
       "sourceUrl": "https://doi.org/10.1039/c7nr07779c",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "10",
       "issue": "1",
       "pages": "480-487",
@@ -2379,6 +3271,31 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [
+        {
+          "relation": "supplement",
+          "title": "Supporting information of “Unusual phonon behavior and ultra-low thermal conductance of monolayer InSe”",
+          "authors": [
+            "Hangbo Zhou",
+            "Yongqing Cai",
+            "Gang Zhang",
+            "Yong-Wei Zhang"
+          ],
+          "doi": "",
+          "publicationYear": 2018,
+          "journal": "Nanoscale",
+          "volume": "",
+          "issue": "",
+          "pages": "",
+          "articleNumber": "",
+          "publisher": "Royal Society of Chemistry (RSC)",
+          "publicationUrl": "https://pubs.rsc.org/nr/article/10/1/480-487/573642",
+          "sourceUrl": "https://pubs.rsc.org/nr/article/10/1/480-487/573642",
+          "sourceNote": "Supplementary material belonging to the original InSe article. Access it through the publisher article page; it is not another independent research paper and no separate DOI or publication day is asserted.",
+          "publishedOn": ""
+        }
+      ],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2422,7 +3339,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2017,
       "doi": "10.1038/s41699-017-0018-2",
       "sourceUrl": "https://doi.org/10.1038/s41699-017-0018-2",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page.",
       "volume": "1",
       "issue": "1",
       "pages": "",
@@ -2437,6 +3354,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2471,6 +3390,42 @@ window.PAPER_TRACKER_SEED = {
       ]
     },
     {
+      "id": "pub-10-1016-b978-0-32-346240-2-00001-7",
+      "title": "Thermal Transport Theory",
+      "shortName": "Thermal transport theory · book chapter",
+      "journal": "Thermal Transport in Carbon-Based Nanomaterials",
+      "focus": false,
+      "notes": "Published book chapter, distinct from the current NEGF method book project.",
+      "authorship": "first",
+      "authors": [
+        "Hangbo Zhou",
+        "Gang Zhang"
+      ],
+      "publicationYear": 2017,
+      "doi": "10.1016/B978-0-32-346240-2.00001-7",
+      "sourceUrl": "https://www.sciencedirect.com/book/edited-volume/9780323462402/thermal-transport-in-carbon-based-nanomaterials",
+      "sourceNote": "ScienceDirect's primary book table of contents identifies Chapter 1, both authors, and pages 1–18. Publisher-deposited Crossref JSON verifies the exact DOI with the unusual B978-0-32-346240-2 hyphen grouping and publication precision 2017 only. The ISBN-style DOI grouping B978-0-323-46240-2 returned 404. No day is inferred from whole-book release dates.",
+      "volume": "",
+      "issue": "",
+      "pages": "1–18",
+      "articleNumber": "",
+      "publisher": "Elsevier",
+      "publicationUrl": "https://www.sciencedirect.com/science/chapter/edited-volume/pii/B9780323462402000017",
+      "metadataSource": "Elsevier ScienceDirect table of contents and publisher-deposited Crossref JSON",
+      "metadataVerifiedOn": "2026-10-30",
+      "currentStatus": "",
+      "statusLabel": "",
+      "statusAsOf": "",
+      "statusNote": "",
+      "manuscriptId": "",
+      "projectKind": "paper",
+      "publicationType": "book_chapter",
+      "relatedPublications": [],
+      "submissionState": "",
+      "records": [],
+      "events": []
+    },
+    {
       "id": "pub-10-1021-acs-chemmater-6b03539",
       "title": "Modulating Carrier Density and Transport Properties of MoS2 by Organic Molecular Doping and Defect Engineering",
       "shortName": "",
@@ -2487,7 +3442,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2016,
       "doi": "10.1021/acs.chemmater.6b03539",
       "sourceUrl": "https://doi.org/10.1021/acs.chemmater.6b03539",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "28",
       "issue": "23",
       "pages": "8611-8621",
@@ -2502,6 +3457,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2545,7 +3502,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2016,
       "doi": "10.1103/PhysRevE.94.052123",
       "sourceUrl": "https://doi.org/10.1103/PhysRevE.94.052123",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Long Range.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "94",
       "issue": "5",
       "pages": "",
@@ -2560,6 +3517,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2596,7 +3555,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2016,
       "doi": "10.1557/jmr.2016.333",
       "sourceUrl": "https://doi.org/10.1557/jmr.2016.333",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BP Thermoelectric.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page.",
       "volume": "31",
       "issue": "20",
       "pages": "3179-3186",
@@ -2611,6 +3570,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2654,7 +3615,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2016,
       "doi": "10.1103/PhysRevB.94.045423",
       "sourceUrl": "https://doi.org/10.1103/PhysRevB.94.045423",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "94",
       "issue": "4",
       "pages": "",
@@ -2669,6 +3630,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2713,7 +3676,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2015,
       "doi": "10.1038/srep14870",
       "sourceUrl": "https://doi.org/10.1038/srep14870",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "5",
       "issue": "1",
       "pages": "",
@@ -2728,6 +3691,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2771,7 +3736,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2015,
       "doi": "10.1063/1.4917017",
       "sourceUrl": "https://doi.org/10.1063/1.4917017",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "5",
       "issue": "5",
       "pages": "",
@@ -2786,6 +3751,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2829,7 +3796,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2015,
       "doi": "10.1103/PhysRevB.91.045410",
       "sourceUrl": "https://doi.org/10.1103/PhysRevB.91.045410",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "91",
       "issue": "4",
       "pages": "",
@@ -2844,6 +3811,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
@@ -2886,7 +3855,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": 2014,
       "doi": "10.1063/1.4901274",
       "sourceUrl": "https://doi.org/10.1063/1.4901274",
-      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. Local source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
       "volume": "141",
       "issue": "19",
       "pages": "",
@@ -2901,6 +3870,8 @@ window.PAPER_TRACKER_SEED = {
       "statusNote": "",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "journal_article",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [

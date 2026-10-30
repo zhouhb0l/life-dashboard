@@ -34,6 +34,8 @@
       "statusNote": "Editorial Manager row MTP-D-26-02001R2 states Initial Date Submitted: 24 August 2026; Status Date: 29 October 2026; Current Status: Completed - Accept; Date Final Disposition Set: 29 October 2026; Final Disposition: Accept. The row was supplied by the user on 30 October. Live portal access requires login in the assistant session.",
       "manuscriptId": "MTP-D-26-02001R2",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "submitted",
       "records": [
         {
@@ -177,6 +179,8 @@
       "statusNote": "User confirms the reviewer response has been submitted. Awaiting the next journal decision as of 30 October 2026. The exact response-submission date was not established from local files; cover-letter dates are retained as artifacts, not lifecycle completion dates.",
       "manuscriptId": "NSR_MS-2026-2621",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [
         {
@@ -261,6 +265,8 @@
       "statusNote": "User-supplied APS history confirms transfer from Physical Review Letters to Physical Review B on 25 September 2026 and PRB acknowledgment on 28 September. Referee invitations were sent in October. Messages received on 14 and 19 October are explicitly not reports; they do not establish author receipt of reviewer feedback.",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "submitted",
       "records": [
         {
@@ -447,6 +453,8 @@
       "statusNote": "User explicitly confirms the WTe2 manuscript has not been submitted as of 30 October 2026. It remains in internal manuscript revision.",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "not_submitted",
       "records": [
         {
@@ -521,6 +529,8 @@
       "statusNote": "User explicitly confirms the proton-transfer manuscript has not been submitted as of 30 October 2026. It remains in internal manuscript revision.",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "not_submitted",
       "records": [
         {
@@ -599,6 +609,8 @@
       "statusNote": "The user's 23-entry journal history confirms acceptance on 15 October, entry into publishing and rights on 24 October, and completion of publishing and rights on 26 October 2026. This confirms neither proofreading completion nor online publication. Both scientific revision rounds and all three technical-amendment cycles are dated separately.",
       "manuscriptId": "84098ac7-7abb-4504-9cf6-661a1c68438a",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "submitted",
       "records": [
         {
@@ -860,6 +872,8 @@
       "statusNote": "User explicitly confirms the NEGF method book has not been submitted as of 30 October 2026. Writing continues.",
       "manuscriptId": "",
       "projectKind": "book",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "not_submitted",
       "records": [
         {
@@ -913,6 +927,8 @@
       "statusNote": "The user supplies the successful submission confirmation, identifies co-authorship, and states submission on 2 October. The year is 2026 in the current project context. Editorial screening versus external peer review is not distinguished by the receipt.",
       "manuscriptId": "",
       "projectKind": "paper",
+      "publicationType": "",
+      "relatedPublications": [],
       "submissionState": "",
       "records": [],
       "events": [
