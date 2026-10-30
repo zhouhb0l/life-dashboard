@@ -181,7 +181,7 @@ assert.equal(M.validateProject({ ...fullReference, metadataVerifiedOn: '2026-02-
 assert.equal(M.validateProject({ ...fullReference, metadataVerifiedOn: '2026-11-01' }, { today: AS_OF }).valid, false);
 assert.equal(M.validateProject({ ...fullReference, publicationUrl: 'http://publisher.example/paper' }, { today: AS_OF }).valid, true, 'http remains a supported stored bibliographic URL');
 
-const record = (id, date, label = 'Dated manuscript artifact') => ({ id, date, label, source: 'C:\\project\\paper\\draft.tex', note: 'Artifact date, not a completion milestone.' });
+const record = (id, date, label = 'Dated manuscript artifact') => ({ id, date, label, source: 'Local document', note: 'Artifact date, not a completion milestone.' });
 const acceptedUndated = { ...paper([event('initialized', '2026-01-01'), event('first_draft', '2026-02-01'), event('submitted', '2026-02-10')]),
   currentStatus: 'accepted', statusLabel: 'Accepted · awaiting proofs', statusAsOf: AS_OF, statusNote: 'Author confirms acceptance; exact date unknown.',
   manuscriptId: 'EXAMPLE-2026-1', records: [record('r1', '2026-01-20')], projectKind: 'paper' };

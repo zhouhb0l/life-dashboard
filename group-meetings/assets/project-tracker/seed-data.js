@@ -1,4 +1,4 @@
-/* Public tracker: project status and dates only; private source documents remain local. */
+/* Public tracker: status-only data with local paths removed. */
 window.PAPER_TRACKER_SEED_REVISION = "public-status-2026-10-30-v7";
 window.PAPER_TRACKER_CURRENT_SOURCE_REVISION = "public-status-v1";
 window.PAPER_TRACKER_CURRENT_UPDATE_IDS = [];
@@ -1691,7 +1691,7 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-nonlocal-sbh-published-2026-09-16",
           "type": "published",
           "date": "2026-09-16",
-          "note": "Crossref publisher-deposited published-online date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\PagesOnGithub\\output\\jx-nanoletters-published-metadata.json",
+          "note": "Crossref publisher-deposited published-online date. Source: [local path removed]",
           "journal": "Nano Letters"
         }
       ]
@@ -1738,21 +1738,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1039-d5nr02232k-submitted-2025-05-27",
           "type": "submitted",
           "date": "2025-05-27",
-          "note": "Received (2025-05-27). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf",
+          "note": "Received (2025-05-27). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Nanoscale"
         },
         {
           "id": "pub-10-1039-d5nr02232k-accepted-2025-08-14",
           "type": "accepted",
           "date": "2025-08-14",
-          "note": "Accepted (2025-08-14). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf",
+          "note": "Accepted (2025-08-14). Publisher acceptance date. Source: [local path removed]",
           "journal": "Nanoscale"
         },
         {
           "id": "pub-10-1039-d5nr02232k-published-2025-08-14",
           "type": "published",
           "date": "2025-08-14",
-          "note": "Published online (2025-08-14). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf",
+          "note": "Published online (2025-08-14). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Nanoscale"
         }
       ]
@@ -1798,28 +1798,28 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1021-acs-jpcc-4c06240-submitted-2024-09-16",
           "type": "submitted",
           "date": "2024-09-16",
-          "note": "Received (2024-09-16). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf",
+          "note": "Received (2024-09-16). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "The Journal of Physical Chemistry C"
         },
         {
           "id": "pub-10-1021-acs-jpcc-4c06240-response_submitted-2024-11-14",
           "type": "response_submitted",
           "date": "2024-11-14",
-          "note": "Revised manuscript received (2024-11-14). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf",
+          "note": "Revised manuscript received (2024-11-14). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "The Journal of Physical Chemistry C"
         },
         {
           "id": "pub-10-1021-acs-jpcc-4c06240-accepted-2024-12-04",
           "type": "accepted",
           "date": "2024-12-04",
-          "note": "Accepted (2024-12-04). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf",
+          "note": "Accepted (2024-12-04). Publisher acceptance date. Source: [local path removed]",
           "journal": "The Journal of Physical Chemistry C"
         },
         {
           "id": "pub-10-1021-acs-jpcc-4c06240-published-2024-12-16",
           "type": "published",
           "date": "2024-12-16",
-          "note": "Published online (2024-12-16). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf",
+          "note": "Published online (2024-12-16). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "The Journal of Physical Chemistry C"
         }
       ]
@@ -1866,21 +1866,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1039-d4cp03686g-submitted-2024-09-24",
           "type": "submitted",
           "date": "2024-09-24",
-          "note": "Received (2024-09-24). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf",
+          "note": "Received (2024-09-24). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Physical Chemistry Chemical Physics"
         },
         {
           "id": "pub-10-1039-d4cp03686g-accepted-2024-11-28",
           "type": "accepted",
           "date": "2024-11-28",
-          "note": "Accepted (2024-11-28). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf",
+          "note": "Accepted (2024-11-28). Publisher acceptance date. Source: [local path removed]",
           "journal": "Physical Chemistry Chemical Physics"
         },
         {
           "id": "pub-10-1039-d4cp03686g-published-2024-12-02",
           "type": "published",
           "date": "2024-12-02",
-          "note": "Published online (2024-12-02). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf",
+          "note": "Published online (2024-12-02). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Physical Chemistry Chemical Physics"
         }
       ]
@@ -1927,28 +1927,28 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1021-acsami-4c02294-submitted-2024-02-09",
           "type": "submitted",
           "date": "2024-02-09",
-          "note": "Received (2024-02-09). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf",
+          "note": "Received (2024-02-09). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "ACS Applied Materials & Interfaces"
         },
         {
           "id": "pub-10-1021-acsami-4c02294-response_submitted-2024-04-02",
           "type": "response_submitted",
           "date": "2024-04-02",
-          "note": "Revised manuscript received (2024-04-02). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf",
+          "note": "Revised manuscript received (2024-04-02). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "ACS Applied Materials & Interfaces"
         },
         {
           "id": "pub-10-1021-acsami-4c02294-accepted-2024-04-12",
           "type": "accepted",
           "date": "2024-04-12",
-          "note": "Accepted (2024-04-12). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf",
+          "note": "Accepted (2024-04-12). Publisher acceptance date. Source: [local path removed]",
           "journal": "ACS Applied Materials & Interfaces"
         },
         {
           "id": "pub-10-1021-acsami-4c02294-published-2024-04-22",
           "type": "published",
           "date": "2024-04-22",
-          "note": "Published online (2024-04-22). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf",
+          "note": "Published online (2024-04-22). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "ACS Applied Materials & Interfaces"
         }
       ]
@@ -1994,14 +1994,14 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1007-s40820-024-01335-2-submitted-2023-10-17",
           "type": "submitted",
           "date": "2023-10-17",
-          "note": "Received (2023-10-17). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Crossbar array memristor review.pdf",
+          "note": "Received (2023-10-17). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Nano-Micro Letters"
         },
         {
           "id": "pub-10-1007-s40820-024-01335-2-accepted-2023-12-25",
           "type": "accepted",
           "date": "2023-12-25",
-          "note": "Accepted (2023-12-25). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Crossbar array memristor review.pdf",
+          "note": "Accepted (2023-12-25). Publisher acceptance date. Source: [local path removed]",
           "journal": "Nano-Micro Letters"
         },
         {
@@ -2056,21 +2056,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1002-aelm-202201252-submitted-2022-11-18",
           "type": "submitted",
           "date": "2022-11-18",
-          "note": "Received (2022-11-18). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf",
+          "note": "Received (2022-11-18). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Advanced Electronic Materials"
         },
         {
           "id": "pub-10-1002-aelm-202201252-response_submitted-2023-02-19",
           "type": "response_submitted",
           "date": "2023-02-19",
-          "note": "Revised manuscript received (2023-02-19). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf",
+          "note": "Revised manuscript received (2023-02-19). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Advanced Electronic Materials"
         },
         {
           "id": "pub-10-1002-aelm-202201252-published-2023-04-17",
           "type": "published",
           "date": "2023-04-17",
-          "note": "Published online (2023-04-17). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf",
+          "note": "Published online (2023-04-17). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Advanced Electronic Materials"
         }
       ]
@@ -2190,28 +2190,28 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1103-physrevb-106-195435-submitted-2022-07-01",
           "type": "submitted",
           "date": "2022-07-01",
-          "note": "Received (2022-07-01). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf",
+          "note": "Received (2022-07-01). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Physical Review B"
         },
         {
           "id": "pub-10-1103-physrevb-106-195435-response_submitted-2022-11-02",
           "type": "response_submitted",
           "date": "2022-11-02",
-          "note": "Revised manuscript received (2022-11-02). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf",
+          "note": "Revised manuscript received (2022-11-02). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Physical Review B"
         },
         {
           "id": "pub-10-1103-physrevb-106-195435-accepted-2022-11-14",
           "type": "accepted",
           "date": "2022-11-14",
-          "note": "Accepted (2022-11-14). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf",
+          "note": "Accepted (2022-11-14). Publisher acceptance date. Source: [local path removed]",
           "journal": "Physical Review B"
         },
         {
           "id": "pub-10-1103-physrevb-106-195435-published-2022-11-30",
           "type": "published",
           "date": "2022-11-30",
-          "note": "Published online (2022-11-30). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf",
+          "note": "Published online (2022-11-30). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Physical Review B"
         }
       ]
@@ -2328,21 +2328,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1039-d2nr01131j-submitted-2022-02-27",
           "type": "submitted",
           "date": "2022-02-27",
-          "note": "Received (2022-02-27). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf",
+          "note": "Received (2022-02-27). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Nanoscale"
         },
         {
           "id": "pub-10-1039-d2nr01131j-accepted-2022-06-12",
           "type": "accepted",
           "date": "2022-06-12",
-          "note": "Accepted (2022-06-12). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf",
+          "note": "Accepted (2022-06-12). Publisher acceptance date. Source: [local path removed]",
           "journal": "Nanoscale"
         },
         {
           "id": "pub-10-1039-d2nr01131j-published-2022-06-14",
           "type": "published",
           "date": "2022-06-14",
-          "note": "Published online (2022-06-14). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf",
+          "note": "Published online (2022-06-14). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Nanoscale"
         }
       ]
@@ -2482,21 +2482,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1021-acs-nanolett-0c03135-submitted-2020-07-31",
           "type": "submitted",
           "date": "2020-07-31",
-          "note": "Received (2020-07-31). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf",
+          "note": "Received (2020-07-31). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Nano Letters"
         },
         {
           "id": "pub-10-1021-acs-nanolett-0c03135-response_submitted-2020-08-26",
           "type": "response_submitted",
           "date": "2020-08-26",
-          "note": "Revised manuscript received (2020-08-26). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf",
+          "note": "Revised manuscript received (2020-08-26). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Nano Letters"
         },
         {
           "id": "pub-10-1021-acs-nanolett-0c03135-published-2020-08-27",
           "type": "published",
           "date": "2020-08-27",
-          "note": "Published online (2020-08-27). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf",
+          "note": "Published online (2020-08-27). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Nano Letters"
         }
       ]
@@ -2544,21 +2544,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1039-d0ra04737f-submitted-2020-05-29",
           "type": "submitted",
           "date": "2020-05-29",
-          "note": "Received (2020-05-29). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf",
+          "note": "Received (2020-05-29). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "RSC Advances"
         },
         {
           "id": "pub-10-1039-d0ra04737f-accepted-2020-06-25",
           "type": "accepted",
           "date": "2020-06-25",
-          "note": "Accepted (2020-06-25). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf",
+          "note": "Accepted (2020-06-25). Publisher acceptance date. Source: [local path removed]",
           "journal": "RSC Advances"
         },
         {
           "id": "pub-10-1039-d0ra04737f-published-2020-07-02",
           "type": "published",
           "date": "2020-07-02",
-          "note": "Published online (2020-07-02). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf",
+          "note": "Published online (2020-07-02). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "RSC Advances"
         }
       ]
@@ -2603,21 +2603,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1039-d0cp02894k-submitted-2020-05-29",
           "type": "submitted",
           "date": "2020-05-29",
-          "note": "Received (2020-05-29). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf",
+          "note": "Received (2020-05-29). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Physical Chemistry Chemical Physics"
         },
         {
           "id": "pub-10-1039-d0cp02894k-accepted-2020-06-25",
           "type": "accepted",
           "date": "2020-06-25",
-          "note": "Accepted (2020-06-25). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf",
+          "note": "Accepted (2020-06-25). Publisher acceptance date. Source: [local path removed]",
           "journal": "Physical Chemistry Chemical Physics"
         },
         {
           "id": "pub-10-1039-d0cp02894k-published-2020-06-26",
           "type": "published",
           "date": "2020-06-26",
-          "note": "Published online (2020-06-26). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf",
+          "note": "Published online (2020-06-26). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Physical Chemistry Chemical Physics"
         }
       ]
@@ -2663,28 +2663,28 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1103-physrevb-101-235305-submitted-2019-06-24",
           "type": "submitted",
           "date": "2019-06-24",
-          "note": "Received (2019-06-24). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf",
+          "note": "Received (2019-06-24). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Physical Review B"
         },
         {
           "id": "pub-10-1103-physrevb-101-235305-response_submitted-2020-05-04",
           "type": "response_submitted",
           "date": "2020-05-04",
-          "note": "Revised manuscript received (2020-05-04). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf",
+          "note": "Revised manuscript received (2020-05-04). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Physical Review B"
         },
         {
           "id": "pub-10-1103-physrevb-101-235305-accepted-2020-05-19",
           "type": "accepted",
           "date": "2020-05-19",
-          "note": "Accepted (2020-05-19). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf",
+          "note": "Accepted (2020-05-19). Publisher acceptance date. Source: [local path removed]",
           "journal": "Physical Review B"
         },
         {
           "id": "pub-10-1103-physrevb-101-235305-published-2020-06-03",
           "type": "published",
           "date": "2020-06-03",
-          "note": "Published online (2020-06-03). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf",
+          "note": "Published online (2020-06-03). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Physical Review B"
         }
       ]
@@ -2733,28 +2733,28 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1088-1361-6528-ab8ee1-submitted-2020-01-06",
           "type": "submitted",
           "date": "2020-01-06",
-          "note": "Received (2020-01-06). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf",
+          "note": "Received (2020-01-06). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Nanotechnology"
         },
         {
           "id": "pub-10-1088-1361-6528-ab8ee1-response_submitted-2020-04-17",
           "type": "response_submitted",
           "date": "2020-04-17",
-          "note": "Revised manuscript received (2020-04-17). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf",
+          "note": "Revised manuscript received (2020-04-17). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Nanotechnology"
         },
         {
           "id": "pub-10-1088-1361-6528-ab8ee1-accepted-2020-04-30",
           "type": "accepted",
           "date": "2020-04-30",
-          "note": "Accepted (2020-04-30). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf",
+          "note": "Accepted (2020-04-30). Publisher acceptance date. Source: [local path removed]",
           "journal": "Nanotechnology"
         },
         {
           "id": "pub-10-1088-1361-6528-ab8ee1-published-2020-06-02",
           "type": "published",
           "date": "2020-06-02",
-          "note": "Published online (2020-06-02). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf",
+          "note": "Published online (2020-06-02). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Nanotechnology"
         }
       ]
@@ -2802,28 +2802,28 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1088-1361-6528-ab824c-submitted-2020-01-14",
           "type": "submitted",
           "date": "2020-01-14",
-          "note": "Received (2020-01-14). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf",
+          "note": "Received (2020-01-14). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Nanotechnology"
         },
         {
           "id": "pub-10-1088-1361-6528-ab824c-response_submitted-2020-02-26",
           "type": "response_submitted",
           "date": "2020-02-26",
-          "note": "Revised manuscript received (2020-02-26). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf",
+          "note": "Revised manuscript received (2020-02-26). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Nanotechnology"
         },
         {
           "id": "pub-10-1088-1361-6528-ab824c-accepted-2020-03-23",
           "type": "accepted",
           "date": "2020-03-23",
-          "note": "Accepted (2020-03-23). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf",
+          "note": "Accepted (2020-03-23). Publisher acceptance date. Source: [local path removed]",
           "journal": "Nanotechnology"
         },
         {
           "id": "pub-10-1088-1361-6528-ab824c-published-2020-05-19",
           "type": "published",
           "date": "2020-05-19",
-          "note": "Published online (2020-05-19). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf",
+          "note": "Published online (2020-05-19). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Nanotechnology"
         }
       ]
@@ -2873,21 +2873,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1021-acsomega-9b00534-submitted-2019-02-26",
           "type": "submitted",
           "date": "2019-02-26",
-          "note": "Received (2019-02-26). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf",
+          "note": "Received (2019-02-26). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "ACS Omega"
         },
         {
           "id": "pub-10-1021-acsomega-9b00534-accepted-2019-04-16",
           "type": "accepted",
           "date": "2019-04-16",
-          "note": "Accepted (2019-04-16). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf",
+          "note": "Accepted (2019-04-16). Publisher acceptance date. Source: [local path removed]",
           "journal": "ACS Omega"
         },
         {
           "id": "pub-10-1021-acsomega-9b00534-published-2019-05-02",
           "type": "published",
           "date": "2019-05-02",
-          "note": "Published online (2019-05-02). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf",
+          "note": "Published online (2019-05-02). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "ACS Omega"
         }
       ]
@@ -2938,14 +2938,14 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1038-s41524-019-0183-2-submitted-2018-11-22",
           "type": "submitted",
           "date": "2018-11-22",
-          "note": "Received (2018-11-22). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 H-borophene.pdf",
+          "note": "Received (2018-11-22). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "npj Computational Materials"
         },
         {
           "id": "pub-10-1038-s41524-019-0183-2-accepted-2019-03-15",
           "type": "accepted",
           "date": "2019-03-15",
-          "note": "Accepted (2019-03-15). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 H-borophene.pdf",
+          "note": "Accepted (2019-03-15). Publisher acceptance date. Source: [local path removed]",
           "journal": "npj Computational Materials"
         },
         {
@@ -3000,21 +3000,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1002-pssb-201900122-submitted-2019-03-05",
           "type": "submitted",
           "date": "2019-03-05",
-          "note": "Received (2019-03-05). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf",
+          "note": "Received (2019-03-05). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Physica Status Solidi B"
         },
         {
           "id": "pub-10-1002-pssb-201900122-response_submitted-2019-03-06",
           "type": "response_submitted",
           "date": "2019-03-06",
-          "note": "Revised manuscript received (2019-03-06). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf",
+          "note": "Revised manuscript received (2019-03-06). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Physica Status Solidi B"
         },
         {
           "id": "pub-10-1002-pssb-201900122-published-2019-04-01",
           "type": "published",
           "date": "2019-04-01",
-          "note": "Published online (2019-04-01). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf",
+          "note": "Published online (2019-04-01). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Physica Status Solidi B"
         }
       ]
@@ -3060,21 +3060,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1063-1-5054323-submitted-2018-08-30",
           "type": "submitted",
           "date": "2018-08-30",
-          "note": "Submitted (2018-08-30). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf",
+          "note": "Submitted (2018-08-30). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Journal of Applied Physics"
         },
         {
           "id": "pub-10-1063-1-5054323-accepted-2018-10-23",
           "type": "accepted",
           "date": "2018-10-23",
-          "note": "Accepted (2018-10-23). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf",
+          "note": "Accepted (2018-10-23). Publisher acceptance date. Source: [local path removed]",
           "journal": "Journal of Applied Physics"
         },
         {
           "id": "pub-10-1063-1-5054323-published-2018-12-04",
           "type": "published",
           "date": "2018-12-04",
-          "note": "Published online (2018-12-04). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf",
+          "note": "Published online (2018-12-04). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Journal of Applied Physics"
         }
       ]
@@ -3161,21 +3161,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1002-adfm-201801685-submitted-2018-03-07",
           "type": "submitted",
           "date": "2018-03-07",
-          "note": "Received (2018-03-07). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf",
+          "note": "Received (2018-03-07). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Advanced Functional Materials"
         },
         {
           "id": "pub-10-1002-adfm-201801685-response_submitted-2018-04-11",
           "type": "response_submitted",
           "date": "2018-04-11",
-          "note": "Revised manuscript received (2018-04-11). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf",
+          "note": "Revised manuscript received (2018-04-11). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Advanced Functional Materials"
         },
         {
           "id": "pub-10-1002-adfm-201801685-published-2018-06-03",
           "type": "published",
           "date": "2018-06-03",
-          "note": "Published online (2018-06-03). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf",
+          "note": "Published online (2018-06-03). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Advanced Functional Materials"
         }
       ]
@@ -3219,21 +3219,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1088-1674-1056-27-3-034401-submitted-2017-10-27",
           "type": "submitted",
           "date": "2017-10-27",
-          "note": "Received (2017-10-27). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf",
+          "note": "Received (2017-10-27). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Chinese Physics B"
         },
         {
           "id": "pub-10-1088-1674-1056-27-3-034401-response_submitted-2017-12-04",
           "type": "response_submitted",
           "date": "2017-12-04",
-          "note": "Revised manuscript received (2017-12-04). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf",
+          "note": "Revised manuscript received (2017-12-04). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Chinese Physics B"
         },
         {
           "id": "pub-10-1088-1674-1056-27-3-034401-published-2018-02-11",
           "type": "published",
           "date": "2018-02-11",
-          "note": "Published online (2018-02-11). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf",
+          "note": "Published online (2018-02-11). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Chinese Physics B"
         }
       ]
@@ -3302,21 +3302,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1039-c7nr07779c-submitted-2017-10-19",
           "type": "submitted",
           "date": "2017-10-19",
-          "note": "Received (2017-10-19). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf",
+          "note": "Received (2017-10-19). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Nanoscale"
         },
         {
           "id": "pub-10-1039-c7nr07779c-accepted-2017-11-28",
           "type": "accepted",
           "date": "2017-11-28",
-          "note": "Accepted (2017-11-28). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf",
+          "note": "Accepted (2017-11-28). Publisher acceptance date. Source: [local path removed]",
           "journal": "Nanoscale"
         },
         {
           "id": "pub-10-1039-c7nr07779c-published-2017-11-29",
           "type": "published",
           "date": "2017-11-29",
-          "note": "Published online (2017-11-29). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf",
+          "note": "Published online (2017-11-29). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Nanoscale"
         }
       ]
@@ -3362,21 +3362,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1038-s41699-017-0018-2-submitted-2016-12-20",
           "type": "submitted",
           "date": "2016-12-20",
-          "note": "Received (2016-12-20). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf",
+          "note": "Received (2016-12-20). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "npj 2D Materials and Applications"
         },
         {
           "id": "pub-10-1038-s41699-017-0018-2-response_submitted-2017-05-16",
           "type": "response_submitted",
           "date": "2017-05-16",
-          "note": "Revised manuscript received (2017-05-16). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf",
+          "note": "Revised manuscript received (2017-05-16). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "npj 2D Materials and Applications"
         },
         {
           "id": "pub-10-1038-s41699-017-0018-2-accepted-2017-05-30",
           "type": "accepted",
           "date": "2017-05-30",
-          "note": "Accepted (2017-05-30). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf",
+          "note": "Accepted (2017-05-30). Publisher acceptance date. Source: [local path removed]",
           "journal": "npj 2D Materials and Applications"
         },
         {
@@ -3465,21 +3465,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1021-acs-chemmater-6b03539-submitted-2016-08-22",
           "type": "submitted",
           "date": "2016-08-22",
-          "note": "Received (2016-08-22). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf",
+          "note": "Received (2016-08-22). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Chemistry of Materials"
         },
         {
           "id": "pub-10-1021-acs-chemmater-6b03539-response_submitted-2016-11-15",
           "type": "response_submitted",
           "date": "2016-11-15",
-          "note": "Revised manuscript received (2016-11-15). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf",
+          "note": "Revised manuscript received (2016-11-15). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Chemistry of Materials"
         },
         {
           "id": "pub-10-1021-acs-chemmater-6b03539-published-2016-11-16",
           "type": "published",
           "date": "2016-11-16",
-          "note": "Published online (2016-11-16). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf",
+          "note": "Published online (2016-11-16). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Chemistry of Materials"
         }
       ]
@@ -3525,14 +3525,14 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1103-physreve-94-052123-submitted-2016-08-05",
           "type": "submitted",
           "date": "2016-08-05",
-          "note": "Received (2016-08-05). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Long Range.pdf",
+          "note": "Received (2016-08-05). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Physical Review E"
         },
         {
           "id": "pub-10-1103-physreve-94-052123-published-2016-11-15",
           "type": "published",
           "date": "2016-11-15",
-          "note": "Published online (2016-11-15). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Long Range.pdf",
+          "note": "Published online (2016-11-15). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Physical Review E"
         }
       ]
@@ -3578,14 +3578,14 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1557-jmr-2016-333-submitted-2016-05-31",
           "type": "submitted",
           "date": "2016-05-31",
-          "note": "Received (2016-05-31). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BP Thermoelectric.pdf",
+          "note": "Received (2016-05-31). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Journal of Materials Research"
         },
         {
           "id": "pub-10-1557-jmr-2016-333-accepted-2016-08-30",
           "type": "accepted",
           "date": "2016-08-30",
-          "note": "Accepted (2016-08-30). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BP Thermoelectric.pdf",
+          "note": "Accepted (2016-08-30). Publisher acceptance date. Source: [local path removed]",
           "journal": "Journal of Materials Research"
         },
         {
@@ -3638,21 +3638,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1103-physrevb-94-045423-submitted-2016-04-20",
           "type": "submitted",
           "date": "2016-04-20",
-          "note": "Received (2016-04-20). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf",
+          "note": "Received (2016-04-20). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Physical Review B"
         },
         {
           "id": "pub-10-1103-physrevb-94-045423-response_submitted-2016-06-29",
           "type": "response_submitted",
           "date": "2016-06-29",
-          "note": "Revised manuscript received (2016-06-29). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf",
+          "note": "Revised manuscript received (2016-06-29). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Physical Review B"
         },
         {
           "id": "pub-10-1103-physrevb-94-045423-published-2016-07-15",
           "type": "published",
           "date": "2016-07-15",
-          "note": "Published online (2016-07-15). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf",
+          "note": "Published online (2016-07-15). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Physical Review B"
         }
       ]
@@ -3699,21 +3699,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1038-srep14870-submitted-2015-07-02",
           "type": "submitted",
           "date": "2015-07-02",
-          "note": "Received (2015-07-02). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf",
+          "note": "Received (2015-07-02). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Scientific Reports"
         },
         {
           "id": "pub-10-1038-srep14870-accepted-2015-09-10",
           "type": "accepted",
           "date": "2015-09-10",
-          "note": "Accepted (2015-09-10). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf",
+          "note": "Accepted (2015-09-10). Publisher acceptance date. Source: [local path removed]",
           "journal": "Scientific Reports"
         },
         {
           "id": "pub-10-1038-srep14870-published-2015-10-14",
           "type": "published",
           "date": "2015-10-14",
-          "note": "Published online (2015-10-14). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf",
+          "note": "Published online (2015-10-14). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Scientific Reports"
         }
       ]
@@ -3759,21 +3759,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1063-1-4917017-submitted-2015-01-29",
           "type": "submitted",
           "date": "2015-01-29",
-          "note": "Submitted (2015-01-29). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf",
+          "note": "Submitted (2015-01-29). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "AIP Advances"
         },
         {
           "id": "pub-10-1063-1-4917017-accepted-2015-03-25",
           "type": "accepted",
           "date": "2015-03-25",
-          "note": "Accepted (2015-03-25). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf",
+          "note": "Accepted (2015-03-25). Publisher acceptance date. Source: [local path removed]",
           "journal": "AIP Advances"
         },
         {
           "id": "pub-10-1063-1-4917017-published-2015-04-02",
           "type": "published",
           "date": "2015-04-02",
-          "note": "Published online (2015-04-02). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf",
+          "note": "Published online (2015-04-02). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "AIP Advances"
         }
       ]
@@ -3819,21 +3819,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1103-physrevb-91-045410-submitted-2014-10-23",
           "type": "submitted",
           "date": "2014-10-23",
-          "note": "Received (2014-10-23). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf",
+          "note": "Received (2014-10-23). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "Physical Review B"
         },
         {
           "id": "pub-10-1103-physrevb-91-045410-response_submitted-2014-12-22",
           "type": "response_submitted",
           "date": "2014-12-22",
-          "note": "Revised manuscript received (2014-12-22). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf",
+          "note": "Revised manuscript received (2014-12-22). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: [local path removed]",
           "journal": "Physical Review B"
         },
         {
           "id": "pub-10-1103-physrevb-91-045410-published-2015-01-08",
           "type": "published",
           "date": "2015-01-08",
-          "note": "Published online (2015-01-08). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf",
+          "note": "Published online (2015-01-08). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "Physical Review B"
         }
       ]
@@ -3878,21 +3878,21 @@ window.PAPER_TRACKER_SEED = {
           "id": "pub-10-1063-1-4901274-submitted-2014-08-29",
           "type": "submitted",
           "date": "2014-08-29",
-          "note": "Submitted (2014-08-29). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf",
+          "note": "Submitted (2014-08-29). Publisher received date; author submission date may differ. Source: [local path removed]",
           "journal": "The Journal of Chemical Physics"
         },
         {
           "id": "pub-10-1063-1-4901274-accepted-2014-10-27",
           "type": "accepted",
           "date": "2014-10-27",
-          "note": "Accepted (2014-10-27). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf",
+          "note": "Accepted (2014-10-27). Publisher acceptance date. Source: [local path removed]",
           "journal": "The Journal of Chemical Physics"
         },
         {
           "id": "pub-10-1063-1-4901274-published-2014-11-17",
           "type": "published",
           "date": "2014-11-17",
-          "note": "Published online (2014-11-17). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf",
+          "note": "Published online (2014-11-17). First online publication date; may differ from the issue/citation year. Source: [local path removed]",
           "journal": "The Journal of Chemical Physics"
         }
       ]

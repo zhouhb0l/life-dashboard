@@ -4,7 +4,10 @@
   const KEY = 'research-paper-progress.v1';
   const PREVIOUS = KEY + '.previous';
   const $ = id => document.getElementById(id);
-  const escape = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const hideLocalPaths = value => String(value ?? '').replace(/(?:\b[A-Za-z]:[\\/]|file:\/\/\/|\\\\)[^\r\n<>"']*/gi, '[local path removed]');
+  const hideSourcePath = value => { const text=hideLocalPaths(value); return !/^https?:\/\//i.test(text) && /^(?:\.{0,2}[\\/])?(?:assets|tools|workspace)[\\/]/i.test(text) ? '[local path removed]' : text; };
+  const escape = value => hideLocalPaths(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const preserveHidden = (value, original) => value === hideLocalPaths(original || '') ? (original || '') : value;
   const clone = value => JSON.parse(JSON.stringify(value));
   const doiKey = value => String(value||'').trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,'').toLowerCase();
   const webKey = value => {try{const url=new URL(value);url.hash='';return url.href;}catch(_){return '';}};
@@ -304,7 +307,7 @@
   }
 
   function readEvents() {
-    return [...$('event-list').children].map(row => ({id:row.dataset.id,type:row.querySelector('select').value,date:row.querySelector('input[type=date]').value,note:row.querySelector('.event-note').value,journal:row.querySelector('.event-journal').value}));
+    return [...$('event-list').children].map(row => ({id:row.dataset.id,type:row.querySelector('select').value,date:row.querySelector('input[type=date]').value,note:preserveHidden(row.querySelector('.event-note').value,editing?.events?.find(item=>item.id===row.dataset.id)?.note),journal:preserveHidden(row.querySelector('.event-journal').value,editing?.events?.find(item=>item.id===row.dataset.id)?.journal)}));
   }
   function updateEditorSummary() {
     const events = readEvents();
@@ -339,7 +342,7 @@
     $('project-current-status').value=editing.currentStatus||'';
     $('project-status-date').value=editing.statusAsOf||'';$('project-status-date').max=today;$('project-status-date').required=!!editing.currentStatus;
     $('project-status-label').value=editing.statusLabel||'';
-    $('project-status-note').value=editing.statusNote||'';
+    $('project-status-note').value=hideLocalPaths(editing.statusNote||'');
     $('project-manuscript-id').value=editing.manuscriptId||'';
     $('project-submission-state').value=editing.submissionState||'';
     $('project-kind').value=editing.projectKind||'paper';
@@ -348,18 +351,18 @@
     $('publication-year').max = today.slice(0,4);
     $('publication-doi').value = editing.doi || '';
     $('publication-authors').value = (editing.authors || []).join('\n');
-    $('publication-source').value = editing.sourceUrl || '';
-    $('publication-source-note').value = editing.sourceNote || '';
+    $('publication-source').value = hideLocalPaths(editing.sourceUrl || '');
+    $('publication-source-note').value = hideLocalPaths(editing.sourceNote || '');
     document.querySelector('.bibliography-fields').open = false;
     $('project-focus').checked = editing.focus;
-    $('project-notes').value = editing.notes;
+    $('project-notes').value = hideLocalPaths(editing.notes);
     $('event-list').replaceChildren();
     M.sortEvents(editing.events).forEach(addEventRow);
     updateEditorSummary();
     const records=M.sortEvents(editing.records||[]);
     $('project-records').hidden=!records.length;$('project-records').open=false;
     $('project-record-count').textContent=`Dated records & journal activity · ${records.length}`;
-    $('project-record-list').innerHTML=records.map(record=>`<div class="record-row"><span class="record-date">${escape(dateLabel(record.date))}</span><div><strong class="record-label">${escape(record.label)}</strong>${record.note?`<p class="record-note">${escape(record.note)}</p>`:''}<p class="record-note">Source: ${escape(record.source)}</p></div></div>`).join('');
+    $('project-record-list').innerHTML=records.map(record=>`<div class="record-row"><span class="record-date">${escape(dateLabel(record.date))}</span><div><strong class="record-label">${escape(record.label)}</strong>${record.note?`<p class="record-note">${escape(record.note)}</p>`:''}${record.source?`<p class="record-note">Source: ${escape(hideSourcePath(record.source))}</p>`:''}</div></div>`).join('');
     $('project-error').textContent = '';
     $('timeline-text').value = '';
     $('text-preview').replaceChildren();
@@ -435,7 +438,7 @@
   $('project-form').addEventListener('submit', event => {
     event.preventDefault();
     if ($('timeline-text').value.trim()) { $('project-error').textContent='You have pasted timeline text that has not been added. Preview and append it, or clear the text before saving.';return; }
-    const checked = M.validateProject({...editing,title:$('project-title').value,shortName:$('project-short-name').value,journal:$('project-journal').value,authorship:$('project-authorship').value,currentStatus:$('project-current-status').value,statusAsOf:$('project-current-status').value?$('project-status-date').value:'',statusLabel:$('project-status-label').value,statusNote:$('project-status-note').value,manuscriptId:$('project-manuscript-id').value,submissionState:$('project-submission-state').value,projectKind:$('project-kind').value,publicationYear:$('publication-year').value?Number($('publication-year').value):null,doi:$('publication-doi').value,authors:$('publication-authors').value.split('\n').map(name=>name.trim()).filter(Boolean),sourceUrl:$('publication-source').value,sourceNote:$('publication-source-note').value,focus:$('project-focus').checked,notes:$('project-notes').value,events:readEvents()},{today});
+    const checked = M.validateProject({...editing,title:$('project-title').value,shortName:$('project-short-name').value,journal:$('project-journal').value,authorship:$('project-authorship').value,currentStatus:$('project-current-status').value,statusAsOf:$('project-current-status').value?$('project-status-date').value:'',statusLabel:$('project-status-label').value,statusNote:preserveHidden($('project-status-note').value,editing.statusNote),manuscriptId:$('project-manuscript-id').value,submissionState:$('project-submission-state').value,projectKind:$('project-kind').value,publicationYear:$('publication-year').value?Number($('publication-year').value):null,doi:$('publication-doi').value,authors:$('publication-authors').value.split('\n').map(name=>name.trim()).filter(Boolean),sourceUrl:preserveHidden($('publication-source').value,editing.sourceUrl),sourceNote:preserveHidden($('publication-source-note').value,editing.sourceNote),focus:$('project-focus').checked,notes:preserveHidden($('project-notes').value,editing.notes),events:readEvents()},{today});
     if (!checked.valid) {$('project-error').textContent=checked.errors.join(' ');return;}
     const projects = currentProjects(), index = projects.findIndex(item => item.id===checked.value.id);
     if (index<0 && projects.length>=500) {$('project-error').textContent='This workspace supports up to 500 papers. Export a backup before starting another workspace.';return;}
