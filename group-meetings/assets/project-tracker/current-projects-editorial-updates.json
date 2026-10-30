@@ -1,0 +1,114 @@
+{
+  "verifiedOn": "2026-10-30",
+  "source": "User-supplied Recessed Contact submission history, Editorial Manager completed-submission row, and APS editorial history in this chat. The live MTP portal was checked but requires login in the assistant's session.",
+  "eventCorrections": [
+    {
+      "projectId": "tan-thermal",
+      "id": "tan-thermal-reviews_received-2026-10-14",
+      "type": "reviews_received",
+      "date": "2026-10-14",
+      "notePrefix": "Secondary source:",
+      "reason": "Retain the unverified meeting-note review-return date as documentary evidence. Confirmed portal dates now define the measured journal interval; the actual response-submission date is still unknown."
+    }
+  ],
+  "updates": [
+    {
+      "id": "recessed-contact",
+      "journal": "npj 2D Materials and Applications",
+      "submissionState": "submitted",
+      "currentStatus": "rights_complete",
+      "statusLabel": "Publishing and rights complete",
+      "statusAsOf": "2026-10-30",
+      "acceptedDate": "2026-10-15",
+      "proofreadDate": null,
+      "publicationDate": null,
+      "statusNote": "The user's 23-entry journal history confirms acceptance on 15 October, entry into publishing and rights on 24 October, and completion of publishing and rights on 26 October 2026. This confirms neither proofreading completion nor online publication. Both scientific revision rounds and all three technical-amendment cycles are dated separately.",
+      "sourceNote": "User-supplied Recessed Contact journal submission history in this chat, 30 October 2026: all 23 dated entries are retained as phase milestones or documentary records. Publisher receipt on 17 July and acceptance on 15 October are also confirmed by the local eProofing PDF. Journal receipt of referee reports (10 August and 12 September) is distinct from revision requests sent to the author (25 August and 30 September). Author-response time starts at each revision request, not when reports reached the journal. Technical amendment requests/receipts are recorded separately from scientific revision responses. Publishing and rights complete on 26 October does not establish proofreading completion or publication.",
+      "events": [
+        {"id":"recessed-contact-submitted-2026-07-17","type":"submitted","date":"2026-07-17","journal":"npj 2D Materials and Applications","note":"Publisher eProofing PDF says Received: 17 July 2026. This is publisher receipt; author upload may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\proofreading\\eProofing.pdf (PDF page 1)."},
+        {"id":"recessed-contact-revision-requested-2026-08-25","type":"revision_requested","date":"2026-08-25","journal":"npj 2D Materials and Applications","note":"Round 1: Revision requested on 25 August 2026. User-supplied journal history, entry 6. This is the start of the author's scientific revision period; reports reached the journal earlier, on 10 August."},
+        {"id":"recessed-contact-response-submitted-2026-09-08","type":"response_submitted","date":"2026-09-08","journal":"npj 2D Materials and Applications","note":"Round 1: Revision received on 8 September 2026. User-supplied journal history, entry 7. The scientific response took 14 calendar days from the 25 August revision request."},
+        {"id":"recessed-contact-amendment-requested-2026-09-09","type":"amendment_requested","date":"2026-09-09","journal":"npj 2D Materials and Applications","note":"Technical amendment cycle 1: Amendment requested on 9 September 2026. User-supplied journal history, entry 8. Separate from scientific reviewer response rounds."},
+        {"id":"recessed-contact-amendment-submitted-2026-09-09","type":"amendment_submitted","date":"2026-09-09","journal":"npj 2D Materials and Applications","note":"Technical amendment cycle 1: Amendment received on 9 September 2026, the same calendar day as requested. User-supplied journal history, entry 9."},
+        {"id":"recessed-contact-amendment-requested-2026-09-10","type":"amendment_requested","date":"2026-09-10","journal":"npj 2D Materials and Applications","note":"Technical amendment cycle 2: Amendment requested on 10 September 2026. User-supplied journal history, entry 10."},
+        {"id":"recessed-contact-amendment-submitted-2026-09-10","type":"amendment_submitted","date":"2026-09-10","journal":"npj 2D Materials and Applications","note":"Technical amendment cycle 2: Amendment received on 10 September 2026, the same calendar day as requested. User-supplied journal history, entry 11."},
+        {"id":"recessed-contact-revision-requested-2026-09-30","type":"revision_requested","date":"2026-09-30","journal":"npj 2D Materials and Applications","note":"Round 2: Revision requested on 30 September 2026. User-supplied journal history, entry 16. Reports reached the journal on 12 September; the author's response period starts with this 30 September request."},
+        {"id":"recessed-contact-response-submitted-2026-10-14","type":"response_submitted","date":"2026-10-14","journal":"npj 2D Materials and Applications","note":"Round 2: Revision received on 14 October 2026. User-supplied journal history, entry 17. The scientific response took 14 calendar days from the 30 September revision request."},
+        {"id":"recessed-contact-amendment-requested-2026-10-14","type":"amendment_requested","date":"2026-10-14","journal":"npj 2D Materials and Applications","note":"Technical amendment cycle 3: Amendment requested on 14 October 2026, after the revised manuscript was received. User-supplied journal history, entry 18."},
+        {"id":"recessed-contact-amendment-submitted-2026-10-15","type":"amendment_submitted","date":"2026-10-15","journal":"npj 2D Materials and Applications","note":"Technical amendment cycle 3: Amendment received on 15 October 2026, one calendar day after the request. User-supplied journal history, entry 19. Technical check and acceptance followed on the same day."},
+        {"id":"recessed-contact-accepted-2026-10-15","type":"accepted","date":"2026-10-15","journal":"npj 2D Materials and Applications","note":"Submission accepted on 15 October 2026, after amendment receipt and the technical check. User-supplied journal history, entry 21. Also confirmed by the publisher eProofing PDF (PDF page 1)."},
+        {"id":"recessed-contact-publishing-rights-2026-10-24","type":"publishing_rights","date":"2026-10-24","journal":"npj 2D Materials and Applications","note":"Submission is in publishing and rights on 24 October 2026. User-supplied journal history, entry 22."},
+        {"id":"recessed-contact-rights-complete-2026-10-26","type":"rights_complete","date":"2026-10-26","journal":"npj 2D Materials and Applications","note":"Publishing and rights complete on 26 October 2026. User-supplied journal history, entry 23. This does not confirm proofreading completion or publication."}
+      ],
+      "records": [
+        {"id":"recessed-contact-editorial-ready-2026-07-20","date":"2026-07-20","label":"Ready for editorial assignment","source":"User-supplied Recessed Contact journal history · entry 1","note":"Ready for editorial assignment on 20 July 2026."},
+        {"id":"recessed-contact-editor-assigned-2026-07-22","date":"2026-07-22","label":"Editor assigned","source":"User-supplied Recessed Contact journal history · entry 2","note":"Editor assigned on 22 July 2026."},
+        {"id":"recessed-contact-reviewers-invited-2026-07-23","date":"2026-07-23","label":"Round 1 · first reviewer(s) invited","source":"User-supplied Recessed Contact journal history · entry 3","note":"First reviewer(s) invited on 23 July 2026. The author remains in the journal-review phase."},
+        {"id":"recessed-contact-reviewers-accepted-2026-07-25","date":"2026-07-25","label":"Round 1 · reviewer(s) accepted","source":"User-supplied Recessed Contact journal history · entry 4","note":"Reviewer(s) accepted on 25 July 2026. This is referee acceptance of the invitation, not manuscript acceptance."},
+        {"id":"recessed-contact-reports-received-2026-08-10","date":"2026-08-10","label":"Round 1 · reviewer reports received by journal","source":"User-supplied Recessed Contact journal history · entry 5","note":"Reviewer report(s) received on 10 August 2026. The journal did not request author revision until 25 August, so this does not start the author's response duration."},
+        {"id":"recessed-contact-technical-check-2026-09-11","date":"2026-09-11","label":"Round 1 revision · submission passed technical check","source":"User-supplied Recessed Contact journal history · entry 12","note":"Submission passed technical check on 11 September 2026, after both September amendment cycles."},
+        {"id":"recessed-contact-reviewers-invited-2026-09-11","date":"2026-09-11","label":"Round 2 · first reviewer(s) invited","source":"User-supplied Recessed Contact journal history · entry 13","note":"First reviewer(s) invited on 11 September 2026."},
+        {"id":"recessed-contact-reviewers-accepted-2026-09-11","date":"2026-09-11","label":"Round 2 · reviewer(s) accepted","source":"User-supplied Recessed Contact journal history · entry 14","note":"Reviewer(s) accepted on 11 September 2026. This is referee acceptance of the invitation, not manuscript acceptance."},
+        {"id":"recessed-contact-reports-received-2026-09-12","date":"2026-09-12","label":"Round 2 · reviewer reports received by journal","source":"User-supplied Recessed Contact journal history · entry 15","note":"Reviewer report(s) received on 12 September 2026. The author-facing revision request followed on 30 September, so this does not start the author's response duration."},
+        {"id":"recessed-contact-technical-check-2026-10-15","date":"2026-10-15","label":"Round 2 revision · submission passed technical check","source":"User-supplied Recessed Contact journal history · entry 20","note":"Submission passed technical check on 15 October 2026, after amendment receipt and before acceptance on the same day."}
+      ],
+      "uncertainties": ["Initialization, draft completion, self revision, and first complete draft dates remain unconfirmed.","Cover-letter dates are documentary evidence; the user-supplied journal history now supplies the actual revision request and receipt dates.","Proofreading completion and online publication dates remain unconfirmed; publishing and rights complete is a separate production step."]
+    },
+    {
+      "id": "tan-thermal",
+      "journal": "Materials Today Physics",
+      "manuscriptId": "MTP-D-26-02001R2",
+      "submissionState": "submitted",
+      "currentStatus": "accepted",
+      "statusLabel": "Accepted",
+      "statusAsOf": "2026-10-30",
+      "acceptedDate": "2026-10-29",
+      "initialSubmittedDate": "2026-08-24",
+      "statusNote": "Editorial Manager row MTP-D-26-02001R2 states Initial Date Submitted: 24 August 2026; Status Date: 29 October 2026; Current Status: Completed - Accept; Date Final Disposition Set: 29 October 2026; Final Disposition: Accept. The row was supplied by the user on 30 October. Live portal access requires login in the assistant session.",
+      "sourceNote": "User-supplied Materials Today Physics Editorial Manager completed-submissions row confirms initial submission on 24 August 2026 and acceptance/final disposition on 29 October 2026. These supersede the earlier uncertainty about those two dates. The R2 suffix confirms the current revision number, not the dates each response was uploaded. Source: https://www.editorialmanager.com/mtp/Default.aspx",
+      "events": [
+        {"id":"tan-thermal-submitted-2026-08-24","type":"submitted","date":"2026-08-24","journal":"Materials Today Physics","note":"Editorial Manager Initial Date Submitted: Aug 24, 2026. User-supplied completed-submission row MTP-D-26-02001R2. Source: https://www.editorialmanager.com/mtp/Default.aspx"},
+        {"id":"tan-thermal-accepted-2026-10-29","type":"accepted","date":"2026-10-29","journal":"Materials Today Physics","note":"Editorial Manager Current Status: Completed - Accept; Status Date and Date Final Disposition Set: Oct 29, 2026; Final Disposition: Accept. User-supplied completed-submission row MTP-D-26-02001R2."}
+      ],
+      "records": [
+        {"id":"tan-thermal-secondary-review-note-2026-10-14","date":"2026-10-14","label":"Second-round review receipt reported in meeting notes","source":"assets/decks/meeting-2026-10-28/tan-project-data.js","note":"Earlier meeting notes report a reviewer PDF received on 14 October. The original editorial email is still unavailable. This remains supporting documentary evidence, not an independently verified reviewer-return or response-submission milestone."}
+      ],
+      "uncertainties": ["The dates individual reviewer decisions and author responses reached the portal are not provided in the completed-submissions row.","Initialization, draft completion, proofreading completion, and online publication dates remain unconfirmed."]
+    },
+    {
+      "id": "non-gaussian-bounds",
+      "journal": "Physical Review B",
+      "journalConfirmed": true,
+      "submissionState": "submitted",
+      "currentStatus": "transferred",
+      "statusLabel": "Under review · Physical Review B",
+      "statusAsOf": "2026-10-30",
+      "statusNote": "User-supplied APS history confirms transfer from Physical Review Letters to Physical Review B on 25 September 2026 and PRB acknowledgment on 28 September. Referee invitations were sent in October. Messages received on 14 and 19 October are explicitly not reports; they do not establish author receipt of reviewer feedback.",
+      "sourceNote": "User-supplied APS editorial history, 30 October 2026. PRL acknowledgment: 10 September; editorial decision and/or reference comments sent to author: 22 September, author response received: 24 September; files received from author: 24 September; transferred PRL to PRB: 25 September; PRB acknowledgment: 28 September. Exact initial PRL upload date is not supplied. The broad decision label does not prove external reviewer reports, and author reply does not prove a revised-manuscript submission. Referee invitation replies/messages are not reviews received by the author.",
+      "events": [
+        {"id":"lmt-prl-acknowledged-2026-09-10","type":"acknowledged","date":"2026-09-10","journal":"Physical Review Letters","note":"APS history: Acknowledgment sent to author on 10 September. This establishes a documented journal-process date, not the exact initial manuscript upload date."},
+        {"id":"lmt-editorial-decision-2026-09-22","type":"editorial_decision","date":"2026-09-22","journal":"Physical Review Letters","note":"APS history: Ed. decision and/or ref. comments to author, 22 September, response received 24 September. The wording does not identify external reviewer reports; recorded as an editorial decision rather than reviews_received."},
+        {"id":"lmt-transferred-2026-09-25","type":"transferred","date":"2026-09-25","journal":"Physical Review B","note":"APS history: Transferred from Phys. Rev. Lett. to Phys. Rev. B on 25 September 2026. A transfer is not recorded as rejection or as a fabricated initial submission date."}
+      ],
+      "records": [
+        {"id":"lmt-author-reply-2026-09-24","date":"2026-09-24","label":"Author reply to editorial decision received","source":"User-supplied APS editorial history","note":"Response received on 24 September for the 22 September editorial decision and/or comments entry. This need not be a revised-manuscript submission."},
+        {"id":"lmt-files-received-2026-09-24","date":"2026-09-24","label":"Manuscript files received from author","source":"User-supplied APS editorial history","note":"Files received from author on 24 September. The exact initial PRL upload date is still not identified by this entry."},
+        {"id":"lmt-prb-ack-2026-09-28","date":"2026-09-28","label":"Physical Review B acknowledgment sent","source":"User-supplied APS editorial history","note":"Acknowledgment sent to author on 28 September, following the 25 September transfer."},
+        {"id":"lmt-author-correspondence-2026-10-08","date":"2026-10-08","label":"Editorial correspondence sent to author","source":"User-supplied APS editorial history","note":"Correspondence (miscellaneous) sent to author; no review report is identified."},
+        {"id":"lmt-invitation-a-2026-10-08","date":"2026-10-08","label":"Referee invitation A sent","source":"User-supplied APS editorial history","note":"Request dated 8 October; a message, explicitly not a report, was received 19 October."},
+        {"id":"lmt-invitation-d-2026-10-08","date":"2026-10-08","label":"Referee invitation D sent","source":"User-supplied APS editorial history","note":"Request dated 8 October; a message, explicitly not a report, was received 14 October."},
+        {"id":"lmt-invitation-g-2026-10-08","date":"2026-10-08","label":"Additional referee invitation sent","source":"User-supplied APS editorial history","note":"Request dated 8 October; response not yet received in the supplied history."},
+        {"id":"lmt-reminder-response-2026-10-13","date":"2026-10-13","label":"Referee reminder and reply","source":"User-supplied APS editorial history","note":"Reminder dated 13 October, response received 13 October. No completed referee report is specified."},
+        {"id":"lmt-reminder-pending-2026-10-13","date":"2026-10-13","label":"Referee reminder sent","source":"User-supplied APS editorial history","note":"Reminder dated 13 October; other reminders sent at one- to two-week intervals are not shown. No author revision date follows from this entry."},
+        {"id":"lmt-invitation-b-2026-10-14","date":"2026-10-14","label":"Referee invitation B sent","source":"User-supplied APS editorial history","note":"Request dated 14 October; response not yet received."},
+        {"id":"lmt-invitation-c-2026-10-14","date":"2026-10-14","label":"Referee invitation C sent","source":"User-supplied APS editorial history","note":"Separate request dated 14 October; response not yet received."},
+        {"id":"lmt-message-d-2026-10-14","date":"2026-10-14","label":"Referee message received · not a report","source":"User-supplied APS editorial history","note":"Message received 14 October in response to the 8 October invitation; explicitly not a report."},
+        {"id":"lmt-message-a-2026-10-19","date":"2026-10-19","label":"Referee message received · not a report","source":"User-supplied APS editorial history","note":"Message received 19 October in response to the 8 October invitation; explicitly not a report."}
+      ],
+      "uncertainties": ["The exact initial PRL submission date remains unknown; 10 September is the acknowledgment date.","No completed external reviewer report received by the author is identified in the supplied history."]
+    },
+    {"id":"wte2-moire","submissionState":"not_submitted","statusNote":"User explicitly confirms the WTe2 manuscript has not been submitted as of 30 October 2026. It remains in internal manuscript revision."},
+    {"id":"proton-transfer","submissionState":"not_submitted","statusNote":"User explicitly confirms the proton-transfer manuscript has not been submitted as of 30 October 2026. It remains in internal manuscript revision."},
+    {"id":"negf-method-book","submissionState":"not_submitted","statusNote":"User explicitly confirms the NEGF method book has not been submitted as of 30 October 2026. Writing continues."}
+  ]
+}

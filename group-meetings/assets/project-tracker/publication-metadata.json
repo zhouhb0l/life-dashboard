@@ -1,0 +1,1302 @@
+{
+  "version": 1,
+  "source": "Publisher-deposited Crossref REST API metadata",
+  "verifiedOn": "2026-10-30",
+  "records": [
+    {
+      "doi": "10.1021/acs.nanolett.6c03959",
+      "title": "Nonlocal Electrostatic\nOrigin of Schottky-Barrier\nVariability in 2D Contacts",
+      "journal": "Nano Letters",
+      "volume": "26",
+      "issue": "38",
+      "pages": "13130-13135",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/nalefd/article/26/38/13130/5430890/Nonlocal-Electrostatic-Origin-of-Schottky-Barrier",
+      "crossrefUrl": "https://api.crossref.org/works/10.1021/acs.nanolett.6c03959",
+      "published": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            16
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            16
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            30
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "13130-13135",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.acs.org/nalefd/article/26/38/13130/5430890/Nonlocal-Electrostatic-Origin-of-Schottky-Barrier",
+      "journalReference": "Nano Letters 26(38), 13130–13135 (2026)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1039/d5nr02232k",
+      "title": "Defect engineering and hydrogen-induced reversibility in metallic states of MoS\n                    <sub>2</sub>\n                    grain boundaries",
+      "journal": "Nanoscale",
+      "volume": "17",
+      "issue": "38",
+      "pages": "22226-22234",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/nr/article/17/38/22226-22234/901399",
+      "crossrefUrl": "https://api.crossref.org/works/10.1039/d5nr02232k",
+      "published": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "22226-22234",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.rsc.org/nr/article/17/38/22226-22234/901399",
+      "journalReference": "Nanoscale 17(38), 22226–22234 (2025)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1021/acs.jpcc.4c06240",
+      "title": "Revealing the Stability and Conductivity of 1D Structures in 2D Semiconducting Lattices",
+      "journal": "The Journal of Physical Chemistry C",
+      "volume": "129",
+      "issue": "1",
+      "pages": "670-676",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/doi/10.1021/acs.jpcc.4c06240",
+      "crossrefUrl": "https://api.crossref.org/works/10.1021/acs.jpcc.4c06240",
+      "published": {
+        "date-parts": [
+          [
+            2024,
+            12,
+            16
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2024,
+            12,
+            16
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2025,
+            1,
+            9
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "670-676",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.acs.org/doi/10.1021/acs.jpcc.4c06240",
+      "journalReference": "The Journal of Physical Chemistry C 129(1), 670–676 (2025)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1039/d4cp03686g",
+      "title": "Impact of grain boundaries on the electronic properties and Schottky barrier height in MoS\n                    <sub>2</sub>\n                    @Au heterojunctions",
+      "journal": "Physical Chemistry Chemical Physics",
+      "volume": "27",
+      "issue": "2",
+      "pages": "905-914",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/cp/article/27/2/905-914/844121",
+      "crossrefUrl": "https://api.crossref.org/works/10.1039/d4cp03686g",
+      "published": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "905-914",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.rsc.org/cp/article/27/2/905-914/844121",
+      "journalReference": "Physical Chemistry Chemical Physics 27(2), 905–914 (2025)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1021/acsami.4c02294",
+      "title": "An Atomically Resolved Schottky Barrier Height Approach for Bridging the Gap between Theory and Experiment at Metal–Semiconductor Heterojunctions",
+      "journal": "ACS Applied Materials &amp; Interfaces",
+      "volume": "16",
+      "issue": "17",
+      "pages": "22166-22176",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/doi/10.1021/acsami.4c02294",
+      "crossrefUrl": "https://api.crossref.org/works/10.1021/acsami.4c02294",
+      "published": {
+        "date-parts": [
+          [
+            2024,
+            4,
+            22
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2024,
+            4,
+            22
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2024,
+            5,
+            1
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "22166-22176",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.acs.org/doi/10.1021/acsami.4c02294",
+      "journalReference": "ACS Applied Materials & Interfaces 16(17), 22166–22176 (2024)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1007/s40820-024-01335-2",
+      "title": "Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials",
+      "journal": "Nano-Micro Letters",
+      "volume": "16",
+      "issue": "1",
+      "pages": "",
+      "articleNumber": "121",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://link.springer.com/10.1007/s40820-024-01335-2",
+      "crossrefUrl": "https://api.crossref.org/works/10.1007/s40820-024-01335-2",
+      "published": {
+        "date-parts": [
+          [
+            2024,
+            2,
+            19
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2024,
+            2,
+            19
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2024,
+            12
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "121",
+      "normalizedPublicationUrl": "https://link.springer.com/article/10.1007/s40820-024-01335-2",
+      "journalReference": "Nano-Micro Letters 16(1), Article 121 (2024)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1002/aelm.202201252",
+      "title": "Design‐Dependent Switching Mechanisms of Schottky‐Barrier‐Modulated Memristors based on 2D Semiconductor",
+      "journal": "Advanced Electronic Materials",
+      "volume": "9",
+      "issue": "6",
+      "pages": "",
+      "articleNumber": "2201252",
+      "publisher": "Wiley",
+      "publicationUrl": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aelm.202201252",
+      "crossrefUrl": "https://api.crossref.org/works/10.1002/aelm.202201252",
+      "published": {
+        "date-parts": [
+          [
+            2023,
+            4,
+            17
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2023,
+            4,
+            17
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2023,
+            6
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "2201252",
+      "normalizedPublicationUrl": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aelm.202201252",
+      "journalReference": "Advanced Electronic Materials 9(6), Article 2201252 (2023)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1557/s43577-022-00456-6",
+      "title": "Anharmonic quantum thermal transport across a van der Waals interface",
+      "journal": "MRS Bulletin",
+      "volume": "48",
+      "issue": "6",
+      "pages": "614-622",
+      "articleNumber": "",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://link.springer.com/10.1557/s43577-022-00456-6",
+      "crossrefUrl": "https://api.crossref.org/works/10.1557/s43577-022-00456-6",
+      "published": {
+        "date-parts": [
+          [
+            2023,
+            1,
+            4
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2023,
+            1,
+            4
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2023,
+            6
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "614-622",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://link.springer.com/article/10.1557/s43577-022-00456-6",
+      "journalReference": "MRS Bulletin 48(6), 614–622 (2023)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1103/PhysRevB.106.195435",
+      "title": "Effects of localized phonons on interfacial thermal conductance",
+      "journal": "Physical Review B",
+      "volume": "106",
+      "issue": "19",
+      "pages": "",
+      "articleNumber": "195435",
+      "publisher": "American Physical Society (APS)",
+      "publicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.106.195435",
+      "crossrefUrl": "https://api.crossref.org/works/10.1103/PhysRevB.106.195435",
+      "published": {
+        "date-parts": [
+          [
+            2022,
+            11,
+            30
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2022,
+            11,
+            30
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "195435",
+      "normalizedPublicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.106.195435",
+      "journalReference": "Physical Review B 106(19), Article 195435 (2022)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1039/d2nr01131j",
+      "title": "Computational predictions of quantum thermal transport across nanoscale interfaces",
+      "journal": "Nanoscale",
+      "volume": "14",
+      "issue": "26",
+      "pages": "9209-9217",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/nr/article/14/26/9209-9217/776522",
+      "crossrefUrl": "https://api.crossref.org/works/10.1039/d2nr01131j",
+      "published": {
+        "date-parts": [
+          [
+            2022
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2022
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "9209-9217",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.rsc.org/nr/article/14/26/9209-9217/776522",
+      "journalReference": "Nanoscale 14(26), 9209–9217 (2022)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1021/acs.nanolett.0c03135",
+      "title": "Three-Fold Enhancement of In-Plane Thermal Conductivity of Borophene through Metallic Atom Intercalation",
+      "journal": "Nano Letters",
+      "volume": "20",
+      "issue": "10",
+      "pages": "7619-7626",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/doi/10.1021/acs.nanolett.0c03135",
+      "crossrefUrl": "https://api.crossref.org/works/10.1021/acs.nanolett.0c03135",
+      "published": {
+        "date-parts": [
+          [
+            2020,
+            8,
+            27
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2020,
+            8,
+            27
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2020,
+            10,
+            14
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "7619-7626",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.acs.org/doi/10.1021/acs.nanolett.0c03135",
+      "journalReference": "Nano Letters 20(10), 7619–7626 (2020)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1039/d0ra04737f",
+      "title": "High thermal conductivity driven by the unusual phonon relaxation time platform in 2D monolayer boron arsenide",
+      "journal": "RSC Advances",
+      "volume": "10",
+      "issue": "42",
+      "pages": "25305-25310",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/ra/article/10/42/25305-25310/702276",
+      "crossrefUrl": "https://api.crossref.org/works/10.1039/d0ra04737f",
+      "published": {
+        "date-parts": [
+          [
+            2020
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2020
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "25305-25310",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.rsc.org/ra/article/10/42/25305-25310/702276",
+      "journalReference": "RSC Advances 10(42), 25305–25310 (2020)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1039/d0cp02894k",
+      "title": "Neural network representation and optimization of thermoelectric states of multiple interacting quantum dots",
+      "journal": "Physical Chemistry Chemical Physics",
+      "volume": "22",
+      "issue": "28",
+      "pages": "16165-16173",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/cp/article/22/28/16165-16173/680045",
+      "crossrefUrl": "https://api.crossref.org/works/10.1039/d0cp02894k",
+      "published": {
+        "date-parts": [
+          [
+            2020
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2020
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "16165-16173",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.rsc.org/cp/article/22/28/16165-16173/680045",
+      "journalReference": "Physical Chemistry Chemical Physics 22(28), 16165–16173 (2020)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1103/PhysRevB.101.235305",
+      "title": "Three-terminal interface as a thermoelectric generator beyond the Seebeck effect",
+      "journal": "Physical Review B",
+      "volume": "101",
+      "issue": "23",
+      "pages": "",
+      "articleNumber": "235305",
+      "publisher": "American Physical Society (APS)",
+      "publicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.101.235305",
+      "crossrefUrl": "https://api.crossref.org/works/10.1103/PhysRevB.101.235305",
+      "published": {
+        "date-parts": [
+          [
+            2020,
+            6,
+            3
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2020,
+            6,
+            3
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "235305",
+      "normalizedPublicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.101.235305",
+      "journalReference": "Physical Review B 101(23), Article 235305 (2020)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1088/1361-6528/ab8ee1",
+      "title": "The important role of strain on phonon hydrodynamics in diamond-like bi-layer graphene",
+      "journal": "Nanotechnology",
+      "volume": "31",
+      "issue": "33",
+      "pages": "335711",
+      "articleNumber": "",
+      "publisher": "IOP Publishing",
+      "publicationUrl": "https://iopscience.iop.org/article/10.1088/1361-6528/ab8ee1",
+      "crossrefUrl": "https://api.crossref.org/works/10.1088/1361-6528/ab8ee1",
+      "published": {
+        "date-parts": [
+          [
+            2020,
+            6,
+            2
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2020,
+            6,
+            2
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2020,
+            8,
+            14
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "335711",
+      "normalizedPublicationUrl": "https://iopscience.iop.org/article/10.1088/1361-6528/ab8ee1",
+      "journalReference": "Nanotechnology 31(33), Article 335711 (2020)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata. Crossref stores the six-digit article identifier in page. Classified as articleNumber after checking the published PDF header and page counts."
+    },
+    {
+      "doi": "10.1088/1361-6528/ab824c",
+      "title": "Phonon stability and phonon transport of graphene-like borophene",
+      "journal": "Nanotechnology",
+      "volume": "31",
+      "issue": "31",
+      "pages": "315709",
+      "articleNumber": "",
+      "publisher": "IOP Publishing",
+      "publicationUrl": "https://iopscience.iop.org/article/10.1088/1361-6528/ab824c",
+      "crossrefUrl": "https://api.crossref.org/works/10.1088/1361-6528/ab824c",
+      "published": {
+        "date-parts": [
+          [
+            2020,
+            5,
+            19
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2020,
+            5,
+            19
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2020,
+            7,
+            31
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "315709",
+      "normalizedPublicationUrl": "https://iopscience.iop.org/article/10.1088/1361-6528/ab824c",
+      "journalReference": "Nanotechnology 31(31), Article 315709 (2020)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata. Crossref stores the six-digit article identifier in page. Classified as articleNumber after checking the published PDF header and page counts."
+    },
+    {
+      "doi": "10.1021/acsomega.9b00534",
+      "title": "From Two- to Three-Dimensional van der Waals Layered\nStructures of Boron Crystals: An Ab Initio Study",
+      "journal": "ACS Omega",
+      "volume": "4",
+      "issue": "5",
+      "pages": "8015-8021",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/acsodf/article/4/5/8015/1444755/From-Two-to-Three-Dimensional-van-der-Waals",
+      "crossrefUrl": "https://api.crossref.org/works/10.1021/acsomega.9b00534",
+      "published": {
+        "date-parts": [
+          [
+            2019,
+            5,
+            2
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2019,
+            5,
+            2
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2019,
+            5,
+            31
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "8015-8021",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.acs.org/acsodf/article/4/5/8015/1444755/From-Two-to-Three-Dimensional-van-der-Waals",
+      "journalReference": "ACS Omega 4(5), 8015–8021 (2019)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1038/s41524-019-0183-2",
+      "title": "Orbitally driven giant thermal conductance associated with abnormal strain dependence in hydrogenated graphene-like borophene",
+      "journal": "npj Computational Materials",
+      "volume": "5",
+      "issue": "1",
+      "pages": "",
+      "articleNumber": "47",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://www.nature.com/articles/s41524-019-0183-2",
+      "crossrefUrl": "https://api.crossref.org/works/10.1038/s41524-019-0183-2",
+      "published": {
+        "date-parts": [
+          [
+            2019,
+            4,
+            10
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2019,
+            4,
+            10
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "47",
+      "normalizedPublicationUrl": "https://www.nature.com/articles/s41524-019-0183-2",
+      "journalReference": "npj Computational Materials 5(1), Article 47 (2019)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1002/pssb.201900122",
+      "title": "The Ultrahigh Quantum Thermal Conductance of Hydrogenated Boron Nanotubes",
+      "journal": "physica status solidi (b)",
+      "volume": "256",
+      "issue": "8",
+      "pages": "",
+      "articleNumber": "1900122",
+      "publisher": "Wiley",
+      "publicationUrl": "https://onlinelibrary.wiley.com/doi/10.1002/pssb.201900122",
+      "crossrefUrl": "https://api.crossref.org/works/10.1002/pssb.201900122",
+      "published": {
+        "date-parts": [
+          [
+            2019,
+            4
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2019,
+            4
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2019,
+            8
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "1900122",
+      "normalizedPublicationUrl": "https://onlinelibrary.wiley.com/doi/10.1002/pssb.201900122",
+      "journalReference": "Physica Status Solidi B 256(8), Article 1900122 (2019)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1063/1.5054323",
+      "title": "The effects of curvature on the thermal conduction of bent silicon nanowire",
+      "journal": "Journal of Applied Physics",
+      "volume": "125",
+      "issue": "8",
+      "pages": "",
+      "articleNumber": "082505",
+      "publisher": "AIP Publishing",
+      "publicationUrl": "https://pubs.aip.org/jap/article/125/8/082505/133427/The-effects-of-curvature-on-the-thermal-conduction",
+      "crossrefUrl": "https://api.crossref.org/works/10.1063/1.5054323",
+      "published": {
+        "date-parts": [
+          [
+            2018,
+            12,
+            4
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2018,
+            12,
+            4
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2019,
+            2,
+            28
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "082505",
+      "normalizedPublicationUrl": "https://pubs.aip.org/jap/article/125/8/082505/133427/The-effects-of-curvature-on-the-thermal-conduction",
+      "journalReference": "Journal of Applied Physics 125(8), Article 082505 (2019)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1002/adfm.201801685",
+      "title": "Stretch‐Driven Increase in Ultrahigh Thermal Conductance of Hydrogenated Borophene and Dimensionality Crossover in Phonon Transmission",
+      "journal": "Advanced Functional Materials",
+      "volume": "28",
+      "issue": "31",
+      "pages": "",
+      "articleNumber": "1801685",
+      "publisher": "Wiley",
+      "publicationUrl": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.201801685",
+      "crossrefUrl": "https://api.crossref.org/works/10.1002/adfm.201801685",
+      "published": {
+        "date-parts": [
+          [
+            2018,
+            6,
+            3
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2018,
+            6,
+            3
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2018,
+            8
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "1801685",
+      "normalizedPublicationUrl": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.201801685",
+      "journalReference": "Advanced Functional Materials 28(31), Article 1801685 (2018)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1088/1674-1056/27/3/034401",
+      "title": "General theories and features of interfacial thermal transport",
+      "journal": "Chinese Physics B",
+      "volume": "27",
+      "issue": "3",
+      "pages": "034401",
+      "articleNumber": "",
+      "publisher": "IOP Publishing",
+      "publicationUrl": "https://iopscience.iop.org/article/10.1088/1674-1056/27/3/034401",
+      "crossrefUrl": "https://api.crossref.org/works/10.1088/1674-1056/27/3/034401",
+      "published": {
+        "date-parts": [
+          [
+            2018,
+            3
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2018,
+            3,
+            26
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2018,
+            3
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "034401",
+      "normalizedPublicationUrl": "https://iopscience.iop.org/article/10.1088/1674-1056/27/3/034401",
+      "journalReference": "Chinese Physics B 27(3), Article 034401 (2018)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata. Crossref stores the six-digit article identifier in page. Classified as articleNumber after checking the published PDF header and page counts. Date audit: Crossref published-online 2018-03-26 differs from published PDF date 2018-02-11. Original timeline date retained; no date changed during bibliographic enrichment."
+    },
+    {
+      "doi": "10.1039/c7nr07779c",
+      "title": "Unusual phonon behavior and ultra-low thermal conductance of monolayer InSe",
+      "journal": "Nanoscale",
+      "volume": "10",
+      "issue": "1",
+      "pages": "480-487",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/nr/article/10/1/480-487/573642",
+      "crossrefUrl": "https://api.crossref.org/works/10.1039/c7nr07779c",
+      "published": {
+        "date-parts": [
+          [
+            2018
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2018
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "480-487",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.rsc.org/nr/article/10/1/480-487/573642",
+      "journalReference": "Nanoscale 10(1), 480–487 (2018)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1038/s41699-017-0018-2",
+      "title": "Superior lattice thermal conductance of single-layer borophene",
+      "journal": "npj 2D Materials and Applications",
+      "volume": "1",
+      "issue": "1",
+      "pages": "",
+      "articleNumber": "14",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://www.nature.com/articles/s41699-017-0018-2",
+      "crossrefUrl": "https://api.crossref.org/works/10.1038/s41699-017-0018-2",
+      "published": {
+        "date-parts": [
+          [
+            2017,
+            6,
+            19
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2017,
+            6,
+            19
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "14",
+      "normalizedPublicationUrl": "https://www.nature.com/articles/s41699-017-0018-2",
+      "journalReference": "npj 2D Materials and Applications 1(1), Article 14 (2017)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1021/acs.chemmater.6b03539",
+      "title": "Modulating Carrier Density and Transport Properties of MoS<sub>2</sub> by Organic Molecular Doping and Defect Engineering",
+      "journal": "Chemistry of Materials",
+      "volume": "28",
+      "issue": "23",
+      "pages": "8611-8621",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/doi/10.1021/acs.chemmater.6b03539",
+      "crossrefUrl": "https://api.crossref.org/works/10.1021/acs.chemmater.6b03539",
+      "published": {
+        "date-parts": [
+          [
+            2016,
+            11,
+            28
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2016,
+            11,
+            28
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2016,
+            12,
+            13
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "8611-8621",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://pubs.acs.org/doi/10.1021/acs.chemmater.6b03539",
+      "journalReference": "Chemistry of Materials 28(23), 8611–8621 (2016)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata. Date audit: Crossref published-online 2016-11-28 differs from published PDF date 2016-11-16. Original timeline date retained; no date changed during bibliographic enrichment."
+    },
+    {
+      "doi": "10.1103/PhysRevE.94.052123",
+      "title": "Phonon transport in a one-dimensional harmonic chain with long-range interaction and mass disorder",
+      "journal": "Physical Review E",
+      "volume": "94",
+      "issue": "5",
+      "pages": "",
+      "articleNumber": "052123",
+      "publisher": "American Physical Society (APS)",
+      "publicationUrl": "https://link.aps.org/doi/10.1103/PhysRevE.94.052123",
+      "crossrefUrl": "https://api.crossref.org/works/10.1103/PhysRevE.94.052123",
+      "published": {
+        "date-parts": [
+          [
+            2016,
+            11,
+            15
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2016,
+            11,
+            15
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "052123",
+      "normalizedPublicationUrl": "https://link.aps.org/doi/10.1103/PhysRevE.94.052123",
+      "journalReference": "Physical Review E 94(5), Article 052123 (2016)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1557/jmr.2016.333",
+      "title": "Thermoelectric properties of phosphorene at the nanoscale",
+      "journal": "Journal of Materials Research",
+      "volume": "31",
+      "issue": "20",
+      "pages": "3179-3186",
+      "articleNumber": "",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "http://link.springer.com/10.1557/jmr.2016.333",
+      "crossrefUrl": "https://api.crossref.org/works/10.1557/jmr.2016.333",
+      "published": {
+        "date-parts": [
+          [
+            2016,
+            9,
+            23
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2016,
+            9,
+            23
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2016,
+            10,
+            28
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "3179-3186",
+      "normalizedArticleNumber": "",
+      "normalizedPublicationUrl": "https://link.springer.com/article/10.1557/jmr.2016.333",
+      "journalReference": "Journal of Materials Research 31(20), 3179–3186 (2016)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1103/PhysRevB.94.045423",
+      "title": "Quantum thermal transport in stanene",
+      "journal": "Physical Review B",
+      "volume": "94",
+      "issue": "4",
+      "pages": "",
+      "articleNumber": "045423",
+      "publisher": "American Physical Society (APS)",
+      "publicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.94.045423",
+      "crossrefUrl": "https://api.crossref.org/works/10.1103/PhysRevB.94.045423",
+      "published": {
+        "date-parts": [
+          [
+            2016,
+            7,
+            15
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2016,
+            7,
+            15
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "045423",
+      "normalizedPublicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.94.045423",
+      "journalReference": "Physical Review B 94(4), Article 045423 (2016)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1038/srep14870",
+      "title": "Boosting thermoelectric efficiency using time-dependent control",
+      "journal": "Scientific Reports",
+      "volume": "5",
+      "issue": "1",
+      "pages": "",
+      "articleNumber": "14870",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://www.nature.com/articles/srep14870",
+      "crossrefUrl": "https://api.crossref.org/works/10.1038/srep14870",
+      "published": {
+        "date-parts": [
+          [
+            2015,
+            10,
+            14
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2015,
+            10,
+            14
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "14870",
+      "normalizedPublicationUrl": "https://www.nature.com/articles/srep14870",
+      "journalReference": "Scientific Reports 5(1), Article 14870 (2015)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1063/1.4917017",
+      "title": "Effects of electron-phonon interaction on thermal and electrical transport through molecular nano-conductors",
+      "journal": "AIP Advances",
+      "volume": "5",
+      "issue": "5",
+      "pages": "",
+      "articleNumber": "053204",
+      "publisher": "AIP Publishing",
+      "publicationUrl": "https://pubs.aip.org/adv/article/5/5/053204/977841/Effects-of-electron-phonon-interaction-on-thermal",
+      "crossrefUrl": "https://api.crossref.org/works/10.1063/1.4917017",
+      "published": {
+        "date-parts": [
+          [
+            2015,
+            4,
+            2
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2015,
+            4,
+            2
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2015,
+            5,
+            1
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "053204",
+      "normalizedPublicationUrl": "https://pubs.aip.org/adv/article/5/5/053204/977841/Effects-of-electron-phonon-interaction-on-thermal",
+      "journalReference": "AIP Advances 5(5), Article 053204 (2015)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1103/PhysRevB.91.045410",
+      "title": "Thermoelectric transport through a quantum nanoelectromechanical system and its backaction",
+      "journal": "Physical Review B",
+      "volume": "91",
+      "issue": "4",
+      "pages": "",
+      "articleNumber": "045410",
+      "publisher": "American Physical Society (APS)",
+      "publicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.91.045410",
+      "crossrefUrl": "https://api.crossref.org/works/10.1103/PhysRevB.91.045410",
+      "published": {
+        "date-parts": [
+          [
+            2015,
+            1,
+            8
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2015,
+            1,
+            8
+          ]
+        ]
+      },
+      "publishedPrint": null,
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "045410",
+      "normalizedPublicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.91.045410",
+      "journalReference": "Physical Review B 91(4), Article 045410 (2015)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "doi": "10.1063/1.4901274",
+      "title": "Improved Dyson series expansion for steady-state quantum transport beyond the weak coupling limit: Divergences and resolution",
+      "journal": "The Journal of Chemical Physics",
+      "volume": "141",
+      "issue": "19",
+      "pages": "",
+      "articleNumber": "194101",
+      "publisher": "AIP Publishing",
+      "publicationUrl": "https://pubs.aip.org/jcp/article/141/19/194101/152552/Improved-Dyson-series-expansion-for-steady-state",
+      "crossrefUrl": "https://api.crossref.org/works/10.1063/1.4901274",
+      "published": {
+        "date-parts": [
+          [
+            2014,
+            11,
+            17
+          ]
+        ]
+      },
+      "publishedOnline": {
+        "date-parts": [
+          [
+            2014,
+            11,
+            17
+          ]
+        ]
+      },
+      "publishedPrint": {
+        "date-parts": [
+          [
+            2014,
+            11,
+            21
+          ]
+        ]
+      },
+      "metadataVerifiedOn": "2026-10-30",
+      "normalizedPages": "",
+      "normalizedArticleNumber": "194101",
+      "normalizedPublicationUrl": "https://pubs.aip.org/jcp/article/141/19/194101/152552/Improved-Dyson-series-expansion-for-steady-state",
+      "journalReference": "The Journal of Chemical Physics 141(19), Article 194101 (2014)",
+      "auditNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    }
+  ]
+}

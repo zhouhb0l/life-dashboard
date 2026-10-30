@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "verifiedOn": "2026-10-30",
+  "scope": "Read-only audit of project manuscripts, correspondence PDFs, revision artifacts and Git histories. User acceptance status takes precedence over older meeting statuses.",
+  "policy": "Only explicit publisher received/accepted dates and a clearly marked secondary review-receipt note become dated milestones. Artifact dates, email print dates, file modified times and Git snapshots do not establish manuscript milestone completion.",
+  "projects": [
+    {
+      "id": "recessed-contact",
+      "title": "Defect-tolerant carrier injection in MoS₂ enabled by double-sided recessed Ti contacts",
+      "shortName": "Recessed Contact",
+      "journal": "npj 2D Materials and Applications",
+      "manuscriptId": "84098ac7-7abb-4504-9cf6-661a1c68438a",
+      "authors": [
+        "Hangbo Zhou",
+        "ZhiGen Yu",
+        "Yong-Wei Zhang"
+      ],
+      "authorship": "first",
+      "authorshipNote": "First-listed author; publisher proof also marks Hangbo Zhou as a corresponding author.",
+      "doi": "10.1038/s41699-026-00751-9",
+      "sourceUrl": "https://www.nature.com/articles/s41699-026-00751-9",
+      "currentStatus": "accepted",
+      "statusAsOf": "2026-10-30",
+      "statusNote": "Acceptance is confirmed by the user and by the publisher proof. Assigned DOI is present in the proof, but no online publication date or proof-correction submission confirmation was found.",
+      "acceptedDate": "2026-10-15",
+      "proofreadDate": null,
+      "publicationDate": null,
+      "events": [
+        {
+          "id": "recessed-contact-submitted-2026-07-17",
+          "type": "submitted",
+          "date": "2026-07-17",
+          "note": "Publisher eProofing PDF says Received: 17 July 2026. This is publisher receipt; author upload may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\proofreading\\eProofing.pdf (PDF page 1)."
+        },
+        {
+          "id": "recessed-contact-accepted-2026-10-15",
+          "type": "accepted",
+          "date": "2026-10-15",
+          "note": "Publisher eProofing PDF says Accepted: 15 October 2026. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\proofreading\\eProofing.pdf (PDF page 1)."
+        }
+      ],
+      "draftArtifacts": [
+        {
+          "date": "2026-05-04",
+          "label": "Dated project pipeline and assessment already document active research",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_pipeline_recessed_contact.md",
+          "certainty": "artifact",
+          "note": "The dated plan documents existing results; it does not establish the research initialization date."
+        },
+        {
+          "date": "2026-07-03",
+          "label": "Git saves organized manuscript package and polished proof",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact",
+          "certainty": "artifact",
+          "note": "Git commit 3a77576, subject Organize manuscript package and polish proof. A saved proof is evidence of a draft by this date, not the exact initial-draft completion date."
+        },
+        {
+          "date": "2026-07-13",
+          "label": "Initial npj submission cover letter dated 13 July 2026",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\V5 submission package npj\\cover_letter_npj_2d_materials_and_applications.docx",
+          "certainty": "artifact",
+          "note": "Explicit date in document. Main DOCX and supplementary PDF are present in this package; journal receipt is separately confirmed as 17 July."
+        },
+        {
+          "date": "2026-09-04",
+          "label": "Editable first-round response draft",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\revision_V2\\response_to_reviewers_V2_editable.html",
+          "certainty": "artifact",
+          "note": "Draft date is explicitly 4 September 2026. Working-draft notice says proposed revisions and pending calculations; not proof of response submission."
+        },
+        {
+          "date": "2026-09-05",
+          "label": "First-round response letter and cover letter carry 5 September date",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\revision_V5\\response\\response letter.pdf",
+          "certainty": "artifact",
+          "note": "Document front matter states Date 5 September 2026. Later changes exist, so this is a letter date rather than a verified response submission date."
+        },
+        {
+          "date": "2026-10-04",
+          "label": "Git records round-two response work",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact",
+          "certainty": "artifact",
+          "note": "Git commit 1d7af04 Add round-two Ti-WS2 response and spectral-edge figure. This establishes round-two work by this date, not when the journal decision was delivered."
+        },
+        {
+          "date": "2026-10-13",
+          "label": "Second-round cover letter",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\revision2_V1\\cover_letter\\main.tex",
+          "certainty": "artifact",
+          "note": "Explicit date 13 October 2026; says second-round revised manuscript. No portal submission timestamp found."
+        },
+        {
+          "date": "2026-10-14",
+          "label": "Submitted round-two source downloaded from SNAPP",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\revision2_V2\\README.txt",
+          "certainty": "artifact",
+          "note": "README explicitly says submitted clean round-two manuscript and SI were downloaded from SNAPP on 14 October 2026. This confirms submission occurred by that date, not the exact submission day."
+        }
+      ],
+      "evidence": [
+        {
+          "kind": "publisher-proof",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\proofreading\\eProofing.pdf",
+          "summary": "Publisher proof supplies title, author order, received 17 July 2026, accepted 15 October 2026, and assigned DOI.",
+          "page": 1,
+          "sha256": "0177d30eceba3d0f843c5468106d7803f079db85d1fbe916898c5df2e1dbc35d"
+        },
+        {
+          "kind": "dated-cover-letter",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\revision2_V1\\cover_letter\\main.tex",
+          "summary": "Cover letter dated 13 October 2026 supplies journal, manuscript ID and round-two revision context.",
+          "sha256": "1ebe1792e2d39e34547d0da1480b44d538134cf307807b120ceaefd911813eab"
+        },
+        {
+          "kind": "submission-provenance",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact\\paper_workspace\\Manuscript\\revision2_V2\\README.txt",
+          "summary": "Submitted SNAPP baseline downloaded 14 October 2026; no exact upload date.",
+          "sha256": "c108b9bafebc613aad682eafd945fe38b2d02f0e64b5510eb809f833af743589"
+        },
+        {
+          "kind": "git-history",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\13. RecessedContact",
+          "summary": "Read-only Git history: first repository snapshot 1 July 2026; manuscript-proof commit 3 July; round-two response commit 4 October. These are repository records, not research initialization or submission timestamps."
+        }
+      ],
+      "uncertainties": [
+        "Initialization date, initial draft completion, self revision completion and first complete draft date are not established.",
+        "The exact first-round decision receipt and author response submission dates were not found.",
+        "The exact second-round decision receipt and response submission dates were not found; submitted round-two files were already in SNAPP by 14 October 2026.",
+        "Cover-letter dates 13 July, 5 September and 13 October are preserved as artifacts rather than asserted upload dates.",
+        "A publisher proof is available; proofreading completion and online publication are not dated by the available documents.",
+        "The earliest Git snapshot is later than the dated 4 May project plan, so it cannot be used as initialization."
+      ]
+    },
+    {
+      "id": "tan-thermal",
+      "title": "Vacancy-Induced Carrier Rebalancing and Phonon Filtering in Metallic θ-TaN",
+      "shortName": "TaN thermal",
+      "journal": "Materials Today Physics",
+      "journalNote": "Current manuscript identifier is MTP-D-26-02001. No original editorial cover email is present locally; the older June cover letter names Physical Review Letters as an intended earlier target.",
+      "manuscriptId": "MTP-D-26-02001",
+      "authors": [
+        "Jian Zhang",
+        "Hangbo Zhou",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "authorship": "coauthor",
+      "authorshipNote": "Hangbo Zhou is second-listed and a corresponding author in the current 24 October manuscript.",
+      "currentStatus": "accepted",
+      "statusAsOf": "2026-10-30",
+      "statusNote": "The user confirms this paper is accepted as of 30 October 2026. No dated editor acceptance letter was found in the project. TaN agreement.pdf is coauthor submission consent dated 19 July, not acceptance.",
+      "acceptedDate": null,
+      "proofreadDate": null,
+      "publicationDate": null,
+      "events": [
+        {
+          "id": "tan-thermal-reviews_received-2026-10-14",
+          "type": "reviews_received",
+          "date": "2026-10-14",
+          "note": "Secondary source: dated meeting notes explicitly say second-round reviewer PDF received 14 October 2026. Original editorial email is not available; date should be confirmed against correspondence. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\PagesOnGithub\\group-meetings\\assets\\decks\\meeting-2026-10-28\\tan-project-data.js (notes at line 213 and repeated)."
+        }
+      ],
+      "draftArtifacts": [
+        {
+          "date": "2026-03-10",
+          "label": "Earliest Git repository snapshot",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN",
+          "certainty": "artifact",
+          "note": "Git Initial commit. Research may predate this snapshot; this is not an initialization milestone."
+        },
+        {
+          "date": "2026-04-27",
+          "label": "Earliest locally retained full manuscript v1",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\v1\\Manuscript-Apr 27-ZJ.docx",
+          "certainty": "artifact",
+          "note": "Filename Apr 27 is corroborated by embedded DOCX modified timestamp 2026-04-27. This dates the artifact, not initial-draft completion."
+        },
+        {
+          "date": "2026-05-09",
+          "label": "Git saves manuscript v4 and supplement",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN",
+          "certainty": "artifact",
+          "note": "Git commit 056bb0e Prepare manuscript v4 and supplemental materials; no completion or submission declaration."
+        },
+        {
+          "date": "2026-06-02",
+          "label": "PRL-targeted cover letter",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\v11\\Cover Letter-Jun 2.docx",
+          "certainty": "artifact",
+          "note": "Explicit document date June 2, 2026. It identifies Physical Review Letters as the intended target; it does not prove a PRL submission or rejection."
+        },
+        {
+          "date": "2026-07-19",
+          "label": "Coauthor consent email",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\TaN agreement.pdf",
+          "certainty": "artifact",
+          "note": "Email Date Sun 7/19/2026 states agreement to submit the earlier-titled work. It does not state journal submission or acceptance."
+        },
+        {
+          "date": "2026-07-20",
+          "label": "Proofig image integrity report",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\TaN Proofig, AI-Powered Scientific Image Plagiarism Checker.pdf",
+          "certainty": "artifact",
+          "note": "Report explicitly dated 20/07/2026 16:59:47. Analysis date is not journal submission date."
+        },
+        {
+          "date": "2026-09-17",
+          "label": "First-round revision strategy",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\revision V1\\Response_strategy.md",
+          "certainty": "artifact",
+          "note": "Explicit Prepared 17 September 2026; says all three review pages read and no editor decision letter included. Reports themselves date reviewer activity from 28 August to 15 September, not author receipt."
+        },
+        {
+          "date": "2026-09-28",
+          "label": "First-round response draft",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\revision v2\\Response Letter-Sep 28-ZJ.docx",
+          "certainty": "artifact",
+          "note": "Filename date corroborated by embedded DOCX modified timestamp 2026-09-28; no journal upload confirmation."
+        },
+        {
+          "date": "2026-09-30",
+          "label": "Audited first-round revision package",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\audited_20260930\\README.md",
+          "certainty": "artifact",
+          "note": "Dated audit snapshot contains manuscript, supplement and response. It is package provenance rather than confirmed response submission."
+        },
+        {
+          "date": "2026-10-15",
+          "label": "Second-round response draft v1",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\revisionR2V1\\Response Letter-Oct 15-ZJ.docx",
+          "certainty": "artifact",
+          "note": "Named draft artifact; does not establish date submitted to the journal."
+        },
+        {
+          "date": "2026-10-20",
+          "label": "Second-round response draft v3",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\revisionR2V3\\Response Letter-Oct 20-ZJ.docx",
+          "certainty": "artifact",
+          "note": "Named draft artifact; does not establish date submitted to the journal."
+        },
+        {
+          "date": "2026-10-24",
+          "label": "Latest second-round response and manuscript",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\revisionR2V5\\Response Letter-Oct 24.docx",
+          "certainty": "artifact",
+          "note": "Filename date corroborated by embedded DOCX modified timestamp 2026-10-24. Latest manuscript title and authors are taken from the paired Revised Manuscript-Oct 24.docx."
+        }
+      ],
+      "evidence": [
+        {
+          "kind": "current-manuscript",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\revisionR2V5\\Revised Manuscript-Oct 24.docx",
+          "summary": "Current title and printed author order; Hangbo Zhou is second-listed and corresponding.",
+          "sha256": "0b8562efa5c21f193dae9c6c48fffd20cb07fca7aace99a3460c721319dd0499"
+        },
+        {
+          "kind": "reviewer-report",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\revision V1\\MTP-D-26-02001-reviews.pdf",
+          "summary": "First-round individual reviewer report dates: 28 August, 4 September, 10 September, 15 September 2026. Those are reviewer dates and are not imported as author decision receipt.",
+          "sha256": "eea2d9e65da590e0390b8c1d33bce4a1b1ba9da2b91aac1c0489b0310a523800"
+        },
+        {
+          "kind": "reviewer-report",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\revisionR2V1\\MTP-D-26-02001-reviews.pdf",
+          "summary": "Second-round individual reviewer report dates: 7, 11 and 12 October 2026. They are not author response submission or decision-delivery dates.",
+          "sha256": "55a926b2b138566ee64af8e93653de481d63a3985c11ccdc65c5d560bb50419d"
+        },
+        {
+          "kind": "secondary-receipt-note",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\PagesOnGithub\\group-meetings\\assets\\decks\\meeting-2026-10-28\\tan-project-data.js",
+          "summary": "Prepared meeting source notes explicitly record reviewer PDF received 14 October 2026; primary decision email missing.",
+          "line": 213,
+          "sha256": "cd8d3ae59b54d3eb8b0a808b0667cb3927fed271d9671e7cec044c7f5ae27faf"
+        },
+        {
+          "kind": "coauthor-consent",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN\\manuscript\\TaN agreement.pdf",
+          "summary": "19 July 2026 coauthor agreement to submit; not an acceptance letter.",
+          "sha256": "efbffe64e8cba5675c746a3a369a9f277a9b457ce836968bc71534662cf9dc9c"
+        },
+        {
+          "kind": "user-status",
+          "path": "Current chat, 30 October 2026",
+          "summary": "User says TaN is accepted. Exact acceptance day is unknown."
+        },
+        {
+          "kind": "git-history",
+          "path": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\14. TaN",
+          "summary": "Read-only Git history begins 10 March 2026; manuscript commits begin 9 May; newest tracked manuscript updates 29 September. No submission or acceptance commits."
+        }
+      ],
+      "uncertainties": [
+        "Exact acceptance date is unknown; keep accepted status separately from dated milestones.",
+        "Exact initial submission date to Materials Today Physics is unknown. The 19 July consent and 20 July report do not prove it.",
+        "PRL cover letter dated 2 June shows a historical target only. Do not create PRL submitted/rejected milestones without confirmation.",
+        "Initialization, initial draft completion, self revision completion, final first-draft completion and submission package completion dates are unconfirmed.",
+        "First reviewer decision receipt is undated locally. Individual reviewer reports are not the date feedback reached the author.",
+        "First and second response submission dates are unconfirmed; document filename dates are artifact dates only.",
+        "The 14 October review-return event uses a secondary meeting note and needs comparison with the editorial email.",
+        "No proofreading completion or online publication date was found."
+      ]
+    }
+  ]
+}

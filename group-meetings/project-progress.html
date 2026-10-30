@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A local research workspace for paper milestones, submission rounds, and time spent writing, reviewing, and responding.">
+  <title>Paper Progress · Research Workspace</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/project-tracker/tracker.css">
+  <script defer src="assets/project-tracker/model.js"></script>
+  <script defer src="assets/project-tracker/seed-data.js"></script>
+  <script defer src="assets/project-tracker/access.js"></script>
+  <script defer src="assets/project-tracker/tracker.js"></script>
+</head>
+<body class="tracker-locked">
+  <main class="tracker-access-gate" id="tracker-access-gate" aria-labelledby="tracker-gate-title">
+    <div class="tracker-gate-card">
+      <p class="eyebrow">RESEARCH WORKSPACE</p>
+      <h1 id="tracker-gate-title">Paper progress</h1>
+      <p class="tracker-gate-copy">Enter the group-meeting passcode to open your project timelines.</p>
+      <form class="tracker-gate-form" id="tracker-access-form">
+        <label for="tracker-passcode">Passcode</label>
+        <div class="tracker-gate-row"><input id="tracker-passcode" type="password" autocomplete="current-password" required aria-describedby="tracker-access-error"><button class="button primary" type="submit">Open tracker</button></div>
+        <p class="gate-error" id="tracker-access-error" role="alert" aria-live="polite"></p>
+      </form>
+      <a class="backarchive" href="index.html">← Group meetings</a>
+      <noscript><p>Enable JavaScript to unlock the tracker and view your timelines.</p></noscript>
+    </div>
+  </main>
+  <div class="app-shell" id="tracker-workspace" hidden>
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <a class="brand" href="project-progress.html"><span class="brand-mark" aria-hidden="true">r.</span><span class="brand-name">Research<span>Personal workspace</span></span></a>
+      <p class="workspace-label">WORKSPACE</p>
+      <nav>
+        <a class="nav-link active" href="#timeline-section" aria-current="page"><span aria-hidden="true">▦</span> Paper timelines</a>
+        <a class="nav-link" href="#focus-section"><span aria-hidden="true">◎</span> Current focus</a>
+        <a class="nav-link" href="#publications-section"><span aria-hidden="true">≡</span> Published papers</a>
+        <button class="nav-link" id="data-button" type="button"><span aria-hidden="true">⇅</span> Data &amp; backup</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <p class="workspace-label">THE PAPER JOURNEY</p>
+        <div class="legend sidebar-legend">
+          <span class="legend-item"><i class="dot phase-writing"></i>Research &amp; writing</span>
+          <span class="legend-item"><i class="dot phase-preparation"></i>Submission preparation</span>
+          <span class="legend-item"><i class="dot phase-review"></i>Journal review</span>
+          <span class="legend-item"><i class="dot phase-response"></i>Revision &amp; response</span>
+          <span class="legend-item"><i class="dot phase-production"></i>Production</span>
+        </div>
+        <a class="nav-link archive-link" href="index.html"><span aria-hidden="true">↗</span> Meeting archive</a>
+        <p class="data-note">A quiet place to see<br>your research move forward.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <p class="breadcrumb">Workspace <span>/</span> <strong>Paper progress</strong></p>
+        <div class="topbar-actions"><span class="storage-status" id="storage-status">● Local workspace</span><button class="button secondary small" id="export-button" type="button">↓ Export data</button><button class="button secondary small" id="tracker-lock-button" type="button">Lock</button></div>
+      </header>
+      <section class="page-heading" aria-labelledby="page-title">
+        <div><p class="eyebrow">FROM FIRST IDEA TO PUBLICATION</p><h1 id="page-title">Every paper. One timeline.</h1><p class="intro">See what is moving, what is waiting, and what needs you next.</p></div>
+        <div class="heading-actions"><span class="date-stamp" id="today-stamp"></span><button class="button primary" id="new-project" type="button">＋ New paper</button></div>
+      </section>
+
+      <div class="onboarding-banner" id="onboarding-banner"><div><strong>Recent work and your publication history.</strong><p>Historical papers are loaded from your publication PDFs. Add draft and reviewer-return dates when you have them.</p></div><button class="button secondary small" id="demo-button" type="button">Explore an example ↗</button></div>
+      <div class="demo-banner" id="demo-banner" hidden><div><strong>Example workspace</strong><p>Fictional papers and dates to show how the tracker works. Your project data is kept separately.</p></div><button class="button secondary small" id="exit-demo" type="button">Return to my projects</button></div>
+      <div class="stats-grid" id="stats" aria-label="Portfolio overview"></div>
+
+      <section class="panel" id="focus-section" aria-labelledby="focus-title">
+        <div class="panel-header"><div><p class="eyebrow">CURRENT FOCUS</p><h2 class="panel-title" id="focus-title">On your desk</h2><p class="panel-copy">Your active writing, revisions, and preparation. Pin any paper to keep it here.</p></div><span id="focus-count" class="pill"></span></div>
+        <div class="focus-grid" id="focus-list"></div>
+      </section>
+
+      <section class="panel timeline-panel" id="timeline-section" aria-labelledby="timeline-title">
+        <div class="panel-header"><div><p class="eyebrow">PROJECT TIMELINES</p><h2 class="panel-title" id="timeline-title">The big picture</h2><p class="panel-copy">Time flows left to right → Newer work first; earlier papers below.</p></div><label class="range-label"><span class="sr-only">Timeline date range</span><select id="date-range"><option value="auto">Adaptive · active work</option><option value="180">Last 6 months</option><option value="365">Last year</option><option value="730">Last 2 years</option><option value="all">Full publication history</option><option value="custom">Choose dates…</option></select></label></div>
+        <div class="timeline-window-tools"><div class="authorship-filters segmented" aria-label="Filter by authorship"><button type="button" data-role="all" class="active" aria-pressed="true">All authorships</button><button type="button" data-role="first" aria-pressed="false">First author</button><button type="button" data-role="coauthor" aria-pressed="false">Co-author</button><button type="button" data-role="unknown" aria-pressed="false">Not set</button></div><div class="timeline-navigation"><button class="icon-button" id="period-prev" type="button" aria-label="Previous time window">←</button><span class="range-summary" id="range-summary"></span><button class="icon-button" id="period-next" type="button" aria-label="Next time window">→</button></div></div>
+        <div class="custom-range" id="custom-range" hidden><label>From <input type="date" id="range-start" min="1000-01-01"></label><label>To <input type="date" id="range-end" min="1000-01-01"></label><button type="button" class="button secondary small" id="apply-range">Apply dates</button><span class="form-error" id="range-error" role="alert"></span></div>
+        <div class="timeline-tools"><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search papers</span><input id="search" type="search" placeholder="Find a paper…"></label><div class="segmented" aria-label="Filter papers"><button type="button" data-filter="all" class="active" aria-pressed="true">All papers</button><button type="button" data-filter="working" aria-pressed="false">In progress</button><button type="button" data-filter="review" aria-pressed="false">In review</button><button type="button" data-filter="published" aria-pressed="false">Published</button></div></div>
+        <div class="timeline-archive pending-projects" id="timeline-pending" hidden></div>
+        <div class="timeline-scroll" tabindex="0" role="region" aria-label="Horizontal paper timelines; scroll left and right to explore dates"><div class="timeline-canvas" id="timeline"></div></div>
+        <div class="timeline-archive" id="timeline-archive" hidden></div>
+        <div class="journey-legend" aria-label="The paper story from initialization to publication"><span class="journey-key"><i class="key-initialized" aria-hidden="true">○</i>Initialization</span><span aria-hidden="true">→</span><span class="journey-key"><i class="key-submitted" aria-hidden="true">↑</i>First submission</span><span aria-hidden="true">→</span><span class="journey-key"><i class="key-accepted" aria-hidden="true">★</i>Accepted</span><span aria-hidden="true">→</span><span class="journey-key"><i class="key-published" aria-hidden="true">✓</i>Publication</span></div>
+        <div class="timeline-footer"><div class="legend"><span class="legend-item"><i class="dot phase-writing"></i>Research &amp; writing</span><span class="legend-item"><i class="dot phase-preparation"></i>Submission preparation</span><span class="legend-item"><i class="dot phase-review"></i>Journal process</span><span class="legend-item"><i class="dot phase-response"></i>Response</span><span class="legend-item"><i class="dot phase-production"></i>Production</span><span class="legend-item"><i class="milestone-kind" aria-hidden="true"></i>Document / journal activity</span></div><p>Colored bars show recorded periods. Add the start and draft dates to show writing and preparation. Large labeled marks identify the four key dates; gray triangles show supporting records.</p></div>
+      </section>
+
+      <section class="panel" id="publications-section" aria-labelledby="publications-title">
+        <div class="panel-header"><div><p class="eyebrow">PUBLICATION LIBRARY</p><h2 class="panel-title" id="publications-title">Published papers</h2><p class="panel-copy">Full titles, authors, and journal references. Select a title to open the publication page.</p></div><span class="pill" id="publication-count"></span></div>
+        <div class="publication-tools"><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search publication details</span><input type="search" id="publication-search" placeholder="Search title, author, journal, or DOI…"></label><label class="range-label"><span class="sr-only">Publication authorship</span><select id="publication-role"><option value="all">All authorships</option><option value="first">First author</option><option value="coauthor">Co-author</option><option value="unknown">Not set</option></select></label></div>
+        <div class="publication-library" id="publication-library"></div>
+      </section>
+
+      <section class="helper-panel" aria-labelledby="entry-title"><div><p class="eyebrow">KEEP IT SIMPLE</p><h2 id="entry-title">A few dates tell the whole story.</h2><p>Enter milestones as they happen. Each new submission or response adds another round, keeping the full history.</p></div><div class="helper-grid"><div class="helper-step"><span class="helper-number">01</span><strong>Add your dates</strong><p>Edit a paper, or paste a dated timeline.</p></div><div class="helper-step"><span class="helper-number">02</span><strong>See time add up</strong><p>Review and response days are calculated for you.</p></div><div class="helper-step"><span class="helper-number">03</span><strong>Keep a copy</strong><p>Export a JSON backup to move or share your data.</p></div></div></section>
+      <footer class="page-footer"><span id="project-count"></span><span>Saved in this browser · No account needed · <button type="button" class="text-link" id="footer-demo">View example</button></span></footer>
+      <noscript><p>This tracker needs JavaScript enabled to edit and display timelines.</p></noscript>
+    </main>
+  </div>
+
+  <dialog class="modal" id="project-dialog" aria-labelledby="editor-title">
+    <form id="project-form">
+      <div class="modal-header"><div><p class="eyebrow">PAPER DETAILS</p><h2 id="editor-title">New paper</h2></div><button type="button" class="icon-button" data-close="project-dialog" aria-label="Close paper editor">×</button></div>
+      <div class="modal-body">
+        <div class="form-grid"><div class="field full"><label for="project-title">Paper / project name</label><input id="project-title" required maxlength="300" placeholder="Give your paper a name"></div><div class="field"><label for="project-short-name">Short display name <span class="optional">optional</span></label><input id="project-short-name" maxlength="100" placeholder="For the timeline and focus cards"></div><div class="field"><label for="project-journal">Target / current journal <span class="optional">optional</span></label><input id="project-journal" maxlength="300" placeholder="e.g. Physical Review B"></div><div class="field"><label for="project-authorship">My authorship / workload</label><select id="project-authorship"><option value="unknown">Not set yet</option><option value="first">First author · lead the paper</option><option value="coauthor">Co-author · contributing role</option></select></div><label class="checkbox-field"><input id="project-focus" type="checkbox"> Pin to current focus</label><div class="field full"><label for="project-notes">What are you working on? <span class="optional">optional</span></label><textarea id="project-notes" rows="2" maxlength="20000" placeholder="Your next task, a reminder, or project context"></textarea></div></div>
+        <details class="bibliography-fields"><summary>Publication details &amp; source</summary><div class="form-grid"><div class="field"><label for="publication-year">Publication year <span class="optional">if known</span></label><input id="publication-year" type="number" min="1000" max="9999" placeholder="e.g. 2014"></div><div class="field"><label for="publication-doi">DOI <span class="optional">optional</span></label><input id="publication-doi" maxlength="300" placeholder="10.…"></div><div class="field full"><label for="publication-authors">Authors <span class="optional">one per line</span></label><textarea id="publication-authors" rows="3"></textarea></div><div class="field full"><label for="publication-source">Source URL</label><input id="publication-source" maxlength="2000" type="url" placeholder="https://doi.org/…"></div><div class="field full"><label for="publication-source-note">Source / date precision notes</label><textarea id="publication-source-note" rows="3" maxlength="10000"></textarea></div></div><p class="form-hint">A year alone marks a published paper without inventing a day or research start date. The year band shows date uncertainty, not time spent on the paper.</p></details>
+        <div class="status-fields"><h3>Current status</h3><p class="form-hint">Confirm where the project stands even if the date it entered this stage is unknown. This does not create a milestone date.</p><div class="form-grid"><div class="field"><label for="project-current-status">Current stage</label><select id="project-current-status"><option value="">Use dated milestones</option></select></div><div class="field"><label for="project-status-date">Status confirmed on</label><input id="project-status-date" type="date" min="1000-01-01"></div><div class="field"><label for="project-status-label">Status display label</label><input id="project-status-label" maxlength="150" placeholder="e.g. Manuscript in revision"></div><div class="field"><label for="project-manuscript-id">Manuscript ID <span class="optional">optional</span></label><input id="project-manuscript-id" maxlength="200"></div><div class="field"><label for="project-submission-state">Submission status</label><select id="project-submission-state"><option value="">Use milestone evidence</option><option value="not_submitted">Not submitted</option><option value="submitted">Submitted to a journal</option></select></div><div class="field"><label for="project-kind">Type of work</label><select id="project-kind"><option value="paper">Paper</option><option value="book">Book</option></select></div><div class="field full"><label for="project-status-note">Status evidence / note</label><textarea id="project-status-note" rows="2" maxlength="10000"></textarea></div></div></div>
+        <details class="record-list" id="project-records"><summary id="project-record-count">Dated records &amp; journal activity</summary><p class="form-hint">Document dates and journal activity are kept here without changing the measured work phase. Revision requests and author submissions appear as milestones below.</p><div id="project-record-list"></div></details>
+        <div class="editor-section-heading"><div><h3>Milestones</h3><p class="form-hint">Record completed milestones. The submission package includes the cover letter. Add another submission, review, or response for each round.</p></div><button class="button secondary small" id="add-event" type="button">＋ Add milestone</button></div>
+        <div class="event-list-head" aria-hidden="true"><span>Date</span><span>Milestone</span><span>Journal / round / note</span><span></span></div><div id="event-list" class="event-list"></div><p class="interval-summary" id="editor-summary"></p>
+        <details class="paste-details"><summary>Paste a timeline instead</summary><p class="form-hint">One dated milestone per line. Use YYYY-MM-DD | milestone | optional note. English and Chinese milestone names are supported. Preview before adding.</p><label for="timeline-text" class="sr-only">Dated milestone text</label><textarea id="timeline-text" rows="5" spellcheck="false" placeholder="2026-04-01 | initialized&#10;2026-05-12 | initial draft&#10;2026-06-01 | submitted | Journal A · round 1&#10;2026-07-10 | reviews received&#10;2026-07-28 | response submitted"></textarea><div class="paste-actions"><button class="button secondary small" id="preview-text" type="button">Preview dates</button><button class="button primary small" id="apply-text" type="button" hidden>Append milestones</button></div><div id="text-preview" class="import-preview" aria-live="polite"></div></details>
+        <p class="form-error" id="project-error" role="alert"></p>
+      </div>
+      <div class="modal-footer"><button class="button danger small" type="button" id="delete-project" hidden>Delete paper</button><span class="footer-spacer"></span><button type="button" class="button secondary" data-close="project-dialog">Cancel</button><button class="button primary" type="submit">Save paper</button></div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="data-dialog" aria-labelledby="data-title"><div class="modal-header"><div><p class="eyebrow">YOUR LOCAL WORKSPACE</p><h2 id="data-title">Data &amp; backup</h2></div><button class="icon-button" data-close="data-dialog" type="button" aria-label="Close data and backup">×</button></div><div class="modal-body"><p>Your changes are saved in this browser on this device. Export a backup before clearing browser data or moving to another browser.</p><div class="data-actions"><button class="button secondary" id="data-export" type="button">↓ Export my workspace</button><button class="button secondary" id="restore-seed" type="button">Load project file data</button></div><p class="form-hint">You can send the exported JSON, or just paper names and dated milestones, in chat for help filling it in. “Load project file data” reads the dataset supplied with this page.</p><hr><h3>Import a workspace</h3><p class="form-hint">Choose a tracker JSON backup. Preview it, then merge by paper ID or replace the workspace. Your previous workspace is kept for one-step recovery.</p><label for="import-file" class="sr-only">Choose a JSON backup</label><input id="import-file" type="file" accept=".json,application/json"><div id="backup-preview" class="import-preview" aria-live="polite"></div><div class="data-actions" id="import-actions" hidden><button type="button" class="button primary" id="merge-backup">Merge papers</button><button type="button" class="button secondary" id="replace-backup">Replace workspace</button></div><p class="form-error" id="data-error" role="alert"></p><hr><button class="text-link" id="undo-workspace" type="button">Restore the previous workspace</button><p class="form-hint">Available after an import, file-data load, or paper deletion.</p></div><div class="modal-footer"><button type="button" class="button secondary" data-close="data-dialog">Done</button></div></dialog>
+  <dialog class="modal publication-dialog" id="publication-dialog" aria-labelledby="publication-detail-title">
+    <div class="modal-header"><div><p class="eyebrow">PUBLISHED PAPER</p><span id="publication-detail-role"></span></div><button class="icon-button" type="button" data-close="publication-dialog" aria-label="Close publication details">×</button></div>
+    <div class="modal-body"><h2 class="publication-detail-title" id="publication-detail-title"></h2><p class="publication-detail-authors" id="publication-detail-authors"></p><dl class="publication-facts" id="publication-facts"></dl><h3>Full citation</h3><label class="sr-only" for="publication-citation">Formatted publication citation</label><textarea class="citation-box" id="publication-citation" readonly rows="5"></textarea><div class="publication-actions"><button type="button" class="button secondary small" id="detail-copy-citation">Copy citation</button></div><details class="publication-detail-history"><summary>Recorded manuscript dates &amp; sources</summary><div id="publication-detail-history"></div></details></div>
+    <div class="modal-footer"><button type="button" class="button secondary" id="detail-edit-paper">Edit paper / timeline</button><span class="footer-spacer"></span><a class="button primary" id="detail-publication-link" target="_blank" rel="noopener noreferrer">Open publication ↗</a></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

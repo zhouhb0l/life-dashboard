@@ -1,0 +1,222 @@
+{
+  "projects": [
+    {
+      "id": "phonon-susceptibility",
+      "title": "Defect response theory for phonon transmission loss",
+      "shortName": "Phonon susceptibility",
+      "journal": "National Science Review",
+      "authors": [
+        "Hangbo Zhou",
+        "Jian Zhang",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "authorship": "first",
+      "manuscriptId": "NSR_MS-2026-2621",
+      "events": [],
+      "currentStatus": "response_submitted",
+      "statusAsOf": "2026-10-30",
+      "statusNote": "User confirms the reviewer response has been submitted. Awaiting the next journal decision as of 30 October 2026. The exact response-submission date was not established from local files; cover-letter dates are retained as artifacts, not lifecycle completion dates.",
+      "evidence": [
+        {
+          "kind": "user_status",
+          "date": "2026-10-30",
+          "source": "Current Codex chat",
+          "location": "User-provided current status",
+          "excerpt": "Phonon response submitted.",
+          "supports": "Current state is response_submitted; use this authoritative status.",
+          "limitation": "The date is when the state was confirmed, not the unknown upload date."
+        },
+        {
+          "kind": "manuscript_metadata",
+          "date": null,
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\17. PhononSusceptibility\\paper\\V5_NSR\\Main_Manuscript.tex",
+          "location": "Lines 19–27",
+          "excerpt": "\\title{Defect response theory for phonon transmission loss}; authors: Hangbo Zhou, Jian Zhang, Gang Zhang, Yong-Wei Zhang.",
+          "supports": "Full title, ordered author list, and first authorship.",
+          "limitation": "The manuscript's received/revised/accepted fields are empty."
+        },
+        {
+          "kind": "manuscript_identifier",
+          "date": null,
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\17. PhononSusceptibility\\paper\\revisionV1\\README.txt",
+          "location": "Opening manuscript/journal/identifier block",
+          "excerpt": "Journal: National Science Review; Manuscript ID: NSR_MS-2026-2621.",
+          "supports": "Journal and manuscript ID; a real reviewer-revision workspace exists.",
+          "limitation": "No journal receipt or decision date appears in this identifier block."
+        },
+        {
+          "kind": "dated_cover_letter_artifact",
+          "date": "2026-07-30",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\17. PhononSusceptibility\\paper\\V5_NSR\\Cover_Letter.pdf",
+          "location": "Page 1; matching date/text in Cover_Letter.docx",
+          "excerpt": "30 July 2026. We submit the Research Article entitled “Defect response theory for phonon transmission loss” for consideration in National Science Review.",
+          "supports": "Dated initial-submission cover-letter/package artifact and intended journal.",
+          "limitation": "A cover-letter date is not proof of journal upload, submission-package completion, or the submission date; it is excluded from events."
+        },
+        {
+          "kind": "dated_revision_cover_letter_artifact",
+          "date": "2026-10-26",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\17. PhononSusceptibility\\paper\\revisionV1\\cover letter\\cover_letter.tex",
+          "location": "Lines 28 and 38–44; matching one-page cover_letter.pdf",
+          "excerpt": "26 October 2026. Thank you for the opportunity to revise ... (Manuscript ID: NSR_MS-2026-2621). We have addressed all six comments and provide a detailed point-by-point response.",
+          "supports": "Dated revision cover-letter artifact, manuscript ID, and prepared point-by-point response.",
+          "limitation": "The document is not a resubmission receipt and does not establish the exact response-submission date."
+        },
+        {
+          "kind": "explicit_revision_work_log",
+          "date": "2026-10-22",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\17. PhononSusceptibility\\paper\\revisionV1\\README.txt",
+          "location": "Comment 1.1 relaxation and NEP assessment, beginning at line 155",
+          "excerpt": "Updated on 22 October 2026 using Response Letter-Oct 21-ZJ.docx.",
+          "supports": "Revision work was explicitly documented on this date.",
+          "limitation": "This is a revision-work date, not the date reviews were returned or the response submitted; the source filename's Oct 21 is not used as a completion date."
+        },
+        {
+          "kind": "coauthor_approval_email",
+          "date": "2026-07-19",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\17. PhononSusceptibility\\paper\\chi agreement.pdf",
+          "location": "One-page Outlook email printout; email Date field",
+          "excerpt": "Date Sun 7/19/2026 1:52 PM. I agree to submit the work titled \"Defect response theory for phonon transmission loss\". Jian Zhang.",
+          "supports": "Dated coauthor submission approval.",
+          "limitation": "Approval is not submission; the 7/20/26 print footer is not the email's sent date."
+        },
+        {
+          "kind": "dated_draft_artifact",
+          "date": "2026-07-16",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\17. PhononSusceptibility\\paper\\main_phonon_susceptibility report.pdf",
+          "location": "Embedded manuscript dated line; report cover records scan 18 July 2026",
+          "excerpt": "(Dated: July 16, 2026). Similarity-service Submission Date Jul 18, 2026, 2:17 PM GMT+8.",
+          "supports": "A dated manuscript artifact existed by the 18 July similarity scan.",
+          "limitation": "The embedded date does not identify the first draft's completion. The report's Submission Date belongs to the similarity checker, not the journal."
+        },
+        {
+          "kind": "quality_check_artifact",
+          "date": "2026-07-22",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\17. PhononSusceptibility\\paper\\chi report .pdf",
+          "location": "Report cover and embedded manuscript dated line",
+          "excerpt": "Submission Date Jul 22, 2026, 1:29 PM GMT+8; embedded manuscript (Dated: July 22, 2026).",
+          "supports": "A later dated draft was checked for similarity.",
+          "limitation": "Similarity-check upload and manuscript internal date are not journal milestones."
+        },
+        {
+          "kind": "git_import_artifact",
+          "date": "2026-05-18",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\17. PhononSusceptibility",
+          "location": "git log HEAD --reverse; commit ec7b743",
+          "excerpt": "ec7b743 2026-05-18 Initial phonon susceptibility project.",
+          "supports": "Earliest reachable Git import in the inspected repository.",
+          "limitation": "Import date is not paper initialization, and earlier work may predate Git. No file modification timestamps were used."
+        }
+      ],
+      "uncertainties": [
+        "No project AGENTS.md was present at the project root or found by a hidden-file AGENTS.md search; workspace/AGENTS.md was also absent. Research was read-only outside the group-meetings repository.",
+        "No local journal acknowledgment, actual submission receipt, dated editorial decision letter, or response-upload receipt was found.",
+        "Initialization, initial draft completion, first self revision, first-draft completion, and submission-package completion dates remain unknown.",
+        "The initial journal submission date and review-return date remain unknown. The 30 July cover letter and revision material provide artifacts only.",
+        "The response has been submitted according to the user, but its exact date is unknown; 26 October is the revision cover-letter date only.",
+        "Accepted, proofreading, and publication milestones are not established.",
+        "git log --all encounters stale refs/codex checkpoint objects; git log HEAD works. Repository history was not repaired or changed."
+      ]
+    },
+    {
+      "id": "non-gaussian-bounds",
+      "title": "Universal Bounds on Non-Gaussian Fluctuations in Coherent Transport",
+      "shortName": "Universal non-Gaussian bounds",
+      "journal": "Physical Review Letters",
+      "authors": [
+        "Hangbo Zhou",
+        "Yong-Wei Zhang"
+      ],
+      "authorship": "first",
+      "manuscriptId": "",
+      "events": [],
+      "currentStatus": "submitted",
+      "statusAsOf": "2026-10-30",
+      "statusNote": "User confirms this LMT paper is under journal review as of 30 October 2026. The local PRL cover letter is dated 9 September 2026, but no journal submission acknowledgment was found, so that date is recorded only as a submission-package artifact.",
+      "evidence": [
+        {
+          "kind": "user_status",
+          "date": "2026-10-30",
+          "source": "Current Codex chat",
+          "location": "User-provided current status",
+          "excerpt": "LMT under review 30 October 2026.",
+          "supports": "Current state is submitted/under review.",
+          "limitation": "This confirms the current state, not its unknown starting date."
+        },
+        {
+          "kind": "submission_metadata",
+          "date": null,
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\29. P08_LMT\\paper\\V6\\SUBMISSION_METADATA.txt",
+          "location": "Manuscript title and numbered Authors sections",
+          "excerpt": "Manuscript title: Universal Bounds on Non-Gaussian Fluctuations in Coherent Transport. 1. Hangbo Zhou. 2. Yong-Wei Zhang.",
+          "supports": "Full title, ordered author list, and first authorship.",
+          "limitation": "This metadata document contains no journal submission date or manuscript ID."
+        },
+        {
+          "kind": "dated_submission_cover_letter_artifact",
+          "date": "2026-09-09",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\29. P08_LMT\\paper\\V6\\PRL_Cover_Letter.docx",
+          "location": "Opening heading, date, and first paragraph",
+          "excerpt": "Manuscript Submission to Physical Review Letters. September 9, 2026. We submit our manuscript ... by Hangbo Zhou and Yong-Wei Zhang ... in Physical Review Letters.",
+          "supports": "Explicitly dated PRL submission-cover-letter artifact and journal.",
+          "limitation": "A cover-letter date alone does not prove the date of journal upload or completion; it is excluded from lifecycle events."
+        },
+        {
+          "kind": "journal_intent",
+          "date": null,
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\29. P08_LMT\\paper\\V6\\COVER_LETTER.md",
+          "location": "Opening submission paragraph",
+          "excerpt": "We submit our manuscript, \"Universal Bounds on Non-Gaussian Fluctuations in Coherent Transport,\" ... as a Letter in Physical Review Letters.",
+          "supports": "PRL is the submission package's intended journal, consistent with the DOCX.",
+          "limitation": "This Markdown version is undated and is not journal correspondence."
+        },
+        {
+          "kind": "dated_manuscript_artifact",
+          "date": "2026-08-24",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\29. P08_LMT\\paper\\V6\\main.tex",
+          "location": "Lines 22–29; same internal date in V5/main.tex",
+          "excerpt": "\\title{Universal Bounds on Non-Gaussian Fluctuations in Coherent Transport}; \\date{\\revblue{August 24, 2026}}.",
+          "supports": "A dated manuscript version with the current title and two authors.",
+          "limitation": "The date is an internal manuscript date and cannot establish first-draft completion or submission. Git records later edits on 27 August."
+        },
+        {
+          "kind": "earlier_draft_artifact",
+          "date": "2026-08-05",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\29. P08_LMT\\paper\\V1\\main.tex",
+          "location": "Lines 30–32",
+          "excerpt": "Landauer moment tomography exposes elastic doppelgangers in correlated transport; \\date{5 August 2026}.",
+          "supports": "An earlier named draft of the same LMT project existed with an explicit internal date.",
+          "limitation": "This earlier draft has an empty author field and a different title; it does not establish initialization or exact first-draft completion."
+        },
+        {
+          "kind": "quality_check_artifact",
+          "date": "2026-09-09",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\29. P08_LMT\\paper\\Report 2 pct Non Gaussian noise.pdf",
+          "location": "Report cover; embedded manuscript date line",
+          "excerpt": "Submission Date Sep 9, 2026, 2:57 PM GMT+8; embedded manuscript (Dated: August 24, 2026).",
+          "supports": "A manuscript was uploaded to the similarity checker on the same day as the cover-letter date.",
+          "limitation": "This service's Submission Date is not a PRL journal-submission receipt."
+        },
+        {
+          "kind": "git_import_artifact",
+          "date": "2026-08-27",
+          "source": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\29. P08_LMT",
+          "location": "git log HEAD --reverse; commit 7242df2; latest paper commit 4aa2478",
+          "excerpt": "7242df2 2026-08-27 Initial project import: code, manuscript, figures, and plotting data. Later same-day commits include Correct manuscript bibliography entries.",
+          "supports": "Reachable version-control import and manuscript-edit evidence.",
+          "limitation": "Git import/edit dates are not initialization, draft-completion, or submission dates. No file modification timestamps were used."
+        }
+      ],
+      "uncertainties": [
+        "No project AGENTS.md was present or found by a hidden-file search; the project has no .agents directory, and workspace/AGENTS.md was absent. Research was read-only outside the group-meetings repository.",
+        "No actual PRL submission acknowledgment, manuscript ID, or dated editorial correspondence was found locally.",
+        "Initialization, first draft completion, self revision, first complete draft, package completion, and journal submission dates remain unknown.",
+        "The 5 August and 24 August dates are internal draft dates; 9 September is a dated cover letter and similarity-check artifact, not independently confirmed journal submission.",
+        "User confirms under-review state as of 30 October 2026; no reviewer-return or response-submission date has been established.",
+        "Accepted, proofreading, and publication milestones are not established.",
+        "git log --all encounters stale refs/codex checkpoint objects; git log HEAD works. Repository history was not repaired or changed."
+      ]
+    }
+  ]
+}

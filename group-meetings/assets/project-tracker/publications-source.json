@@ -1,0 +1,1919 @@
+{
+  "version": 1,
+  "person": {
+    "name": "Hangbo Zhou",
+    "orcid": "0000-0001-8558-1999"
+  },
+  "verifiedOn": "2026-10-30",
+  "sourceNote": "31 local published article PDFs plus one additional published article verified from existing publisher metadata. Two thesis PDFs excluded. First/coauthor classification follows printed author order; explicit equal contributions noted. No initialization, draft or reviewer-return dates invented. Citation/issue year retained separately from exact first-online date.",
+  "sourceFolder": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers",
+  "excluded": [
+    {
+      "file": "2011 FYP thesis.pdf",
+      "reason": "Thesis, not a published journal article."
+    },
+    {
+      "file": "2016 Thesis.pdf",
+      "reason": "Thesis, not a published journal article."
+    }
+  ],
+  "publications": [
+    {
+      "id": "pub-10-1021-acs-nanolett-6c03959",
+      "title": "Nonlocal Electrostatic Origin of Schottky-Barrier Variability in 2D Contacts",
+      "authors": [
+        "Hangbo Zhou",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2026,
+      "doi": "10.1021/acs.nanolett.6c03959",
+      "journal": "Nano Letters",
+      "sourceUrl": "https://doi.org/10.1021/acs.nanolett.6c03959",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\PagesOnGithub\\output\\jx-nanoletters-published-metadata.json",
+      "sourceNote": "Verified publisher-deposited Crossref metadata already saved locally and full publication citation in meeting-2026-10-28.html. Published-online date only; initialization, submission and review history unknown.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-nonlocal-sbh-published-2026-09-16",
+          "type": "published",
+          "date": "2026-09-16",
+          "note": "Crossref publisher-deposited published-online date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\PagesOnGithub\\output\\jx-nanoletters-published-metadata.json",
+          "journal": "Nano Letters",
+          "sourceDateLabel": "published-online",
+          "sourceUrl": "https://doi.org/10.1021/acs.nanolett.6c03959"
+        }
+      ],
+      "volume": "26",
+      "issue": "38",
+      "pages": "13130-13135",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/nalefd/article/26/38/13130/5430890/Nonlocal-Electrostatic-Origin-of-Schottky-Barrier",
+      "metadataSource": "https://api.crossref.org/works/10.1021/acs.nanolett.6c03959",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Nano Letters 26(38), 13130–13135 (2026)",
+      "citationText": "Hangbo Zhou, Yong-Wei Zhang. Nonlocal Electrostatic Origin of Schottky-Barrier Variability in 2D Contacts. Nano Letters 26(38), 13130–13135 (2026). https://doi.org/10.1021/acs.nanolett.6c03959",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1039-d5nr02232k",
+      "title": "Defect engineering and hydrogen-induced reversibility in metallic states of MoS2 grain boundaries",
+      "authors": [
+        "Hangbo Zhou",
+        "Viacheslav Sorkin",
+        "ZhiGen Yu",
+        "Kah-Wee Ang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2025,
+      "doi": "10.1039/d5nr02232k",
+      "journal": "Nanoscale",
+      "sourceUrl": "https://doi.org/10.1039/d5nr02232k",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1039-d5nr02232k-submitted-2025-05-27",
+          "type": "submitted",
+          "date": "2025-05-27",
+          "note": "Received (2025-05-27). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf",
+          "journal": "Nanoscale",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf"
+        },
+        {
+          "id": "pub-10-1039-d5nr02232k-accepted-2025-08-14",
+          "type": "accepted",
+          "date": "2025-08-14",
+          "note": "Accepted (2025-08-14). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf",
+          "journal": "Nanoscale",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf"
+        },
+        {
+          "id": "pub-10-1039-d5nr02232k-published-2025-08-14",
+          "type": "published",
+          "date": "2025-08-14",
+          "note": "Published online (2025-08-14). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf",
+          "journal": "Nanoscale",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2 defect and H.pdf"
+        }
+      ],
+      "volume": "17",
+      "issue": "38",
+      "pages": "22226-22234",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/nr/article/17/38/22226-22234/901399",
+      "metadataSource": "https://api.crossref.org/works/10.1039/d5nr02232k",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Nanoscale 17(38), 22226–22234 (2025)",
+      "citationText": "Hangbo Zhou, Viacheslav Sorkin, ZhiGen Yu, Kah-Wee Ang, Yong-Wei Zhang. Defect engineering and hydrogen-induced reversibility in metallic states of MoS2 grain boundaries. Nanoscale 17(38), 22226–22234 (2025). https://doi.org/10.1039/d5nr02232k",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1021-acs-jpcc-4c06240",
+      "title": "Revealing the Stability and Conductivity of 1D Structures in 2D Semiconducting Lattices",
+      "authors": [
+        "Hangbo Zhou",
+        "Viacheslav Sorkin",
+        "ZhiGen Yu",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2025,
+      "doi": "10.1021/acs.jpcc.4c06240",
+      "journal": "The Journal of Physical Chemistry C",
+      "sourceUrl": "https://doi.org/10.1021/acs.jpcc.4c06240",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1021-acs-jpcc-4c06240-submitted-2024-09-16",
+          "type": "submitted",
+          "date": "2024-09-16",
+          "note": "Received (2024-09-16). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf",
+          "journal": "The Journal of Physical Chemistry C",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf"
+        },
+        {
+          "id": "pub-10-1021-acs-jpcc-4c06240-response_submitted-2024-11-14",
+          "type": "response_submitted",
+          "date": "2024-11-14",
+          "note": "Revised manuscript received (2024-11-14). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf",
+          "journal": "The Journal of Physical Chemistry C",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf"
+        },
+        {
+          "id": "pub-10-1021-acs-jpcc-4c06240-accepted-2024-12-04",
+          "type": "accepted",
+          "date": "2024-12-04",
+          "note": "Accepted (2024-12-04). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf",
+          "journal": "The Journal of Physical Chemistry C",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf"
+        },
+        {
+          "id": "pub-10-1021-acs-jpcc-4c06240-published-2024-12-16",
+          "type": "published",
+          "date": "2024-12-16",
+          "note": "Published online (2024-12-16). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf",
+          "journal": "The Journal of Physical Chemistry C",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Metallic GB MoS2.pdf"
+        }
+      ],
+      "volume": "129",
+      "issue": "1",
+      "pages": "670-676",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/doi/10.1021/acs.jpcc.4c06240",
+      "metadataSource": "https://api.crossref.org/works/10.1021/acs.jpcc.4c06240",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "The Journal of Physical Chemistry C 129(1), 670–676 (2025)",
+      "citationText": "Hangbo Zhou, Viacheslav Sorkin, ZhiGen Yu, Yong-Wei Zhang. Revealing the Stability and Conductivity of 1D Structures in 2D Semiconducting Lattices. The Journal of Physical Chemistry C 129(1), 670–676 (2025). https://doi.org/10.1021/acs.jpcc.4c06240",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1039-d4cp03686g",
+      "title": "Impact of grain boundaries on the electronic properties and Schottky barrier height in MoS2@Au heterojunctions",
+      "authors": [
+        "Viacheslav Sorkin",
+        "Hangbo Zhou",
+        "Zhi Gen Yu",
+        "Kah-Wee Ang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2025,
+      "doi": "10.1039/d4cp03686g",
+      "journal": "Physical Chemistry Chemical Physics",
+      "sourceUrl": "https://doi.org/10.1039/d4cp03686g",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1039-d4cp03686g-submitted-2024-09-24",
+          "type": "submitted",
+          "date": "2024-09-24",
+          "note": "Received (2024-09-24). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf",
+          "journal": "Physical Chemistry Chemical Physics",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf"
+        },
+        {
+          "id": "pub-10-1039-d4cp03686g-accepted-2024-11-28",
+          "type": "accepted",
+          "date": "2024-11-28",
+          "note": "Accepted (2024-11-28). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf",
+          "journal": "Physical Chemistry Chemical Physics",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf"
+        },
+        {
+          "id": "pub-10-1039-d4cp03686g-published-2024-12-02",
+          "type": "published",
+          "date": "2024-12-02",
+          "note": "Published online (2024-12-02). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf",
+          "journal": "Physical Chemistry Chemical Physics",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2025 Slava SBH with defects.pdf"
+        }
+      ],
+      "volume": "27",
+      "issue": "2",
+      "pages": "905-914",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/cp/article/27/2/905-914/844121",
+      "metadataSource": "https://api.crossref.org/works/10.1039/d4cp03686g",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Physical Chemistry Chemical Physics 27(2), 905–914 (2025)",
+      "citationText": "Viacheslav Sorkin, Hangbo Zhou, Zhi Gen Yu, Kah-Wee Ang, Yong-Wei Zhang. Impact of grain boundaries on the electronic properties and Schottky barrier height in MoS2@Au heterojunctions. Physical Chemistry Chemical Physics 27(2), 905–914 (2025). https://doi.org/10.1039/d4cp03686g",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1021-acsami-4c02294",
+      "title": "An Atomically Resolved Schottky Barrier Height Approach for Bridging the Gap between Theory and Experiment at Metal-Semiconductor Heterojunctions",
+      "authors": [
+        "Viacheslav Sorkin",
+        "Hangbo Zhou",
+        "Zhi Gen Yu",
+        "Kah-Wee Ang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2024,
+      "doi": "10.1021/acsami.4c02294",
+      "journal": "ACS Applied Materials & Interfaces",
+      "sourceUrl": "https://doi.org/10.1021/acsami.4c02294",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1021-acsami-4c02294-submitted-2024-02-09",
+          "type": "submitted",
+          "date": "2024-02-09",
+          "note": "Received (2024-02-09). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf",
+          "journal": "ACS Applied Materials & Interfaces",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf"
+        },
+        {
+          "id": "pub-10-1021-acsami-4c02294-response_submitted-2024-04-02",
+          "type": "response_submitted",
+          "date": "2024-04-02",
+          "note": "Revised manuscript received (2024-04-02). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf",
+          "journal": "ACS Applied Materials & Interfaces",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf"
+        },
+        {
+          "id": "pub-10-1021-acsami-4c02294-accepted-2024-04-12",
+          "type": "accepted",
+          "date": "2024-04-12",
+          "note": "Accepted (2024-04-12). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf",
+          "journal": "ACS Applied Materials & Interfaces",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf"
+        },
+        {
+          "id": "pub-10-1021-acsami-4c02294-published-2024-04-22",
+          "type": "published",
+          "date": "2024-04-22",
+          "note": "Published online (2024-04-22). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf",
+          "journal": "ACS Applied Materials & Interfaces",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Slava Atomic SBH.pdf"
+        }
+      ],
+      "volume": "16",
+      "issue": "17",
+      "pages": "22166-22176",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/doi/10.1021/acsami.4c02294",
+      "metadataSource": "https://api.crossref.org/works/10.1021/acsami.4c02294",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "ACS Applied Materials & Interfaces 16(17), 22166–22176 (2024)",
+      "citationText": "Viacheslav Sorkin, Hangbo Zhou, Zhi Gen Yu, Kah-Wee Ang, Yong-Wei Zhang. An Atomically Resolved Schottky Barrier Height Approach for Bridging the Gap between Theory and Experiment at Metal-Semiconductor Heterojunctions. ACS Applied Materials & Interfaces 16(17), 22166–22176 (2024). https://doi.org/10.1021/acsami.4c02294",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1007-s40820-024-01335-2",
+      "title": "Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials",
+      "authors": [
+        "Hangbo Zhou",
+        "Sifan Li",
+        "Kah-Wee Ang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2024,
+      "doi": "10.1007/s40820-024-01335-2",
+      "journal": "Nano-Micro Letters",
+      "sourceUrl": "https://doi.org/10.1007/s40820-024-01335-2",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Crossbar array memristor review.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1007-s40820-024-01335-2-submitted-2023-10-17",
+          "type": "submitted",
+          "date": "2023-10-17",
+          "note": "Received (2023-10-17). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Crossbar array memristor review.pdf",
+          "journal": "Nano-Micro Letters",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Crossbar array memristor review.pdf"
+        },
+        {
+          "id": "pub-10-1007-s40820-024-01335-2-accepted-2023-12-25",
+          "type": "accepted",
+          "date": "2023-12-25",
+          "note": "Accepted (2023-12-25). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Crossbar array memristor review.pdf",
+          "journal": "Nano-Micro Letters",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2024 Crossbar array memristor review.pdf"
+        },
+        {
+          "id": "pub-10-1007-s40820-024-01335-2-published-2024-02-19",
+          "type": "published",
+          "date": "2024-02-19",
+          "note": "Published online (2024-02-19). First online publication date; may differ from the issue/citation year. Source: https://link.springer.com/article/10.1007/s40820-024-01335-2",
+          "journal": "Nano-Micro Letters",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "https://link.springer.com/article/10.1007/s40820-024-01335-2"
+        }
+      ],
+      "metadataSourceUrl": "https://link.springer.com/article/10.1007/s40820-024-01335-2",
+      "authorshipNote": "Hangbo Zhou and Sifan Li contributed equally; confirmed publisher Author notes.",
+      "volume": "16",
+      "issue": "1",
+      "pages": "",
+      "articleNumber": "121",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://link.springer.com/article/10.1007/s40820-024-01335-2",
+      "metadataSource": "https://api.crossref.org/works/10.1007/s40820-024-01335-2",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Nano-Micro Letters 16(1), Article 121 (2024)",
+      "citationText": "Hangbo Zhou, Sifan Li, Kah-Wee Ang, Yong-Wei Zhang. Recent Advances in In-Memory Computing: Exploring Memristor and Memtransistor Arrays with 2D Materials. Nano-Micro Letters 16(1), Article 121 (2024). https://doi.org/10.1007/s40820-024-01335-2",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1002-aelm-202201252",
+      "title": "Design-Dependent Switching Mechanisms of Schottky-Barrier-Modulated Memristors based on 2D Semiconductor",
+      "authors": [
+        "Hangbo Zhou",
+        "Viacheslav Sorkin",
+        "Shuai Chen",
+        "ZhiGen Yu",
+        "Kah-Wee Ang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2023,
+      "doi": "10.1002/aelm.202201252",
+      "journal": "Advanced Electronic Materials",
+      "sourceUrl": "https://doi.org/10.1002/aelm.202201252",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1002-aelm-202201252-submitted-2022-11-18",
+          "type": "submitted",
+          "date": "2022-11-18",
+          "note": "Received (2022-11-18). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf",
+          "journal": "Advanced Electronic Materials",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf"
+        },
+        {
+          "id": "pub-10-1002-aelm-202201252-response_submitted-2023-02-19",
+          "type": "response_submitted",
+          "date": "2023-02-19",
+          "note": "Revised manuscript received (2023-02-19). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf",
+          "journal": "Advanced Electronic Materials",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf"
+        },
+        {
+          "id": "pub-10-1002-aelm-202201252-published-2023-04-17",
+          "type": "published",
+          "date": "2023-04-17",
+          "note": "Published online (2023-04-17). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf",
+          "journal": "Advanced Electronic Materials",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Memristor model.pdf"
+        }
+      ],
+      "volume": "9",
+      "issue": "6",
+      "pages": "",
+      "articleNumber": "2201252",
+      "publisher": "Wiley",
+      "publicationUrl": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aelm.202201252",
+      "metadataSource": "https://api.crossref.org/works/10.1002/aelm.202201252",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Advanced Electronic Materials 9(6), Article 2201252 (2023)",
+      "citationText": "Hangbo Zhou, Viacheslav Sorkin, Shuai Chen, ZhiGen Yu, Kah-Wee Ang, Yong-Wei Zhang. Design-Dependent Switching Mechanisms of Schottky-Barrier-Modulated Memristors based on 2D Semiconductor. Advanced Electronic Materials 9(6), Article 2201252 (2023). https://doi.org/10.1002/aelm.202201252",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1557-s43577-022-00456-6",
+      "title": "Anharmonic quantum thermal transport across a van der Waals interface",
+      "authors": [
+        "Hangbo Zhou",
+        "Gang Zhang",
+        "Jian-Sheng Wang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2023,
+      "doi": "10.1557/s43577-022-00456-6",
+      "journal": "MRS Bulletin",
+      "sourceUrl": "https://doi.org/10.1557/s43577-022-00456-6",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 Three phonon vdw.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1557-s43577-022-00456-6-accepted-2022-11-08",
+          "type": "accepted",
+          "date": "2022-11-08",
+          "note": "Accepted (2022-11-08). Publisher acceptance date. Source: https://link.springer.com/article/10.1557/s43577-022-00456-6",
+          "journal": "MRS Bulletin",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "https://link.springer.com/article/10.1557/s43577-022-00456-6"
+        },
+        {
+          "id": "pub-10-1557-s43577-022-00456-6-published-2023-01-04",
+          "type": "published",
+          "date": "2023-01-04",
+          "note": "Published online (2023-01-04). First online publication date; may differ from the issue/citation year. Source: https://link.springer.com/article/10.1557/s43577-022-00456-6",
+          "journal": "MRS Bulletin",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "https://link.springer.com/article/10.1557/s43577-022-00456-6"
+        }
+      ],
+      "metadataSourceUrl": "https://link.springer.com/article/10.1557/s43577-022-00456-6",
+      "volume": "48",
+      "issue": "6",
+      "pages": "614-622",
+      "articleNumber": "",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://link.springer.com/article/10.1557/s43577-022-00456-6",
+      "metadataSource": "https://api.crossref.org/works/10.1557/s43577-022-00456-6",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "MRS Bulletin 48(6), 614–622 (2023)",
+      "citationText": "Hangbo Zhou, Gang Zhang, Jian-Sheng Wang, Yong-Wei Zhang. Anharmonic quantum thermal transport across a van der Waals interface. MRS Bulletin 48(6), 614–622 (2023). https://doi.org/10.1557/s43577-022-00456-6",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1103-physrevb-106-195435",
+      "title": "Effects of localized phonons on interfacial thermal conductance",
+      "authors": [
+        "Hangbo Zhou",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2022,
+      "doi": "10.1103/PhysRevB.106.195435",
+      "journal": "Physical Review B",
+      "sourceUrl": "https://doi.org/10.1103/PhysRevB.106.195435",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1103-physrevb-106-195435-submitted-2022-07-01",
+          "type": "submitted",
+          "date": "2022-07-01",
+          "note": "Received (2022-07-01). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf"
+        },
+        {
+          "id": "pub-10-1103-physrevb-106-195435-response_submitted-2022-11-02",
+          "type": "response_submitted",
+          "date": "2022-11-02",
+          "note": "Revised manuscript received (2022-11-02). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf"
+        },
+        {
+          "id": "pub-10-1103-physrevb-106-195435-accepted-2022-11-14",
+          "type": "accepted",
+          "date": "2022-11-14",
+          "note": "Accepted (2022-11-14). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf"
+        },
+        {
+          "id": "pub-10-1103-physrevb-106-195435-published-2022-11-30",
+          "type": "published",
+          "date": "2022-11-30",
+          "note": "Published online (2022-11-30). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2023 four phonon.pdf"
+        }
+      ],
+      "volume": "106",
+      "issue": "19",
+      "pages": "",
+      "articleNumber": "195435",
+      "publisher": "American Physical Society (APS)",
+      "publicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.106.195435",
+      "metadataSource": "https://api.crossref.org/works/10.1103/PhysRevB.106.195435",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Physical Review B 106(19), Article 195435 (2022)",
+      "citationText": "Hangbo Zhou, Gang Zhang, Yong-Wei Zhang. Effects of localized phonons on interfacial thermal conductance. Physical Review B 106(19), Article 195435 (2022). https://doi.org/10.1103/PhysRevB.106.195435",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1039-d2nr01131j",
+      "title": "Computational predictions of quantum thermal transport across nanoscale interfaces",
+      "authors": [
+        "Hangbo Zhou",
+        "Zhun-Yong Ong",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2022,
+      "doi": "10.1039/d2nr01131j",
+      "journal": "Nanoscale",
+      "sourceUrl": "https://doi.org/10.1039/d2nr01131j",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1039-d2nr01131j-submitted-2022-02-27",
+          "type": "submitted",
+          "date": "2022-02-27",
+          "note": "Received (2022-02-27). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf",
+          "journal": "Nanoscale",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf"
+        },
+        {
+          "id": "pub-10-1039-d2nr01131j-accepted-2022-06-12",
+          "type": "accepted",
+          "date": "2022-06-12",
+          "note": "Accepted (2022-06-12). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf",
+          "journal": "Nanoscale",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf"
+        },
+        {
+          "id": "pub-10-1039-d2nr01131j-published-2022-06-14",
+          "type": "published",
+          "date": "2022-06-14",
+          "note": "Published online (2022-06-14). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf",
+          "journal": "Nanoscale",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2022 Review interfacial thermal transport.pdf"
+        }
+      ],
+      "authorshipNote": "Hangbo Zhou and Zhun-Yong Ong marked equal contributors in PDF footnote.",
+      "volume": "14",
+      "issue": "26",
+      "pages": "9209-9217",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/nr/article/14/26/9209-9217/776522",
+      "metadataSource": "https://api.crossref.org/works/10.1039/d2nr01131j",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Nanoscale 14(26), 9209–9217 (2022)",
+      "citationText": "Hangbo Zhou, Zhun-Yong Ong, Gang Zhang, Yong-Wei Zhang. Computational predictions of quantum thermal transport across nanoscale interfaces. Nanoscale 14(26), 9209–9217 (2022). https://doi.org/10.1039/d2nr01131j",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1021-acs-nanolett-0c03135",
+      "title": "Three-Fold Enhancement of In-Plane Thermal Conductivity of Borophene through Metallic Atom Intercalation",
+      "authors": [
+        "Yanxiao Hu",
+        "Yan Yin",
+        "Shichang Li",
+        "Hangbo Zhou",
+        "Dengfeng Li",
+        "Gang Zhang"
+      ],
+      "publicationYear": 2020,
+      "doi": "10.1021/acs.nanolett.0c03135",
+      "journal": "Nano Letters",
+      "sourceUrl": "https://doi.org/10.1021/acs.nanolett.0c03135",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1021-acs-nanolett-0c03135-submitted-2020-07-31",
+          "type": "submitted",
+          "date": "2020-07-31",
+          "note": "Received (2020-07-31). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf",
+          "journal": "Nano Letters",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf"
+        },
+        {
+          "id": "pub-10-1021-acs-nanolett-0c03135-response_submitted-2020-08-26",
+          "type": "response_submitted",
+          "date": "2020-08-26",
+          "note": "Revised manuscript received (2020-08-26). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf",
+          "journal": "Nano Letters",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf"
+        },
+        {
+          "id": "pub-10-1021-acs-nanolett-0c03135-published-2020-08-27",
+          "type": "published",
+          "date": "2020-08-27",
+          "note": "Published online (2020-08-27). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf",
+          "journal": "Nano Letters",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Borophene intercalation.pdf"
+        }
+      ],
+      "volume": "20",
+      "issue": "10",
+      "pages": "7619-7626",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/doi/10.1021/acs.nanolett.0c03135",
+      "metadataSource": "https://api.crossref.org/works/10.1021/acs.nanolett.0c03135",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Nano Letters 20(10), 7619–7626 (2020)",
+      "citationText": "Yanxiao Hu, Yan Yin, Shichang Li, Hangbo Zhou, Dengfeng Li, Gang Zhang. Three-Fold Enhancement of In-Plane Thermal Conductivity of Borophene through Metallic Atom Intercalation. Nano Letters 20(10), 7619–7626 (2020). https://doi.org/10.1021/acs.nanolett.0c03135",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1039-d0ra04737f",
+      "title": "High thermal conductivity driven by the unusual phonon relaxation time platform in 2D monolayer boron arsenide",
+      "authors": [
+        "Yanxiao Hu",
+        "Dengfeng Li",
+        "Yan Yin",
+        "Shichang Li",
+        "Hangbo Zhou",
+        "Gang Zhang"
+      ],
+      "publicationYear": 2020,
+      "doi": "10.1039/d0ra04737f",
+      "journal": "RSC Advances",
+      "sourceUrl": "https://doi.org/10.1039/d0ra04737f",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1039-d0ra04737f-submitted-2020-05-29",
+          "type": "submitted",
+          "date": "2020-05-29",
+          "note": "Received (2020-05-29). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf",
+          "journal": "RSC Advances",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf"
+        },
+        {
+          "id": "pub-10-1039-d0ra04737f-accepted-2020-06-25",
+          "type": "accepted",
+          "date": "2020-06-25",
+          "note": "Accepted (2020-06-25). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf",
+          "journal": "RSC Advances",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf"
+        },
+        {
+          "id": "pub-10-1039-d0ra04737f-published-2020-07-02",
+          "type": "published",
+          "date": "2020-07-02",
+          "note": "Published online (2020-07-02). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf",
+          "journal": "RSC Advances",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Boron arsenide.pdf"
+        }
+      ],
+      "volume": "10",
+      "issue": "42",
+      "pages": "25305-25310",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/ra/article/10/42/25305-25310/702276",
+      "metadataSource": "https://api.crossref.org/works/10.1039/d0ra04737f",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "RSC Advances 10(42), 25305–25310 (2020)",
+      "citationText": "Yanxiao Hu, Dengfeng Li, Yan Yin, Shichang Li, Hangbo Zhou, Gang Zhang. High thermal conductivity driven by the unusual phonon relaxation time platform in 2D monolayer boron arsenide. RSC Advances 10(42), 25305–25310 (2020). https://doi.org/10.1039/d0ra04737f",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1039-d0cp02894k",
+      "title": "Neural network representation and optimization of thermoelectric states of multiple interacting quantum dots",
+      "authors": [
+        "Hangbo Zhou",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2020,
+      "doi": "10.1039/d0cp02894k",
+      "journal": "Physical Chemistry Chemical Physics",
+      "sourceUrl": "https://doi.org/10.1039/d0cp02894k",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1039-d0cp02894k-submitted-2020-05-29",
+          "type": "submitted",
+          "date": "2020-05-29",
+          "note": "Received (2020-05-29). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf",
+          "journal": "Physical Chemistry Chemical Physics",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf"
+        },
+        {
+          "id": "pub-10-1039-d0cp02894k-accepted-2020-06-25",
+          "type": "accepted",
+          "date": "2020-06-25",
+          "note": "Accepted (2020-06-25). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf",
+          "journal": "Physical Chemistry Chemical Physics",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf"
+        },
+        {
+          "id": "pub-10-1039-d0cp02894k-published-2020-06-26",
+          "type": "published",
+          "date": "2020-06-26",
+          "note": "Published online (2020-06-26). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf",
+          "journal": "Physical Chemistry Chemical Physics",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 ML on QD.pdf"
+        }
+      ],
+      "volume": "22",
+      "issue": "28",
+      "pages": "16165-16173",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/cp/article/22/28/16165-16173/680045",
+      "metadataSource": "https://api.crossref.org/works/10.1039/d0cp02894k",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Physical Chemistry Chemical Physics 22(28), 16165–16173 (2020)",
+      "citationText": "Hangbo Zhou, Gang Zhang, Yong-Wei Zhang. Neural network representation and optimization of thermoelectric states of multiple interacting quantum dots. Physical Chemistry Chemical Physics 22(28), 16165–16173 (2020). https://doi.org/10.1039/d0cp02894k",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1103-physrevb-101-235305",
+      "title": "Three-terminal interface as a thermoelectric generator beyond the Seebeck effect",
+      "authors": [
+        "Hangbo Zhou",
+        "Gang Zhang",
+        "Jian-Sheng Wang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2020,
+      "doi": "10.1103/PhysRevB.101.235305",
+      "journal": "Physical Review B",
+      "sourceUrl": "https://doi.org/10.1103/PhysRevB.101.235305",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1103-physrevb-101-235305-submitted-2019-06-24",
+          "type": "submitted",
+          "date": "2019-06-24",
+          "note": "Received (2019-06-24). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf"
+        },
+        {
+          "id": "pub-10-1103-physrevb-101-235305-response_submitted-2020-05-04",
+          "type": "response_submitted",
+          "date": "2020-05-04",
+          "note": "Revised manuscript received (2020-05-04). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf"
+        },
+        {
+          "id": "pub-10-1103-physrevb-101-235305-accepted-2020-05-19",
+          "type": "accepted",
+          "date": "2020-05-19",
+          "note": "Accepted (2020-05-19). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf"
+        },
+        {
+          "id": "pub-10-1103-physrevb-101-235305-published-2020-06-03",
+          "type": "published",
+          "date": "2020-06-03",
+          "note": "Published online (2020-06-03). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2020 QME no center.pdf"
+        }
+      ],
+      "volume": "101",
+      "issue": "23",
+      "pages": "",
+      "articleNumber": "235305",
+      "publisher": "American Physical Society (APS)",
+      "publicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.101.235305",
+      "metadataSource": "https://api.crossref.org/works/10.1103/PhysRevB.101.235305",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Physical Review B 101(23), Article 235305 (2020)",
+      "citationText": "Hangbo Zhou, Gang Zhang, Jian-Sheng Wang, Yong-Wei Zhang. Three-terminal interface as a thermoelectric generator beyond the Seebeck effect. Physical Review B 101(23), Article 235305 (2020). https://doi.org/10.1103/PhysRevB.101.235305",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1088-1361-6528-ab8ee1",
+      "title": "The important role of strain on phonon hydrodynamics in diamond-like bi-layer graphene",
+      "authors": [
+        "Yanxiao Hu",
+        "Dengfeng Li",
+        "Yan Yin",
+        "Shichang Li",
+        "Guangqian Ding",
+        "Hangbo Zhou",
+        "Gang Zhang"
+      ],
+      "publicationYear": 2020,
+      "doi": "10.1088/1361-6528/ab8ee1",
+      "journal": "Nanotechnology",
+      "sourceUrl": "https://doi.org/10.1088/1361-6528/ab8ee1",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1088-1361-6528-ab8ee1-submitted-2020-01-06",
+          "type": "submitted",
+          "date": "2020-01-06",
+          "note": "Received (2020-01-06). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf",
+          "journal": "Nanotechnology",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf"
+        },
+        {
+          "id": "pub-10-1088-1361-6528-ab8ee1-response_submitted-2020-04-17",
+          "type": "response_submitted",
+          "date": "2020-04-17",
+          "note": "Revised manuscript received (2020-04-17). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf",
+          "journal": "Nanotechnology",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf"
+        },
+        {
+          "id": "pub-10-1088-1361-6528-ab8ee1-accepted-2020-04-30",
+          "type": "accepted",
+          "date": "2020-04-30",
+          "note": "Accepted (2020-04-30). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf",
+          "journal": "Nanotechnology",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf"
+        },
+        {
+          "id": "pub-10-1088-1361-6528-ab8ee1-published-2020-06-02",
+          "type": "published",
+          "date": "2020-06-02",
+          "note": "Published online (2020-06-02). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf",
+          "journal": "Nanotechnology",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Diamond like bi-layer graphene.pdf"
+        }
+      ],
+      "volume": "31",
+      "issue": "33",
+      "pages": "",
+      "articleNumber": "335711",
+      "publisher": "IOP Publishing",
+      "publicationUrl": "https://iopscience.iop.org/article/10.1088/1361-6528/ab8ee1",
+      "metadataSource": "https://api.crossref.org/works/10.1088/1361-6528/ab8ee1",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Nanotechnology 31(33), Article 335711 (2020)",
+      "citationText": "Yanxiao Hu, Dengfeng Li, Yan Yin, Shichang Li, Guangqian Ding, Hangbo Zhou, Gang Zhang. The important role of strain on phonon hydrodynamics in diamond-like bi-layer graphene. Nanotechnology 31(33), Article 335711 (2020). https://doi.org/10.1088/1361-6528/ab8ee1",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata. Crossref stores the six-digit article identifier in page. Classified as articleNumber after checking the published PDF header and page counts."
+    },
+    {
+      "id": "pub-10-1088-1361-6528-ab824c",
+      "title": "Phonon stability and phonon transport of graphene-like borophene",
+      "authors": [
+        "Yan Yin",
+        "Dengfeng Li",
+        "Yanxiao Hu",
+        "Guangqian Ding",
+        "Hangbo Zhou",
+        "Gang Zhang"
+      ],
+      "publicationYear": 2020,
+      "doi": "10.1088/1361-6528/ab824c",
+      "journal": "Nanotechnology",
+      "sourceUrl": "https://doi.org/10.1088/1361-6528/ab824c",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1088-1361-6528-ab824c-submitted-2020-01-14",
+          "type": "submitted",
+          "date": "2020-01-14",
+          "note": "Received (2020-01-14). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf",
+          "journal": "Nanotechnology",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf"
+        },
+        {
+          "id": "pub-10-1088-1361-6528-ab824c-response_submitted-2020-02-26",
+          "type": "response_submitted",
+          "date": "2020-02-26",
+          "note": "Revised manuscript received (2020-02-26). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf",
+          "journal": "Nanotechnology",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf"
+        },
+        {
+          "id": "pub-10-1088-1361-6528-ab824c-accepted-2020-03-23",
+          "type": "accepted",
+          "date": "2020-03-23",
+          "note": "Accepted (2020-03-23). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf",
+          "journal": "Nanotechnology",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf"
+        },
+        {
+          "id": "pub-10-1088-1361-6528-ab824c-published-2020-05-19",
+          "type": "published",
+          "date": "2020-05-19",
+          "note": "Published online (2020-05-19). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf",
+          "journal": "Nanotechnology",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2020 Graphene-like borophene.pdf"
+        }
+      ],
+      "volume": "31",
+      "issue": "31",
+      "pages": "",
+      "articleNumber": "315709",
+      "publisher": "IOP Publishing",
+      "publicationUrl": "https://iopscience.iop.org/article/10.1088/1361-6528/ab824c",
+      "metadataSource": "https://api.crossref.org/works/10.1088/1361-6528/ab824c",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Nanotechnology 31(31), Article 315709 (2020)",
+      "citationText": "Yan Yin, Dengfeng Li, Yanxiao Hu, Guangqian Ding, Hangbo Zhou, Gang Zhang. Phonon stability and phonon transport of graphene-like borophene. Nanotechnology 31(31), Article 315709 (2020). https://doi.org/10.1088/1361-6528/ab824c",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata. Crossref stores the six-digit article identifier in page. Classified as articleNumber after checking the published PDF header and page counts."
+    },
+    {
+      "id": "pub-10-1021-acsomega-9b00534",
+      "title": "From Two- to Three-Dimensional van der Waals Layered Structures of Boron Crystals: An Ab Initio Study",
+      "authors": [
+        "Dengfeng Li",
+        "QiQi Tang",
+        "Jia He",
+        "Bolin Li",
+        "Guangqian Ding",
+        "Chunbao Feng",
+        "Hangbo Zhou",
+        "Gang Zhang"
+      ],
+      "publicationYear": 2019,
+      "doi": "10.1021/acsomega.9b00534",
+      "journal": "ACS Omega",
+      "sourceUrl": "https://doi.org/10.1021/acsomega.9b00534",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1021-acsomega-9b00534-submitted-2019-02-26",
+          "type": "submitted",
+          "date": "2019-02-26",
+          "note": "Received (2019-02-26). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf",
+          "journal": "ACS Omega",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf"
+        },
+        {
+          "id": "pub-10-1021-acsomega-9b00534-accepted-2019-04-16",
+          "type": "accepted",
+          "date": "2019-04-16",
+          "note": "Accepted (2019-04-16). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf",
+          "journal": "ACS Omega",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf"
+        },
+        {
+          "id": "pub-10-1021-acsomega-9b00534-published-2019-05-02",
+          "type": "published",
+          "date": "2019-05-02",
+          "note": "Published online (2019-05-02). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf",
+          "journal": "ACS Omega",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron crystal.pdf"
+        }
+      ],
+      "volume": "4",
+      "issue": "5",
+      "pages": "8015-8021",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/acsodf/article/4/5/8015/1444755/From-Two-to-Three-Dimensional-van-der-Waals",
+      "metadataSource": "https://api.crossref.org/works/10.1021/acsomega.9b00534",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "ACS Omega 4(5), 8015–8021 (2019)",
+      "citationText": "Dengfeng Li, QiQi Tang, Jia He, Bolin Li, Guangqian Ding, Chunbao Feng, Hangbo Zhou, Gang Zhang. From Two- to Three-Dimensional van der Waals Layered Structures of Boron Crystals: An Ab Initio Study. ACS Omega 4(5), 8015–8021 (2019). https://doi.org/10.1021/acsomega.9b00534",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1038-s41524-019-0183-2",
+      "title": "Orbitally driven giant thermal conductance associated with abnormal strain dependence in hydrogenated graphene-like borophene",
+      "authors": [
+        "Jia He",
+        "Dengfeng Li",
+        "Yan Ying",
+        "Chunbao Feng",
+        "Junjie He",
+        "Chengyong Zhong",
+        "Hangbo Zhou",
+        "Ping Zhou",
+        "Gang Zhang"
+      ],
+      "publicationYear": 2019,
+      "doi": "10.1038/s41524-019-0183-2",
+      "journal": "npj Computational Materials",
+      "sourceUrl": "https://doi.org/10.1038/s41524-019-0183-2",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 H-borophene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1038-s41524-019-0183-2-submitted-2018-11-22",
+          "type": "submitted",
+          "date": "2018-11-22",
+          "note": "Received (2018-11-22). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 H-borophene.pdf",
+          "journal": "npj Computational Materials",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 H-borophene.pdf"
+        },
+        {
+          "id": "pub-10-1038-s41524-019-0183-2-accepted-2019-03-15",
+          "type": "accepted",
+          "date": "2019-03-15",
+          "note": "Accepted (2019-03-15). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 H-borophene.pdf",
+          "journal": "npj Computational Materials",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 H-borophene.pdf"
+        },
+        {
+          "id": "pub-10-1038-s41524-019-0183-2-published-2019-04-10",
+          "type": "published",
+          "date": "2019-04-10",
+          "note": "Published online (2019-04-10). First online publication date; may differ from the issue/citation year. Source: https://www.nature.com/articles/s41524-019-0183-2",
+          "journal": "npj Computational Materials",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "https://www.nature.com/articles/s41524-019-0183-2"
+        }
+      ],
+      "metadataSourceUrl": "https://www.nature.com/articles/s41524-019-0183-2",
+      "volume": "5",
+      "issue": "1",
+      "pages": "",
+      "articleNumber": "47",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://www.nature.com/articles/s41524-019-0183-2",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s41524-019-0183-2",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "npj Computational Materials 5(1), Article 47 (2019)",
+      "citationText": "Jia He, Dengfeng Li, Yan Ying, Chunbao Feng, Junjie He, Chengyong Zhong, Hangbo Zhou, Ping Zhou, Gang Zhang. Orbitally driven giant thermal conductance associated with abnormal strain dependence in hydrogenated graphene-like borophene. npj Computational Materials 5(1), Article 47 (2019). https://doi.org/10.1038/s41524-019-0183-2",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1002-pssb-201900122",
+      "title": "The Ultrahigh Quantum Thermal Conductance of Hydrogenated Boron Nanotubes",
+      "authors": [
+        "Jia He",
+        "Dengfeng Li",
+        "Yan Ying",
+        "Hangbo Zhou",
+        "Ping Zhou",
+        "Gang Zhang"
+      ],
+      "publicationYear": 2019,
+      "doi": "10.1002/pssb.201900122",
+      "journal": "Physica Status Solidi B",
+      "sourceUrl": "https://doi.org/10.1002/pssb.201900122",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1002-pssb-201900122-submitted-2019-03-05",
+          "type": "submitted",
+          "date": "2019-03-05",
+          "note": "Received (2019-03-05). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf",
+          "journal": "Physica Status Solidi B",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf"
+        },
+        {
+          "id": "pub-10-1002-pssb-201900122-response_submitted-2019-03-06",
+          "type": "response_submitted",
+          "date": "2019-03-06",
+          "note": "Revised manuscript received (2019-03-06). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf",
+          "journal": "Physica Status Solidi B",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf"
+        },
+        {
+          "id": "pub-10-1002-pssb-201900122-published-2019-04-01",
+          "type": "published",
+          "date": "2019-04-01",
+          "note": "Published online (2019-04-01). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf",
+          "journal": "Physica Status Solidi B",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2019 Boron nanotube.pdf"
+        }
+      ],
+      "volume": "256",
+      "issue": "8",
+      "pages": "",
+      "articleNumber": "1900122",
+      "publisher": "Wiley",
+      "publicationUrl": "https://onlinelibrary.wiley.com/doi/10.1002/pssb.201900122",
+      "metadataSource": "https://api.crossref.org/works/10.1002/pssb.201900122",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Physica Status Solidi B 256(8), Article 1900122 (2019)",
+      "citationText": "Jia He, Dengfeng Li, Yan Ying, Hangbo Zhou, Ping Zhou, Gang Zhang. The Ultrahigh Quantum Thermal Conductance of Hydrogenated Boron Nanotubes. Physica Status Solidi B 256(8), Article 1900122 (2019). https://doi.org/10.1002/pssb.201900122",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1063-1-5054323",
+      "title": "The effects of curvature on the thermal conduction of bent silicon nanowire",
+      "authors": [
+        "Xiangjun Liu",
+        "Hangbo Zhou",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2019,
+      "doi": "10.1063/1.5054323",
+      "journal": "Journal of Applied Physics",
+      "sourceUrl": "https://doi.org/10.1063/1.5054323",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1063-1-5054323-submitted-2018-08-30",
+          "type": "submitted",
+          "date": "2018-08-30",
+          "note": "Submitted (2018-08-30). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf",
+          "journal": "Journal of Applied Physics",
+          "sourceDateLabel": "Submitted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf"
+        },
+        {
+          "id": "pub-10-1063-1-5054323-accepted-2018-10-23",
+          "type": "accepted",
+          "date": "2018-10-23",
+          "note": "Accepted (2018-10-23). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf",
+          "journal": "Journal of Applied Physics",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf"
+        },
+        {
+          "id": "pub-10-1063-1-5054323-published-2018-12-04",
+          "type": "published",
+          "date": "2018-12-04",
+          "note": "Published online (2018-12-04). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf",
+          "journal": "Journal of Applied Physics",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2019 LXJ Silicon nanowire.pdf"
+        }
+      ],
+      "volume": "125",
+      "issue": "8",
+      "pages": "",
+      "articleNumber": "082505",
+      "publisher": "AIP Publishing",
+      "publicationUrl": "https://pubs.aip.org/jap/article/125/8/082505/133427/The-effects-of-curvature-on-the-thermal-conduction",
+      "metadataSource": "https://api.crossref.org/works/10.1063/1.5054323",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Journal of Applied Physics 125(8), Article 082505 (2019)",
+      "citationText": "Xiangjun Liu, Hangbo Zhou, Gang Zhang, Yong-Wei Zhang. The effects of curvature on the thermal conduction of bent silicon nanowire. Journal of Applied Physics 125(8), Article 082505 (2019). https://doi.org/10.1063/1.5054323",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1002-adfm-201801685",
+      "title": "Stretch-Driven Increase in Ultrahigh Thermal Conductance of Hydrogenated Borophene and Dimensionality Crossover in Phonon Transmission",
+      "authors": [
+        "Dengfeng Li",
+        "Jia He",
+        "Guangqian Ding",
+        "QiQi Tang",
+        "Yan Ying",
+        "Junjie He",
+        "Chengyong Zhong",
+        "Yi Liu",
+        "Chunbao Feng",
+        "Qilong Sun",
+        "Hangbo Zhou",
+        "Ping Zhou",
+        "Gang Zhang"
+      ],
+      "publicationYear": 2018,
+      "doi": "10.1002/adfm.201801685",
+      "journal": "Advanced Functional Materials",
+      "sourceUrl": "https://doi.org/10.1002/adfm.201801685",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1002-adfm-201801685-submitted-2018-03-07",
+          "type": "submitted",
+          "date": "2018-03-07",
+          "note": "Received (2018-03-07). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf",
+          "journal": "Advanced Functional Materials",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf"
+        },
+        {
+          "id": "pub-10-1002-adfm-201801685-response_submitted-2018-04-11",
+          "type": "response_submitted",
+          "date": "2018-04-11",
+          "note": "Revised manuscript received (2018-04-11). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf",
+          "journal": "Advanced Functional Materials",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf"
+        },
+        {
+          "id": "pub-10-1002-adfm-201801685-published-2018-06-03",
+          "type": "published",
+          "date": "2018-06-03",
+          "note": "Published online (2018-06-03). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf",
+          "journal": "Advanced Functional Materials",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\LDF\\2018 H-Borophene.pdf"
+        }
+      ],
+      "volume": "28",
+      "issue": "31",
+      "pages": "",
+      "articleNumber": "1801685",
+      "publisher": "Wiley",
+      "publicationUrl": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.201801685",
+      "metadataSource": "https://api.crossref.org/works/10.1002/adfm.201801685",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Advanced Functional Materials 28(31), Article 1801685 (2018)",
+      "citationText": "Dengfeng Li, Jia He, Guangqian Ding, QiQi Tang, Yan Ying, Junjie He, Chengyong Zhong, Yi Liu, Chunbao Feng, Qilong Sun, Hangbo Zhou, Ping Zhou, Gang Zhang. Stretch-Driven Increase in Ultrahigh Thermal Conductance of Hydrogenated Borophene and Dimensionality Crossover in Phonon Transmission. Advanced Functional Materials 28(31), Article 1801685 (2018). https://doi.org/10.1002/adfm.201801685",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1088-1674-1056-27-3-034401",
+      "title": "General theories and features of interfacial thermal transport",
+      "authors": [
+        "Hangbo Zhou",
+        "Gang Zhang"
+      ],
+      "publicationYear": 2018,
+      "doi": "10.1088/1674-1056/27/3/034401",
+      "journal": "Chinese Physics B",
+      "sourceUrl": "https://doi.org/10.1088/1674-1056/27/3/034401",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1088-1674-1056-27-3-034401-submitted-2017-10-27",
+          "type": "submitted",
+          "date": "2017-10-27",
+          "note": "Received (2017-10-27). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf",
+          "journal": "Chinese Physics B",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf"
+        },
+        {
+          "id": "pub-10-1088-1674-1056-27-3-034401-response_submitted-2017-12-04",
+          "type": "response_submitted",
+          "date": "2017-12-04",
+          "note": "Revised manuscript received (2017-12-04). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf",
+          "journal": "Chinese Physics B",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf"
+        },
+        {
+          "id": "pub-10-1088-1674-1056-27-3-034401-published-2018-02-11",
+          "type": "published",
+          "date": "2018-02-11",
+          "note": "Published online (2018-02-11). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf",
+          "journal": "Chinese Physics B",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 Interface Review.pdf"
+        }
+      ],
+      "volume": "27",
+      "issue": "3",
+      "pages": "",
+      "articleNumber": "034401",
+      "publisher": "IOP Publishing",
+      "publicationUrl": "https://iopscience.iop.org/article/10.1088/1674-1056/27/3/034401",
+      "metadataSource": "https://api.crossref.org/works/10.1088/1674-1056/27/3/034401",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Chinese Physics B 27(3), Article 034401 (2018)",
+      "citationText": "Hangbo Zhou, Gang Zhang. General theories and features of interfacial thermal transport. Chinese Physics B 27(3), Article 034401 (2018). https://doi.org/10.1088/1674-1056/27/3/034401",
+      "publicationDateAudit": {
+        "timelineDate": "2018-02-11",
+        "crossrefPublishedOnline": "2018-03-26",
+        "resolution": "Keep the published PDF date pending author confirmation."
+      },
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata. Crossref stores the six-digit article identifier in page. Classified as articleNumber after checking the published PDF header and page counts. Date audit: Crossref published-online 2018-03-26 differs from published PDF date 2018-02-11. Original timeline date retained; no date changed during bibliographic enrichment."
+    },
+    {
+      "id": "pub-10-1039-c7nr07779c",
+      "title": "Unusual phonon behavior and ultra-low thermal conductance of monolayer InSe",
+      "authors": [
+        "Hangbo Zhou",
+        "Yongqing Cai",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2018,
+      "doi": "10.1039/c7nr07779c",
+      "journal": "Nanoscale",
+      "sourceUrl": "https://doi.org/10.1039/c7nr07779c",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1039-c7nr07779c-submitted-2017-10-19",
+          "type": "submitted",
+          "date": "2017-10-19",
+          "note": "Received (2017-10-19). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf",
+          "journal": "Nanoscale",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf"
+        },
+        {
+          "id": "pub-10-1039-c7nr07779c-accepted-2017-11-28",
+          "type": "accepted",
+          "date": "2017-11-28",
+          "note": "Accepted (2017-11-28). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf",
+          "journal": "Nanoscale",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf"
+        },
+        {
+          "id": "pub-10-1039-c7nr07779c-published-2017-11-29",
+          "type": "published",
+          "date": "2017-11-29",
+          "note": "Published online (2017-11-29). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf",
+          "journal": "Nanoscale",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2018 InSe.pdf"
+        }
+      ],
+      "volume": "10",
+      "issue": "1",
+      "pages": "480-487",
+      "articleNumber": "",
+      "publisher": "Royal Society of Chemistry (RSC)",
+      "publicationUrl": "https://pubs.rsc.org/nr/article/10/1/480-487/573642",
+      "metadataSource": "https://api.crossref.org/works/10.1039/c7nr07779c",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Nanoscale 10(1), 480–487 (2018)",
+      "citationText": "Hangbo Zhou, Yongqing Cai, Gang Zhang, Yong-Wei Zhang. Unusual phonon behavior and ultra-low thermal conductance of monolayer InSe. Nanoscale 10(1), 480–487 (2018). https://doi.org/10.1039/c7nr07779c",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1038-s41699-017-0018-2",
+      "title": "Superior lattice thermal conductance of single-layer borophene",
+      "authors": [
+        "Hangbo Zhou",
+        "Yongqing Cai",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2017,
+      "doi": "10.1038/s41699-017-0018-2",
+      "journal": "npj 2D Materials and Applications",
+      "sourceUrl": "https://doi.org/10.1038/s41699-017-0018-2",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1038-s41699-017-0018-2-submitted-2016-12-20",
+          "type": "submitted",
+          "date": "2016-12-20",
+          "note": "Received (2016-12-20). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf",
+          "journal": "npj 2D Materials and Applications",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf"
+        },
+        {
+          "id": "pub-10-1038-s41699-017-0018-2-response_submitted-2017-05-16",
+          "type": "response_submitted",
+          "date": "2017-05-16",
+          "note": "Revised manuscript received (2017-05-16). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf",
+          "journal": "npj 2D Materials and Applications",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf"
+        },
+        {
+          "id": "pub-10-1038-s41699-017-0018-2-accepted-2017-05-30",
+          "type": "accepted",
+          "date": "2017-05-30",
+          "note": "Accepted (2017-05-30). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf",
+          "journal": "npj 2D Materials and Applications",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2017 Borophene.pdf"
+        },
+        {
+          "id": "pub-10-1038-s41699-017-0018-2-published-2017-06-19",
+          "type": "published",
+          "date": "2017-06-19",
+          "note": "Published online (2017-06-19). First online publication date; may differ from the issue/citation year. Source: https://www.nature.com/articles/s41699-017-0018-2",
+          "journal": "npj 2D Materials and Applications",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "https://www.nature.com/articles/s41699-017-0018-2"
+        }
+      ],
+      "metadataSourceUrl": "https://www.nature.com/articles/s41699-017-0018-2",
+      "authorshipNote": "Hangbo Zhou and Yongqing Cai contributed equally; confirmed publisher Author notes.",
+      "volume": "1",
+      "issue": "1",
+      "pages": "",
+      "articleNumber": "14",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://www.nature.com/articles/s41699-017-0018-2",
+      "metadataSource": "https://api.crossref.org/works/10.1038/s41699-017-0018-2",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "npj 2D Materials and Applications 1(1), Article 14 (2017)",
+      "citationText": "Hangbo Zhou, Yongqing Cai, Gang Zhang, Yong-Wei Zhang. Superior lattice thermal conductance of single-layer borophene. npj 2D Materials and Applications 1(1), Article 14 (2017). https://doi.org/10.1038/s41699-017-0018-2",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1021-acs-chemmater-6b03539",
+      "title": "Modulating Carrier Density and Transport Properties of MoS2 by Organic Molecular Doping and Defect Engineering",
+      "authors": [
+        "Yongqing Cai",
+        "Hangbo Zhou",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2016,
+      "doi": "10.1021/acs.chemmater.6b03539",
+      "journal": "Chemistry of Materials",
+      "sourceUrl": "https://doi.org/10.1021/acs.chemmater.6b03539",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1021-acs-chemmater-6b03539-submitted-2016-08-22",
+          "type": "submitted",
+          "date": "2016-08-22",
+          "note": "Received (2016-08-22). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf",
+          "journal": "Chemistry of Materials",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf"
+        },
+        {
+          "id": "pub-10-1021-acs-chemmater-6b03539-response_submitted-2016-11-15",
+          "type": "response_submitted",
+          "date": "2016-11-15",
+          "note": "Revised manuscript received (2016-11-15). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf",
+          "journal": "Chemistry of Materials",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf"
+        },
+        {
+          "id": "pub-10-1021-acs-chemmater-6b03539-published-2016-11-16",
+          "type": "published",
+          "date": "2016-11-16",
+          "note": "Published online (2016-11-16). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf",
+          "journal": "Chemistry of Materials",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BTE_thermoelectric MoS2.pdf"
+        }
+      ],
+      "volume": "28",
+      "issue": "23",
+      "pages": "8611-8621",
+      "articleNumber": "",
+      "publisher": "American Chemical Society (ACS)",
+      "publicationUrl": "https://pubs.acs.org/doi/10.1021/acs.chemmater.6b03539",
+      "metadataSource": "https://api.crossref.org/works/10.1021/acs.chemmater.6b03539",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Chemistry of Materials 28(23), 8611–8621 (2016)",
+      "citationText": "Yongqing Cai, Hangbo Zhou, Gang Zhang, Yong-Wei Zhang. Modulating Carrier Density and Transport Properties of MoS2 by Organic Molecular Doping and Defect Engineering. Chemistry of Materials 28(23), 8611–8621 (2016). https://doi.org/10.1021/acs.chemmater.6b03539",
+      "publicationDateAudit": {
+        "timelineDate": "2016-11-16",
+        "crossrefPublishedOnline": "2016-11-28",
+        "resolution": "Keep the published PDF date pending author confirmation."
+      },
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata. Date audit: Crossref published-online 2016-11-28 differs from published PDF date 2016-11-16. Original timeline date retained; no date changed during bibliographic enrichment."
+    },
+    {
+      "id": "pub-10-1103-physreve-94-052123",
+      "title": "Phonon transport in a one-dimensional harmonic chain with long-range interaction and mass disorder",
+      "authors": [
+        "Hangbo Zhou",
+        "Gang Zhang",
+        "Jian-Sheng Wang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2016,
+      "doi": "10.1103/PhysRevE.94.052123",
+      "journal": "Physical Review E",
+      "sourceUrl": "https://doi.org/10.1103/PhysRevE.94.052123",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Long Range.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1103-physreve-94-052123-submitted-2016-08-05",
+          "type": "submitted",
+          "date": "2016-08-05",
+          "note": "Received (2016-08-05). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Long Range.pdf",
+          "journal": "Physical Review E",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Long Range.pdf"
+        },
+        {
+          "id": "pub-10-1103-physreve-94-052123-published-2016-11-15",
+          "type": "published",
+          "date": "2016-11-15",
+          "note": "Published online (2016-11-15). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Long Range.pdf",
+          "journal": "Physical Review E",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Long Range.pdf"
+        }
+      ],
+      "volume": "94",
+      "issue": "5",
+      "pages": "",
+      "articleNumber": "052123",
+      "publisher": "American Physical Society (APS)",
+      "publicationUrl": "https://link.aps.org/doi/10.1103/PhysRevE.94.052123",
+      "metadataSource": "https://api.crossref.org/works/10.1103/PhysRevE.94.052123",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Physical Review E 94(5), Article 052123 (2016)",
+      "citationText": "Hangbo Zhou, Gang Zhang, Jian-Sheng Wang, Yong-Wei Zhang. Phonon transport in a one-dimensional harmonic chain with long-range interaction and mass disorder. Physical Review E 94(5), Article 052123 (2016). https://doi.org/10.1103/PhysRevE.94.052123",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1557-jmr-2016-333",
+      "title": "Thermoelectric properties of phosphorene at the nanoscale",
+      "authors": [
+        "Hangbo Zhou",
+        "Yongqing Cai",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2016,
+      "doi": "10.1557/jmr.2016.333",
+      "journal": "Journal of Materials Research",
+      "sourceUrl": "https://doi.org/10.1557/jmr.2016.333",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BP Thermoelectric.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time. First-online date verified against primary publisher article page.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1557-jmr-2016-333-submitted-2016-05-31",
+          "type": "submitted",
+          "date": "2016-05-31",
+          "note": "Received (2016-05-31). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BP Thermoelectric.pdf",
+          "journal": "Journal of Materials Research",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BP Thermoelectric.pdf"
+        },
+        {
+          "id": "pub-10-1557-jmr-2016-333-accepted-2016-08-30",
+          "type": "accepted",
+          "date": "2016-08-30",
+          "note": "Accepted (2016-08-30). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BP Thermoelectric.pdf",
+          "journal": "Journal of Materials Research",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 BP Thermoelectric.pdf"
+        },
+        {
+          "id": "pub-10-1557-jmr-2016-333-published-2016-09-23",
+          "type": "published",
+          "date": "2016-09-23",
+          "note": "Published online (2016-09-23). First online publication date; may differ from the issue/citation year. Source: https://link.springer.com/article/10.1557/jmr.2016.333",
+          "journal": "Journal of Materials Research",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "https://link.springer.com/article/10.1557/jmr.2016.333"
+        }
+      ],
+      "metadataSourceUrl": "https://link.springer.com/article/10.1557/jmr.2016.333",
+      "volume": "31",
+      "issue": "20",
+      "pages": "3179-3186",
+      "articleNumber": "",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://link.springer.com/article/10.1557/jmr.2016.333",
+      "metadataSource": "https://api.crossref.org/works/10.1557/jmr.2016.333",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Journal of Materials Research 31(20), 3179–3186 (2016)",
+      "citationText": "Hangbo Zhou, Yongqing Cai, Gang Zhang, Yong-Wei Zhang. Thermoelectric properties of phosphorene at the nanoscale. Journal of Materials Research 31(20), 3179–3186 (2016). https://doi.org/10.1557/jmr.2016.333",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1103-physrevb-94-045423",
+      "title": "Quantum thermal transport in stanene",
+      "authors": [
+        "Hangbo Zhou",
+        "Yongqing Cai",
+        "Gang Zhang",
+        "Yong-Wei Zhang"
+      ],
+      "publicationYear": 2016,
+      "doi": "10.1103/PhysRevB.94.045423",
+      "journal": "Physical Review B",
+      "sourceUrl": "https://doi.org/10.1103/PhysRevB.94.045423",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1103-physrevb-94-045423-submitted-2016-04-20",
+          "type": "submitted",
+          "date": "2016-04-20",
+          "note": "Received (2016-04-20). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf"
+        },
+        {
+          "id": "pub-10-1103-physrevb-94-045423-response_submitted-2016-06-29",
+          "type": "response_submitted",
+          "date": "2016-06-29",
+          "note": "Revised manuscript received (2016-06-29). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf"
+        },
+        {
+          "id": "pub-10-1103-physrevb-94-045423-published-2016-07-15",
+          "type": "published",
+          "date": "2016-07-15",
+          "note": "Published online (2016-07-15). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2016 Stanene.pdf"
+        }
+      ],
+      "volume": "94",
+      "issue": "4",
+      "pages": "",
+      "articleNumber": "045423",
+      "publisher": "American Physical Society (APS)",
+      "publicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.94.045423",
+      "metadataSource": "https://api.crossref.org/works/10.1103/PhysRevB.94.045423",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Physical Review B 94(4), Article 045423 (2016)",
+      "citationText": "Hangbo Zhou, Yongqing Cai, Gang Zhang, Yong-Wei Zhang. Quantum thermal transport in stanene. Physical Review B 94(4), Article 045423 (2016). https://doi.org/10.1103/PhysRevB.94.045423",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1038-srep14870",
+      "title": "Boosting thermoelectric efficiency using time-dependent control",
+      "authors": [
+        "Hangbo Zhou",
+        "Juzar Thingna",
+        "Peter Hänggi",
+        "Jian-Sheng Wang",
+        "Baowen Li"
+      ],
+      "publicationYear": 2015,
+      "doi": "10.1038/srep14870",
+      "journal": "Scientific Reports",
+      "sourceUrl": "https://doi.org/10.1038/srep14870",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1038-srep14870-submitted-2015-07-02",
+          "type": "submitted",
+          "date": "2015-07-02",
+          "note": "Received (2015-07-02). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf",
+          "journal": "Scientific Reports",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf"
+        },
+        {
+          "id": "pub-10-1038-srep14870-accepted-2015-09-10",
+          "type": "accepted",
+          "date": "2015-09-10",
+          "note": "Accepted (2015-09-10). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf",
+          "journal": "Scientific Reports",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf"
+        },
+        {
+          "id": "pub-10-1038-srep14870-published-2015-10-14",
+          "type": "published",
+          "date": "2015-10-14",
+          "note": "Published online (2015-10-14). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf",
+          "journal": "Scientific Reports",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 TDME.pdf"
+        }
+      ],
+      "volume": "5",
+      "issue": "1",
+      "pages": "",
+      "articleNumber": "14870",
+      "publisher": "Springer Science and Business Media LLC",
+      "publicationUrl": "https://www.nature.com/articles/srep14870",
+      "metadataSource": "https://api.crossref.org/works/10.1038/srep14870",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Scientific Reports 5(1), Article 14870 (2015)",
+      "citationText": "Hangbo Zhou, Juzar Thingna, Peter Hänggi, Jian-Sheng Wang, Baowen Li. Boosting thermoelectric efficiency using time-dependent control. Scientific Reports 5(1), Article 14870 (2015). https://doi.org/10.1038/srep14870",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1063-1-4917017",
+      "title": "Effects of electron-phonon interaction on thermal and electrical transport through molecular nano-conductors",
+      "authors": [
+        "Jing-Tao Lü",
+        "Hangbo Zhou",
+        "Jin-Wu Jiang",
+        "Jian-Sheng Wang"
+      ],
+      "publicationYear": 2015,
+      "doi": "10.1063/1.4917017",
+      "journal": "AIP Advances",
+      "sourceUrl": "https://doi.org/10.1063/1.4917017",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1063-1-4917017-submitted-2015-01-29",
+          "type": "submitted",
+          "date": "2015-01-29",
+          "note": "Submitted (2015-01-29). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf",
+          "journal": "AIP Advances",
+          "sourceDateLabel": "Submitted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf"
+        },
+        {
+          "id": "pub-10-1063-1-4917017-accepted-2015-03-25",
+          "type": "accepted",
+          "date": "2015-03-25",
+          "note": "Accepted (2015-03-25). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf",
+          "journal": "AIP Advances",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf"
+        },
+        {
+          "id": "pub-10-1063-1-4917017-published-2015-04-02",
+          "type": "published",
+          "date": "2015-04-02",
+          "note": "Published online (2015-04-02). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf",
+          "journal": "AIP Advances",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 EPI Review.pdf"
+        }
+      ],
+      "volume": "5",
+      "issue": "5",
+      "pages": "",
+      "articleNumber": "053204",
+      "publisher": "AIP Publishing",
+      "publicationUrl": "https://pubs.aip.org/adv/article/5/5/053204/977841/Effects-of-electron-phonon-interaction-on-thermal",
+      "metadataSource": "https://api.crossref.org/works/10.1063/1.4917017",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "AIP Advances 5(5), Article 053204 (2015)",
+      "citationText": "Jing-Tao Lü, Hangbo Zhou, Jin-Wu Jiang, Jian-Sheng Wang. Effects of electron-phonon interaction on thermal and electrical transport through molecular nano-conductors. AIP Advances 5(5), Article 053204 (2015). https://doi.org/10.1063/1.4917017",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1103-physrevb-91-045410",
+      "title": "Thermoelectric transport through a quantum nanoelectromechanical system and its backaction",
+      "authors": [
+        "Hangbo Zhou",
+        "Juzar Thingna",
+        "Jian-Sheng Wang",
+        "Baowen Li"
+      ],
+      "publicationYear": 2015,
+      "doi": "10.1103/PhysRevB.91.045410",
+      "journal": "Physical Review B",
+      "sourceUrl": "https://doi.org/10.1103/PhysRevB.91.045410",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "first",
+      "events": [
+        {
+          "id": "pub-10-1103-physrevb-91-045410-submitted-2014-10-23",
+          "type": "submitted",
+          "date": "2014-10-23",
+          "note": "Received (2014-10-23). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf"
+        },
+        {
+          "id": "pub-10-1103-physrevb-91-045410-response_submitted-2014-12-22",
+          "type": "response_submitted",
+          "date": "2014-12-22",
+          "note": "Revised manuscript received (2014-12-22). Publisher revised-manuscript receipt date; no reviewer-return date is inferred. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Revised manuscript received",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf"
+        },
+        {
+          "id": "pub-10-1103-physrevb-91-045410-published-2015-01-08",
+          "type": "published",
+          "date": "2015-01-08",
+          "note": "Published online (2015-01-08). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf",
+          "journal": "Physical Review B",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2015 SET NR.pdf"
+        }
+      ],
+      "volume": "91",
+      "issue": "4",
+      "pages": "",
+      "articleNumber": "045410",
+      "publisher": "American Physical Society (APS)",
+      "publicationUrl": "https://link.aps.org/doi/10.1103/PhysRevB.91.045410",
+      "metadataSource": "https://api.crossref.org/works/10.1103/PhysRevB.91.045410",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "Physical Review B 91(4), Article 045410 (2015)",
+      "citationText": "Hangbo Zhou, Juzar Thingna, Jian-Sheng Wang, Baowen Li. Thermoelectric transport through a quantum nanoelectromechanical system and its backaction. Physical Review B 91(4), Article 045410 (2015). https://doi.org/10.1103/PhysRevB.91.045410",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    },
+    {
+      "id": "pub-10-1063-1-4901274",
+      "title": "Improved Dyson series expansion for steady-state quantum transport beyond the weak coupling limit: Divergences and resolution",
+      "authors": [
+        "Juzar Thingna",
+        "Hangbo Zhou",
+        "Jian-Sheng Wang"
+      ],
+      "publicationYear": 2014,
+      "doi": "10.1063/1.4901274",
+      "journal": "The Journal of Chemical Physics",
+      "sourceUrl": "https://doi.org/10.1063/1.4901274",
+      "localSource": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf",
+      "sourceNote": "Verified title, author order, DOI, citation year and publisher date labels from local published PDF. Publisher milestones only; unknown reviewer-return dates mean displayed review intervals may include author revision time.",
+      "authorship": "coauthor",
+      "events": [
+        {
+          "id": "pub-10-1063-1-4901274-submitted-2014-08-29",
+          "type": "submitted",
+          "date": "2014-08-29",
+          "note": "Submitted (2014-08-29). Publisher received date; author submission date may differ. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf",
+          "journal": "The Journal of Chemical Physics",
+          "sourceDateLabel": "Submitted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf"
+        },
+        {
+          "id": "pub-10-1063-1-4901274-accepted-2014-10-27",
+          "type": "accepted",
+          "date": "2014-10-27",
+          "note": "Accepted (2014-10-27). Publisher acceptance date. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf",
+          "journal": "The Journal of Chemical Physics",
+          "sourceDateLabel": "Accepted",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf"
+        },
+        {
+          "id": "pub-10-1063-1-4901274-published-2014-11-17",
+          "type": "published",
+          "date": "2014-11-17",
+          "note": "Published online (2014-11-17). First online publication date; may differ from the issue/citation year. Source: C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf",
+          "journal": "The Journal of Chemical Physics",
+          "sourceDateLabel": "Published online",
+          "sourceUrl": "C:\\Users\\zhbho\\OneDrive\\Desktop\\workspace\\My Published papers\\2014 Fourth order QME.pdf"
+        }
+      ],
+      "volume": "141",
+      "issue": "19",
+      "pages": "",
+      "articleNumber": "194101",
+      "publisher": "AIP Publishing",
+      "publicationUrl": "https://pubs.aip.org/jcp/article/141/19/194101/152552/Improved-Dyson-series-expansion-for-steady-state",
+      "metadataSource": "https://api.crossref.org/works/10.1063/1.4901274",
+      "metadataVerifiedOn": "2026-10-30",
+      "journalReference": "The Journal of Chemical Physics 141(19), Article 194101 (2014)",
+      "citationText": "Juzar Thingna, Hangbo Zhou, Jian-Sheng Wang. Improved Dyson series expansion for steady-state quantum transport beyond the weak coupling limit: Divergences and resolution. The Journal of Chemical Physics 141(19), Article 194101 (2014). https://doi.org/10.1063/1.4901274",
+      "metadataSourceNote": "Volume, issue, page range/article number, publisher and publisher URL verified using publisher-deposited Crossref REST API metadata."
+    }
+  ]
+}
