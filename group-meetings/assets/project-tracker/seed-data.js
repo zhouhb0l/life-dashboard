@@ -1,7 +1,7 @@
 /* Public tracker: status-only data with local paths removed. */
-window.PAPER_TRACKER_SEED_REVISION = "public-status-2026-10-30-v7";
-window.PAPER_TRACKER_CURRENT_SOURCE_REVISION = "public-status-v1";
-window.PAPER_TRACKER_CURRENT_UPDATE_IDS = [];
+window.PAPER_TRACKER_SEED_REVISION = "phonon-revision-2026-10-30-v8";
+window.PAPER_TRACKER_CURRENT_SOURCE_REVISION = "phonon-revision-2026-10-30-v8";
+window.PAPER_TRACKER_CURRENT_UPDATE_IDS = ["phonon-susceptibility"];
 window.PAPER_TRACKER_EVENT_CORRECTIONS = [];
 window.PAPER_TRACKER_SCHOLAR_AUDIT = {
   "version": 1,
@@ -776,7 +776,7 @@ window.PAPER_TRACKER_SEED = {
       "publicationYear": null,
       "doi": "",
       "sourceUrl": "",
-      "sourceNote": "",
+      "sourceNote": "User-supplied ScholarOne submission confirmations: initial submission 31 July 2026; revised submission 27 October 2026; under review.",
       "volume": "",
       "issue": "",
       "pages": "",
@@ -786,14 +786,14 @@ window.PAPER_TRACKER_SEED = {
       "metadataSource": "",
       "metadataVerifiedOn": "",
       "currentStatus": "response_submitted",
-      "statusLabel": "Response submitted",
+      "statusLabel": "Under review · revised manuscript",
       "statusAsOf": "2026-10-30",
-      "statusNote": "",
-      "manuscriptId": "NSR_MS-2026-2621",
+      "statusNote": "Original submission 31 July 2026; revision submitted 27 October 2026; under review. Reviewer-decision date remains unknown.",
+      "manuscriptId": "NSR_MS-2026-2621.R1",
       "projectKind": "paper",
       "publicationType": "",
       "relatedPublications": [],
-      "submissionState": "",
+      "submissionState": "submitted",
       "records": [
         {
           "id": "phonon-susceptibility-record-2026-05-18-7",
@@ -845,7 +845,22 @@ window.PAPER_TRACKER_SEED = {
           "note": ""
         }
       ],
-      "events": []
+      "events": [
+        {
+          "id": "phonon-susceptibility-submitted-2026-07-31",
+          "type": "submitted",
+          "date": "2026-07-31",
+          "note": "",
+          "journal": "National Science Review"
+        },
+        {
+          "id": "phonon-susceptibility-response-submitted-2026-10-27",
+          "type": "response_submitted",
+          "date": "2026-10-27",
+          "note": "",
+          "journal": "National Science Review"
+        }
+      ]
     },
     {
       "id": "non-gaussian-bounds",

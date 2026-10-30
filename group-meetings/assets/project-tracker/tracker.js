@@ -123,7 +123,7 @@
       const updateCurrent=previousCurrentRevision!==currentRevision&&(window.PAPER_TRACKER_CURRENT_UPDATE_IDS||[]).includes(source.id);
       if(updateCurrent){
         for(const key of ['title','journal','authorship','authors','manuscriptId','projectKind','submissionState'])if(source[key] && (!(Array.isArray(source[key]))||source[key].length))merged[key]=clone(source[key]);
-        if(['recessed-contact','tan-thermal','non-gaussian-bounds'].includes(source.id)&&source.sourceNote&&existing.sourceNote!==source.sourceNote&&!existing.sourceNote?.startsWith(source.sourceNote))merged.sourceNote=source.sourceNote+(existing.sourceNote?'\n\nEarlier notes (superseded where corrected above):\n'+existing.sourceNote:'');
+        if(['recessed-contact','tan-thermal','non-gaussian-bounds','phonon-susceptibility'].includes(source.id)&&source.sourceNote&&existing.sourceNote!==source.sourceNote&&!existing.sourceNote?.startsWith(source.sourceNote))merged.sourceNote=source.sourceNote+(existing.sourceNote?'\n\nEarlier notes (superseded where corrected above):\n'+existing.sourceNote:'');
         if(!merged.notes&&source.notes)merged.notes=source.notes;
         if(!existing.statusAsOf || source.statusAsOf>=existing.statusAsOf){for(const key of ['currentStatus','statusLabel','statusAsOf','statusNote'])merged[key]=source[key];}
       }
@@ -218,11 +218,15 @@
       const heading=group!==previousGroup?`<div class="timeline-group"><strong>${group}</strong><span>${summary.complete?'Newest publications first':'First-author and co-author roles are shown separately'}</span></div>`:'';previousGroup=group;
       const grid=ticks.map(tick=>`<i class="grid-line" style="left:${tick.at}%" aria-hidden="true"></i>`).join('');
       const periods=M.segments(project,today);
+      const orderedEvents=M.sortEvents(project.events);
+      const unseparatedResponse=orderedEvents.some((event,index)=>milestone(event.type)?.phase==='review'&&orderedEvents[index+1]?.type==='response_submitted');
       const journey=M.journeyMilestones(project);
       const keyIds=new Set(journey.filter(item=>item.event).map(item=>item.event.id));
       const bars=M.displaySegments(project,today).filter(segment=>M.dateToDay(segment.end)>=start&&M.dateToDay(segment.start)<=bounds.endDay).map(segment=>{
         const left=pct(M.dateToDay(segment.start)),right=pct(Math.min(M.dateToDay(segment.end),bounds.endDay));if(right<=left)return '';
-        const details=`${project.title}: ${segment.phase==='preparation'?segment.label:milestone(segment.event.type).stage}; ${dateLabel(segment.start)} to ${dateLabel(segment.end)}${segment.ongoing?' (ongoing)':''} · ${segment.days} days${segment.event.note?' · '+segment.event.note:''}${segment.event.journal?' · '+segment.event.journal:''}`;
+        const eventIndex=orderedEvents.findIndex(event=>event.id===segment.event.id);
+        const unknownDecision=segment.phase==='review'&&orderedEvents[eventIndex+1]?.type==='response_submitted';
+        const details=`${project.title}: ${unknownDecision?'Journal process and author response; reviewer-decision date unknown':segment.phase==='preparation'?segment.label:milestone(segment.event.type).stage}; ${dateLabel(segment.start)} to ${dateLabel(segment.end)}${segment.ongoing?' (ongoing)':''} · ${segment.days} days${segment.event.note?' · '+segment.event.note:''}${segment.event.journal?' · '+segment.event.journal:''}`;
         return `<button type="button" class="timeline-bar phase-${segment.phase}${segment.ongoing?' ongoing':''}" data-edit="${escape(project.id)}" style="left:${left}%;width:${right-left}%" title="${escape(details)}" aria-label="${escape(details)}">${right-left>7?`<span class="bar-label">${segment.days}d</span>`:''}</button>`;
       }).join('');
       const dots=M.sortEvents(project.events).filter(event=>!keyIds.has(event.id)&&M.dateToDay(event.date)>=start&&M.dateToDay(event.date)<=bounds.endDay).map(event=>`<button type="button" class="milestone-dot phase-${milestone(event.type).phase}" data-edit="${escape(project.id)}" style="left:${pct(M.dateToDay(event.date))}%" title="${escape(`${milestone(event.type).label} · ${dateLabel(event.date)}${event.note?' · '+event.note:''}`)}" aria-label="${escape(`${project.title}: ${milestone(event.type).label}, ${dateLabel(event.date)}`)}"></button>`).join('');
@@ -246,7 +250,7 @@
       const hasIntervals=project.events.some(event=>event.type!=='published');
       const reviewKnown=periods.some(period=>period.phase==='review');
       const responseKnown=periods.some(period=>period.phase==='response');
-      const metrics=hasIntervals?`<span class="project-duration" title="A dash means that period's dates are not recorded.">Journal ${reviewKnown?summary.reviewDays+'d':'—'} <span>·</span> Response ${responseKnown?summary.responseDays+'d':'—'}${summary.submissionCount>1?` <span>·</span> ${summary.submissionCount} submissions`:''}${summary.transferCount?` <span>·</span> ${summary.transferCount} transfer${summary.transferCount===1?'':'s'}`:''}</span>`:'';
+      const metrics=hasIntervals?`<span class="project-duration" title="${unseparatedResponse?'The reviewer-decision date is unknown, so the combined journal and response time includes author work.':'A dash means that period’s dates are not recorded.'}">${unseparatedResponse?'Journal + response':'Journal'} ${reviewKnown?summary.reviewDays+'d':'—'}${unseparatedResponse?'':` <span>·</span> Response ${responseKnown?summary.responseDays+'d':'—'}`}${summary.submissionCount>1?` <span>·</span> ${summary.submissionCount} submissions`:''}${summary.transferCount?` <span>·</span> ${summary.transferCount} transfer${summary.transferCount===1?'':'s'}`:''}</span>`:'';
       const preparationMeasured=periods.some(period=>period.phase==='preparation');
       const earlyMetrics=preparationMeasured?`<span class="project-duration">Manuscript preparation ${summary.preparationDays}d</span>`:'';
       const preparationIndicator=!preparationMeasured&&(project.events.length||project.records?.length||project.currentStatus||summary.complete)?'<span class="preparation-indicator" title="Preparation dates are not recorded, so this color identifies the stage without showing a duration." aria-label="Manuscript preparation; dates are not recorded">Manuscript preparation</span>':'';
