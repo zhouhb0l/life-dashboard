@@ -160,7 +160,7 @@
     $('onboarding-banner').hidden = true;
     $('stats').innerHTML = [
       ['▤','Projects tracked',projects.length,'Across your research portfolio'],
-      ['↗','In progress',summaries.filter(item => working(item.summary)).length,'Writing, response & preparation'],
+      ['↗','In progress',summaries.filter(item => working(item.summary)).length,'Preparation, revision & production'],
       ['◷','In journal review',summaries.filter(item => item.summary.phase === 'review').length,'Waiting for the next decision'],
       ['✓','Published',summaries.filter(item => item.summary.complete).length,'From idea to publication']
     ].map(([icon,label,value,note]) => `<div class="stat-card"><span class="stat-icon" aria-hidden="true">${icon}</span><p class="stat-label">${label}</p><strong class="stat-value">${value.toString().padStart(2,'0')}</strong><p class="stat-note">${note}</p></div>`).join('');
@@ -217,9 +217,9 @@
       const periods=M.segments(project,today);
       const journey=M.journeyMilestones(project);
       const keyIds=new Set(journey.filter(item=>item.event).map(item=>item.event.id));
-      const bars=periods.filter(segment=>M.dateToDay(segment.end)>=start&&M.dateToDay(segment.start)<=bounds.endDay).map(segment=>{
+      const bars=M.displaySegments(project,today).filter(segment=>M.dateToDay(segment.end)>=start&&M.dateToDay(segment.start)<=bounds.endDay).map(segment=>{
         const left=pct(M.dateToDay(segment.start)),right=pct(Math.min(M.dateToDay(segment.end),bounds.endDay));if(right<=left)return '';
-        const details=`${project.title}: ${milestone(segment.event.type).stage}; ${dateLabel(segment.start)} to ${dateLabel(segment.end)}${segment.ongoing?' (ongoing)':''} · ${segment.days} days${segment.event.note?' · '+segment.event.note:''}${segment.event.journal?' · '+segment.event.journal:''}`;
+        const details=`${project.title}: ${segment.phase==='preparation'?segment.label:milestone(segment.event.type).stage}; ${dateLabel(segment.start)} to ${dateLabel(segment.end)}${segment.ongoing?' (ongoing)':''} · ${segment.days} days${segment.event.note?' · '+segment.event.note:''}${segment.event.journal?' · '+segment.event.journal:''}`;
         return `<button type="button" class="timeline-bar phase-${segment.phase}${segment.ongoing?' ongoing':''}" data-edit="${escape(project.id)}" style="left:${left}%;width:${right-left}%" title="${escape(details)}" aria-label="${escape(details)}">${right-left>7?`<span class="bar-label">${segment.days}d</span>`:''}</button>`;
       }).join('');
       const dots=M.sortEvents(project.events).filter(event=>!keyIds.has(event.id)&&M.dateToDay(event.date)>=start&&M.dateToDay(event.date)<=bounds.endDay).map(event=>`<button type="button" class="milestone-dot phase-${milestone(event.type).phase}" data-edit="${escape(project.id)}" style="left:${pct(M.dateToDay(event.date))}%" title="${escape(`${milestone(event.type).label} · ${dateLabel(event.date)}${event.note?' · '+event.note:''}`)}" aria-label="${escape(`${project.title}: ${milestone(event.type).label}, ${dateLabel(event.date)}`)}"></button>`).join('');
@@ -232,7 +232,7 @@
         return `<button type="button" class="key-milestone key-${item.type}${edge}${shared?' shared-date':''}" data-edit="${escape(project.id)}" style="left:${position}%" title="${escape(details)}" aria-label="${escape(details)}"><span class="key-milestone-symbol" aria-hidden="true">${escape(item.symbol)}</span><span class="key-milestone-label">${escape(label)} <time datetime="${event.date}">${escape(dateLabel(event.date))}</time></span></button>`;
       }).join('');
       const records=M.sortEvents(project.records||[]).filter(record=>M.dateToDay(record.date)>=start&&M.dateToDay(record.date)<=bounds.endDay).map(record=>`<button type="button" class="record-marker" data-edit="${escape(project.id)}" style="left:${pct(M.dateToDay(record.date))}%" title="${escape(`${record.label} · ${dateLabel(record.date)} · Dated record or journal activity; does not change the measured work phase. ${record.note||''} Source: ${record.source||''}`)}" aria-label="${escape(`${project.title}: ${record.label}, ${dateLabel(record.date)}, documentary evidence`)}"></button>`).join('');
-      const snapshot=summary.submissionState==='not_submitted'?'<span class="status-snapshot pill phase-writing">Not submitted</span>':summary.statusUndated?`<span class="status-snapshot pill phase-${summary.phase}" title="${escape(project.statusNote||'Current status confirmed; stage entry date is not documented.')}">Stage date not recorded · confirmed ${escape(dateLabel(summary.statusAsOf,{year:undefined}))}</span>`:'';
+      const snapshot=summary.submissionState==='not_submitted'?'<span class="status-snapshot pill phase-preparation">Not submitted</span>':summary.statusUndated?`<span class="status-snapshot pill phase-${summary.phase}" title="${escape(project.statusNote||'Current status confirmed; stage entry date is not documented.')}">Stage date not recorded · confirmed ${escape(dateLabel(summary.statusAsOf,{year:undefined}))}</span>`:'';
       const yearOnly=summary.complete&&project.publicationYear&&!project.events.some(event=>event.type==='published');
       let yearMarker='';
       if(yearOnly){
@@ -244,15 +244,11 @@
       const reviewKnown=periods.some(period=>period.phase==='review');
       const responseKnown=periods.some(period=>period.phase==='response');
       const metrics=hasIntervals?`<span class="project-duration" title="A dash means that period's dates are not recorded.">Journal ${reviewKnown?summary.reviewDays+'d':'—'} <span>·</span> Response ${responseKnown?summary.responseDays+'d':'—'}${summary.submissionCount>1?` <span>·</span> ${summary.submissionCount} submissions`:''}${summary.transferCount?` <span>·</span> ${summary.transferCount} transfer${summary.transferCount===1?'':'s'}`:''}</span>`:'';
-      const writingKnown=periods.some(period=>period.phase==='writing');
-      const initializationKnown=journey.some(item=>item.type==='initialized'&&item.event);
-      const preparationKnown=project.events.some(event=>['first_draft','submission_package'].includes(event.type));
       const preparationMeasured=periods.some(period=>period.phase==='preparation');
-      const earlyMetrics=writingKnown||preparationKnown?`<span class="project-duration">Writing ${writingKnown?summary.writingDays+'d':'—'} <span>·</span> Prep ${preparationMeasured?summary.preparationDays+'d':'—'}</span>`:'';
-      const prompts=summary.complete?'':`<div class="phase-date-prompts" aria-label="Early stages with dates to record">${!initializationKnown?`<button type="button" class="phase-date-prompt phase-writing" data-edit="${escape(project.id)}" data-add-milestone="initialized" aria-label="${escape(`Record initialization date for ${project.title}`)}" title="The initialization date is not recorded. Enter the actual date research began; no date is inferred from documents.">Research &amp; writing · add start date</button>`:''}${!preparationKnown?`<button type="button" class="phase-date-prompt phase-preparation" data-edit="${escape(project.id)}" data-add-milestone="first_draft" aria-label="${escape(`Record first draft completion date for ${project.title}`)}" title="Record first full draft completion when reached. This starts submission preparation; the submission package and cover letter can be recorded separately.">Submission preparation · record date</button>`:''}</div>`;
+      const earlyMetrics=preparationMeasured?`<span class="project-duration">Manuscript preparation ${summary.preparationDays}d</span>`:'';
       const undated=!project.events.length&&!project.records?.length&&!project.currentStatus&&!yearOnly?`<button type="button" class="timeline-undated" data-edit="${escape(project.id)}">＋ Add first milestone</button>`:'';
       const afterWindow=(project.events.length||project.records?.length)&&!bars&&!dots&&!keyMarkers&&!records&&!yearMarker?`<button type="button" class="timeline-hidden-note text-link" data-period="${escape(project.id)}">View this project's dates →</button>`:'';
-      return heading+`<div class="timeline-row"><div class="project-cell"><span class="project-code">${String(index+1).padStart(2,'0')}</span><div class="project-cell-copy"><button type="button" class="project-name" data-edit="${escape(project.id)}" title="${escape(project.title)}">${escape(project.shortName||project.title)}${project.focus?'<span class="focus-star" aria-label="Pinned"> ★</span>':''}</button><span class="project-subtitle"><i class="dot phase-${summary.phase}"></i>${escape(info)}</span>${rolePill(project)}${!summary.complete?` <button class="text-link" type="button" data-period="${escape(project.id)}">Fit dates ↔</button>`:''}${earlyMetrics}${metrics}</div></div><div class="timeline-track">${grid}${snapshot}${bars}${dots}${records}${keyMarkers}${yearMarker}${prompts}${undated}${afterWindow}${showToday?`<i class="today-line" style="left:${todayPosition}%" aria-hidden="true"></i>`:''}</div></div>`;
+      return heading+`<div class="timeline-row"><div class="project-cell"><span class="project-code">${String(index+1).padStart(2,'0')}</span><div class="project-cell-copy"><button type="button" class="project-name" data-edit="${escape(project.id)}" title="${escape(project.title)}">${escape(project.shortName||project.title)}${project.focus?'<span class="focus-star" aria-label="Pinned"> ★</span>':''}</button><span class="project-subtitle"><i class="dot phase-${summary.phase}"></i>${escape(info)}</span>${rolePill(project)}${!summary.complete?` <button class="text-link" type="button" data-period="${escape(project.id)}">Fit dates ↔</button>`:''}${earlyMetrics}${metrics}</div></div><div class="timeline-track">${grid}${snapshot}${bars}${dots}${records}${keyMarkers}${yearMarker}${undated}${afterWindow}${showToday?`<i class="today-line" style="left:${todayPosition}%" aria-hidden="true"></i>`:''}</div></div>`;
     }).join('');
   }
 
@@ -320,7 +316,7 @@
       const period = periods.find(item => item.event.id === row.dataset.id);
       row.querySelector('.event-period').textContent = period ? `${period.label} · ${period.days}d${period.ongoing ? ' · ongoing' : ' until next milestone'}` : row.querySelector('select').value==='published'?'Publication complete':'Period end date not recorded';
     });
-    $('editor-summary').textContent = events.length ? `Recorded periods: writing ${summary.writingDays}d · preparation ${summary.preparationDays}d · journal process ${summary.reviewDays}d · response ${summary.responseDays}d · production ${summary.productionDays}d. Dated entries: ${summary.submissionCount} submission(s), ${summary.responseCount} reviewer response(s), ${summary.amendmentCount || 0} technical amendment(s), ${summary.transferCount} transfer(s). Unrecorded stages are excluded.` : 'No milestone dates yet. Dated documents and current submission status remain available above.';
+    $('editor-summary').textContent = events.length ? `Recorded periods: manuscript preparation ${summary.preparationDays}d · journal process ${summary.reviewDays}d · response ${summary.responseDays}d · production ${summary.productionDays}d. Dated entries: ${summary.submissionCount} submission(s), ${summary.responseCount} reviewer response(s), ${summary.amendmentCount || 0} technical amendment(s), ${summary.transferCount} transfer(s). Unrecorded stages are excluded.` : 'No milestone dates yet. Dated documents and current submission status remain available above.';
   }
   function addEventRow(event) {
     const row = document.createElement('div');
@@ -338,7 +334,7 @@
     $('project-title').value = editing.title;
     $('project-short-name').value = editing.shortName || '';
     $('project-journal').value = editing.journal;
-    const statusOptions={initialized:'Research / writing',initial_draft:'Manuscript revision',self_revision:'Finalizing the first draft',first_draft:'Preparing submission package',submission_package:'Ready to submit',submitted:'Submitted / journal process',reviews_received:'Preparing reviewer response',revision_requested:'Revision requested / preparing response',response_submitted:'Response submitted / journal process',amendment_requested:'Technical amendments requested',amendment_submitted:'Technical amendments submitted',rejected:'Preparing resubmission',accepted:'Accepted / production',publishing_rights:'In publishing and rights',rights_complete:'Publishing and rights complete',proofread:'Proofreading done / awaiting publication',published:'Published'};
+    const statusOptions={initialized:'Manuscript preparation',initial_draft:'Manuscript revision',self_revision:'Finalizing the first draft',first_draft:'Preparing submission package',submission_package:'Ready to submit',submitted:'Submitted / journal process',reviews_received:'Preparing reviewer response',revision_requested:'Revision requested / preparing response',response_submitted:'Response submitted / journal process',amendment_requested:'Technical amendments requested',amendment_submitted:'Technical amendments submitted',rejected:'Preparing resubmission',accepted:'Accepted / production',publishing_rights:'In publishing and rights',rights_complete:'Publishing and rights complete',proofread:'Proofreading done / awaiting publication',published:'Published'};
     $('project-current-status').innerHTML='<option value="">Use dated milestones</option>'+M.MILESTONES.map(item=>`<option value="${item.type}">${statusOptions[item.type]||item.stage}</option>`).join('');
     $('project-current-status').value=editing.currentStatus||'';
     $('project-status-date').value=editing.statusAsOf||'';$('project-status-date').max=today;$('project-status-date').required=!!editing.currentStatus;
@@ -393,14 +389,7 @@
 
   document.addEventListener('click', event => {
     const edit = event.target.closest('[data-edit]');
-    if (edit) {
-      openEditor(edit.dataset.edit,Boolean(edit.dataset.addMilestone));
-      if(edit.dataset.addMilestone){
-        addEventRow({type:edit.dataset.addMilestone,date:''});
-        $('editor-summary').textContent='Enter the actual milestone date. The new entry is saved only when you save this paper.';
-        $('event-list').lastElementChild.querySelector('input[type="date"]').focus();
-      }
-    }
+    if (edit) openEditor(edit.dataset.edit);
     const publication=event.target.closest('[data-publication]');if(publication)openPublication(publication.dataset.publication);
     const citation=event.target.closest('[data-copy-citation]');if(citation)copyCitation(citation.dataset.copyCitation);
     const close = event.target.closest('[data-close]');

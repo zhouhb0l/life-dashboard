@@ -6,8 +6,8 @@
   --muted: #657380;
   --line: #e7ebef;
   --teal: #167969;
-  --writing: #128c82;
-  --preparation: #8854c7;
+  --writing: var(--preparation);
+  --preparation: #128c82;
   --review: #d6ab57;
   --response: #6798c8;
   --production: #6caa84;
@@ -130,7 +130,7 @@ button.focus-title:hover { color: var(--teal); }
 .focus-footer strong { font-weight: 500; color: #647682; }
 .pill { display: inline-flex; align-items: center; border-radius: 4px; padding: 3px 7px; font-size: 9px; font-weight: 550; line-height: 1.2; white-space: nowrap; }
 .pill.phase-writing { background: #eaf5ef; color: #4f8872; }
-.pill.phase-preparation { background: #f1edf8; color: #8a75ab; }
+.pill.phase-preparation { background: #e0f3ef; color: #116b61; }
 .pill.phase-review { background: #fbf3e2; color: #aa883c; }
 .pill.phase-response { background: #edf3fb; color: #6288b1; }
 .pill.phase-production, .pill.phase-complete { background: #eaf5ed; color: #649574; }
@@ -187,7 +187,7 @@ button.focus-star { background: none; border: 0; padding: 2px; }
 .timeline-bar { position: absolute; top: 25px; height: 20px; border-radius: 3px; min-width: 2px; border: 0; opacity: .87; padding: 0; transition: opacity .15s, filter .15s; }
 .timeline-bar:hover, .timeline-bar:focus-visible { opacity: 1; filter: saturate(1.15); z-index: 3; }
 .timeline-bar.ongoing { background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, #ffffff19 5px, #ffffff19 8px); }
-.bar-label { position: absolute; top: 3px; left: 7px; right: 4px; overflow: hidden; white-space: nowrap; color: #fff; font-size: 8px; line-height: 14px; text-align: left; pointer-events: none; }
+.bar-label { position: absolute; top: 3px; left: 18px; right: 4px; overflow: hidden; white-space: nowrap; color: #fff; font-size: 8px; line-height: 14px; text-align: left; pointer-events: none; }
 .milestone-dot { position: absolute; top: 30px; width: 10px; height: 10px; transform: translateX(-50%) rotate(45deg); border-radius: 2px; background: #fff; border: 2px solid #5c7f77; z-index: 2; padding: 0; }
 .milestone-dot:hover { background: #d6e9df; }
 .today-line { position: absolute; top: 0; bottom: 0; width: 1px; background: #e09176; opacity: .75; z-index: 1; pointer-events: none; }
@@ -421,7 +421,7 @@ dialog.modal::backdrop { background: #20323e5c; backdrop-filter: blur(2px); }
 .stat-note strong, .focus-footer strong { color: #446e59; }
 .pill { background: #f0f3f4; color: #63717d; font-size: 11px; }
 .pill.phase-writing { color: #3f735d; }
-.pill.phase-preparation { color: #765b96; }
+.pill.phase-preparation { color: #116b61; }
 .pill.phase-review { color: #886721; }
 .pill.phase-response { color: #446f9e; }
 .pill.phase-production, .pill.phase-complete { color: #477853; }
@@ -727,7 +727,7 @@ button.status-snapshot:hover { border-color: #9ebbad; color: #376953; background
 }
 /* Stronger phase color and four label lanes make the main dates easy to scan. */
 .pill.phase-writing { background: #e0f3ef; color: #116b61; }
-.pill.phase-preparation { background: #efe6fa; color: #6b379c; }
+.pill.phase-preparation { background: #e0f3ef; color: #116b61; }
 .timeline-bar.phase-writing { opacity: 1; background-color: var(--writing); }
 .timeline-bar.phase-preparation { opacity: 1; background-color: var(--preparation); }
 .timeline-bar.phase-writing .bar-label, .timeline-bar.phase-preparation .bar-label { color: #fff; }
@@ -771,15 +771,6 @@ button.status-snapshot:hover { border-color: #9ebbad; color: #376953; background
 .key-milestone:hover .key-milestone-label { filter: brightness(.97); border-color: currentColor; }
 .key-milestone:focus-visible { outline: 3px solid #16796980; outline-offset: 5px; border-radius: 50%; }
 .key-milestone:focus-visible .key-milestone-label { outline: 3px solid #16796980; outline-offset: 2px; }
-.phase-date-prompts { position: absolute; left: 7px; bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; max-width: calc(100% - 14px); z-index: 2; }
-.phase-date-prompt { display: inline-flex; align-items: center; gap: 5px; padding: 4px 8px; border: 1px dashed #8bc1b6; border-radius: 4px; background: #f2fbf8; color: #166f62; font-size: 11px; font-weight: 500; line-height: 1.5; white-space: nowrap; }
-.phase-date-prompt.phase-preparation { border-color: #b59acf; background: #f8f3fc; color: #75439f; }
-.phase-date-prompt::before { content: "+"; font-size: 12px; font-weight: 500; }
-.phase-date-prompt:hover { border-style: solid; background: #e7f6f0; }
-.phase-date-prompt.phase-preparation:hover { background: #efe3fa; }
-.phase-date-prompt:focus-visible { outline-offset: 3px; }
-.timeline-track > .phase-date-prompt { position: absolute; bottom: 8px; left: 7px; z-index: 2; }
-.timeline-track > .phase-date-prompt.phase-preparation { left: 227px; }
 .key-date-chip { display: inline-flex; gap: 4px; align-items: center; padding: 2px 6px; border: 1px solid #dce5e8; border-radius: 4px; color: #63717d; background: #f8fafb; font-size: 11px; line-height: 1.55; }
 .journey-legend { display: flex; align-items: center; gap: 10px 21px; flex-wrap: wrap; padding: 13px 22px; border-top: 1px solid #e8edef; color: #63717d; font-size: 11px; line-height: 1.7; }
 .journey-key { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; color: #63717d; white-space: nowrap; }
@@ -791,7 +782,6 @@ button.status-snapshot:hover { border-color: #9ebbad; color: #376953; background
   .journey-legend { padding: 12px 15px; gap: 9px 16px; }
 }
 @media print {
-  .phase-date-prompts, .phase-date-prompt { display: none !important; }
   .key-milestone-label { font-size: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {

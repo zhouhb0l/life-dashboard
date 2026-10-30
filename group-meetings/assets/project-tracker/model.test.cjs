@@ -20,8 +20,8 @@ assert.equal(M.validateProject(repeated, { today: AS_OF }).valid, true);
 const summary = M.summarize(repeated, AS_OF);
 assert.equal(summary.reviewDays, 40, 'all four review periods are accumulated');
 assert.equal(summary.responseDays, 7, 'two author response periods are accumulated');
-assert.equal(summary.writingDays, 31);
-assert.equal(summary.preparationDays, 10);
+assert.equal(summary.writingDays, 0, 'deprecated writing total stays zero after manuscript preparation is combined');
+assert.equal(summary.preparationDays, 41);
 assert.equal(summary.productionDays, 11);
 assert.equal(summary.totalDays, 99, 'published papers stop accumulating time');
 assert.equal(summary.submissionCount, 2);
@@ -195,8 +195,8 @@ assert.equal(acceptedSummary.statusUndated, true);
 assert.equal(acceptedSummary.statusAsOf, AS_OF);
 assert.equal(acceptedSummary.elapsedDays, null, 'unknown stage start yields no invented days');
 assert.equal(acceptedSummary.reviewDays, 0, 'old open review is not extended after undated acceptance');
-assert.equal(acceptedSummary.writingDays, 31, 'closed intervals remain counted');
-assert.equal(acceptedSummary.preparationDays, 9);
+assert.equal(acceptedSummary.writingDays, 0);
+assert.equal(acceptedSummary.preparationDays, 40, 'closed research, drafting, and package intervals remain counted together');
 assert.equal(acceptedSummary.totalDays, 40, 'known total span ends at the latest actual event');
 assert.equal(M.segments(acceptedUndated, AS_OF).length, 2);
 assert.equal(M.segments(acceptedUndated, AS_OF).some(item => item.ongoing), false);
@@ -212,7 +212,7 @@ assert.equal(responseSnapshotSummary.responseCount, 0, 'a current-state assertio
 assert.equal(M.segments(recordedResponse, AS_OF).length, 0, 'artifact dates create no duration bars');
 const firstDraftSnapshot = { ...recordedResponse, currentStatus: 'first_draft', statusLabel: '' };
 assert.equal(M.summarize(firstDraftSnapshot, AS_OF).phase, 'preparation', 'a finished first draft is distinct from peer-review response');
-assert.equal(M.summarize({ ...recordedResponse, currentStatus: 'initial_draft', statusLabel: '' }, AS_OF).phase, 'writing');
+assert.equal(M.summarize({ ...recordedResponse, currentStatus: 'initial_draft', statusLabel: '' }, AS_OF).phase, 'preparation');
 assert.equal(M.summarize({ ...recordedResponse, currentStatus: 'published', statusLabel: '' }, AS_OF).complete, true);
 
 const staleSnapshot = { ...paper([event('submitted', '2026-10-01'), event('reviews_received', '2026-10-05')]),
@@ -438,4 +438,47 @@ assert.equal(M.journalReference({ ...chapterReference, journal: '', pages: '', p
 assert.equal(M.journalReference({ ...chapterReference, journal: '', publisher: '', publicationYear: null }), 'pp. 1–18');
 assert.equal(M.journalReference({ ...chapterReference, publicationYear: null, events: [event('published', '2017-06-08')] }), 'In: Thermal Transport in Carbon-Based Nanomaterials, pp. 1–18 (Elsevier, 2017)', 'chapters may use an actual publication event to supply citation year');
 assert.equal(M.journalReference({ ...chapterReference, publicationType: 'journal_article' }), 'Thermal Transport in Carbon-Based Nanomaterials, 1-18 (2017)', 'standard article references retain their existing formatting');
+const combinedPreparation = paper([
+  event('initialized', '2026-05-01'), event('initial_draft', '2026-05-15'), event('self_revision', '2026-06-01'),
+  event('first_draft', '2026-06-15'), event('submission_package', '2026-06-20'), event('submitted', '2026-06-26')
+]);
+const originalPreparationHistory = JSON.stringify(combinedPreparation.events);
+const regularPreparation = M.segments(combinedPreparation, AS_OF);
+const displayedPreparation = M.displaySegments(combinedPreparation, AS_OF);
+assert.equal(Object.hasOwn(M.PHASES, 'writing'), false, 'the public phase legend has no separate writing phase');
+assert.equal(M.PHASES.preparation.label, 'Manuscript preparation');
+assert.equal(M.PHASES.preparation.color, '#128c82');
+for (const type of ['initialized', 'initial_draft', 'self_revision', 'first_draft', 'submission_package']) {
+  assert.equal(M.MILESTONES.find(item => item.type === type).phase, 'preparation');
+}
+assert.equal(regularPreparation.length, 6, 'per-milestone editor intervals remain separate');
+assert.equal(displayedPreparation.length, 2, 'the timeline renders one preparation bar followed by journal review');
+assert.deepEqual({start:displayedPreparation[0].start,end:displayedPreparation[0].end,days:displayedPreparation[0].days,phase:displayedPreparation[0].phase,ongoing:displayedPreparation[0].ongoing},
+  {start:'2026-05-01',end:'2026-06-26',days:56,phase:'preparation',ongoing:false});
+assert.equal(displayedPreparation[0].event.type, 'initialized', 'coalesced bars retain the first actual milestone');
+assert.equal(displayedPreparation[0].label, 'Manuscript preparation');
+assert.equal(displayedPreparation[1].phase, 'review');
+assert.equal(displayedPreparation[1].ongoing, true);
+assert.equal(M.summarize(combinedPreparation, AS_OF).preparationDays, 56);
+assert.equal(M.summarize(combinedPreparation, AS_OF).writingDays, 0);
+assert.equal(JSON.stringify(combinedPreparation.events), originalPreparationHistory, 'display coalescing never edits stored milestones');
+assert.equal(M.segments(combinedPreparation, AS_OF)[0].end, '2026-05-15', 'regular segments are not mutated through shared display objects');
+const ongoingPreparation = M.displaySegments(paper([event('initialized', '2026-05-01'), event('initial_draft', '2026-05-15')]), '2026-06-01');
+assert.equal(ongoingPreparation.length, 1);
+assert.equal(ongoingPreparation[0].days, 31);
+assert.equal(ongoingPreparation[0].ongoing, true, 'the last actual preparation interval supplies ongoing state');
+const undatedAfterPreparation = { ...paper([event('initialized', '2026-05-01'), event('first_draft', '2026-06-15')]), currentStatus: 'submitted', statusAsOf: AS_OF };
+assert.equal(M.displaySegments(undatedAfterPreparation, AS_OF)[0].end, '2026-06-15');
+assert.equal(M.displaySegments(undatedAfterPreparation, AS_OF)[0].days, 45);
+assert.equal(M.displaySegments(undatedAfterPreparation, AS_OF)[0].ongoing, false, 'an unknown terminal interval remains omitted');
+const rejectedAfterReview = paper([event('initialized', '2026-05-01'), event('submitted', '2026-05-20'), event('rejected', '2026-05-25'), event('submission_package', '2026-05-28'), event('submitted', '2026-06-01')]);
+assert.deepEqual(M.displaySegments(rejectedAfterReview, AS_OF).map(item => item.phase), ['preparation','review','preparation','review']);
+assert.deepEqual(M.displaySegments(rejectedAfterReview, AS_OF).filter(item => item.phase === 'preparation').map(item => item.days), [19,7], 'preparation attempts never merge across a journal-review gap');
+const rejectionWithoutReviewDate = paper([event('initialized', '2026-05-01'), event('first_draft', '2026-05-15'), event('rejected', '2026-05-20'), event('submission_package', '2026-05-22'), event('submitted', '2026-05-30')]);
+assert.deepEqual(M.displaySegments(rejectionWithoutReviewDate, AS_OF).filter(item => item.phase === 'preparation').map(item => item.days), [19,10], 'a rejection separates preparation attempts even when its preceding review date is absent');
+assert.equal(M.displaySegments(M.DEMO_PROJECTS[0], AS_OF)[0].days, M.daysBetween('2026-04-06','2026-06-15'), 'the existing demo is coalesced through first submission');
+assert.deepEqual(M.displaySegments(transferredPaper, AS_OF).map(item => item.days), M.segments(transferredPaper, AS_OF).map(item => item.days), 'LMT journal and editorial periods are unchanged');
+assert.equal(M.summarize(recessedContact, AS_OF).responseDays, 29);
+assert.equal(M.summarize(recessedContact, AS_OF).reviewDays, 61);
+assert.equal(M.summarize(recessedContact, AS_OF).productionDays, 15);
 console.log('Paper tracker model: all lifecycle, duration, parser, and backup checks passed.');

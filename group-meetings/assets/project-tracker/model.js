@@ -7,8 +7,7 @@
 
   const DAY = 86400000;
   const PHASES = Object.freeze({
-    writing: { label: 'Research & writing', color: '#128c82' },
-    preparation: { label: 'Submission preparation', color: '#8854c7' },
+    preparation: { label: 'Manuscript preparation', color: '#128c82' },
     review: { label: 'Journal review', color: '#d4a244' },
     response: { label: 'Author response', color: '#587fc3' },
     production: { label: 'Publication production', color: '#71985d' },
@@ -16,9 +15,9 @@
     unscheduled: { label: 'No timeline yet', color: '#9b9b96' }
   });
   const MILESTONES = Object.freeze([
-    { type: 'initialized', label: 'Initialization', phase: 'writing', stage: 'Initial draft & figures', nextAction: 'Complete the initial draft and figures' },
-    { type: 'initial_draft', label: 'Initial draft & figures done', phase: 'writing', stage: 'Self revision', nextAction: 'Complete your first revision' },
-    { type: 'self_revision', label: 'Self revision done', phase: 'writing', stage: 'Finalizing the first draft', nextAction: 'Finalize the first draft' },
+    { type: 'initialized', label: 'Initialization', phase: 'preparation', stage: 'Initial draft & figures', nextAction: 'Complete the initial draft and figures' },
+    { type: 'initial_draft', label: 'Initial draft & figures done', phase: 'preparation', stage: 'Self revision', nextAction: 'Complete your first revision' },
+    { type: 'self_revision', label: 'Self revision done', phase: 'preparation', stage: 'Finalizing the first draft', nextAction: 'Finalize the first draft' },
     { type: 'first_draft', label: 'First draft complete', phase: 'preparation', stage: 'Preparing submission', nextAction: 'Complete the submission package and cover letter' },
     { type: 'submission_package', label: 'Submission package ready', phase: 'preparation', stage: 'Ready to submit', nextAction: 'Submit the manuscript' },
     { type: 'submitted', label: 'Submitted', phase: 'review', stage: 'Under journal review', nextAction: 'Await the journal decision' },
@@ -137,6 +136,20 @@
       submissionState: ['not_submitted', 'submitted'].includes(project.submissionState) ? project.submissionState
         : hasSubmissionEvidence(project, asOf, events) ? 'submitted' : '', complete
     };
+  }
+
+  function displaySegments(project, asOf = today()) {
+    const display = [];
+    for (const segment of segments(project, asOf)) {
+      const previous = display.at(-1);
+      if (previous?.phase === 'preparation' && segment.phase === 'preparation'
+        && previous.end === segment.start && !previous.ongoing && segment.event.type !== 'rejected') {
+        previous.end = segment.end;
+        previous.days += segment.days;
+        previous.ongoing = segment.ongoing;
+      } else display.push({ ...segment });
+    }
+    return display;
   }
 
   function sortProjects(projects, asOf = today()) {
@@ -551,6 +564,6 @@
         demoEvent('response_submitted', '2026-05-08'), demoEvent('accepted', '2026-06-10'), demoEvent('proofread', '2026-06-18'), demoEvent('published', '2026-07-02') ] }
   ];
   return { MILESTONES, PHASES, DEMO_PROJECTS, today, dateToDay, dayToDate, daysBetween, createId, sortEvents, sortProjects, journeyMilestones,
-    timelineBounds, segments, summarize, parseTimeline, validateProject, validateBackup,
+    timelineBounds, segments, displaySegments, summarize, parseTimeline, validateProject, validateBackup,
     journalReference, formatReference, publicationLink };
 });
