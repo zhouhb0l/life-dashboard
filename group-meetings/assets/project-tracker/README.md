@@ -86,7 +86,7 @@ The stages cover initialization, initial draft and figures completed, self revis
 
 Use the editor's **Current status** fields when the present stage is known but its entry date is missing. `statusAsOf` records when that status was confirmed; it does not create a milestone on that date. A status snapshot can therefore report “Manuscript in revision” or “Accepted” while its stage duration remains unknown. The editor also retains read-only dated document/work records and their source notes. A dated manuscript, cover letter, internal audit, or repository snapshot is not automatically a completed draft, a journal submission, or a reviewer decision.
 
-The separate `submissionState` field accepts `not_submitted`, `submitted`, or an empty unknown state. WTe₂, proton transfer, and the NEGF book explicitly use `not_submitted`; their cards and timeline badges say **Not submitted**, while their revision/writing tasks remain visible. Submission-state validation rejects a “not submitted” state that conflicts with recorded submission, editorial, review, acceptance, or publication evidence.
+The separate `submissionState` field accepts `not_submitted`, `submitted`, or an empty unknown state. WTe₂, proton transfer, and the NEGF book explicitly use `not_submitted`; the saved submission state is retained without showing a “Not submitted” label on cards or timelines. Their current manuscript tasks remain visible, and no unknown-stage date message is substituted. The editor labels this state “Manuscript preparation”. Submission-state validation rejects a “not submitted” state that conflicts with recorded submission, editorial, review, acceptance, or publication evidence.
 
 You can also expand **Paste a timeline instead** in the editor:
 
