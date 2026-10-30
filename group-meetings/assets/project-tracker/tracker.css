@@ -179,6 +179,7 @@ button.project-name { display: block; width: 100%; font-size: 11px; line-height:
 .project-subtitle { font-size: 9px; color: #99a3ac; display: flex; align-items: center; gap: 5px; margin: 0; }
 .project-subtitle .dot { width: 5px; height: 5px; border-radius: 50%; }
 .project-duration { display: block; font-size: 8px; color: #a6afb7; margin-top: 4px; white-space: nowrap; }
+.preparation-indicator { display: block; width: fit-content; max-width: 100%; margin-top: 7px; padding: 3px 7px; border-radius: 4px; background: var(--preparation); color: #fff; font-size: 10px; font-weight: 600; line-height: 1.35; }
 .project-duration > span { color: #c1c8ce; margin: 0 3px; }
 .focus-star { color: #c3a04b; font-size: 10px; flex-shrink: 0; }
 button.focus-star { background: none; border: 0; padding: 2px; }
@@ -730,6 +731,8 @@ button.status-snapshot:hover { border-color: #9ebbad; color: #376953; background
 .pill.phase-preparation { background: #e0f3ef; color: #116b61; }
 .timeline-bar.phase-writing { opacity: 1; background-color: var(--writing); }
 .timeline-bar.phase-preparation { opacity: 1; background-color: var(--preparation); }
+.timeline-bar.preparation-evidence { background: repeating-linear-gradient(-45deg, #128c82, #128c82 6px, #80c7be 6px, #80c7be 9px); border: 1px dashed #08746b; opacity: .85; }
+.timeline-bar.preparation-evidence .bar-label { color: #fff; font-weight: 650; text-shadow: 0 1px 2px #07544c; }
 .timeline-bar.phase-writing .bar-label, .timeline-bar.phase-preparation .bar-label { color: #fff; }
 .timeline-row { min-height: 160px; }
 .timeline-track { min-height: 159px; }
