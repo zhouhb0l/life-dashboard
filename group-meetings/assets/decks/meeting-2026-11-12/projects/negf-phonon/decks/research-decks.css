@@ -1,0 +1,25 @@
+/* Research drafts use the same palette, frame and navigation as the silicon deck. */
+.research-slide .kicker { color: #7055a8; }
+.research-slide .lead { max-width: 1150px; }
+.research-slide .body { min-height: 240px; }
+.research-slide .footer { bottom: 22px; }
+.research-slide .footer span { max-width: calc(100% - 320px); }
+.research-slide .footer a { font-size: 13px; font-weight: 700; }
+.research-slide .qualification { max-width: 1120px; }
+.research-slide .scope { color: #7055a8; }
+.research-slide .claim { margin: 15px 0 0; font-size: 24px; line-height: 1.35; color: #244a64; }
+.research-slide .research-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 23px; }
+.research-slide .research-table th { color: #60728a; font-size: 17px; text-align: left; padding: 16px 24px; border-bottom: 2px solid #d9e2ec; }
+.research-slide .research-table td { padding: 26px 24px; border-bottom: 1px solid #d9e2ec; }
+.research-slide .research-table td:first-child { font-weight: 700; color: #176b87; }
+.research-slide .research-table .qualified { color: #238b63; }
+.research-slide .research-table .pending { color: #9a5b0d; }
+.research-slide .two-points { display: grid; grid-template-columns: 1fr 1fr; gap: 46px; padding: 12px 25px; }
+.research-slide .two-points h3 { font-size: 25px; }
+.research-slide .two-points p { font-size: 23px; }
+.research-slide .two-points .scope { font-size: 17px; }
+@media(max-width:850px) {
+  .research-slide .research-table { font-size: 16px; }
+  .research-slide .research-table td { padding: 18px 10px; }
+  .research-slide .two-points { grid-template-columns: 1fr; gap: 18px; }
+}

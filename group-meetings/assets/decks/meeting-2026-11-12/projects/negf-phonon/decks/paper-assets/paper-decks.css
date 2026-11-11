@@ -1,0 +1,27 @@
+/* Paper-study decks retain the meeting template and emphasise equations and evidence. */
+.paper-slide{padding:50px 6vw 62px;min-height:0}
+.paper-slide .content{max-width:1280px;gap:0}
+.paper-slide .kicker{font-size:13px;margin-bottom:8px;color:#7055a8}
+.paper-slide h2{font-size:clamp(28px,3vw,42px);line-height:1.08;margin:0 0 12px}
+.paper-slide .lead{font-size:clamp(17px,1.65vw,23px);line-height:1.32;margin:0 0 12px;max-width:none}
+.paper-slide .body{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px}
+.paper-slide .formula-row{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:9px 12px;margin:0;background:white;border-bottom:2px solid #0f8b8d}
+.paper-slide .math{font-size:clamp(20px,1.85vw,26px);color:#173b57;width:100%;text-align:center}
+.paper-slide .math .katex-display{margin:0}
+.paper-slide[data-formulas="2"] .math,.paper-slide[data-formulas="3"] .math{font-size:clamp(19px,1.7vw,24px)}
+.paper-slide .figure-grid{display:grid;grid-template-columns:1fr;gap:16px;flex:1;min-height:0}
+.paper-slide .figure-grid.figures-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.paper-slide figure{display:flex;flex-direction:column;flex:1;min-height:0;min-width:0;margin:0;background:white}
+.paper-slide .figure-label{flex:none;font-size:23px;font-weight:650;padding:4px 10px;margin:0;color:#244a64}
+.paper-slide figure img{display:block;width:100%;height:100%;object-fit:contain;min-height:0;flex:1}
+.paper-slide .takeaway{flex:none;margin:12px 0 0;border-left:4px solid #0f8b8d;padding-left:14px;font-size:clamp(17px,1.6vw,22px);line-height:1.3;color:#244a64;font-weight:650}
+.paper-slide .paper-points{display:flex;flex-direction:column;justify-content:center;gap:20px;flex:1;min-height:0}
+.paper-slide .paper-points p{font-size:clamp(21px,1.9vw,27px);line-height:1.35;margin:0;color:#244a64}
+.paper-slide .paper-table{width:100%;border-collapse:collapse;font-size:clamp(18px,1.7vw,24px);color:#24405b;background:white}
+.paper-slide .paper-table th{padding:11px 15px;text-align:left;font-size:19px;color:#60728a;border-bottom:2px solid #b9cbd7}
+.paper-slide .paper-table td{padding:13px 15px;border-bottom:1px solid #d9e2ec;line-height:1.25}
+.paper-slide .notes{display:none}
+.paper-slide .footer{left:6vw;right:6vw;bottom:22px;font-size:11px}
+@media(max-height:680px){.paper-slide{padding-top:44px;padding-bottom:54px}.paper-slide .kicker{margin-bottom:5px}.paper-slide h2,.paper-slide .lead{margin-bottom:9px}.paper-slide .takeaway{margin-top:8px}}
+@media(max-width:850px){.paper-slide{padding:44px 5vw 60px;overflow:auto}.paper-slide .content{min-height:580px}.paper-slide .body{min-height:280px}.paper-slide .figure-grid.figures-2{grid-template-columns:1fr}.paper-slide .math{font-size:20px}}
+@media print{.paper-slide{height:100vh;min-height:0;break-after:page}.paper-slide .footer{bottom:16px}}
