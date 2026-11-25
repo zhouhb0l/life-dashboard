@@ -1,0 +1,191 @@
+/* Adapt the existing deck's typography and palette for the six-part science story. */
+.science-slide { padding: 58px 7vw 62px; }
+.science-slide .content { gap: 0; }
+.science-slide h2 { font-size: 42px; line-height: 1.08; margin: 0 0 17px; }
+.science-slide h3 { color: #244a64; font-size: 23px; line-height: 1.2; }
+.science-slide .lead { max-width: none; margin: 0 0 18px; font-size: 22px; line-height: 1.35; }
+.science-slide .body { flex: 1; min-height: 0; }
+.science-slide .notes { display: none; }
+.science-slide .takeaway { flex-shrink: 0; margin: 17px 0 0; padding: 0 0 0 16px; border-left: 4px solid var(--teal); color: #244a64; font-size: 22px; line-height: 1.35; font-weight: 650; }
+.science-slide .qualification { flex-shrink: 0; margin: 13px 0 0; color: var(--muted); font-size: 15px; line-height: 1.35; }
+.science-slide .source-note { flex-shrink: 0; padding-top: 10px; font-size: 13px; }
+.science-slide .math { margin: 10px 0; padding: 9px 0; color: #173b57; font-size: 24px; }
+.science-slide .math.compact { font-size: 21px; }
+.science-slide .math.emphasis { padding: 15px 20px; background: #eaf4f5; border-left: 4px solid var(--teal); }
+.science-slide .math .katex-display { margin: 0; }
+.science-slide .katex { font-size: 1.08em; }
+.science-slide .theory-grid { display: grid; grid-template-columns: 1.28fr 1fr; gap: 32px; align-items: start; }
+.science-slide .math-label { margin: 0 0 4px; color: var(--muted); font-size: 15px; font-weight: 700; }
+.science-slide .diagram { width: 100%; display: block; overflow: visible; }
+.science-slide .diagram-caption { margin: 8px 0 0; font-size: 18px; line-height: 1.35; }
+.science-slide .conservation-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 32px; margin-top: 18px; }
+.science-slide .plain-points { margin: 0; padding-left: 23px; color: #40546c; font-size: 22px; line-height: 1.4; }
+.science-slide .plain-points li + li { margin-top: 15px; }
+.science-slide .validation-layout { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(280px, .8fr); gap: 28px; min-height: 0; }
+.science-slide .validation-layout figure { height: 100%; min-height: 0; margin: 0; background: white; border-radius: 10px; }
+.science-slide .validation-layout img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.science-slide .validation-copy { padding-top: 12px; }
+.science-slide .validation-copy p { font-size: 21px; }
+.science-slide .validation-copy .math { font-size: 21px; }
+.science-slide .validation-copy .qualification { font-size: 16px; }
+.science-slide .toy-science-body { display: flex; flex-direction: column; min-height: 0; }
+.science-slide .toy-wide { display: block; width: 100%; flex: 1; min-height: 0; background: white; }
+.science-slide .toy-two-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; flex: 1; min-height: 0; }
+.science-slide .toy-two-panels svg { display: block; width: 100%; height: 100%; min-height: 0; background: white; }
+.science-slide .toy-observations { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 26px; margin-top: 15px; color: #40546c; font-size: 21px; line-height: 1.4; }
+.science-slide .toy-observations .math { margin: 0; font-size: 22px; }
+.science-slide .timeline { margin-top: 35px; }
+.science-slide .milestone { padding: 0 13px; }
+.science-slide .milestone strong { font-size: 23px; line-height: 1.15; min-height: 55px; }
+.science-slide .milestone span { font-size: 18px; line-height: 1.35; }
+.science-slide .roadmap-status { margin-top: 16px; color: #1b6c4d; font-weight: 700; }
+.science-slide .roadmap-status.ongoing { color: #9a5b0d; }
+.science-slide .roadmap-context { margin-top: 38px; font-size: 23px; line-height: 1.5; }
+.science-slide .silicon-panels { display: grid; grid-template-columns: 1.15fr .84fr 1.1fr; gap: 20px; min-height: 0; }
+.science-slide .silicon-panels figure { display: flex; flex-direction: column; margin: 0; min-height: 0; }
+.science-slide .silicon-panels svg { width: 100%; flex: 1; min-height: 0; background: white; border-radius: 10px; }
+.science-slide .silicon-panels figcaption { margin-top: 8px; font-size: 18px; color: #244a64; font-weight: 650; }
+.silicon-lifetime-slide .silicon-panels { grid-template-columns: 1.05fr .75fr 1.27fr; gap: 16px; }
+.silicon-lifetime-slide .silicon-panels figcaption { font-size: 17px; }
+.science-slide .equation-strip { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; align-items: center; margin-bottom: 15px; }
+.science-slide .equation-strip .math { font-size: 22px; }
+.science-slide .plot-wide { display: flex; min-height: 0; margin: 0; align-items: center; justify-content: center; background: white; border-radius: 10px; padding: 10px; }
+.science-slide .plot-wide img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.science-slide .science-result-layout { display: grid; grid-template-columns: 1.65fr 1fr; gap: 28px; }
+.science-slide .science-result-layout figure { height: 390px; }
+.science-slide .science-result-layout .result-text { font-size: 23px; line-height: 1.4; margin-top: 18px; }
+.scba-balance-slide .scba-balance-body { display: flex; flex-direction: column; gap: 15px; }
+.scba-balance-slide .scba-convergence-plot { flex: 1; height: 395px; min-height: 0; }
+.scba-balance-slide .scba-diagnostic-definitions { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; flex-shrink: 0; }
+.scba-balance-slide .scba-diagnostic-definitions p { font-size: 18px; line-height: 1.35; margin: 0 0 8px; }
+.scba-balance-slide .scba-diagnostic-definitions strong { color: #244a64; }
+.scba-sampling-slide .science-result-layout { grid-template-columns: 1.55fr 1fr; align-items: start; }
+.scba-sampling-slide .science-result-layout figure { height: 500px; }
+.scba-sampling-slide .science-result-layout .data-table { font-size: 21px; }
+.scba-sampling-slide .science-result-layout .data-table th { font-size: 14px; }
+.science-slide .data-table { width: 100%; border-collapse: collapse; color: #24405b; font-size: 22px; }
+.science-slide .data-table th { padding: 11px 12px; border-bottom: 2px solid #b9cbd7; text-align: left; color: var(--muted); font-size: 15px; letter-spacing: .04em; text-transform: uppercase; }
+.science-slide .data-table td { padding: 15px 12px; border-bottom: 1px solid #d9e2ec; line-height: 1.35; vertical-align: top; }
+.science-slide .data-table .running { color: #9a5b0d; font-weight: 700; }
+.science-slide .data-table .complete { color: #1b6c4d; }
+.science-slide .comparison-pictures { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 8px; }
+.science-slide .comparison-pictures h3 { margin-bottom: 4px; }
+.science-slide .comparison-pictures svg { width: 100%; height: 190px; display: block; }
+.science-slide .comparison-table { font-size: 21px; }
+.science-slide .comparison-table td:first-child { width: 17%; color: var(--muted); font-weight: 700; }
+.science-slide .frontier-table { font-size: 21px; }
+.science-slide .frontier-table td { padding: 19px 16px; }
+.science-slide .frontier-table td:first-child { width: 27%; color: #244a64; font-weight: 700; }
+.science-slide .frontier-table td:nth-child(2) { width: 39%; }
+.science-slide .frontier-intro { font-size: 23px; line-height: 1.4; margin-bottom: 20px; }
+.science-slide .footer { bottom: 20px; }
+.science-slide .footer span { max-width: 76%; }
+.science-slide .footer a { color: inherit; text-decoration: none; }
+.science-slide .compact-source { font-size: 13px; }
+.physical-theory-slide .physical-theory-body { display: flex; flex-direction: column; gap: 13px; }
+.physical-theory-slide .physical-events { display: block; width: 100%; height: 190px; flex: 0 0 190px; }
+.physical-theory-slide .physical-lower-grid { display: grid; grid-template-columns: 1.12fr 1fr; gap: 35px; align-items: start; }
+.physical-theory-slide .physical-equations .math { font-size: 18.5px; margin: 6px 0 13px; padding: 4px 0; }
+.physical-theory-slide .physical-closures h3 { font-size: 21px; margin: 0 0 8px; }
+.physical-theory-slide .physical-bubbles { display: block; width: 100%; height: 170px; }
+.physical-theory-slide .physical-closure-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 23px; margin-top: 9px; }
+.physical-theory-slide .physical-closure-copy p { font-size: 18px; line-height: 1.35; margin: 0; }
+.physical-theory-slide .physical-closure-copy strong { color: #244a64; }
+.bubble-meaning-slide .bubble-meaning-body { display: flex; flex-direction: column; gap: 9px; }
+.bubble-meaning-slide .bubble-meaning-key { display: grid; grid-template-columns: 1fr 1fr; gap: 38px; }
+.bubble-meaning-slide .bubble-meaning-key h3 { font-size: 21px; margin: 0 0 5px; }
+.bubble-meaning-slide .bubble-meaning-key p { font-size: 18px; line-height: 1.35; margin: 0; }
+.bubble-meaning-slide .bubble-meaning-key .math { font-size: 20px; margin: 6px 0 0; padding: 0; }
+.bubble-meaning-slide .bubble-channel-diagram { display: block; width: 100%; height: 310px; flex: 1; min-height: 260px; }
+.bubble-meaning-slide .bubble-closure-meaning { display: grid; grid-template-columns: 1fr 1fr; gap: 38px; }
+.bubble-meaning-slide .bubble-closure-meaning p { font-size: 19px; line-height: 1.35; margin: 0; }
+.bubble-meaning-slide .bubble-closure-meaning strong { color: #244a64; }
+.transport-picture-slide .transport-picture-diagrams { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 7px; }
+.transport-picture-slide .transport-picture-diagrams h3 { font-size: 22px; margin: 0 0 6px; }
+.transport-picture-slide .transport-picture-diagrams svg { display: block; width: 100%; height: 170px; }
+.transport-picture-slide .transport-picture-table { table-layout: fixed; font-size: 20px; }
+.transport-picture-slide .transport-picture-table td { padding: 11px 12px; line-height: 1.32; }
+.transport-picture-slide .transport-picture-table td:first-child { width: 18%; color: var(--muted); font-weight: 700; }
+.transport-picture-slide .transport-picture-table td:nth-child(2) { width: 40%; }
+.feature-overview-slide .feature-overview-table { table-layout: fixed; font-size: 18.5px; }
+.feature-overview-slide .feature-overview-table th { font-size: 13px; padding: 9px 12px; }
+.feature-overview-slide .feature-overview-table td { padding: 9px 12px; line-height: 1.3; }
+.feature-overview-slide .feature-overview-table th:first-child { width: 22%; }
+.feature-overview-slide .feature-overview-table th:nth-child(2) { width: 39%; }
+.feature-overview-slide .feature-overview-table td:first-child { color: #244a64; font-weight: 700; }
+.feature-overview-slide .population-gap { background: #eaf4f5; }
+.research-questions-slide .research-questions-table { table-layout: fixed; font-size: 21px; }
+.research-questions-slide .research-questions-table th { font-size: 14px; padding: 11px 14px; }
+.research-questions-slide .research-questions-table td { padding: 21px 14px; line-height: 1.36; }
+.research-questions-slide .research-questions-table th:first-child { width: 28%; }
+.research-questions-slide .research-questions-table th:nth-child(2) { width: 34%; }
+.research-questions-slide .research-questions-table td:first-child { color: #244a64; font-weight: 700; }
+.wang-model-slide .wang-model-body { display: flex; flex-direction: column; gap: 16px; }
+.wang-model-slide .wang-model-diagram { display: block; width: 100%; height: 180px; flex: 0 0 180px; }
+.wang-model-slide .wang-model-columns { display: grid; grid-template-columns: 1.18fr 1fr; gap: 34px; align-items: start; }
+.wang-model-slide h3 { font-size: 21px; margin: 0 0 9px; }
+.wang-model-slide .wang-hamiltonian .math { font-size: 20px; padding: 0; margin: 6px 0 12px; }
+.wang-model-slide .wang-approximations dl { margin: 0 0 13px; }
+.wang-model-slide .wang-approximations dl > div { margin-bottom: 10px; }
+.wang-model-slide .wang-approximations dt { font-size: 20px; font-weight: 700; color: #244a64; }
+.wang-model-slide .wang-approximations dd { font-size: 19px; line-height: 1.3; color: #40546c; margin: 3px 0 0; }
+.wang-model-slide .wang-inputs { font-size: 15px; color: var(--muted); line-height: 1.4; margin: 0; }
+.wang-results-slide .wang-results-body { display: flex; flex-direction: column; min-height: 0; }
+.wang-results-slide .wang-comparison-plot { display: block; width: 100%; height: 440px; flex: 1; min-height: 0; background: white; }
+.wang-results-slide .wang-agreement-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 27px; margin-top: 15px; }
+.wang-results-slide .wang-agreement-row h3 { font-size: 20px; margin: 0 0 4px; }
+.wang-results-slide .wang-agreement-row p { font-size: 19px; line-height: 1.35; margin: 0; }
+.approximation-slide .approximation-table { table-layout: fixed; font-size: 19px; }
+.approximation-slide .approximation-table th { padding: 10px 12px; font-size: 13px; }
+.approximation-slide .approximation-table td { padding: 10px 12px; line-height: 1.3; }
+.approximation-slide .approximation-table th:nth-child(1) { width: 21%; }
+.approximation-slide .approximation-table th:nth-child(2) { width: 26%; }
+.approximation-slide .approximation-table th:nth-child(3) { width: 13%; }
+.approximation-slide .approximation-table th:nth-child(4) { width: 15%; }
+.approximation-slide .approximation-table th:nth-child(5) { width: 25%; }
+.approximation-slide .approximation-table td:first-child { font-weight: 650; }
+.approximation-slide .current-approximation { background: #eaf5f0; }
+.approximation-slide .current-approximation td { color: #1b6c4d; }
+.approximation-slide .approx-detail { color: var(--muted); font-size: 16px; }
+.approximation-slide .paper-reference { display: block; color: inherit; text-decoration: none; font-size: 18px; line-height: 1.28; }
+.approximation-slide .paper-reference:hover { text-decoration: underline; }
+.length-scale-slide .length-science-body { display: flex; flex-direction: column; gap: 12px; }
+.length-scale-slide .transport-device { display: block; width: 100%; height: 260px; flex: 0 0 260px; }
+.length-scale-slide .length-scaling-row { display: grid; grid-template-columns: 1.08fr 1fr; gap: 32px; min-height: 0; align-items: center; flex: 1; }
+.length-scale-slide .length-scaling-copy .math { margin: 0 0 9px; padding: 0; font-size: 24px; }
+.length-scale-slide .length-definition { font-size: 16px; margin: 0 0 16px; color: var(--muted); }
+.length-scale-slide .length-regimes { display: grid; grid-template-columns: 1fr; gap: 13px; }
+.length-scale-slide .length-regimes p { font-size: 21px; line-height: 1.4; margin: 0; }
+.length-scale-slide .length-regimes strong { color: #244a64; }
+.length-scale-slide .length-powerlaw { display: block; width: 100%; height: 260px; }
+.counter { right: 112px; bottom: 23px; color: #536d84; font-size: 12px; }
+@media(max-width:850px) {
+  .science-slide h2 { font-size: 34px; }
+  .science-slide .theory-grid, .science-slide .conservation-grid, .science-slide .validation-layout,
+  .science-slide .silicon-panels, .science-slide .science-result-layout, .science-slide .comparison-pictures { grid-template-columns: 1fr; }
+  .science-slide .validation-layout figure, .science-slide .plot-wide { height: 45vh; }
+}
+
+/* Keep the physical bubble and its defining equations together on theory screen 1. */
+.bubble-meaning-slide .bubble-meaning-body { gap: 8px; }
+.bubble-meaning-slide .bubble-meaning-key { gap: 28px; }
+.bubble-meaning-slide .bubble-meaning-key p { font-size: 18px; line-height: 1.3; }
+.bubble-meaning-slide .bubble-meaning-key .math { font-size: 21px; margin: 7px 0 0; padding: 0; }
+.bubble-meaning-slide .bubble-meaning-key .harmonic-definition { font-size: 17.5px; margin-top: 9px; }
+.bubble-meaning-slide .bubble-meaning-key .statistical-relation { font-size: 19px; margin-top: 13px; }
+.bubble-meaning-slide .formula-definition { font-size: 15px; line-height: 1.3; color: var(--muted); margin: 6px 0 0; }
+.bubble-meaning-slide .bubble-meaning-key .formula-definition { font-size: 15px; margin-top: 8px; }
+.bubble-meaning-slide .bubble-channel-diagram { height: 260px; min-height: 245px; flex: 1; }
+.bubble-meaning-slide .bubble-equation { flex-shrink: 0; }
+.bubble-meaning-slide .bubble-equation .math { font-size: 21px; margin: 2px 0 0; padding: 0; }
+.bubble-meaning-slide .bubble-equation .formula-definition { text-align: center; }
+.bubble-meaning-slide .bubble-closure-meaning { gap: 28px; }
+.bubble-meaning-slide .bubble-closure-meaning p { font-size: 18px; line-height: 1.3; }
+.bubble-meaning-slide .qualification { margin-top: 9px; }
+
+/* Silicon sampling: show the matched-reference status and actual geometry. */
+.scba-sampling-slide .si-reference-context { margin-top:18px; padding-top:14px; border-top:1px solid #b9cbd7; }
+.scba-sampling-slide .si-reference-context h3 { font-size:21px; margin:0 0 7px; }
+.scba-sampling-slide .si-reference-context p { font-size:19px; line-height:1.35; margin:0 0 12px; }
+.scba-sampling-slide .si-reference-context strong { color:#244a64; }
+.scba-sampling-slide .si-reference-context .si-length-note { font-size:16px; color:var(--muted); margin:0; }

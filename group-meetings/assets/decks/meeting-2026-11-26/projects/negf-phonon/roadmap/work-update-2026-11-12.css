@@ -1,0 +1,96 @@
+/* Continue the October deck's palette, typography and keyboard navigation. */
+.work-slide { padding: 52px 6vw 64px; min-height: 0; }
+.work-slide .content { max-width: 1280px; }
+.work-slide .kicker { margin-bottom: 10px; font-size: 13px; }
+.work-slide h2 { font-size: clamp(28px, 3.25vw, 45px); line-height: 1.08; margin-bottom: 13px; }
+.work-slide .lead { font-size: clamp(17px, 1.65vw, 23px); line-height: 1.35; margin-bottom: 15px; }
+.work-slide .body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.work-slide figure { flex: 1; min-height: 0; margin: 0; display: flex; flex-direction: column; }
+.work-slide figure > img, .work-slide figure > svg { width: 100%; height: 100%; min-height: 0; flex: 1; object-fit: contain; display: block; }
+.work-slide figcaption { margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.3; }
+.work-slide .takeaway { margin-top: 12px; padding-left: 14px; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.3; }
+.work-slide .qualification { margin-top: 8px; font-size: 13px; line-height: 1.3; }
+.work-slide .formula-row { display: flex; align-items: center; justify-content: center; gap: 36px; flex-shrink: 0; margin: 0 0 16px; padding: 12px 14px; background: white; border-bottom: 2px solid #0f8b8d; }
+.work-slide .formula-row .math { font-size: clamp(21px, 1.9vw, 28px); margin: 0; padding: 0; }
+.work-slide .physics-formula .math { font-size: clamp(19px, 1.7vw, 25px); }
+.work-slide .self-consistency-formulas { flex-direction: column; gap: 4px; padding: 7px 12px; margin-bottom: 10px; }
+.work-slide .self-consistency-formulas .math { font-size: clamp(18px, 1.65vw, 24px); }
+.work-slide .formula-row p { font-size: 17px; margin: 0; }
+.work-slide .assumption-row { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin: 2px 0 9px; }
+.work-slide .assumption-row p { margin: 0; font-size: 20px; color: #244a64; }
+.work-slide .assumption-row strong { color: var(--teal); }
+.work-slide .footer { left: 6vw; right: 6vw; bottom: 22px; font-size: 11px; }
+.work-slide .footer span { max-width: calc(100% - 430px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.work-slide .footer a { color: var(--blue); text-decoration: none; margin-left: 20px; }
+.counter { color: var(--muted); right: 110px; bottom: 27px; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.work-slide .notes { display: none; }
+.work-slide .probe-sheet { display: flex; flex: 1; min-height: 0; flex-direction: column; justify-content: center; gap: 12px; padding: 12px 18px; background: white; }
+.work-slide .probe-sheet h3 { margin: 0 0 7px; color: var(--teal); font-size: clamp(18px, 1.65vw, 23px); line-height: 1.15; }
+.work-slide .probe-sheet p { margin: 7px 0 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.25; }
+.work-slide .probe-sheet .math { margin: 0; padding: 0; font-size: clamp(18px, 1.7vw, 24px); }
+.work-slide .probe-sheet .katex-display { margin: .22em 0; }
+.work-slide .oscillator-equation-row { display: block; padding-bottom: 10px; border-bottom: 1px solid #dce5ec; }
+.work-slide .probe-sheet .ho-icon { width: 150px; height: 75px; margin: 0; flex: none; display: block; }
+.work-slide .probe-sheet .ho-icon svg { display: block; width: 100%; height: 100%; }
+.work-slide .probe-sheet .oscillator-picture { display: block; width: 150px; height: 75px; }
+.work-slide .ho-explanation { display: flex; justify-content: center; padding-top: 6px; }
+.work-slide .quantity-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 26px; }
+.work-slide .quantity-grid > .equation-unit + .equation-unit { padding-left: 24px; border-left: 1px solid #dce5ec; }
+.work-slide .probe-sheet .equation-unit { min-width: 0; }
+.work-slide .fd-equations { padding-top: 10px; border-top: 2px solid #0f8b8d; }
+.work-slide .fd-equations .math { font-size: clamp(19px, 1.7vw, 24px); }
+.work-slide .closure-grid { display: grid; grid-template-columns: minmax(0, .95fr) 34px minmax(0, 1.05fr); gap: 14px; align-items: center; }
+.work-slide .closure-arrow { font-size: 40px; text-align: center; color: #d96b27; }
+.work-slide .closure-linear { padding: 9px 0; border-top: 1px solid #dce5ec; border-bottom: 1px solid #dce5ec; }
+.work-slide .closure-linear .math { font-size: clamp(17px, 1.55vw, 22px); }
+.work-slide .closure-balance { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 26px; align-items: center; }
+.work-slide .probe-equivalence-sheet { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+.work-slide .probe-equivalence-formulas { flex: none; padding: 8px 12px; background: white; border-bottom: 2px solid #0f8b8d; }
+.work-slide .probe-equivalence-columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 22px; }
+.work-slide .probe-equivalence-columns > div { min-width: 0; }
+.work-slide .probe-equivalence-device { padding-left: 20px; border-left: 1px solid #dce5ec; }
+.work-slide .probe-equivalence-sheet h3 { margin: 0 0 5px; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.15; color: var(--teal); }
+.work-slide .probe-equivalence-formulas .math { margin: 0; padding: 0; font-size: clamp(17px, 1.55vw, 22px); }
+.work-slide .probe-equivalence-formulas .katex-display { margin: .25em 0; }
+.work-slide .probe-equivalence-balance { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 4px; border-top: 1px solid #dce5ec; padding-top: 4px; }
+.work-slide .probe-equivalence-balance strong { font-size: clamp(17px, 1.5vw, 21px); color: var(--teal); }
+.work-slide .transport-story-sheet { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+.work-slide .transport-story-formulas { flex: none; padding: 8px 12px; background: white; border-bottom: 2px solid #0f8b8d; }
+.work-slide .transport-story-formulas h3 { margin: 0 0 5px; font-size: clamp(18px, 1.5vw, 22px); line-height: 1.15; color: var(--teal); }
+.work-slide .transport-story-formulas .math { margin: 0; padding: 0; font-size: clamp(18px, 1.6vw, 24px); }
+.work-slide .transport-story-formulas .katex-display { margin: .22em 0; }
+.work-slide .transport-story-formulas p { margin: 5px 0 0; font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; color: #244a64; }
+.work-slide .transport-story-columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 22px; }
+.work-slide .transport-story-columns > div { min-width: 0; }
+.work-slide .transport-story-columns > div + div { padding-left: 20px; border-left: 1px solid #dce5ec; }
+.work-slide .transport-story-proposal { margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid #dce5ec; }
+.work-slide .transport-story-proposal .math { font-size: clamp(20px, 1.85vw, 27px); }
+.work-slide .transport-story-solution h3 { margin-bottom: 2px; }
+.work-slide .transport-story-solution .math { font-size: clamp(18px, 1.55vw, 23px); }
+@media (max-height: 680px) {
+  .work-slide { padding-top: 32px; padding-bottom: 55px; }
+  .work-slide h2 { margin-bottom: 10px; }
+  .work-slide .lead { margin-bottom: 10px; }
+  .work-slide .qualification, .work-slide figcaption { font-size: 11px; }
+  .work-slide .takeaway { margin-top: 8px; }
+}
+@media (max-width: 850px) {
+  .work-slide { padding: 30px 5vw 62px; overflow: auto; }
+  .work-slide .content { min-height: 560px; }
+  .work-slide .body { min-height: 270px; }
+  .work-slide .formula-row { gap: 16px; flex-wrap: wrap; }
+  .work-slide .assumption-row p { font-size: 16px; }
+  .work-slide .footer span { display: none; }
+  .work-slide .footer a { margin-left: 0; }
+  .work-slide .quantity-grid, .work-slide .closure-grid, .work-slide .closure-balance { grid-template-columns: 1fr; }
+  .work-slide .quantity-grid > .equation-unit + .equation-unit { padding-left: 0; border-left: none; }
+  .work-slide .closure-arrow { transform: rotate(90deg); }
+  .work-slide .probe-equivalence-columns { grid-template-columns: 1fr; }
+  .work-slide .probe-equivalence-device { padding-left: 0; border-left: none; }
+  .work-slide .transport-story-columns { grid-template-columns: 1fr; }
+  .work-slide .transport-story-columns > div + div { padding-left: 0; border-left: none; }
+}
+@media print {
+  .work-slide { height: 100vh; min-height: 0; break-after: page; }
+  .work-slide .footer a { display: none; }
+}

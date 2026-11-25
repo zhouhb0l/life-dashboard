@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mo₂S₃: lattice instability, bond reconstruction and transport | 12 November 2026</title>
+<meta name="description" content="Three-dimensional Mo2S3: charge-density-wave evidence, electronic transport and thermoelectric response, followed by earlier material results.">
+<link rel="stylesheet" href="meeting-template.css">
+<link rel="stylesheet" href="deck.css">
+<link rel="stylesheet" href="../../../../../vendor/katex-0.18.4/katex.min.css">
+<script defer src="../../../../../vendor/katex-0.18.4/katex.min.js"></script>
+<script defer src="../../../../../vendor/katex-0.18.4/contrib/auto-render.min.js"></script>
+</head>
+<body>
+<div class="progress" id="progress"></div><div class="counter" id="counter"></div>
+<a id="projects-link" class="project-back" href="../../../../../../meeting-2026-11-26.html#overview">← Projects</a>
+<main class="deck">
+<section class="slide science-slide work-slide mo-slide" data-title="The bulk Mo₂S₃ lattice"><div class="content"><div class="kicker">01 · 3D Mo₂S₃</div><h2>The bulk Mo₂S₃ lattice</h2><p class="lead">Mo(1) and Mo(2) form two inequivalent chain families in a three-dimensional crystal.</p><div class="body"><div class="figure-grid figures-2" style="grid-template-columns:1fr 2.3fr"><figure><img src="assets/science/rev-parent-lattice-3d.svg" alt="Retained original3Dview of the actual40-atom bulk parentMo2S3 lattice, with Mo1,Mo2,sulfur and crystallographicaxes."></figure><figure><img src="assets/science/rev-parent-lattice.svg" alt="Actual bulk Mo2S3 parent structure in views down b, along a and tilted, repeated three saved cells along b. Blue Mo1 chains, orange Mo2 chains and faint sulfur context."></figure></div></div><p class="takeaway">The Mo chains run along b; transport is compared along a, b and c.</p><aside class="notes" hidden>Actual saved parent coordinates and cell are retained. The common40-atom2a×2b×c cell contains16Moand24S. Mo(2)sites1–8 andMo(1)sites9–16are authenticated crystallographic site classes. Chain families are not separate material phases. The transport alias z_tr is parallel to monoclinic latticec,12.443degreesfromthe001normal,notCartesianz. Allstructures are3Dperiodicbulk without vacuum. The new illustration shows three orthographic views: down b, along a and a tilted view. Each repeats the saved cell three times along B=(0,6.4092,0)Å, displaying120periodic atomic images over19.2276Å, or six primitive b periods. This is a display extension of actual saved coordinates, not a new relaxed supercell calculation. Mo(1) has four individual chains and Mo(2) has four; each family uses the same blue/orange color in every view. Monoclinic a/c directions are projected with their actual angle. Overlapping projections remain overlapping, with no artificial coordinate offsets. The original3Dview is retained byte-for-byte as the left figure, showing the saved40-atom cell. The right figure preserves the accepted three views and their three-cell b extension unchanged. The two figures retain their own natural aspect ratios; no atomic positions or perspective in the originalview are altered.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="Electronic bands and DOS of the parent"><div class="content"><div class="kicker">02 · 3D Mo₂S₃</div><h2>Electronic bands and DOS of the parent</h2><p class="lead">Band crossings and finite Fermi-level DOS establish a metallic parent.</p><div class="body"><div class="figure-grid figures-2" style="grid-template-columns:3.2fr 1fr"><figure><h3 class="figure-label">Electronic bands</h3><img src="assets/science/parent-bands.png" alt="Saved bulk-parent continuous band structure with Fermi-level crossings."></figure><figure><h3 class="figure-label">Density of states</h3><img src="assets/science/parent-dos.png" alt="Saved bulk-parent total density of states."></figure></div></div><p class="takeaway">The starting structure has available states at E_F.</p><aside class="notes" hidden>Existing bulk-parent VASP band and DOS results, retained from the source project. They are baseline electronic-structure figures, not monolayer calculations or a quantitative parent/q2 DOS comparison. Different methods and finite-mesh descriptors must not be merged into a universal DOS-depletion claim.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="The full parent phonon dispersion"><div class="content"><div class="kicker">03 · 3D Mo₂S₃</div><h2>The full parent phonon dispersion</h2><p class="lead">q₁ and q₂ identify two soft modulation wavevectors.</p><div class="body"><div class="formula-row"><div class="math">\[q_1=(0,\tfrac12,\tfrac14),\qquad q_2=(\tfrac12,\tfrac12,0)\]</div></div><div class="figure-grid figures-1"><figure><img src="assets/science/rev-phonons-full.svg" alt="Complete30-branch parent phonon dispersion from−4to15THz, with everypathpoint Γ,Z,D,B,Γ,A,E,Z,C2,Y2,Γ labelled and selectedsoftwavevectorsq1andq2marked."></figure></div></div><p class="takeaway">q₁ lies between Z and D; q₂ is equivalent to C₂.</p><aside class="notes" hidden>Locally interpolated from the existing authenticated10-atomprimitive/80-atom2×2×2compactforceconstants,usingrecordedphonopy4.0.1andfrequencyfactor15.633302. SeekPathlabelsareexpressedintheoriginalreciprocalbasis. PathΓ–Z–D–B–Γ–A–E–Z–C2–Y2–Γ. q1=(0,.5,.25) ismidwayZ–D;q2=(.5,.5,0)isreciprocalequivalenttoC2. All30branchesretained;negativefrequenciesdenoteimaginarymodes. Validationagainst404savedqpoints/12120branchvalueshasmaxdifference2.616e−7THz,consistentwiththerecordedroundedfrequencyfactor. NoDFT,forceconstantmodification,ASRorNACchangewasperformed. Thisisparentdispersion,notdistortedq2stability. The separate soft-mode slide is merged into this full-spectrum slide. Keep all30branches; the exact sampled range is−3.223461848822769to13.828379431216822THz, so14THz was an axis ceiling rather than an exact eigenfrequency maximum. The expanded upperaxis15THz givesheadroomwithoutomittinganybranch. This sampledpathmaximum is not an independently searched global Brillouin-zone maximum. All11pathboundaryticks are explicitly labelled Γ–Z–D–B–Γ–A–E–Z–C₂–Y₂–Γ. q1is marked at its actualmidpoint onZ–D,withminimum−2.819597759802THz. q2is marked atC₂,withminimum−3.178822210967THz. The two selected modulationvectors do not imply thatonlytwoimaginaryeigenbranches exist; fourimaginarybranches occurateachselectedendpoint. The rawphononfrequencydata andauthenticatedforceconstants are unchanged. Source parent harmonic phonon_line_scan.csv contains30branches and101points on each displayed path. q1c minimum−2.8195978THz andq2c−3.1788223THz; negative plotted frequencies denote imaginary frequencies. These are parent-phase results, not a complete distorted-phase stability calculation. Experimental modulation source: Schutte,Disselborg,deBoer,ActaCrystB49,787–794(1993),doi10.1107/S0108768192006670; authenticated project reference is the related1990thesischapter, whose identity remains in private source records. The two named wavevectors are two modulation directions, not a claim that only two imaginary eigenbranches exist:fourimaginarybranchesoccurateachcommensurateendpoint.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="Distortion lowers the parent energy"><div class="content"><div class="kicker">04 · 3D Mo₂S₃</div><h2>Distortion lowers the parent energy</h2><p class="lead">The energy falls with distortion; q₂ stays lower at denser k meshes.</p><div class="body"><div class="formula-row"><div class="math">\[|Q|=\left(\sum_{i=1}^{40}m_i|\Delta\mathbf r_i|^2\right)^{1/2},\qquad [Q]=\mathrm{\AA}\sqrt{\mathrm{amu}}\]</div></div><div class="figure-grid figures-1"><figure><img src="assets/science/rev-energy-profiles.svg" alt="q1 PatternA/B and frozen q2 energy curves on matching mass-weighted Q axes. Panelb includes a separate categorical inset of matched relaxed-branch energy differences at k meshes5×10×8 and6×12×12; the frozen curve is labelled3×6×4."></figure></div></div><p class="takeaway">q₂ has a finite-Q minimum and retains its energy preference.</p><aside class="notes" hidden>q1 is a40-atom Mo-site-class proxy, not a relaxed experimentalq1 reconstruction. Its dimensionless seed scales0,.25,.5,1 havephase0 ΔE0meV/40atoms0,−11,−36.26,−64.24 andphase45 0,−11.25,−39.61,−97.99. q2 uses mass-weighted frozen amplitudeQ in sqrtamuÅ; sampled minimumQ4.375,ΔE0−152.72meV/40atoms. Both energies are divided by8formulaunits in the plot. Their amplitude definitions differ and no fully relaxedq1/q2 phase ranking is inferred. No unsampled negative-Q symmetry points are invented. Source q1 auditturn01a191c0; q2 complete radial CSV samples. Thefollow-upsaved3Dexportfoundanoldercoarsescale1.25phase45sampleat−102.32319meV/40atoms,stilldecreasing;itisnotmixedwiththestrictcurrenttableanddoesnotestablishaq1minimum. The axes now share one physical coordinate Q40: abs(Q)=sqrt(sum_i=1..40 m_i|u_i|^2), without per-atom averaging. The exact saved species masses are Mo95.96amu andS32.065amu. Independent norms from the saved Cartesian seeds are3.0836456887995713 and3.0836456887995722angstromsqrtamu per unit lambda for q1PatternsA/B. Thus oldq1scales0,.25,.5,1 map toQ0,.770911422199893,1.541822844399786,3.083645688799572. The originalq2unitQseed has massnorm.999999999999999, so its Q coordinates and minimum4.375are unchanged. Both panels now use identical axis ranges and unchanged energy samples. The old q1phase0/45degree labels referred to modulation-phase offsets of one complex proxy field, u(lambda,phi)=lambdaRe[e^(iphi)(R+iI)]=lambda(Rcosphi−Isinphi). PatternA isphi0 and usesR; PatternB isphi45and uses(R−I)/sqrt2. The angle controls the phase of the displacement pattern; it is not a Cartesian rotation or an established thermodynamic crystal phase. Its absolute experimental phase remains unresolved. The two paths have different superlattice shapes and replica ordering; norms are computed separately in each matching parent/atom ordering, and their flat displacement arrays are not cross-dotted. Common amplitude units do not remove the q1proxy caveat or establish relaxed q1/q2 phase ranking. Saved source definitions were authenticated and only the plotting parameterization changed; no new electronic/phonon calculations were run. Panelb now incorporates the former k-mesh slide as a separate categorical inset: Saved matched common-buildE0 differences q2 minus parent are−287.08159meV/40atoms(A5×10×8) and−295.59322(B6×12×12), both0.05eV broadening. C5×10×8/.025eV gives−286.80457. Divide by8f.u. No accepted matched-pair scalar was located forD in the authorized export, so it is excluded. B−A8.51163meV/40atoms does not meet the strict0.5meV convergence gate. Robust negative ordering is distinguished from convergence of its exact magnitude and full dynamical stability. All A/B static evaluations use byte-identical parent geometries and byte-identical q2 geometries, not separate mesh relaxations. The original frozen curve is Gamma3×6×4. Its harmonic parent differs from the relaxation-derived parent in the dense-mesh pairs. The relaxed q2 branch has Q40=5.981126357100883 relative to its own matched parent and5.983747180389108 relative to the frozen parent, with off-path massnorm2.0087062000839233; it is not another frozen-path sample. No accepted exact-Q4.375 finer-mesh evaluation or dense-mesh common-reference rebasing was found in the reviewed saved records. Consequently the inset has its own categorical k-mesh axis and energy reference, and neither dense point is assigned a Q coordinate on the main curve. The extra lowering must not be attributed solely to mesh refinement. The original frozen minimum and every original q1/q2 energy sample are unchanged.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="q₂ splits Mo–Mo bonds in both chain families"><div class="content"><div class="kicker">05 · 3D Mo₂S₃</div><h2>q₂ splits Mo–Mo bonds in both chain families</h2><div class="body"><div class="figure-grid figures-2" style="grid-template-columns:3fr 8fr"><figure><img src="assets/science/rev-distorted-lattice-overview.svg" alt="Actual q2 lattice with its Mo1 short and long Mo–Mo links labelled2.953 and3.458angstrom."></figure><figure><img src="assets/science/rev-mo-chain-splitting.svg" alt="Trueparentandq2Mo1/Mo2chainswithrealperiodicpositionsandshort/long3Dbondlabels."></figure></div></div><p class="takeaway">Both Mo families: 3.205 Å → about 2.95 Å and 3.46 Å.</p><aside class="notes" hidden>Rigidprojectionofactualacceptedparent/q2coordinates;allpairdistancesarecomputedwithauthenticatedperiodictranslations. OnMo1chain9→11,short2.9532576888Åandlong3.4583153364Å. Latticeleaderslabelthecorresponding3Ddistances;theprojectiondoesnotrescaletransverseorlongitudinalpositions. Parentandq2chainzoomshareanidenticalphysicalscale. Noexaggeratedatomicpositionsareused. Actualsix-siteperiodicchainsaretranslatedfromsavedcoordinateswithnorandomoffsetsorartificialzigzags. Parentnearestb-chainrepeat3.2046Å;Mo1chain2.9532576888and3.4583153364Å;Mo2chain2.9498431035and3.4609746032Å. Thedisplayedaxisusesarigidrotation;3Ddistanceannotationsretainfullmetric. ThechainfamiliesareMo(1)/Mo(2),notatomindex1versus2. The two formerly separate slides are combined here: the left retains the actual q2 lattice context, and the right retains the unchanged three-row parent/Mo1/Mo2 chain illustration. The duplicated Mo1-only zoom is omitted from the active slide. All chain rows retain their original common physical scale and rigid projection; only whitespace around the lattice panel is trimmed. Mo(1) andMo(2) identify the two crystallographic site families, not atom indices1and2. Their relaxed bond-length splittings are nearly equal, so this slide does not claim family-selective soft-mode amplitudes.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="Which Mo chains move in each soft mode?"><div class="content"><div class="kicker">06 · 3D Mo₂S₃</div><h2>Which Mo chains move in each soft mode?</h2><p class="lead">The two crystallographic Mo families have different displacement amplitudes.</p><div class="body"><div class="figure-grid figures-1"><figure><img src="assets/science/rev-chain-selectivity.svg" alt="Two views identify the actual Mo1 and Mo2 chain families: down b shows their cross-sections, and along a reveals three saved-cell repeats along b. Unchanged relative-motion bars distinguish q1, q2 and relaxed q2."></figure></div></div><p class="takeaway">q₁ moves Mo(2) more; q₂ initially moves Mo(1) more. Relaxed q₂ involves both.</p><aside class="notes" hidden>Harmonicq1 Mo2/Mo1=2.664; harmonicq2 Mo1/Mo2=1.648; relaxedq2 Mo1/Mo2≈1.006. The first is inverted for one common Mo1/Mo2 plotting convention. These are chain-class amplitude ratios. Near balance after q2 relaxation is not evidence thatq1 participates in a mixed phase, nor a quantitative reproduction of the stronger experimental chain selectivity. Barsarenormalizedwithineachcase,soonlytheratioofthetwochainclasseswithinagivenmodeiscompared.Noeigenvectordirectionsareinventedfromamplituderatios. The left structure is now shown from two angles with identical family colors: Mo(1)blue and Mo(2)orange. Each site family contains four separate parallel b-axis chains, not one atom or one isolated chain. Real chains are Mo1 pairs(9,11),(10,12),(13,15),(14,16), and Mo2 pairs(1,3),(2,4),(5,7),(6,8), continued through integer B translations. The side view extends three saved cells along b, so each individual chain contains six actual Mo periodic images. In the down-b view successive chain atoms overlap; the side view reveals their longitudinal arrangement. No artificial staggering, coordinate amplification or inferred eigenvector arrows are drawn. Bar values, per-state normalization and all three amplitude ratios are unchanged.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="q₂ has a restoring local response"><div class="content"><div class="kicker">07 · 3D Mo₂S₃</div><h2>q₂ has a restoring local response</h2><p class="lead">Moving one Mo atom along x produces a force back toward its reference position.</p><div class="body"><div class="formula-row"><div class="math">\[\delta F_x(u)=F_x(u)-F_x(0)\simeq-K_xu,\qquad K_x&gt;0\]</div></div><div class="figure-grid figures-1"><figure><img src="assets/science/rev-restoring-forces.svg" alt="Actualsignedrestoringforcedifferencesandenergyincreasesatminuszeroandplus0.01Angstromforthetestedq2coordinate."></figure></div></div><p class="takeaway">The tested coordinate has positive curvature: Kₓ ≈ 20.52 eV Å⁻².</p><aside class="notes" hidden>Thisisafixed-cell/fixed-other-atomsVASPcheckofMoatom#1Cartesianx,notthesymmetrylabelMo(1). SignedFxat−.010,0,+.010Åare+.21178021,+.00583824,−.19857588eV/Å. TheshownδFxsubtractstheactualunshiftedbaseline:+.20594197,0,−.20441412eV/Å. Free-energyrisesare1.08737,0,.96885meV/40atoms. Forcecurvature20.5178045eV/Å²andenergycurvature20.5622agreeclosely. Therestoringforcesaresavedvalues,notreconstructedfromafittedslope. Nocompletedq2phonondispersionorpositivefullHessianwasfound;onlythiscoordinatehasbeentested. Sourcefollow-upturn01a1c015-ed56-7142-889a-183cc1914993.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="Parent and q₂ orbital-resolved DOS"><div class="content"><div class="kicker">08 · 3D Mo₂S₃</div><h2>Parent and q₂ orbital-resolved DOS</h2><p class="lead">Both structures have Fermi-level states, with different orbital weights.</p><div class="body"><div class="figure-grid figures-1"><figure><img src="assets/science/rev-dos-spectra.svg" alt="All201savedparentandq2DOSsamplesfortotal,Mo1d,Mo2dandSpgroupsontheactualnativescale."></figure></div></div><p class="takeaway">The distortion redistributes Mo d and S p spectral weight.</p><aside class="notes" hidden>Full201-pointsavedNanoDCALcurvesover−2to+2eVrelativetoeachphaseownEFareused. all600sumsthe600orbitalprojectionsinthecommon40-atomcell;Mo1d,Mo2dandSpareselectedsite-groupsums(8Mo1,8Mo2,24S),notper-siteaveragesoracompleteall-orbitaldecomposition. CurvesretainrawnativeDOSverticalunitsandnoadditionalspinmultiplier;energy-axisconversiondoesnotestablishstates/eVnormalization. Native spinIndexnoSpin. ThefulltotalcurvewasindependentlycheckedagainstunprojectedDOSat−.1,0,+.1eV. NoE_Fnormalizationtoparent1,clipping,smoothingornewDFTisintroduced. Sourcearraysfromfollow-upturn01a1c015-ed56-7142-889a-183cc1914993.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="Electrons are more localized in q₂"><div class="content"><div class="kicker">09 · 3D Mo₂S₃</div><h2>Electrons are more localized in q₂</h2><p class="lead">More DOS, fewer propagating channels.</p><div class="body"><div class="figure-grid figures-1"><figure><img src="assets/science/rev-dos-contrast.svg" alt="Higher Fermi-level DOS but fewer a- and b-directed propagating channels in q2 than in the parent, supporting more localized electronic states."></figure></div></div><aside class="notes" hidden>Thepreviousparent=1wasonlyaq2/parentnormalizationandisremovedfromtheactivecomparison. ThefigureshowsactualnativeDOSvalues:total107.3101415103047→195.8388168900683;Mo1d29.241755755784244→65.50861224574702;Mo2d51.24485475584441→71.78168367276636;Sp17.817794164322194→34.86898171973915. Exactown-EFtransmissionmeansarefromthesavednospintransportcurves. DOSandtransmissionaredifferentobservables:availablelocalorbitalweightneednotformpropagatingstatesconnectingcontacts. The scientific interpretation emphasized here is that electronic states are more localized inq2: more local spectral weight coexists with fewer propagating a/b channels. This is a comparative interpretation of the displayed DOS/transmission evidence, rather than a separately computed localization length or a uniquely identified microscopic localization mechanism.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="Broad suppression of transport channels"><div class="content"><div class="kicker">10 · 3D Mo₂S₃</div><h2>Broad suppression of transport channels</h2><p class="lead">The reduction is strongest and most uniform along b.</p><div class="body"><div class="formula-row"><div class="math">\[G(T)=\frac{2e^2}{h}\int dE\,\mathcal T(E)\left(-\frac{\partial f}{\partial E}\right)\]</div></div><div class="figure-grid figures-1"><figure><img src="assets/science/16-transmission-spectra.svg" alt="All221 saved transmission samples along each of a,b,c for parent and q2."></figure></div></div><p class="takeaway">b-directed transmission is lower at every sampled energy.</p><aside class="notes" hidden>Six complete221-point native mean transmission curves, with E relative to each phase own Fermi level, over−0.5to+0.5eV. Transmission is the native NoSpin transverse mean; the explicit factor2 in G accounts for spin exactly once. Parent/q2 lower/equal/higher counts are202/10/9 alonga,221/0/0 alongb,212/3/6 alongc. All saved spectra reproduce18 recorded conductance andSeebeck results to numerical precision. These are ideal coherent bulk transport channels; no finite-length scattering conductivity is calculated.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="Conductance falls most strongly along b"><div class="content"><div class="kicker">11 · 3D Mo₂S₃</div><h2>Conductance falls most strongly along b</h2><p class="lead">The q₂ distortion suppresses all three directions at 300 K.</p><div class="body"><div class="figure-grid figures-1"><figure><img src="assets/science/11-conductance300.svg" alt="Parent and q2 ballistic conductance along a,b,c at300K."></figure></div></div><p class="takeaway">b-directed conductance falls by about 70%.</p><aside class="notes" hidden>Rounded saved300K GμS:parent108.0,567.1,209.1;q262.9,169.8,120.1 alonga,b,c. Reported reductions41.7,70.0,42.6percent use the underlying full precision and are not recomputed from rounded bars. Quantity is ideal ballistic conductance per transverse periodic cell, with spin included once. It is not bulk conductivity inS/m. Fixed300K saved bulk Hamiltonians; transverse sampling and energy-window limits remain. Source turn01a1a705.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="q₂ changes the thermopower sign pattern"><div class="content"><div class="kicker">12 · 3D Mo₂S₃</div><h2>q₂ changes the thermopower sign pattern</h2><p class="lead">At 300 K, the c-directed response changes from positive to negative.</p><div class="body"><div class="figure-grid figures-1"><figure><img src="assets/science/12-seebeck300.svg" alt="Parent and q2 Seebeck coefficients along a,b,c at300K."></figure></div></div><p class="takeaway">Parent (+, −, +) → q₂ (+, −, −) along a / b / c.</p><aside class="notes" hidden>Rounded SμV/K:parent+14.4,−5.9,+5.7;q2+7.2,−17.1,−8.7. Results are coherent-model thermoelectric predictions, not measurements of a transition or bulk carrier conversion. The authorized saved table confirms opposite phase signs at200K and300K, while both are negative at100K; those actual rows appear on the following slide. A Seebeck sign in a multiband material does not classify the entire crystal asp-type orn-type.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="Temperature-dependent transport contrast"><div class="content"><div class="kicker">13 · 3D Mo₂S₃</div><h2>Temperature-dependent transport contrast</h2><p class="lead">Thermal broadening changes the weighting of the same electronic structures.</p><div class="body"><div class="figure-grid figures-1"><figure><img src="assets/science/15-thermal-window.svg" alt="q2/parent conductance ratios along a,b,c and c-direction Seebeck coefficients at100,200,300K."></figure></div></div><p class="takeaway">q₂ keeps negative c-directed thermopower across all three temperatures.</p><aside class="notes" hidden>Nine actual saved phase-comparison rows at100,200,300K. The Fermi integration kernel changes while each saved300K Hamiltonian and its own Fermi level remain fixed. These are not finite-temperature structural relaxations, temperature-dependent scattering rates, charge-neutral chemical-potential solutions or a calculated CDW transition temperature. Parent Sc at100,200,300K:−1.596457119755591,+0.9821032904764776,+5.6563681938095565μV/K. q2:−7.292856094024001,−13.828379821749396,−8.725090793797136. Opposite phase signs occur at200and300K; both negative at100K. Gq2/Gparent is about0.57–0.61 alonga/c and0.28–0.30 alongb.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide" data-title="The transport energy asymmetry changes sign"><div class="content"><div class="kicker">14 · 3D Mo₂S₃</div><h2>The transport energy asymmetry changes sign</h2><p class="lead">q₂ moves the c-directed transport-weighted energy across E_F.</p><div class="body"><div class="formula-row"><div class="math">\[\mathcal L_n=\int dE\,(E-E_F)^n\mathcal T_c(E)\left(-\frac{\partial f}{\partial E}\right)\]</div><div class="math">\[S_c=-\frac{1}{eT}\frac{\mathcal L_1}{\mathcal L_0},\qquad\overline{\varepsilon}=\frac{\mathcal L_1}{\mathcal L_0}\]</div></div><div class="figure-grid figures-1"><figure><img src="assets/science/14-thermo-spectra.svg" alt="Actual c-direction first-moment integrands at300K and full-window transport-weighted mean energies below EF for parent and above EF for q2."></figure></div></div><p class="takeaway">A small change in transport energy weighting reverses the Seebeck sign.</p><aside class="notes" hidden>The left panel evaluates w1(E)=(E−EF)Tc(E)(−df/dE) from actual native saved c-direction spectra at300K, displayed within±0.2eV. The right panel uses full saved−0.5to+0.5eV K0andK1 moments: mean energy=K1_J/(eK0), parent−1.696910458142867meV andq2+2.617527238139141meV. Displayed integrand area is a partial energy window; it is not asserted equal to the full moment. Positive elementary chargee and the native no-spin transmission convention are used; the common spin factor cancels in S. Moment signs reproduce recorded Sc+5.6563681938095565and−8.725090793797136μV/K. This explains the spectral asymmetry behind the sign reversal without identifying all carriers as p-type or n-type. No electronic/lattice thermal conductivity orZT is available in the saved record.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide supporting-slide" data-title="Supporting: electronic redistribution follows the bonds"><div class="content"><div class="kicker">15 · 3D Mo₂S₃</div><h2>Supporting: electronic redistribution follows the bonds</h2><p class="lead">Shortened links gain bond overlap; lengthened links lose it.</p><div class="body"><div class="figure-grid figures-1"><figure><img src="assets/science/09-bond-centred.svg" alt="All eight shortened Mo-Mo links gain overlap population and all eight lengthened links lose it."></figure></div></div><p class="takeaway">Bond-centred redistribution is the clearest electronic signature.</p><aside class="notes" hidden>Saved bulk parent/q2 NanoDCAL bond-population analysis: all8shortenedMoMo links gain overlap population andall8lengthened links lose it. Mo-site charge modulation is modest. These basis-dependent bond-population indicators support bond-centred redistribution within this model, not a direct measurement of an order parameter or proof of large site-charge order.</aside></div><div class="footer"><span>Mo₂S₃: bulk properties · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide appendix-slide" data-title="TaSe₂: metallic electronic structure"><div class="content"><div class="kicker">16 · Earlier TaSe₂ results</div><h2>TaSe₂: metallic electronic structure</h2><p class="lead">Bands cross the Fermi level.</p><div class="body"><div class="figure-grid figures-3"><figure><h3 class="figure-label">Band</h3><img src="assets/legacy/5TaSe2_bandstructure.png" alt="Band"></figure><figure><h3 class="figure-label">DOS</h3><img src="assets/legacy/5TaSe2_dos.png" alt="DOS"></figure><figure><h3 class="figure-label">BZ path</h3><img src="assets/legacy/5TaSe2_brillouin_path.png" alt="BZ path"></figure></div></div><p class="takeaway">TaSe₂ provides the earlier layered-metal reference.</p><aside class="notes" hidden>{
+  &quot;scope&quot;: &quot;Earlier TaSe2 results carried forward. Technical path and band-index details are retained here rather than on the slide.&quot;,
+  &quot;originalSlide&quot;: {
+    &quot;kicker&quot;: &quot;Layered material | TaSe2 result&quot;,
+    &quot;title&quot;: &quot;TaSe2: Metallic Band Structure And DOS&quot;,
+    &quot;lead&quot;: &quot;TaSe2 is the completed layered reference, with band and DOS plots aligned to the static-SCF Fermi level.&quot;,
+    &quot;points&quot;: [
+      &quot;Band path: Gamma-M-K-Gamma-A-L-H-A with 90 band k-points and 16 bands.&quot;,
+      &quot;Band 12 crosses the Fermi level in this calculation.&quot;,
+      &quot;The two-plane Brillouin-zone path diagram clarifies the in-plane and out-of-plane directions used in the plot.&quot;
+    ],
+    &quot;figures&quot;: [
+      {
+        &quot;src&quot;: &quot;assets/decks/meeting-2026-11-26/projects/layered/5TaSe2_bandstructure.png&quot;,
+        &quot;label&quot;: &quot;Band&quot;
+      },
+      {
+        &quot;src&quot;: &quot;assets/decks/meeting-2026-11-26/projects/layered/5TaSe2_dos.png&quot;,
+        &quot;label&quot;: &quot;DOS&quot;
+      },
+      {
+        &quot;src&quot;: &quot;assets/decks/meeting-2026-11-26/projects/layered/5TaSe2_brillouin_path.png&quot;,
+        &quot;label&quot;: &quot;BZ path&quot;
+      }
+    ],
+    &quot;caption&quot;: &quot;TaSe2 electronic structure and two-plane Brillouin-zone path for Gamma-M-K-Gamma-A-L-H-A.&quot;,
+    &quot;layout&quot;: &quot;wide-panel-row&quot;,
+    &quot;takeaway&quot;: &quot;TaSe2 provides the metallic layered baseline for comparing against the quasi-1D candidate.&quot;
+  }
+}</aside></div><div class="footer"><span>Earlier material results · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide appendix-slide" data-title="TaSe₂: finite-q soft phonons"><div class="content"><div class="kicker">17 · Earlier TaSe₂ results</div><h2>TaSe₂: finite-q soft phonons</h2><p class="lead">Soft modes identify a CDW candidate.</p><div class="body"><div class="figure-grid figures-2"><figure><h3 class="figure-label">Phonon dispersion</h3><img src="assets/legacy/tase2_cdw_phonon_dispersion.png" alt="Phonon dispersion"></figure><figure><h3 class="figure-label">q scan</h3><img src="assets/legacy/tase2_cdw_q_scan.png" alt="q scan"></figure></div></div><p class="takeaway">The parent structure has a finite-wavevector instability.</p><aside class="notes" hidden>{
+  &quot;scope&quot;: &quot;Earlier TaSe2 data, not Mo2S3. Negative plotted phonon frequencies denote imaginary modes. Original quoted values and figures are unchanged.&quot;,
+  &quot;originalSlide&quot;: {
+    &quot;kicker&quot;: &quot;Layered material | TaSe2 CDW check&quot;,
+    &quot;title&quot;: &quot;TaSe2: Finite-q Soft Modes&quot;,
+    &quot;lead&quot;: &quot;Phonon map&quot;,
+    &quot;points&quot;: [
+      &quot;K: -1.5015 THz&quot;,
+      &quot;qz=0: -1.793 THz&quot;,
+      &quot;3D q: -2.967 THz&quot;
+    ],
+    &quot;figures&quot;: [
+      {
+        &quot;src&quot;: &quot;assets/decks/meeting-2026-11-26/projects/layered/tase2_cdw_phonon_dispersion.png&quot;,
+        &quot;label&quot;: &quot;Phonon dispersion&quot;
+      },
+      {
+        &quot;src&quot;: &quot;assets/decks/meeting-2026-11-26/projects/layered/tase2_cdw_q_scan.png&quot;,
+        &quot;label&quot;: &quot;q scan&quot;
+      }
+    ],
+    &quot;caption&quot;: &quot;Finite-q imaginary modes&quot;,
+    &quot;layout&quot;: &quot;wide-panel-row&quot;,
+    &quot;takeaway&quot;: &quot;CDW candidate&quot;
+  }
+}</aside></div><div class="footer"><span>Earlier material results · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide appendix-slide" data-title="TaSe₂: candidate modulation wavevectors"><div class="content"><div class="kicker">18 · Earlier TaSe₂ results</div><h2>TaSe₂: candidate modulation wavevectors</h2><p class="lead">Several finite-q distortions soften the parent lattice.</p><div class="body"><table class="science-table"><thead><tr><th>Wavevector q</th><th>Soft mode (THz)</th></tr></thead><tbody><tr class="highlight"><td>K<br>(1/3, 1/3, 0)</td><td>-1.501</td></tr><tr><td>q3d<br>(1/4, 3/4, 3/8)</td><td>-2.964</td></tr><tr><td>q2d<br>(3/11, 5/11, 0)</td><td>-1.792</td></tr><tr><td>q2d<br>(2/7, 3/7, 0)</td><td>-1.786</td></tr><tr><td>q2d<br>(1/4, 1/2, 0)</td><td>-1.742</td></tr></tbody></table></div><p class="takeaway">The K modulation was selected for the earlier relaxation.</p><aside class="notes" hidden>{
+  &quot;scope&quot;: &quot;Earlier TaSe2 scientific q/frequency values. Computational supercell vectors, atom counts and progress states are retained in the original source record below.&quot;,
+  &quot;originalSlide&quot;: {
+    &quot;kicker&quot;: &quot;Layered material | TaSe2 q to supercell&quot;,
+    &quot;title&quot;: &quot;q Points To Supercells&quot;,
+    &quot;lead&quot;: &quot;We use the compact K phase0 supercell for the dense-k CDW relaxation.&quot;,
+    &quot;table&quot;: {
+      &quot;columns&quot;: [
+        &quot;q / soft mode&quot;,
+        &quot;supercell vector&quot;,
+        &quot;atoms&quot;,
+        &quot;status&quot;
+      ],
+      &quot;rows&quot;: [
+        {
+          &quot;cells&quot;: [
+            &quot;K\n(1/3, 1/3, 0)\n-1.501 THz&quot;,
+            &quot;[-1, 1, 0]\n[-1, -2, 0]\n[0, 0, 1]&quot;,
+            &quot;9&quot;,
+            &quot;used\ndense-k relaxed&quot;
+          ],
+          &quot;highlight&quot;: true
+        },
+        {
+          &quot;cells&quot;: [
+            &quot;q3d\n(1/4, 3/4, 3/8)\n-2.964 THz&quot;,
+            &quot;[0, -1, 2]\n[-4, 0, 0]\n[-1, -2, 2]&quot;,
+            &quot;24&quot;,
+            &quot;support\nGamma relax&quot;
+          ]
+        },
+        {
+          &quot;cells&quot;: [
+            &quot;q2d\n(3/11, 5/11, 0)\n-1.792 THz&quot;,
+            &quot;[-1, 5, 0]\n[-1, -6, 0]\n[0, 0, 1]&quot;,
+            &quot;33&quot;,
+            &quot;seeds ready&quot;
+          ]
+        },
+        {
+          &quot;cells&quot;: [
+            &quot;q2d\n(2/7, 3/7, 0)\n-1.786 THz&quot;,
+            &quot;[2, 1, 0]\n[-1, 3, 0]\n[0, 0, 1]&quot;,
+            &quot;21&quot;,
+            &quot;seeds ready&quot;
+          ]
+        },
+        {
+          &quot;cells&quot;: [
+            &quot;q2d\n(1/4, 1/2, 0)\n-1.742 THz&quot;,
+            &quot;[-2, -1, 0]\n[0, -2, 0]\n[0, 0, 1]&quot;,
+            &quot;12&quot;,
+            &quot;seeds ready&quot;
+          ]
+        }
+      ]
+    },
+    &quot;layout&quot;: &quot;table-full&quot;
+  }
+}</aside></div><div class="footer"><span>Earlier material results · 12 November 2026</span></div></section>
+
+<section class="slide science-slide work-slide mo-slide appendix-slide" data-title="TaSe₂: K-CDW energy lowering"><div class="content"><div class="kicker">19 · Earlier TaSe₂ results</div><h2>TaSe₂: K-CDW energy lowering</h2><p class="lead">The relaxed K distortion lowers the parent energy.</p><div class="body"><div class="formula-row"><div class="math">\[\Delta E=-28.964\ \mathrm{meV/f.u.}\]</div></div><div class="figure-grid figures-1"><figure><h3 class="figure-label">Atomic distortion</h3><img src="assets/legacy/tase2_cdw_k_cdw_atomic_displacement.png" alt="Earlier TaSe2 K-CDW atomic displacement evidence"></figure></div></div><p class="takeaway">The distorted structure is lower in energy.</p><aside class="notes" hidden>{
+  &quot;scope&quot;: &quot;Earlier TaSe2 result, not Mo2S3. The energy lowering alone does not establish phonon stability. The complete original metric and structural data are retained below.&quot;,
+  &quot;originalSlide&quot;: {
+    &quot;kicker&quot;: &quot;Layered material | TaSe2 decisive K-CDW&quot;,
+    &quot;title&quot;: &quot;K-CDW Energy Lowering&quot;,
+    &quot;lead&quot;: &quot;The 9-atom K phase0 supercell relaxes into a lower-energy CDW phase.&quot;,
+    &quot;figure&quot;: &quot;assets/decks/meeting-2026-11-26/projects/layered/tase2_cdw_k_cdw_atomic_displacement.png&quot;,
+    &quot;caption&quot;: &quot;Atomic displacement panels replotted from POSCAR and CONTCAR coordinates.&quot;,
+    &quot;metrics&quot;: [
+      {
+        &quot;label&quot;: &quot;Using&quot;,
+        &quot;value&quot;: &quot;K phase0\n9 atoms&quot;,
+        &quot;note&quot;: &quot;q = (1/3, 1/3, 0)&quot;
+      },
+      {
+        &quot;label&quot;: &quot;Vector&quot;,
+        &quot;value&quot;: &quot;[-1, 1, 0]\n[-1, -2, 0]\n[0, 0, 1]&quot;
+      },
+      {
+        &quot;label&quot;: &quot;Conclusion&quot;,
+        &quot;value&quot;: &quot;-28.964 meV/TaSe2&quot;,
+        &quot;note&quot;: &quot;lower than parent; CDW stable&quot;
+      }
+    ],
+    &quot;layout&quot;: &quot;displacement-evidence&quot;
+  }
+}</aside></div><div class="footer"><span>Earlier material results · 12 November 2026</span></div></section>
+</main>
+<div class="nav"><button id="prev" aria-label="Previous slide">←</button><button id="next" aria-label="Next slide">→</button></div>
+<script>
+/* Navigation adapted from the existing meeting presentation. */
+(function(){var slides=[].slice.call(document.querySelectorAll('.slide')),i=0,counter=document.getElementById('counter'),progress=document.getElementById('progress');function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach(function(s,k){s.classList.toggle('active',k===i)});counter.textContent=(('0'+(i+1)).slice(-2))+' / '+slides.length+' · '+slides[i].dataset.title;progress.style.width=((i+1)/slides.length*100)+'%';history.replaceState(null,'','#'+(i+1))}function move(d){show(i+d)}function projects(e){if(window.parent!==window){if(e)e.preventDefault();window.parent.postMessage({type:'group-meeting:return-to-overview'},'*')}}document.getElementById('prev').onclick=function(){move(-1)};document.getElementById('next').onclick=function(){move(1)};document.getElementById('projects-link').onclick=projects;document.addEventListener('keydown',function(e){if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();move(1)}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();move(-1)}else if(e.key==='Home'){show(0)}else if(e.key==='End'){show(slides.length-1)}else if(e.key==='Escape'){e.preventDefault();if(window.parent!==window)projects();else location.href=document.getElementById('projects-link').href}});var h=parseInt(location.hash.slice(1),10);show(isFinite(h)?h-1:0)})();
+</script>
+<script>window.addEventListener('DOMContentLoaded',function(){if(typeof renderMathInElement==='function')renderMathInElement(document.querySelector('.deck'),{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});});</script>
+</body>
+</html>

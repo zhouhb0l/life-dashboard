@@ -1,0 +1,15 @@
+/* Dated additions only. The fourteen carried slides keep their existing styles. */
+.nov26-update .lead { max-width: none; }
+.nov26-update .body.with-table { display: grid; grid-template-columns: minmax(0,1.8fr) minmax(280px,1fr); gap: 22px; align-items: center; }
+.nov26-update .nov26-table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.35; }
+.nov26-update .nov26-table th, .nov26-update .nov26-table td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: right; }
+.nov26-update .nov26-table th:first-child, .nov26-update .nov26-table td:first-child { text-align: left; }
+.nov26-update .nov26-table th { color: var(--teal); font-weight: 650; }
+.nov26-update .qualification { font-size: 14px; margin: 7px 0 0; color: var(--muted); }
+.nov26-update .footer span { max-width: none; }
+@media(max-width:850px) {
+  .nov26-update .body.with-table { grid-template-columns: minmax(0,1fr); }
+  .nov26-update .body { flex: none; }
+  .nov26-update figure { min-height: 250px; }
+  .nov26-update .content { height: auto; }
+}
